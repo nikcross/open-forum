@@ -1,0 +1,63 @@
+var OSMap = new function() {
+  var cells = [
+    
+    	["sv","sw","sx","sy","sz","tv","tw"],
+    	["sq","sr","ss","st","su","tq","tr"],
+    	["sl","sm","sn","so","sp","tl","tm"],
+    	["sf","sg","sh","sj","sk","tf","tg"],
+    	["sa","sb","sc","sd","se","ta","tb"],
+    	["nv","nw","nx","ny","nz","ov","ow"],
+    	["nq","nr","ns","nt","nu","oq","or"],
+    	["nl","nm","nn","no","np","ol","om"],
+    	["nf","ng","nh","nj","nk","of","og"],
+    	["na","nb","nc","nd","ne","oa","ob"]
+    ];
+  
+  //LLXYCC
+  
+  this.getTile = function(x,y) {
+    //console.log("1 x:"+x+", y:"+y);
+    //y = 1000000 - y;
+    //console.log("2 x:"+x+", y:"+y);
+    
+    x = Math.ceil(x/1000);
+    //var y = 1000000 - Math.ceil(y/1000);
+    y = Math.ceil(y/1000);
+    
+    var cx = x%10;
+    var cy = y%10;
+    
+    var compass = "";
+    if(cx<5) {
+      if(cy<5) {
+        compass = "sw";
+      } else {
+        compass = "nw";
+      }
+    } else {
+      if(cy<5) {
+        compass = "se";
+      } else {
+        compass = "ne";
+      }
+    }
+    
+    var dx = Math.floor(x/10)%10;
+    var dy = Math.floor(y/10)%10;
+    
+    var lx = Math.floor(x/100);
+    var ly = Math.floor(y/100);
+    
+    var tile = cells[ly][lx]+dx+dy+compass+".png";
+    
+    return tile;
+  };
+  
+  var pad = function(string) {
+    while(pad.length<10) {
+      pad = "0"+pad;
+    }
+  };
+};
+
+*/

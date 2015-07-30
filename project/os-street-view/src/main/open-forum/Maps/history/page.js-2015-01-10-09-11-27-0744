@@ -1,0 +1,5 @@
+function init() {
+  var canvas = document.getElementById("mapCanvas");
+  canvas.width=400;
+  canvas.height=600;
+}

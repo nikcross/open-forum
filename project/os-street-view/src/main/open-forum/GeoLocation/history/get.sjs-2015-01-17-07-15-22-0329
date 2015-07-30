@@ -1,0 +1,35 @@
+var action = transaction.getParameter("action");
+if( action==null ) {
+	transaction.setResult(transaction.SHOW_PAGE);
+  return;
+}
+
+  action = ""+action; // Cast to String
+  result = "";
+  
+  if(action === "getTimes") {
+    var suncalc = js.loadObject("/GeoLocation","suncalc.js");
+    
+    var time = ""+transaction.getParameter("time");
+    if(time==="today") {
+      time = new Date();
+    } else {
+    	time = new Date().setTime( parseInt(time,10) );
+    }
+    var latitude = parseFloat(""+transaction.getParameter("latitude"));
+    var longitude = parseFloat(""+transaction.getParameter("longitude"));
+    
+    var times = suncalc.getSunCalc().getTimes(time, latitude, longitude);
+    times.latitude = latitude;
+    times.longitude = longitude;
+    times.time = time;
+    times.action = action;
+    times.test = {a: 1,b: 2};
+    //var times = {action: action, type: typeof(suncalc)};
+    result = JSON.stringify(times);
+    
+  } else {
+  	result = "action not recognised";
+  }
+
+  transaction.sendPage( result );

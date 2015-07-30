@@ -1,0 +1,5 @@
+.*\.backup
+.*/history/.*
+.*/history
+WikiJournal/blog/.*
+Sandbox/.*

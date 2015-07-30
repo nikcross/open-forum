@@ -1,0 +1,11 @@
+.project
+.classpath
+.settings/
+.swp
+target/
+*.iml
+*.jar
+*.war
+*.class
+*.orig
+*~

@@ -1,0 +1,24 @@
+var action = transaction.getParameter("action");
+if( action==null ) {
+	transaction.setResult(transaction.SHOW_PAGE);
+  return;
+}
+
+  action = ""+action; // Cast to String
+  result = "";
+  
+  if(action === "getTimes") {
+    js.loadObject("/GeoLocation","suncalc.js");
+    
+    var time = ""+transaction.getParameter("time");
+    var latitude = parseFloat(""+transaction.getParameter("latitude"));
+    var longitude = parseFloat(""+transaction.getParameter("longitude"));
+    
+    var times = SunCalc.getTimes(new Date(time), latitude, longitude);
+    result = JSON.stringify(times);
+    
+  } else {
+  	result = "action not recognised";
+  }
+
+  transaction.sendPage( result );

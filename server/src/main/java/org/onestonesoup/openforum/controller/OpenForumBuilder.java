@@ -1,0 +1,46 @@
+package org.onestonesoup.openforum.controller;
+
+import org.onestonesoup.openforum.security.AuthenticationException;
+import org.onestonesoup.openforum.security.Login;
+
+public interface OpenForumBuilder extends OpenForum{
+
+	public abstract StringBuffer buildDifferencesPage(String pageName,
+	String version1, String version2) throws Exception,
+	AuthenticationException;
+
+	public abstract String buildEditPage(String pageName, Login login)
+	throws AuthenticationException;
+
+	public abstract StringBuffer buildHistoryPage(String pageName)
+	throws Exception, AuthenticationException;
+
+	public abstract StringBuffer buildPage(String name) throws Exception,
+	AuthenticationException;
+
+	public abstract StringBuffer buildPage(String name, boolean buildRefersTo)
+	throws Exception, AuthenticationException;
+
+	public abstract String buildPage(String name, String data,
+	boolean isWikiContent) throws Exception, AuthenticationException;
+
+	public abstract String buildPageSection(String name,int section) throws Exception,
+	AuthenticationException;
+
+	public abstract String buildReferencesForPage(String pageName) throws Exception, AuthenticationException;
+
+	public abstract void buildReferringPages(String pageName) throws Exception, AuthenticationException;
+
+	public abstract String buildTagsForPage(String pageName);
+
+	public abstract String getAliasLink(String name) throws Exception;
+
+	public abstract String getPageEditForm(String pageName,Login login) throws Exception,
+	AuthenticationException;
+
+	public abstract String getPageUpdateTemplate(String pageName, Login login)
+	throws Exception, AuthenticationException;
+
+	public abstract String renderWikiData(String name,String data) throws Exception,AuthenticationException;
+
+}

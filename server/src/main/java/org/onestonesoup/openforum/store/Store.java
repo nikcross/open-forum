@@ -1,0 +1,16 @@
+package org.onestonesoup.openforum.store;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class Store {
+	private Map<String,Object> store = new HashMap<String,Object>();
+	
+	public Object get(String key) {
+		return store.get(key);
+	}
+	
+	public void set(String key,Object value) {
+		store.put(key,value);
+	}
+}

@@ -1,0 +1,31 @@
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    id="OpenForum"
+    version="2.4"
+    xmlns="http://java.sun.com/xml/ns/j2ee"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" >
+
+    <display-name>
+OpenForum Wiki
+    </display-name>
+
+	<servlet>
+		<servlet-class>org.onestonesoup.openforum.servlet.OpenForumServlet</servlet-class>
+		<servlet-name>wiki</servlet-name>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>wiki</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
+  <listener>
+    <listener-class>
+        org.onestonesoup.openforum.servlet.OpenForumServletContextListener
+    </listener-class>
+  </listener>
+  <context-param>
+	<param-name>domainList</param-name>
+	<param-value>src/main/webapp/WEB-INF/domains.xml</param-value>
+  </context-param>
+
+</web-app>

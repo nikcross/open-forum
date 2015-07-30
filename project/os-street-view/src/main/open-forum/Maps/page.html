@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Maps</TITLE>
+<META NAME="Generator" CONTENT="OpenForum">
+<META NAME="Author" CONTENT="unknown">
+
+	<link rel="stylesheet" href="/Maps/style.css">
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/OpenForumServer/File/File.js"></script>
+	<script type="text/javascript" src="/OpenForum/Giraffe/giraffe-0.0.3.js"></script>
+  <script type="text/javascript" src="/Maps/ordinance-survey-map.js"></script>
+  <script type="text/javascript" src="/Maps/map.js"></script>
+  
+  <script type="text/javascript" src="/GeoLocation/geo.js"></script>
+  <script type="text/javascript" src="/GeoLocation/vector3d.js"></script>
+  <script type="text/javascript" src="/GeoLocation/latlon-ellipsoid.js"></script>
+  <script type="text/javascript" src="/GeoLocation/osgridref.js"></script>
+  
+	<script type="text/javascript" src="/Maps/page.js"></script>
+
+	<script>
+		pageName = "Maps";
+		author = "unknown";
+		time = "on 13/01/2015 at 02:20 PM";
+	</script>
+
+</HEAD>
+
+<body><!--Start Content--><canvas width="100" height="100" id="mapCanvas" style="background-color: <ol><li>ccccff;"></canvas></li></ol><div id="form" style="position: absolute; left: 100px; top: 100px; z-index: 100; background: white; border: solid 1px black;">
+  Lat: <input type="text" of-id="lat" value="52.717209"> , Lng: <input type="text" of-id="lng" value="1.618095"> <button onClick="goLatLng();">GO</button><br/>
+  Easting: <input type="text" of-id="east" value="642049"> , Northing: <input type="text" of-id="north" value="316847"> <button onClick="goOS();">GO</button><br/>
+</div><!--End Content--></BODY>
+</HTML>

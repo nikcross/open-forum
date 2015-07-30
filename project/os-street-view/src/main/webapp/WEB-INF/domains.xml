@@ -1,0 +1,7 @@
+<domains>
+	<domain>
+		<name>Local Host</name>
+		<host>localhost:8181</host>
+		<root>/web/open-forum/os-street-view</root>
+	</domain>
+</domains>

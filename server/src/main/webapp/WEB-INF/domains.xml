@@ -1,0 +1,7 @@
+<domains>
+	<domain>
+		<name>OpenForum Dev Local</name>
+		<host>localhost:8181</host>
+		<root>/web2/wiki</root>
+	</domain>
+</domains>

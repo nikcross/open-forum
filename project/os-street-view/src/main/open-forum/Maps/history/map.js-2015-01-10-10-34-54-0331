@@ -1,0 +1,48 @@
+var canvas;
+var offsetX = 0;
+var offsetY = 0;
+var imageWIdth = 5004;
+var imageHeight = 5004;
+var status;
+
+function initMap() {
+  canvas =new Canvas("mapCanvas");
+  
+  Giraffe.Interactive.setInteractive(canvas);
+  
+  canvas.add( new Rectangle(0,0,screenWidth,screenHeight).setFillColor("#003300") );
+  
+  Giraffe.setAnimated(canvas);
+  canvas.startAnimation(20,100,true);
+  
+  offsetX = (screenWidth/2)-imageWIdth;
+  offsetY = (screenHeight/2)-imageHeight;
+  
+  console.log(screenWidth);
+  console.log(screenHeight);
+  console.log(offsetX);
+  console.log(offsetY);
+  
+  tile1 = new Picture(offsetX,offsetY,"/Maps/OSStreetView/Norfolk-Street-View/tf03nw.png");
+  tile2 = new Picture(offsetX+imageWIdth,offsetY,"/Maps/OSStreetView/Norfolk-Street-View/tf03ne.png");
+  tile3 = new Picture(offsetX,offsetY+imageHeight,"/Maps/OSStreetView/Norfolk-Street-View/tf03sw.png");
+  tile4 = new Picture(offsetX+imageWIdth,offsetY+imageHeight,"/Maps/OSStreetView/Norfolk-Street-View/tf03se.png");
+  
+  map = new Composite(0,0);
+  //map.scaleX = 0.2;
+  //map.scaleY = 0.2;
+  
+  map.add(tile1);
+  map.add(tile2);
+  map.add(tile3);
+  map.add(tile4);
+  canvas.add(map);
+  canvas.makeDraggable(map);
+  
+  state = new Text(10,10,"Status: ",25,"Arial");
+  state.animate = function(frame) {
+    state.setText( "X:"+map.x+" Y:"+map.y );
+  };
+  
+  canvas.add( state );
+}

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>&title;</TITLE>
+<META NAME="Generator" CONTENT="OpenForum">
+<META NAME="Author" CONTENT="&author;">
+
+	<link rel="stylesheet" href="/Maps/style.css">
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/Giraffe/giraffe-0.0.3.js"></script>
+  <script type="text/javascript" src="/Maps/ordinance-survey-map.js"></script>
+  <script type="text/javascript" src="/Maps/map.js"></script>
+	<script type="text/javascript" src="/&pageName;/page.js"></script>
+
+	<script>
+		pageName = "&pageName;";
+		author = "&author;";
+		time = "&time;";
+	</script>
+
+</HEAD>
+
+<body>

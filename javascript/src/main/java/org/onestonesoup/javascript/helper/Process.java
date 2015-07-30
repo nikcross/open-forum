@@ -1,0 +1,111 @@
+package org.onestonesoup.javascript.helper;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.onestonesoup.core.javascript.JavascriptHelper;
+import org.onestonesoup.core.process.ProcessWatch;
+import org.onestonesoup.core.process.ProcessWatcher;
+import org.onestonesoup.javascript.engine.JavascriptEngine;
+
+public class Process {
+
+	private JavascriptEngine javascriptEngine;
+	public void setJavascriptEngine(JavascriptEngine javascriptEngine) {
+		this.javascriptEngine = javascriptEngine;
+	}
+
+	private Map<String,ProcessBuilder> processes = new HashMap<String,ProcessBuilder>();
+	
+	public class MatchAction implements ProcessWatcher {
+
+		public MatchAction(String exec,String matcher,String matchScript,String endScript) {
+			this.exec = exec;
+			this.matcher = matcher;
+			this.matchScript = matchScript;
+			this.endScript = endScript;
+		}
+		
+		private String matcher;
+		private String matchScript;
+		private String endScript;
+		private String exec;
+		
+		@Override
+		public void processMatch(String data) {
+			if(matchScript!=null) {
+				try {
+					data = JavascriptHelper.escape(data);
+					javascriptEngine.evaluateJavascript("Process "+exec+" (matcher='"+matcher+"')",matchScript+"('"+data+"');");
+				} catch (Throwable e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		@Override
+		public void processEnd() {
+			if(endScript!=null) {
+				try {
+					javascriptEngine.evaluateJavascript("Process "+exec+" (end)", endScript);
+				} catch (Throwable e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		
+	}
+	
+	public class ProcessBuilder {
+		private String exec;
+		private ProcessWatch processWatch;
+		private Map<String,MatchAction> matchers = new HashMap<String,MatchAction>();
+		
+		private ProcessBuilder(String exec) {
+			this.exec = exec;
+			processWatch = new ProcessWatch();
+		}
+		
+		public ProcessBuilder onMatch(String matcher,String function) {
+			MatchAction matcherAction = new MatchAction(exec,matcher,function,null);
+			processWatch.addMatcher(matcher, matcherAction);
+			matchers.put(matcher, matcherAction);
+			
+			return this;
+		}
+		
+		public ProcessBuilder onEnd(String script) {
+			MatchAction matcherAction = new MatchAction(exec,"",null,script);
+			processWatch.addMatcher("onEnd", matcherAction);
+			matchers.put("onEnd", matcherAction);
+			
+			return this;
+		}
+		
+		public void run() throws Exception {
+			processWatch.execute(exec);
+		}
+		
+		public void runInDirectory(String directory) throws Exception {
+			processWatch.executeInDirectory(directory,exec);
+		}
+	}
+	
+	public ProcessBuilder createProcess(String exec) {
+		
+		ProcessBuilder processBuilder = new ProcessBuilder(exec);
+		processes.put(exec,processBuilder);
+		return processBuilder;
+	}
+	
+	public ProcessBuilder getProcess(String exec) {
+		
+		ProcessBuilder processBuilder = processes.get(exec);
+		if(processBuilder==null) {
+				processBuilder = new ProcessBuilder(exec);
+				processes.put(exec,processBuilder);
+		}
+		
+		return processBuilder;
+	}
+}

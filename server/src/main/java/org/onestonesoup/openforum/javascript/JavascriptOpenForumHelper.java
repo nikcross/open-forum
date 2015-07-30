@@ -1,0 +1,264 @@
+package org.onestonesoup.openforum.javascript;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import org.onestonesoup.core.data.EntityTree;
+import org.onestonesoup.openforum.DataHelper;
+import org.onestonesoup.openforum.OpenForumException;
+import org.onestonesoup.openforum.OpenForumNameHelper;
+import org.onestonesoup.openforum.TimeHelper;
+import org.onestonesoup.openforum.controller.OpenForumConstants;
+import org.onestonesoup.openforum.controller.OpenForumController;
+import org.onestonesoup.openforum.messagequeue.MessageQueue;
+import org.onestonesoup.openforum.security.AuthenticationException;
+import org.onestonesoup.openforum.security.Login;
+
+public class JavascriptOpenForumHelper {
+
+	private OpenForumController controller;
+	private Login login;
+
+	public JavascriptOpenForumHelper(OpenForumController controller, Login login) {
+		this.controller = controller;
+		this.login = login;
+	}
+
+	public String[] getPages() {
+		String[] pageNames = controller.getCatalogue().getPageNames()
+				.toArray(new String[] {});
+		Arrays.sort(pageNames);
+		return pageNames;
+	}
+
+	public void addToListPage(String listPageName, String pageName)
+			throws Exception, AuthenticationException {
+		controller.addToListPage(listPageName, pageName, login);
+	}
+
+	public void addJournalEntry(String entry) throws Exception,
+			AuthenticationException {
+		controller.addJournalEntry(entry);
+	}
+
+	public String buildPageSection(String pageName, int section)
+			throws Exception, AuthenticationException {
+		return controller.buildPageSection(pageName, section).toString();
+	}
+
+	public String buildPage(String pageName) throws Exception,
+			AuthenticationException {
+		controller.markForRebuild();
+		return controller.buildPage(pageName, false).toString();
+	}
+
+	public String buildPage(String pageName, boolean buildRefersTo)
+			throws Exception, AuthenticationException {
+		controller.markForRebuild();
+		return controller.buildPage(pageName, buildRefersTo).toString();
+	}
+
+	public String buildPage(String pageName, String data, boolean isWikiData)
+			throws Exception, AuthenticationException {
+		return controller.buildPage(pageName, data, isWikiData).toString();
+	}
+
+	public String renderWikiData(String name, String data) throws Exception {
+		return controller.renderWikiData(name, data);
+	}
+
+	public String buildPage(String name, String source) throws Exception {
+		controller.markForRebuild();
+		return controller.buildPage(name, source, false);
+	}
+
+	public void refreshPage(String name) throws Exception {
+		controller.buildPage(name, false);
+	}
+
+	public String[][] getPageAsList(String pageName) throws Exception {
+		String source = controller.getFileManager().getPageSourceAsString(
+				pageName, login);
+		if (source == null) {
+			return null;
+		}
+		return DataHelper.getPageAsList(source);
+	}
+
+	public Map<String, String> getPageAsTable(String pageName) throws Exception {
+		String source = controller.getFileManager().getPageSourceAsString(
+				pageName, login);
+		return DataHelper.getPageAsTable(source);
+	}
+
+	public String getPageUpdateTemplate(String pageName) throws Exception,
+			AuthenticationException {
+		return controller.getPageUpdateTemplate(pageName, login);
+	}
+
+	public boolean pageExists(String pageName) throws Exception {
+		return controller.getFileManager().pageExists(pageName, login);
+	}
+
+	public String getDateTimeStamp() {
+		return TimeHelper.getDateTimeStamp(new Date());
+	}
+
+	public String getDateTimeStamp(String pageName) throws Exception,
+			AuthenticationException {
+		long ts = controller.getPageTimeStamp(pageName);
+		return TimeHelper.getDateTimeStamp(new Date(ts));
+	}
+
+	public String buildEditPage(String pageName) throws AuthenticationException {
+		return controller.buildEditPage(pageName, login);
+	}
+
+	public String buildHistoryPage(String pageName) throws Exception,
+			AuthenticationException {
+		return controller.buildHistoryPage(pageName).toString();
+	}
+
+	public String buildDifferencesPage(String pageName, String version1,
+			String version2) throws Exception, AuthenticationException {
+		return controller.buildDifferencesPage(pageName, version1, version2)
+				.toString();
+	}
+
+	public void deletePage(String pageName) throws Exception,
+			AuthenticationException, OpenForumException {
+		controller.delete(pageName, login);
+		controller.markForRebuild();
+	}
+
+	@Deprecated
+	// User JavascriptFileHelper.deleteAttachment
+	public void deleteAttachment(String pageName, String fileName)
+			throws Exception, AuthenticationException {
+		controller.delete(pageName, fileName, login);
+		controller.markForRebuild();
+	}
+
+	public void revert(String pageName, String version)
+			throws AuthenticationException {
+		controller.revert(pageName, version, login);
+		controller.markForRebuild();
+	}
+
+	public void copyPage(String sourcePageName, String newPageName,
+			String listPageName) throws Exception, AuthenticationException {
+		newPageName = OpenForumNameHelper.titleToWikiName(newPageName);
+		controller.copyPage(sourcePageName, newPageName, listPageName, login);
+		controller.markForRebuild();
+	}
+
+	@Deprecated
+	// Use JavascriptFileHelper.saveAttachment
+	public void saveAsAttachment(String pageName, String fileName, String data,
+			String user) throws Exception, AuthenticationException {
+		controller.saveAsAttachment(pageName, fileName, data.getBytes(), login);
+		controller.markForRebuild();
+	}
+
+	public boolean rebuild() throws Exception, AuthenticationException {
+		return rebuild(false);
+	}
+
+	public boolean rebuild(boolean force) throws Exception,
+			AuthenticationException {
+		if (force) {
+			controller.markForRebuild();
+		}
+		return controller.rebuild();
+	}
+
+	public void postMessageToQueue(String queueName, String message) {
+		MessageQueue queue = controller.getQueueManager().getQueue(queueName);
+		queue.postMessage(message, login.getUser().getName());
+	}
+
+	public String createQueue() {
+		String id = "queue." + controller.generateUniqueId();
+		controller.getQueueManager().getQueue(id);
+
+		return id;
+	}
+
+	public void storeValue(String key, String value) {
+		controller.getStore().set(key, value);
+	}
+
+	public String retrieveValue(String key) {
+		return controller.getStore().get(key).toString();
+	}
+
+	public void storeObject(String key, Object value) {
+		controller.getStore().set(key, value);
+	}
+
+	public Object retrieveObject(String key) {
+		try {
+			return controller.getStore().get(key);
+		} catch (NullPointerException npe) {
+			return null;
+		}
+	}
+
+	public String[] getMessagesSince(String queueName, String time) {
+		long timeStamp = Long.parseLong(time);
+
+		MessageQueue queue = controller.getQueueManager().getQueue(queueName);
+
+		List<String> list = new ArrayList<String>();
+		EntityTree.TreeEntity messages = queue.getItemsSince(timeStamp);
+		for (int loop = 0; loop < messages.getChildren().size(); loop++) {
+			EntityTree.TreeEntity message = messages.getChildren().get(loop);
+			if (message.getName().equals("message")) {
+				String owner = message.getAttribute("owner");
+				if (owner == null || owner.length() == 0) {
+					list.add(message.getValue().replaceAll("'", "\'"));
+				} else {
+					list.add(owner + ":"
+							+ message.getValue().replaceAll("'", "\'"));
+				}
+			}
+		}
+
+		return list.toArray(new String[] {});
+	}
+
+	public void cleanUpQueues() {
+		controller.getQueueManager().cleanUpQueues();
+	}
+
+	public long getTimeStamp() {
+		return System.currentTimeMillis();
+	}
+
+	public String getVersion() {
+		return OpenForumConstants.SERVER_VERSION;
+	}
+
+	public String validateWikiTitle(String title) {
+		return OpenForumNameHelper.validateWikiTitle(title);
+	}
+
+	public String wikiToTitleName(String wikiName) {
+		return OpenForumNameHelper.wikiNameToTitle(wikiName);
+	}
+
+	public String titleToWikiName(String title) {
+		return OpenForumNameHelper.titleToWikiName(title);
+	}
+
+	public void setHomePage(String homePage) {
+		controller.setHomePage(homePage);
+	}
+
+	public String generateUniqueId() {
+		return controller.generateUniqueId();
+	}
+}
