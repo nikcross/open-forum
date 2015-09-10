@@ -17,6 +17,7 @@ try{ js.mount("Popup","org.onestonesoup.javascript.helper.Popup"); } catch(e) {}
 try{ js.mount("Tray","org.onestonesoup.javascript.helper.Tray"); } catch(e) {}
 try{ js.mount("Process","org.onestonesoup.javascript.helper.Process"); } catch(e) {}
 try{ js.mount("Computer","org.onestonesoup.javascript.helper.Computer"); } catch(e) {}
+try{ js.mount("SoundHelper","org.onestonesoup.javascript.helper.SoundHelper"); } catch(e) {}
 
 function help(obj) {
 	if(typeof(obj)=="undefined") {

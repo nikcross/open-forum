@@ -340,7 +340,7 @@ public class JavascriptCommandLineInterface extends org.onestonesoup.core.proces
 							if(logFile!=null) {
 								logFile.logMessage(line);
 							}
-							Object result = jsEngine.runJavascript("Historice User Input",line);
+							Object result = jsEngine.runJavascript("Historic User Input",line);
 							displayResult(result);
 						}else {
 						

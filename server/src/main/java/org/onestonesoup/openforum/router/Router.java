@@ -244,16 +244,19 @@ public class Router {
 		String request = httpHeader.getChild("request").getValue();
 		String method = httpHeader.getChild("method").getValue();
 		
-		if( httpHeader.getChild("parameters").getChild("edit")!=null && httpHeader.getChild("parameters").getChild("edit").getValue().equals("") ) {
-
-			HttpResponseHeader responseHeader = new HttpResponseHeader(
-					httpHeader, "text/html", 302, connection);
-			responseHeader.addParameter("location", "/OpenForum/Editor?pageName="+request); // Rediect to editor
-
-			connection.getOutputStream().flush();
-			connection.close();
-
-			return true;
+		for(KeyValuePair redirectParameter: controller.getParameterRedirectList()) {
+			String parameterName = redirectParameter.getKey();
+			if( httpHeader.getChild("parameters").getChild(parameterName)!=null && httpHeader.getChild("parameters").getChild(parameterName).getValue().equals("") ) {
+	
+				HttpResponseHeader responseHeader = new HttpResponseHeader(
+						httpHeader, "text/html", 302, connection);
+				responseHeader.addParameter("location", redirectParameter.getValue() + "?pageName="+request); // Rediect to page eg. editor
+	
+				connection.getOutputStream().flush();
+				connection.close();
+	
+				return true;
+			}
 		}
 
 		// Extract the page name of the request from the http request string and
@@ -634,6 +637,19 @@ public class Router {
 
 				controller.getLogger().info("404 File Not Found sent for request "
 						+ request + " to " + connection.getInetAddress());
+				
+				if(fileServer.fileExists("/404/404.sjs")) {
+					try{
+						String script = controller.getFileManager().getPageAttachmentAsString("404", "404.sjs", login);
+						JavascriptEngine engine = controller.getJavascriptEngine(login);
+						engine.mount("request", request);
+						engine.runJavascript("/404/404.sjs", script);
+					} catch (Throwable e) {
+						controller.getLogger().error(e.getMessage());
+						e.printStackTrace();
+					}
+				}
+				
 				return true;
 			}
 
@@ -675,7 +691,7 @@ public class Router {
 			// Set the response content length to match the served file length
 			responseHeader.addParameter("content-length",
 					"" + fileServer.getFileLength(request));
-
+			
 			// Set the last modified time on the response to match the
 			// requested files last modified time
 			long modified = fileServer.getFileModified(request);

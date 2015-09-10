@@ -69,13 +69,13 @@ public class PagesCatalogue {
 		}
 	}
 
-	public EntityTree.TreeEntity addPage(String title) throws IOException,
+	public EntityTree.TreeEntity addPage(String pageName) throws IOException,
 			AuthenticationException {
-		title = getRegularName(title);
+		String title = getRegularName(pageName);
 
 		long lastChanged = 0;
 		try {
-			lastChanged = controller.getFileManager().getPageTimeStamp(title,
+			lastChanged = controller.getFileManager().getPageTimeStamp(pageName,
 					controller.getSystemLogin());
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -86,6 +86,7 @@ public class PagesCatalogue {
 		if (page == null && lastChanged != -1) {
 			page = catalogue.addChild("page");
 			page.setAttribute("title", title);
+			page.setAttribute("pageName", pageName);
 			page.setAttribute("lastChanged", "" + lastChanged);
 			page.addChild("refersTo");
 			page.addChild("referredToBy");

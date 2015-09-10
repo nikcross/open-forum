@@ -44,10 +44,10 @@ public class Process {
 		}
 
 		@Override
-		public void processEnd() {
+		public void processEnd(int exitCode) {
 			if(endScript!=null) {
 				try {
-					javascriptEngine.evaluateJavascript("Process "+exec+" (end)", endScript);
+					javascriptEngine.evaluateJavascript("Process "+exec+" (end)", endScript+"("+exitCode+");");
 				} catch (Throwable e) {
 					e.printStackTrace();
 				}

@@ -2,8 +2,10 @@ package org.onestonesoup.javascript.helper;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.URL;
 import java.net.URLConnection;
+import java.net.UnknownHostException;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -52,24 +54,9 @@ public class RemoteWebServiceAccess {
 		FileHelper.copyInputStreamToFile(c.getInputStream(),new File(fileName));
 	}
 	
+	@JSMethodHelp(signature="<URL of the resource>,<user name>,<password>,<name of file to send>")
 	public static String postFileToUrl(String url,String user,String password,String fileName) throws IOException {
-		/*String code = StringHelper.encodeBase64(user+":"+password);
-		
-		URL u = new URL(url); 
-		HttpURLConnection connection = (HttpURLConnection) u.openConnection();           
-		connection.setDoOutput(true);
-		connection.setDoInput(true);
-		connection.setInstanceFollowRedirects(false); 
-		connection.setRequestMethod("POST"); 
-		connection.setRequestProperty("Authorization", "Basic " + code);
-		connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded"); 
-		connection.setRequestProperty("charset", "utf-8");
-		connection.setRequestProperty("Content-Length", "" + new File(fileName).length());
-		connection.setUseCaches (false);
-		
-		FileHelper.copyFileToOutputStream(fileName, connection.getOutputStream ());
-		connection.disconnect();*/
-		
+
 		String code = StringHelper.encodeBase64(user+":"+password);
 		
 		CloseableHttpClient httpClient = HttpClients.createDefault();
@@ -87,5 +74,36 @@ public class RemoteWebServiceAccess {
 		String data = FileHelper.loadFileAsString(response.getEntity().getContent());
 		System.out.println(data);
 		return data;
+	}
+
+	public String getHostAddressFor(String host) {
+		try {
+			return InetAddress.getByName(host).getHostAddress();
+		} catch (UnknownHostException e) {
+			return null;
+		} catch (IOException e) {
+			return null;
+		}
+	}
+	
+	public String getHostNameFor(String host) {
+		try {
+			return InetAddress.getByName(host).getHostName();
+		} catch (UnknownHostException e) {
+			return null;
+		} catch (IOException e) {
+			return null;
+		}
+	}
+	
+	@JSMethodHelp(signature="<host>,<timeout in milliseconds>")
+	public boolean ping(String host,int timeout) {
+		try {
+			return InetAddress.getByName(host).isReachable(timeout);
+		} catch (UnknownHostException e) {
+			return false;
+		} catch (IOException e) {
+			return false;
+		}
 	}
 }

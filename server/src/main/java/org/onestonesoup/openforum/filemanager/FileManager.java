@@ -111,12 +111,12 @@ public class FileManager {
 	 */
 	public long getPageTimeStamp(String pageName, Login login)
 			throws Exception, AuthenticationException {
-		Resource file = getFile(pageName, "page.wiki", login);
+		ResourceFolder folder = getFolder(pageName, false, login);
 
-		if (file == null) {
+		if (folder == null) {
 			return -1;
 		} else {
-			return resourceStore.lastModified(file);
+			return resourceStore.lastModified(folder);
 		}
 	}
 
@@ -580,6 +580,16 @@ public class FileManager {
 	 */
 	public List<String> getPageList(ResourceFolder folder, String prefix,
 			Login login) {
+		try {
+			if( attachmentExists(folder.getPath(), "exclude.json", login) ) return new ArrayList<String>();
+		} catch (AuthenticationException e) {
+			e.printStackTrace();
+			return new ArrayList<String>();
+		} catch (Exception e) {
+			e.printStackTrace();
+			return new ArrayList<String>();
+		}
+		
 		ResourceFolder[] list = resourceStore.listResourceFolders(folder);
 
 		ArrayList<String> pages = new ArrayList<String>();

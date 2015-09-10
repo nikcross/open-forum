@@ -48,6 +48,8 @@ public interface OpenForumPageController extends OpenForum{
 
 	public abstract List<KeyValuePair> getSecurePagesList() throws Exception;
 
+	public abstract List<KeyValuePair> getParameterRedirectList() throws Exception;
+	
 	public abstract Map<String,String> getStandardTemplateData(String pageName,
 	String title, String author, String timeStamp);
 

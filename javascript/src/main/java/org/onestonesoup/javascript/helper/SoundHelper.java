@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -14,6 +15,12 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 public class SoundHelper {
 
 	public static Map<String,AudioInputStream> sounds = new HashMap<String,AudioInputStream>();
+	
+	public static void listSupportedFormats() {
+		for(AudioFileFormat.Type type: AudioSystem.getAudioFileTypes()) {
+			System.out.println(type.getExtension());
+		}
+	}
 	
 	public static void addSound(String alias,String fileName) throws LineUnavailableException, UnsupportedAudioFileException, IOException {
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream( new File(fileName) );

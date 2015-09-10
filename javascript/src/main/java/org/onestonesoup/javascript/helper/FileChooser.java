@@ -58,4 +58,8 @@ public class FileChooser {
 			return null;
 		}
 	}
+	
+	public File getFile(String fileName) {
+		return new File(fileName);
+	}
 }

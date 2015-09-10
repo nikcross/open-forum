@@ -90,6 +90,11 @@ public class TestResourceStore implements ResourceStore {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	public long lastModified(ResourceFolder resource) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
 
 	public int getLength(Resource resource) {
 		// TODO Auto-generated method stub

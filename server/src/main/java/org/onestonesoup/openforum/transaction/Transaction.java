@@ -127,7 +127,7 @@ public abstract class Transaction {
 
 	public void sendPage(String data, String type, Map<String, String> params)
 			throws IOException {
-		System.out.println("Data: "+data.replaceAll(",", ",\n")+" LENGTH:"+data.length());
+		//System.out.println("Data: "+data.replaceAll(",", ",\n")+" LENGTH:"+data.length());
 		
 		HttpResponseHeader responseHeader = new HttpResponseHeader(httpHeader,
 				type+"; charset=utf-8", 200, connection);

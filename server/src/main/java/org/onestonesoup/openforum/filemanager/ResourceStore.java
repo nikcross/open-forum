@@ -24,6 +24,7 @@ public interface ResourceStore {
 	public abstract boolean move(Resource sourceResource,ResourceFolder targetResourceFolder,String name);
 	public abstract boolean copy(Resource sourceResource,ResourceFolder targetResourceFolder,String name);
 	public abstract long lastModified(Resource resource);
+	public abstract long lastModified(ResourceFolder resource);
 	public abstract int getLength(Resource resource);
 	public abstract String getMD5(Resource resource) throws IOException;
 	public abstract InputStream getInputStream(Resource resource) throws IOException;

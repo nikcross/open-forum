@@ -7,19 +7,51 @@ import java.sql.Connection;
 import java.sql.DatabaseMetaData;
 import java.sql.Driver;
 import java.sql.DriverManager;
+import java.sql.DriverPropertyInfo;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.SQLFeatureNotSupportedException;
 import java.sql.Statement;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.logging.Logger;
 
 import org.onestonesoup.core.data.EntityTree;
 
 public class Database {
 
+	public class JDBCDriverWrapper implements Driver{
+		private Driver driver;
+		 
+	    public JDBCDriverWrapper(Driver d) {
+	        this.driver = d;
+	    }
+	    public boolean acceptsURL(String u) throws SQLException {
+	        return this.driver.acceptsURL(u);
+	    }
+	    public Connection connect(String u, Properties p) throws SQLException {
+	        return this.driver.connect(u, p);
+	    }
+	    public int getMajorVersion() {
+	        return this.driver.getMajorVersion();
+	    }
+	    public int getMinorVersion() {
+	        return this.driver.getMinorVersion ();
+	    }
+	    public DriverPropertyInfo[] getPropertyInfo(String u, Properties p) throws SQLException {
+	        return this.driver.getPropertyInfo(u, p);
+	    }
+	    public boolean jdbcCompliant() {
+	        return this.driver.jdbcCompliant();
+	    }
+		public Logger getParentLogger() throws SQLFeatureNotSupportedException {
+			return this.driver.getParentLogger();
+		}
+	}
+	
 	private Map<String,Connection> connections = new HashMap<String,Connection>();
 	private boolean debug = false;
 		

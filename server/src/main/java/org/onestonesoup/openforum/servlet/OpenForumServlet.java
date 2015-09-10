@@ -21,6 +21,9 @@ public class OpenForumServlet extends HttpServlet {
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String host = request.getHeader("host");
+		if(host.indexOf(":")!=-1) {
+			host = host.substring(0,host.indexOf(":"));
+		}
 		OpenForumController controller = OpenForumServletContextListener.getWikiController(host);
 		if(controller==null) {
 			throw new ServletException("No controller found for host "+host);

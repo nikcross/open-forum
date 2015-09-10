@@ -100,6 +100,7 @@ public class OpenForumController implements OpenForumScripting,
 	private KeyValueListPage nonSecurePages;
 	private KeyValueListPage adminOnlyPages;
 	private KeyValueListPage loginByIPAddress;
+	private KeyValueListPage parameterRedirectList;
 	private KeyValueListPage aliasList;
 	private Map<String, String> mimeTypes = new HashMap<String, String>();
 
@@ -157,6 +158,8 @@ public class OpenForumController implements OpenForumScripting,
 				"/OpenForum/AdminOnlyPages");
 		loginByIPAddress = new KeyValueListPage(fileManager,
 				"/OpenForum/LoginByIPAddress");
+		parameterRedirectList = new KeyValueListPage(fileManager, "/OpenForum/ParameterRedirectList");
+		
 		aliasList = new KeyValueListPage(fileManager, "/OpenForum/Aliases");
 		this.domainName = domainName;
 	}
@@ -2301,8 +2304,11 @@ public class OpenForumController implements OpenForumScripting,
 		return loginByIPAddress.getList();
 	}
 
+	public List<KeyValuePair> getParameterRedirectList() throws Exception {
+		return parameterRedirectList.getList();
+	}
+	
 	public List<KeyValuePair> getNonSecurePagesList() throws Exception {
-
 		return nonSecurePages.getList();
 	}
 
@@ -2409,8 +2415,6 @@ public class OpenForumController implements OpenForumScripting,
 
 	public void initialise() throws IOException, AuthenticationException {
 		try {
-			router = new Router("name", this);
-
 			updateJarManager();
 
 			if (fileManager.pageExists("/OpenForum/", getSystemLogin())) {
@@ -2420,6 +2424,8 @@ public class OpenForumController implements OpenForumScripting,
 				mimeTypes = XmlHelper.getChildAsMap(xmlData, "file-extension");
 			}
 
+			router = new Router("name", this);
+			
 			if (fileManager.pageExists("/OpenForum/Configuration",
 					getSystemLogin())) {
 				KeyValueListPage keyValueListPage = new KeyValueListPage(

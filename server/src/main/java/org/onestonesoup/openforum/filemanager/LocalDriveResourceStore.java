@@ -234,6 +234,17 @@ public class LocalDriveResourceStore implements ResourceStore {
 	public long lastModified(Resource resource) {
 		return getResourceAsFile(resource).lastModified();
 	}
+	
+	public long lastModified(ResourceFolder resource) {
+		long lastModified = 0;
+		File folder = getResourceFolderAsFile(resource);
+		for(File file: folder.listFiles()) {
+			if(file.lastModified()>lastModified) {
+				lastModified = file.lastModified();
+			}
+		}
+		return lastModified;
+	}
 
 	public ResourceFolder[] listResourceFolders(ResourceFolder folder) {
 		String[] list = getResourceFolderAsFile(folder).list();

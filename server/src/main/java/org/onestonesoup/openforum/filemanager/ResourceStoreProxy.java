@@ -85,6 +85,10 @@ public class ResourceStoreProxy implements ResourceStore {
 	public long lastModified(Resource resource) {
 		return resourceStore.lastModified(resource);
 	}
+	
+	public long lastModified(ResourceFolder resource) {
+		return resourceStore.lastModified(resource);
+	}
 
 	public ResourceFolder[] listResourceFolders(ResourceFolder folder) {
 		return resourceStore.listResourceFolders(folder);
