@@ -145,7 +145,6 @@ public class OpenForumController implements OpenForumScripting,
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
-		this.pageChangeTrigger = pageChangeTrigger;
 
 		queueManager = new MessageQueueManager();
 		dynamicPages = new KeyValueListPage(fileManager,
@@ -357,7 +356,7 @@ public class OpenForumController implements OpenForumScripting,
 						"Building search table",
 						systemLogin.getUser().getName());
 				OutputStream oStream = fileManager.getAttachmentOutputStream(
-						SEARCH_RESULTS, SEARCH_TABLE_FILE, getSystemLogin());
+						SEARCH_RESULTS_PAGE_PATH, SEARCH_TABLE_FILE, getSystemLogin());
 				PrintStream out = new PrintStream(oStream);
 				oStream.flush();
 				oStream.close();
@@ -430,19 +429,19 @@ public class OpenForumController implements OpenForumScripting,
 	 */
 
 	private void buildWikiJournal() throws Exception, AuthenticationException {
-		buildPage(WIKI_JOURNAL, false);
+		buildPage(WIKI_JOURNAL_PAGE_PATH, false);
 	}
 
 	private void buildIndexPage() throws Exception, AuthenticationException {
-		String[] exclude = getExcludesList(EXCLUDE_REFERENCES, PAGES_INDEX);
+		String[] exclude = getExcludesList(EXCLUDE_REFERENCES, PAGES_INDEX_PAGE_PATH);
 		Map<String, String> localTemplateData = getStandardTemplateData(
-				PAGES_INDEX, SYSTEM_NAME, null,
+				PAGES_INDEX_PAGE_PATH, SYSTEM_NAME, null,
 				TimeHelper.getCurrentDisplayTimestamp());
 
 		String headerTemplate = fileManager.getPageInheritedFileAsString(
-				PAGES_INDEX, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE,
+				PAGES_INDEX_PAGE_PATH, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
 				systemLogin);
-		getRequiredTemplateInserts(PAGES_INDEX, headerTemplate,
+		getRequiredTemplateInserts(PAGES_INDEX_PAGE_PATH, headerTemplate,
 				localTemplateData);
 
 		String header = TemplateHelper.generateStringWithTemplate(
@@ -492,15 +491,15 @@ public class OpenForumController implements OpenForumScripting,
 		Renderer.wikiToHtml("Pages Index", data.toString(), html, this,
 				linkRenderer);
 		String footerTemplate = fileManager.getPageAttachmentAsString(
-				OPEN_FORUM_DEFAULT_PAGE, FOOTER_HTML_TEMPLATE, systemLogin);
-		getRequiredTemplateInserts(PAGES_INDEX, footerTemplate,
+				OPEN_FORUM_DEFAULT_PAGE_PATH, FOOTER_HTML_TEMPLATE, systemLogin);
+		getRequiredTemplateInserts(PAGES_INDEX_PAGE_PATH, footerTemplate,
 				localTemplateData);
 		String footer = TemplateHelper.generateStringWithTemplate(
 				footerTemplate, localTemplateData);
 
 		html.append(footer);
 
-		fileManager.saveStringAsHtmlPage(html.toString(), PAGES_INDEX,
+		fileManager.saveStringAsHtmlPage(html.toString(), PAGES_INDEX_PAGE_PATH,
 				systemLogin);
 	}
 
@@ -524,7 +523,7 @@ public class OpenForumController implements OpenForumScripting,
 		 */
 
 		String headerTemplate = fileManager.getPageInheritedFileAsString(name,
-				HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE, systemLogin);
+				HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
 		getRequiredTemplateInserts(name, headerTemplate, localTemplateData);
 		String header = TemplateHelper.generateStringWithTemplate(
 				headerTemplate, localTemplateData);
@@ -541,7 +540,7 @@ public class OpenForumController implements OpenForumScripting,
 		}
 
 		String footerTemplate = fileManager.getPageInheritedFileAsString(name,
-				FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE, systemLogin);
+				FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
 		getRequiredTemplateInserts(name, footerTemplate, localTemplateData);
 		String footer = TemplateHelper.generateStringWithTemplate(
 				footerTemplate, localTemplateData);
@@ -568,15 +567,15 @@ public class OpenForumController implements OpenForumScripting,
 	}
 
 	private void buildMissingPages() throws Exception, AuthenticationException {
-		String[] exclude = getExcludesList(EXCLUDE_REFERENCES, MISSING_PAGES);
+		String[] exclude = getExcludesList(EXCLUDE_REFERENCES, MISSING_PAGES_PATH);
 		Map<String, String> localTemplateData = getStandardTemplateData(
-				MISSING_PAGES, null, SYSTEM_NAME,
+				MISSING_PAGES_PATH, null, SYSTEM_NAME,
 				TimeHelper.getCurrentDisplayTimestamp());
 
 		String headerTemplate = fileManager.getPageInheritedFileAsString(
-				MISSING_PAGES, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE,
+				MISSING_PAGES_PATH, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
 				systemLogin);
-		getRequiredTemplateInserts(MISSING_PAGES, headerTemplate,
+		getRequiredTemplateInserts(MISSING_PAGES_PATH, headerTemplate,
 				localTemplateData);
 		String header = TemplateHelper.generateStringWithTemplate(
 				headerTemplate, localTemplateData);
@@ -620,26 +619,26 @@ public class OpenForumController implements OpenForumScripting,
 				linkRenderer);
 
 		String footerTemplate = fileManager.getPageInheritedFileAsString(
-				"MissingPages", FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE,
+				"MissingPages", FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
 				systemLogin);
-		getRequiredTemplateInserts(MISSING_PAGES, footerTemplate,
+		getRequiredTemplateInserts(MISSING_PAGES_PATH, footerTemplate,
 				localTemplateData);
 		String footer = TemplateHelper.generateStringWithTemplate(
 				footerTemplate, localTemplateData);
 
 		html.append(footer);
-		fileManager.saveStringAsHtmlPage(html.toString(), MISSING_PAGES,
+		fileManager.saveStringAsHtmlPage(html.toString(), MISSING_PAGES_PATH,
 				systemLogin);
 	}
 
 	private void buildReservedList() throws Exception {
-		reserved.put(PAGES_INDEX, PAGES_INDEX);
-		reserved.put(MISSING_PAGES, MISSING_PAGES);
-		reserved.put(WIKI_JOURNAL, WIKI_JOURNAL);
+		reserved.put(PAGES_INDEX_PAGE_PATH, PAGES_INDEX_PAGE_PATH);
+		reserved.put(MISSING_PAGES_PATH, MISSING_PAGES_PATH);
+		reserved.put(WIKI_JOURNAL_PAGE_PATH, WIKI_JOURNAL_PAGE_PATH);
 
-		catalogue.addPage(PAGES_INDEX);
-		catalogue.addPage(MISSING_PAGES);
-		catalogue.addPage(WIKI_JOURNAL);
+		catalogue.addPage(PAGES_INDEX_PAGE_PATH);
+		catalogue.addPage(MISSING_PAGES_PATH);
+		catalogue.addPage(WIKI_JOURNAL_PAGE_PATH);
 
 		// globalLinks.put(PAGES_INDEX,PAGES_INDEX);
 		// globalLinks.put(MISSING_PAGES,MISSING_PAGES);
@@ -679,7 +678,7 @@ public class OpenForumController implements OpenForumScripting,
 				" built all " + pages.size() + " pages",
 				systemLogin.getUser().getName());
 
-		attachFile(PAGES_INDEX, PAGES_CATALOGUE_FILE, catalogue.toString(),
+		attachFile(PAGES_INDEX_PAGE_PATH, PAGES_CATALOGUE_FILE, catalogue.toString(),
 				false);
 	}
 
@@ -731,9 +730,9 @@ public class OpenForumController implements OpenForumScripting,
 				dataToFileMap = fileManager.getPageAttachmentAsXml(pageName,
 						DATA_MAP_FILE, login);
 			} else if (fileManager.pageAttachmentExists(
-					OPEN_FORUM_DEFAULT_PAGE, DATA_MAP_FILE, login)) {
+					OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login)) {
 				dataToFileMap = fileManager.getPageAttachmentAsXml(
-						OPEN_FORUM_DEFAULT_PAGE, DATA_MAP_FILE, login);
+						OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login);
 			}
 			if (dataToFileMap != null) {
 				for (int loop = 0; loop < dataToFileMap.getChildren().size(); loop++) {
@@ -759,10 +758,10 @@ public class OpenForumController implements OpenForumScripting,
 			}
 
 			String headerTemplate = fileManager.getPageInheritedFileAsString(
-					pageName, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE,
+					pageName, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
 					systemLogin);
 			String footerTemplate = fileManager.getPageInheritedFileAsString(
-					pageName, FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE,
+					pageName, FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
 					systemLogin);
 
 			getRequiredTemplateInserts(pageName, headerTemplate, values);
@@ -803,7 +802,7 @@ public class OpenForumController implements OpenForumScripting,
 		catalogue.addPage(name);
 
 		String pageBuildScript = fileManager.getPageInheritedFileAsString(name,
-				PAGE_BUILD_JS, OPEN_FORUM_DEFAULT_PAGE, systemLogin);
+				PAGE_BUILD_JS, OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
 
 		if (fileManager.pageAttachmentExists(name, WIKI_FILE, systemLogin) == false
 				&& pageBuildScript == null) {
@@ -836,7 +835,7 @@ public class OpenForumController implements OpenForumScripting,
 			localTemplateData.put("tags", buildTagsForPage(name));
 
 			String header = fileManager.getPageInheritedFileAsString(name,
-					HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE, systemLogin);
+					HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
 			getRequiredTemplateInserts(name, header, localTemplateData);
 
 			header = TemplateHelper.generateStringWithTemplate(header,
@@ -861,7 +860,7 @@ public class OpenForumController implements OpenForumScripting,
 			html.append(END_CONTENT);
 
 			String footer = fileManager.getPageInheritedFileAsString(name,
-					FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE, systemLogin);
+					FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
 			getRequiredTemplateInserts(name, footer, localTemplateData);
 			footer = TemplateHelper.generateStringWithTemplate(footer,
 					localTemplateData);
@@ -957,7 +956,7 @@ public class OpenForumController implements OpenForumScripting,
 					continue;
 				}
 
-				if (title == pageName || title.equals(LEFT_MENU)) {
+				if (title == pageName || title.equals(LEFT_MENU_PAGE_NAME)) {
 					continue;
 				}
 
@@ -1025,7 +1024,7 @@ public class OpenForumController implements OpenForumScripting,
 					continue;
 				}
 
-				if (title == pageName || title.equals(LEFT_MENU)) {
+				if (title == pageName || title.equals(LEFT_MENU_PAGE_NAME)) {
 					continue;
 				}
 
@@ -1130,9 +1129,9 @@ public class OpenForumController implements OpenForumScripting,
 					dataToFileMap = fileManager.getPageAttachmentAsXml(
 							pageName, DATA_MAP_FILE, systemLogin);
 				} else if (fileManager.pageAttachmentExists(
-						OPEN_FORUM_DEFAULT_PAGE, DATA_MAP_FILE, systemLogin)) {
+						OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, systemLogin)) {
 					dataToFileMap = fileManager
-							.getPageAttachmentAsXml(OPEN_FORUM_DEFAULT_PAGE,
+							.getPageAttachmentAsXml(OPEN_FORUM_DEFAULT_PAGE_PATH,
 									DATA_MAP_FILE, systemLogin);
 				}
 				if (dataToFileMap != null) {
@@ -1166,7 +1165,7 @@ public class OpenForumController implements OpenForumScripting,
 			}
 		} else {
 			return fileManager.getPageInheritedFileAsString(pageName,
-					EDIT_FORM_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE, login);
+					EDIT_FORM_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH, login);
 		}
 	}
 
@@ -1233,18 +1232,18 @@ public class OpenForumController implements OpenForumScripting,
 		String dateStamp = new SimpleDateFormat("dd-MM-yyyy")
 				.format(new Date());
 
-		if (fileManager.pageExists(WIKI_JOURNAL + "/blog/" + dateStamp
+		if (fileManager.pageExists(WIKI_JOURNAL_PAGE_PATH + "/blog/" + dateStamp
 				+ "_00-00-00", systemLogin) == false) {
-			fileManager.appendStringToPageSource(entry, WIKI_JOURNAL + "/blog/"
+			fileManager.appendStringToPageSource(entry, WIKI_JOURNAL_PAGE_PATH + "/blog/"
 					+ dateStamp + "_00-00-00", systemLogin);
 			fileManager.appendStringToPageSource(
-					"*[" + dateStamp + "|" + WIKI_JOURNAL + "/blog/"
-							+ dateStamp + "_00-00-00" + "]\n", WIKI_JOURNAL,
+					"*[" + dateStamp + "|" + WIKI_JOURNAL_PAGE_PATH + "/blog/"
+							+ dateStamp + "_00-00-00" + "]\n", WIKI_JOURNAL_PAGE_PATH,
 					systemLogin);
-			buildPage(WIKI_JOURNAL, false);
-			buildPage(WIKI_JOURNAL + "/blog/" + dateStamp + "_00-00-00", false);
+			buildPage(WIKI_JOURNAL_PAGE_PATH, false);
+			buildPage(WIKI_JOURNAL_PAGE_PATH + "/blog/" + dateStamp + "_00-00-00", false);
 		} else {
-			fileManager.appendStringToPageSource(entry, WIKI_JOURNAL + "/blog/"
+			fileManager.appendStringToPageSource(entry, WIKI_JOURNAL_PAGE_PATH + "/blog/"
 					+ dateStamp + "_00-00-00", systemLogin);
 
 		}
@@ -1320,7 +1319,7 @@ public class OpenForumController implements OpenForumScripting,
 				TimeHelper.getCurrentDisplayTimestamp());
 
 		String headerTemplate = fileManager.getPageInheritedFileAsString(
-				pageName, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE,
+				pageName, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
 				systemLogin);
 		getRequiredTemplateInserts(pageName, headerTemplate, localTemplateData);
 
@@ -1373,7 +1372,7 @@ public class OpenForumController implements OpenForumScripting,
 		html.append("</td></tr></table>");
 
 		String footerTemplate = fileManager.getPageInheritedFileAsString(
-				pageName, FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE,
+				pageName, FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
 				systemLogin);
 		String footer = TemplateHelper.generateStringWithTemplate(
 				footerTemplate, localTemplateData);
@@ -1396,7 +1395,7 @@ public class OpenForumController implements OpenForumScripting,
 				TimeHelper.getCurrentDisplayTimestamp());
 
 		String headerTemplate = fileManager.getPageInheritedFileAsString(
-				pageName, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE,
+				pageName, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
 				systemLogin);
 		getRequiredTemplateInserts(pageName, headerTemplate, localTemplateData);
 
@@ -1434,7 +1433,7 @@ public class OpenForumController implements OpenForumScripting,
 		}
 
 		String footerTemplate = fileManager.getPageInheritedFileAsString(
-				pageName, FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE,
+				pageName, FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
 				systemLogin);
 		String footer = TemplateHelper.generateStringWithTemplate(
 				footerTemplate, localTemplateData);
@@ -1548,13 +1547,13 @@ public class OpenForumController implements OpenForumScripting,
 		EntityTree matches = getDataSearchResults(listPage, params, login);
 
 		Map<String, String> localTemplateData = getStandardTemplateData(
-				SEARCH_RESULTS, null, SYSTEM_NAME,
+				SEARCH_RESULTS_PAGE_PATH, null, SYSTEM_NAME,
 				TimeHelper.getCurrentDisplayTimestamp());
 
 		String headerTemplate = fileManager.getPageInheritedFileAsString(
-				SEARCH_RESULTS, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE,
+				SEARCH_RESULTS_PAGE_PATH, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
 				systemLogin);
-		getRequiredTemplateInserts(SEARCH_RESULTS, headerTemplate,
+		getRequiredTemplateInserts(SEARCH_RESULTS_PAGE_PATH, headerTemplate,
 				localTemplateData);
 		String header = TemplateHelper.generateStringWithTemplate(
 				headerTemplate, localTemplateData);
@@ -1647,9 +1646,9 @@ public class OpenForumController implements OpenForumScripting,
 			html.append("</table>");
 		}
 		String footerTemplate = fileManager.getPageInheritedFileAsString(
-				SEARCH_RESULTS, FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE,
+				SEARCH_RESULTS_PAGE_PATH, FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
 				systemLogin);
-		getRequiredTemplateInserts(SEARCH_RESULTS, footerTemplate,
+		getRequiredTemplateInserts(SEARCH_RESULTS_PAGE_PATH, footerTemplate,
 				localTemplateData);
 		String footer = TemplateHelper.generateStringWithTemplate(
 				footerTemplate, localTemplateData);
@@ -1777,9 +1776,9 @@ public class OpenForumController implements OpenForumScripting,
 				dataToFileMap = fileManager.getPageAttachmentAsXml(pageName,
 						DATA_MAP_FILE, login);
 			} else if (fileManager.pageAttachmentExists(
-					OPEN_FORUM_DEFAULT_PAGE, DATA_MAP_FILE, login)) {
+					OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login)) {
 				dataToFileMap = fileManager.getPageAttachmentAsXml(
-						OPEN_FORUM_DEFAULT_PAGE, DATA_MAP_FILE, login);
+						OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login);
 			}
 			if (dataToFileMap != null) {
 				for (int loop = 0; loop < dataToFileMap.getChildren().size(); loop++) {
@@ -1859,10 +1858,10 @@ public class OpenForumController implements OpenForumScripting,
 		if (fileManager.pageAttachmentExists(pageName, DATA_MAP_FILE, login)) {
 			dataToFileMap = fileManager.getPageAttachmentAsXml(pageName,
 					DATA_MAP_FILE, login);
-		} else if (fileManager.pageAttachmentExists(OPEN_FORUM_DEFAULT_PAGE,
+		} else if (fileManager.pageAttachmentExists(OPEN_FORUM_DEFAULT_PAGE_PATH,
 				DATA_MAP_FILE, login)) {
 			dataToFileMap = fileManager.getPageAttachmentAsXml(
-					OPEN_FORUM_DEFAULT_PAGE, DATA_MAP_FILE, login);
+					OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login);
 		}
 		if (dataToFileMap != null) {
 			for (int loop = 0; loop < dataToFileMap.getChildren().size(); loop++) {
@@ -2182,7 +2181,7 @@ public class OpenForumController implements OpenForumScripting,
 								insertPage.lastIndexOf("/"));
 
 						insertPage = fileManager.getPageInheritedFileAsString(
-								insertPage, file, OPEN_FORUM_DEFAULT_PAGE,
+								insertPage, file, OPEN_FORUM_DEFAULT_PAGE_PATH,
 								systemLogin);
 					} else {
 						StringBuffer content = new StringBuffer();
@@ -2462,7 +2461,7 @@ public class OpenForumController implements OpenForumScripting,
 
 			logger.info("Building Wiki Catalogue");
 			EntityTree catalogueXml = fileManager.getPageAttachmentAsXml(
-					PAGES_INDEX, PAGES_CATALOGUE_FILE, getSystemLogin());
+					PAGES_INDEX_PAGE_PATH, PAGES_CATALOGUE_FILE, getSystemLogin());
 			catalogue = new PagesCatalogue(this, catalogueXml);
 			logger.info("Built Wiki Catalogue");
 
