@@ -153,7 +153,7 @@ public void zipAll(ResourceStore resourceStore,ResourceFolder root,ResourceFolde
 	for(int loop=0;loop<list.length;loop++)
 	{
 		String entryName = list[loop].getPath()+"/"+list[loop].getName();
-		if(entryName.equals(root.getPath()+"/"+root.getName()+".wiki.zip"))
+		if(entryName.contains(".wiki.zip"))
 		{
 			continue;
 		}

@@ -456,10 +456,10 @@ public class FileManager {
 			}
 
 			ResourceFolder targetFolder = null;
-			if (file.getName().indexOf(".wiki.zip") != -1) {
-				targetFolder = getFolder("", true, login);
-			} else {
+			if (file.getName().indexOf(".wiki.zip") == -1) { // If is not wiki.zip file, extract on requested page 
 				targetFolder = getFolder(pageName, true, login);
+			} else { // Else extract at root
+				targetFolder = getFolder("", true, login);
 			}
 
 			UnZipper unzipper = new UnZipper(resourceStore.getInputStream(file));
