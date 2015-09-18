@@ -24,6 +24,7 @@ import org.onestonesoup.core.data.EntityTable.TableEntity;
 import org.onestonesoup.core.data.EntityTree;
 import org.onestonesoup.core.data.KeyValuePair;
 import org.onestonesoup.core.data.XmlHelper;
+import org.onestonesoup.core.javascript.JSONHelper;
 import org.onestonesoup.core.process.logging.LogFile;
 import org.onestonesoup.javascript.engine.JSON;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
@@ -349,24 +350,6 @@ public class OpenForumController implements OpenForumScripting,
 						"Wiki rebuild failed while building Wiki Journal."
 								+ exception, systemLogin.getUser().getName());
 				addJournalEntry("Wiki rebuild failed while building Wiki Journal.\\\\"
-						+ exception);
-			}
-			try {
-				queueManager.getQueue("/OpenForum").postMessage(
-						"Building search table",
-						systemLogin.getUser().getName());
-				OutputStream oStream = fileManager.getAttachmentOutputStream(
-						SEARCH_RESULTS_PAGE_PATH, SEARCH_TABLE_FILE, getSystemLogin());
-				PrintStream out = new PrintStream(oStream);
-				oStream.flush();
-				oStream.close();
-			} catch (Exception e) {
-				String exception = StringHelper.arrayToString(
-						ExceptionHelper.getTrace(e), "\\");
-				queueManager.getQueue("/OpenForum").postMessage(
-						"Wiki rebuild failed while building search table"
-								+ exception, systemLogin.getUser().getName());
-				addJournalEntry("Wiki rebuild failed while building search table\\\\"
 						+ exception);
 			}
 			try {
@@ -727,12 +710,12 @@ public class OpenForumController implements OpenForumScripting,
 			EntityTree dataToFileMap = null;
 			if (fileManager
 					.pageAttachmentExists(pageName, DATA_MAP_FILE, login)) {
-				dataToFileMap = fileManager.getPageAttachmentAsXml(pageName,
-						DATA_MAP_FILE, login);
+				dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(pageName,
+						DATA_MAP_FILE, login));
 			} else if (fileManager.pageAttachmentExists(
 					OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login)) {
-				dataToFileMap = fileManager.getPageAttachmentAsXml(
-						OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login);
+				dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
+						OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login));
 			}
 			if (dataToFileMap != null) {
 				for (int loop = 0; loop < dataToFileMap.getChildren().size(); loop++) {
@@ -1115,8 +1098,8 @@ public class OpenForumController implements OpenForumScripting,
 				Map<String, String> data = new HashMap<String, String>();
 				if (fileManager.pageAttachmentExists(pageName, DATA_FILE,
 						systemLogin)) {
-					EntityTree dataXml = fileManager.getPageAttachmentAsXml(
-							pageName, DATA_FILE, systemLogin);
+					EntityTree dataXml = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
+							pageName, DATA_FILE, systemLogin));
 					for (EntityTree.TreeEntity entity : dataXml.getChildren()) {
 						data.put(entity.getName(), entity.getValue());
 					}
@@ -1126,13 +1109,13 @@ public class OpenForumController implements OpenForumScripting,
 				EntityTree dataToFileMap = null;
 				if (fileManager.pageAttachmentExists(pageName,
 						"data-file-map.xml", systemLogin)) {
-					dataToFileMap = fileManager.getPageAttachmentAsXml(
-							pageName, DATA_MAP_FILE, systemLogin);
+					dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
+							pageName, DATA_MAP_FILE, systemLogin));
 				} else if (fileManager.pageAttachmentExists(
 						OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, systemLogin)) {
-					dataToFileMap = fileManager
-							.getPageAttachmentAsXml(OPEN_FORUM_DEFAULT_PAGE_PATH,
-									DATA_MAP_FILE, systemLogin);
+					dataToFileMap = JSONHelper.toTree(fileManager
+							.getPageAttachmentAsString(OPEN_FORUM_DEFAULT_PAGE_PATH,
+									DATA_MAP_FILE, systemLogin));
 				}
 				if (dataToFileMap != null) {
 					for (int loop = 0; loop < dataToFileMap.getChildren()
@@ -1442,301 +1425,6 @@ public class OpenForumController implements OpenForumScripting,
 		return html;
 	}
 
-	private EntityTree getDataSearchResults(String listPage, EntityTree params,
-			Login login) throws Exception {
-		listPage = OpenForumNameHelper.titleToWikiName(listPage);
-		// EntityTree pages = catalogue.getPagesReferredTo(listPage);
-		String[][] pages = DataHelper.getPageAsList(fileManager
-				.getPageSourceAsString(listPage, login));
-
-		EntityTree nonBlankParams = new EntityTree("params");
-		for (int loop = 0; loop < params.getChildren().size(); loop++) {
-			EntityTree.TreeEntity param = params.getChildren().get(loop);
-			if (param.getName().charAt(0) != '_'
-					&& param.getValue().length() > 0) {
-				nonBlankParams.addChild(params.getChildren().get(loop));
-			}
-		}
-		params = nonBlankParams;
-
-		EntityTree matches = new EntityTree("matches");
-
-		for (int loop = 0; loop < pages.length; loop++) {
-			String pageName = pages[loop][1];
-
-			InputStream dataStream = null;
-			try {
-				dataStream = fileManager.getAttachmentInputStream(pageName,
-						DATA_FILE, systemLogin);
-			} catch (Exception e) {
-				continue;
-			}
-
-			EntityTree.TreeEntity data = XmlHelper.loadXml(dataStream, true)
-					.getRoot();
-			try {
-				dataStream.close();
-			} catch (Exception e) {
-			}
-
-			boolean match = true;
-			for (int loopP = 0; loopP < params.getChildren().size(); loopP++) {
-				EntityTree.TreeEntity param = params.getChildren().get(loopP);
-				String paramValue = param.getValue();
-
-				boolean matchState = true;
-				if (paramValue.charAt(0) == '!') {
-					matchState = true;
-					paramValue = paramValue.substring(1);
-				}
-
-				boolean wildCardSearch = false;
-				if (paramValue.charAt(0) == '*') {
-					wildCardSearch = true;
-					paramValue = paramValue.substring(1);
-				}
-
-				EntityTree.TreeEntity found = data.getChild(param.getName());
-				if (found != null) {
-					if (wildCardSearch) {
-						if (matchState == true) {
-							if (found.getValue().indexOf(paramValue) == -1) {
-								match = false;
-							}
-						} else {
-							if (found.getValue().indexOf(paramValue) != -1) {
-								match = false;
-							}
-						}
-					} else {
-						if (matchState == true) {
-							if (found.getValue().equals(paramValue) == false) {
-								match = false;
-							}
-						} else {
-							if (found.getValue().equals(paramValue)) {
-								match = false;
-							}
-						}
-					}
-				} else {
-					match = false;
-				}
-			}
-
-			if (match == true) {
-				EntityTree.TreeEntity page = matches.addChild("page");
-				page.setAttribute("page", pageName);
-				page.addChild(data);
-			}
-		}
-
-		// XmlSort.sortElement(matches,"page/data/index");
-		return matches;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.onestonesoup.wiki.controller.WikiControllerInterface#
-	 * buildDataSearchResultPage(java.lang.String,
-	 * org.onestonesoup.xml.EntityTree)
-	 */
-	public StringBuffer buildDataSearchResultPage(String listPage,
-			EntityTree params, Login login) throws Exception {
-		EntityTree matches = getDataSearchResults(listPage, params, login);
-
-		Map<String, String> localTemplateData = getStandardTemplateData(
-				SEARCH_RESULTS_PAGE_PATH, null, SYSTEM_NAME,
-				TimeHelper.getCurrentDisplayTimestamp());
-
-		String headerTemplate = fileManager.getPageInheritedFileAsString(
-				SEARCH_RESULTS_PAGE_PATH, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
-				systemLogin);
-		getRequiredTemplateInserts(SEARCH_RESULTS_PAGE_PATH, headerTemplate,
-				localTemplateData);
-		String header = TemplateHelper.generateStringWithTemplate(
-				headerTemplate, localTemplateData);
-		StringBuffer html = new StringBuffer(header);
-
-		if (matches.getChildren().size() == 0) {
-			html.append("<b>No Matches Found</b>");
-		} else {
-			html.append("<table class=\"wikiTable\"><tr>");
-			// html.append("<td class=\"wikiTableTitle\">&nbsp;</td>");
-			EntityTree.TreeEntity matchParams = matches.getChildren().get(0)
-					.getChildren().get(0);
-			String[] titles = new String[matchParams.getChildren().size()];
-
-			for (int loop = 0; loop < matchParams.getChildren().size(); loop++) {
-				titles[loop] = matchParams.getChildren().get(loop).getName();
-
-				if (matchParams.getChildren().get(loop).getName().charAt(0) == '_') {
-					continue;
-				}
-
-				html.append("<td class=\"wikiTableTitle\"><b>"
-						+ NameHelper.dataToTitleName(matchParams.getChildren()
-								.get(loop).getName()) + "</b></td>");
-			}
-			html.append("</tr>\n");
-
-			for (int loop = 0; loop < matches.getChildren().size(); loop++) {
-				String cellClass = null;
-
-				if (loop % 2 == 0) {
-					cellClass = "wikiTableEvenRow";
-				} else {
-					cellClass = "wikiTableOddRow";
-				}
-
-				EntityTree.TreeEntity xMatch = matches.getChildren().get(loop);
-				// html.append("<tr><td class=\""+cellClass+"\"><a href=\"/"+xMatch.getAttributeValueByName("page")+"\"><b>"+xMatch.getAttributeValueByName("page")+"</b></a></td>");
-				EntityTree.TreeEntity values = xMatch.getChildren().get(0);
-				for (int loopP = 0; loopP < matchParams.getChildren().size(); loopP++) {
-					if (matchParams.getChildren().get(loopP).getName()
-							.charAt(0) == '_') {
-						continue;
-					}
-
-					EntityTree.TreeEntity xValue = values.getChild(matchParams
-							.getChildren().get(loopP).getName());
-					String value = "";
-					if (xValue != null) {
-						value = xValue.getValue();
-					}
-
-					if (titles[loopP].equals("pageName")) {
-						value = xMatch.getAttribute("page");
-						if (value.lastIndexOf('/') > 0) {
-							value = value.substring(value.lastIndexOf('/') + 1);
-						}
-					}
-
-					if (value.length() > 30) {
-						value = value.substring(0, 27) + "...";
-					}
-					StringBuffer newValue = new StringBuffer();
-					WikiLinkParser linkRenderer = new WikiLinkParser(
-							"Search Results", EDIT_PAGE,
-							EDIT_LINK_DISPLAY_TEMPLATE, this);
-					Renderer.wikiToHtml("Search Results", value, newValue,
-							this, linkRenderer);
-					if (newValue.length() == 0) {
-						newValue.append("&nbsp;");
-					}
-
-					if (titles[loopP].equals("pageName")) {
-						// html.append("<tr><td class=\""+cellClass+"\"><a href=\"/"+xMatch.getAttributeValueByName("page")+"\"><b>"+xMatch.getAttributeValueByName("page")+"</b></a></td>");
-						String href = xMatch.getAttribute("page");
-						if (href.charAt(0) != '/') {
-							href = "/" + href;
-						}
-						html.append("<td class=\"" + cellClass
-								+ "\" nowrap=\"true\"><a href=\"" + href
-								+ "\">" + value + "</a></td>");
-					} else {
-						html.append("<td class=\"" + cellClass
-								+ "\" nowrap=\"true\">" + newValue.toString()
-								+ "</td>");
-					}
-				}
-				html.append("</tr>\n");
-			}
-			html.append("</table>");
-		}
-		String footerTemplate = fileManager.getPageInheritedFileAsString(
-				SEARCH_RESULTS_PAGE_PATH, FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
-				systemLogin);
-		getRequiredTemplateInserts(SEARCH_RESULTS_PAGE_PATH, footerTemplate,
-				localTemplateData);
-		String footer = TemplateHelper.generateStringWithTemplate(
-				footerTemplate, localTemplateData);
-
-		html.append(footer);
-
-		return html;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.onestonesoup.wiki.controller.WikiControllerInterface#
-	 * buildDataSearchResultTable(java.lang.String,
-	 * org.onestonesoup.xml.EntityTree)
-	 */
-	public StringBuffer buildDataSearchResultTable(String listPage,
-			EntityTree params, Login login) throws Exception {
-		EntityTree matches = getDataSearchResults(listPage, params, login);
-
-		EntityTree.TreeEntity matchParams = matches.getChildren().get(0)
-				.getChildren().get(0);
-		int columns = 0;
-
-		for (int loop = 0; loop < matchParams.getChildren().size(); loop++) {
-			if (matchParams.getChildren().get(loop).getName().charAt(0) == '_') {
-				continue;
-			}
-			columns++;
-		}
-
-		String[] columnNames = new String[columns];
-		for (int x = 0; x < columns; x++) {
-			columnNames[x] = "" + x;
-		}
-		EntityTable table = new EntityTable(columnNames);
-
-		try {
-			int columnCursor = 0;
-			for (int loop = 0; loop < matchParams.getChildren().size(); loop++) {
-				if (matchParams.getChildren().get(loop).getName().charAt(0) == '_') {
-					continue;
-				}
-				table.getColumnDefinitions().setColumn(
-						columnCursor,
-						NameHelper.dataToTitleName(matchParams.getChildren()
-								.get(loop).getName()));
-				columnCursor++;
-			}
-
-			for (int loop = 0; loop < matches.getChildren().size(); loop++) {
-				EntityTree.TreeEntity xMatch = matches.getChildren().get(loop);
-				EntityTree.TreeEntity values = xMatch.getChildren().get(0);
-				TableEntity row = table.addRow(new String[columns]);
-				columnCursor = 0;
-				for (int loopP = 0; loopP < matchParams.getChildren().size(); loopP++) {
-					if (matchParams.getChildren().get(loopP).getName()
-							.charAt(0) == '_') {
-						continue;
-					}
-
-					EntityTree.TreeEntity xValue = values.getChild(matchParams
-							.getChildren().get(loopP).getName());
-					String value = "";
-					if (xValue != null) {
-						value = xValue.getValue();
-					}
-					if (value.length() > 30) {
-						value = value.substring(0, 27) + "...";
-					}
-					if (value == null) {
-						value = "";
-					}
-					value = value.replace('\r', ' ');
-					value = value.replace('\n', ' ');
-
-					row.setColumn(columnCursor, "\"" + value + "\"");
-					columnCursor++;
-				}
-			}
-
-			return new StringBuffer(CSVHelper.toCSV(table));
-		} catch (Exception e) {
-			return new StringBuffer(StringHelper.arrayToString(
-					ExceptionHelper.getTrace(e), "\n"));
-		}
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -1773,12 +1461,12 @@ public class OpenForumController implements OpenForumScripting,
 			EntityTree dataToFileMap = null;
 			if (fileManager
 					.pageAttachmentExists(pageName, DATA_MAP_FILE, login)) {
-				dataToFileMap = fileManager.getPageAttachmentAsXml(pageName,
-						DATA_MAP_FILE, login);
+				dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(pageName,
+						DATA_MAP_FILE, login));
 			} else if (fileManager.pageAttachmentExists(
 					OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login)) {
-				dataToFileMap = fileManager.getPageAttachmentAsXml(
-						OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login);
+				dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
+						OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login));
 			}
 			if (dataToFileMap != null) {
 				for (int loop = 0; loop < dataToFileMap.getChildren().size(); loop++) {
@@ -1856,12 +1544,12 @@ public class OpenForumController implements OpenForumScripting,
 
 		EntityTree dataToFileMap = null;
 		if (fileManager.pageAttachmentExists(pageName, DATA_MAP_FILE, login)) {
-			dataToFileMap = fileManager.getPageAttachmentAsXml(pageName,
-					DATA_MAP_FILE, login);
+			dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(pageName,
+					DATA_MAP_FILE, login));
 		} else if (fileManager.pageAttachmentExists(OPEN_FORUM_DEFAULT_PAGE_PATH,
 				DATA_MAP_FILE, login)) {
-			dataToFileMap = fileManager.getPageAttachmentAsXml(
-					OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login);
+			dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
+					OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login));
 		}
 		if (dataToFileMap != null) {
 			for (int loop = 0; loop < dataToFileMap.getChildren().size(); loop++) {
@@ -1943,25 +1631,7 @@ public class OpenForumController implements OpenForumScripting,
 		buildPage(newPageName);
 
 		copyAttachments(sourcePageName, newPageName, login);
-		// boolean requiresIndex = false;
-
-		// If page has a data.xml file and it has an element index, update the
-		// index value
-		if (getFileManager()
-				.pageAttachmentExists(newPageName, DATA_FILE, login)) {
-			EntityTree data = getFileManager().getPageAttachmentAsXml(
-					newPageName, DATA_FILE, login);
-
-			if (data.getChild("index") != null) {
-				int index = updateListPage(newPageName, listPage, login, true);
-				data.getChild("index").setValue("" + index);
-				attachFile(newPageName, DATA_FILE, XmlHelper.toXml(data), true);
-			} else {
-				updateListPage(newPageName, listPage, login, false);
-			}
-		} else {
-			updateListPage(newPageName, listPage, login, false);
-		}
+		updateListPage(newPageName, listPage, login, false);
 
 		buildPage(newPageName);
 	}
@@ -1987,8 +1657,8 @@ public class OpenForumController implements OpenForumScripting,
 							false);
 				}
 
-				EntityTree indexValue = getFileManager()
-						.getPageAttachmentAsXml(listPageName, INDEX_FILE, login);
+				EntityTree indexValue = JSONHelper.toTree(getFileManager()
+						.getPageAttachmentAsString(listPageName, INDEX_FILE, login));
 				index = Integer.parseInt(indexValue.getValue());
 				indexValue.setValue("" + (index + 1));
 
@@ -2341,11 +2011,6 @@ public class OpenForumController implements OpenForumScripting,
 		return js;
 	}
 
-	public void setLogging(String pageName) {
-		// TODO
-		// router.setLogger(new WikiRouterMonitor(pageName));
-	}
-
 	public Map<String, String> getMimeTypes() {
 		return mimeTypes;
 	}
@@ -2357,11 +2022,6 @@ public class OpenForumController implements OpenForumScripting,
 		JavascriptEngine engine = new JavascriptEngine();
 		engine.startJavascript(id, "", true);
 		return null;
-	}
-
-	public void runScript(String scriptId) {
-		// TODO Auto-generated method stub
-
 	}
 
 	public String generateUniqueId() {
@@ -2460,8 +2120,8 @@ public class OpenForumController implements OpenForumScripting,
 			initialised = true;
 
 			logger.info("Building Wiki Catalogue");
-			EntityTree catalogueXml = fileManager.getPageAttachmentAsXml(
-					PAGES_INDEX_PAGE_PATH, PAGES_CATALOGUE_FILE, getSystemLogin());
+			EntityTree catalogueXml = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
+					PAGES_INDEX_PAGE_PATH, PAGES_CATALOGUE_FILE, getSystemLogin()));
 			catalogue = new PagesCatalogue(this, catalogueXml);
 			logger.info("Built Wiki Catalogue");
 
