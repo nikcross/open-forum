@@ -13,6 +13,8 @@ public interface ResourceStore {
 	
 	public abstract boolean isResourceFolder(String name);
 	public abstract boolean isResource(String name);
+	public abstract boolean resourceExists(Resource resource);
+	public abstract boolean resourceFolderExists(ResourceFolder resourceFolder);
 	
 	public abstract Resource buildResource(ResourceFolder folder,String name,byte[] data) throws IOException;
 	public abstract Resource buildResource(ResourceFolder folder,String name,InputStream iStream,long size) throws IOException;
@@ -40,4 +42,6 @@ public interface ResourceStore {
 	public abstract Resource[] listResources(ResourceFolder folder);
 	
 	public abstract URL getResourceURL(Resource resource) throws MalformedURLException;
+	
+	public abstract boolean isReadOnly();
 }

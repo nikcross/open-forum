@@ -158,4 +158,22 @@ public class TestResourceStore implements ResourceStore {
 		return null;
 	}
 
+	@Override
+	public boolean isReadOnly() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean resourceExists(Resource resource) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean resourceFolderExists(ResourceFolder resourceFolder) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

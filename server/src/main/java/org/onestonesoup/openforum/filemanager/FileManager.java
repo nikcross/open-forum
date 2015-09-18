@@ -422,26 +422,6 @@ public class FileManager {
 	 * (non-Javadoc)
 	 * 
 	 * @see
-	 * org.onestonesoup.wiki.file.manager.FileManager#getPageAttachmentAsXml
-	 * (java.lang.String, java.lang.String,
-	 * org.onestonesoup.authentication.server.Login)
-	 */
-	public EntityTree getPageAttachmentAsXml(String pageName,
-			String attachment, Login login) throws Exception,
-			AuthenticationException {
-		Resource file = getFile(pageName, attachment, login);
-		if (file == null) {
-			return null;
-		}
-		EntityTree dataXml = XmlHelper.loadXml(
-				resourceStore.getInputStream(file), true);
-		return dataXml;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
 	 * org.onestonesoup.wiki.file.manager.FileManager#unZipPageAttachment(java
 	 * .lang.String, java.lang.String,
 	 * org.onestonesoup.authentication.server.Login)

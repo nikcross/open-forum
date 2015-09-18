@@ -5,126 +5,282 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-import org.onestonesoup.openforum.controller.OpenForumController;
+import org.onestonesoup.core.FileHelper;
+
+/**
+ * Enables the use of multiple resource stores that can either be read/write or read only
+ * 
+ * Reads are served from the first store in the list that contains the resource.
+ * Writes are written to the first non read only store in the list.
+ * This allows for a reference set of files to be used with all updates written to a separate store.
+ * 
+ * @author nik
+ *
+ */
 
 public class ResourceStoreProxy implements ResourceStore {
-
-	private ResourceStore resourceStore;
+	
+	private List<ResourceStore> resourceStores = new ArrayList<ResourceStore>();
+	
 	public ResourceStoreProxy(ResourceStore resourceStore)
 	{
-		this.resourceStore = resourceStore;
+		resourceStores.add(resourceStore);
+	}
+	
+	public void addResourceStore(ResourceStore resourceStore) {
+		resourceStores.add(resourceStore);
 	}
 	
 	public void appendResource(Resource resource, byte[] data)
 			throws IOException {
-		resourceStore.appendResource(resource, data);
+		getResourceStoreToRead(resource).appendResource(resource, data);
 	}
 
 	public Resource buildResource(ResourceFolder folder, String name,
 			byte[] data) throws IOException {
-		return resourceStore.buildResource(folder, name, data);
+		return getResourceStoreToWrite(folder).buildResource(folder, name, data);
 	}
 
 	public Resource buildResource(ResourceFolder folder, String name,
 			InputStream stream, long size) throws IOException {
-		return resourceStore.buildResource(folder, name, stream, size);
+		return getResourceStoreToWrite(folder).buildResource(folder, name, stream, size);
 	}
 
 	public boolean copy(Resource sourceResource,
 			ResourceFolder targetResourceFolder, String name) {
-		return resourceStore.copy(sourceResource, targetResourceFolder, name);
+		
+		
+		try {
+			InputStream iStream = getResourceStoreToRead(sourceResource).getInputStream(sourceResource);
+			OutputStream oStream = getResourceStoreToWrite(targetResourceFolder).getOutputStream(targetResourceFolder, name);
+			
+			FileHelper.copyInputStreamToOutputStream(iStream, oStream);
+		} catch (IOException e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
 	}
 
 	public boolean copy(ResourceFolder sourceResourceFolder,
 			ResourceFolder targetResourceFolder) {
-		return resourceStore.copy(sourceResourceFolder, targetResourceFolder);
+		Resource[] resources = listResources(sourceResourceFolder);
+		boolean done = true;
+		for(Resource resource: resources) {
+			if(copy(resource, targetResourceFolder, resource.getName())==false) {
+				done = false;
+			}
+		}
+		return done;
 	}
 
 	public boolean delete(Resource resource) {
-		return resourceStore.delete(resource);
+		getResourceStoreToRead(resource).delete(resource);
+		return !resourceExists(resource);
 	}
 
 	public boolean delete(ResourceFolder folder) {
-		return resourceStore.delete(folder);
+		getResourceStoreToWrite(folder).delete(folder);
+		return !resourceFolderExists(folder);
 	}
 
 	public InputStream getInputStream(Resource resource) throws IOException {
-		return resourceStore.getInputStream(resource);
+		return getResourceStoreToRead(resource).getInputStream(resource);
 	}
 
 	public int getLength(Resource resource) {
-		return resourceStore.getLength(resource);
+		return getResourceStoreToRead(resource).getLength(resource);
 	}
 
 	public OutputStream getOutputStream(Resource resource) throws IOException {
-		return resourceStore.getOutputStream(resource);
+		return getResourceStoreToWrite(resource).getOutputStream(resource);
 	}
 
 	public OutputStream getOutputStream(ResourceFolder resourceFolder,
 			String name) throws IOException {
-		return resourceStore.getOutputStream(resourceFolder,name);
+		return getResourceStoreToWrite(resourceFolder).getOutputStream(resourceFolder,name);
 	}
 
 	public Resource getResource(String folderName) {
-		return resourceStore.getResource(folderName);
+		for(ResourceStore resourceStore: resourceStores) {
+			Resource resource = resourceStore.getResource(folderName);
+			if(resource!=null ){
+				return resource;
+			}
+		}
+		return null;
 	}
 
 	public ResourceFolder getResourceFolder(String folderName, boolean mkdirs) {
-		return resourceStore.getResourceFolder(folderName, mkdirs);
+		for(ResourceStore resourceStore: resourceStores) {
+			if(mkdirs==true && resourceStore.isReadOnly()) {
+				continue;
+			}
+			ResourceFolder resourceFolder = resourceStore.getResourceFolder(folderName,mkdirs);
+			if(resourceFolder!=null ){
+				return resourceFolder;
+			}
+		}
+		return null;
 	}
 
 	public boolean isResource(String name) {
-		return resourceStore.isResource(name);
+		for(ResourceStore resourceStore: resourceStores) {
+			if(resourceStore.isResource(name)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public boolean isResourceFolder(String name) {
-		return resourceStore.isResourceFolder(name);
+		for(ResourceStore resourceStore: resourceStores) {
+			if(resourceStore.isResourceFolder(name)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public long lastModified(Resource resource) {
-		return resourceStore.lastModified(resource);
+		long lastModified = 0;
+		for(ResourceStore resourceStore: resourceStores) {
+			if(lastModified==0 || resourceStore.lastModified(resource)<lastModified) {
+				lastModified =  resourceStore.lastModified(resource);
+			}
+		}
+		return lastModified;
 	}
 	
 	public long lastModified(ResourceFolder resource) {
-		return resourceStore.lastModified(resource);
+		long lastModified = 0;
+		for(ResourceStore resourceStore: resourceStores) {
+			if(lastModified==0 || resourceStore.lastModified(resource)<lastModified) {
+				lastModified =  resourceStore.lastModified(resource);
+			}
+		}
+		return lastModified;
 	}
 
 	public ResourceFolder[] listResourceFolders(ResourceFolder folder) {
-		return resourceStore.listResourceFolders(folder);
+		List<ResourceFolder> folders = new ArrayList<ResourceFolder>();
+		
+		for(ResourceStore resourceStore: resourceStores) {
+			folders.addAll( Arrays.asList(resourceStore.listResourceFolders(folder)) );
+		}
+		
+		return folders.toArray(new ResourceFolder[]{});
 	}
 
 	public Resource[] listResources(ResourceFolder folder) {
-		return resourceStore.listResources(folder);
+		List<Resource> resources = new ArrayList<Resource>();
+		
+		for(ResourceStore resourceStore: resourceStores) {
+			resources.addAll( Arrays.asList(resourceStore.listResources(folder)) );
+		}
+		
+		return resources.toArray(new Resource[]{});
 	}
 
 	public boolean move(Resource sourceResource,
 			ResourceFolder targetResourceFolder, String name) {
-		return resourceStore.move(sourceResource, targetResourceFolder, name);
+		return getResourceStoreToWrite(targetResourceFolder).move(sourceResource, targetResourceFolder, name);
 	}
 
 	public boolean move(ResourceFolder sourceResourceFolder,
 			ResourceFolder targetResourceFolder) {
-		return resourceStore.move(sourceResourceFolder, targetResourceFolder);
+		return getResourceStoreToWrite(targetResourceFolder).move(sourceResourceFolder, targetResourceFolder);
 	}
 
 	public boolean rename(ResourceFolder resourceFolder, String newName) {
-		return resourceStore.rename(resourceFolder, newName);
+		//Not possible if read-only
+		return getResourceStoreToWrite(resourceFolder).rename(resourceFolder, newName);
 	}
 
 	public InputStream retrieve(Resource resource) throws IOException {
-		return resourceStore.retrieve(resource);
+		return getResourceStoreToRead(resource).retrieve(resource);
 	}
 
 	public InputStream store(Resource resource) throws IOException {
-		return resourceStore.store(resource);
+		return getResourceStoreToRead(resource).store(resource);
 	}
 
 	public String getMD5(Resource resource) throws IOException {
-		return resourceStore.getMD5(resource);
+		return getResourceStoreToRead(resource).getMD5(resource);
 	}
 	
 	public URL getResourceURL(Resource resource) throws MalformedURLException {
-		return resourceStore.getResourceURL(resource);
+		return getResourceStoreToRead(resource).getResourceURL(resource);
+	}
+
+	@Override
+	public boolean isReadOnly() {
+		for(ResourceStore resourceStore: resourceStores) {
+			if(resourceStore.isReadOnly()==false) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	private ResourceStore getResourceStoreToRead(Resource resource) {
+		for(ResourceStore resourceStore: resourceStores) {
+			if(resourceStore.resourceExists(resource) ){
+				return resourceStore;
+			}
+		}
+		return null;
+	}
+	
+	private ResourceStore getResourceStoreToWrite(Resource resource) {
+		for(ResourceStore resourceStore: resourceStores) {
+			if(resourceStore.isReadOnly()==false ){
+				return resourceStore;
+			}
+		}
+		return null;
+	}
+	
+	private ResourceStore getResourceStoreToRead(ResourceFolder folder) {
+		for(ResourceStore resourceStore: resourceStores) {
+			if(resourceStore.resourceFolderExists(folder) ){
+				return resourceStore;
+			}
+		}
+		return null;
+	}
+	
+	private ResourceStore getResourceStoreToWrite(ResourceFolder folder) {
+		for(ResourceStore resourceStore: resourceStores) {
+			if(resourceStore.isReadOnly()==false ){
+				return resourceStore;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public boolean resourceExists(Resource resource) {
+		for(ResourceStore resourceStore: resourceStores) {
+			if(resourceStore.resourceExists(resource)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	@Override
+	public boolean resourceFolderExists(ResourceFolder resourceFolder) {
+		for(ResourceStore resourceStore: resourceStores) {
+			if(resourceStore.resourceFolderExists(resourceFolder)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
