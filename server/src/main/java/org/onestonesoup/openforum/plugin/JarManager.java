@@ -13,12 +13,15 @@ import org.onestonesoup.core.ExceptionHelper;
 import org.onestonesoup.core.FileHelper;
 import org.onestonesoup.core.StringHelper;
 import org.onestonesoup.core.data.EntityTree;
+import org.onestonesoup.core.javascript.JSONHelper;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.DataHelper;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileManager;
 import org.onestonesoup.openforum.filemanager.Resource;
 import org.onestonesoup.openforum.security.AuthenticationException;
+
+import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
 
 
 public class JarManager{
@@ -273,7 +276,7 @@ public class JarManager{
 	
 	private String getClassNameForApi(String pageName) throws Exception
 	{
-		EntityTree data = controller.getFileManager().getPageAttachmentAsXml(pageName,"data.xml",controller.getSystemLogin());
+		EntityTree data = JSONHelper.toTree(controller.getFileManager().getPageAttachmentAsString(pageName,DATA_FILE,controller.getSystemLogin()));
 		if(data==null)
 		{
 			return null;
