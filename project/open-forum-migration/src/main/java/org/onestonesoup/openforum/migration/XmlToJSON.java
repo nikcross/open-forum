@@ -12,13 +12,13 @@ import org.onestonesoup.core.file.DirectoryCrawler.FileListener;
 import org.onestonesoup.core.javascript.JSONHelper;
 import org.onestonesoup.core.process.CommandLineTool;
 
-public class AccessXmlToJSON extends CommandLineTool implements FileListener {
+public class XmlToJSON extends CommandLineTool implements FileListener {
 	
 	public static final void main(String[] args) {
-		new AccessXmlToJSON(args);
+		new XmlToJSON(args);
 	}
 	
-	public AccessXmlToJSON(String[] args) {
+	public XmlToJSON(String[] args) {
 		super(args);
 	}
 
@@ -46,9 +46,7 @@ public class AccessXmlToJSON extends CommandLineTool implements FileListener {
 	}
 
 	public void fileFound(File file) {
-		if (!file.getName().startsWith("access.") 
-				|| file.getName().endsWith(".json")
-				|| file.getName().endsWith(".sjs")) {
+		if ( !file.getName().endsWith(".xml") ) {
 			return;
 		}
 		
@@ -58,9 +56,11 @@ public class AccessXmlToJSON extends CommandLineTool implements FileListener {
 			data = data.replaceAll("'","\"");
 			EntityTree xml = XmlHelper.parseElement(data);
 			String json = JSONHelper.toJSON(xml);
-			FileHelper.saveStringToFile(json, file.getAbsolutePath()+".json");
 			
-			file.delete();
+			String newFileName = file.getAbsolutePath().replace("xml", "json");
+			FileHelper.saveStringToFile(json, newFileName);
+			
+			//file.delete();
 		} catch (XmlParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

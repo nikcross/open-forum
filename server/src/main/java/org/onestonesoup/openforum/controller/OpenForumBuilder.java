@@ -9,12 +9,6 @@ public interface OpenForumBuilder extends OpenForum{
 	String version1, String version2) throws Exception,
 	AuthenticationException;
 
-	public abstract String buildEditPage(String pageName, Login login)
-	throws AuthenticationException;
-
-	public abstract StringBuffer buildHistoryPage(String pageName)
-	throws Exception, AuthenticationException;
-
 	public abstract StringBuffer buildPage(String name) throws Exception,
 	AuthenticationException;
 
@@ -26,12 +20,6 @@ public interface OpenForumBuilder extends OpenForum{
 
 	public abstract String buildPageSection(String name,int section) throws Exception,
 	AuthenticationException;
-
-	public abstract String buildReferencesForPage(String pageName) throws Exception, AuthenticationException;
-
-	public abstract void buildReferringPages(String pageName) throws Exception, AuthenticationException;
-
-	public abstract String buildTagsForPage(String pageName);
 
 	public abstract String getAliasLink(String name) throws Exception;
 

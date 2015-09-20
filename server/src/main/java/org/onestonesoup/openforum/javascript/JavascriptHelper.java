@@ -2,7 +2,6 @@ package org.onestonesoup.openforum.javascript;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,31 +10,23 @@ import javax.xml.bind.DatatypeConverter;
 import org.mozilla.javascript.NativeObject;
 import org.mozilla.javascript.ScriptableObject;
 import org.onestonesoup.core.TemplateHelper;
-import org.onestonesoup.core.data.EntityTree;
-import org.onestonesoup.core.data.XmlHelper;
-import org.onestonesoup.core.data.XmlHelper.XmlParseException;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
-import org.onestonesoup.openforum.DataHelper;
-import org.onestonesoup.openforum.catalogue.PagesCatalogue;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileManager;
-import org.onestonesoup.openforum.security.AuthenticationException;
 import org.onestonesoup.openforum.security.Login;
 
 public class JavascriptHelper {
 	
 	private OpenForumController controller;
-	private PagesCatalogue catalogue;
 	private FileManager fileManager;
 	private Login login;
 	private Map<String,NativeObject> functions = new HashMap<String,NativeObject>();
 	private JavascriptEngine engine;
 	
-	public JavascriptHelper(JavascriptEngine engine,OpenForumController controller,PagesCatalogue catalogue,FileManager fileManager,Login login)
+	public JavascriptHelper(JavascriptEngine engine,OpenForumController controller,FileManager fileManager,Login login)
 	{
 		this.engine = engine;
 		this.controller = controller;
-		this.catalogue = catalogue;
 		this.fileManager = fileManager;
 		this.login = login;
 	}

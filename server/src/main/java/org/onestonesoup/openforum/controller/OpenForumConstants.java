@@ -15,6 +15,10 @@ public interface OpenForumConstants {
 	public static final String PAGE_FILE = "page.html";
 	public static final String WIKI_FILE = "page.wiki"; //TODO change to page.template in a move away from wiki
 	public static final String PAGE_BUILD_JS = "page.build.js";
+	public static final String GET_SJS_FILE = "get.sjs";
+	public static final String POST_SJS_FILE = "post.sjs";
+	public static final String HOOK_SJS = "hook.sjs";
+	public static final String TRIGGER_SJS = "trigger.sjs";
 	public static final String UPDATE_WIKI_TEMPLATE = "update.wiki.template"; // TODO remove this
 	
 	public static final String EDIT_FORM_HTML_TEMPLATE = "edit-form.html.template";
@@ -28,12 +32,18 @@ public interface OpenForumConstants {
 	public static final String FOOTER_HTML_TEMPLATE = "footer.html.template";
 	public static final String FRAGMENT_FILE = "page.html.fragment";
 	public static final String HEADER_HTML_TEMPLATE = "header.html.template";
-	public static final String PAGES_CATALOGUE_FILE = "pages-catalogue.xml"; //TODO convert to json
 	
 	public static final String LEFT_MENU_PAGE_NAME = "LeftMenu";
+
+	public static final String DEFAULT_HOME_PAGE_PATH = "/OpenForum/Home"; //Moved
 	public static final String MISSING_PAGES_PATH = "/OpenForum/MissingPages"; //Moved
 	public static final String PAGES_INDEX_PAGE_PATH = "/OpenForum/PagesIndex"; //Moved
 	public static final String OPEN_FORUM_DEFAULT_PAGE_PATH = "/OpenForum/Page";
 	public static final String WIKI_JOURNAL_PAGE_PATH = "/OpenForum/WikiJournal"; //Moved
+
+
+	public static final String PAGE_404_PATH = "/OpenForum/404/";
+	public static final String PAGE_401_PATH = "/OpenForum/401/";
+	public static final String PAGE_500_PATH = "/OpenForum/500/";
 
 }

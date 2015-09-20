@@ -7,11 +7,12 @@ import java.util.Map;
 import org.onestonesoup.core.TemplateHelper;
 import org.onestonesoup.core.data.KeyValuePair;
 import org.onestonesoup.openforum.OpenForumNameHelper;
+import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.javascript.JavascriptHelper;
 import org.onestonesoup.openforum.security.AuthenticationException;
 
-public class WikiLinkParser {
+public class WikiLinkParser implements OpenForumConstants {
 
 	public String pageName;
 	public Map<String,String> attachmentLinks = new HashMap<String,String>();
@@ -71,7 +72,6 @@ public class WikiLinkParser {
 			if(getWikiLink(href)!=null)
 			{
 				href = getWikiLink(href);
-				controller.getCatalogue().addReference(pageName,href);
 				if(href.charAt(0)!='/')
 				{
 					href="/"+href;
@@ -153,7 +153,6 @@ public class WikiLinkParser {
 						if(isDynamic==false)
 						{
 							controller.addMissingPage(wikiHref,pageName);
-							controller.getCatalogue().addReference(pageName,wikiHref);
 						
 							href=editPageLink+wikiHref;
 							Map<String,String> templateData = new HashMap<String,String>();
@@ -173,8 +172,6 @@ public class WikiLinkParser {
 				else
 				{
 					href=getWikiLink(wikiHref);
-					
-					controller.getCatalogue().addReference(pageName,wikiHref);
 				}
 			}
 		}
@@ -191,26 +188,7 @@ public class WikiLinkParser {
 		return links;
 	}
 	
-	//TODO
-	/*public StringBuffer getAttachments(OpenForumController controller) throws Exception,AuthenticationException
-	{
-		StringBuffer attachmentsHtml = new StringBuffer();
-		attachmentsHtml.append("<DIV id='attachments'></DIV>\n<script>\n");
-		attachmentsHtml.append("includeLibrary('/OpenForum/Javascript/tree.js');\n");
-		attachmentsHtml.append("function initAttachments() {\n");
-		
-		attachmentsHtml.append( new JavascriptHelper(null,null,controller,controller.getCatalogue(),controller.getFileManager(),controller.getSystemLogin()).getAttachmentsJS(pageName,getAttachmentsForPage(controller)) );
-		
-		attachmentsHtml.append("tree.buildTree(xNode,'attachments')\n}\n");
-		attachmentsHtml.append("includeInitFunction('initAttachments()')");
-
-		attachmentsHtml.append("</script>\n");
-		
-		
-		return attachmentsHtml;
-	}*/
-	
-	private String getWikiLink(String wikiHref)
+	private String getWikiLink(String wikiHref) throws AuthenticationException, Exception
 	{
 		String link = null;
 		if(wikiHref==null || wikiHref.length()==0)
@@ -218,9 +196,9 @@ public class WikiLinkParser {
 			return null;
 		}
 		
-		if( controller.getCatalogue().pageExists(wikiHref) )
+		if( controller.getFileManager().attachmentExists(wikiHref, PAGE_FILE, controller.getSystemLogin()))
 		{
-			link = controller.getCatalogue().getRegularName(wikiHref);
+			link = OpenForumNameHelper.titleToWikiName(wikiHref);
 		}
 		else
 		{

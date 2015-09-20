@@ -2,13 +2,14 @@ package org.onestonesoup.openforum.trigger;
 
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.DataHelper;
+import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.javascript.JavascriptExternalResourceHelper;
 import org.onestonesoup.openforum.javascript.JavascriptFileHelper;
 import org.onestonesoup.openforum.javascript.JavascriptHelper;
 import org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper;
 
-public abstract class Trigger {
+public abstract class Trigger implements OpenForumConstants {
 
 	private long timeStamp = -1;
 	private String[][] listeners;
@@ -78,7 +79,7 @@ public abstract class Trigger {
 			String pageName = listeners[loop][1];
 			
 			try{
-				String script = controller.getFileManager().getPageAttachmentAsString(pageName,"trigger.sjs",controller.getSystemLogin());
+				String script = controller.getFileManager().getPageAttachmentAsString(pageName,TRIGGER_SJS,controller.getSystemLogin());
 				script = "function triggerSJS() {"+script+"} triggerSJS();";
 				
 				JavascriptEngine js = controller.getJavascriptEngine(controller.getSystemLogin());
@@ -90,7 +91,7 @@ public abstract class Trigger {
 				js.mount("triggerValue",value);
 				js.mount("triggerReason",reason);
 								
-				new TriggerProcessThread( js,pageName+"/trigger.sjs",script );
+				new TriggerProcessThread( js,pageName+"/"+TRIGGER_SJS,script );
 			}
 			catch(Throwable th)
 			{

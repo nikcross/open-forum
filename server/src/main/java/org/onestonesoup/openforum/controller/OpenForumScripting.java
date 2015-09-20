@@ -1,6 +1,8 @@
 package org.onestonesoup.openforum.controller;
 
-public interface OpenForumScripting {
+import org.onestonesoup.javascript.engine.JavascriptEngine;
+import org.onestonesoup.openforum.security.Login;
 
-	public String startJavascript() throws Throwable;
+public interface OpenForumScripting {
+	JavascriptEngine getJavascriptEngine(Login login);
 }

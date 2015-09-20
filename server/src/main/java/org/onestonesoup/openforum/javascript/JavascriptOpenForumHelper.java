@@ -27,13 +27,6 @@ public class JavascriptOpenForumHelper {
 		this.login = login;
 	}
 
-	public String[] getPages() {
-		String[] pageNames = controller.getCatalogue().getPageNames()
-				.toArray(new String[] {});
-		Arrays.sort(pageNames);
-		return pageNames;
-	}
-
 	public void addToListPage(String listPageName, String pageName)
 			throws Exception, AuthenticationException {
 		controller.addToListPage(listPageName, pageName, login);
@@ -111,15 +104,6 @@ public class JavascriptOpenForumHelper {
 			AuthenticationException {
 		long ts = controller.getPageTimeStamp(pageName);
 		return TimeHelper.getDateTimeStamp(new Date(ts));
-	}
-
-	public String buildEditPage(String pageName) throws AuthenticationException {
-		return controller.buildEditPage(pageName, login);
-	}
-
-	public String buildHistoryPage(String pageName) throws Exception,
-			AuthenticationException {
-		return controller.buildHistoryPage(pageName).toString();
 	}
 
 	public String buildDifferencesPage(String pageName, String version1,

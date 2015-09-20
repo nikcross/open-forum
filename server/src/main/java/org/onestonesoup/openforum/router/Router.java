@@ -18,6 +18,7 @@ import org.onestonesoup.openforum.DataHelper;
 import org.onestonesoup.openforum.OpenForumException;
 import org.onestonesoup.openforum.OpenForumNameHelper;
 import org.onestonesoup.openforum.Stream;
+import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileManager;
 import org.onestonesoup.openforum.filemanager.FileServer;
@@ -44,7 +45,7 @@ import org.onestonesoup.openforum.transaction.Transaction;
  * @author nik
  *
  */
-public class Router {
+public class Router implements OpenForumConstants{
 
 	private OpenForumController controller;
 
@@ -545,10 +546,10 @@ public class Router {
 			ClientConnectionInterface connection, String pageName, Login login,
 			String exceptionMessage) throws Throwable {
 		String script = controller.getFileManager().getPageAttachmentAsString(
-				"500", "get.sjs", login);
+				PAGE_500_PATH, GET_SJS_FILE, login);
 		script = "function getSJS() {" + script + "} getSJS();";
 
-		String jsFile = "500/get.sjs";
+		String jsFile = PAGE_500_PATH+GET_SJS_FILE;
 
 		JavascriptEngine js = controller.getJavascriptEngine(login);
 
@@ -597,9 +598,9 @@ public class Router {
 			// then apend .html to the request
 			if (request.length() > 1
 					&& fileServer.fileExists(OpenForumNameHelper
-							.titleToWikiName(request) + "/page.html")) {
+							.titleToWikiName(request) + "/" + PAGE_FILE)) {
 				request = OpenForumNameHelper.titleToWikiName(request);
-				request = request + "/page.html";
+				request = request + "/" + PAGE_FILE;
 				cacheTime = 1;
 			} else if (request.length() > 1
 					&& fileServer.fileExists(request) == false
@@ -616,11 +617,11 @@ public class Router {
 				// (page.html)
 				if (FileHelper.getExtension(request).equals("html")) {
 					request = request.substring(0, request.length() - 5)
-							+ "/page.html";
+							+ "/" + PAGE_FILE;
 				} else {
 					// else append the request with page.html
 					request = request.substring(0, request.length())
-							+ "/page.html";
+							+ "/" + PAGE_FILE;
 				}
 				cacheTime = 1;
 			}
@@ -638,12 +639,12 @@ public class Router {
 				controller.getLogger().info("404 File Not Found sent for request "
 						+ request + " to " + connection.getInetAddress());
 				
-				if(fileServer.fileExists("/404/404.sjs")) {
+				if(fileServer.fileExists(PAGE_404_PATH + "/" + HOOK_SJS)) {
 					try{
-						String script = controller.getFileManager().getPageAttachmentAsString("404", "404.sjs", login);
+						String script = controller.getFileManager().getPageAttachmentAsString(PAGE_404_PATH, HOOK_SJS, login);
 						JavascriptEngine engine = controller.getJavascriptEngine(login);
 						engine.mount("request", request);
-						engine.runJavascript("/404/404.sjs", script);
+						engine.runJavascript(PAGE_404_PATH + "/" + HOOK_SJS, script);
 					} catch (Throwable e) {
 						controller.getLogger().error(e.getMessage());
 						e.printStackTrace();

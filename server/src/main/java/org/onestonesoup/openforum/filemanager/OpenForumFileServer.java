@@ -7,13 +7,11 @@ import java.util.Map;
 import java.util.zip.GZIPOutputStream;
 
 import org.onestonesoup.core.FileHelper;
+import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
 
-public class OpenForumFileServer implements FileServer {
-
-	private static final String PAGE_404 = "/404/page.html";
-	private static final String PAGE_401 = "/401/page.html";
+public class OpenForumFileServer implements FileServer,OpenForumConstants {
 
 	private ResourceStore resourceStore;
 	private Map<String, String> types = new HashMap<String, String>();
@@ -76,12 +74,12 @@ public class OpenForumFileServer implements FileServer {
 
 	public long send401File(ClientConnectionInterface connection)
 			throws IOException {
-		return sendFile(connection, PAGE_401);
+		return sendFile(connection, PAGE_401_PATH+PAGE_FILE);
 	}
 
 	public long send404(ClientConnectionInterface connection)
 			throws IOException {
-		return sendFile(connection, PAGE_404);
+		return sendFile(connection, PAGE_404_PATH+PAGE_FILE);
 	}
 
 	public long sendFile(ClientConnectionInterface connection, String request)
@@ -93,11 +91,11 @@ public class OpenForumFileServer implements FileServer {
 			boolean compress) throws IOException {
 		Resource resource = null;
 		if (request == null) {
-			resource = resourceStore.getResource(PAGE_404);
+			resource = resourceStore.getResource(PAGE_404_PATH+PAGE_FILE);
 		} else {
 			resource = resourceStore.getResource(request);
 			if (resource == null) {
-				resource = resourceStore.getResource(PAGE_404);
+				resource = resourceStore.getResource(PAGE_404_PATH+PAGE_FILE);
 			}
 		}
 

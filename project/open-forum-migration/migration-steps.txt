@@ -1,0 +1,9 @@
+Convert .xml files to .json
+
+Move /OpenForum/Home
+Move /OpenForum/MissingPages
+Move /OpenForum/PagesIndex
+Move /OpenForum/Page
+Move /OpenForum/WikiJournal
+
+Change all templates to use openforum.js
