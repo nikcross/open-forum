@@ -1,4 +1,5 @@
 Convert .xml files to .json
+Rename page.wiki to page.content
 
 Move /OpenForum/Home
 Move /OpenForum/MissingPages

@@ -1572,14 +1572,15 @@ public class OpenForumController implements OpenForumScripting,
 
 		// Create processors for use by the script
 		JavascriptHelper jsHelper = new JavascriptHelper(js, this, getFileManager(), login);
-		JavascriptOpenForumHelper wikiHelper = new JavascriptOpenForumHelper(
+		JavascriptOpenForumHelper openForumHelper = new JavascriptOpenForumHelper(
 				this, login);
 		JavascriptExternalResourceHelper externalHelper = new JavascriptExternalResourceHelper(
 				getFileManager(), login);
 		JavascriptFileHelper fileHelper = new JavascriptFileHelper(this, login);
 		js.mount("JSON", new JSON(js));
 		js.mount("js", jsHelper);
-		js.mount("wiki", wikiHelper);
+		js.mount("wiki", openForumHelper); // Deprecated
+		js.mount("openForum", openForumHelper);
 		js.mount("external", externalHelper);
 		js.mount("file", fileHelper);
 		js.mount("log", logger);
