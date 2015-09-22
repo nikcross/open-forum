@@ -21,8 +21,9 @@ public class LocalDriveResourceStore implements ResourceStore {
 	private File rootFile;
 	private int pathOffset = 0;
 
-	public LocalDriveResourceStore(String root) {
+	public LocalDriveResourceStore(String root,boolean readOnly) {
 		this.rootFile = new File(root);
+		this.readOnly = readOnly;
 	}
 
 	public void setPathOffset(String path) {

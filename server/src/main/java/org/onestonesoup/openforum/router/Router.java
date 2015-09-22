@@ -193,7 +193,7 @@ public class Router implements OpenForumConstants{
 			OpenForumController controller) throws Exception {
 
 		this.fileServer = new OpenForumFileServer(
-				new ResourceStoreProxy(controller.getFileManager().getResourceStore(Login.getGuestLogin())),
+				controller.getFileManager().getResourceStore(Login.getGuestLogin()),
 				controller, controller.getMimeTypes());
 
 		this.controller = controller;

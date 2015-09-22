@@ -29,6 +29,8 @@ import org.onestonesoup.openforum.Stream;
 import org.onestonesoup.openforum.TimeHelper;
 import org.onestonesoup.openforum.filemanager.FileManager;
 import org.onestonesoup.openforum.filemanager.LocalDriveResourceStore;
+import org.onestonesoup.openforum.filemanager.ResourceStore;
+import org.onestonesoup.openforum.filemanager.ResourceStoreProxy;
 import org.onestonesoup.openforum.javascript.JavascriptExternalResourceHelper;
 import org.onestonesoup.openforum.javascript.JavascriptFileHelper;
 import org.onestonesoup.openforum.javascript.JavascriptHelper;
@@ -116,6 +118,52 @@ public class OpenForumController implements OpenForumScripting,
 
 	private Logger logger = new Logger();
 
+	private FileManager initialiseFileManager(String rootFolderName) throws Exception {
+		
+		FileManager newFileManager = new FileManager(domainName, pageChangeTrigger, this);
+		newFileManager
+				.setResourceStore(new LocalDriveResourceStore(rootFolderName,false));
+		
+		
+		if (newFileManager.pageExists("/OpenForum/Configuration",
+				getSystemLogin())) {
+			
+			KeyValueListPage keyValueListPage = new KeyValueListPage( newFileManager, "/OpenForum/Configuration");
+			ResourceStoreProxy resourceStore = null;
+			boolean hasMoreResourceStores = true;
+			int resourceStoreIndex = 0;
+			
+			while(hasMoreResourceStores) {
+				String storeEntry = keyValueListPage.getValue("resourceStore"+resourceStoreIndex);
+				if(storeEntry==null) {
+					hasMoreResourceStores = false;
+					continue;
+				}
+				
+				if(storeEntry.startsWith("read-only:")) {
+					if(resourceStore==null) {
+						resourceStore = new ResourceStoreProxy(new LocalDriveResourceStore(storeEntry.substring(10),true));
+					} else {
+						resourceStore.addResourceStore(new LocalDriveResourceStore(storeEntry.substring(10),true));
+					}
+				} else {
+					if(resourceStore==null) {
+						resourceStore = new ResourceStoreProxy(new LocalDriveResourceStore(storeEntry,false));
+					} else {
+						resourceStore.addResourceStore(new LocalDriveResourceStore(storeEntry,false));
+					}
+				}
+				resourceStoreIndex++;
+			}
+
+			if(resourceStore!=null) {
+				newFileManager.setResourceStore(resourceStore);
+			}
+		}
+		
+		return newFileManager;
+	}
+	
 	public OpenForumController(String rootFolderName, String domainName)
 			throws Exception, AuthenticationException {
 		authenticator = new DummyAuthenticator();
@@ -123,9 +171,8 @@ public class OpenForumController implements OpenForumScripting,
 
 		pageChangeTrigger = new PageChangeTrigger(this);
 
-		fileManager = new FileManager(domainName, pageChangeTrigger, this);
-		fileManager
-				.setResourceStore(new LocalDriveResourceStore(rootFolderName));
+		fileManager = initialiseFileManager(rootFolderName);
+		
 		fileManager.setVersionController(new DefaultVersionController(
 				fileManager.getResourceStore(systemLogin)));
 

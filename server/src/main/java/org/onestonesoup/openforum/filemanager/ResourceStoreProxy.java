@@ -37,7 +37,7 @@ public class ResourceStoreProxy implements ResourceStore {
 	
 	public void appendResource(Resource resource, byte[] data)
 			throws IOException {
-		getResourceStoreToRead(resource).appendResource(resource, data);
+		getResourceStoreToWrite(resource).appendResource(resource, data);
 	}
 
 	public Resource buildResource(ResourceFolder folder, String name,
@@ -150,8 +150,10 @@ public class ResourceStoreProxy implements ResourceStore {
 	public long lastModified(Resource resource) {
 		long lastModified = 0;
 		for(ResourceStore resourceStore: resourceStores) {
-			if(lastModified==0 || resourceStore.lastModified(resource)<lastModified) {
-				lastModified =  resourceStore.lastModified(resource);
+			if(resourceStore.resourceExists(resource)) {
+				if(lastModified==0 || resourceStore.lastModified(resource)<lastModified) {
+					lastModified =  resourceStore.lastModified(resource);
+				}
 			}
 		}
 		return lastModified;
@@ -160,8 +162,10 @@ public class ResourceStoreProxy implements ResourceStore {
 	public long lastModified(ResourceFolder resource) {
 		long lastModified = 0;
 		for(ResourceStore resourceStore: resourceStores) {
-			if(lastModified==0 || resourceStore.lastModified(resource)<lastModified) {
-				lastModified =  resourceStore.lastModified(resource);
+			if(resourceStore.resourceFolderExists(resource)) {
+				if(lastModified==0 || resourceStore.lastModified(resource)<lastModified) {
+					lastModified =  resourceStore.lastModified(resource);
+				}
 			}
 		}
 		return lastModified;
@@ -171,7 +175,9 @@ public class ResourceStoreProxy implements ResourceStore {
 		List<ResourceFolder> folders = new ArrayList<ResourceFolder>();
 		
 		for(ResourceStore resourceStore: resourceStores) {
-			folders.addAll( Arrays.asList(resourceStore.listResourceFolders(folder)) );
+			if(resourceStore.resourceFolderExists(folder)) {
+				folders.addAll( Arrays.asList(resourceStore.listResourceFolders(folder)) );
+			}
 		}
 		
 		return folders.toArray(new ResourceFolder[]{});
@@ -181,7 +187,9 @@ public class ResourceStoreProxy implements ResourceStore {
 		List<Resource> resources = new ArrayList<Resource>();
 		
 		for(ResourceStore resourceStore: resourceStores) {
-			resources.addAll( Arrays.asList(resourceStore.listResources(folder)) );
+			if(resourceStore.resourceFolderExists(folder)) {
+				resources.addAll( Arrays.asList(resourceStore.listResources(folder)) );
+			}
 		}
 		
 		return resources.toArray(new Resource[]{});
