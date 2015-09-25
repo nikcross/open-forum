@@ -17,7 +17,6 @@ import org.onestonesoup.core.TemplateHelper;
 import org.onestonesoup.core.data.EntityTree;
 import org.onestonesoup.core.data.KeyValuePair;
 import org.onestonesoup.core.data.XmlHelper;
-import org.onestonesoup.core.javascript.JSONHelper;
 import org.onestonesoup.javascript.engine.JSON;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.DataHelper;
@@ -805,17 +804,17 @@ public class OpenForumController implements OpenForumScripting,
 			try {
 
 				Map<String, String> data = new HashMap<String, String>();
-				if (fileManager.pageAttachmentExists(pageName, DATA_FILE,
+				/*if (fileManager.pageAttachmentExists(pageName, DATA_FILE,
 						systemLogin)) {
 					EntityTree dataXml = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
 							pageName, DATA_FILE, systemLogin));
 					for (EntityTree.TreeEntity entity : dataXml.getChildren()) {
 						data.put(entity.getName(), entity.getValue());
 					}
-				}
+				}*/
 				data.put("pageName", pageName);
 
-				EntityTree dataToFileMap = null;
+/*				EntityTree dataToFileMap = null;
 				if (fileManager.pageAttachmentExists(pageName,
 						"data-file-map.xml", systemLogin)) {
 					dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
@@ -848,7 +847,7 @@ public class OpenForumController implements OpenForumScripting,
 							data.put(from, fileData);
 						}
 					}
-				}
+				}*/
 				getRequiredTemplateInserts(pageName, form, data);
 
 				return TemplateHelper.generateStringWithTemplate(form, data);
@@ -1083,7 +1082,7 @@ public class OpenForumController implements OpenForumScripting,
 
 		if (postParameters != null) {
 			EntityTree dataToFileMap = null;
-			if (fileManager
+/*			if (fileManager
 					.pageAttachmentExists(pageName, DATA_MAP_FILE, login)) {
 				dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(pageName,
 						DATA_MAP_FILE, login));
@@ -1091,7 +1090,7 @@ public class OpenForumController implements OpenForumScripting,
 					OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login)) {
 				dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
 						OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login));
-			}
+			}*/
 			if (dataToFileMap != null) {
 				for (int loop = 0; loop < dataToFileMap.getChildren().size(); loop++) {
 					EntityTree.TreeEntity mapping = dataToFileMap.getChildren()
@@ -1167,14 +1166,14 @@ public class OpenForumController implements OpenForumScripting,
 				updateTemplate, dataTable);
 
 		EntityTree dataToFileMap = null;
-		if (fileManager.pageAttachmentExists(pageName, DATA_MAP_FILE, login)) {
+/*		if (fileManager.pageAttachmentExists(pageName, DATA_MAP_FILE, login)) {
 			dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(pageName,
 					DATA_MAP_FILE, login));
 		} else if (fileManager.pageAttachmentExists(OPEN_FORUM_DEFAULT_PAGE_PATH,
 				DATA_MAP_FILE, login)) {
 			dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
 					OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login));
-		}
+		}*/
 		if (dataToFileMap != null) {
 			for (int loop = 0; loop < dataToFileMap.getChildren().size(); loop++) {
 				EntityTree.TreeEntity mapping = dataToFileMap.getChildren()
@@ -1281,13 +1280,13 @@ public class OpenForumController implements OpenForumScripting,
 							false);
 				}
 
-				EntityTree indexValue = JSONHelper.toTree(getFileManager()
+				/*EntityTree indexValue = JSONHelper.toTree(getFileManager()
 						.getPageAttachmentAsString(listPageName, INDEX_FILE, login));
 				index = Integer.parseInt(indexValue.getValue());
 				indexValue.setValue("" + (index + 1));
 
 				attachFile(listPageName, INDEX_FILE,
-						XmlHelper.toXml(indexValue), false);
+						XmlHelper.toXml(indexValue), false);*/
 			}
 		}
 
