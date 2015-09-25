@@ -1,5 +1,7 @@
 package org.onestonesoup.openforum.plugin;
 
+import static org.onestonesoup.openforum.controller.OpenForumConstants.DATA_FILE;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -13,15 +15,14 @@ import org.onestonesoup.core.ExceptionHelper;
 import org.onestonesoup.core.FileHelper;
 import org.onestonesoup.core.StringHelper;
 import org.onestonesoup.core.data.EntityTree;
-import org.onestonesoup.core.javascript.JSONHelper;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.DataHelper;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileManager;
 import org.onestonesoup.openforum.filemanager.Resource;
+import org.onestonesoup.openforum.javascript.JSONJavaAccess;
+import org.onestonesoup.openforum.javascript.JSONJavaAccess.JSONWrapper;
 import org.onestonesoup.openforum.security.AuthenticationException;
-
-import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
 
 
 public class JarManager{
@@ -274,14 +275,14 @@ public class JarManager{
 		return jars;
 	}
 	
-	private String getClassNameForApi(String pageName) throws Exception
+	private String getClassNameForApi(String pageName) throws Throwable
 	{
-		EntityTree data = JSONHelper.toTree(controller.getFileManager().getPageAttachmentAsString(pageName,DATA_FILE,controller.getSystemLogin()));
-		if(data==null)
-		{
+		if(controller.getFileManager().attachmentExists(pageName,DATA_FILE,controller.getSystemLogin())) {
+			JSONWrapper data = new JSONJavaAccess(controller).getJSON(pageName,DATA_FILE);
+			return data.get("apiClass");
+		} else {
 			return null;
 		}
-		return data.getChild("apiClass").getValue();
 	}
 
 	public void updateClassPath() throws Throwable {
