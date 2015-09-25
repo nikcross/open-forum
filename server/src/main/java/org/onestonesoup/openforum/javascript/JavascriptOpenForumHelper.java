@@ -1,12 +1,12 @@
 package org.onestonesoup.openforum.javascript;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 import org.onestonesoup.core.data.EntityTree;
+import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.DataHelper;
 import org.onestonesoup.openforum.OpenForumException;
 import org.onestonesoup.openforum.OpenForumNameHelper;
@@ -87,6 +87,11 @@ public class JavascriptOpenForumHelper {
 		return DataHelper.getPageAsTable(source);
 	}
 
+	//TODO Remove this and have Processor implement SystemAPI
+	public JavascriptEngine getJavascriptEngine() {
+		return controller.getJavascriptEngine(login);
+	}
+	
 	public String getPageUpdateTemplate(String pageName) throws Exception,
 			AuthenticationException {
 		return controller.getPageUpdateTemplate(pageName, login);
