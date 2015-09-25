@@ -3,16 +3,19 @@ package org.onestonesoup.javascript.helper;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.onestonesoup.core.javascript.JavascriptHelper;
 import org.onestonesoup.core.process.ProcessWatch;
 import org.onestonesoup.core.process.ProcessWatcher;
+import org.onestonesoup.javascript.engine.JSON;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 
 public class Process {
 
 	private JavascriptEngine javascriptEngine;
+	private JSON json;
+	
 	public void setJavascriptEngine(JavascriptEngine javascriptEngine) {
 		this.javascriptEngine = javascriptEngine;
+		this.json = new JSON(javascriptEngine);
 	}
 
 	private Map<String,ProcessBuilder> processes = new HashMap<String,ProcessBuilder>();
@@ -35,7 +38,7 @@ public class Process {
 		public void processMatch(String data) {
 			if(matchScript!=null) {
 				try {
-					data = JavascriptHelper.escape(data);
+					data = json.stringify(data).toString();
 					javascriptEngine.evaluateJavascript("Process "+exec+" (matcher='"+matcher+"')",matchScript+"('"+data+"');");
 				} catch (Throwable e) {
 					e.printStackTrace();
@@ -56,10 +59,12 @@ public class Process {
 		
 	}
 	
-	public class ProcessBuilder {
+	public class ProcessBuilder implements ProcessWatcher {
 		private String exec;
 		private ProcessWatch processWatch;
 		private Map<String,MatchAction> matchers = new HashMap<String,MatchAction>();
+		private StringBuffer buffer;
+		private boolean ended = false;
 		
 		private ProcessBuilder(String exec) {
 			this.exec = exec;
@@ -82,12 +87,52 @@ public class Process {
 			return this;
 		}
 		
-		public void run() throws Exception {
+		public String run(boolean synchronous) throws Exception {
+			if(synchronous) {
+				buffer = new StringBuffer();
+				ended = false;
+				processWatch.addMatcher(".*", this);
+			}
+			
 			processWatch.execute(exec);
+			
+			if(synchronous) {
+				while(ended==false) {
+					Thread.sleep(100);
+				}
+				return buffer.toString();
+			} else {
+				return null;
+			}
 		}
 		
-		public void runInDirectory(String directory) throws Exception {
+		public String runInDirectory(String directory,boolean synchronous) throws Exception {
+			if(synchronous) {
+				buffer = new StringBuffer();
+				ended = false;
+				processWatch.addMatcher(".*", this);
+			}
+			
 			processWatch.executeInDirectory(directory,exec);
+			
+			if(synchronous) {
+				while(ended==false) {
+					Thread.sleep(100);
+				}
+				return buffer.toString();
+			} else {
+				return null;
+			}
+		}
+
+		@Override
+		public void processMatch(String data) {
+			buffer.append(data+"\n");
+		}
+
+		@Override
+		public void processEnd(int exitValue) {
+			ended = true;
 		}
 	}
 	
