@@ -1,5 +1,7 @@
-Convert .xml files to .json
-Rename page.wiki to page.content
+Remove all OpenForum xml files
+Generate data.json files for all pages
+
+Rename all page.wiki to page.content
 
 Move /OpenForum/Home
 Move /OpenForum/MissingPages
