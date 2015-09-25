@@ -47,7 +47,12 @@ public class ResourceStoreProxy implements ResourceStore {
 
 	public Resource buildResource(ResourceFolder folder, String name,
 			InputStream stream, long size) throws IOException {
-		return getResourceStoreToWrite(folder).buildResource(folder, name, stream, size);
+		return buildResource(folder, name, stream, size, true);
+	}
+	
+	public Resource buildResource(ResourceFolder folder, String name,
+			InputStream stream, long size, boolean closeStream) throws IOException {
+		return getResourceStoreToWrite(folder).buildResource(folder, name, stream, size, closeStream);
 	}
 
 	public boolean copy(Resource sourceResource,

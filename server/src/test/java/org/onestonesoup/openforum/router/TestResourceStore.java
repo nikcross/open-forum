@@ -176,4 +176,12 @@ public class TestResourceStore implements ResourceStore {
 		return false;
 	}
 
+	@Override
+	public Resource buildResource(ResourceFolder folder, String name,
+			InputStream iStream, long size, boolean closeIStream)
+			throws IOException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -18,6 +18,7 @@ public interface ResourceStore {
 	
 	public abstract Resource buildResource(ResourceFolder folder,String name,byte[] data) throws IOException;
 	public abstract Resource buildResource(ResourceFolder folder,String name,InputStream iStream,long size) throws IOException;
+	public abstract Resource buildResource(ResourceFolder folder,String name,InputStream iStream,long size,boolean closeIStream) throws IOException;
 	public abstract void appendResource(Resource resource,byte[] data) throws IOException;
 	
 	public abstract InputStream retrieve(Resource resource) throws IOException;

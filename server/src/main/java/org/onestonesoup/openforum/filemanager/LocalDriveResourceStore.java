@@ -66,6 +66,10 @@ public class LocalDriveResourceStore implements ResourceStore {
 
 	public Resource buildResource(ResourceFolder folder, String name,
 			InputStream stream, long size) throws IOException {
+		return buildResource(folder, name, stream, size, true);
+	}
+	public Resource buildResource(ResourceFolder folder, String name,
+			InputStream stream, long size, boolean closeStream) throws IOException {
 		Resource resource = new Resource(folder, name);
 
 		folder = new ResourceFolder(resource.toString().substring(0,
@@ -75,7 +79,7 @@ public class LocalDriveResourceStore implements ResourceStore {
 		File file = getResourceAsFile(resource);
 		FileOutputStream oStream = new FileOutputStream(file, false);
 
-		FileHelper.copyInputStreamToOutputStream(stream, oStream);
+		FileHelper.copyInputStreamToOutputStream(stream, oStream, closeStream);
 
 		return resource;
 	}
