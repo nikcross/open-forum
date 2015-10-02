@@ -492,8 +492,6 @@ public class FileManager {
 			}
 		} catch (NullPointerException ne) {
 			return false;
-		} catch (AuthenticationException e) {
-			return false;
 		}
 	}
 

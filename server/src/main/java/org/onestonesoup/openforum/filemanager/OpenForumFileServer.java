@@ -21,7 +21,7 @@ public class OpenForumFileServer implements FileServer,OpenForumConstants {
 		this.types = mimeTypes;
 		this.resourceStore = resourceStore;
 		
-		System.out.println("OpenForum file server created with resource store "+resourceStore);
+		controller.getLogger().info("OpenForum file server created with resource store "+resourceStore);
 	}
 
 	public boolean fileExists(String request) {

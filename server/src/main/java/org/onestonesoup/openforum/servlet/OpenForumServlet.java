@@ -6,11 +6,13 @@ import java.util.Enumeration;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.onestonesoup.core.data.EntityTree;
+import org.onestonesoup.core.data.EntityTree.TreeEntity;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.router.Router;
 
@@ -57,8 +59,10 @@ public class OpenForumServlet extends HttpServlet {
 				params.addChild(key).setValue(value);
 			}
 		}
-		if(request.getCookies()!=null && request.getCookies().length>0) {
-			params.addChild("$cookie").setValue(request.getCookies()[0].getValue());
+		
+		TreeEntity cookies = params.addChild("$cookie");
+		for(Cookie cookie: request.getCookies()) {
+			cookies.addChild(cookie.getName()).setValue(cookie.getValue());
 		}
 		
 		Enumeration<String> en = request.getAttributeNames();

@@ -49,7 +49,15 @@ public class WWWAuthenticator implements Authenticator {
 			try{
 				String script = controller.getFileManager().getPageAttachmentAsString(AUTHENTICATION_PAGE, LOGIN_SCRIPT_FILE, controller.getSystemLogin());
 				String result = js.runJavascript(AUTHENTICATION_PAGE + "/" + LOGIN_SCRIPT_FILE, script);
-				login.setLoggedIn(Boolean.parseBoolean(result));
+				boolean booleanResult = Boolean.parseBoolean(result);
+				login.setLoggedIn(booleanResult);
+				login.clearPassword();
+				
+				if(booleanResult==true) {
+					controller.getLogger().info(login.getUser()+" logged in.");
+				} else {
+					controller.getLogger().info(login.getUser()+" failed to log in.");
+				}
 			} catch(Throwable t) {
 				throw new IOException(t);
 			}
