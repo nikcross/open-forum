@@ -28,12 +28,13 @@ import org.onestonesoup.openforum.Stream;
 import org.onestonesoup.openforum.TimeHelper;
 import org.onestonesoup.openforum.filemanager.FileManager;
 import org.onestonesoup.openforum.filemanager.LocalDriveResourceStore;
-import org.onestonesoup.openforum.filemanager.ResourceStore;
 import org.onestonesoup.openforum.filemanager.ResourceStoreProxy;
 import org.onestonesoup.openforum.javascript.JavascriptExternalResourceHelper;
 import org.onestonesoup.openforum.javascript.JavascriptFileHelper;
 import org.onestonesoup.openforum.javascript.JavascriptHelper;
 import org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper;
+import org.onestonesoup.openforum.logger.DefaultOpenForumLogger;
+import org.onestonesoup.openforum.logger.OpenForumLogger;
 import org.onestonesoup.openforum.messagequeue.MessageQueueManager;
 import org.onestonesoup.openforum.plugin.JarManager;
 import org.onestonesoup.openforum.renderers.WikiLinkParser;
@@ -100,22 +101,7 @@ public class OpenForumController implements OpenForumScripting,
 	private Authenticator authenticator;
 	private Authorizer authorizer;
 
-	public class Logger {
-		public void error(String message) {
-			System.out.println("ERROR: " + message);
-		}
-
-		public void info(String message) {
-			System.out.println("Info: " + message);
-
-		}
-
-		public void debug(String message) {
-			System.out.println("Debug: " + message);
-		}
-	}
-
-	private Logger logger = new Logger();
+	private OpenForumLogger logger;
 
 	private FileManager initialiseFileManager(String rootFolderName) throws Exception {
 		
@@ -165,6 +151,7 @@ public class OpenForumController implements OpenForumScripting,
 	
 	public OpenForumController(String rootFolderName, String domainName)
 			throws Exception, AuthenticationException {
+		logger = new DefaultOpenForumLogger(this);
 		authenticator = new DummyAuthenticator();
 		authorizer = new DummyAuthorizer();
 
@@ -212,7 +199,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	public void setRouter(Router router) {
 		this.router = router;
-		System.out.println("Router set for "+this.domainName);
+		logger.info("Router set for "+this.domainName);
 	}
 
 	/*
@@ -1756,7 +1743,7 @@ public class OpenForumController implements OpenForumScripting,
 		}
 	}
 
-	public Logger getLogger() {
+	public OpenForumLogger getLogger() {
 		return logger;
 	}
 }
