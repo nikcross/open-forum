@@ -39,7 +39,7 @@ public class Process {
 			if(matchScript!=null) {
 				try {
 					data = json.stringify(data).toString();
-					javascriptEngine.evaluateJavascript("Process "+exec+" (matcher='"+matcher+"')",matchScript+"('"+data+"');");
+					javascriptEngine.evaluateJavascript("Process "+exec+" (matcher='"+matcher+"')",matchScript+"("+data+");");
 				} catch (Throwable e) {
 					e.printStackTrace();
 				}
