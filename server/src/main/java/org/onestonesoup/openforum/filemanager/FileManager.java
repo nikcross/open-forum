@@ -85,6 +85,7 @@ public class FileManager {
 			throws Exception, AuthenticationException {
 		Resource file = getFile(pageName, "page.wiki", login);
 		if (file == null) {
+			System.err.println("FileManager.getPageSourceAsString("+pageName+") Resource does not exist.");
 			return null;
 		}
 		return readFile(file);

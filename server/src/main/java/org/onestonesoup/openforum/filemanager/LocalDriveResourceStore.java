@@ -22,7 +22,7 @@ public class LocalDriveResourceStore implements ResourceStore {
 	private int pathOffset = 0;
 
 	public LocalDriveResourceStore(String root,boolean readOnly) {
-		this.rootFile = new File(root);
+		this.rootFile = new File(root).getAbsoluteFile();
 		this.readOnly = readOnly;
 	}
 
