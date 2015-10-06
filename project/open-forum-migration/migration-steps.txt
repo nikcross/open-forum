@@ -1,12 +1,10 @@
 Remove all OpenForum xml files
 Generate data.json files for all pages
-
 Rename all page.wiki to page.content
-
 Move /OpenForum/Home
 Move /OpenForum/MissingPages
 Move /OpenForum/PagesIndex
 Move /OpenForum/Page
 Move /OpenForum/WikiJournal
-
 Change all templates to use openforum.js
+Combine header and footer templates into single page template file
