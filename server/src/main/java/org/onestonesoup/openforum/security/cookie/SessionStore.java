@@ -36,10 +36,6 @@ public class SessionStore implements Runnable {
 		}
 	}
 
-	public static SessionStore getSessionStore() {
-		return sessionStore;
-	}
-
 	public static SessionStore getSessionStore(OpenForumController controller) {
 		if (sessionStore == null) {
 			sessionStore = new SessionStore(controller);

@@ -166,4 +166,8 @@ public class SessionCookieAuthenticator implements Authenticator {
 		connection.getOutputStream().write(data.getBytes());
 		connection.getOutputStream().flush();
 	}
+	
+	protected SessionStore getSessionStore() {
+		return sessionStore;
+	}
 }
