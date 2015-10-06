@@ -65,7 +65,7 @@ public class JavascriptOpenForumHelper {
 
 	public String buildPage(String name, String source) throws Exception {
 		controller.markForRebuild();
-		return controller.buildPage(name, source, false);
+		return controller.buildPage(name, source, false).toString();
 	}
 
 	public void refreshPage(String name) throws Exception {
@@ -202,7 +202,7 @@ public class JavascriptOpenForumHelper {
 		MessageQueue queue = controller.getQueueManager().getQueue(queueName);
 
 		List<String> list = new ArrayList<String>();
-		EntityTree.TreeEntity messages = queue.getItemsSince(timeStamp);
+		EntityTree.TreeEntity messages = queue.getMessagesSince(timeStamp);
 		for (int loop = 0; loop < messages.getChildren().size(); loop++) {
 			EntityTree.TreeEntity message = messages.getChildren().get(loop);
 			if (message.getName().equals("message")) {

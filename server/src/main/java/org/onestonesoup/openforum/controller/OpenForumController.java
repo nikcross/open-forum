@@ -151,6 +151,7 @@ public class OpenForumController implements OpenForumScripting,
 	
 	public OpenForumController(String rootFolderName, String domainName)
 			throws Exception, AuthenticationException {
+		queueManager = new MessageQueueManager();
 		logger = new DefaultOpenForumLogger(this);
 		authenticator = new DummyAuthenticator();
 		authorizer = new DummyAuthorizer();
@@ -168,7 +169,6 @@ public class OpenForumController implements OpenForumScripting,
 			e.printStackTrace();
 		}
 
-		queueManager = new MessageQueueManager();
 		dynamicPages = new KeyValueListPage(fileManager,
 				"/OpenForum/DynamicPages");
 		securePages = new KeyValueListPage(fileManager,
@@ -422,49 +422,6 @@ public class OpenForumController implements OpenForumScripting,
 		buildPage(WIKI_JOURNAL_PAGE_PATH, false);
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.onestonesoup.wiki.controller.WikiControllerInterface#buildPage(java
-	 * .lang.String, java.lang.String, boolean)
-	 */
-	public String buildPage(String name, String data, boolean isWikiContent)
-			throws Exception, AuthenticationException {
-		Map<String, String> localTemplateData = getStandardTemplateData(name,
-				name, SYSTEM_NAME, TimeHelper.getCurrentDisplayTimestamp());
-		WikiLinkParser linkRenderer = new WikiLinkParser(name, EDIT_PAGE,
-				EDIT_LINK_DISPLAY_TEMPLATE, this);
-		/*
-		 * if( fileManager.folderExists(name,systemLogin) ) { StringBuffer
-		 * attachmentsHtml = linkRenderer.getAttachments(this);
-		 * localTemplateData.put("attachments",attachmentsHtml.toString()); }
-		 */
-
-		String headerTemplate = fileManager.getPageInheritedFileAsString(name,
-				HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
-		getRequiredTemplateInserts(name, headerTemplate, localTemplateData);
-		String header = TemplateHelper.generateStringWithTemplate(
-				headerTemplate, localTemplateData);
-		StringBuffer html = new StringBuffer(header);
-
-		if (isWikiContent) {
-			Renderer.wikiToHtml(name, data, html, this, linkRenderer);
-		} else {
-			html.append(data);
-		}
-
-		String footerTemplate = fileManager.getPageInheritedFileAsString(name,
-				FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
-		getRequiredTemplateInserts(name, footerTemplate, localTemplateData);
-		String footer = TemplateHelper.generateStringWithTemplate(
-				footerTemplate, localTemplateData);
-
-		html.append(footer);
-
-		return html.toString();
-	}
-
 	public String renderWikiData(String name, String data) throws Exception,
 			AuthenticationException {
 		StringBuffer html = new StringBuffer("");
@@ -607,6 +564,18 @@ public class OpenForumController implements OpenForumScripting,
 	 */
 	public StringBuffer buildPage(String name, boolean buildRefersTo)
 			throws Exception, AuthenticationException {
+		return buildPage(name,null,buildRefersTo);
+	}
+	
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * org.onestonesoup.wiki.controller.WikiControllerInterface#buildPage(java
+	 * .lang.String, boolean)
+	 */
+	public StringBuffer buildPage(String name, String data, boolean buildRefersTo)
+			throws Exception, AuthenticationException {
 		while (name.charAt(0) == '/') {
 			name = name.substring(1);
 		}
@@ -626,7 +595,7 @@ public class OpenForumController implements OpenForumScripting,
 
 		if (pageBuildScript != null) {
 			try {
-				html.append(runPageBuildScript(name, pageBuildScript));
+				html.append(runPageBuildScript(name, data, pageBuildScript));
 			} catch (Throwable e) {
 				html.append(StringHelper.arrayToString(
 						ExceptionHelper.getTrace(e), "\n"));
@@ -646,8 +615,9 @@ public class OpenForumController implements OpenForumScripting,
 
 			StringBuffer content = new StringBuffer();
 			try {
-				String data = fileManager.getPageSourceAsString(name,
-						systemLogin);
+				if(data==null) {
+					data = fileManager.getPageSourceAsString(name, systemLogin);
+				}
 
 				// data =
 				// MaskHelper.generateStringWithTemplate(data,localTemplateData);
@@ -681,9 +651,12 @@ public class OpenForumController implements OpenForumScripting,
 		return html;
 	}
 
-	private String runPageBuildScript(String name, String script)
+	private String runPageBuildScript(String name, String content, String script)
 			throws Throwable {
 		JavascriptEngine js = getJavascriptEngine(systemLogin);
+		if(content!=null) {
+			js.mount("data", content);
+		}
 		js.mount("pageName", name);
 
 		return (js.evaluateJavascript(name + "/" + PAGE_BUILD_JS, script))

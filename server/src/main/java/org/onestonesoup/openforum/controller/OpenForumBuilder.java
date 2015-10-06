@@ -15,7 +15,7 @@ public interface OpenForumBuilder extends OpenForum{
 	public abstract StringBuffer buildPage(String name, boolean buildRefersTo)
 	throws Exception, AuthenticationException;
 
-	public abstract String buildPage(String name, String data,
+	public abstract StringBuffer buildPage(String name, String data,
 	boolean isWikiContent) throws Exception, AuthenticationException;
 
 	public abstract String buildPageSection(String name,int section) throws Exception,
