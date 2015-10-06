@@ -577,7 +577,7 @@ public class FileManager {
 				pages.add(prefix + list[loop].getName());
 			}
 
-			pages.addAll(getPageList(list[loop], prefix + list[loop].getName(),
+			pages.addAll(getPageList(list[loop], prefix + "/" + list[loop].getName(),
 					login));
 		}
 
