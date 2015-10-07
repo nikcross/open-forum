@@ -1,0 +1,16 @@
+<table style="font: Courier"><tr>
+  <td>
+<h3>Operating System
+<ul><li>Name {{system.operatingSystem.name}}</li><li>Version {{system.operatingSystem.version}}</li>
+</ul><h3>Processor
+<ul><li>Name {{system.processor.name}}</li><li>Number of Processors {{system.processor.count}}</li>
+</ul><h3>Network Adapters
+<ul><li>WiFi<ul><li>Adapter {{system.network.wifi.adapter}}</li></ul><ul><li>IP Address {{system.network.wifi.ipAddress}}</li></ul><ul><li>MAC Address {{system.network.wifi.macAddress}}</li></ul></li><li>Ehternet<ul><li>Adapter {{system.network.ethernet.adapter}}</li></ul><ul><li>IP Address {{system.network.ethernet.ipAddress}}</li></ul><ul><li>MAC Address {{system.network.ethernet.macAddress}}</li></ul></li>  </td><td>
+  </ul><h3>System Time {{state.systemTime}}
+  <h3>Up Since {{state.startTime}}
+  <h3>Memory
+  <ul><li>Total {{state.memory.total}} M</li>  <li>Free {{state.memory.free}} M <i>({{state.memory.pcFree}}%)</i></li>  </ul><h3>Processor
+  <ul><li>Load {{state.processor.load}}%</li>  </ul><h3>Disk
+  <ul><li>Total {{state.disk.total}} M</li>  <li>Free {{state.disk.free}} M <i>({{state.disk.pcFree}}%)</i></li></ul>  </td>
+  </tr>
+</table</h3></h3></h3></h3></h3></h3></h3></h3>

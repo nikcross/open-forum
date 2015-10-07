@@ -1,0 +1,33 @@
+<table style="font: Courier"><tr>
+  <td>
+!!Operating System
+*Name {{system.operatingSystem.name}}
+*Version {{system.operatingSystem.version}}
+
+!!Processor
+*Name {{system.processor.name}}
+*Number of Processors {{system.processor.count}}
+
+!!Network Adapters
+* WiFi
+** Adapter {{system.network.wifi.adapter}}
+** IP Address {{system.network.wifi.ipAddress}}
+** MAC Address {{system.network.wifi.macAddress}}
+* Ehternet
+** Adapter {{system.network.ethernet.adapter}}
+** IP Address {{system.network.ethernet.ipAddress}}
+** MAC Address {{system.network.ethernet.macAddress}}
+  </td><td>
+  !!System Time {{state.systemTime}}
+  !!Up Since {{state.startTime}}
+  !!Memory
+  *Total {{state.memory.total}} M
+  *Free {{state.memory.free}} M ''({{state.memory.pcFree}}%)''
+  !!Processor
+  *Load {{state.processor.load}}%
+  !!Disk
+  *Total {{state.disk.total}} M
+  *Free {{state.disk.free}} M ''({{state.disk.pcFree}}%)''
+  </td>
+  </tr>
+</table
