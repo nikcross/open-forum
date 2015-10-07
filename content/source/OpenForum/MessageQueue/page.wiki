@@ -1,0 +1,11 @@
+!!Queue Name: <input type="text" of-id="queueName" size="50"/> <button onClick="startWatchingQueue();"> Start Watching</button>
+<br/><br/>
+<div id="queueData" style="border: solid 1px; min-height: 100px;"></div>
+<br/><br/>
+<br/><br/>
+
+----
+
+[{InsertSourceFile fileName="get.sjs"}]
+
+[{InsertSourceFile fileName="MessageQueue.js"}]
