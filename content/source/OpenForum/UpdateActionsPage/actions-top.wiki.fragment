@@ -1,0 +1,18 @@
+!!Update The Actions List
+*[Preview|/OpenForum/UpdateActionsPage?save=false]
+*[Save|/OpenForum/UpdateActionsPage?save=true]
+
+----
+!!Create a New Action
+<form name="templateSubmitForm" action="/OpenForum/Actions/Copy" method="post">
+Get Action Name:<input type="input" name="newPageName" value="/OpenForum/Actions/">
+<input type="hidden" name="sourcePageName" value="/OpenForum/PageTemplates/GetActionPage">
+<input type="submit" value="Create Get action">
+</form>
+
+<form name="templateSubmitForm" action="/OpenForum/Actions/Copy" method="post">
+Post Action Name:<input type="input" name="newPageName" value="/OpenForum/Actions/">
+<input type="hidden" name="sourcePageName" value="/OpenForum/PageTemplates/PostActionPage">
+<input type="submit" value="Create Post action">
+</form>
+----

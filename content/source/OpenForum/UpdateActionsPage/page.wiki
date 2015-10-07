@@ -1,0 +1,5 @@
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  
+
+----
+!!Server Side Javascript for GET method
+[{InsertSourceFile fileName="get.sjs"}]
