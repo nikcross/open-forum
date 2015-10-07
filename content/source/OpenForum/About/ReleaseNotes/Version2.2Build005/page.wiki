@@ -1,0 +1,14 @@
+!!Defects Fixed
+* 58 - Exception on JarManager update
+* 62 - The word Preview is showing below the edit pane on the Edit page
+* 63 - Entry text parameter on wrong element in edit page blog link
+* 64 - Error in DB API
+* 65 - Page author being set to WikiSystem
+* 67 - New line not working
+* 69 - Crumb Trail not working on blog entry pages
+* 71 - Horizontal rule missing from Wiki Help
+* 73 - Images with capitalized extensions not recognised
+
+----
+!!Enhancements
+* Removed WhiteBoard Applet from standard release

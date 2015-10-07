@@ -1,0 +1,3 @@
+<a name="section1"></a><h3>Defects Fixed</h3>
+<ul><li>55 - Revert action causes javascript error at server</li><li>56 - Multicaster not working</li><li>59 - Extra arg not reqired in start script (bin file)</li><li>60 - Bad link on page <a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/IntegratingRelationalDatabases" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/IntegratingRelationalDatabases">OpenForum/Documentation/Reference/IntegratingRelationalDatabases</a></li><li>61 -  OpenForum Rebuild action freezes browser</li></ul>
+<hr/><br/><h3>Enhancements</h3>

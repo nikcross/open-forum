@@ -1,0 +1,42 @@
+!!Defects Fixed
+*12 - Box style combined with header formating causes %% to be displayed  
+*13 - Box style combined with header formating causes %% to be displayed  
+*14 - Blog pages sort order breaks if later edit is required  
+*15 - Entering comments is in Latest first order  
+*17 - Anchor link renders incorrectly
+*20 - Can't edit edit-form.html template due to textarea
+*21 - Spaces in create page causing error
+*27 - Filter attachments by file type  
+*29 - Authorisation checks not done for editing and saving attachaments  
+*30 - Wiki Editor add link fails when no text is selected  
+*41 - Pages with & in name can't be edited  
+*42 - Attached folders with large number of files hang browser  
+*44 - Search returning blog and history folders that are not valid pages  
+*45 - Out of Memory Error with large number of Wikis and Pages
+*46 - OpenForum does not inform user if address or port in use  
+*48 - 404 Error when Wiki is starting up  
+*49 - Access rights not working for users with space in name  
+*50 - References page is missing for page templates page in documentation  
+*51 - Rebuild Wiki button causes Javascript error 
+
+----
+!!Enhancements
+*11 - Optionally force the setting of the author name
+*26 - Too many attachments being shown
+*43 - Ability to view exploded zip folders
+*47 - Collapsable Tables
+*52 - More 'nice to have' functions in text editing
+*Added new Wiki Markup for Strikethrough, Underline, Center and Superscript
+*Folder view at bottom of standard page templates displays links to parent pages
+*Upload progress bar displayed for big uploads
+*Warning given when a page would be overwritten
+*Confirmation required for page delete
+*Page names pre validated
+*Dynamic pages can be created to develop [RESTful|Wikipedia:Representational_State_Transfer] applications using a [Fly Weight|Wikipedia:Flyweight_pattern] pattern
+*Alias list of friendly sites can be configured
+*Photo Album feature added
+*New Photo Album, Plain and Note Book page templates
+*Preview option in editor
+*New WebCast functions built in
+*New WebChat functions built in
+*HTTP1.1 keep alive connections implemented. Makes page response times much faster

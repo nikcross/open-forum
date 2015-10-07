@@ -1,0 +1,19 @@
+!!Defects Fixed
+* 10 - Pages with dots in name fail.
+* 16 - Cannot open a file with parameters in url.
+* 18 - Wiki page save is slow when WikiJournal is large.
+* 19 - Catalogue does not exist at system start.
+* 24 - Edit offered on attachments that can not be edited.
+* 25 - Deleted files saved in null folder and with null WikiJournal entry.
+* 32 - Access Administration not working in IE.
+* 31 - GetUser not working in IE.
+* 33 - Pages not being rebuilt when links change.
+* 34 - Page read/update/delete access always default to /OpenForum/Page when Save.
+* 35 - View Counter requires Update access
+* 36 - Referring Pages in toolbar not refresh after reference page being removed
+* 37 - Search opens a page if the criteria match a page name
+* 38 - Images not embedded in pages when image has space in name
+
+----
+!!Enhancements
+* 7 - Allow attachments to be managed in a directory view.

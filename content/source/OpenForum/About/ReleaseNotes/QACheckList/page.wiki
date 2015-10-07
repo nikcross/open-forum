@@ -1,0 +1,71 @@
+!!Page
+*Create
+*Copy
+*Read
+*Update
+*Delete
+*UnDelete
+*View History
+*Revert
+*Referring Pages listed
+*Tags Listed
+
+!!Attachment
+*Create
+*Upload
+*Re Upload
+*Download
+*Delete
+
+!!Editor
+*Insert
+*Preview
+*Save
+
+!!Admin
+*Add User
+*List Users
+*Remove User
+*Add Group
+*List Groups
+*Remove Group
+*Add Users to Group
+*Remove Users from Groups
+
+!!Access
+*Add User read access to page
+*Remove User read access to page
+*Add Group read access to page
+*Remove Group read access to page
+
+*Add User update access to page
+*Remove User update access to page
+*Add Group update access to page
+*Remove Group update access to page
+
+*Add User delete access to page
+*Remove User delete access to page
+*Add Group delete access to page
+*Remove Group delete access to page
+
+!!Search
+*Search for page title
+*Search for content word
+*Search for multiple words
+*Search for tag
+*Search for multiple tags
+
+!!Wiki Journal
+*Page create logged
+*Page update logged
+*Page delete logged
+
+*Attachment create logged
+*Attachment update logged
+*Attachment delete logged
+
+!!Blog
+*Create blog entry
+*Read blog entry
+*Update blog entry
+*Delete blog entry

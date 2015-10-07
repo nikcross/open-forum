@@ -1,0 +1,18 @@
+!!Features Added
+* 40 - Preview function on edit page
+* Added CrumbTrail Wiki Markup Extension
+* 43 - Ability to view folders that are not pages
+
+!!Bugs Fixed
+*28 - SiteExplorer now works with pages with ' in name
+*Multiple tables on the same page not rendering header rows correctly
+*Edit action not handling requests to edit a page with a preceding slash '/'
+*Hierarchical edit form being applied to blog entry edit page
+*RSS Feed refreshes being saved in page history
+*History action renamed History to stop clash with Action page history
+*Conservation of &amp;gt;, &amp;lt; and &amp;amp; on editing text file
+*Added missing Zip action
+*Fixed Web Chat to check for new messages asychronously
+*44 - Search returning blog and history folders that are not valid pages
+*39 - Missing Documentation on Changing the Left and Top menus
+*23 - Editing link file fails

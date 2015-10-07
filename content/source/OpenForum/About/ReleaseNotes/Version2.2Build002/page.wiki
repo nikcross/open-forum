@@ -1,0 +1,12 @@
+!!Defects Fixed
+
+* 55 - Revert action causes javascript error at server
+* 56 - Multicaster not working
+* 59 - Extra arg not reqired in start script (bin file)
+* 60 - Bad link on page [OpenForum/Documentation/Reference/IntegratingRelationalDatabases]
+* 61 -  OpenForum Rebuild action freezes browser
+
+----
+
+!!Enhancements
+
