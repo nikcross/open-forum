@@ -1,0 +1,34 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Sign In</title>
+    <link rel="stylesheet" href="/OpenForum/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/SignIn/page.js"></script>
+
+	<script>
+		pageName = "OpenForum/SignIn";
+		author = "unknown";
+		time = "1444165743391";
+	    currentUser = "";
+	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+	</script>
+    
+  </head>
+  <body>
+        <div class="row">
+      <div class="large-12 columns">
+        <h1>OpenForum/SignIn</h1>
+      </div>
+    </div>
+    
+    <script src="/OpenForum/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
