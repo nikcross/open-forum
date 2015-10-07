@@ -9,3 +9,8 @@ target/
 *.class
 *.orig
 *~
+*.sh
+/content/changes/
+/content/jetty/
+/content/*/history
+/content/.project
