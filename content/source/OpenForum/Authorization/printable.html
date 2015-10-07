@@ -1,0 +1,26 @@
+<a href="/OpenForum/Authorization/access.sjs">access.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Authorization&fileName=access.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">function access() {
+  if(login.getUser().getName()==="Admin") {
+    return true;
+  }
+  
+  var accessData = file.getPageInheritedFileAsString(pageName,"access.json");
+  
+	//if page is unprotected
+  if (accessData===null) {
+		return true;
+	}
+  accessData = ""+accessData;
+	
+	var action = "read";
+	var accessJSON = JSON.parse(accessData);
+	
+	//if page is protected
+	if(access[login.getUser().getName()] && 
+           access[login.getUser().getName()].read===true) {
+		return true;
+    } else {
+      return false;
+    }
+}
+
+access();</xmp>
