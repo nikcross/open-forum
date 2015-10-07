@@ -1,0 +1,41 @@
+[{StickyNotes}]\\
+<textarea id="code" rows="20" cols="80">println("Hello World");</textarea>
+<input type="button" value="Run" onclick="run();return false;">
+<script>
+includeLibrary("/OpenForum/Javascript/DragAndDrop/drop-zone.js");
+includeInitFunction("addDropZone(\"code\");");
+</script>
+
+%%box
+!!Client Javascript Console
+<DIV id="out"></DIV>
+%%
+
+%%box
+!!Server Javascript Console
+[{WebChatView queueName='out'}]
+%%
+
+<script>
+function println(text)
+{
+ var out= document.getElementById("out");
+ out.innerHTML += text+"<br/>";
+}
+function setCode(code)
+{
+  document.getElementById("code").value = code;
+}
+function run()
+{
+  var code = document.getElementById("code").value;
+  try{
+    eval( code );
+  }
+  catch(e)
+  {
+    println(">Error: "+e);
+  }
+  println(">Finished");
+}
+</script>

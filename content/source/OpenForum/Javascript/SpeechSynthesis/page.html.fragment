@@ -1,0 +1,10 @@
+<a name="section1"></a><h3>Voice Settings
+<ul><li>Name <input list="voiceList" of-id="OpenForum.Speech.voice.name"/>   <button onClick="OpenForum.Speech.test();">Test</button>  <button onClick="OpenForum.Speech.saveSettings();">Save</button></li><li>Spoken Name <input type="text" of-id="OpenForum.Speech.voice.spokenName"/></li><li>Pitch: <input type="range" of-id="OpenForum.Speech.voice.pitch" min="0" max="200"></li><li>Rate: <input type="range" of-id="OpenForum.Speech.voice.rate" min="0" max="10"></li><li>Volume: <input type="range" of-id="OpenForum.Speech.voice.volume" min="0" max="100"></li>
+<hr/>
+
+</ul><h3>Other Voice
+<ul><li>Name <input list="voiceList" of-id="OpenForum.Speech.OtherVoice.voice.name"/>   <button onClick="OpenForum.Speech.OtherVoice.test();">Test</button>  <button onClick="OpenForum.Speech.OtherVoice.saveSettings();">Save</button></li><li>Spoken Name <input type="text" of-id="OpenForum.Speech.OtherVoice.voice.spokenName"/></li><li>Pitch: <input type="range" of-id="OpenForum.Speech.OtherVoice.voice.pitch" min="0" max="200"></li><li>Rate: <input type="range" of-id="OpenForum.Speech.OtherVoice.voice.rate" min="0" max="10"></li><li>Volume: <input type="range" of-id="OpenForum.Speech.OtherVoice.voice.volume" min="0" max="100"></li></ul>
+<dataList id="voiceList">
+  <option of-repeatFor="voiceName in OpenForum.Speech.voices">{{voiceName}}</option>
+</dataList>
+</h3></h3>

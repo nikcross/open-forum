@@ -1,0 +1,15 @@
+{{{
+{
+	steps: [
+		{action: "append", file: "<file name and path>"},
+		{action: "append", file: "<file name and path>"}
+	]
+}
+}}}
+----
+
+!!Example [/OpenForum/Javascript/Builder?action=build&buildFile=/OpenForum/Javascript/open-forum.build.json&targetFile=/OpenForum/Javascript/Builder/example-test-build.js&version=1.0.0&json=true]
+
+----
+
+!!Build open-forum.js [/OpenForum/Javascript/Builder?action=build&buildFile=/OpenForum/Javascript/open-forum.build.json&targetFile=/OpenForum/Javascript/open-forum.js&version=1.0.001&json=true]

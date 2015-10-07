@@ -1,0 +1,3 @@
+[{InsertSourceFile fileName="open-forum.js"}]
+
+[{ChildPagesList}]

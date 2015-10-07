@@ -1,0 +1,85 @@
+[{InsertSourceFile fileName="get.sjs"}]
+
+!!Javascript introspection
+{{{
+Obj = {
+  fnA: function(a,b,c) {return 5;},
+  fnB: function(d,e) {return 6;}
+};
+
+for(var i in Obj) {
+  if(typeof(Obj[i])=="function") {
+    
+    console.log("? "+typeof(Obj[i])+" "+i+" a:"+Obj[i].length);
+  }
+}
+}}}
+
+!!Start of server side code
+{{{
+println(file.getClass().getName());
+
+var clas = file.getClass();
+var clasJSON = { methods: [] };
+for(var methodI in clas.getDeclaredMethods()) {
+  var method = clas.getDeclaredMethods()[methodI];
+  println("m:"+method.getName());
+  var methodName = method.getName();
+  
+  var allPrimatives = true;
+  var methodJSON = {name: methodName};
+  
+  for(var argI in method.getParameterTypes()) {
+    var arg = method.getParameterTypes()[argI];
+    println(" a:"+arg.getName());
+    
+    if(arg.getClass().isPrimitive()===false) {
+      allPrimatives = false;
+      break;
+    }
+    var argName = arg.getName;
+    
+    methodJSON.push( {name: 'arg'+argI, type: argName} );
+  }
+  if(allPrimatives) {
+    clasJSON.push(methodJSON);
+  }
+}
+
+/*
+Server side javascript wrapper
+*/
+
+/*
+Service code template
+if(action==="methodName") {
+	var arg0 = transaction.getParameter("arg0");
+    
+    return file.methodName(arg0);
+}
+*/
+
+/*
+Service documentation template
+*/
+
+/*
+Client code template
+file: {
+	methodName: function(arg0,successFn) {
+    	if(successFn) {
+        	JSON.get(uri,"arg0="+arg0).onSuccess(successFn).go();
+        } else {
+        	return OpenForum.loadFile(uri+"?arg0="+arg0);
+        }
+    }
+}
+*/
+
+/*
+Client code documentation template
+*/
+}}}
+
+!!Old Code
+[{InsertSourceFile fileName="java-wrapper.sjs"}]

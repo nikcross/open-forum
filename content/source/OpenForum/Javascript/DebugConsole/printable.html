@@ -1,0 +1,33 @@
+<br/>
+<textarea id="code" rows="20" cols="80">println("Hello World");</textarea>
+<input type="button" value="Run" onclick="run();return false;">
+<script>
+includeLibrary("/OpenForum/Javascript/DragAndDrop/drop-zone.js");
+includeInitFunction("addDropZone(\"code\");");
+</script><br/><table class="box"><tr><td>
+<h3>Client Javascript Console</h3><DIV id="out"></DIV>
+</td></tr></table><br/><table class="box"><tr><td>
+<h3>Server Javascript Console</h3><script>includeLibrary("/OpenForum/Extensions/WebChatView/webChatView.js");includeInitFunction("webChatView.init('out');");</script><DIV id="out"></DIV>
+</td></tr></table><br/><script>
+function println(text)
+{
+ var out= document.getElementById("out");
+ out.innerHTML += text+"<br/>";
+}
+function setCode(code)
+{
+  document.getElementById("code").value = code;
+}
+function run()
+{
+  var code = document.getElementById("code").value;
+  try{
+    eval( code );
+  }
+  catch(e)
+  {
+    println(">Error: "+e);
+  }
+  println(">Finished");
+}
+</script>

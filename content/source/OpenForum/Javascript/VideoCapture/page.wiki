@@ -1,0 +1,9 @@
+!!Camera Settings
+*Camera <input of-id="frameCatcher.camera" id="OpenForum.videoCapture.camera" list="cameras"><button onClick="OpenForum.videoCapture.updateSource()">Select</button>
+
+<datalist of-id="cameras" id="cameras">
+  <option of-repeatFor="camera in OpenForum.videoCapture.cameras" value="{{camera.label}}"/>
+</datalist>
+
+*Current Camera: {{OpenForum.videoCapture.camera}}
+<div id="testFrame"></div>
