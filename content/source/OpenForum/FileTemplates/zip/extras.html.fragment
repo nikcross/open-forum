@@ -1,0 +1,3 @@
+<a href="" title="Unzip" onclick="window.location=\'/OpenForum/Actions/Unzip?pageName=&pageName;&fileName=&fileName;\';return false;"><img src="/OpenForum/Images/icons/gif/compress.gif" class="nodeImg" border="0"/></a>
+
+<a href="/OpenForum/Actions/Delete?pageName=&pageName;&fileName=&fileName;" title="Delete"><img src="/OpenForum/Images/icons/gif/cancel.gif" border="0" class="nodeImg"></a>

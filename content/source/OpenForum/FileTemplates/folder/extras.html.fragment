@@ -1,0 +1,7 @@
+<a href="/OpenForum/Actions/Edit?pageName=&link;" title="Edit"><img src="/OpenForum/Images/icons/gif/layout_edit.gif" class="nodeImg" border="0"/></a>
+
+<a href="/OpenForum/Actions/HistoryView?pageName=&link;" title="Show History"><img src="/OpenForum/Images/icons/gif/calendar.gif" border="0" class="nodeImg"></a>
+
+<a href="/OpenForum/Actions/Zip?pageName=&link;" title="Zip"><img src="/OpenForum/Images/icons/gif/compress.gif" class="nodeImg" border="0"/></a>
+
+<a href="/OpenForum/Actions/Delete?pageName=&link;" title="Delete"><img src="/OpenForum/Images/icons/gif/cancel.gif" border="0" class="nodeImg"></a>

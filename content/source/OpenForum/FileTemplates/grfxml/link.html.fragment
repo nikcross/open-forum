@@ -1,0 +1,7 @@
+<applet id="whiteBoard" name="whiteBoard" code="org.one.stone.soup.grfxML.applet.GiraffeApplet" width="800" height="600" archive="/OpenForum/WhiteBoard/giraffe-applet.jar">
+    <param name="url" value=".WhiteBoard/whiteboard.grfxml">
+</applet>
+<script>whiteBoard.open("&link;");</script>
+
+<a href="&link;">Download Source</a>
+
