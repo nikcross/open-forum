@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE> Overview Template</TITLE>
+  
+  <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/lib/codemirror.css"/>
+  <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.css"/>
+  <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/lint/lint.css"/>
+<link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.css"/>
+<link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"/>
+  <link rel="stylesheet" href="/OpenForum/Editor/OverviewTemplate/style.css"/>
+  
+	<script type="text/javascript" src="/OpenForum/Javascript/CodeMirror/lib/codemirror.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/Editor/OverviewTemplate/page.js"></script>
+
+</HEAD>
+<body><!--Start Content--><a name="section1"></a><div style="background-color: ccccff; height: 100%">
+  <h3><div id="tabsTree"></div>
+
+<input class="name" type="text" of-id="newAttachmentName"><button class="actionButton" onClick="createAttachment();" title="Create Attachment"><img src="/OpenForum/Images/icons/png/brick_add.png"></button>
+
+  <form name="upload" id="upload" method="post" action="/OpenForum/Actions/Attach?page=Sandbox" enctype="multipart/form-data" target="uploadResponse">
+    <input type="hidden" name="statusQueue"/>
+	<input class="actionButton"  type="file" name="file">
+    <input type="submit" class="actionButton" value="Upload file" onClick="OpenForum.uploadFile('upload',pageName);return false;"/>
+  </form>
+  <iframe name="uploadResponse" style="display: none"></iframe>
+  
+<hr/><a name="section2"></a>
+<h3>Page Actions
+   
+    <ul><li><button onClick="copyPage();">Copy to</button> <input class="newPageNameCopy" type="text" of-id="newPageNameCopy"></li>    <li><button onClick="movePage();">Move to</button> <input class="newPageNameMove" type="text" of-id="newPageNameMove"></li>    <li><button onClick="zipPage();">Zip</button></li>    <li><button onClick="deletePage();">Delete</button></li> 
+<hr/>
+</ul><h3>Plugins
+  
+  <ul><li><button class="actionButton" onclick="loadPlugin('PageManager');">Page Manager</button></li>  <li><button class="actionButton" onclick="loadPlugin('Console');">Javascript Console</button></li>  <li><button class="actionButton" onclick="loadPlugin('ServerConsole');">Server Side Javascript Console</button></li>  <li><button class="actionButton" onclick="loadPlugin('RemoteEditor');">Remote File Editor</button></li>  <li><button class="actionButton" onclick="loadPlugin('DataTransform');">Data Transform Helper</button></li>  <li><button class="actionButton" onclick="loadPlugin('Giraffe');">Giraffe Graphics Environment</button></li>  <li><button class="actionButton" onclick="loadPlugin('Video');">Video Capture</button></li>  <li><button class="actionButton" onclick="loadPlugin('GameConsole');">Game Console</button></li>  <li><button class="actionButton" onclick="loadPlugin('ClientConsole');">Javascript Client Console</button></li>  <li><button class="actionButton" onclick="loadPlugin('Service');">Web Service Wizard</button></li>  <li><button class="actionButton" onclick="loadPlugin('Vision');">Vision Developer</button></li></ul></div></h3></h3></h3><!--End Content--></BODY>
+</HTML>

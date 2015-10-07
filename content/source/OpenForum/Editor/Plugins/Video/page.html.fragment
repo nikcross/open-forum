@@ -1,0 +1,34 @@
+<button class="actionButton" onclick="OpenForum.toggleElement('information{{editorIndex}}');"><img src="/OpenForum/Images/icons/png/information.png"></button>
+<div id="information{{editorIndex}}" style="display: none;" class="popup">
+<table style="border: 1px dashed;"><tr>
+<td style="min-width: 300px; vertical-align: top;">
+<xmp class="example">
+  videoOut.processFrame = function(image) {
+      for(var x=0;x<image.getWidth();x++) {
+      for(var y=0;y<image.getHeight();y++) {
+        
+        var  p1 = image.getPixel(x,y);
+        
+        var red = p1.red;
+        var green = p1.green;
+        var blue = p1.blue;
+        var alpha = p1.alpha;
+        
+        image.setPixel(x,y,{red: red,green: green,blue: blue,alpha: alpha});
+      }
+    }
+  };
+  </xmp>
+</td><td style="min-width: 300px; vertical-align: top;">
+
+<br/><br/>
+<button class="actionButton" onclick="OpenForum.hideElement('information{{editorIndex}}');"><img src="/OpenForum/Images/icons/png/cross.png"></button>
+</td>
+</tr></table>
+</div>
+<br/>
+
+<canvas id="videoOut" width="800" height="600" style="border: solid 1px;"></canvas>
+
+<textarea id="video.code"></textarea>
+<button class="actionButton" onClick="video.runScript();">Run</button>

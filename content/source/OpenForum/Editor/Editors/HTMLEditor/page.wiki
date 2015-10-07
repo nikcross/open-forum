@@ -1,0 +1,40 @@
+<button class="actionButton" onclick="OpenForum.toggleElement('helpWiki{{editorIndex}}');">[{Icon name="information"}] Show Wiki Markup Information</button>
+<button class="actionButton" onclick="OpenForum.toggleElement('helpOpenForum{{editorIndex}}');">[{Icon name="information"}] Show Open Forum Markup Help</button>
+
+<div id="helpWiki{{editorIndex}}" class="popup">
+  <table><tr>
+  <td style="min-width: 200px; vertical-align: top;">
+    [{InsertFile pageName="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/WikiMarkup/" fileName="page.html.fragment"}]
+  </td><td style="min-width: 200px; vertical-align: top;">
+    [{InsertFile pageName="/OpenForum/Extensions/" fileName="page.html.fragment"}]
+  <br/><br/>
+  <button class="actionButton" onclick="OpenForum.hideElement('help{{editorIndex}}');">[{Icon name="cross"}] Close</button>
+  </td>
+  </tr></table>
+</div>
+
+<div id="helpOpenForum{{editorIndex}}" class="popup">
+  <table><tr>
+  <td style="min-width: 200px; vertical-align: top;">
+  {{{
+    {{<variable name>}} -- Insert javascript <variable name> into page
+
+    of-repeatFor="row in rows" -- Repeat the element for each element <row> in javascript array <rows>
+    eg.
+    <ul of-repeatFor="row in rows">
+      <li>{{row.name}} ... {{row.description}}</li>
+    </ul>
+
+    of-id="<variable name>" -- Insert javascript <variable name> into field
+    eg. 
+    <input type="text" of-id="<variable name>">
+  }}}
+  </td><td style="min-width: 200px; vertical-align: top;">
+
+  <br/><br/>
+  <button class="actionButton" onclick="OpenForum.hideElement('help{{editorIndex}}');">[{Icon name="cross"}] Close</button>
+  </td>
+  </tr></table>
+</div>
+    
+<textarea id="editor{{editorIndex}}Src">Loading...</textarea>

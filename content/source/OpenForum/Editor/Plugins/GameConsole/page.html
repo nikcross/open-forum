@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE> Game Console</TITLE>
+  
+	<link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/lib/codemirror.css"></link>
+    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.css"></link>
+    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/lint/lint.css"></link>
+    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.css"></link>
+    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"></link>
+    <link rel="stylesheet" href="/OpenForum/Editor/Plugins/GameConsole/style.css"></link>
+  
+	<script type="text/javascript" src="/OpenForum/Javascript/CodeMirror/lib/codemirror.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/Editor/Plugins/GameConsole/page.js"></script>
+
+</HEAD>
+<body onload="init();"><!--Start Content--><div id="playArea" style="height: 100%">
+  <div id="dog">
+  	<a href="<ol><li>" onClick="displayOverlay();return false;"><img src="/OpenForum/ELCStyle/ELC Logo-small.png" style="opacity:0.5;"/></a></li></ol>  </div>
+  <div id="overlay" style="display: none;"></div>
+  <div id="buttons" style="z-index: 100;">
+    <button onMouseDown="GameConsole.press('leftButton');return false;" onMouseUp="GameConsole.release('leftButton');return false;">Left (N)</button>
+    <button onMouseDown="GameConsole.press('rightButton');return false;" onMouseUp="GameConsole.release('rightButton');return false;">Right (M)</button>
+    <button onMouseDown="GameConsole.press('upButton');return false;" onMouseUp="GameConsole.release('upButton');return false;">Up (a)</button>
+    <button onMouseDown="GameConsole.press('downButton');return false;" onMouseUp="GameConsole.release('downButton');return false;">Down (z)</button>
+    <button onMouseDown="GameConsole.press('buttonA');return false;" onMouseUp="GameConsole.release('buttonA');return false;">Button A (space)</button>
+    <button onMouseDown="GameConsole.press('buttonB');return false;" onMouseUp="GameConsole.release('buttonB');return false;">Button B (x)</button>
+    <button onMouseDown="GameConsole.press('startButton');return false;" onMouseUp="GameConsole.release('startButton');return false;">Start (s)</button>
+  </div>
+  <div id="status"></div>
+  <div id="console"></div>
+</div><!--End Content--></BODY>
+</HTML>

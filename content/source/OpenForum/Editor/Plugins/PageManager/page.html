@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE> Page Manager</TITLE>
+  
+	<link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/lib/codemirror.css"></link>
+    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.css"></link>
+    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/lint/lint.css"></link>
+    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.css"></link>
+    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"></link>
+    <link rel="stylesheet" href="/OpenForum/Editor/Plugins/PageManager/style.css"></link>
+  
+	<script type="text/javascript" src="/OpenForum/Javascript/CodeMirror/lib/codemirror.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/Editor/Plugins/PageManager/page.js"></script>
+
+</HEAD>
+<body onload="init();"><!--Start Content--><a name="section1"></a><button class="actionButton" onClick="pageManager.copyPage();">Copy Page</button><button class="actionButton" onClick="pageManager.movePage();">Move Page</button>
+<h3>From <input of-id="sourcePageName" list="pagesList">
+<h3>To <input of-id="targetPageName" list="pagesList">
+
+<hr/><a name="section2"></a>
+
+<h3><button class="actionButton" onClick="pageManager.deletePage();">DeletePage</button>  <input of-id="deletePageName" list="pagesList">
+
+<hr/>
+
+<h3><button class="actionButton" onClick="pageManager.createPage();">CreatePage</button>  <input of-id="createPageName" list="pagesList">
+
+<dataList id="pagesList"></dataList><dataList id="filesList"></dataList></h3></h3></h3></h3><!--End Content--></BODY>
+</HTML>

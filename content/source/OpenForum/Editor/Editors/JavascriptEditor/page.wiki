@@ -1,0 +1,48 @@
+<button class="actionButton" onclick="OpenForum.toggleElement('information{{editorIndex}}');">[{Icon name="information"}] Show Editor Information</button><button class="actionButton" onclick="OpenForum.toggleElement('help{{editorIndex}}');">[{Icon name="information"}] Show Javascript Help</button>
+<div id="information{{editorIndex}}" class="popup">
+<table style="border: 1px dashed;"><tr>
+<td style="min-width: 300px; vertical-align: top;">
+Ctrl + F = Search\\
+Ctrl + G = Find Next\\
+Ctrl + Shift + G = Find Previous\\
+Ctrl + Shift + F = Replace\\
+Ctrl + Shift + R = Replace All\\
+</td><td style="min-width: 300px; vertical-align: top;">
+Ctrl + Space = Auto Complete\\
+<br/><br/>
+<button class="actionButton" onclick="OpenForum.hideElement('information{{editorIndex}}');">[{Icon name="cross"}] Close</button>
+</td>
+</tr></table>
+</div>
+<div id="help{{editorIndex}}" class="popup">
+<table style="border: 1px dashed;"><tr>
+<td style="min-width: 300px; vertical-align: top;">
+  !!Client(Browser) Side
+</td><td style="min-width: 300px; vertical-align: top;">
+  !!Server Side
+  *Simple get.sjs script
+  {{{
+var action = transaction.getParameter("action");
+if( action==null ) {
+	transaction.setResult(transaction.SHOW_PAGE);
+  return;
+}
+
+  action = ""+action; // Cast to String
+  result = "";
+  
+  if(action === "myAction") {
+  // do stuff and populate result
+  } else {
+  	result = "action not recognised";
+  }
+
+  transaction.sendPage( result );
+}
+  }}}
+<br/><br/>
+<button class="actionButton" onclick="OpenForum.hideElement('help{{editorIndex}}');">[{Icon name="cross"}] Close</button>
+</td>
+</tr></table>
+</div>
+<textarea id="editor{{editorIndex}}Src">Loading...</textarea>

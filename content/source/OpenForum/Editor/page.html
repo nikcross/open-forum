@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE> Editor</TITLE>
+  
+  <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/lib/codemirror.css"/>
+  <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.css"/>
+  <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/lint/lint.css"/>
+<link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.css"/>
+<link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"/>
+  <link rel="stylesheet" href="/OpenForum/Editor/style.css"/>
+  
+	<script type="text/javascript" src="/OpenForum/Javascript/CodeMirror/lib/codemirror.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/Editor/page.js"></script>
+
+</HEAD>
+<body><!--Start Content--><div id="content" style="display: none"><h3>Editing: {{targetName}}
+<button class="actionButton" onClick="openPage();" title="Open This Page"><img src="/OpenForum/Images/icons/png/page_go.png"> View Current Page</button>
+<button class="actionButton" onClick="saveAttachments();" title="Save All Changes"><img src="/OpenForum/Images/icons/png/disk_multiple.png"> Save All Changes</button>
+<button class="actionButton" onclick="OpenForum.showElement('openPageEditorForm');" title="Select A Page To Edit"><img src="/OpenForum/Images/icons/png/folder_page.png"> Open Another Page</button>
+<button class="actionButton" onclick="OpenForum.showElement('openFileForm');" title="Select A File To Edit"><img src="/OpenForum/Images/icons/png/folder_brick.png"> Open File</button></h3>
+  Status: {{status}}
+<div id="openPageEditorForm" class="popup">
+<h3>Open New Page Editor for <input of-id="openPageEditorPageName" list="pagesList">
+<button class="actionButton" onclick="openPageEditor();OpenForum.hideElement('openPageEditorForm');" title="Open"><img src="/OpenForum/Images/icons/png/folder_page.png"> Open Page to Edit</button>
+<button class="actionButton" onclick="OpenForum.hideElement('openPageEditorForm');"><img src="/OpenForum/Images/icons/png/cancel.png"> Cancel</button>
+</div>
+<div id="openFileForm" class="popup">
+<h3>Open File
+Page:<input of-id="openFilePageName" list="pagesList"> File:<input of-id="openFileName" value="" list="filesList">
+<button class="actionButton" onclick="openFile();" title="Open"><img src="/OpenForum/Images/icons/png/folder_brick.png"> Open File to Edit</button>
+<button class="actionButton" onclick="OpenForum.hideElement('openFileForm');"><img src="/OpenForum/Images/icons/png/cancel.png"> Cancel</button>
+</div>
+<dataList id="pagesList"></dataList><dataList id="filesList"></dataList>
+<div id="editorTabs" class="tabs" >
+<span of-repeatFor="editor in editorList" class="{{editor.tabButtonStyle}}">
+	<button id="editorTabButton{{editor.id}}" onclick="showTab('{{editor.id}}');" class="actionElement" title="{{editor.title}}"><img src="/OpenForum/Images/icons/png/brick.png">  {{editor.name}}{{editor.changed}}</button>
+    <button class="closeElement" onclick="closeTab('{{editor.id}}');" title="Close Tab"><img src="/OpenForum/Images/icons/png/cancel.png"></button>
+</span>
+</div>
+<div id="editors" class="editors">
+</div>
+<a href="" target="newTab" id="newTab" style="display: none;"></a>
+</div>
+<div id="splash" style="width:100% height: 50%; text-align: center; vertical-align: middle;font-size: 80px; font-weight: bold;">Loading...</div></h3></h3><!--End Content--></BODY>
+</HTML>

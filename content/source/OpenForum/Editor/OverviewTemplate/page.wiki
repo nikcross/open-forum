@@ -1,0 +1,35 @@
+<div style="background-color: [{Hash}]ccccff; height: 100%">
+  !!<div id="tabsTree"></div>
+
+<input class="name" type="text" of-id="newAttachmentName"><button class="actionButton" onClick="createAttachment();" title="Create Attachment">[{Icon name="brick add"}]</button>
+
+  <form name="upload" id="upload" method="post" action="/OpenForum/Actions/Attach?page=Sandbox" enctype="multipart/form-data" target="uploadResponse">
+    <input type="hidden" name="statusQueue"/>
+	<input class="actionButton"  type="file" name="file">
+    <input type="submit" class="actionButton" value="Upload file" onClick="OpenForum.uploadFile('upload',pageName);return false;"/>
+  </form>
+  <iframe name="uploadResponse" style="display: none"></iframe>
+  
+----
+!!Page Actions
+   
+    * <button onClick="copyPage();">Copy to</button> <input class="newPageNameCopy" type="text" of-id="newPageNameCopy">
+    * <button onClick="movePage();">Move to</button> <input class="newPageNameMove" type="text" of-id="newPageNameMove">
+    *<button onClick="zipPage();">Zip</button>
+    *<button onClick="deletePage();">Delete</button>
+ 
+----
+!!Plugins
+  
+  * <button class="actionButton" onclick="loadPlugin('PageManager');">Page Manager</button>
+  * <button class="actionButton" onclick="loadPlugin('Console');">Javascript Console</button>
+  * <button class="actionButton" onclick="loadPlugin('ServerConsole');">Server Side Javascript Console</button>
+  * <button class="actionButton" onclick="loadPlugin('RemoteEditor');">Remote File Editor</button>
+  * <button class="actionButton" onclick="loadPlugin('DataTransform');">Data Transform Helper</button>
+  * <button class="actionButton" onclick="loadPlugin('Giraffe');">Giraffe Graphics Environment</button>
+  * <button class="actionButton" onclick="loadPlugin('Video');">Video Capture</button>
+  * <button class="actionButton" onclick="loadPlugin('GameConsole');">Game Console</button>
+  * <button class="actionButton" onclick="loadPlugin('ClientConsole');">Javascript Client Console</button>
+  * <button class="actionButton" onclick="loadPlugin('Service');">Web Service Wizard</button>
+  * <button class="actionButton" onclick="loadPlugin('Vision');">Vision Developer</button>
+</div>

@@ -1,0 +1,23 @@
+<button class="actionButton" onclick="OpenForum.toggleElement('information{{editorIndex}}');"><img src="/OpenForum/Images/icons/png/information.png"></button>
+<div id="information{{editorIndex}}" style="display: none;" class="popup">
+<table style="border: 1px dashed;"><tr>
+<td style="min-width: 300px; vertical-align: top;">
+  Notes
+</td><td style="min-width: 300px; vertical-align: top;">
+
+<br/><br/>
+<button class="actionButton" onclick="OpenForum.hideElement('information{{editorIndex}}');"><img src="/OpenForum/Images/icons/png/cross.png"></button>
+</td>
+</tr></table>
+</div>
+<br/>
+<xmp class="example">
+run:<tab name> // run the data from a tab as a script
+</xmp>
+js><input type="text" of-id="giraffe.cliText" size="120" onkeydown="if (event.keyCode == 13) giraffe.runCli(); if (event.keyCode == 38) giraffe.historyCli(-1); if (event.keyCode == 40) giraffe.historyCli(+1);">
+<button class="actionButton" onClick="giraffe.runCli();" title="Run"><img src="/OpenForum/Images/icons/png/cog_go.png"> Run</button><br/>
+<button class="actionButton" onClick="giraffe.reset();" title="Reset"><img src="/OpenForum/Images/icons/png/cross.png">Clear Canvas</button><br/>
+<center><canvas id="exampleCanvas" width="800" height="600" style="border: solid 1px;"></canvas></center><br/>
+<button class="actionButton" onClick="saveCanvas('/Sandbox','snapshot.png',exampleCanvas);">Take Snapshot</button><br/>
+<button class="actionButton" onClick="giraffe.clear();" title="Clear"><img src="/OpenForum/Images/icons/png/cross.png">Clear Log</button><br/>
+{{giraffe.text}}

@@ -1,0 +1,64 @@
+#playArea {
+  background-color: #000000;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+#dog {
+  top: 50px;
+  left: 50px;
+  z-index: 99;
+}
+#overlay {
+  background-color: rgba(0,0,128,0.9);
+  color: #ffffff;
+  width: 400px;
+  z-index: 100;
+}
+
+#buttons {
+    position: fixed;
+    bottom: 60px;
+    width: 100%;
+    height: 60px;
+    z-index: -1;
+}
+
+#status{
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    height: 20px;
+    color: #FFFF00;
+    z-index: -1;
+}
+#console {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: 60px;
+    overflow-y: scroll;
+    z-index: -1;
+}
+
+#screened {
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+#modal {
+  top: 0;
+  left: 0;
+  display: none;
+  color: #FFFFFF;
+  font-family: Helvetica;
+  font-size: 60px;
+  font-weight: bold;
+}
+
+.frame {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}

@@ -1,0 +1,22 @@
+<table style="border: solid 1px; margin: 5px; padding 5px;">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Optional</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tr of-repeatFor="row in service.parameters">
+    <td>{{row.name}}</td>
+    <td>{{row.type}}</td>
+    <td>{{row.optional}}</td>
+    <td>{{row.actions}}</td>
+  </tr>
+</table>
+
+!!Name <input of-id="service.parameter.name" type="text">
+!!Type <input of-id="service.parameter.type" type="text">
+!!Optional <input of-id="service.parameter.optional" type="checkbox">
+<br/>
+<button onClick="service.addParameter();">Add Parameter</button>
