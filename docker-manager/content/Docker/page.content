@@ -1,0 +1,31 @@
+!!Containers Running
+<table>
+
+<tr>
+  <td>Container Id</td>
+  <td>Image</td>
+  <td></td>
+</tr>
+
+<tr of-repeatFor="container in containers">
+  <td>{{container.containerId}}</td>
+  <td>{{container.image}}</td>
+  <td><button onclick="kill('{{container.containerId}}');return false;">Kill</button></td>
+</tr>
+
+</table>
+
+!!Images
+<table>
+
+<tr>
+  <td>Repository</td>
+  <td>Tag</td>
+</tr>
+
+<tr of-repeatFor="image in images">
+  <td>{{image.repository}}</td>
+  <td>{{image.tag}}</td>
+</tr>
+
+</table>
