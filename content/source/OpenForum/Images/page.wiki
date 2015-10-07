@@ -1,0 +1,3 @@
+((Images used by the OpenForum application. A list of icons is available [here|/OpenForum/Images/IconsIndex].))
+
+[{PhotoAlbum}]

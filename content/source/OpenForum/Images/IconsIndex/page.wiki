@@ -1,0 +1,7 @@
+((A list of icons available. Each name should be preceded with /OpenForum/Image/icons/gif and   followed by the .gif extension. For example:
+{{{[/OpenForum/Images/icons/gif/printer.gif]}}} renders as [/OpenForum/Images/icons/gif/printer.gif]))
+
+These icons are designed by Mark James at [http://www.famfamfam.com] and are licensed under a [Creative Commons Attribution 2.5 License.|http://creativecommons.org/licenses/by/2.5/]
+\\\\
+
+[/OpenForum/Images/index_abc.png]
