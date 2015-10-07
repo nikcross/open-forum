@@ -1,0 +1,10 @@
+<script>
+pageName = new String(window.location);
+pageName = pageName.substring(7);
+pageName = pageName.substring(pageName.indexOf("/")+1);
+</script>
+__Sorry. The page <script>document.write(pageName);</script> you were looking for has not been found.__
+\\\\
+<script>
+document.write("<a href='/OpenForum/Editor?pageName=/"+pageName+"'>You can create the page '"+pageName+"' by clicking here.</a>");
+</script>

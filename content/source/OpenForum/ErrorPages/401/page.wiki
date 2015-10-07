@@ -1,0 +1,4 @@
+<center>
+__You have been denied access to this page.__\\
+Please obtain authorisation from the system administrator.
+</center>
