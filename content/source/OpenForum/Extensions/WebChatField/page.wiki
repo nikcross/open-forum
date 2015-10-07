@@ -1,0 +1,15 @@
+Web Chat send field
+----
+!!Parameters
+----
+!!Usage:
+{{{
+[{WebChatField queueName="testQueue"}]
+}}}
+[{WebChatField queueName="testQueue"}]
+
+__See: [WebChatView|/OpenForum/Extensions/WebChatView]__
+
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

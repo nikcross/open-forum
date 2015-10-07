@@ -1,0 +1,13 @@
+Inserts a form read only field.
+----
+!!Parameters
+name - the field name
+value - optional value
+----
+!!Usage:
+{{{[{ReadOnlyField name="myField"}]}}}
+[{ReadOnlyField name="myField"}]
+
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

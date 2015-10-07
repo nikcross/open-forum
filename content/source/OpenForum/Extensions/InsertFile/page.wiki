@@ -1,0 +1,16 @@
+Inserts a files contents into the page
+----
+!!Parameters
+* pageName - The page where the file is attached (optional)
+* fileName - The file to insert
+
+----
+!!Usage:
+{{{
+[{InsertFile pageName="pageName" fileName="fileName"}]
+}}}
+If pageName is not given then the current page name is assumed.
+
+----
+!!renderer.sjs
+[{InserSourceFile fileName="renderer.sjs"}]

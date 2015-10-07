@@ -1,0 +1,54 @@
+<a name="section1"></a>Creates a drop down menu of links
+<hr/><a name="section2"></a>
+<h3>See Also: <a href="/OpenForum/Extensions/StartMenu" title="/OpenForum/Extensions/StartMenu">StartMenu</a>,<a href="/OpenForum/Extensions/StartMenuDropDown" title="/OpenForum/Extensions/StartMenuDropDown">StartMenuDropDown</a></h3>
+<h3>Usage:</h3><xmp class="example">
+[{MenuItem title="menu title" options="comma separated list of menu options"}]
+</xmp><br/><i>Menu Items must be encapsulated in StartMenu and EndMenu elements e.g.</i>
+<xmp class="example">
+[{StartMenu}]
+  [{MenuItem title="File" options="New,Save,SaveAs,Exit"}]
+  [{MenuItem title="Edit" options="Undo,Cut,Copy,Paste"}]
+[{EndMenu}]
+</xmp><br/><table class="menuBar"><tr>
+  <td><img src="/OpenForum/Images/icons/gif/bullet_white.gif" border="0"></td><td><table><tr><td class="menuBar"><a href="" onClick="toggleMenuLayer('File');return false;" class="menuBar">File</a></td></tr><tr><td><DIV id="File" style="position: absolute; display: none;"><table class="menuTop"><tr><td><a class="menuItem" href="New">New</a><a class="menuItem" href="Save">Save</a><a class="menuItem" href="SaveAs">SaveAs</a><a class="menuItem" href="Exit">Exit</a></td></tr></table></DIV></td></tr></table></td><td> </td>
+  <td><img src="/OpenForum/Images/icons/gif/bullet_white.gif" border="0"></td><td><table><tr><td class="menuBar"><a href="" onClick="toggleMenuLayer('Edit');return false;" class="menuBar">Edit</a></td></tr><tr><td><DIV id="Edit" style="position: absolute; display: none;"><table class="menuTop"><tr><td><a class="menuItem" href="Undo">Undo</a><a class="menuItem" href="Cut">Cut</a><a class="menuItem" href="Copy">Copy</a><a class="menuItem" href="Paste">Paste</a></td></tr></table></DIV></td></tr></table></td><td> </td>
+<td> </td></tr></table><script>includeLibrary("/OpenForum/Extensions/EndMenu/menu.js");</script><br/><hr/>
+<h3>renderer.sjs</h3><xmp class="example">var title = extension.getAttributeValueByName("title");
+var items = extension.getAttributeValueByName("options");
+
+if(title!=null & items!=null)
+{
+ title = new String(title);
+ items = new String(items).split(",");
+
+ data =  "<td><img src=\"/OpenForum/Images/icons/gif/bullet_white.gif\" border=\"0\"></td><td>";
+ data += "<table><tr><td class=\"menuBar\"><a href=\"\" onClick=\"toggleMenuLayer('"+title+"');return false;\" class=\"menuBar\">"+title+"</a>";
+ data += "</td></tr><tr><td><DIV id=\""+title+"\" style=\"position: absolute; display: none;\">";
+ data += "<table class=\"menuTop\"><tr><td>";
+
+ for(itemNo = 0;itemNo<items.length ;itemNo++ )
+ {
+
+ itemParts = items[itemNo].split("|");
+ if(itemParts.length==3)
+ {
+  data += "<a class=\"menuItem\" href=\""+itemParts[1]+"\"><img src=\""+itemParts[0]+"\" class=\"NodeImg\" border=\"0\">    "+itemParts[1]+"</a></br>";
+ }
+ else if(itemParts.length==2)
+ {
+  data += "<a class=\"menuItem\" href=\""+itemParts[1]+"\"> "+itemParts[0]+"</a>";
+ }
+ else
+ {
+  data += "<a class=\"menuItem\" href=\""+items[itemNo]+"\">"+items[itemNo]+"</a>";
+ }
+ }
+ data += "</td></tr></table></DIV></td></tr></table></td><td> </td>";
+
+ return data;
+}
+else
+{
+  return "Invalid Menu. Missing title or options attribute given.";
+}
+</xmp>

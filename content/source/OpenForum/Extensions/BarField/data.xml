@@ -1,0 +1,36 @@
+<data>
+	<pageName><![CDATA[OpenForum/Extensions/BarField]]></pageName>
+	<source><![CDATA[A Bar Graph field
+----
+!!Parameters
+*title
+*id
+*width
+*height
+*maxValue
+*value
+*tile - optional bar tile image
+*suffix - optional value suffix string
+----
+!!Usage:
+{{{
+[{BarField title="My Bar" id="myBar" width="400" height="30" maxValue="100" value="13"}]
+}}}
+[{BarField title="My Bar" id="myBar1" width="400" height="30" maxValue="100" value="13"}]
+
+[{BarField title="My Bar" id="myBar2" width="400" height="10" maxValue="100" value="55" tile="/OpenForum/Extensions/BarField/tube-bar.png"}]
+
+[{BarField title="My Bar" id="myBar3" width="400" height="50" maxValue="100" value="70" tile="/OpenForum/Extensions/BarField/landscape-bar.png" suffix="%"}]
+
+<a href="" onClick="animate();return false;">Animate Bar</a>
+
+<script>
+function animate()
+{
+ myBar.setValue( myBar.getValue()+1  );
+ setTimeout("animate();",100);
+}
+</script>]]></source>
+	<renderer.sjs>&renderer.sjs;</renderer.sjs>
+	<tags>Extension</tags>
+</data>

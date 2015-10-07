@@ -1,0 +1,12 @@
+Places an icon on the page
+----
+!!Parameters
+* name - name of icon
+
+----
+!!Usage:
+{{{
+[{Icon name="chart pie"}]
+}}}
+Example:
+[{Icon name="chart pie"}]

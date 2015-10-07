@@ -1,0 +1,13 @@
+[See: /OpenForum/Extensions/StartEditForm]
+----
+!!Parameters
+----
+!!Usage:
+{{{
+[{-Example-}]
+}}}
+-Example-
+
+----
+!!renderer.sjs
+{{{return "<input type='hidden' name='pageName' value='&pageName;'></form>"}}}

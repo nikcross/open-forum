@@ -1,0 +1,37 @@
+Inserts an image in a frame with a title and a caption
+----
+!!Parameters
+* src - The location of the image file
+* title - The title to display
+* description
+----
+!!Usage
+{{{[{Photograph src="image name" title="title" description="description"}]}}}
+__Example:__ {{{[{Photograph src="/OpenForum/Images/index_abc.png" title="The Title" description="A caption here"}]}}} renders as [{Photograph src="/OpenForum/Images/index_abc.png" title="The Title" description="A caption here"}]
+
+----
+!!renderer.sjs
+{{{src = extension.getAttributeValueByName("src");
+title = extension.getAttributeValueByName("title");
+description = extension.getAttributeValueByName("description");
+
+if(src!=null)
+{
+  src = new String(src);
+  
+  if( src.indexOf('/')!=0 )
+  {
+    src = "/"+pageName+"/"+src;
+  }
+
+  parts = src.split(".");
+  thumbnail = parts[0]+".thumbnail.png";
+
+  data = "<table class=\"box\"><tr><td><h2>"+title+"</h2><a href='' onclick='showAlert(\"<img src=\\\""+src+"\\\" border=0>\",\""+title+"<br/>"+description+"\");return false;'><img src='"+thumbnail+"' border=0/></a><br/>"+description+"</td></tr></table>";
+
+  return data;
+}
+else
+{
+  return "Invalid Image. No src attribute given.";
+}}}}

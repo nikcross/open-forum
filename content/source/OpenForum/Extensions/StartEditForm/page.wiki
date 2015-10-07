@@ -1,0 +1,13 @@
+Start a Wiki page form
+----
+!!Parameters
+----
+!!Usage:
+{{{
+[{StartForm}]
+}}}
+-Example-
+
+----
+!!renderer.sjs
+{{{return "<form name=\"editForm\" id=\"editForm\" method=\"post\" action=\"/OpenForum/Actions/Update\">";}}}

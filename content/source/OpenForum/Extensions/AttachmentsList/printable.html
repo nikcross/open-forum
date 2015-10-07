@@ -1,0 +1,52 @@
+<a name="section1"></a>Creates a bulleted list of attachments on a pages
+<hr/><a name="section2"></a>
+<h3>Parameters</h3><ul><li>pageName - The page to list (optional. default = current page)</li><hr/><a name="section3"></a></ul>
+<h3>Usage:</h3><xmp class="example">
+[{AttachmentsList matching=".txt"}]
+</xmp>
+<ul><li><a href="/OpenForum/Extensions/AttachmentsList/owner.txt">owner.txt</a></li><li><a href="/OpenForum/Extensions/AttachmentsList/tags.txt">tags.txt</a></li><li><a href="/OpenForum/Extensions/AttachmentsList/notes.txt">notes.txt</a></li></ul><br/><hr/><br/><a href="/OpenForum/Extensions/AttachmentsList/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/AttachmentsList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">targetPage = extension.getAttribute("pageName");
+matching = extension.getAttribute("matching");
+includePage = true;
+if(targetPage==null)
+{
+  targetPage = pageName;
+  includePage = false;
+}
+targetPage = new String(targetPage);
+
+list = file.getAttachmentsForPage( targetPage );
+if(targetPage.charAt(0)!='/')
+{
+  targetPage = "/"+targetPage;
+}
+
+data="";
+iterator= list.keySet().iterator();
+while(iterator.hasNext())
+{
+  key = new String(iterator.next());
+  if(key.charAt(0)=='+')
+  {
+    continue;
+  }
+  else if(matching!=null && key.search( new String(matching) )==-1 )
+  {
+    continue;
+  }
+  else
+  {
+    item = key;
+  }
+
+  if(includePage==true)
+  {
+    data+="* ["+targetPage+"/"+item+"]\n";
+  }
+  else
+  {
+    data+="* ["+item+"]\n";
+  }
+
+}
+
+return wiki.renderWikiData(pageName,data);</xmp>

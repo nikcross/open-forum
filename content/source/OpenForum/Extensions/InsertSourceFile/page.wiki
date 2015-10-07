@@ -1,0 +1,16 @@
+Inserts a files contents into the page
+----
+!!Parameters
+* pageName - The page where the file is attached (optional. default = current page name)
+* fileName - The file to insert
+
+----
+!!Usage:
+{{{
+[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]
+}}}
+[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]
+
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

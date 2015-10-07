@@ -1,0 +1,14 @@
+Adds a submit button to a form
+----
+!!Parameters
+-none
+----
+!!Usage:
+{{{
+[{FormSubmit}]
+}}}
+[{FormSubmit}]
+
+----
+!!renderer.sjs
+{{{return "<input type='submit' value='Save'/>"}}}

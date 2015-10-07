@@ -1,0 +1,40 @@
+<a name="section1"></a>-Description-
+<hr/><a name="section2"></a>
+<h3>Parameters</h3><hr/><a name="section3"></a>
+<h3>Usage:</h3><xmp class="example">
+[{SourceEditor source="page.wiki"}]
+</xmp>
+<form><textarea id="codeTextarea" cols="80" rows="10">-Description-
+----
+!!Parameters
+----
+!!Usage:
+{{{
+[{SourceEditor source="page.wiki"}]
+}}}
+[{SourceEditor source="page.wiki"}]
+
+----
+!!renderer.sjs
+{{{source = extension.getAttributeValueByName("source");
+
+data = "<form&gt;<textarea id=\"codeTextarea\" cols=\"80\" rows=\"10\"&gt;";
+
+sourceData = file.getAttachment(pageName,source);
+sourceData = sourceData.replace("&gt;","&gt;");
+
+data+= sourceData;
+data+= "</textarea&gt;</form&gt;<script&gt;includeLibrary(\"/OpenForum/Extensions/SourceEditor/source-editor.js\");includeInitFunction(\"createTextAreaWithLines(\\\"codeTextarea\\\");\");</script&gt;";
+
+return data;}}}</textarea></form><script>includeLibrary("/OpenForum/Extensions/SourceEditor/source-editor.js");includeInitFunction("createTextAreaWithLines(\"codeTextarea\");");</script><br/><hr/>
+<h3>renderer.sjs</h3><xmp class="example">source = extension.getAttributeValueByName("source");
+
+data = "<form><textarea id=\"codeTextarea\" cols=\"80\" rows=\"10\">";
+
+sourceData = file.getAttachment(pageName,source);
+sourceData = sourceData.replace(">","&gt;");
+
+data+= sourceData;
+data+= "</textarea></form><script>includeLibrary(\"/OpenForum/Extensions/SourceEditor/source-editor.js\");includeInitFunction(\"createTextAreaWithLines(\\\"codeTextarea\\\");\");</script>";
+
+return data;</xmp>

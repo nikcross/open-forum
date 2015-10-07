@@ -1,0 +1,44 @@
+Creates a bulleted list of child pages
+----
+!!Parameters
+*pageName - The page to list (optional. default = current page)
+----
+!!Usage:
+{{{
+[{ChildPagesList pageName="/OpenForum"}]
+}}}
+[{ChildPagesList pageName="/OpenForum"}]
+
+----
+!!renderer.sjs
+{{{targetPage = extension.getAttributeValueByName("pageName");
+if(targetPage==null)
+{
+  targetPage = pageName;
+}
+targetPage = new String(targetPage);
+
+list = file.getAttachmentsForPage( targetPage );
+if(targetPage.charAt(0)!='/')
+{
+  targetPage = "/"+targetPage;
+}
+
+data="";
+enumerator = list.keys();
+while(enumerator.hasMoreElements())
+{
+  key = new String(enumerator.nextElement());
+  if(key.charAt(0)!='+' || key=="+history")
+  {
+    continue;
+  }
+  else
+  {
+    item = key.substring(1);
+  }
+
+  data+="* ["+item+"|"+targetPage+"/"+item+"]\n";
+}
+
+return wiki.renderWikiData(pageName,data);}}}

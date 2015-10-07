@@ -1,0 +1,20 @@
+<a name="section1"></a>Creates a drop down menu
+<hr/><a name="section2"></a>
+<h3>Parameters</h3><hr/><a name="section3"></a>
+<h3>See Also: <a href="/OpenForum/Extensions/EndMenu" title="/OpenForum/Extensions/EndMenu">EndMenu</a>,<a href="/OpenForum/Extensions/MenuItem" title="/OpenForum/Extensions/MenuItem">MenuItem</a>,<a href="/OpenForum/Extensions/StartMenuDropDown" title="/OpenForum/Extensions/StartMenuDropDown">StartMenuDropDown</a></h3>
+<h3>Usage:</h3><xmp class="example">
+[{StartMenu}]
+  [{MenuItem title="Menu Item Example" options="Documentation|http://open-forum.onestonesoup.org/OpenForum/Documentation"}]
+  [{StartMenuDropDown title="Menu Drop Down Example"}]
+    <a href="http://www.bbc.co.uk" class="MenuItem">The BBC</a>
+    <a href="http://www.google.com" class="MenuItem">Google</a>
+  [{EndMenuDropDown}]
+[{EndMenu}]
+</xmp><br/><table class="menuBar"><tr>
+  <td><img src="/OpenForum/Images/icons/gif/bullet_white.gif" border="0"></td><td><table><tr><td class="menuBar"><a href="" onClick="toggleMenuLayer('Menu Item Example');return false;" class="menuBar">Menu Item Example</a></td></tr><tr><td><DIV id="Menu Item Example" style="position: absolute; display: none;"><table class="menuTop"><tr><td><a class="menuItem" href="http://open-forum.onestonesoup.org/OpenForum/Documentation"> Documentation</a></td></tr></table></DIV></td></tr></table></td><td> </td>
+  <td>  <img src="/OpenForum/Images/icons/gif/bullet_white.gif" border="0"></td><td><table><tr><td class="menuBar"><a href="" onClick="toggleMenuLayer('Menu Drop Down Example');return false;" class="menuBar">Menu Drop Down Example</a></td></tr><tr><td><DIV id="Menu Drop Down Example" style="position: absolute; display: none;"><table class="menuTop"><tr><td><DIV id="Menu Drop Down ExampleInsertPoint"></DIV>
+    <a href="http://www.bbc.co.uk" class="MenuItem">The BBC</a>
+    <a href="http://www.google.com" class="MenuItem">Google</a>
+  </td></tr></table></DIV></td></tr></table></td><td> </td>
+<td> </td></tr></table><script>includeLibrary("/OpenForum/Extensions/EndMenu/menu.js");</script><br/><hr/>
+<h3>renderer.sjs</h3><xmp class="example">return "<table class=\"menuBar\"><tr>";</xmp>

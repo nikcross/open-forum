@@ -1,0 +1,13 @@
+A draggable slider field
+----
+!!Parameters
+----
+!!Usage:
+{{{
+[{SliderField title="Volume" id="volume" value="25" maxValue="100" width="400" height="30"}]
+}}}
+[{SliderField title="Volume" id="volume" value="25" maxValue="100" width="400" height="30"}]
+
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

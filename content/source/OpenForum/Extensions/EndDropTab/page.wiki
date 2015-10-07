@@ -1,0 +1,10 @@
+[See: StartDropTab|/OpenForum/Extensions/StartDropTab]
+----
+!!Parameters
+-none-
+----
+!!Usage:
+
+----
+!!renderer.sjs
+{{{return "</DIV></td></tr></table>";}}}

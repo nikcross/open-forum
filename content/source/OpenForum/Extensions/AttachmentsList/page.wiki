@@ -1,0 +1,14 @@
+Creates a bulleted list of attachments on a pages
+----
+!!Parameters
+*pageName - The page to list (optional. default = current page)
+----
+!!Usage:
+{{{
+[{AttachmentsList matching=".txt"}]
+}}}
+[{AttachmentsList matching=".txt"}]
+
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

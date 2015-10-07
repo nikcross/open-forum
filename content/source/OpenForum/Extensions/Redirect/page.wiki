@@ -1,0 +1,9 @@
+Transfers a page to another page 
+----
+!!Parameters
+* page - The page to redirect to
+
+----
+!!Usage
+{{{[{Redirect page="new page name"}]}}}
+The example of the page [/OpenForum/Extensions/Redirect/Example] will redirect back to here.

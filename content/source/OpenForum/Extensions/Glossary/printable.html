@@ -1,0 +1,18 @@
+<a name="section1"></a>Adds a Glossary Entry if on the Glossary page or a link to the term if on any other page.
+<hr/><a name="section2"></a>
+<h3>Parameters</h3><ul><li>term - the glossary term to desribe</li><hr/><a name="section3"></a></ul>
+<h3>Usage:</h3><xmp class="example">
+[{Glossary term="TCP/IP"}] Transmission Control Protocol/Internet Protocol
+</xmp>
+<a href="/Glossary#TCP/IP" title="Glossary entry for TCP/IP"><img src="/OpenForum/Images/icons/gif/information.gif" border="0"></a> Transmission Control Protocol/Internet Protocol<br/><hr/>
+<h3>renderer.sjs</h3><xmp class="example">term = extension.getAttributeValueByName("term");
+
+if(pageName=="Glossary")
+{
+  return "<hr><a name=\""+term+"\"><h3>"+term+"</h3>";
+}
+else
+{
+  return "<a href=\"/Glossary#"+term+"\" title=\"Glossary entry for "+term+"\"><img src=\"/OpenForum/Images/icons/gif/information.gif\" border=\"0\"></a>";
+}
+</xmp>

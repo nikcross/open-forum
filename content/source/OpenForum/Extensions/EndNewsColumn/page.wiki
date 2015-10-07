@@ -1,0 +1,12 @@
+[See: StartNewsColumn|/OpenForum/Extensions/StartNewsColumn]
+----
+!!Parameters
+-none-
+!!Usage:
+{{{
+[{EndNewsColumn}]
+}}}
+
+----
+!!renderer.sjs
+{{{return "</td>";}}}

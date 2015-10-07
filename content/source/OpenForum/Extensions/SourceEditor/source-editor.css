@@ -1,0 +1,24 @@
+   #codeTextarea{ 
+      width:400px; 
+ height:510px; 
+border-left:2px solid #e3e3e3;
+padding:4px;
+   } 
+   .textAreaWithLines{ 
+      font-family:courier;       
+      border:1px solid #f1f1f1; 
+background-color:#f1f1f1;
+       
+   } 
+   .textAreaWithLines textarea,.textAreaWithLines div{ 
+      border:0px; 
+      line-height:120%; 
+      font-size:12px; 
+   } 
+   .lineObj{ 
+      color:#808080;
+      background-color:#f1f1f1;
+      border-right:2px solid #e3e3e3;
+padding-right:4px;
+height:510px;
+   } 

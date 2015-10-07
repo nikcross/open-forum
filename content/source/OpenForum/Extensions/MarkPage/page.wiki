@@ -1,0 +1,15 @@
+Mark a point in a page that can be referenced
+----
+!!Parameters
+name = the name of the mark
+----
+!!Usage:
+{{{
+[{Mark name="TestMark"}] Some text to reference
+}}}
+[{Mark name="TestMark"}] Some text to reference\\
+See: [GoToMark|/OpenForum/Extensions/GoToMark] for an example of using this mark
+
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

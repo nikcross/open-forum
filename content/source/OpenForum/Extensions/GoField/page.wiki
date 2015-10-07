@@ -1,0 +1,16 @@
+Creates a dropdown selection field of all Wiki Pages
+----
+!!Parameters
+* name - name of the field
+----
+!!Usage:
+{{{
+[{PagesListField name="pageName"}]
+}}}
+[{PagesListField name="pageName"}]
+
+----
+!!renderer.sjs
+{{{id = extension.getAttributeValueByName( "name" );
+
+return "<select name=\""+id+"\" id=\""+id+"\"></select><script> includeInitFunction(\"setSelect(\\\""+id+"\\\");\");includeLibrary(\"/OpenForum/Extensions/PagesListField/select.js\");</script>";}}}

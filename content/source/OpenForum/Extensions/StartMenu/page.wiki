@@ -1,0 +1,28 @@
+Creates a drop down menu
+----
+!!Parameters
+----
+!!See Also: [EndMenu|/OpenForum/Extensions/EndMenu],[MenuItem|/OpenForum/Extensions/MenuItem],[StartMenuDropDown|/OpenForum/Extensions/StartMenuDropDown]
+
+!!Usage:
+{{{
+[{StartMenu}]
+  [{MenuItem title="Menu Item Example" options="Documentation|http://open-forum.onestonesoup.org/OpenForum/Documentation"}]
+  [{StartMenuDropDown title="Menu Drop Down Example"}]
+    <a href="http://www.bbc.co.uk" class="MenuItem">The BBC</a>
+    <a href="http://www.google.com" class="MenuItem">Google</a>
+  [{EndMenuDropDown}]
+[{EndMenu}]
+}}}
+
+[{StartMenu}]
+  [{MenuItem title="Menu Item Example" options="Documentation|http://open-forum.onestonesoup.org/OpenForum/Documentation"}]
+  [{StartMenuDropDown title="Menu Drop Down Example"}]
+    <a href="http://www.bbc.co.uk" class="MenuItem">The BBC</a>
+    <a href="http://www.google.com" class="MenuItem">Google</a>
+  [{EndMenuDropDown}]
+[{EndMenu}]
+
+----
+!!renderer.sjs
+{{{return "<table class=\"menuBar\"><tr>";}}}

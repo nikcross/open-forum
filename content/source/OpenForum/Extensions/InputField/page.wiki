@@ -1,0 +1,13 @@
+Inserts a form input field.
+----
+!!Parameters
+name - the field name
+value - optional value
+----
+!!Usage:
+{{{[{InputField name="myField"}]}}}
+[{InputField name="myField"}]
+
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

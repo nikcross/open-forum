@@ -1,0 +1,1 @@
+return "<script>window.location='"+extension.getAttribute("page")+"';</script><a href='"+extension.getAttribute("page")+"'>Redirecting to "+extension.getAttribute("page")+". Click here if you are not redirected automatically.</a>";

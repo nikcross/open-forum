@@ -1,0 +1,24 @@
+<a name="section1"></a>Creates a live data view field
+<hr/><a name="section2"></a>
+<h3>Parameters</h3><ul><li>pageName</li><li>fileName</li><li>refreshTime - seconds</li><hr/><a name="section3"></a></ul>
+<h3>Usage:</h3><xmp class="example">
+[{LiveField pageName="/OpenForum/Extensions/LiveField" fileName="live.txt" refreshTime="10"}]
+</xmp>
+<DIV id="/OpenForum/Extensions/LiveField/live.txt"></DIV><script>includeLibrary("/OpenForum/Extensions/LiveField/live-field.js");
+includeInitFunction("updateLiveField(\"/OpenForum/Extensions/LiveField\",\"live.txt\",\"/OpenForum/Extensions/LiveField/live.txt\",10)");</script><br/><hr/><br/><a href="/OpenForum/Extensions/LiveField/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=/OpenForum/Extensions/LiveField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">pageName=extension.getAttributeValueByName("pageName");
+fileName=extension.getAttributeValueByName("fileName");
+refreshTime=extension.getAttributeValueByName("refreshTime");
+layerId=pageName+"/"+fileName;
+data = "<DIV id=\""+layerId+"\"></DIV>";
+data+= "<script>includeLibrary(\"/OpenForum/Extensions/LiveField/live-field.js\");\n";
+data+= "includeInitFunction(\"";
+data+=  "updateLiveField(";
+data+=   "\\\""+pageName+"\\\",";
+data+=   "\\\""+fileName+"\\\",";
+data+=   "\\\""+layerId+"\\\",";
+data+=   refreshTime;
+data+=  ")";
+data+= "\");</script>";
+
+return data;
+</xmp>

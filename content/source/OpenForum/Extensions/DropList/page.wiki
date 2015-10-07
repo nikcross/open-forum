@@ -1,0 +1,68 @@
+A left menu drop down section
+----
+!!Parameters
+* title
+* options
+* id
+----
+!!Usage:
+{{{
+[{DropList title="My Left Menu" id="myLeftMenu" options="
+Option 1|option1,
+Option 2|option2,
+Option 3
+"}]
+}}}
+[{DropList title="My Left Menu" id="myleftMenu" options="
+Option 1|option1,
+Option 2|option2,
+Option 3
+"}]
+
+----
+!!renderer.sjs
+{{{var title = extension.getAttributeValueByName("title");
+var id = extension.getAttributeValueByName("id");
+var items = extension.getAttributeValueByName("options");
+
+if(title!=null && items!=null && id!=null)
+{
+ title = new String(title);
+ id = new String(title);
+ items = new String(items).split(",");
+
+data = "<ul><li><a href=\"\" onclick=\"ui.toggleLayer(\'"+id+"\');return false;\"><img id=\""+id+"Twisty\" src=\"/OpenForum/Images/icons/gif/bullet_arrow_down.gif\" border=\"0\"/>"+title+"</a></li></ul>";
+data += "<DIV id=\""+id+"\" style=\"display: none;\" width=\"200\">";
+data += "<ul><li>";
+
+ for(itemNo = 0;itemNo<items.length ;itemNo++ )
+ {
+
+ itemParts = items[itemNo].split("|");
+ if(itemParts.length==3)
+ {
+ link = "<a class=\"menuItem\" href=\""+itemParts[1]+"\"><img src=\""+itemParts[0]+"\" class=\"NodeImg\" border=\"0\">"+itemParts[1]+"</a></br>";
+ }
+ else if(itemParts.length==2)
+ {
+ link = "<a class=\"menuItem\" href=\""+itemParts[1]+"\">"+itemParts[0]+"</a>";
+ }
+ else
+ {
+ link = "<a class=\"menuItem\" href=\"/"+items[itemNo]+"\">"+items[itemNo]+"</a>";
+ }
+
+data += "  <ul><li>"+link+"</li></ul>";
+
+ }
+
+data += "</li></ul>";
+data += "</DIV>";
+
+ return data;
+}
+else
+{
+ return "Invalid Menu. Missing title, id or options attribute.";
+}
+}}}

@@ -1,0 +1,11 @@
+<a name="section1"></a>Adds a Help link
+<hr/><a name="section2"></a>
+<h3>Parameters</h3><ul><li>page - The page containing the help content</li><li>toolTip - The tool tip to popup on mouse over</li><hr/><a name="section3"></a></ul>
+<h3>Usage:</h3><xmp class="example">
+[{Help page="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/ExtendingWikiMarkup" toolTip="Help on extending Wiki Markup"}]
+</xmp>
+<table width="100%"><tr><td align="right"><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/ExtendingWikiMarkup" title="Help on extending Wiki Markup"><img border="0" src="/OpenForum/Images/icons/gif/information.gif"></a></td></tr></table><br/><hr/>
+<h3>renderer.sjs</h3><xmp class="example">page = extension.getAttributeValueByName("page");
+toolTip = extension.getAttributeValueByName("toolTip");
+
+return "<table width=\"100%\"><tr><td align=\"right\"><a href=\""+page+"\" title=\""+toolTip+"\"><img border=\"0\" src=\"/OpenForum/Images/icons/gif/information.gif\"></a></td></tr></table>"</xmp>

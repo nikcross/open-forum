@@ -1,0 +1,16 @@
+<data>
+	<pageName><![CDATA[OpenForum/Extensions/JSClipFile]]></pageName>
+	<source><![CDATA[Adds a link to a Client Side Javascript Clip File
+----
+!!Parameters
+*pageName
+*fileName
+----
+!!Usage:
+{{{
+[{JSClipFile pageName="<pageName>" fileName="<fileName>"}]
+}}}
+[{JSClipFile pageName="<pageName>" fileName="<fileName>"}]]]></source>
+	<renderer.sjs>&renderer.sjs;</renderer.sjs>
+	<tags>Extension</tags>
+</data>

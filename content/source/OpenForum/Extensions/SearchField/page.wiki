@@ -1,0 +1,16 @@
+A site search field
+----
+!!Parameters
+*searchTerm - The default search term
+----
+!!Usage:
+{{{
+[{SearchField searchTerm="food"}]
+}}}
+[{SearchField searchTerm="food"}]
+
+----
+!!renderer.sjs
+{{{searchTerm = extension.getAttributeValueByName("searchTerm");
+
+return "<b><form name=\"searchForm\" action=\"/OpenForum/Actions/Search\"><input type=\"image\" title=\"Search\" src=\"/OpenForum/Images/icons/gif/magnifier.gif\"><input type=\"text\" name=\"searchTerm\" value=\""+searchTerm+"\"size=\"18\"></form></b>";}}}
