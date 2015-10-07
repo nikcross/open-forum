@@ -1,0 +1,5 @@
+{{{
+
+.*/OpenForum/DynamicPages/TestPage/Test/.*=/OpenForum/DynamicPages/TestPage
+
+}}}

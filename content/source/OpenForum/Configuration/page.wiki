@@ -1,0 +1,4 @@
+* authorizer = org.onestonesoup.openforum.security.JavascriptAuthorizer
+* authenticator = org.onestonesoup.openforum.security.www.WWWAuthenticator
+* resourceStore1 = read-only:../source
+* resourceStore0 = ../changes

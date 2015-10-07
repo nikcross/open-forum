@@ -1,0 +1,1 @@
+<ul><li>authorizer = org.onestonesoup.openforum.security.JavascriptAuthorizer</li><li>authenticator = org.onestonesoup.openforum.security.www.WWWAuthenticator</li></ul>

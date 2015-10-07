@@ -1,0 +1,4 @@
+{{{
+edit=/OpenForum/Editor
+delete=/OpenForum/Actions/Delete
+}}}
