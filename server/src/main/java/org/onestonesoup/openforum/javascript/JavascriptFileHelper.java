@@ -4,12 +4,13 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Map;
 
+import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileManager;
 import org.onestonesoup.openforum.security.AuthenticationException;
 import org.onestonesoup.openforum.security.Login;
 
-public class JavascriptFileHelper {
+public class JavascriptFileHelper implements OpenForumConstants {
 
 	private OpenForumController controller;
 	private FileManager fileManager;
@@ -86,13 +87,13 @@ public class JavascriptFileHelper {
 	public String getPageInheritedFileAsString(String pageName, String fileName)
 			throws Exception, AuthenticationException {
 		return fileManager.getPageInheritedFileAsString(pageName, fileName,
-				"/OpenForum/Page", login);
+				OPEN_FORUM_DEFAULT_PAGE_PATH, login);
 	}
 
 	public String getPageInheritedFilePath(String pageName, String fileName)
 			throws Exception, AuthenticationException {
 		return fileManager.getPageInheritedFilePath(pageName, fileName,
-				"/OpenForum/Page", login);
+				OPEN_FORUM_DEFAULT_PAGE_PATH, login);
 	}
 
 	public void saveAttachment(String pageName, String fileName, String data)

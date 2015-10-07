@@ -20,6 +20,7 @@ import org.onestonesoup.openforum.OpenForumException;
 import org.onestonesoup.openforum.OpenForumNameHelper;
 import org.onestonesoup.openforum.Stream;
 import org.onestonesoup.openforum.TimeHelper;
+import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.plugin.JarManager;
 import org.onestonesoup.openforum.security.AuthenticationException;
@@ -32,7 +33,7 @@ import org.onestonesoup.openforum.versioncontrol.VersionController;
 import org.onestonesoup.openforum.zip.UnZipper;
 import org.onestonesoup.openforum.zip.Zipper;
 
-public class FileManager {
+public class FileManager implements OpenForumConstants {
 
 	private long lastFileSaved = 0;
 
@@ -851,10 +852,10 @@ public class FileManager {
 				return;
 			}
 
-			if (pageName.indexOf("/Admin/Deleted/") == 0) {
+			if (pageName.indexOf(DELETED_PAGES) == 0) {
 				resourceStore.delete(folder);
 			} else {
-				ResourceFolder newFolder = getFolder("/Admin/Deleted/"
+				ResourceFolder newFolder = getFolder(DELETED_PAGES
 						+ pageName, true, login);// getFileForRequest("/Admin/Deleted/"+pageName);
 
 				if (newFolder != null) {
@@ -868,7 +869,7 @@ public class FileManager {
 									+ pageName
 									+ "\">"
 									+ pageName
-									+ "</a> to deleted folder <a href=\"/Admin/Deleted\">/Admin/Deleted</a>.");
+									+ "</a> to deleted folder <a href=\""+DELETED_PAGES+"\">"+DELETED_PAGES+"</a>.");
 				}
 			}
 
@@ -898,9 +899,9 @@ public class FileManager {
 				Authorizer.ACTION_DELETE) == true) {
 			if (backup == true) {
 				Resource file = getFile(pageName, fileName, login, false);
-				ResourceFolder newFolder = getFolder("/Admin/Deleted/", true,
+				ResourceFolder newFolder = getFolder(DELETED_PAGES, true,
 						login);
-				newFolder = getFolder("/Admin/Deleted/" + pageName, true, login);
+				newFolder = getFolder(DELETED_PAGES + pageName, true, login);
 				resourceStore.move(file, newFolder, fileName);
 			} else {
 				Resource file = getFile(pageName, fileName, login, false);

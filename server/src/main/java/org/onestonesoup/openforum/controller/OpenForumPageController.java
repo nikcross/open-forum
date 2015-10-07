@@ -40,13 +40,7 @@ public interface OpenForumPageController extends OpenForum{
 	public abstract void delete(String pageName, String fileName, Login login)
 	throws Exception, AuthenticationException;
 
-	public abstract List<KeyValuePair> getAdminOnlyPagesList() throws Exception;
-
 	public abstract List<KeyValuePair> getDynamicPagesList() throws Exception;
-
-	public abstract List<KeyValuePair> getNonSecurePagesList() throws Exception;
-
-	public abstract List<KeyValuePair> getSecurePagesList() throws Exception;
 
 	public abstract List<KeyValuePair> getParameterRedirectList() throws Exception;
 	

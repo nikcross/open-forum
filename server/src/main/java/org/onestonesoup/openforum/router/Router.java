@@ -273,14 +273,7 @@ public class Router implements OpenForumConstants{
 
 		Login login = null;
 		try {
-			// Check if the internet address of the connection client matches
-			// regex string in the login by ipaddress list
-			// and if so log in as the associated user
-			String matchingUser = getPageMatch(connection.getInetAddress()
-					.toString(), controller.getLoginByIPAddressList());
-			if (matchingUser != null) {
-				login = new Login(matchingUser, null);
-			} else if (controller.getAuthenticator() != null) {
+			if (controller.getAuthenticator() != null) {
 				// If not in auto login group and an authenticator set then
 				// login using authenticator
 				login = controller.getAuthenticator()
@@ -320,7 +313,7 @@ public class Router implements OpenForumConstants{
 				// Display the 503 page
 				String ext = FileHelper.getExtension(request);
 				if (ext.length() == 0 || ext.toLowerCase().equals("html")) {
-					httpHeader.getChild("request").setValue("/503");
+					httpHeader.getChild("request").setValue(PAGE_503_PATH);
 				}
 				httpHeader.getChild("method").setValue("get");
 				return sendFile(connection, httpHeader, login);
@@ -334,37 +327,6 @@ public class Router implements OpenForumConstants{
 			if (matchingPage != null) {
 				pageName = matchingPage;
 				request = matchingPage;
-			}
-
-			// NOT SURE ABOUT THIS. MAY BE DROPPED
-			// The request is for a page rather than a file and the user is not
-			// admin
-			/*
-			 * if ((request.indexOf(".") == -1 || request.indexOf("/page.html")
-			 * != -1) && login.getUser().getName().equals("Admin") == false) {
-			 * matchingPage = getPageMatch(request,
-			 * controller.getAdminOnlyPagesList()); if (matchingPage != null) {
-			 * pageName = matchingPage; request = matchingPage; } }
-			 */
-
-			// NOT SURE ABOUT THIS. MAY BE DROPPED
-			// If the page matches a regex in the non secure pages list then
-			// redirect to a non secure page
-			matchingPage = getPageMatch(request,
-					controller.getNonSecurePagesList());
-			if (matchingPage != null) {
-				pageName = matchingPage;
-				request = matchingPage;
-
-				// redirect to non secure server
-				HttpResponseHeader responseHeader = new HttpResponseHeader(
-						httpHeader, "text/html", 302, connection);
-				responseHeader.addParameter("location", request);
-
-				connection.getOutputStream().flush();
-				connection.close();
-
-				return true;
 			}
 
 			// Keep track of whether the request has been fulfilled

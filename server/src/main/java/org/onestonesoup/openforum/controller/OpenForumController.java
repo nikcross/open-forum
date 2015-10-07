@@ -58,6 +58,7 @@ public class OpenForumController implements OpenForumScripting,
 		OpenForumConstants, OpenForumBuilder, OpenForumPageController,
 		OpenForumSecurity {
 
+
 	private long ID_COUNTER = 1;
 	private static final String EXCLUDE_REFERENCES = "exclude-references.txt";
 
@@ -87,10 +88,6 @@ public class OpenForumController implements OpenForumScripting,
 	private MessageQueueManager queueManager;
 	private Store store = new Store();
 	private KeyValueListPage dynamicPages;
-	private KeyValueListPage securePages;
-	private KeyValueListPage nonSecurePages;
-	private KeyValueListPage adminOnlyPages;
-	private KeyValueListPage loginByIPAddress;
 	private KeyValueListPage parameterRedirectList;
 	private KeyValueListPage aliasList;
 	private Map<String, String> mimeTypes = new HashMap<String, String>();
@@ -170,18 +167,10 @@ public class OpenForumController implements OpenForumScripting,
 		}
 
 		dynamicPages = new KeyValueListPage(fileManager,
-				"/OpenForum/DynamicPages");
-		securePages = new KeyValueListPage(fileManager,
-				"/OpenForum/SecurePages");
-		nonSecurePages = new KeyValueListPage(fileManager,
-				"/OpenForum/NonSecurePages");
-		adminOnlyPages = new KeyValueListPage(fileManager,
-				"/OpenForum/AdminOnlyPages");
-		loginByIPAddress = new KeyValueListPage(fileManager,
-				"/OpenForum/LoginByIPAddress");
-		parameterRedirectList = new KeyValueListPage(fileManager, "/OpenForum/ParameterRedirectList");
+				OPEN_FORUM_DYNAMIC_PAGES);
+		parameterRedirectList = new KeyValueListPage(fileManager, OPEN_FORUM_PARAMETER_REDIRECT_LIST);
 		
-		aliasList = new KeyValueListPage(fileManager, "/OpenForum/Aliases");
+		aliasList = new KeyValueListPage(fileManager, OPEN_FORUM_ALIASES);
 		this.domainName = domainName;
 	}
 
@@ -419,7 +408,7 @@ public class OpenForumController implements OpenForumScripting,
 	 */
 
 	private void buildWikiJournal() throws Exception, AuthenticationException {
-		buildPage(WIKI_JOURNAL_PAGE_PATH, false);
+		buildPage(JOURNAL_PAGE_PATH, false);
 	}
 
 	public String renderWikiData(String name, String data) throws Exception,
@@ -506,7 +495,7 @@ public class OpenForumController implements OpenForumScripting,
 	private void buildReservedList() throws Exception {
 		reserved.put(PAGES_INDEX_PAGE_PATH, PAGES_INDEX_PAGE_PATH);
 		reserved.put(MISSING_PAGES_PATH, MISSING_PAGES_PATH);
-		reserved.put(WIKI_JOURNAL_PAGE_PATH, WIKI_JOURNAL_PAGE_PATH);
+		reserved.put(JOURNAL_PAGE_PATH, JOURNAL_PAGE_PATH);
 	}
 
 	private List<String> buildPagesList() throws Exception,
@@ -655,7 +644,7 @@ public class OpenForumController implements OpenForumScripting,
 			throws Throwable {
 		JavascriptEngine js = getJavascriptEngine(systemLogin);
 		if(content!=null) {
-			js.mount("data", content);
+			js.mount("content", content);
 		}
 		js.mount("pageName", name);
 
@@ -873,18 +862,18 @@ public class OpenForumController implements OpenForumScripting,
 		String dateStamp = new SimpleDateFormat("dd-MM-yyyy")
 				.format(new Date());
 
-		if (fileManager.pageExists(WIKI_JOURNAL_PAGE_PATH + "/blog/" + dateStamp
+		if (fileManager.pageExists(JOURNAL_PAGE_PATH + "/blog/" + dateStamp
 				+ "_00-00-00", systemLogin) == false) {
-			fileManager.appendStringToPageSource(entry, WIKI_JOURNAL_PAGE_PATH + "/blog/"
+			fileManager.appendStringToPageSource(entry, JOURNAL_PAGE_PATH + "/blog/"
 					+ dateStamp + "_00-00-00", systemLogin);
 			fileManager.appendStringToPageSource(
-					"*[" + dateStamp + "|" + WIKI_JOURNAL_PAGE_PATH + "/blog/"
-							+ dateStamp + "_00-00-00" + "]\n", WIKI_JOURNAL_PAGE_PATH,
+					"*[" + dateStamp + "|" + JOURNAL_PAGE_PATH + "/blog/"
+							+ dateStamp + "_00-00-00" + "]\n", JOURNAL_PAGE_PATH,
 					systemLogin);
-			buildPage(WIKI_JOURNAL_PAGE_PATH, false);
-			buildPage(WIKI_JOURNAL_PAGE_PATH + "/blog/" + dateStamp + "_00-00-00", false);
+			buildPage(JOURNAL_PAGE_PATH, false);
+			buildPage(JOURNAL_PAGE_PATH + "/blog/" + dateStamp + "_00-00-00", false);
 		} else {
-			fileManager.appendStringToPageSource(entry, WIKI_JOURNAL_PAGE_PATH + "/blog/"
+			fileManager.appendStringToPageSource(entry, JOURNAL_PAGE_PATH + "/blog/"
 					+ dateStamp + "_00-00-00", systemLogin);
 
 		}
@@ -1540,28 +1529,12 @@ public class OpenForumController implements OpenForumScripting,
 		return dynamicPages.getList();
 	}
 
-	public List<KeyValuePair> getSecurePagesList() throws Exception {
-		return securePages.getList();
-	}
-
 	public String getAliasLink(String alias) throws Exception {
 		return (String) aliasList.getHashList().get(alias);
 	}
 
-	public List<KeyValuePair> getAdminOnlyPagesList() throws Exception {
-		return adminOnlyPages.getList();
-	}
-
-	public List<KeyValuePair> getLoginByIPAddressList() throws Exception {
-		return loginByIPAddress.getList();
-	}
-
 	public List<KeyValuePair> getParameterRedirectList() throws Exception {
 		return parameterRedirectList.getList();
-	}
-	
-	public List<KeyValuePair> getNonSecurePagesList() throws Exception {
-		return nonSecurePages.getList();
 	}
 
 	public String getHomePage() {
