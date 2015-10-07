@@ -1,0 +1,69 @@
+!!Update The Actions List
+*[Preview|/OpenForum/UpdateActionsPage?save=false]
+*[Save|/OpenForum/UpdateActionsPage?save=true]
+
+----
+!!Create a New Action
+<form name="templateSubmitForm" action="/OpenForum/Actions/Copy" method="post">
+Get Action Name:<input type="input" name="newPageName" value="/OpenForum/Actions/">
+<input type="hidden" name="sourcePageName" value="/OpenForum/PageTemplates/GetActionPage">
+<input type="submit" value="Create Get action">
+</form>
+
+<form name="templateSubmitForm" action="/OpenForum/Actions/Copy" method="post">
+Post Action Name:<input type="input" name="newPageName" value="/OpenForum/Actions/">
+<input type="hidden" name="sourcePageName" value="/OpenForum/PageTemplates/PostActionPage">
+<input type="submit" value="Create Post action">
+</form>
+----!!Wiki Actions
+|Name|Description|Information
+|__ApplyTemplate__|[{InsertPage page='/OpenForum/Actions/ApplyTemplate' section='1'}]|[more...|/OpenForum/Actions/ApplyTemplate]
+|__Attach__|[{InsertPage page='/OpenForum/Actions/Attach' section='1'}]|[more...|/OpenForum/Actions/Attach]
+|__AttachmentExists__|[{InsertPage page='/OpenForum/Actions/AttachmentExists' section='1'}]|[more...|/OpenForum/Actions/AttachmentExists]
+|__Attachments__|[{InsertPage page='/OpenForum/Actions/Attachments' section='1'}]|[more...|/OpenForum/Actions/Attachments]
+|__BlogEntry__|[{InsertPage page='/OpenForum/Actions/BlogEntry' section='1'}]|[more...|/OpenForum/Actions/BlogEntry]
+|__CauseError__|[{InsertPage page='/OpenForum/Actions/CauseError' section='1'}]|[more...|/OpenForum/Actions/CauseError]
+|__Copy__|[{InsertPage page='/OpenForum/Actions/Copy' section='1'}]|[more...|/OpenForum/Actions/Copy]
+|__CreateQueue__|[{InsertPage page='/OpenForum/Actions/CreateQueue' section='1'}]|[more...|/OpenForum/Actions/CreateQueue]
+|__DataSearch__|[{InsertPage page='/OpenForum/Actions/DataSearch' section='1'}]|[more...|/OpenForum/Actions/DataSearch]
+|__Delete__|[{InsertPage page='/OpenForum/Actions/Delete' section='1'}]|[more...|/OpenForum/Actions/Delete]
+|__Differences__|[{InsertPage page='/OpenForum/Actions/Differences' section='1'}]|[more...|/OpenForum/Actions/Differences]
+|__Edit__|[{InsertPage page='/OpenForum/Actions/Edit' section='1'}]|[more...|/OpenForum/Actions/Edit]
+|__EditText__|[{InsertPage page='/OpenForum/Actions/EditText' section='1'}]|[more...|/OpenForum/Actions/EditText]
+|__ForkLink__|[{InsertPage page='/OpenForum/Actions/ForkLink' section='1'}]|[more...|/OpenForum/Actions/ForkLink]
+|__GetAttachmentAsXml__|[{InsertPage page='/OpenForum/Actions/GetAttachmentAsXml' section='1'}]|[more...|/OpenForum/Actions/GetAttachmentAsXml]
+|__GetAttachments__|[{InsertPage page='/OpenForum/Actions/GetAttachments' section='1'}]|[more...|/OpenForum/Actions/GetAttachments]
+|__GetAuthentication__|[{InsertPage page='/OpenForum/Actions/GetAuthentication' section='1'}]|[more...|/OpenForum/Actions/GetAuthentication]
+|__GetInheritedFilePath__|[{InsertPage page='/OpenForum/Actions/GetInheritedFilePath' section='1'}]|[more...|/OpenForum/Actions/GetInheritedFilePath]
+|__GetPageAsList__|[{InsertPage page='/OpenForum/Actions/GetPageAsList' section='1'}]|[more...|/OpenForum/Actions/GetPageAsList]
+|__GetPagesList__|[{InsertPage page='/OpenForum/Actions/GetPagesList' section='1'}]|[more...|/OpenForum/Actions/GetPagesList]
+|__GetPagesListAsJavascript__|[{InsertPage page='/OpenForum/Actions/GetPagesListAsJavascript' section='1'}]|[more...|/OpenForum/Actions/GetPagesListAsJavascript]
+|__GetUser__|[{InsertPage page='/OpenForum/Actions/GetUser' section='1'}]|[more...|/OpenForum/Actions/GetUser]
+|__GetXmlFileAsJS__|[{InsertPage page='/OpenForum/Actions/GetXmlFileAsJS' section='1'}]|[more...|/OpenForum/Actions/GetXmlFileAsJS]
+|__GetXmlNodeForm__|[{InsertPage page='/OpenForum/Actions/GetXmlNodeForm' section='1'}]|[more...|/OpenForum/Actions/GetXmlNodeForm]
+|__History__|[{InsertPage page='/OpenForum/Actions/History' section='1'}]|[more...|/OpenForum/Actions/History]
+|__HistoryView__|[{InsertPage page='/OpenForum/Actions/HistoryView' section='1'}]|[more...|/OpenForum/Actions/HistoryView]
+|__IncrementAttachment__|[{InsertPage page='/OpenForum/Actions/IncrementAttachment' section='1'}]|[more...|/OpenForum/Actions/IncrementAttachment]
+|__Install__|[{InsertPage page='/OpenForum/Actions/Install' section='1'}]|[more...|/OpenForum/Actions/Install]
+|__Move__|[{InsertPage page='/OpenForum/Actions/Move' section='1'}]|[more...|/OpenForum/Actions/Move]
+|__PageExists__|[{InsertPage page='/OpenForum/Actions/PageExists' section='1'}]|[more...|/OpenForum/Actions/PageExists]
+|__Pages__|[{InsertPage page='/OpenForum/Actions/Pages' section='1'}]|[more...|/OpenForum/Actions/Pages]
+|__Publish__|[{InsertPage page='/OpenForum/Actions/Publish' section='1'}]|[more...|/OpenForum/Actions/Publish]
+|__RJSC__|[{InsertPage page='/OpenForum/Actions/RJSC' section='1'}]|[more...|/OpenForum/Actions/RJSC]
+|__Rebuild__|[{InsertPage page='/OpenForum/Actions/Rebuild' section='1'}]|[more...|/OpenForum/Actions/Rebuild]
+|__RefreshJarManager__|[{InsertPage page='/OpenForum/Actions/RefreshJarManager' section='1'}]|[more...|/OpenForum/Actions/RefreshJarManager]
+|__RefreshPage__|[{InsertPage page='/OpenForum/Actions/RefreshPage' section='1'}]|[more...|/OpenForum/Actions/RefreshPage]
+|__RemoveTemplate__|[{InsertPage page='/OpenForum/Actions/RemoveTemplate' section='1'}]|[more...|/OpenForum/Actions/RemoveTemplate]
+|__RenderWikiData__|[{InsertPage page='/OpenForum/Actions/RenderWikiData' section='1'}]|[more...|/OpenForum/Actions/RenderWikiData]
+|__Revert__|[{InsertPage page='/OpenForum/Actions/Revert' section='1'}]|[more...|/OpenForum/Actions/Revert]
+|__Save__|[{InsertPage page='/OpenForum/Actions/Save' section='1'}]|[more...|/OpenForum/Actions/Save]
+|__SaveImage__|[{InsertPage page='/OpenForum/Actions/SaveImage' section='1'}]|[more...|/OpenForum/Actions/SaveImage]
+|__TestExample__|[{InsertPage page='/OpenForum/Actions/TestExample' section='1'}]|[more...|/OpenForum/Actions/TestExample]
+|__Update__|[{InsertPage page='/OpenForum/Actions/Update' section='1'}]|[more...|/OpenForum/Actions/Update]
+|__UpdateJarManager__|[{InsertPage page='/OpenForum/Actions/UpdateJarManager' section='1'}]|[more...|/OpenForum/Actions/UpdateJarManager]
+|__User__|[{InsertPage page='/OpenForum/Actions/User' section='1'}]|[more...|/OpenForum/Actions/User]
+|__ValidatePageName__|[{InsertPage page='/OpenForum/Actions/ValidatePageName' section='1'}]|[more...|/OpenForum/Actions/ValidatePageName]
+|__ViewFolder__|[{InsertPage page='/OpenForum/Actions/ViewFolder' section='1'}]|[more...|/OpenForum/Actions/ViewFolder]
+|__Zip__|[{InsertPage page='/OpenForum/Actions/Zip' section='1'}]|[more...|/OpenForum/Actions/Zip]
+[{Help page="OpenForum/Documentation/Reference/UsingWikiActions" toolTip="Help on using Wiki Actions"}]
+[{DevNotes page="OpenForum/Documentation/Reference/AddingNewActions" toolTip="Help on Adding New Wiki Actions"}]

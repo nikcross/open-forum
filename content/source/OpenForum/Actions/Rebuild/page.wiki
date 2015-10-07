@@ -1,0 +1,23 @@
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Requests Wiki to rebuild pages
+----
+!!Parameters
+* pageName - The pageName to return to
+
+----
+!!Usage:
+{{{
+/OpenForum/Actions/Rebuild?pageName=/Home
+}}}
+[/OpenForum/Actions/Rebuild?pageName=/Home]
+
+----
+!!Server Side Javascript for GET method
+{{{ if(typeof(pageName)=="undefined")
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+  js.startJavascript( "wiki.rebuild(true);" );
+  transaction.sendPage("OK");
+} }}}

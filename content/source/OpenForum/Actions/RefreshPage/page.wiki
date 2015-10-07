@@ -1,0 +1,8 @@
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Refreshes the page from it's Wiki Markup
+----
+!!Get Parameters
+*pageName - The page to refresh
+
+----
+!!Server Side Javascript for GET method
+[{InsertSourceFile fileName="get.sjs"}]

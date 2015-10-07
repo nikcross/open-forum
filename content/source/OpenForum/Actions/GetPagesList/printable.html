@@ -1,0 +1,24 @@
+<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Returns a comma delimited list of page names
+<hr/><a name="section2"></a>
+<h3>Get Parameters</h3><ul><li>pageName - a dummy parameter</li></ul>
+<hr/>
+<h3>Server Side Javascript for GET method</h3><xmp class="example"> if(typeof(pageName)=="undefined")
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+	pages = wiki.getPages();
+	
+	page="";
+	for(loop=0;loop<pages.length;loop++)
+	{
+		if(loop>0)
+		{
+			page = page+",";
+		}
+		page = page+pages[loop];	
+	}
+	
+	transaction.sendPage(page);
+} </xmp>

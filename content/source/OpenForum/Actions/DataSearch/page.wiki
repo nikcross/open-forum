@@ -1,0 +1,23 @@
+Searches a list of pages with metadata.
+----
+!!Post Data
+*_listPage - The page with a list of pages to search
+*_asCSV	 - If true, the results are given as a csv file
+
+----
+!!post.sjs
+{{{transaction.getPostData();
+
+listPage = transaction.getPostParameter("_listPage");
+asCsv = transaction.getPostParameter("_asCSV");		
+
+if(asCsv!=null & asCsv=="on")
+{
+	page = transaction.buildDataSearchResultTable(listPage);
+	transaction.sendFile( page,"search-result.csv" );
+}
+else
+{
+	page = transaction.buildDataSearchResultPage(listPage);
+	transaction.sendPage( page );
+}}}}

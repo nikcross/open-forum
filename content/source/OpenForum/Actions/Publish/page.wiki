@@ -1,0 +1,14 @@
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Publishes a page to a remote site
+----
+!!Parameters
+* pageName - the name of the page to publish
+----
+!!Usage:
+{{{
+/OpenForum/Actions/Publish?pageName=MyPage
+}}}
+
+
+----
+!!Server Side Javascript for GET method
+[{InsertSourceFile fileName="get.sjs"}]

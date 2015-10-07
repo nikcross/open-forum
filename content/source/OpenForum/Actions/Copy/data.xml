@@ -1,0 +1,19 @@
+<data>
+	<pageName><![CDATA[OpenForum/Actions/Copy]]></pageName>
+	<source><![CDATA[Copy one page to another
+----
+!!Get parameters
+* newPageName
+* sourcePageName
+* listPageName
+----
+!!Post parameters
+* newPageName
+* sourcePageName
+* listPageName
+----
+!!get.sjs
+<xmp class="example">[{InsertFile fileName="get.sjs"}]</xmp>]]></source>
+	<post.sjs>&post.sjs;</post.sjs>
+	<tags>Action Get Post</tags>
+</data>

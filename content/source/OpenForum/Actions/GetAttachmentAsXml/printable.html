@@ -1,0 +1,24 @@
+<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions">Get Action</a></b>  Returns an Xml attachment as Javascript Xml Object
+<hr/><a name="section2"></a>
+<h3>Get Parameters</h3><ul><li>pageName - The page the xml is attached to.</li><li>fileName - The xml file name</li><li>viewName - The xml view to apply to the xml</li></ul>
+<hr/>
+<h3>Server Side Javascript for GET method</h3><xmp class="example"> if(typeof(pageName)=="undefined")
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+	user = transaction.getUser();
+	fileName = transaction.getParameter("fileName");
+	viewName = transaction.getParameter("viewName");
+
+	if(viewName==null)
+	{
+		viewName = "/OpenForum/Actions/GetAttachmentAsXml/default-view.xml";
+	}
+
+	xml = js.getPageAttachmentAsXml(pageName,fileName);
+	xmlView = js.getPageAttachmentAsXml(viewName);
+	page = js.getXmlAsJS(xml,xmlView);
+	transaction.sendPage(page);
+} </xmp>

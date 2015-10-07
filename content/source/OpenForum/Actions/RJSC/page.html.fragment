@@ -1,0 +1,24 @@
+<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Remote Javascript Call
+<hr/><a name="section2"></a>
+<h3>Parameters
+<ul><li>code</li><hr/><a name="section3"></a>
+</ul><h3>Usage:
+<xmp class="example">
+[/OpenForum/Actions/RJSC?code=transaction.getParameter("code");]
+</xmp>
+<a href="/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();" title="/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();">/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();</a>
+
+<hr/>
+<h3>Server Side Javascript for GET method
+<a href="/OpenForum/Actions/RJSC/get.sjs">get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Actions/RJSC&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">code = transaction.getParameter("code");
+if( code==null )
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+  code = ""+code; // Cast to String does not work. This does !
+  result = eval(code);
+
+  transaction.sendPage( result );
+}</xmp></h3></h3></h3>

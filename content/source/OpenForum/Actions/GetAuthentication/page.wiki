@@ -1,0 +1,13 @@
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Returns the authentication string for use by applets
+----
+!!Parameters
+*pageName - dummy
+----
+!!Usage:
+{{{
+/OpenForum/Actions/GetAuthentication?pageName=dummy
+}}}
+
+----
+!!Server Side Javascript for GET method
+[{InsertSourceFile fileName="get.sjs"}]

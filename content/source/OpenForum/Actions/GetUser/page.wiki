@@ -1,0 +1,17 @@
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Returns the current users name.
+----
+!!Get Parameters
+*pageName
+
+<DIV id="userLayer"></DIV>
+
+----
+!!Server Side Javascript for GET method
+{{{ if(typeof(pageName)=="undefined")
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+  transaction.sendPage( transaction.getUser() );
+} }}}

@@ -1,0 +1,10 @@
+if(typeof(pageName)=="undefined")
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+  transaction.userCanPerformAction(pageName,"update",true);
+    wiki.refreshPage(pageName);
+  transaction.goToPage(pageName);
+}

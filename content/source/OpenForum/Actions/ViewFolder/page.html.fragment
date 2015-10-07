@@ -1,0 +1,15 @@
+<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Creates a page view of a folder
+<hr/><a name="section2"></a>
+<h3>Parameters</h3><ul><li>pageName - Name of the page to view as a folder</li><hr/><a name="section3"></a></ul>
+<h3>Usage:</h3><xmp class="example">
+/OpenForum/Actions/ViewFolder?folderName=Folder to View
+</xmp><br/><a href="/OpenForum/Actions/ViewFolder?pageName=/OpenForum/Actions/ViewFolder" title="/OpenForum/Actions/ViewFolder?pageName=/OpenForum/Actions/ViewFolder">/OpenForum/Actions/ViewFolder?pageName=/OpenForum/Actions/ViewFolder</a><br/><hr/>
+<h3>Server Side Javascript for GET method</h3><xmp class="example"> if(typeof(pageName)=="undefined")
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+  page = wiki.buildPage(pageName,"!!Folder: "+pageName,true);
+  transaction.sendPage( page );
+} </xmp>

@@ -1,0 +1,20 @@
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Checks if an attachment exists. Returns true or false
+----
+!!Parameters
+*pageName - The page containing the attachment
+*fileName - The attachment to check for
+
+----
+!!Server Side Javascript for GET method
+{{{ if(typeof(pageName)=="undefined")
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+  fileName = transaction.getParameter("fileName");
+  exists = file.attachmentExists(pageName,fileName);
+
+  transaction.sendPage(exists);
+}
+ }}}

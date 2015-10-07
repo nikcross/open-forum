@@ -1,0 +1,21 @@
+<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions">Get Action</a></b>  Returns the form for and Xml node based on an Xml view
+<hr/><a name="section2"></a>
+<h3>Get Parameters</h3><ul><li>pageName</li><li>fileName</li><li>viewName</li><li>nodePath</li></ul>
+<hr/>
+<h3>Server Side Javascript for GET method</h3><xmp class="example"> if(typeof(pageName)=="undefined")
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+	fileName = transaction.getParameter("fileName");
+	viewName = transaction.getParameter("viewName");
+	nodePath = transaction.getParameter("nodePath");
+	
+	xml = js.getPageAttachmentAsXml(pageName,fileName);
+	xmlView = js.getPageAttachmentAsXml(viewName);
+
+	data = js.getXmlNodeForm( xml,xmlView,nodePath );
+
+	transaction.sendPage( data );
+} </xmp>

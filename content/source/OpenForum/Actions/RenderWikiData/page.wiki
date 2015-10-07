@@ -1,0 +1,35 @@
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Renders Wiki Data to HTML
+----
+!!Parameters
+*pageName
+*data
+or
+*sourcePageName
+*fileName
+----
+!!Usage:
+{{{
+RenderWikiData?pageName=PageName&data=WikiData
+or
+RenderWikiData?pageName=PageName&sourcePageName=PageName&fileName=FileName
+}}}
+
+----
+!!Server Side Javascript for GET method
+{{{ if(typeof(pageName)=="undefined")
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+  data = transaction.getParameter("data");
+  if(data==null)
+  {
+    sourcePageName = transaction.getParameter("sourcePageName");
+    fileName = transaction.getParameter("fileName");
+    data = file.getAttachment(sourcePageName,fileName);
+  }
+
+  html = wiki.renderWikiData(pageName,data);
+  transaction.sendPage(html);
+} }}}

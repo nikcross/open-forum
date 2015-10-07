@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE> Create Queue</TITLE>
+<META NAME="Generator" CONTENT="OpenForum">
+<META NAME="Author" CONTENT="Admin">
+
+	<link rel="alternate" type="application/rss+xml" title="RSS Feed for Open Forum Wiki" href="/OpenForum/RSSFeed/rss.xml"/>
+	<style type="text/css" media="all">@import url("/OpenForum/Styles/Classical/ampitheatre-view.css");</style>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/Actions/CreateQueue/page.js"></script>
+	
+	<script>
+
+		pageName = "OpenForum/Actions/CreateQueue";
+		author = "Admin";
+		time = "on 22/01/2015 at 10:03 AM";
+	</script>
+
+</HEAD>
+
+<BODY>
+<br>
+<center>
+<table class="top">
+<tr><td class="shadowTopleft">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="title"> Create Queue</td><td class="shadowTopRight">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td class="shadowLeft">&nbsp;</td><td class="imageTitleBar"><img src="/OpenForum/Styles/Classical/Images/ampitheatre-view-short.jpg"></td><td class="shadowRight">&nbsp;</td></tr>
+<tr><td class="shadowLeft">&nbsp;</td><td class="toolBar"><table class="menuBar"><tr>
+<td>  <img src="/OpenForum/Images/icons/gif/bullet_white.gif" border="0"></td><td><table><tr><td class="menuBar"><a href="" onClick="toggleMenuLayer('Actions');return false;" class="menuBar">Actions</a></td></tr><tr><td><DIV id="Actions" style="position: absolute; display: none;"><table class="menuTop"><tr><td><DIV id="ActionsInsertPoint"></DIV>
+<a class="menuItem" href="/OpenForum/Editor?pageName=/OpenForum/Actions/CreateQueue"><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif" class="nodeImg" border="0">    Edit</a>
+<a class="menuItem" href="" onclick="createNewPage();return false;"><img border="0" src="/OpenForum/Images/icons/gif/layout_add.gif" class="nodeImg" border="0">    Add New Page</a>
+<a class="menuItem" href="" onclick="createNewChildPage();return false;"><img border="0" src="/OpenForum/Images/icons/gif/layout_add.gif" class="nodeImg" border="0">    Add New Child Page</a>
+<a class="menuItem" href="" onclick="copyPage();return false;"><img border="0" src="/OpenForum/Images/icons/gif/page_copy.gif" class="nodeImg" border="0">    Copy</a>
+<a class="menuItem" href="" onclick="movePage();return false;"><img border="0" src="/OpenForum/Images/icons/gif/page_go.gif" class="nodeImg" border="0">    Move</a>
+<a class="menuItem" href="" onClick="refreshPage();return false;"><img border="0" src="/OpenForum/Images/icons/gif/arrow_redo.gif" class="nodeImg" border="0">    Refresh</a>
+<a class="menuItem" href="/OpenForum/Actions/HistoryView?pageName=OpenForum/Actions/CreateQueue"><img border="0" src="/OpenForum/Images/icons/gif/calendar.gif" class="nodeImg" border="0">    History</a>
+<a class="menuItem" href="" onClick="deletePage();return false;"><img border="0" src="/OpenForum/Images/icons/gif/cancel.gif" class="nodeImg" border="0">    Delete</a>
+<a class="menuItem" href="/Admin/Access?pageName=OpenForum/Actions/CreateQueue"><img border="0" src="/OpenForum/Images/icons/gif/lock_edit.gif" class="nodeImg" border="0">    Set Access</a>
+<a class="menuItem" href="/OpenForum/Actions/CreateQueue/printable.html"><img border="0" src="/OpenForum/Images/icons/gif/printer.gif" class="nodeImg" border="0">    Printable</a>
+<a class="menuItem" href="" onclick="createAttachment();return false;"><img border="0" src="/OpenForum/Images/icons/gif/page_white_add.gif" class="nodeImg" border="0">    Create Attachment</a>
+</td></tr></table></DIV></td></tr></table></td><td> </td>
+<td>  <img src="/OpenForum/Images/icons/gif/bullet_white.gif" border="0"></td><td><table><tr><td class="menuBar"><a href="" onClick="toggleMenuLayer('Referring Pages');return false;" class="menuBar">Referring Pages</a></td></tr><tr><td><DIV id="Referring Pages" style="position: absolute; display: none;"><table class="menuTop"><tr><td><DIV id="Referring PagesInsertPoint"></DIV><table class="menuItem"><tr><td><a title='/OpenForum/Actions' href='/OpenForum/Actions'>Actions</a></td></tr>
+<tr><td><a title='/OpenForum/Actions/' href='/OpenForum/Actions/'></a></td></tr>
+</table></td></tr></table></DIV></td></tr></table></td><td> </td>
+<td>  <img src="/OpenForum/Images/icons/gif/bullet_white.gif" border="0"></td><td><table><tr><td class="menuBar"><a href="" onClick="toggleMenuLayer('Tags');return false;" class="menuBar">Tags</a></td></tr><tr><td><DIV id="Tags" style="position: absolute; display: none;"><table class="menuTop"><tr><td><DIV id="TagsInsertPoint"></DIV><table class="menuItem"><tr><td><a href='/OpenForum/Actions/Search?searchTerm=tag:Action'>Action</a></td></tr>
+<tr><td><a href='/OpenForum/Actions/Search?searchTerm=tag:Get'>Get</a></td></tr>
+</table></td></tr></table></DIV></td></tr></table></td><td> </td>
+<td>  <img src="/OpenForum/Images/icons/gif/bullet_white.gif" border="0"></td><td><table><tr><td class="menuBar"><a href="" onClick="toggleMenuLayer('Page Template');return false;" class="menuBar">Page Template</a></td></tr><tr><td><DIV id="Page Template" style="position: absolute; display: none;"><table class="menuTop"><tr><td><DIV id="Page TemplateInsertPoint"></DIV>
+<table bgcolor="white" border="0">
+<tr>
+<td colspan="3" align="center">
+<a class="menuItem" href="/OpenForum/Actions/ApplyTemplate?pageName=OpenForum/Actions/CreateQueue&templatePage=/OpenForum/Styles/Plain&headerTemplateFile=header.html.template&footerTemplateFile=footer.html.template"><img border="0" src="/OpenForum/Styles/Plain/Plain-thumbnail.png" title="Plain"></a>
+</td>
+</tr>
+<tr>
+<td>
+<a class="menuItem" href="/OpenForum/Actions/ApplyTemplate?pageName=OpenForum/Actions/CreateQueue&templatePage=/OpenForum/Styles/Classical&headerTemplateFile=header-temple.html.template&footerTemplateFile=footer.html.template"><img border="0" src="/OpenForum/Styles/Classical/Temple-thumbnail.png" title="Temple"></a>
+</td>
+<td>
+<a class="menuItem" href="/OpenForum/Actions/ApplyTemplate?pageName=OpenForum/Actions/CreateQueue&templatePage=/OpenForum/Styles/Classical&headerTemplateFile=header-temple-short.html.template&footerTemplateFile=footer.html.template"><img border="0" src="/OpenForum/Styles/Classical/Temple Short Version-thumbnail.png" title="Temple Short Version"></a>
+</td>
+<td>
+<a class="menuItem" href="/OpenForum/Actions/ApplyTemplate?pageName=OpenForum/Actions/CreateQueue&templatePage=/OpenForum/Styles/Classical&headerTemplateFile=page-header-red.html.template&footerTemplateFile=page-footer.html.template"><img border="0" src="/OpenForum/Styles/Classical/Red Top-thumbnail.png" title="Chilli Top"></a>
+</td>
+</tr><tr>
+<td>
+<a class="menuItem" href="/OpenForum/Actions/ApplyTemplate?pageName=OpenForum/Actions/CreateQueue&templatePage=/OpenForum/Styles/Classical&headerTemplateFile=header-ampitheatre.html.template&footerTemplateFile=footer.html.template"><img border="0" src="/OpenForum/Styles/Classical/Ampitheatre-thumbnail.png" title="Ampitheatre"></a>
+</td>
+<td>
+<a class="menuItem" href="/OpenForum/Actions/ApplyTemplate?pageName=OpenForum/Actions/CreateQueue&templatePage=/OpenForum/Styles/Classical&headerTemplateFile=header-ampitheatre-short.html.template&footerTemplateFile=footer.html.template"><img border="0" src="/OpenForum/Styles/Classical/Amphitheatre%20Short%20Version-thumbnail.png" title="Ampitheatre Short Version"></a>
+</td>
+<td>
+<a class="menuItem" href="/OpenForum/Actions/ApplyTemplate?pageName=OpenForum/Actions/CreateQueue&templatePage=/OpenForum/Styles/Classical&headerTemplateFile=page-header-vanilla.html.template&footerTemplateFile=page-footer.html.template"><img border="0" src="/OpenForum/Styles/Classical/Vanilla Top-thumbnail.png" title="Vanilla Top"></a>
+</td>
+</tr><tr>
+<td>
+<a class="menuItem" href="/OpenForum/Actions/ApplyTemplate?pageName=OpenForum/Actions/CreateQueue&templatePage=/OpenForum/Styles/Classical&headerTemplateFile=header-ampitheatre-view.html.template&footerTemplateFile=footer.html.template"><img border="0" src="/OpenForum/Styles/Classical/Ampitheatre View-thumbnail.png" title="Ampitheatre View"></a>
+</td>
+<td>
+<a class="menuItem" href="/OpenForum/Actions/ApplyTemplate?pageName=OpenForum/Actions/CreateQueue&templatePage=/OpenForum/Styles/Classical&headerTemplateFile=header-ampitheatre-view-short.html.template&footerTemplateFile=footer.html.template"><img border="0" src="/OpenForum/Styles/Classical/Amphitheatre%20View%20Short%20Version-thumbnail.png" title="Ampitheatre View Short Version"></a>
+</td>
+<td>
+<a class="menuItem" href="/OpenForum/Actions/ApplyTemplate?pageName=OpenForum/Actions/CreateQueue&templatePage=/OpenForum/Styles/PhotoAlbum&headerTemplateFile=header-photo.html.template&footerTemplateFile=page-footer.html.template"><img border="0" src="/OpenForum/Styles/PhotoAlbum/Photo Album-thumbnail.png" title="Photo Album"></a>
+</td>
+</tr><tr>
+<td>
+<a class="menuItem" href="/OpenForum/Actions/ApplyTemplate?pageName=OpenForum/Actions/CreateQueue&templatePage=/OpenForum/Styles/Classical&headerTemplateFile=header-forum.html.template&footerTemplateFile=footer.html.template"><img border="0" src="/OpenForum/Styles/Classical/Forum-thumbnail.png" title="Forum"></a>
+</td>
+<td>
+<a class="menuItem" href="/OpenForum/Actions/ApplyTemplate?pageName=OpenForum/Actions/CreateQueue&templatePage=/OpenForum/Styles/Classical&headerTemplateFile=header-forum-short.html.template&footerTemplateFile=footer.html.template"><img border="0" src="/OpenForum/Styles/Classical/Forum Short Version-thumbnail.png" title="Forum Short Version"></a>
+</td>
+<td>
+<a class="menuItem" href="/OpenForum/Actions/ApplyTemplate?pageName=OpenForum/Actions/CreateQueue&templatePage=/OpenForum/Styles/NoteBook&headerTemplateFile=header-book.html.template&footerTemplateFile=page-footer.html.template"><img border="0" src="/OpenForum/Styles/NoteBook/Note Book-thumbnail.png" title="Note Book"></a>
+</td>
+</tr></table>
+<hr>
+<a class="menuItem" href="/OpenForum/Actions/RemoveTemplate?pageName=OpenForum/Actions/CreateQueue">Default Template</a>
+</td></tr></table></DIV></td></tr></table></td><td> </td>
+<td><img src="/OpenForum/Images/icons/gif/bullet_white.gif" border="0"></td><td><table><tr><td class="menuBar"><a href="" onClick="toggleMenuLayer('Information');return false;" class="menuBar">Information</a></td></tr><tr><td><DIV id="Information" style="position: absolute; display: none;"><table class="menuTop"><tr><td><a class="menuItem" href="http://open-forum.onestonesoup.org/OpenForum/Documentation"> Documentation</a><a class="menuItem" href="/OpenForum/ReleaseNotes"> Release Notes</a><a class="menuItem" href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Guide/Support"> Support</a><a class="menuItem" href="/OpenForum/License"> License</a><a class="menuItem" href="/OpenForum/About"> About</a></td></tr></table></DIV></td></tr></table></td><td> </td>
+<td> </td></tr></table>
+<script type="text/javascript" src="/OpenForum/TopMenu/topMenu.js">
+</script></td><td class="shadowRight">&nbsp;</td></tr>
+<tr><td class="shadowLeft">&nbsp;</td><td class="content">
+<table class="content"><tr><td class="topMenu">
+<a name="section1"></a><ul><li><a href="/Home" title="/Home">Home</a></li><li><a href="/Sandbox" title="/Sandbox">Sandbox</a></li><br/></ul>
+<ul><li><b><form name="searchForm" action="/OpenForum/Actions/Search"><input type="image" title="Search" src="/OpenForum/Images/icons/gif/magnifier.gif"><input type="text" name="searchTerm" size="18"></form></b></li><br/></ul>
+<hr/>
+<ul><li><a href="" onclick="ui.toggleLayer('Site Reference');return false;"><img id="Site ReferenceTwisty" src="/OpenForum/Images/icons/gif/bullet_arrow_down.gif" border="0"/>Site Reference</a></li></ul><DIV id="Site Reference" style="display: none;" width="200"><ul><li>  <ul><li><a class="menuItem" href="/Pages Index">Pages Index</a></li></ul>  <ul><li><a class="menuItem" href="/Wiki Journal">Wiki Journal</a></li></ul>  <ul><li><a class="menuItem" href="/Missing Pages">Missing Pages</a></li></ul>  <ul><li><a class="menuItem" href="/Site Explorer">Site Explorer</a></li></ul>  <ul><li><a class="menuItem" href="/Admin/Deleted">Deleted Pages</a></li></ul></li></ul></DIV>
+<ul><li><a href="" onclick="ui.toggleLayer('Look & Feel');return false;"><img id="Look & FeelTwisty" src="/OpenForum/Images/icons/gif/bullet_arrow_down.gif" border="0"/>Look & Feel</a></li></ul><DIV id="Look & Feel" style="display: none;" width="200"><ul><li>  <ul><li><a class="menuItem" href="/OpenForum/Left Menu">
+Left Menu</a></li></ul>  <ul><li><a class="menuItem" href="/OpenForum/Top Menu">
+Top Menu</a></li></ul>  <ul><li><a class="menuItem" href="/OpenForum/Page">
+Page</a></li></ul>  <ul><li><a class="menuItem" href="/OpenForum/Styles">
+Styles</a></li></ul>  <ul><li><a class="menuItem" href="/OpenForum/Images
+">
+Images and Icons</a></li></ul></li></ul></DIV>
+<ul><li><a href="" onclick="ui.toggleLayer('Administration');return false;"><img id="AdministrationTwisty" src="/OpenForum/Images/icons/gif/bullet_arrow_down.gif" border="0"/>Administration</a></li></ul><DIV id="Administration" style="display: none;" width="200"><ul><li>  <ul><li><a class="menuItem" href="/Admin/Administrator">
+Users & Groups</a></li></ul>  <ul><li><a class="menuItem" href="/Admin/Access
+">
+Access Rights</a></li></ul></li></ul></DIV>
+<ul><li><a href="" onclick="ui.toggleLayer('System');return false;"><img id="SystemTwisty" src="/OpenForum/Images/icons/gif/bullet_arrow_down.gif" border="0"/>System</a></li></ul><DIV id="System" style="display: none;" width="200"><ul><li>  <ul><li><a class="menuItem" href="/Open Forum">
+OpenForum Settings</a></li></ul>  <ul><li><a class="menuItem" href="http://open-forum.onestonesoup.org/OpenForum/Documentation">
+Documentation</a></li></ul>  <ul><li><a class="menuItem" href="/OpenForum/Actions">
+Actions</a></li></ul>  <ul><li><a class="menuItem" href="/OpenForum/Extensions">
+Extensions</a></li></ul>  <ul><li><a class="menuItem" href="/OpenForum/Jar Manager">
+Jar Manager</a></li></ul>  <ul><li><a class="menuItem" href="http://code.google.com/p/open-forum/issues/list">
+Issue Tracking</a></li></ul>  <ul><li><a class="menuItem" href="http://code.google.com/p/open-forum/source/browse
+">
+Source Code</a></li></ul></li></ul></DIV></td><td class="content">
+<!--Start Content--><a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Creates a new Queue with a unique name and returns it's name.
+<hr/><a name="section2"></a>
+<h3>Parameters</h3><ul><li>pageName</li><hr/><a name="section3"></a></ul>
+<h3>Usage:</h3><xmp class="example">
+/OpenForum/Actions/CreateQueue?pageName=dummy
+</xmp><br/><hr/>
+<h3>Server Side Javascript for GET method</h3><xmp class="example"> if(typeof(pageName)=="undefined")
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+  queueName = wiki.createQueue();
+
+  transaction.sendPage(queueName);
+} </xmp><!--End Content--><table><tr><td class="author">by Admin on 22/01/2015 at 10:03 AM</td></tr></table>
+<br/><br/><br/>
+
+<table class="top"><td class="topMenu">
+<tr><td>
+<form name="attach" id="attach" method="post" action="/OpenForum/Actions/Attach?page=OpenForum/Actions/CreateQueue" enctype="multipart/form-data">
+<input type="hidden" name="statusQueue"/>
+ 	<input type="file" name="file">
+<input type="submit" value="Attach file" onClick="uploadAttachment();return false;"/>
+</form>
+</td></tr></table>
+
+</td></tr></table>
+
+</td><td class="shadowRight">&nbsp;</td></tr>
+<tr><td class="shadowLeft">&nbsp;</td><td class="footer">&nbsp;</td><td class="shadowRight">&nbsp;</td></tr>
+<tr><td class="shadowBottomLeft">&nbsp;</td><td class="shadowBottom">&nbsp;</td><td class="shadowBottomRight">&nbsp;</td></tr>
+<tr><td colspan="3" align="right"><a href="http://www.onestonesoup.org/ProjectOpenForum"><img src="/OpenForum/Images/powered-by.png" border="0"></a></td></tr>
+</table>
+</center>
+
+<DIV id="screened" style="position: absolute; top: 0; left: 0; display: none;"><img id="screenedImg" src="/OpenForum/Images/area.png" class="nodeImg"/></DIV>
+<DIV id="modal" style="position: absolute; top: 0; left: 0; display: none; border: 1px solid; background: #FFFFFF;"></DIV>
+<DIV id="footer"></DIV>
+
+</BODY>
+</HTML>

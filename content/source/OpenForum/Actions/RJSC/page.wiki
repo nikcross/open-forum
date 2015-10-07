@@ -1,0 +1,14 @@
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Remote Javascript Call
+----
+!!Parameters
+*code
+----
+!!Usage:
+{{{
+[/OpenForum/Actions/RJSC?code=transaction.getParameter("code");]
+}}}
+[/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();]
+
+----
+!!Server Side Javascript for GET method
+[{InsertSourceFile fileName="get.sjs"}]

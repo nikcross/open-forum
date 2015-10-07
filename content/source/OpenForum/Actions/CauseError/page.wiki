@@ -1,0 +1,6 @@
+Throws a Server Side Javascript Error to test error reporting.
+----
+
+
+!!post.sjs
+{{{doesNotExist += cheese}}}

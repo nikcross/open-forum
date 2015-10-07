@@ -1,0 +1,39 @@
+<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Post Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b> Copy one page to another
+<hr/><a name="section2"></a>
+<h3>Get parameters</h3><ul><li>newPageName</li><li>sourcePageName</li><li>listPageName</li><hr/><a name="section3"></a></ul>
+<h3>Post parameters</h3><ul><li>newPageName</li><li>sourcePageName</li><li>listPageName</li><hr/><a name="section4"></a></ul>
+<h3>get.sjs</h3><xmp class="example">newPageName = transaction.getParameter("newPageName");
+
+if(newPageName===null)
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+	sourcePageName = ""+transaction.getParameter("sourcePageName");
+	newPageName = ""+transaction.getParameter("newPageName");
+	listPageName = transaction.getParameter("listPageName");
+	if(listPageName!==null) {
+		transaction.userCanPerformAction(listPageName,"update",true);
+	}
+
+	transaction.userCanPerformAction(newPageName,"update",true); 
+
+	wiki.copyPage(sourcePageName,newPageName,listPageName);
+
+	transaction.goToPage("/OpenForum/Editor?pageName="+newPageName);
+}</xmp><br/><hr/>
+<h3>Server Side Javascript for POST method</h3><xmp class="example"> transaction.getPostData();
+sourcePageName = transaction.getPostParameter("sourcePageName");
+newPageName = transaction.getPostParameter("newPageName");
+listPageName = transaction.getPostParameter("listPageName");
+
+transaction.userCanPerformAction(newPageName,"update",true);
+if(listPageName!=null)
+{
+  transaction.userCanPerformAction(listPageName,"update",true);
+}
+
+wiki.copyPage(sourcePageName,newPageName,listPageName);
+	
+transaction.goToPage("/OpenForum/Actions/Edit?pageName="+newPageName); </xmp>

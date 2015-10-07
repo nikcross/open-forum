@@ -1,0 +1,22 @@
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Returns an Xml attachment as a Javascript Xml object
+----
+!!Get Parameters
+*pageName - The page the Xml is attached to
+*fileName - The Xml file name
+*varName - The variable name for the Xml object
+
+----
+!!Server Side Javascript for GET method
+{{{ if(typeof(pageName)=="undefined")
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+	fileName = transaction.getParameter("fileName");
+	varName = transaction.getParameter("varName");
+
+	xml = js.getPageAttachmentAsXml(pageName,fileName);
+	page = js.getXmlAsJavascript(varName,xml);
+	transaction.sendPage(page);
+} }}}

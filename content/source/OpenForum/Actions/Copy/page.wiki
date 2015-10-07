@@ -1,0 +1,31 @@
+__[Post Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ Copy one page to another
+----
+!!Get parameters
+* newPageName
+* sourcePageName
+* listPageName
+----
+!!Post parameters
+* newPageName
+* sourcePageName
+* listPageName
+----
+!!get.sjs
+<xmp class="example">[{InsertFile fileName="get.sjs"}]</xmp>
+
+----
+!!Server Side Javascript for POST method
+{{{ transaction.getPostData();
+sourcePageName = transaction.getPostParameter("sourcePageName");
+newPageName = transaction.getPostParameter("newPageName");
+listPageName = transaction.getPostParameter("listPageName");
+
+transaction.userCanPerformAction(newPageName,"update",true);
+if(listPageName!=null)
+{
+  transaction.userCanPerformAction(listPageName,"update",true);
+}
+
+wiki.copyPage(sourcePageName,newPageName,listPageName);
+	
+transaction.goToPage("/OpenForum/Actions/Edit?pageName="+newPageName); }}}

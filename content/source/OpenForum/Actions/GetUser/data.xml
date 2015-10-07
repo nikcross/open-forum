@@ -1,0 +1,10 @@
+<data>
+	<pageName><![CDATA[OpenForum/Actions/GetUser]]></pageName>
+	<source><![CDATA[Returns the current users name.
+----
+!!Get Parameters
+*pageName
+]]></source>
+	<get.sjs>&get.sjs;</get.sjs>
+	<tags>Action Get</tags>
+</data>

@@ -1,0 +1,28 @@
+<a href="/OpenForum/Actions/SaveImage/save-canvas.js">save-canvas.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Actions/SaveImage&fileName=save-canvas.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">function saveCanvas(pageName,fileName,canvas) {
+	var data = canvas.toDataURL();
+      data = data.substring(22);
+
+      var post = new Post();
+      post.addItem("data",data);
+      post.addItem("fileName",fileName);
+      post.addItem("pageName",pageName);
+  
+      JSON.post("/OpenForum/Actions/SaveImage","save",post.getData()).go();
+}</xmp>
+
+<a href="/OpenForum/Actions/SaveImage/post.sjs">post.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Actions/SaveImage&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">//Take base64 image and convert to image file
+
+dec = Packages.javax.xml.bind.DatatypeConverter;
+
+data = transaction.getParameter("data");
+fileName = transaction.getParameter("fileName");
+pageName = transaction.getParameter("pageName");
+
+var outStream = file.getAttachmentOutputStream(pageName,fileName);
+outStream.write( dec.parseBase64Binary(data) );
+outStream.flush();
+outStream.close();
+
+var result = {result: "ok", message: "Saved "+pageName+"/"+fileName};
+
+transaction.sendPage( JSON.stringify(result) );</xmp>

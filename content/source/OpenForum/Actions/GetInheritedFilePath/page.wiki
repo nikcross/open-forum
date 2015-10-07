@@ -1,0 +1,28 @@
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Returns the inherited path of at file
+----
+!!Parameters
+*pageName - the name of the page to start at
+*fileName - the name of the file to get the inherited path for
+----
+!!Usage:
+{{{
+/OpenForum/Actions/GetInheritedFilePath?pageName=PageName&fileName=FileName
+}}}
+
+----
+!!Server Side Javascript for GET method
+{{{ if(typeof(pageName)=="undefined")
+{
+	transaction.setResult(transaction.SHOW_PAGE);
+}
+else
+{
+  fileName = transaction.getParameter("fileName");
+  path = file.getPageInheritedFilePath(pageName,fileName);
+  if(path==null)
+  {
+    path="null";
+  }
+
+  transaction.sendPage( path );
+} }}}
