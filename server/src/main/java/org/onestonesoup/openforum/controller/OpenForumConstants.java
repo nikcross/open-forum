@@ -34,16 +34,23 @@ public interface OpenForumConstants {
 	public static final String HEADER_HTML_TEMPLATE = "header.html.template";
 	
 	public static final String LEFT_MENU_PAGE_NAME = "LeftMenu";
+	public static final String TOP_MENU_PAGE_NAME = "TopMenu";
 
-	public static final String DEFAULT_HOME_PAGE_PATH = "/OpenForum/Home"; //Moved
-	public static final String MISSING_PAGES_PATH = "/OpenForum/MissingPages"; //Moved
-	public static final String PAGES_INDEX_PAGE_PATH = "/OpenForum/PagesIndex"; //Moved
-	public static final String OPEN_FORUM_DEFAULT_PAGE_PATH = "/OpenForum/Page";
-	public static final String WIKI_JOURNAL_PAGE_PATH = "/OpenForum/WikiJournal"; //Moved
-
-
-	public static final String PAGE_404_PATH = "/OpenForum/404/";
-	public static final String PAGE_401_PATH = "/OpenForum/401/";
-	public static final String PAGE_500_PATH = "/OpenForum/500/";
+	public static final String DEFAULT_HOME_PAGE_PATH = "/OpenForum/HomePage";
+	public static final String MISSING_PAGES_PATH = "/OpenForum/MissingPages";
+	public static final String PAGES_INDEX_PAGE_PATH = "/OpenForum/PagesIndex";
+	public static final String OPEN_FORUM_DEFAULT_PAGE_PATH = "/OpenForum/PageTemplates/Default";
+	public static final String JOURNAL_PAGE_PATH = "/OpenForum/Journal";
+	public static final String DELETED_PAGES = "/OpenForum/DeletedPages/";
+	
+	public static final String OPEN_FORUM_ALIASES = "/OpenForum/Configuration/Aliases";
+	public static final String OPEN_FORUM_PARAMETER_REDIRECT_LIST = "/OpenForum/Configuration/ParameterRedirectList";
+	public static final String OPEN_FORUM_DYNAMIC_PAGES = "/OpenForum/Configuration/DynamicPages";
+	
+	public static final String PAGE_404_PATH = "/OpenForum/ErrorPages/404/";
+	public static final String PAGE_401_PATH = "/OpenForum/ErrorPages/401/";
+	public static final String PAGE_500_PATH = "/OpenForum/ErrorPages/500/";
+	public static final String PAGE_503_PATH = "/OpenForum/ErrorPages/503/";
+	
 
 }
