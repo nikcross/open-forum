@@ -1,0 +1,20 @@
+<h2>Mock CMS
+<p>
+The mock CMS is intanded to act like the actual CMS. If resources are missing, the mock CMS will attempt to download them from the CMS.
+</p>
+
+<h3>Tools
+<ul><li><a href="/DownloadResource" title="/DownloadResource">/DownloadResource</a> Shows missing resources as they are downloaded from the cms and enables you to request resource downloads.</li>
+</ul><h3>Notes
+<p>
+	Changes will only be persisted if you run this outside docker which musth be done as root as it runs on port 80.
+</p>
+<p>
+	Pages in this CMS each have their own folder that contains resources specific to the page.
+	To edit a page, add ?edit to the end of the page URL.
+    The page html content should be changed in the file page.wiki.
+    On save, the contents of the page.wiki is moved to the page.html file.
+</p>
+<p>
+	To delete a page, add ?delete to the end of the page.
+</p></h3></h3></h2>
