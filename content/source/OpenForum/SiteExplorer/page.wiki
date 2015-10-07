@@ -1,0 +1,2 @@
+__Full site view__
+<DIV id="explorer"></DIV>
