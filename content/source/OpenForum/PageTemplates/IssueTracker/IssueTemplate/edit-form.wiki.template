@@ -1,0 +1,13 @@
+[{StartEditForm}]
+Index Number __[{ReadOnlyField name="index"}]__
+
+<textarea id="description" name="description" rows="20" cols="80">&description;</textarea>
+
+|Type|[{DropSelect options='&target-page;/IssueTracker/States/Type' name='type'}]
+|Priority|[{DropSelect options='&target-page;/IssueTracker/States/Priority' name='priority'}]
+|Status|[{DropSelect options='&target-page;/IssueTracker/States/Status' name='status'}]
+|Project Area|[{DropSelect options='&target-page;/IssueTracker/ProjectAreas' name="projectArea"}]
+|Assigned To|[{DropSelect options='/Admin/Groups/Authors' name="assigned"}]
+|Owner|[{DropSelect options='/Admin/Groups/Members' name="owner"}]
+[{FormSubmit}]
+[{EndEditForm}]

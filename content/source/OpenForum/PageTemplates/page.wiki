@@ -1,0 +1,19 @@
+<form name="editForm">
+!! Add a page template
+|Page Name|<input type="text" name="pageName">
+|<input type="button" value="Add" onclick="addPage();">|
+</form>
+
+<form name="templateForm">
+!! Create a page from a template
+|Page Name|<input type="text" name="pageName">
+|Template|<select name="template"><option value="/OpenForum/PageTemplates/GetActionPage">Get Action Page</option><option value="/OpenForum/PageTemplates/PostActionPage">Post Action Page</option><option value="/OpenForum/PageTemplates/WikiExtensionPage">Wiki Extension Page</option></select>
+|<input type="button" value="Add" onclick="useTemplate();">|
+</form>
+
+<form name="templateSubmitForm" action="/OpenForum/Actions/Copy" method="post">
+<input type="hidden" name="newPageName">
+<input type="hidden" name="sourcePageName">
+</form>
+
+<DIV id="explorer"></DIV>

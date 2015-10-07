@@ -1,0 +1,14 @@
+__[Post Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ -Description-
+----
+!!Parameters
+!!Post Data
+----
+!!Usage:
+{{{
+[{-Example-}]
+}}}
+-Example-
+
+----
+!!Server Side Javascript for POST method
+{{{  }}}

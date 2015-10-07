@@ -1,0 +1,1 @@
+<b>Target:</b> <select name="targetPageName" id="targetPageName"></select><script> includeInitFunction("setSelect(\"targetPageName\");");includeLibrary("/OpenForum/Extensions/PagesListField/select.js");</script><br/><br/><input type="button" value="Create Issue Tracker" onclick="createIssueTracker();return false;">

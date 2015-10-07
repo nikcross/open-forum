@@ -1,0 +1,22 @@
+__Index Number: &index;__
+!!Description
+%%box
+&description;
+%%
+\\\\
+----
+\\\\
+* Type: __&type;__
+* Priority: __&priority;__
+* Status: __&status;__
+* Project Area: __&projectArea;__
+* Owner: __&owner;__
+* Assigned To: __&assigned;__
+
+----
+\\
+[{INSERT WeblogEntryPlugin entrytext='Add a Comment'}]
+\\
+[{INSERT WeblogPlugin chronology='forward'}]
+\\
+[{INSERT WeblogEntryPlugin entrytext='Add a Comment'}]

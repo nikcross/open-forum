@@ -1,0 +1,9 @@
+*Wiki Core
+*Release Process
+*Applets and Remote Applications
+*Visual Programming
+*Features
+*APIs
+*Actions
+*Extensions
+*Issue Tracker

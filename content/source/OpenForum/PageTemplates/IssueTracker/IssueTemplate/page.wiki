@@ -1,0 +1,25 @@
+__Index Number: __
+!!Description
+%%box
+!!What steps will reproduce the problem?
+# step 1
+# step 2
+# step 3
+%%
+\\\\
+----
+\\\\
+* Type: __Defect__
+* Priority: __High__
+* Status: __New__
+* Project Area: __Wiki Core__
+* Owner: __Nik Cross__
+* Assigned To: __Nik Cross__
+
+----
+\\
+[{INSERT WeblogEntryPlugin entrytext='Add a Comment'}]
+\\
+[{INSERT WeblogPlugin chronology='forward'}]
+\\
+[{INSERT WeblogEntryPlugin entrytext='Add a Comment'}]

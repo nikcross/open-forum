@@ -1,0 +1,6 @@
+!!Api Definition
+
+__Api Class__ 
+
+__Initialise Javascript:__
+{{{}}}
