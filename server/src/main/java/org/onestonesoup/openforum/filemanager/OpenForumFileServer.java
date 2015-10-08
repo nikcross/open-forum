@@ -1,5 +1,7 @@
 package org.onestonesoup.openforum.filemanager;
 
+import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.HashMap;
@@ -11,7 +13,7 @@ import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
 
-public class OpenForumFileServer implements FileServer,OpenForumConstants {
+public class OpenForumFileServer implements FileServer {
 
 	private ResourceStore resourceStore;
 	private Map<String, String> types = new HashMap<String, String>();

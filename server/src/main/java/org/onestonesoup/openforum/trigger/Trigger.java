@@ -1,15 +1,16 @@
 package org.onestonesoup.openforum.trigger;
 
+
+import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.DataHelper;
-import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.javascript.JavascriptExternalResourceHelper;
 import org.onestonesoup.openforum.javascript.JavascriptFileHelper;
-import org.onestonesoup.openforum.javascript.JavascriptHelper;
 import org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper;
 
-public abstract class Trigger implements OpenForumConstants {
+public abstract class Trigger {
 
 	private long timeStamp = -1;
 	private String[][] listeners;

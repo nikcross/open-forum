@@ -1,5 +1,7 @@
 package org.onestonesoup.openforum.router;
 
+import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,7 +20,6 @@ import org.onestonesoup.openforum.DataHelper;
 import org.onestonesoup.openforum.OpenForumException;
 import org.onestonesoup.openforum.OpenForumNameHelper;
 import org.onestonesoup.openforum.Stream;
-import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileManager;
 import org.onestonesoup.openforum.filemanager.FileServer;
@@ -45,7 +46,7 @@ import org.onestonesoup.openforum.transaction.Transaction;
  * @author nik
  *
  */
-public class Router implements OpenForumConstants{
+public class Router {
 
 	private OpenForumController controller;
 

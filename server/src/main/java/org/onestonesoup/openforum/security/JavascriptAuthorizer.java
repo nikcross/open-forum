@@ -13,16 +13,16 @@ public class JavascriptAuthorizer implements Authorizer {
 	private OpenForumController controller;
 	
 	public boolean isAuthorized(Login login, String pageName, String action) throws IOException {
-		return checkAccess(login, pageName).isAllowed();
+		return checkAccess(login, pageName, null, action).isAllowed();
 	}
 
 	public boolean isAuthorized(Login login, String pageName, String fileName,
 			String action) throws IOException {
-		return checkAccess(login, pageName).isAllowed();
+		return checkAccess(login, pageName, fileName, action).isAllowed();
 	}
 
 	
-	private AccessCheck checkAccess(Login login,String pageName) throws IOException
+	private AccessCheck checkAccess(Login login,String pageName, String fileName, String action) throws IOException
 	{
 		if(login==controller.getSystemLogin()) {
 			AccessCheck check = new AccessCheck(login,pageName);
@@ -32,6 +32,8 @@ public class JavascriptAuthorizer implements Authorizer {
 		JavascriptEngine js = controller.getJavascriptEngine(controller.getSystemLogin());
 		js.mount("login", login);
 		js.mount("pageName", pageName);
+		js.mount("fileName", fileName);
+		js.mount("action", action);
 		try{
 			String script = controller.getFileManager().getPageAttachmentAsString(AUTHORIZATION_PAGE, ACCESS_SCRIPT_FILE, controller.getSystemLogin());
 			String result = js.runJavascript(AUTHORIZATION_PAGE + "/" + ACCESS_SCRIPT_FILE, script);

@@ -296,4 +296,17 @@ public class ResourceStoreProxy implements ResourceStore {
 		}
 		return false;
 	}
+
+	@Override
+	public boolean contentMatches(Resource resource, byte[] data) {
+		if(resource==null || data==null) {
+			return false;
+		}
+		if(getResourceStoreToWrite(resource).resourceExists(resource)==true) {
+			return getResourceStoreToWrite(resource).contentMatches(resource, data);
+		} else if(getResourceStoreToRead(resource).resourceExists(resource)) {
+			return getResourceStoreToRead(resource).contentMatches(resource, data);
+		}
+		return false;
+	}
 }

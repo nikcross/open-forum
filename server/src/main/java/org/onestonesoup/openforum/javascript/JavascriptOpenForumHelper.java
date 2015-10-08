@@ -1,5 +1,7 @@
 package org.onestonesoup.openforum.javascript;
 
+import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -11,7 +13,6 @@ import org.onestonesoup.openforum.DataHelper;
 import org.onestonesoup.openforum.OpenForumException;
 import org.onestonesoup.openforum.OpenForumNameHelper;
 import org.onestonesoup.openforum.TimeHelper;
-import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.messagequeue.MessageQueue;
 import org.onestonesoup.openforum.security.AuthenticationException;
@@ -228,7 +229,7 @@ public class JavascriptOpenForumHelper {
 	}
 
 	public String getVersion() {
-		return OpenForumConstants.SERVER_VERSION;
+		return SERVER_VERSION;
 	}
 
 	public String validateWikiTitle(String title) {

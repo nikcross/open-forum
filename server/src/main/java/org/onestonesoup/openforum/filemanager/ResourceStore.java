@@ -45,4 +45,5 @@ public interface ResourceStore {
 	public abstract URL getResourceURL(Resource resource) throws MalformedURLException;
 	
 	public abstract boolean isReadOnly();
+	public abstract boolean contentMatches(Resource resource, byte[] data);
 }

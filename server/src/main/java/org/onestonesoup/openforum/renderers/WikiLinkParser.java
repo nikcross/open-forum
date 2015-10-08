@@ -1,5 +1,8 @@
 package org.onestonesoup.openforum.renderers;
 
+
+import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,12 +10,10 @@ import java.util.Map;
 import org.onestonesoup.core.TemplateHelper;
 import org.onestonesoup.core.data.KeyValuePair;
 import org.onestonesoup.openforum.OpenForumNameHelper;
-import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
-import org.onestonesoup.openforum.javascript.JavascriptHelper;
 import org.onestonesoup.openforum.security.AuthenticationException;
 
-public class WikiLinkParser implements OpenForumConstants {
+public class WikiLinkParser {
 
 	public String pageName;
 	public Map<String,String> attachmentLinks = new HashMap<String,String>();

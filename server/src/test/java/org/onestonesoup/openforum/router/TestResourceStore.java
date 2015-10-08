@@ -184,4 +184,10 @@ public class TestResourceStore implements ResourceStore {
 		return null;
 	}
 
+	@Override
+	public boolean contentMatches(Resource resource, byte[] data) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

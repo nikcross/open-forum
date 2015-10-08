@@ -1,16 +1,17 @@
 package org.onestonesoup.openforum.javascript;
 
+import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.Map;
 
-import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileManager;
 import org.onestonesoup.openforum.security.AuthenticationException;
 import org.onestonesoup.openforum.security.Login;
 
-public class JavascriptFileHelper implements OpenForumConstants {
+public class JavascriptFileHelper  {
 
 	private OpenForumController controller;
 	private FileManager fileManager;

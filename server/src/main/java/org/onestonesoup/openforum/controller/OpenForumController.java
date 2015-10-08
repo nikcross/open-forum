@@ -1,5 +1,34 @@
 package org.onestonesoup.openforum.controller;
 
+import static org.onestonesoup.openforum.controller.OpenForumConstants.DATA_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.DEFAULT_HOME_PAGE_PATH;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.EDIT_FORM_HTML_TEMPLATE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.EDIT_FORM_WIKI_TEMPLATE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.EDIT_LINK_DISPLAY_TEMPLATE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.EDIT_PAGE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.END_CONTENT;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.FOOTER_HTML_TEMPLATE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.FRAGMENT_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.HEADER_HTML_TEMPLATE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.INDEX_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.JOURNAL_PAGE_PATH;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.LINKS_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.MISSING_PAGES_PATH;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.OPEN_FORUM_ALIASES;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.OPEN_FORUM_DEFAULT_PAGE_PATH;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.OPEN_FORUM_DYNAMIC_PAGES;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.OPEN_FORUM_PARAMETER_REDIRECT_LIST;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.OWNER_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGES_INDEX_PAGE_PATH;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_BUILD_JS;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.PRINTABLE_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.START_CONTENT;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.SYSTEM_NAME;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.TAGS_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.UPDATE_WIKI_TEMPLATE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.WIKI_FILE;
+
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -54,8 +83,7 @@ import org.onestonesoup.openforum.trigger.TimerTrigger;
 import org.onestonesoup.openforum.versioncontrol.DefaultVersionController;
 import org.onestonesoup.openforum.versioncontrol.PageVersion;
 
-public class OpenForumController implements OpenForumScripting,
-		OpenForumConstants, OpenForumBuilder, OpenForumPageController,
+public class OpenForumController implements OpenForumScripting, OpenForumBuilder, OpenForumPageController,
 		OpenForumSecurity {
 
 
@@ -383,29 +411,6 @@ public class OpenForumController implements OpenForumScripting,
 		}
 		return true;
 	}
-
-	/*
-	 * private void buildTemplateData() throws
-	 * IOException,AuthenticationException {
-	 * templateData.put("timestamp",WikiTimeHelper
-	 * .getCurrentDisplayTimestamp());
-	 * 
-	 * String data = fileManager.getPageSourceAsString(LEFT_MENU,systemLogin);
-	 * StringBuffer html = new StringBuffer();
-	 * 
-	 * WikiLinkParser linkRenderer = new
-	 * WikiLinkParser(LEFT_MENU,EDIT_PAGE,EDIT_LINK_DISPLAY_TEMPLATE
-	 * ,globalLinks,this); WikiRenderer.wikiToHtml(
-	 * LEFT_MENU,data,html,this,linkRenderer );
-	 * 
-	 * templateData.put("menu",html.toString()); }
-	 */
-
-	/*
-	 * private void buildSpecialPages() throws
-	 * IOException,AuthenticationException { buildIndexPage();
-	 * buildMissingPages(); buildWikiJournal(); }
-	 */
 
 	private void buildWikiJournal() throws Exception, AuthenticationException {
 		buildPage(JOURNAL_PAGE_PATH, false);

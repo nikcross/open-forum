@@ -1,5 +1,7 @@
 package org.onestonesoup.openforum.filemanager;
 
+import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URLDecoder;
@@ -33,7 +35,7 @@ import org.onestonesoup.openforum.versioncontrol.VersionController;
 import org.onestonesoup.openforum.zip.UnZipper;
 import org.onestonesoup.openforum.zip.Zipper;
 
-public class FileManager implements OpenForumConstants {
+public class FileManager {
 
 	private long lastFileSaved = 0;
 
@@ -246,7 +248,7 @@ public class FileManager implements OpenForumConstants {
 	 */
 	public String getAuthorForPage(String pageName, Login login) {
 		try {
-			Resource file = getFile(pageName, OpenForumController.OWNER_FILE,
+			Resource file = getFile(pageName, OWNER_FILE,
 					login);
 			if (file == null) {
 				return "unknown";
@@ -576,7 +578,7 @@ public class FileManager implements OpenForumConstants {
 		for (int loop = 0; loop < list.length; loop++) {
 			if (list[loop].getName().equals("history") == false
 					&& list[loop].getName().equals("blog") == false) {
-				pages.add(prefix + list[loop].getName());
+				pages.add(prefix + "/" + list[loop].getName());
 			}
 
 			pages.addAll(getPageList(list[loop], prefix + "/" + list[loop].getName(),
@@ -598,13 +600,13 @@ public class FileManager implements OpenForumConstants {
 			Login login) throws Exception, AuthenticationException {
 		if (controller.getAuthorizer().isAuthorized(login, pageName,
 				Authorizer.ACTION_UPDATE) == true) {
-			if (pageAttachmentExists(pageName, "page.wiki", login)) {
+			if (pageAttachmentExists(pageName, WIKI_FILE, login)) {
 				resourceStore.appendResource(
-						getFile(pageName, "page.wiki", login), data.getBytes());
+						getFile(pageName, WIKI_FILE, login), data.getBytes());
 			} else {
-				saveStringAsAttachment(data, pageName, "page.wiki", login, true);
+				saveStringAsAttachment(data, pageName, WIKI_FILE, login, true);
 			}
-			backup(pageName, "page.wiki", login);
+			backup(pageName, WIKI_FILE, login);
 		} else {
 			throw new AuthenticationException("No save rights");
 		}
@@ -814,8 +816,9 @@ public class FileManager implements OpenForumConstants {
 			ResourceFolder targetFolder = getFolder(targetPageName, false,
 					login);
 
-			resourceStore.copy(source, targetFolder, targetFileName);
-			backup(targetPageName, targetPageName, login);
+			if( resourceStore.copy(source, targetFolder, targetFileName) ) {
+				backup(targetPageName, targetPageName, login);
+			}
 		} else {
 			throw new AuthenticationException("No save rights");
 		}
@@ -1018,6 +1021,7 @@ public class FileManager implements OpenForumConstants {
 		if (resolveLinks == true && extension.equals("link")) {
 			request = FileHelper.loadFileAsString(resourceStore
 					.retrieve(requestFile));
+			request = request.trim();
 			if (request == null) {
 				return null;
 			}
@@ -1075,9 +1079,12 @@ public class FileManager implements OpenForumConstants {
 			AuthenticationException {
 		if (controller.getAuthorizer().isAuthorized(login, pageName,
 				Authorizer.ACTION_UPDATE) == true) {
-			ResourceFolder folder = resourceStore.getResourceFolder(pageName,
-					true);
-
+			
+			Resource resource = resourceStore.getResource(pageName+"/"+fileName);
+			if(resourceStore.contentMatches(resource, data)) {
+				return;
+			}
+			
 			resourceStore.buildResource(
 					resourceStore.getResourceFolder(pageName + "/", true),
 					fileName, data);

@@ -55,15 +55,17 @@ public class LocalDriveResourceStore implements ResourceStore {
 			byte[] data) throws IOException {
 		Resource resource = new Resource(folder, name);
 		File file = getResourceAsFile(resource);
-		// archive(resource);
-		FileOutputStream oStream = new FileOutputStream(file, false);
-		oStream.write(data);
-		oStream.flush();
-		oStream.close();
+		
+		if( contentMatches(resource, data)==false ) {
+			FileOutputStream oStream = new FileOutputStream(file, false);
+			oStream.write(data);
+			oStream.flush();
+			oStream.close();
+		}
 
 		return resource;
 	}
-
+	
 	public Resource buildResource(ResourceFolder folder, String name,
 			InputStream stream, long size) throws IOException {
 		return buildResource(folder, name, stream, size, true);
@@ -90,6 +92,11 @@ public class LocalDriveResourceStore implements ResourceStore {
 		File sourceFile = getResourceAsFile(sourceResource);
 		Resource target = new Resource(targetResourceFolder, name);
 		File targetFile = getResourceAsFile(target);
+		
+		if(FileHelper.isSameFile(sourceFile, targetFile)) {
+			return true;
+		}
+		
 		try {
 			FileHelper.copyFileToFile(sourceFile, targetFile);
 		} catch (IOException e) {
@@ -246,7 +253,7 @@ public class LocalDriveResourceStore implements ResourceStore {
 
 	public ResourceFolder[] listResourceFolders(ResourceFolder folder) {
 		String[] list = getResourceFolderAsFile(folder).list();
-		ArrayList folders = new ArrayList();
+		ArrayList<ResourceFolder> folders = new ArrayList<ResourceFolder>();
 		for (int loop = 0; loop < list.length; loop++) {
 			ResourceFolder listFolder = getResourceFolder(folder.getPath()
 					+ "/" + list[loop], false);
@@ -260,7 +267,7 @@ public class LocalDriveResourceStore implements ResourceStore {
 
 	public Resource[] listResources(ResourceFolder folder) {
 		String[] list = getResourceFolderAsFile(folder).list();
-		ArrayList resources = new ArrayList();
+		ArrayList<Resource> resources = new ArrayList<Resource>();
 		for (int loop = 0; loop < list.length; loop++) {
 			Resource listFolder = getResource(folder.getPath() + "/"
 					+ list[loop]);
@@ -341,21 +348,6 @@ public class LocalDriveResourceStore implements ResourceStore {
 		return md5;
 	}
 
-	private Resource createResource(String path, String name) {
-		ResourceFolder folder = createResourceFolder(path);
-		Resource resource = new Resource(folder, name);
-
-		return resource;
-	}
-
-	private ResourceFolder createResourceFolder(String path) {
-		String[] parts = path.split("/");
-		ResourceFolder folder = new ResourceFolder(path,
-				parts[parts.length - 1]);
-
-		return folder;
-	}
-
 	public URL getResourceURL(Resource resource) throws MalformedURLException {
 		return getResourceAsFile(resource).toURI().toURL();
 	}
@@ -419,5 +411,15 @@ public class LocalDriveResourceStore implements ResourceStore {
 	@Override
 	public boolean resourceFolderExists(ResourceFolder resourceFolder) {
 		return getResourceFolderAsFile(resourceFolder).exists();
+	}
+
+	@Override
+	public boolean contentMatches(Resource resource, byte[] data) {
+		File file = getResourceAsFile(resource);
+		try {
+			return (file.exists() && file.length()==data.length && FileHelper.loadFileAsString(file).equals(new String(data)));
+		} catch (IOException e) {
+			return false;
+		}
 	}
 }
