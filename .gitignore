@@ -9,7 +9,7 @@ target/
 *.class
 *.orig
 *~
-*.sh
+nik-*.sh
 /content/changes/
 /content/jetty/
 /content/*/history
