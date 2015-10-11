@@ -279,7 +279,7 @@ public class Router {
 				// login using authenticator
 				login = controller.getAuthenticator()
 						.authenticate(httpHeader);
-				if(login.isLoggedIn()==false) {
+				if(login.isLoggedIn()==false || pageName.equals("OpenForum/Access/SignIn/Process")) {
 					controller.getAuthenticator().obtainAuthentication(httpHeader, connection);
 					return true;
 				}
@@ -439,6 +439,12 @@ public class Router {
 			ClientConnectionInterface connection, String pageName, Login login)
 			throws Throwable {
 
+		if (controller
+				.getAuthorizer()
+				.isAuthorized(login, pageName, Authorizer.ACTION_READ) == false) {
+			throw new AuthenticationException("No read rights");
+		}
+		
 		// Load the get.sjs script and convert it into a function
 		// so that the script can return using a function return
 		// Add a call to the function
@@ -471,6 +477,12 @@ public class Router {
 			ClientConnectionInterface connection, String pageName, Login login)
 			throws Throwable {
 
+		if (controller
+				.getAuthorizer()
+				.isAuthorized(login, pageName, Authorizer.ACTION_READ) == false) {
+			throw new AuthenticationException("No read rights");
+		}
+		
 		// Load the post.sjs script and convert it into a function
 		// so that the script can return using a function return
 		// Add a call to the function
@@ -548,8 +560,8 @@ public class Router {
 			try {
 				if (controller
 						.getAuthorizer()
-						.isAuthorized(login, Authorizer.ACTION_READ,
-								request) == false) {
+						.isAuthorized(login ,request, Authorizer.ACTION_READ
+								) == false) {
 					throw new AuthenticationException("No read rights");
 				}
 			} catch (Exception e) {

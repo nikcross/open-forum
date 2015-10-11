@@ -262,7 +262,7 @@ public class HttpRequestHelper {
 			iStream = new HttpPostInputStreamBuffer(inputStream);
 		}		
 		
-		long dataSize = Long.parseLong( header.getChild("content-length").getValue() );
+		//long dataSize = Long.parseLong( header.getChild("content-length").getValue() );
 		
 		EntityTree.TreeEntity xContentType = header.getChild("content-type");
 		if(xContentType==null)

@@ -1,6 +1,8 @@
 package org.onestonesoup.openforum.filemanager;
 
-import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.DELETED_PAGES;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.OWNER_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.WIKI_FILE;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -10,21 +12,15 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 import org.onestonesoup.core.FileHelper;
 import org.onestonesoup.core.StringHelper;
 import org.onestonesoup.core.TemplateHelper;
-import org.onestonesoup.core.data.EntityTree;
-import org.onestonesoup.core.data.XmlHelper;
-import org.onestonesoup.openforum.DataHelper;
 import org.onestonesoup.openforum.OpenForumException;
 import org.onestonesoup.openforum.OpenForumNameHelper;
 import org.onestonesoup.openforum.Stream;
 import org.onestonesoup.openforum.TimeHelper;
-import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
-import org.onestonesoup.openforum.plugin.JarManager;
 import org.onestonesoup.openforum.security.AuthenticationException;
 import org.onestonesoup.openforum.security.Authorizer;
 import org.onestonesoup.openforum.security.Login;
@@ -86,7 +82,7 @@ public class FileManager {
 	 */
 	public String getPageSourceAsString(String pageName, Login login)
 			throws Exception, AuthenticationException {
-		Resource file = getFile(pageName, "page.wiki", login);
+		Resource file = getFile(pageName, WIKI_FILE, login);
 		if (file == null) {
 			System.err.println("FileManager.getPageSourceAsString("+pageName+") Resource does not exist.");
 			return null;
@@ -186,7 +182,7 @@ public class FileManager {
 	 */
 	public boolean pageExists(String pageName, Login login) throws Exception {
 		try {
-			Resource file = getFile(pageName, "page.wiki", login);
+			Resource file = getFile(pageName, WIKI_FILE, login);
 			if (file == null) {
 				return false;
 			}
@@ -194,7 +190,6 @@ public class FileManager {
 					|| file.getName().equals("blog")) {
 				return false;
 			}
-			// return getFile(pageName,"page.wiki",login).exists();
 			ResourceFolder pageFolder = getFolder(pageName, false, login);
 			if (pageFolder == null) {
 				return false;
@@ -644,14 +639,14 @@ public class FileManager {
 				Authorizer.ACTION_UPDATE) == true) {
 			String oldData = null;
 
-			if (pageAttachmentExists(pageName, "page.wiki", login) == true) {
+			if (pageAttachmentExists(pageName, WIKI_FILE, login) == true) {
 				oldData = getPageSourceAsString(pageName, login);
 			}
 
 			if (oldData != null && oldData.equals(data)) {
 				return false;
 			} else {
-				saveFile(pageName, "page.wiki", data, login, true);
+				saveFile(pageName, WIKI_FILE, data, login, true);
 				return true;
 			}
 		} else {

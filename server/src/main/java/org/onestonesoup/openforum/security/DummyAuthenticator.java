@@ -23,4 +23,14 @@ public class DummyAuthenticator implements Authenticator {
 			ClientConnectionInterface connection) throws IOException {
 		return false;
 	}
+
+	@Override
+	public void signOut(HttpHeader httpHeader,ClientConnectionInterface connection) {
+				
+	}
+
+	@Override
+	public boolean signIn(HttpHeader httpHeader,ClientConnectionInterface connection) {
+		return false;
+	}
 }

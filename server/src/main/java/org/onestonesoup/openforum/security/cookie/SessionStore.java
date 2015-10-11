@@ -86,10 +86,12 @@ public class SessionStore implements Runnable {
 	}
 
 	public void invalidateSession(String sessionId) {
-		controller.getLogger().info(
-				"Session for user " + sessions.get(sessionId).userId
-						+ " invalidated.");
-		sessions.remove(sessionId);
+		if (sessions.containsKey(sessionId)) {
+			controller.getLogger().info(
+					"Session for user " + sessions.get(sessionId).userId
+							+ " invalidated.");
+			sessions.remove(sessionId);
+		}
 	}
 
 	public String createSession(String userId) {

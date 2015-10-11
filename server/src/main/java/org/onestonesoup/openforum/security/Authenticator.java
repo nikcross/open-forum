@@ -12,4 +12,6 @@ public interface Authenticator {
 	public void setFileServer(FileServer fileServer);
 	public Login authenticate(HttpHeader header) throws IOException;
 	public boolean obtainAuthentication(HttpHeader httpHeader,ClientConnectionInterface connection) throws IOException;
+	public void signOut(HttpHeader httpHeader,ClientConnectionInterface connection);
+	public boolean signIn(HttpHeader httpHeader,ClientConnectionInterface connection) throws IOException;
 }

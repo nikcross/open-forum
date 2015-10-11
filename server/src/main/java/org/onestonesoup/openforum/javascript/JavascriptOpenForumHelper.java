@@ -1,7 +1,8 @@
 package org.onestonesoup.openforum.javascript;
 
-import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.SERVER_VERSION;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +18,8 @@ import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.messagequeue.MessageQueue;
 import org.onestonesoup.openforum.security.AuthenticationException;
 import org.onestonesoup.openforum.security.Login;
+import org.onestonesoup.openforum.servlet.HttpHeader;
+import org.onestonesoup.openforum.transaction.Transaction;
 
 public class JavascriptOpenForumHelper {
 
@@ -250,5 +253,13 @@ public class JavascriptOpenForumHelper {
 
 	public String generateUniqueId() {
 		return controller.generateUniqueId();
+	}
+	
+	public boolean signIn(Transaction transaction) throws IOException {
+		return controller.getAuthenticator().signIn((HttpHeader)transaction.getHttpHeader(), transaction.getConnection());
+	}
+	
+	public void signOut(Transaction transaction) {
+		controller.getAuthenticator().signOut((HttpHeader)transaction.getHttpHeader(), transaction.getConnection());
 	}
 }

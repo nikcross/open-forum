@@ -87,7 +87,7 @@ public class WWWAuthenticator implements Authenticator {
 		responseHeader.addParameter( "WWW-Authenticate","Basic realm=\""+controller.getDomainName()+"\"" );
 		responseHeader.addParameter( "Set-Cookie","failedLogins="+count );
 
-		long size = fileServer.send401File(connection);
+		fileServer.send401File(connection);
 		return true;
 	}
 
@@ -97,5 +97,21 @@ public class WWWAuthenticator implements Authenticator {
 
 	public void setFileServer(FileServer fileServer) {
 		this.fileServer = fileServer;
+	}
+
+	@Override
+	public void signOut(HttpHeader httpHeader,
+			ClientConnectionInterface connection) {
+		HttpResponseHeader responseHeader = new HttpResponseHeader(
+				httpHeader, "text/html", 302, connection);
+		responseHeader
+				.addParameter("location",
+						"logout@open-forum.onestonesoup.org");	
+	}
+
+	@Override
+	public boolean signIn(HttpHeader httpHeader,
+			ClientConnectionInterface connection) throws IOException {
+		return obtainAuthentication(httpHeader, connection);
 	}
 }

@@ -1,6 +1,7 @@
 package org.onestonesoup.openforum.plugin;
 
 import static org.onestonesoup.openforum.controller.OpenForumConstants.DATA_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.WIKI_FILE;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -14,7 +15,6 @@ import java.util.Map;
 import org.onestonesoup.core.ExceptionHelper;
 import org.onestonesoup.core.FileHelper;
 import org.onestonesoup.core.StringHelper;
-import org.onestonesoup.core.data.EntityTree;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.DataHelper;
 import org.onestonesoup.openforum.controller.OpenForumController;
@@ -169,7 +169,7 @@ public class JarManager{
 	
 	private Object getInstance(String pageName,String className) throws Throwable
 	{
-		Class clazz = urlClassLoader.loadClass(className);
+		Class<?> clazz = urlClassLoader.loadClass(className);
 		Object instance = clazz.newInstance();
 		
 		if( instance instanceof SystemAPI )
@@ -286,7 +286,7 @@ public class JarManager{
 	}
 
 	public void updateClassPath() throws Throwable {
-		String[][] list = DataHelper.getPageAsList( fileManager.getPageAttachmentAsString("/OpenForum/JarManager","page.wiki",controller.getSystemLogin()));
+		String[][] list = DataHelper.getPageAsList( fileManager.getPageAttachmentAsString("/OpenForum/JarManager",WIKI_FILE,controller.getSystemLogin()));
 		String path = "";
 		for(int i=0;i<list.length;i++) {
 			String resource = list[i][0];

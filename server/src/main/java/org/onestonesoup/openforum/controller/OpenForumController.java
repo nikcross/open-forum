@@ -83,9 +83,8 @@ import org.onestonesoup.openforum.trigger.TimerTrigger;
 import org.onestonesoup.openforum.versioncontrol.DefaultVersionController;
 import org.onestonesoup.openforum.versioncontrol.PageVersion;
 
-public class OpenForumController implements OpenForumScripting, OpenForumBuilder, OpenForumPageController,
-		OpenForumSecurity {
-
+public class OpenForumController implements OpenForumScripting,
+		OpenForumBuilder, OpenForumPageController, OpenForumSecurity {
 
 	private long ID_COUNTER = 1;
 	private static final String EXCLUDE_REFERENCES = "exclude-references.txt";
@@ -128,52 +127,62 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 
 	private OpenForumLogger logger;
 
-	private FileManager initialiseFileManager(String rootFolderName) throws Exception {
-		
-		FileManager newFileManager = new FileManager(domainName, pageChangeTrigger, this);
-		newFileManager
-				.setResourceStore(new LocalDriveResourceStore(rootFolderName,false));
-		
-		
+	private FileManager initialiseFileManager(String rootFolderName)
+			throws Exception {
+
+		FileManager newFileManager = new FileManager(domainName,
+				pageChangeTrigger, this);
+		newFileManager.setResourceStore(new LocalDriveResourceStore(
+				rootFolderName, false));
+
 		if (newFileManager.pageExists("/OpenForum/Configuration",
 				getSystemLogin())) {
-			
-			KeyValueListPage keyValueListPage = new KeyValueListPage( newFileManager, "/OpenForum/Configuration");
+
+			KeyValueListPage keyValueListPage = new KeyValueListPage(
+					newFileManager, "/OpenForum/Configuration");
 			ResourceStoreProxy resourceStore = null;
 			boolean hasMoreResourceStores = true;
 			int resourceStoreIndex = 0;
-			
-			while(hasMoreResourceStores) {
-				String storeEntry = keyValueListPage.getValue("resourceStore"+resourceStoreIndex);
-				if(storeEntry==null) {
+
+			while (hasMoreResourceStores) {
+				String storeEntry = keyValueListPage.getValue("resourceStore"
+						+ resourceStoreIndex);
+				if (storeEntry == null) {
 					hasMoreResourceStores = false;
 					continue;
 				}
-				
-				if(storeEntry.startsWith("read-only:")) {
-					if(resourceStore==null) {
-						resourceStore = new ResourceStoreProxy(new LocalDriveResourceStore(storeEntry.substring(10),true));
+
+				if (storeEntry.startsWith("read-only:")) {
+					if (resourceStore == null) {
+						resourceStore = new ResourceStoreProxy(
+								new LocalDriveResourceStore(
+										storeEntry.substring(10), true));
 					} else {
-						resourceStore.addResourceStore(new LocalDriveResourceStore(storeEntry.substring(10),true));
+						resourceStore
+								.addResourceStore(new LocalDriveResourceStore(
+										storeEntry.substring(10), true));
 					}
 				} else {
-					if(resourceStore==null) {
-						resourceStore = new ResourceStoreProxy(new LocalDriveResourceStore(storeEntry,false));
+					if (resourceStore == null) {
+						resourceStore = new ResourceStoreProxy(
+								new LocalDriveResourceStore(storeEntry, false));
 					} else {
-						resourceStore.addResourceStore(new LocalDriveResourceStore(storeEntry,false));
+						resourceStore
+								.addResourceStore(new LocalDriveResourceStore(
+										storeEntry, false));
 					}
 				}
 				resourceStoreIndex++;
 			}
 
-			if(resourceStore!=null) {
+			if (resourceStore != null) {
 				newFileManager.setResourceStore(resourceStore);
 			}
 		}
-		
+
 		return newFileManager;
 	}
-	
+
 	public OpenForumController(String rootFolderName, String domainName)
 			throws Exception, AuthenticationException {
 		queueManager = new MessageQueueManager();
@@ -184,7 +193,7 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 		pageChangeTrigger = new PageChangeTrigger(this);
 
 		fileManager = initialiseFileManager(rootFolderName);
-		
+
 		fileManager.setVersionController(new DefaultVersionController(
 				fileManager.getResourceStore(systemLogin)));
 
@@ -196,8 +205,9 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 
 		dynamicPages = new KeyValueListPage(fileManager,
 				OPEN_FORUM_DYNAMIC_PAGES);
-		parameterRedirectList = new KeyValueListPage(fileManager, OPEN_FORUM_PARAMETER_REDIRECT_LIST);
-		
+		parameterRedirectList = new KeyValueListPage(fileManager,
+				OPEN_FORUM_PARAMETER_REDIRECT_LIST);
+
 		aliasList = new KeyValueListPage(fileManager, OPEN_FORUM_ALIASES);
 		this.domainName = domainName;
 	}
@@ -216,7 +226,7 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 
 	public void setRouter(Router router) {
 		this.router = router;
-		logger.info("Router set for "+this.domainName);
+		logger.info("Router set for " + this.domainName);
 	}
 
 	/*
@@ -433,14 +443,15 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 	}
 
 	private void buildMissingPages() throws Exception, AuthenticationException {
-		String[] exclude = getExcludesList(EXCLUDE_REFERENCES, MISSING_PAGES_PATH);
+		String[] exclude = getExcludesList(EXCLUDE_REFERENCES,
+				MISSING_PAGES_PATH);
 		Map<String, String> localTemplateData = getStandardTemplateData(
 				MISSING_PAGES_PATH, null, SYSTEM_NAME,
 				TimeHelper.getCurrentDisplayTimestamp());
 
 		String headerTemplate = fileManager.getPageInheritedFileAsString(
-				MISSING_PAGES_PATH, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
-				systemLogin);
+				MISSING_PAGES_PATH, HEADER_HTML_TEMPLATE,
+				OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
 		getRequiredTemplateInserts(MISSING_PAGES_PATH, headerTemplate,
 				localTemplateData);
 		String header = TemplateHelper.generateStringWithTemplate(
@@ -485,8 +496,8 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 				linkRenderer);
 
 		String footerTemplate = fileManager.getPageInheritedFileAsString(
-				"MissingPages", FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
-				systemLogin);
+				"MissingPages", FOOTER_HTML_TEMPLATE,
+				OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
 		getRequiredTemplateInserts(MISSING_PAGES_PATH, footerTemplate,
 				localTemplateData);
 		String footer = TemplateHelper.generateStringWithTemplate(
@@ -558,9 +569,9 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 	 */
 	public StringBuffer buildPage(String name, boolean buildRefersTo)
 			throws Exception, AuthenticationException {
-		return buildPage(name,null,buildRefersTo);
+		return buildPage(name, null, buildRefersTo);
 	}
-	
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -568,8 +579,8 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#buildPage(java
 	 * .lang.String, boolean)
 	 */
-	public StringBuffer buildPage(String name, String data, boolean buildRefersTo)
-			throws Exception, AuthenticationException {
+	public StringBuffer buildPage(String name, String data,
+			boolean buildRefersTo) throws Exception, AuthenticationException {
 		while (name.charAt(0) == '/') {
 			name = name.substring(1);
 		}
@@ -599,7 +610,8 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 					EDIT_LINK_DISPLAY_TEMPLATE, this);
 
 			String header = fileManager.getPageInheritedFileAsString(name,
-					HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
+					HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
+					systemLogin);
 			getRequiredTemplateInserts(name, header, localTemplateData);
 
 			header = TemplateHelper.generateStringWithTemplate(header,
@@ -609,7 +621,7 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 
 			StringBuffer content = new StringBuffer();
 			try {
-				if(data==null) {
+				if (data == null) {
 					data = fileManager.getPageSourceAsString(name, systemLogin);
 				}
 
@@ -625,7 +637,8 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 			html.append(END_CONTENT);
 
 			String footer = fileManager.getPageInheritedFileAsString(name,
-					FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
+					FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
+					systemLogin);
 			getRequiredTemplateInserts(name, footer, localTemplateData);
 			footer = TemplateHelper.generateStringWithTemplate(footer,
 					localTemplateData);
@@ -648,7 +661,7 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 	private String runPageBuildScript(String name, String content, String script)
 			throws Throwable {
 		JavascriptEngine js = getJavascriptEngine(systemLogin);
-		if(content!=null) {
+		if (content != null) {
 			js.mount("content", content);
 		}
 		js.mount("pageName", name);
@@ -758,50 +771,41 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 			try {
 
 				Map<String, String> data = new HashMap<String, String>();
-				/*if (fileManager.pageAttachmentExists(pageName, DATA_FILE,
-						systemLogin)) {
-					EntityTree dataXml = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
-							pageName, DATA_FILE, systemLogin));
-					for (EntityTree.TreeEntity entity : dataXml.getChildren()) {
-						data.put(entity.getName(), entity.getValue());
-					}
-				}*/
+				/*
+				 * if (fileManager.pageAttachmentExists(pageName, DATA_FILE,
+				 * systemLogin)) { EntityTree dataXml =
+				 * JSONHelper.toTree(fileManager.getPageAttachmentAsString(
+				 * pageName, DATA_FILE, systemLogin)); for
+				 * (EntityTree.TreeEntity entity : dataXml.getChildren()) {
+				 * data.put(entity.getName(), entity.getValue()); } }
+				 */
 				data.put("pageName", pageName);
 
-/*				EntityTree dataToFileMap = null;
-				if (fileManager.pageAttachmentExists(pageName,
-						"data-file-map.xml", systemLogin)) {
-					dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
-							pageName, DATA_MAP_FILE, systemLogin));
-				} else if (fileManager.pageAttachmentExists(
-						OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, systemLogin)) {
-					dataToFileMap = JSONHelper.toTree(fileManager
-							.getPageAttachmentAsString(OPEN_FORUM_DEFAULT_PAGE_PATH,
-									DATA_MAP_FILE, systemLogin));
-				}
-				if (dataToFileMap != null) {
-					for (int loop = 0; loop < dataToFileMap.getChildren()
-							.size(); loop++) {
-						EntityTree.TreeEntity mapping = dataToFileMap
-								.getChildren().get(loop);
-						String from = mapping.getAttribute("from");
-						String to = mapping.getAttribute("to");
-
-						if (from == null || to == null) {
-							continue;
-						}
-
-						if (fileManager.pageAttachmentExists(pageName, to,
-								systemLogin)) {
-							String fileData = fileManager
-									.getPageAttachmentAsString(pageName, to,
-											systemLogin);
-							fileData = DataHelper
-									.prepareTextForEditing(fileData);
-							data.put(from, fileData);
-						}
-					}
-				}*/
+				/*
+				 * EntityTree dataToFileMap = null; if
+				 * (fileManager.pageAttachmentExists(pageName,
+				 * "data-file-map.xml", systemLogin)) { dataToFileMap =
+				 * JSONHelper.toTree(fileManager.getPageAttachmentAsString(
+				 * pageName, DATA_MAP_FILE, systemLogin)); } else if
+				 * (fileManager.pageAttachmentExists(
+				 * OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, systemLogin)) {
+				 * dataToFileMap = JSONHelper.toTree(fileManager
+				 * .getPageAttachmentAsString(OPEN_FORUM_DEFAULT_PAGE_PATH,
+				 * DATA_MAP_FILE, systemLogin)); } if (dataToFileMap != null) {
+				 * for (int loop = 0; loop < dataToFileMap.getChildren()
+				 * .size(); loop++) { EntityTree.TreeEntity mapping =
+				 * dataToFileMap .getChildren().get(loop); String from =
+				 * mapping.getAttribute("from"); String to =
+				 * mapping.getAttribute("to");
+				 * 
+				 * if (from == null || to == null) { continue; }
+				 * 
+				 * if (fileManager.pageAttachmentExists(pageName, to,
+				 * systemLogin)) { String fileData = fileManager
+				 * .getPageAttachmentAsString(pageName, to, systemLogin);
+				 * fileData = DataHelper .prepareTextForEditing(fileData);
+				 * data.put(from, fileData); } } }
+				 */
 				getRequiredTemplateInserts(pageName, form, data);
 
 				return TemplateHelper.generateStringWithTemplate(form, data);
@@ -810,7 +814,8 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 			}
 		} else {
 			return fileManager.getPageInheritedFileAsString(pageName,
-					EDIT_FORM_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH, login);
+					EDIT_FORM_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
+					login);
 		}
 	}
 
@@ -869,17 +874,17 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 
 		if (fileManager.pageExists(JOURNAL_PAGE_PATH + "/blog/" + dateStamp
 				+ "_00-00-00", systemLogin) == false) {
-			fileManager.appendStringToPageSource(entry, JOURNAL_PAGE_PATH + "/blog/"
-					+ dateStamp + "_00-00-00", systemLogin);
-			fileManager.appendStringToPageSource(
-					"*[" + dateStamp + "|" + JOURNAL_PAGE_PATH + "/blog/"
-							+ dateStamp + "_00-00-00" + "]\n", JOURNAL_PAGE_PATH,
-					systemLogin);
+			fileManager.appendStringToPageSource(entry, JOURNAL_PAGE_PATH
+					+ "/blog/" + dateStamp + "_00-00-00", systemLogin);
+			fileManager.appendStringToPageSource("*[" + dateStamp + "|"
+					+ JOURNAL_PAGE_PATH + "/blog/" + dateStamp + "_00-00-00"
+					+ "]\n", JOURNAL_PAGE_PATH, systemLogin);
 			buildPage(JOURNAL_PAGE_PATH, false);
-			buildPage(JOURNAL_PAGE_PATH + "/blog/" + dateStamp + "_00-00-00", false);
+			buildPage(JOURNAL_PAGE_PATH + "/blog/" + dateStamp + "_00-00-00",
+					false);
 		} else {
-			fileManager.appendStringToPageSource(entry, JOURNAL_PAGE_PATH + "/blog/"
-					+ dateStamp + "_00-00-00", systemLogin);
+			fileManager.appendStringToPageSource(entry, JOURNAL_PAGE_PATH
+					+ "/blog/" + dateStamp + "_00-00-00", systemLogin);
 
 		}
 
@@ -1036,15 +1041,16 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 
 		if (postParameters != null) {
 			EntityTree dataToFileMap = null;
-/*			if (fileManager
-					.pageAttachmentExists(pageName, DATA_MAP_FILE, login)) {
-				dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(pageName,
-						DATA_MAP_FILE, login));
-			} else if (fileManager.pageAttachmentExists(
-					OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login)) {
-				dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
-						OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login));
-			}*/
+			/*
+			 * if (fileManager .pageAttachmentExists(pageName, DATA_MAP_FILE,
+			 * login)) { dataToFileMap =
+			 * JSONHelper.toTree(fileManager.getPageAttachmentAsString(pageName,
+			 * DATA_MAP_FILE, login)); } else if
+			 * (fileManager.pageAttachmentExists( OPEN_FORUM_DEFAULT_PAGE_PATH,
+			 * DATA_MAP_FILE, login)) { dataToFileMap =
+			 * JSONHelper.toTree(fileManager.getPageAttachmentAsString(
+			 * OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login)); }
+			 */
 			if (dataToFileMap != null) {
 				for (int loop = 0; loop < dataToFileMap.getChildren().size(); loop++) {
 					EntityTree.TreeEntity mapping = dataToFileMap.getChildren()
@@ -1120,14 +1126,16 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 				updateTemplate, dataTable);
 
 		EntityTree dataToFileMap = null;
-/*		if (fileManager.pageAttachmentExists(pageName, DATA_MAP_FILE, login)) {
-			dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(pageName,
-					DATA_MAP_FILE, login));
-		} else if (fileManager.pageAttachmentExists(OPEN_FORUM_DEFAULT_PAGE_PATH,
-				DATA_MAP_FILE, login)) {
-			dataToFileMap = JSONHelper.toTree(fileManager.getPageAttachmentAsString(
-					OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login));
-		}*/
+		/*
+		 * if (fileManager.pageAttachmentExists(pageName, DATA_MAP_FILE, login))
+		 * { dataToFileMap =
+		 * JSONHelper.toTree(fileManager.getPageAttachmentAsString(pageName,
+		 * DATA_MAP_FILE, login)); } else if
+		 * (fileManager.pageAttachmentExists(OPEN_FORUM_DEFAULT_PAGE_PATH,
+		 * DATA_MAP_FILE, login)) { dataToFileMap =
+		 * JSONHelper.toTree(fileManager.getPageAttachmentAsString(
+		 * OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login)); }
+		 */
 		if (dataToFileMap != null) {
 			for (int loop = 0; loop < dataToFileMap.getChildren().size(); loop++) {
 				EntityTree.TreeEntity mapping = dataToFileMap.getChildren()
@@ -1234,13 +1242,15 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 							false);
 				}
 
-				/*EntityTree indexValue = JSONHelper.toTree(getFileManager()
-						.getPageAttachmentAsString(listPageName, INDEX_FILE, login));
-				index = Integer.parseInt(indexValue.getValue());
-				indexValue.setValue("" + (index + 1));
-
-				attachFile(listPageName, INDEX_FILE,
-						XmlHelper.toXml(indexValue), false);*/
+				/*
+				 * EntityTree indexValue = JSONHelper.toTree(getFileManager()
+				 * .getPageAttachmentAsString(listPageName, INDEX_FILE, login));
+				 * index = Integer.parseInt(indexValue.getValue());
+				 * indexValue.setValue("" + (index + 1));
+				 * 
+				 * attachFile(listPageName, INDEX_FILE,
+				 * XmlHelper.toXml(indexValue), false);
+				 */
 			}
 		}
 
@@ -1294,11 +1304,11 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 							String source = getFileManager()
 									.getPageAttachmentAsString(
 											pageName + "/" + fileName,
-											"page.wiki", login);
+											WIKI_FILE, login);
 							String tags = getFileManager()
 									.getPageAttachmentAsString(
 											pageName + "/" + fileName,
-											"page.wiki", login);
+											WIKI_FILE, login);
 							savePage(pageName + "/" + fileName, source, tags,
 									null, login);
 							buildPage(pageName + "/" + fileName);
@@ -1555,7 +1565,8 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 		JavascriptEngine js = new JavascriptEngine();
 
 		// Create processors for use by the script
-		JavascriptHelper jsHelper = new JavascriptHelper(js, this, getFileManager(), login);
+		JavascriptHelper jsHelper = new JavascriptHelper(js, this,
+				getFileManager(), login);
 		JavascriptOpenForumHelper openForumHelper = new JavascriptOpenForumHelper(
 				this, login);
 		JavascriptExternalResourceHelper externalHelper = new JavascriptExternalResourceHelper(
@@ -1636,7 +1647,7 @@ public class OpenForumController implements OpenForumScripting, OpenForumBuilder
 			}
 
 			router = new Router("name", this);
-			
+
 			if (fileManager.pageExists("/OpenForum/Configuration",
 					getSystemLogin())) {
 				KeyValueListPage keyValueListPage = new KeyValueListPage(

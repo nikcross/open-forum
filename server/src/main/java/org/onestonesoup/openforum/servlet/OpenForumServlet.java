@@ -71,7 +71,6 @@ public class OpenForumServlet extends HttpServlet {
 			controller.getLogger().info("A:"+key+"="+request.getAttribute(key));
 		}
 		
-		Router router;
 		try {
 			controller.getRouter().route(connection, httpHeader);
 		} catch (Exception e) {

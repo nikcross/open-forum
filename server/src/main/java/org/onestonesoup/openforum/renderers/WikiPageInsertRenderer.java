@@ -1,5 +1,7 @@
 package org.onestonesoup.openforum.renderers;
 
+import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +31,7 @@ public class WikiPageInsertRenderer implements WikiTagRenderer {
 			}
 			
 			String pageData = "";
-			if( controller.getFileManager().pageAttachmentExists(insertPageName,"page.wiki",ownerLogin) )
+			if( controller.getFileManager().pageAttachmentExists(insertPageName,WIKI_FILE,ownerLogin) )
 			{
 				pageData = controller.getFileManager().getPageSourceAsString(insertPageName,ownerLogin);
 			}
@@ -49,9 +51,9 @@ public class WikiPageInsertRenderer implements WikiTagRenderer {
 			else
 			{
 				String pageHtml = "";
-				if( controller.getFileManager().pageAttachmentExists( insertPageName,"page.html.fragment",ownerLogin ) )
+				if( controller.getFileManager().pageAttachmentExists( insertPageName,FRAGMENT_FILE,ownerLogin ) )
 				{
-					pageHtml = controller.getFileManager().getPageAttachmentAsString( insertPageName,"page.html.fragment",ownerLogin );
+					pageHtml = controller.getFileManager().getPageAttachmentAsString( insertPageName,FRAGMENT_FILE,ownerLogin );
 				}
 				target.append( pageHtml );
 			}
