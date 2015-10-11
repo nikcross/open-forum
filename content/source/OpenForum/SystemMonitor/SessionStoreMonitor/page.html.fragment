@@ -1,0 +1,6 @@
+<div class="row">
+  <h2>Users Online</h2>
+  <ul>
+    <li of-repeatFor="user in users">{{user}}</li>
+  </ul>
+</div>

@@ -3,19 +3,20 @@
 <HEAD>
 <TITLE> Javascript Editor</TITLE>
   
-	<link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/lib/codemirror.css"></link>
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.css"></link>
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/lint/lint.css"></link>
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.css"></link>
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"></link>
-    <link rel="stylesheet" href="/OpenForum/Editor/Editors/JavascriptEditor/style.css"></link>
+  <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/lib/codemirror.css"/>
+  <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.css"/>
+  <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/lint/lint.css"/>
+<link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.css"/>
+<link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"/>
+  <link rel="stylesheet" href="/OpenForum/Editor/Editors/JavascriptEditor/style.css"/>
   
 	<script type="text/javascript" src="/OpenForum/Javascript/CodeMirror/lib/codemirror.js"></script>
 	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
 	<script type="text/javascript" src="/OpenForum/Editor/Editors/JavascriptEditor/page.js"></script>
 
 </HEAD>
-<body onload="init();"><!--Start Content--><button class="actionButton" onclick="OpenForum.toggleElement('information{{editorIndex}}');"><img src="/OpenForum/Images/icons/png/information.png"> Show Editor Information</button><button class="actionButton" onclick="OpenForum.toggleElement('help{{editorIndex}}');"><img src="/OpenForum/Images/icons/png/information.png"> Show Javascript Help</button>
+<body>
+<button class="actionButton" onclick="OpenForum.toggleElement('information{{editorIndex}}');"><img src="/OpenForum/Images/icons/png/information.png"> Show Editor Information</button><button class="actionButton" onclick="OpenForum.toggleElement('help{{editorIndex}}');"><img src="/OpenForum/Images/icons/png/information.png"> Show Javascript Help</button>
 <div id="information{{editorIndex}}" class="popup">
 <table style="border: 1px dashed;"><tr>
 <td style="min-width: 300px; vertical-align: top;">
@@ -62,5 +63,6 @@ if( action==null ) {
 </tr></table>
 </div>
 <textarea id="editor{{editorIndex}}Src">Loading...</textarea>
-</h3></h3><!--End Content--></BODY>
+</h3></h3>
+</body>
 </HTML>

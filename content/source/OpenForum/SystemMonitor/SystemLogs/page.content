@@ -1,0 +1,72 @@
+      <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <img src="/OpenForum/Images/open-forum-dog-small.png" />
+            </h1>
+          </li>
+        </ul>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <a href="[{Hash}]">&title;</a>
+            </h1>
+          </li>
+        </ul>
+      </nav>
+      <div class="row">
+        <div class="large-12 columns">
+
+<ul class="accordion" data-accordion>
+  <li class="accordion-navigation">
+    <a href="[{Hash}]errorPanel">Errors ({{errorQueue.messageCount}})</a>
+    <div id="errorPanel" class="content">
+      Last 20 messages
+  <ul>
+    <li of-repeatFor="message in errorQueue.messages">{{message.text}}</li>
+  </ul>
+ </div>
+  </li>
+
+<li class="accordion-navigation">
+    <a href="[{Hash}]warningPanel">Warnings ({{warningQueue.messageCount}})</a>
+  <div id="warningPanel" class="content">
+      Last 20 messages
+  <ul>
+    <li of-repeatFor="message in warningQueue.messages">{{message.text}}</li>
+  </ul>
+ </div>
+ </li>
+
+<li class="accordion-navigation">
+    <a href="[{Hash}]infoPanel">General Information ({{infoQueue.messageCount}})</a>
+  <div id="infoPanel" class="content active">
+      Last 20 messages
+  <ul>
+    <li of-repeatFor="message in infoQueue.messages">{{message.text}}</li>
+  </ul>
+ </div>
+ </li>
+
+<li class="accordion-navigation">
+    <a href="[{Hash}]debugPanel">Debug Information ({{debugQueue.messageCount}})</a>
+  <div id="debugPanel" class="content">
+      Last 20 messages
+  <ul>
+    <li of-repeatFor="message in debugQueue.messages">{{message.text}}</li>
+  </ul>
+ </div>
+ </li>
+
+<li class="accordion-navigation">
+    <a href="[{Hash}]testPanel">Test Information ({{testQueue.messageCount}})</a>
+  <div id="testPanel" class="content">
+      Last 20 messages
+  <ul>
+    <li of-repeatFor="message in testQueue.messages">{{message.text}}</li>
+  </ul>
+ </div>
+ </li>
+</ul>         
+        </div>
+</div>

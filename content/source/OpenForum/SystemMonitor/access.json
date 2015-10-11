@@ -1,0 +1,7 @@
+{
+	"access": {
+		"read": {
+			"Guest": true
+		}
+	}
+}

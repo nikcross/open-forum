@@ -1,26 +1,52 @@
-<a href="/OpenForum/Authorization/access.sjs">access.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Authorization&fileName=access.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">function access() {
+<a href="/OpenForum/Authorization/access.sjs">access.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Authorization&fileName=access.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">//create function
+function access() {
   if(login.getUser().getName()==="Admin") {
     return true;
   }
+
+log.test("point 1");
   
-  var accessData = file.getPageInheritedFileAsString(pageName,"access.json");
+  var data = file.getPageInheritedFileAsString(pageName,"access.json");
   
 	//if page is unprotected
-  if (accessData===null) {
+  if (data===null) {
 		return true;
 	}
-  accessData = ""+accessData;
-	
-	var action = "read";
-	var accessJSON = JSON.parse(accessData);
-	
-	//if page is protected
-	if(access[login.getUser().getName()] && 
-           access[login.getUser().getName()].read===true) {
-		return true;
-    } else {
-      return false;
+  data = ""+data;
+/**
+ * Example access.json file
+ * {
+ * 	userAccess: {
+ * 		read: {
+ * 			jim: true,
+ * 			bob: false
+ * 		}
+ * 	},
+ * 	groupAccess: {
+ * 		read: {
+ * 			members: true
+ * 		},
+ * 		write: {
+ * 			authors: true
+ * 		}
+ *  }
+ * }
+ */
+  
+	var accessJSON = JSON.parse(data);
+ 
+    if(!accessJSON.userAccess) { // If no access element then can access
+      return true;
     }
+	if(!accessJSON.userAccess[action]) { // If no access.action element then cannot access
+		return false
+	}
+	if(!accessJSON.userAccess[action][login.getUser().getName()]) { // If no access.action.userName then cannot access
+		return false;
+	}
+	return accessJSON.userAccess[action][login.getUser().getName()]; // return access right for user
 }
 
-access();</xmp>
+// run function
+access();
+</xmp>

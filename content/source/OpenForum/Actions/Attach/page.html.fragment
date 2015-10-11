@@ -1,5 +1,5 @@
-<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions">Post Action</a></b> <br/><hr/>
-<h3>Server Side Javascript for POST method</h3><a href="/OpenForum/Actions/Attach/post.sjs">post.sjs</a><a href="/OpenForum/Actions/EditText?pageName=/OpenForum/Actions/Attach&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">xmlHeader = transaction.getPostFileData();
+<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Post Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b> <br/><hr/>
+<h3>Server Side Javascript for POST method</h3><a href="/OpenForum/Actions/Attach/post.sjs">post.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Actions/Attach&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">xmlHeader = transaction.getPostFileData();
 fileName = transaction.getPostParameter("fileName");
 pageName = transaction.getParameter("page");
 

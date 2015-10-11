@@ -1,0 +1,87 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>groovy</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/CodeMirror/mode/groovy/page.js"></script>
+
+	<script>
+		var pageName = "OpenForum/Javascript/CodeMirror/mode/groovy";
+		var author = "unknown";
+		var time = "1444474845982";
+	    var currentUser = "";
+	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+	</script>
+    
+  </head>
+  <body>
+          <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <img src="/OpenForum/Images/open-forum-dog-small.png" />
+            </h1>
+          </li>
+        </ul>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <a href="[{Hash}]">groovy</a>
+            </h1>
+          </li>
+        </ul>
+     
+            <!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+          <ul class="right">
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="[{Hash}]">Actions</a>
+              <ul class="dropdown">
+                <li><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/mode/groovy">Edit</a></li>
+                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Javascript/CodeMirror/mode/groovy">Refresh Page</a></li>
+                <li><a href="[{Hash}]">Create New Page</a></li>
+                <li><a href="[{Hash}]">Create New Child Page</a></li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="[{Hash}]">Signed in as {{currentUser}}</a>
+              <ul class="dropdown">
+                <li><a href="[{Hash}]">Sign Out</a></li>
+                <li><a href="[{Hash}]">Sign In as Different User</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+      </nav>
+    
+    <!--PageContent Start-->null<!--Page Content End-->
+    
+    <!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+        <div class="large-12 columns">
+          <hr/>
+          <div class="row">
+            <div class="large-12 columns">
+              <ul class="inline-list right">
+                <li><a href="[{Hash}]">About</a></li>
+                <li><a href="[{Hash}]">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="[{Hash}]">Documentation</a></li>
+                <li><a href="[{Hash}]">Developers</a></li>
+                <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer><!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) end -->
+    
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

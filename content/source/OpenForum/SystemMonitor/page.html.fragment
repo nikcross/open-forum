@@ -1,16 +1,52 @@
-<table style="font: Courier"><tr>
-  <td>
-<h3>Operating System
-<ul><li>Name {{system.operatingSystem.name}}</li><li>Version {{system.operatingSystem.version}}</li>
-</ul><h3>Processor
-<ul><li>Name {{system.processor.name}}</li><li>Number of Processors {{system.processor.count}}</li>
-</ul><h3>Network Adapters
-<ul><li>WiFi<ul><li>Adapter {{system.network.wifi.adapter}}</li></ul><ul><li>IP Address {{system.network.wifi.ipAddress}}</li></ul><ul><li>MAC Address {{system.network.wifi.macAddress}}</li></ul></li><li>Ehternet<ul><li>Adapter {{system.network.ethernet.adapter}}</li></ul><ul><li>IP Address {{system.network.ethernet.ipAddress}}</li></ul><ul><li>MAC Address {{system.network.ethernet.macAddress}}</li></ul></li>  </td><td>
-  </ul><h3>System Time {{state.systemTime}}
-  <h3>Up Since {{state.startTime}}
-  <h3>Memory
-  <ul><li>Total {{state.memory.total}} M</li>  <li>Free {{state.memory.free}} M <i>({{state.memory.pcFree}}%)</i></li>  </ul><h3>Processor
-  <ul><li>Load {{state.processor.load}}%</li>  </ul><h3>Disk
-  <ul><li>Total {{state.disk.total}} M</li>  <li>Free {{state.disk.free}} M <i>({{state.disk.pcFree}}%)</i></li></ul>  </td>
-  </tr>
-</table</h3></h3></h3></h3></h3></h3></h3></h3>
+      <div class="row">
+        <div class="large-6 columns">
+
+          <fieldset>
+            <legend>Operating System</legend>
+            <table>
+              <tr><td>Name</td><td>{{system.operatingSystem.name}}</td></tr>
+              <tr><td>Version</td><td>{{system.operatingSystem.version}}</td></tr>
+            </table>
+          </fieldset>
+          
+          <fieldset>
+            <legend>System</legend>
+            <table>
+              <tr><td>System Time</td><td>{{state.systemTime}}</td></tr>
+              <tr><td>Up Since</td><td>{{state.startTime}}</td></tr>
+              <tr><td>Memory Total</td><td>{{state.memory.total}} M</td></tr>
+              <tr><td>Memory Free</td><td>{{state.memory.free}} M {{state.memory.pcFree}}%</td></tr>
+              <tr><td>Processor Name</td><td>{{system.processor.name}}</td></tr>
+              <tr><td>Number of Processors</td><td>{{system.processor.count}}</td></tr>
+              <tr><td>Processor Load</td><td>{{state.processor.load}}%</td></tr>
+              <tr><td>Disk Total</td><td>{{state.disk.total}} M</td></tr>
+              <tr><td>Disk Free</td><td>{{state.disk.free}} M {{state.disk.pcFree}}%</td></tr>
+            </table>
+          </fieldset>
+          
+        </div>
+         <div class="large-6 columns">
+                  
+          <fieldset>
+            <legend>WiFi Network Adapter</legend>
+            <table>
+              <tr><td>Adapter</td><td>{{system.network.wifi.adapter}}</td></tr>
+              <tr><td>IP Address</td><td>{{system.network.wifi.ipAddress}}</td></tr>
+              <tr><td>MAC Address</td><td>{{system.network.wifi.macAddress}}</td></tr>
+            </table>
+          </fieldset>
+          
+           <fieldset>
+            <legend>Ethernet Network Adapter</legend>
+            <table>
+              <tr><td>Adapter</td><td>{{system.network.ethernet.adapter}}</td></tr>
+              <tr><td>IP Address</td><td>{{system.network.ethernet.ipAddress}}</td></tr>
+              <tr><td>MAC Address</td><td>{{system.network.ethernet.macAddress}}</td></tr>
+            </table>
+          </fieldset>
+        </div>
+</div>
+
+      <div class="row">
+        <ul><li><a href="/OpenForum/SystemMonitor/SessionStoreMonitor" title="/OpenForum/SystemMonitor/SessionStoreMonitor">SessionStoreMonitor</a></li><li><a href="/OpenForum/SystemMonitor/SystemLogs" title="/OpenForum/SystemMonitor/SystemLogs">SystemLogs</a></li><li><a href="/OpenForum/SystemMonitor/SystemStoreMonitor" title="/OpenForum/SystemMonitor/SystemStoreMonitor">SystemStoreMonitor</a></li></ul>
+</div>

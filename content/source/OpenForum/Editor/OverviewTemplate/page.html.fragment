@@ -1,4 +1,4 @@
-<a name="section1"></a><div style="background-color: ccccff; height: 100%">
+<a name="section1"></a><div style="background-color: #ccccff; height: 100%">
   <h3><div id="tabsTree"></div>
 
 <input class="name" type="text" of-id="newAttachmentName"><button class="actionButton" onClick="createAttachment();" title="Create Attachment"><img src="/OpenForum/Images/icons/png/brick_add.png"></button>

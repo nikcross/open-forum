@@ -12,7 +12,7 @@
 </xmp><br/><table class="menuBar"><tr>
   <td><img src="/OpenForum/Images/icons/gif/bullet_white.gif" border="0"></td><td><table><tr><td class="menuBar"><a href="" onClick="toggleMenuLayer('File');return false;" class="menuBar">File</a></td></tr><tr><td><DIV id="File" style="position: absolute; display: none;"><table class="menuTop"><tr><td><a class="menuItem" href="New">New</a><a class="menuItem" href="Save">Save</a><a class="menuItem" href="SaveAs">SaveAs</a><a class="menuItem" href="Exit">Exit</a></td></tr></table></DIV></td></tr></table></td><td> </td>
   <td><img src="/OpenForum/Images/icons/gif/bullet_white.gif" border="0"></td><td><table><tr><td class="menuBar"><a href="" onClick="toggleMenuLayer('Edit');return false;" class="menuBar">Edit</a></td></tr><tr><td><DIV id="Edit" style="position: absolute; display: none;"><table class="menuTop"><tr><td><a class="menuItem" href="Undo">Undo</a><a class="menuItem" href="Cut">Cut</a><a class="menuItem" href="Copy">Copy</a><a class="menuItem" href="Paste">Paste</a></td></tr></table></DIV></td></tr></table></td><td> </td>
-<td> </td></tr></table><script>includeLibrary("/OpenForum/Extensions/EndMenu/menu.js");</script><br/><hr/>
+<td> </td></tr></table><br/><hr/>
 <h3>renderer.sjs</h3><xmp class="example">var title = extension.getAttributeValueByName("title");
 var items = extension.getAttributeValueByName("options");
 

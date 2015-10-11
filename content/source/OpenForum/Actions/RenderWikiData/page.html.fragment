@@ -1,4 +1,4 @@
-<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions">Get Action</a></b>  Renders Wiki Data to HTML
+<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Renders Wiki Data to HTML
 <hr/><a name="section2"></a>
 <h3>Parameters</h3><ul><li>pageName</li><li>data</li></ul>or
 <ul><li>sourcePageName</li><li>fileName</li><hr/><a name="section3"></a></ul>

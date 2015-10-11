@@ -1,4 +1,4 @@
-<ul><li><h3><a href="/Admin/Administrator" title="/Admin/Administrator">User Administration</a>
-</h3></li><li><h3><a href="/Admin/Access" title="/Admin/Access">Access Administration</a>
-</h3></li><li><h3><a href="/Admin/Deleted" title="/Admin/Deleted">Administer Deleted Pages and Files</a>
+<ul><li><h3><a href="/OpenForum/Editor?pageName=/Admin/Administrator" title="/OpenForum/Editor?pageName=/Admin/Administrator"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a>
+</h3></li><li><h3><a href="/OpenForum/Editor?pageName=/Admin/Access" title="/OpenForum/Editor?pageName=/Admin/Access"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a>
+</h3></li><li><h3><a href="/OpenForum/Editor?pageName=/Admin/Deleted" title="/OpenForum/Editor?pageName=/Admin/Deleted"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a>
 </h3></li></ul>

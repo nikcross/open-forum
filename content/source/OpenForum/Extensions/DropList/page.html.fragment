@@ -8,7 +8,13 @@ Option 2|option2,
 Option 3
 "}]
 </xmp>
-<ul><li><a href="" onclick="ui.toggleLayer('My Left Menu');return false;"><img id="My Left MenuTwisty" src="/OpenForum/Images/icons/gif/bullet_arrow_down.gif" border="0"/>My Left Menu</a></li></ul><DIV id="My Left Menu" style="display: none;" width="200"><ul><li>  <ul><li><a class="menuItem" href="option1">  Option 1</a></li></ul>  <ul><li><a class="menuItem" href="option2">  Option 2</a></li></ul>  <ul><li><a class="menuItem" href="/  Option 3  ">  Option 3  </a></li></ul></li></ul></DIV><br/><hr/>
+<ul><li><a href="" onclick="ui.toggleLayer('My Left Menu');return false;"><img id="My Left MenuTwisty" src="/OpenForum/Images/icons/gif/bullet_arrow_down.gif" border="0"/>My Left Menu</a></li></ul><DIV id="My Left Menu" style="display: none;" width="200"><ul><li>  <ul><li><a class="menuItem" href="option1">
+Option 1</a></li></ul>  <ul><li><a class="menuItem" href="option2">
+Option 2</a></li></ul>  <ul><li><a class="menuItem" href="/
+Option 3
+">
+Option 3
+</a></li></ul></li></ul></DIV><br/><hr/>
 <h3>renderer.sjs</h3><xmp class="example">var title = extension.getAttributeValueByName("title");
 var id = extension.getAttributeValueByName("id");
 var items = extension.getAttributeValueByName("options");

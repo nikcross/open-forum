@@ -7,11 +7,15 @@ action = ""+action;
 result = {error: "action "+action+" not recognised"};
 var sessionStoreMonitor = js.getApi("/OpenForum/SystemMonitor/SessionStoreMonitor");
 
+var users = [];
+var jUsers = sessionStoreMonitor.getUsersOnline();
+for(var i in jUsers) {
+  users.push( ""+jUsers[i] );
+}
+
 if(action==="getUsersOnline") {
   
-  result = { 
-            usersOnline: sessionStoreMonitor.getUsersOnline();
-           };
+  result = { usersOnline: users };
 }
 
 

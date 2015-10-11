@@ -4,24 +4,24 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>&title;</title>
-    <link rel="stylesheet" href="/OpenForum/Frameworks/Foundation/css/foundation.css" />
-    <script src="/OpenForum/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
 	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
 	<script type="text/javascript" src="/&pageName;/page.js"></script>
 
 	<script>
-		pageName = "&pageName;";
-		author = "&author;";
-		time = "&time;";
-	    currentUser = "";
+		var pageName = "&pageName;";
+		var author = "&author;";
+		var time = "&time;";
+	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
     
   </head>
   <body>
     &content;
-    <script src="/OpenForum/Frameworks/Foundation/js/vendor/jquery.js"></script>
-    <script src="/OpenForum/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
     <script>
       $(document).foundation();
     </script>

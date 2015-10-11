@@ -5,29 +5,71 @@
 <h3>Usage:</h3><xmp class="example">
 [{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]
 </xmp>
-<a href="/OpenForum/Extensions/InsertSourceFile/data.xml">data.xml</a><a href="/OpenForum/Actions/EditText?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=data.xml" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example"><data>
-	<pageName><![CDATA[OpenForum/Extensions/InsertSourceFile]]></pageName>
-	<source><![CDATA[Inserts a files contents into the page
-----
-!!Parameters
-* pageName - The page where the file is attached (optional. default = current page name)
-* fileName - The file to insert
-
-----
-!!Usage:
-{{{
-[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]
-}}}
-[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]]]></source>
-	<renderer.sjs>&renderer.sjs;</renderer.sjs>
-	<tags>Extension</tags>
-</data></xmp><br/><hr/><br/><a href="/OpenForum/Extensions/InsertSourceFile/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var sourcePageName = extension.getAttributeValueByName("pageName");
+Error parsing Extension tag [{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]. Exception:java.lang.Exception: /OpenForum/Extensions/InsertSourceFile/renderer.sjs Javascipt Error [at 5: 0]:null
+java.lang.String.replace(String.java:2240)
+sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:497)
+org.mozilla.javascript.MemberBox.invoke(MemberBox.java:161)
+org.mozilla.javascript.NativeJavaMethod.call(NativeJavaMethod.java:247)
+org.mozilla.javascript.Interpreter.interpretLoop(Interpreter.java:3330)
+org.mozilla.javascript.Interpreter.interpret(Interpreter.java:2487)
+org.mozilla.javascript.InterpretedFunction.call(InterpretedFunction.java:164)
+org.mozilla.javascript.ContextFactory.doTopCall(ContextFactory.java:398)
+org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3065)
+org.mozilla.javascript.InterpretedFunction.exec(InterpretedFunction.java:175)
+org.mozilla.javascript.Context.evaluateString(Context.java:1104)
+org.onestonesoup.javascript.engine.JavascriptEngine.runJavascript(JavascriptEngine.java:265)
+org.onestonesoup.javascript.engine.JavascriptEngine.runJavascript(JavascriptEngine.java:240)
+org.onestonesoup.openforum.renderers.WikiExtensionRenderer.render(WikiExtensionRenderer.java:35)
+org.onestonesoup.openforum.Renderer.wikiToHtml(Renderer.java:47)
+org.onestonesoup.openforum.Renderer.wikiToHtml(Renderer.java:16)
+org.onestonesoup.openforum.controller.OpenForumController.renderWikiData(OpenForumController.java:440)
+org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.renderWikiData(JavascriptOpenForumHelper.java:64)
+sun.reflect.GeneratedMethodAccessor57.invoke(Unknown Source)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:497)
+org.mozilla.javascript.MemberBox.invoke(MemberBox.java:161)
+org.mozilla.javascript.NativeJavaMethod.call(NativeJavaMethod.java:247)
+org.mozilla.javascript.Interpreter.interpretLoop(Interpreter.java:3330)
+org.mozilla.javascript.Interpreter.interpret(Interpreter.java:2487)
+org.mozilla.javascript.InterpretedFunction.call(InterpretedFunction.java:164)
+org.mozilla.javascript.ContextFactory.doTopCall(ContextFactory.java:398)
+org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3065)
+org.mozilla.javascript.InterpretedFunction.exec(InterpretedFunction.java:175)
+org.mozilla.javascript.Context.evaluateString(Context.java:1104)
+org.onestonesoup.javascript.engine.JavascriptEngine.evaluateJavascript(JavascriptEngine.java:307)
+org.onestonesoup.openforum.controller.OpenForumController.runPageBuildScript(OpenForumController.java:669)
+org.onestonesoup.openforum.controller.OpenForumController.buildPage(OpenForumController.java:603)
+org.onestonesoup.openforum.controller.OpenForumController.buildPage(OpenForumController.java:572)
+org.onestonesoup.openforum.controller.OpenForumController.buildAllPages(OpenForumController.java:538)
+org.onestonesoup.openforum.controller.OpenForumController.doBuild(OpenForumController.java:338)
+org.onestonesoup.openforum.controller.OpenForumController.rebuild(OpenForumController.java:268)
+org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.rebuild(JavascriptOpenForumHelper.java:165)
+org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.rebuild(JavascriptOpenForumHelper.java:157)
+sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+java.lang.reflect.Method.invoke(Method.java:497)
+org.mozilla.javascript.MemberBox.invoke(MemberBox.java:161)
+org.mozilla.javascript.NativeJavaMethod.call(NativeJavaMethod.java:247)
+org.mozilla.javascript.Interpreter.interpretLoop(Interpreter.java:3330)
+org.mozilla.javascript.Interpreter.interpret(Interpreter.java:2487)
+org.mozilla.javascript.InterpretedFunction.call(InterpretedFunction.java:164)
+org.mozilla.javascript.ContextFactory.doTopCall(ContextFactory.java:398)
+org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3065)
+org.mozilla.javascript.InterpretedFunction.exec(InterpretedFunction.java:175)
+org.mozilla.javascript.Context.evaluateString(Context.java:1104)
+org.onestonesoup.javascript.engine.JavascriptEngine.runJavascript(JavascriptEngine.java:265)
+org.onestonesoup.javascript.engine.JavascriptEngine.runJavascript(JavascriptEngine.java:240)
+org.onestonesoup.openforum.trigger.Trigger$TriggerProcessThread.run(Trigger.java:38)
+java.lang.Thread.run(Thread.java:745)<br/><hr/><br/><a href="/OpenForum/Extensions/InsertSourceFile/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var sourcePageName = extension.getAttribute("pageName");
 if(sourcePageName==null)
 {
   sourcePageName = pageName;
 }
 
-var fileName = extension.getAttributeValueByName("fileName");
+var fileName = extension.getAttribute("fileName");
 
 data = file.getAttachment( sourcePageName,fileName );
 

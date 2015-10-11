@@ -3,6 +3,8 @@ function access() {
   if(login.getUser().getName()==="Admin") {
     return true;
   }
+
+log.test("point 1");
   
   var data = file.getPageInheritedFileAsString(pageName,"access.json");
   

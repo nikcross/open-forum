@@ -1,0 +1,5 @@
+<div class="row">
+<h2>User Account for OpenForum/Users/Admin</h2>
+
+Password: &insert:/OpenForum/Users/Admin/password.txt;
+</div>

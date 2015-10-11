@@ -34,6 +34,9 @@ if(action==="push") {
   }
   
   transaction.sendPage('{"messages": ['+messageData+'],"timestamp":'+wiki.getTimeStamp()+',"result": "ok"}');
+} else if (action==="getTotalQueuedMessages") {
+  var queueMonitor = js.getApi("/OpenForum/MessageQueue");
+  transaction.sendPage('{totalMessages: '+queueMonitor.getTotalQueuedMessages()+'}');
 } else {
   transaction.sendPage('{"result": "error", "error": "action '+action+' not recognised"}');
 }

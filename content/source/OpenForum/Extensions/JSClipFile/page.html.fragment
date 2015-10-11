@@ -4,7 +4,7 @@
 <h3>Usage:</h3><xmp class="example">
 [{JSClipFile pageName="<pageName>" fileName="<fileName>"}]
 </xmp>
-<a href=""onclick="addJSClipFromFile('<pageName>','<fileName>');return false;" title="Paste Code"><img src="/OpenForum/Images/icons/gif/page_paste.gif" border="0"></a><br/><hr/>
+Error parsing Extension tag [{JSClipFile pageName="<pageName>" fileName="<fileName>"}]. Exception:org.onestonesoup.core.data.XmlHelper$XmlParseException: java.io.IOException: Character '<' not found before end of stream.<br/><hr/>
 <h3>renderer.sjs</h3><xmp class="example">clipPageName = extension.getAttributeValueByName("pageName");
 clipFileName = extension.getAttributeValueByName("fileName");
 

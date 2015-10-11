@@ -216,6 +216,7 @@ function openForFlavour() {
   if(flavour=="wiki page") {
     openAttachments( [
       "page.wiki",
+      "page.content",
       "page.js",
       "notes.txt",
       "tags.txt"
@@ -263,6 +264,8 @@ function openAttachment(attachmentId) {
   } else if(fileName.indexOf(".css")==fileName.length-4) {
     flavour = "css";
   } else if(fileName.indexOf(".wiki")==fileName.length-5) {
+    flavour = "html";
+  } else if(fileName.indexOf(".content")==fileName.length-8) {
     flavour = "html";
   } else if(fileName.indexOf(".html")==fileName.length-5) {
     flavour = "html";

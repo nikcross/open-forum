@@ -15,7 +15,7 @@
     Some text and and image<br/>
     <img src="/OpenForum/Images/open-forum-small.png" alt="open-forum-small.png"/>
   </td></tr></table></DIV></td></tr></table></td><td> </td>
-<td> </td></tr></table><script>includeLibrary("/OpenForum/Extensions/EndMenu/menu.js");</script><br/><hr/><br/><a href="/OpenForum/Extensions/StartMenuDropDown/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=/OpenForum/Extensions/StartMenuDropDown&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var title = extension.getAttributeValueByName("title");
+<td> </td></tr></table><br/><hr/><br/><a href="/OpenForum/Extensions/StartMenuDropDown/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/StartMenuDropDown&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var title = extension.getAttribute("title");
 
 if(title!=null)
 {

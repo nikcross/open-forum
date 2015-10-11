@@ -13,4 +13,4 @@ Extension Name:<input type="input" name="_newPageName" value="">
 </td></tr></table>
 
 <b>Jars</b><br/><br/>
-<ul><li>/OpenForum/SQL</li><li>/OpenForum/SystemMonitor</li></ul></h3>
+<ul><li>/OpenForum/SQL</li><li>/OpenForum/SystemMonitor</li><li>/OpenForum/MessageQueue</li><li>/OpenForum/SystemMonitor/SessionStoreMonitor</li></ul></h3>

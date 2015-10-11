@@ -1,0 +1,5 @@
+* authorizer = org.onestonesoup.openforum.security.JavascriptAuthorizer
+* authenticator = org.onestonesoup.openforum.security.cookie.SessionCookieAuthenticator
+* resourceStore1 = read-only:../source
+* resourceStore0 = ../changes
+

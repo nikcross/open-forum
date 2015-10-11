@@ -1,6 +1,6 @@
 <a href="/OpenForum/Javascript/open-forum.js">open-forum.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript&fileName=open-forum.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">//==============================================================================================================//
 /* Version 1.0.003*/
-/* Built on Sun Jul 12 2015 13:30:45 GMT+0100 (BST) */
+/* Built on Sun Jul 12 2015 13:32:15 GMT+0100 (BST) */
 /* Built by /OpenForum/Javascript/Builder.*/
 /* Do not edit as changes may be overwritten */
 //==============================================================================================================//
@@ -115,7 +115,7 @@ function Dependency(serviceReference) {
     };
     
     self.getBuildDate = function() {
-      return "Sun Jul 12 2015 13:30:45 GMT+0100 (BST)";
+      return "Sun Jul 12 2015 13:32:15 GMT+0100 (BST)";
     };
     
     self.initDependencies = DependencyService.createNewDependency();
@@ -1030,7 +1030,7 @@ String.prototype.replaceAll = function(find,replace) {
 
 String.prototype.padBefore = function(padding,targetLength) {
   var result = this;
-  while(this.length()<targetLength) {
+  while(this.length<targetLength) {
     result = padding+result;
   }
   return result;
@@ -1038,7 +1038,7 @@ String.prototype.padBefore = function(padding,targetLength) {
 
 String.prototype.padAfter = function(padding) {
     var result = this;
-  while(result.length()<targetLength) {
+  while(result.length<targetLength) {
     result = result+padding;
   }
   return result;
@@ -1238,4 +1238,4 @@ Date.prototype.simpleTimeFormat = function() {
 //==============================================================================================================//
 </xmp>
 
-<ul><li><a href="/OpenForum/Javascript/Builder" title="/OpenForum/Javascript/Builder">Builder</a></li><li><a href="/OpenForum/Javascript/CodeMirror" title="/OpenForum/Javascript/CodeMirror">CodeMirror</a></li><li><a href="/OpenForum/Javascript/DebugConsole" title="/OpenForum/Javascript/DebugConsole">DebugConsole</a></li><li><a href="/OpenForum/Javascript/JavaWrapper" title="/OpenForum/Javascript/JavaWrapper">JavaWrapper</a></li><li><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OpenForumServer" title="/OpenForum/Editor?pageName=/OpenForum/Javascript/OpenForumServer"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li><li><a href="/OpenForum/Javascript/Services" title="/OpenForum/Javascript/Services">Services</a></li><li><a href="/OpenForum/Javascript/SpeechSynthesis" title="/OpenForum/Javascript/SpeechSynthesis">SpeechSynthesis</a></li><li><a href="/OpenForum/Javascript/Tree" title="/OpenForum/Javascript/Tree">Tree</a></li><li><a href="/OpenForum/Javascript/VideoCapture" title="/OpenForum/Javascript/VideoCapture">VideoCapture</a></li></ul>
+<ul><li><a href="/OpenForum/Javascript/Builder" title="/OpenForum/Javascript/Builder">Builder</a></li><li><a href="/OpenForum/Javascript/CodeMirror" title="/OpenForum/Javascript/CodeMirror">CodeMirror</a></li><li><a href="/OpenForum/Javascript/DebugConsole" title="/OpenForum/Javascript/DebugConsole">DebugConsole</a></li><li><a href="/OpenForum/Javascript/JavaWrapper" title="/OpenForum/Javascript/JavaWrapper">JavaWrapper</a></li><li><a href="/OpenForum/Javascript/OpenForumServer" title="/OpenForum/Javascript/OpenForumServer">OpenForumServer</a></li><li><a href="/OpenForum/Javascript/Services" title="/OpenForum/Javascript/Services">Services</a></li><li><a href="/OpenForum/Javascript/SpeechSynthesis" title="/OpenForum/Javascript/SpeechSynthesis">SpeechSynthesis</a></li><li><a href="/OpenForum/Javascript/Tree" title="/OpenForum/Javascript/Tree">Tree</a></li><li><a href="/OpenForum/Javascript/VideoCapture" title="/OpenForum/Javascript/VideoCapture">VideoCapture</a></li></ul>

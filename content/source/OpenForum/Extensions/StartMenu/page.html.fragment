@@ -16,5 +16,5 @@
     <a href="http://www.bbc.co.uk" class="MenuItem">The BBC</a>
     <a href="http://www.google.com" class="MenuItem">Google</a>
   </td></tr></table></DIV></td></tr></table></td><td> </td>
-<td> </td></tr></table><script>includeLibrary("/OpenForum/Extensions/EndMenu/menu.js");</script><br/><hr/>
+<td> </td></tr></table><br/><hr/>
 <h3>renderer.sjs</h3><xmp class="example">return "<table class=\"menuBar\"><tr>";</xmp>

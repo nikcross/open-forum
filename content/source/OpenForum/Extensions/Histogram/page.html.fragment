@@ -4,21 +4,21 @@
 <h3>Usage:</h3><xmp class="example">
 [{Histogram pageName="/OpenForum/Extensions/Histogram" csvFileName="test.tsv" width="200" height="200" separator="TAB" dataColumn="1" yAxisTitle="Height" xAxisTitle="Rain Fall"}]
 </xmp>
-Error parsing Extension tag [{Histogram pageName="/OpenForum/Extensions/Histogram" csvFileName="test.tsv" width="200" height="200" separator="TAB" dataColumn="1" yAxisTitle="Height" xAxisTitle="Rain Fall"}]. Exception:org.one.stone.soup.wiki.WikiException: <a href="/OpenForum/Actions/EditText?pageName=/OpenForum/Extensions/Histogram/&fileName=renderer.sjs">/OpenForum/Extensions/Histogram/renderer.sjs</a> Javascipt Error [at 22: 0]:Cannot call method "loadCSVAsXml" of null<br/>
-<hr/><br/><a href="/OpenForum/Extensions/Histogram/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=/OpenForum/Extensions/Histogram&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">width = extension.getAttributeValueByName("width");
-height = new Number(extension.getAttributeValueByName("height"));
+Error parsing Extension tag [{Histogram pageName="/OpenForum/Extensions/Histogram" csvFileName="test.tsv" width="200" height="200" separator="TAB" dataColumn="1" yAxisTitle="Height" xAxisTitle="Rain Fall"}]. Exception:java.lang.Exception: Javascipt Error [at 5: 0]:Cannot call method "loadCSVAsXml" of null in /OpenForum/Extensions/Histogram/renderer.sjs<br/>
+<hr/><br/><a href="/OpenForum/Extensions/Histogram/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/Histogram&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">width = extension.getAttribute("width");
+height = new Number(extension.getAttribute("height"));
 
-pageName = extension.getAttributeValueByName("pageName");
-csvFileName = extension.getAttributeValueByName("csvFileName");
-separator = extension.getAttributeValueByName("separator");
+pageName = extension.getAttribute("pageName");
+csvFileName = extension.getAttribute("csvFileName");
+separator = extension.getAttribute("separator");
 if(separator=="TAB")
 {
   separator="\t";
 }
 
-dataColumn = new Number(extension.getAttributeValueByName("dataColumn"));
-yAxisTitle = extension.getAttributeValueByName("yAxisTitle");
-xAxisTitle = extension.getAttributeValueByName("xAxisTitle"); 
+dataColumn = new Number(extension.getAttribute("dataColumn"));
+yAxisTitle = extension.getAttribute("yAxisTitle");
+xAxisTitle = extension.getAttribute("xAxisTitle"); 
 
 data = "<table border='0'><tr>";
 data += "<td><b>"+yAxisTitle+"</b></td>";

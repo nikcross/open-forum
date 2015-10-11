@@ -1,1 +1,1 @@
-<ul><li>authorizer = org.onestonesoup.openforum.security.JavascriptAuthorizer</li><li>authenticator = org.onestonesoup.openforum.security.www.WWWAuthenticator</li></ul>
+<ul><li>authorizer = org.onestonesoup.openforum.security.JavascriptAuthorizer</li><li>authenticator = org.onestonesoup.openforum.security.cookie.SessionCookieAuthenticator</li><li>resourceStore1 = read-only:../source</li><li>resourceStore0 = ../changes</li></ul>

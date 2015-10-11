@@ -4,8 +4,8 @@
 value - optional value
 <hr/><a name="section3"></a>
 <h3>Usage:</h3><xmp class="example">[{ReadOnlyField name="myField"}]</xmp>
-<input type='hidden' name='myField' id='myField' value='&myField;'>&myField;<br/><hr/><br/><a href="/OpenForum/Extensions/ReadOnlyField/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=/OpenForum/Extensions/ReadOnlyField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">name = extension.getAttributeValueByName("name");
-value = extension.getAttributeValueByName("value");
+<input type='hidden' name='myField' id='myField' value='&myField;'>&myField;<br/><hr/><br/><a href="/OpenForum/Extensions/ReadOnlyField/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/ReadOnlyField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">name = extension.getAttribute("name");
+value = extension.getAttribute("value");
 
 if(value==null)
 {
