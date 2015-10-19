@@ -49,13 +49,13 @@ public class SessionCookieAuthenticator implements Authenticator {
 				return true;
 			}
 		}
-		if (request.equals("/SignIn")
+		if (request.equals("/OpenForum/Access/SignIn")
 				&& httpHeader.getChild("method").getValue().equals("get")) {
 			return true;
 		} else {
 			HttpResponseHeader responseHeader = new HttpResponseHeader(
 					httpHeader, "text/html", 302, connection);
-			responseHeader.addParameter("location", "/SignIn");
+			responseHeader.addParameter("location", "/OpenForum/Access/SignIn");
 
 			connection.getOutputStream().flush();
 			connection.close();
@@ -175,7 +175,7 @@ public class SessionCookieAuthenticator implements Authenticator {
 						httpHeader, "text/html", 302, connection);
 				responseHeader
 						.addParameter("location",
-								"/SignIn?errors=Sign In Failed. Incorrect user id / password combination.");
+								"/OpenForum/Access/SignIn?errors=Sign In Failed. Incorrect user id / password combination.");
 				return true;
 			}
 		}
