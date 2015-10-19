@@ -22,7 +22,7 @@ public class MessageQueue {
 		postItem(xMessage, owner);
 	}
 
-	private void postItem(EntityTree.TreeEntity item, String owner) {
+	public void postItem(EntityTree.TreeEntity item, String owner) {
 		QueuedMessageItem queuedItem = new QueuedMessageItem(item, owner);
 
 		while(queue.size()>=maximumMessages) {
@@ -39,15 +39,11 @@ public class MessageQueue {
 		queue = new ArrayList<QueuedMessageItem>();
 	}
 
-	public void setMessageTTL(long time) {
+	public void setTTL(long time) {
 		ttl = time;
 	}
-	
-	public void setMaximumQueueSize(int maximumMessages) {
-		this.maximumMessages = maximumMessages;
-	}
 
-	public EntityTree.TreeEntity getMessagesSince(long time) {
+	public EntityTree.TreeEntity getItemsSince(long time) {
 		EntityTree.TreeEntity result = new EntityTree("queue").getRoot();
 		for (int loop = 0; loop < queue.size(); loop++) {
 			QueuedMessageItem qItem = queue.get(loop);

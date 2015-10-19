@@ -1,1 +1,4 @@
-docker build -t nikcross/openforum:$1 openforum
+#! /bin/bash
+
+cd target
+docker build -t nikcross/openforum:$1 .
