@@ -117,6 +117,10 @@ public abstract class Transaction {
 		connection.getOutputStream().flush();
 	}
 
+	public void sendJSON(String data) throws IOException {
+		sendPage(data, "application/json");
+	}
+	
 	public void sendPage(String data) throws IOException {
 		sendPage(data, "html");
 	}
