@@ -535,6 +535,8 @@ public class Router {
 		js.mount("exception", exceptionMessage);
 
 		js.runJavascript(jsFile, script);
+		
+		controller.getLogger().error("Error on page:"+pageName+" Exception:"+exceptionMessage);
 	}
 
 	public boolean sendFile(ClientConnectionInterface connection,
