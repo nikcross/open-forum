@@ -4,7 +4,7 @@
 <h3>Usage:</h3><xmp class="example">
 [{CrumbTrail}]
 </xmp>
- &gt;&gt; <a href="/OpenForum">OpenForum</a> &gt;&gt; <a href="/OpenForum/Extensions">Extensions</a> &gt;&gt; <a href="/OpenForum/Extensions/CrumbTrail">CrumbTrail</a><br/><hr/>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">CrumbTrail</a></li></nav><br/><hr/>
 <h3>renderer.sjs</h3><xmp class="example">parts = pageName.split("/");
 data = "";
 path = "";
@@ -15,4 +15,4 @@ for(loop=0;loop<parts.length;loop++)
   data+=" &gt;&gt; <a href=\""+path+"\">"+parts[loop]+"</a>";
 }
 
-return data;</xmp>
+return data;</xmp><!--Content built using default-->

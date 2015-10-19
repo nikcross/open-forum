@@ -12,8 +12,9 @@ if( action===null ) {
   var exec = "" + transaction.getParameter("exec");
   var queue = "" +  transaction.getParameter("queue");
     
+    openForum.postMessageToQueue(queue,"runProcess "+exec);
     process = processor.createProcess(exec);
-    process.onMatch( "\n","function(text) { postMessageToQueue(\""+queue+"\",text); }" ).run();
+    process.onMatch( ".*","(function(text) { openForum.postMessageToQueue(\""+queue+"\",text); })" ).run(false);
     
     result = JSON.stringify( {result: "ok"} );
   } else {

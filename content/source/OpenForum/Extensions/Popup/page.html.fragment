@@ -32,4 +32,4 @@ data = "<a href=\"\" onclick=\";popup.showIFrame('"+showPage+"');return false;\"
 data+= "<script>includeLibrary(\"/OpenForum/Extensions/Popup/popup.js\");</script>"
 
 }
-return data;</xmp>
+return data;</xmp><!--Content built using default-->

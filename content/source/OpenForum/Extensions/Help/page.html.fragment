@@ -8,4 +8,4 @@
 <h3>renderer.sjs</h3><xmp class="example">page = extension.getAttributeValueByName("page");
 toolTip = extension.getAttributeValueByName("toolTip");
 
-return "<table width=\"100%\"><tr><td align=\"right\"><a href=\""+page+"\" title=\""+toolTip+"\"><img border=\"0\" src=\"/OpenForum/Images/icons/gif/information.gif\"></a></td></tr></table>"</xmp>
+return "<table width=\"100%\"><tr><td align=\"right\"><a href=\""+page+"\" title=\""+toolTip+"\"><img border=\"0\" src=\"/OpenForum/Images/icons/gif/information.gif\"></a></td></tr></table>"</xmp><!--Content built using default-->

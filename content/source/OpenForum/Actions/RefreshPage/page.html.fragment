@@ -11,4 +11,4 @@ else
   transaction.userCanPerformAction(pageName,"update",true);
     wiki.refreshPage(pageName);
   transaction.goToPage(pageName);
-}</xmp>
+}</xmp><!--Content built using default-->

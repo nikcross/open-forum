@@ -6,4 +6,4 @@
 </xmp><br/><hr/>
 <h3>renderer.sjs</h3><xmp class="example">data = "<td> </td></tr></table><script>includeLibrary(\"/OpenForum/Extensions/EndMenu/menu.js\");</script>";
 
-return data;</xmp>
+return data;</xmp><!--Content built using default-->

@@ -15,4 +15,4 @@ data+=   "includeLibrary(\"/OpenForum/Extensions/WebChatView/webChatView.js\");"
 data+=   "includeInitFunction(\"webChatView.init('"+queueName+"');\");";
 data+= "</script><DIV id=\""+queueName+"\"></DIV>";
 
-return data;</xmp>
+return data;</xmp><!--Content built using default-->

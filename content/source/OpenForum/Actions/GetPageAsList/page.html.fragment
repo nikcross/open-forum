@@ -13,4 +13,4 @@ else
 	arrayData = wiki.getPageAsList(pageName);
 	arrayJs = js.get2DArrayAsJavascript( varName,arrayData);
 	transaction.sendPage(arrayJs);
-} </xmp>
+} </xmp><!--Content built using default-->

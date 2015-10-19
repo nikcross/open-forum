@@ -1,6 +1,0 @@
-%%box
-!!Log a new Issue
-<form name="issueForm">Title: <input type="text" size="60" name="issueName"><input type="button" value="Add" onclick="createIssue();"></form>
-%%
-
-[{InsertPage page='&target-page;/IssueTracker/IssueSearch'}]

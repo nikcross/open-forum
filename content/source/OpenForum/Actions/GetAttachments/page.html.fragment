@@ -12,4 +12,4 @@ else
 	files = file.getAttachmentsForPage(pageName);
 	page = js.getAttachmentsJS(pageName,files);
 	transaction.sendPage(page);
-} </xmp>
+} </xmp><!--Content built using default-->

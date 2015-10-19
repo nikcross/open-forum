@@ -6,4 +6,4 @@ var testPassword = file.getAttachment("/Admin/Users/"+name+"/private","password.
 		result = true;
 	}
 	login.clearPassword();
-result;</xmp>
+result;</xmp><!--Content built using default-->

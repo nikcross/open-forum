@@ -4,4 +4,4 @@
 <h3>Usage:</h3><xmp class="example">
 [{EndNewsColumn}]
 </xmp><br/><hr/>
-<h3>renderer.sjs</h3><xmp class="example">return "</td>";</xmp>
+<h3>renderer.sjs</h3><xmp class="example">return "</td>";</xmp><!--Content built using default-->

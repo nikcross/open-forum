@@ -15,4 +15,4 @@ sourceData = sourceData.replace(">","&gt;");
 data+= sourceData;
 data+= "</textarea></form><script>includeLibrary(\"/OpenForum/Extensions/SourceEditor/source-editor.js\");includeInitFunction(\"createTextAreaWithLines(\\\"codeTextarea\\\");\");</script>";
 
-return data;</xmp>
+return data;</xmp><!--Content built using default-->

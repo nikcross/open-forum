@@ -6,4 +6,4 @@
 [{FormSubmit}]
 </xmp>
 <input type='submit' value='Save'/><br/><hr/>
-<h3>renderer.sjs</h3><xmp class="example">return "<input type='submit' value='Save'/>"</xmp>
+<h3>renderer.sjs</h3><xmp class="example">return "<input type='submit' value='Save'/>"</xmp><!--Content built using default-->

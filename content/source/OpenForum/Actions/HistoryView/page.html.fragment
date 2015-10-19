@@ -11,4 +11,4 @@ else
 	user = transaction.getUser();
 	page = wiki.buildHistoryPage(pageName);
 	transaction.sendPage(page);
-} </xmp>
+} </xmp><!--Content built using default-->

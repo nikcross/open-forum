@@ -18,4 +18,4 @@ else
   wiki.buildPage(pageName);
 
   transaction.goToPage( pageName );
-}</xmp>
+}</xmp><!--Content built using default-->

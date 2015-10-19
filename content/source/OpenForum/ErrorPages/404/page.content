@@ -1,3 +1,4 @@
+<div class="row">
 <script>
 pageName = new String(window.location);
 pageName = pageName.substring(7);
@@ -8,3 +9,4 @@ __Sorry. The page <script>document.write(pageName);</script> you were looking fo
 <script>
 document.write("<a href='/OpenForum/Editor?pageName=/"+pageName+"'>You can create the page '"+pageName+"' by clicking here.</a>");
 </script>
+</div>

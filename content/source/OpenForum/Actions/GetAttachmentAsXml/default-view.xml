@@ -1,6 +1,0 @@
-<view>
-	<defaultView>
-		<iconOpen file="/OpenForum/Images/folder.png"/>
-		<icon file="/OpenForum/Images/icons/gif/folder.gif"/>
-	</defaultView>
-</view>

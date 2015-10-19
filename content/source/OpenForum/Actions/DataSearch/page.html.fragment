@@ -16,4 +16,4 @@ else
 {
 	page = transaction.buildDataSearchResultPage(listPage);
 	transaction.sendPage( page );
-</xmp>}
+</xmp>}<!--Content built using default-->

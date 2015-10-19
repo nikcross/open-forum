@@ -7,7 +7,7 @@
 </xmp>
 Error parsing Extension tag [{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]. Exception:java.lang.Exception: /OpenForum/Extensions/InsertSourceFile/renderer.sjs Javascipt Error [at 5: 0]:null
 java.lang.String.replace(String.java:2240)
-sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
 sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 java.lang.reflect.Method.invoke(Method.java:497)
 org.mozilla.javascript.MemberBox.invoke(MemberBox.java:161)
@@ -25,8 +25,8 @@ org.onestonesoup.openforum.renderers.WikiExtensionRenderer.render(WikiExtensionR
 org.onestonesoup.openforum.Renderer.wikiToHtml(Renderer.java:47)
 org.onestonesoup.openforum.Renderer.wikiToHtml(Renderer.java:16)
 org.onestonesoup.openforum.controller.OpenForumController.renderWikiData(OpenForumController.java:440)
-org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.renderWikiData(JavascriptOpenForumHelper.java:64)
-sun.reflect.GeneratedMethodAccessor57.invoke(Unknown Source)
+org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.renderWikiData(JavascriptOpenForumHelper.java:67)
+sun.reflect.GeneratedMethodAccessor17.invoke(Unknown Source)
 sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 java.lang.reflect.Method.invoke(Method.java:497)
 org.mozilla.javascript.MemberBox.invoke(MemberBox.java:161)
@@ -45,8 +45,8 @@ org.onestonesoup.openforum.controller.OpenForumController.buildPage(OpenForumCon
 org.onestonesoup.openforum.controller.OpenForumController.buildAllPages(OpenForumController.java:538)
 org.onestonesoup.openforum.controller.OpenForumController.doBuild(OpenForumController.java:338)
 org.onestonesoup.openforum.controller.OpenForumController.rebuild(OpenForumController.java:268)
-org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.rebuild(JavascriptOpenForumHelper.java:165)
-org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.rebuild(JavascriptOpenForumHelper.java:157)
+org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.rebuild(JavascriptOpenForumHelper.java:168)
+org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.rebuild(JavascriptOpenForumHelper.java:160)
 sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -79,4 +79,4 @@ pageData = "["+sourcePageName+"/"+fileName+"]<a href=\""+editLink+"\" title=\"Ed
 pageData = wiki.renderWikiData(pageName,pageData);
 pageData = pageData.replace("$contents$",data);
 
-return pageData;</xmp>
+return pageData;</xmp><!--Content built using default-->

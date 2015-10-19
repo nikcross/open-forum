@@ -14,4 +14,4 @@ else
 {
   js.startJavascript( "wiki.rebuild(true);" );
   transaction.sendPage("OK");
-} </xmp>
+} </xmp><!--Content built using default-->

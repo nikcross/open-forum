@@ -14,4 +14,4 @@ else
   js.refreshJarManager();
 
   transaction.sendPage("OK");
-} </xmp>
+} </xmp><!--Content built using default-->

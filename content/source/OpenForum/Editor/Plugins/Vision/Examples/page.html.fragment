@@ -1,4 +1,4 @@
 <a href="/OpenForum/Editor/Plugins/Vision/Examples/circle.js">circle.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Editor/Plugins/Vision/Examples&fileName=circle.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">/*
 Circle( x,y,radius );
 */
-circle = new Circle(50,50,30);</xmp>
+circle = new Circle(50,50,30);</xmp><!--Content built using default-->

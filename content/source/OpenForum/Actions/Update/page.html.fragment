@@ -48,4 +48,4 @@ mailer.sendMail("Admin","Admin",subject,message);
 
 /* End of send email*/ 
 
-transaction.goToPage(pageName); </xmp></h3></h3>
+transaction.goToPage(pageName); </xmp><!--Content built using default--></h3></h3>

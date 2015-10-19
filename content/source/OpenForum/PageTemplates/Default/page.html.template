@@ -34,13 +34,15 @@
             </h1>
           </li>
         </ul>
-     
-            &insert:/OpenForum/PageTemplates/Default/TopMenu/page.content;
+&insert:/OpenForum/PageTemplates/Default/TopMenu/page.content;
       </nav>
+[{CrumbTrail}]
     
+    <div class="row">
     <!--PageContent Start-->&content;<!--Page Content End-->
-    
-    &insert:/OpenForum/PageTemplates/Default/Footer/page.content;
+    </div>
+      
+&insert:/OpenForum/PageTemplates/Default/Footer/page.content;
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

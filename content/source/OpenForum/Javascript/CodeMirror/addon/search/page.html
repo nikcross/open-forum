@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum/Javascript/CodeMirror/addon/search";
 		var author = "unknown";
-		var time = "1444474846130";
+		var time = "1445206474431";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -30,47 +30,76 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="[{Hash}]">search</a>
+              <a href="#">search</a>
             </h1>
           </li>
         </ul>
-     
-            <!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Actions</a>
+              <a href="#">Actions</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/search">Edit</a></li>
                 <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Javascript/CodeMirror/addon/search">Refresh Page</a></li>
-                <li><a href="[{Hash}]">Create New Page</a></li>
-                <li><a href="[{Hash}]">Create New Child Page</a></li>
+                <li><a href="#">Create New Page</a></li>
+                <li><a href="#">Create New Child Page</a></li>
+                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
               </ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Signed in as {{currentUser}}</a>
+              <a href="#">Sub Pages</a>
+              <ul class="dropdown"><li>
+
+                </li></ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Attachments</a>
+              <ul class="dropdown"><li>
+<ul><li><a href="/OpenForum/Javascript/CodeMirror/addon/search/search.js">search.js</a></li><li><a href="/OpenForum/Javascript/CodeMirror/addon/search/searchcursor.js">searchcursor.js</a></li><li><a href="/OpenForum/Javascript/CodeMirror/addon/search/match-highlighter.js">match-highlighter.js</a></li><li><a href="/OpenForum/Javascript/CodeMirror/addon/search/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/Javascript/CodeMirror/addon/search/data.json">data.json</a></li><li><a href="/OpenForum/Javascript/CodeMirror/addon/search/page.html">page.html</a></li></ul>
+                </li></ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
-                <li><a href="[{Hash}]">Sign Out</a></li>
-                <li><a href="[{Hash}]">Sign In as Different User</a></li>
+                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
               </ul>
             </li>
           </ul>
-        </section><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+        </section>
+
+<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Page</h2>
+  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
+  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForum.copyPage = function() {
+    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Javascript/CodeMirror/addon/search&newPageName="+document.getElementById("OpenForumCopyPage").value;
+    };
+    </script>
+</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
       </nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem"><a href="/OpenForum/Javascript/CodeMirror">CodeMirror</a></li><li role="menuitem"><a href="/OpenForum/Javascript/CodeMirror/addon">addon</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript/CodeMirror/addon">search</a></li></nav>
     
-    <!--PageContent Start-->null<!--Page Content End-->
-    
-    <!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+    <div class="row">
+    <!--PageContent Start-->Page content missing. Errors: <ul><li>No content supplied by caller</li><li>No content found at OpenForum/Javascript/CodeMirror/addon/search/page.content</li><li>No content found at OpenForum/Javascript/CodeMirror/addon/search/page.wiki (deprecated)</li></ul> Content:<a href="/OpenForum/Editor?pageName=Null" title="/OpenForum/Editor?pageName=Null"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a><!--Content built using default--><!--Page Content End-->
+    </div>
+      
+<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
             <div class="large-12 columns">
               <ul class="inline-list right">
-                <li><a href="[{Hash}]">About</a></li>
-                <li><a href="[{Hash}]">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="[{Hash}]">Documentation</a></li>
-                <li><a href="[{Hash}]">Developers</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>

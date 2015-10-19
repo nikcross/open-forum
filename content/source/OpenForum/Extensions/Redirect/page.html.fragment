@@ -3,4 +3,4 @@
 <h3>Parameters</h3><ul><li>page - The page to redirect to</li></ul>
 <hr/>
 <h3>Usage</h3><xmp class="example">[{Redirect page="new page name"}]</xmp>
-The example of the page <a href="/OpenForum/Extensions/Redirect/Example" title="/OpenForum/Extensions/Redirect/Example">/OpenForum/Extensions/Redirect/Example</a> will redirect back to here.
+The example of the page <a href="/OpenForum/Extensions/Redirect/Example" title="/OpenForum/Extensions/Redirect/Example">/OpenForum/Extensions/Redirect/Example</a> will redirect back to here.<!--Content built using default-->

@@ -3,4 +3,4 @@
   <ul>
     <li of-repeatFor="user in users">{{user}}</li>
   </ul>
-</div>
+</div><!--Content built using default-->

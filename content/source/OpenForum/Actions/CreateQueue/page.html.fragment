@@ -13,4 +13,4 @@ else
   queueName = wiki.createQueue();
 
   transaction.sendPage(queueName);
-} </xmp>
+} </xmp><!--Content built using default-->

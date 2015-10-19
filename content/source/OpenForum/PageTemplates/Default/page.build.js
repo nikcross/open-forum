@@ -1,5 +1,5 @@
-var pageTemplate = ""+file.getPageInheritedFileAsString(pageName,"page.html.template");
-if( pageTemplate==null ) {
+var pageTemplate = file.getPageInheritedFileAsString(pageName,"page.html.template");
+if( pageTemplate===null ) {
 	// Get header content
 	var headerTemplate = ""+file.getPageInheritedFileAsString(pageName,"header.html.template");
 	// Get footer content
@@ -7,17 +7,47 @@ if( pageTemplate==null ) {
 
 	pageTemplate = headerTemplate + "<!-- Page Content -->" + "&content;" + "<!-- End of Page Content -->" + footerTemplate;
 	// Insert inserts
+} else {
+	pageTemplate = ""+pageTemplate;
 }
 
-if(content==null) {
-	var content = file.getAttachment(pageName,"page.content");
-  if(content==null) {
-    content = file.getAttachment(pageName,"page.wiki"); // deprecated
+var savePage = true;
+var errors = "";
+var contentBuilder = "default";
+
+if(typeof(content)==="undefined") {
+	errors += "<li>No content supplied by caller</li>";
+	content = file.getAttachment(pageName,"page.content");
+  if(content===null) {
+	errors += "<li>No content found at "+pageName+"/page.content</li>";
+        content = file.getAttachment(pageName,"page.wiki"); // deprecated
+	if(content===null) {
+		errors += "<li>No content found at "+pageName+"/page.wiki (deprecated)</li>";
+	}
   }
+} else {
+  savePage = false;
+  content = ""+content;
 }
-var htmlContent = openForum.renderWikiData(pageName,""+content);
 
-file.saveAttachment(pageName,"page.html.fragment",htmlContent);
+var htmlContent = "";
+if(!content) {
+	htmlContent = "Page content missing. Errors: <ul>"+errors+"</ul> Content:["+content+"]";
+} else {
+ htmlContent = ""+content;
+
+ if(htmlContent.indexOf("\n")>0) {
+	var firstLine = htmlContent.substring(0,htmlContent.indexOf("\n"));
+	if(firstLine.substring(0,19)==="<!--contentBuilder=") {
+		contentBuilder = firstline.substring(19,firstLine.indexOf("-->"));
+	}
+ }
+ 
+}
+
+htmlContent = htmlContent + "<!--Content built using "+contentBuilder+"-->";
+
+if(savePage===true) file.saveAttachment(pageName,"page.html.fragment",openForum.renderWikiData(pageName,htmlContent));
 
 htmlContent = pageTemplate.replace("&content;",htmlContent);
 
@@ -25,6 +55,7 @@ var fields = [];
 fields["pageName"] = pageName;
 fields["title"] = openForum.wikiToTitleName(pageName);
 fields["author"] = "unknown";
+fields["lastChangedBy"] = "unknown";
 fields["referringPages"] = "";
 fields["attachments"] = "";
 fields["tags"] = "";
@@ -81,9 +112,9 @@ while( searchData.indexOf("&")!=-1 ) {
 	}
 }
 htmlContent += searchData;
-
+htmlContent = openForum.renderWikiData(pageName,htmlContent);
 //openForum.postMessageToQueue("test","Saving Page:(" +pageName+ ") File:(page.html)");
 
-file.saveAttachment(pageName,"page.html",htmlContent);
+if(savePage===true) file.saveAttachment(pageName,"page.html",htmlContent);
 
-htmlContent = htmlContent;
+htmlContent = ""+htmlContent;

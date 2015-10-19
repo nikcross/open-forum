@@ -12,4 +12,4 @@ else
 {
   page = wiki.buildPage(pageName,"!!Folder: "+pageName,true);
   transaction.sendPage( page );
-} </xmp>
+} </xmp><!--Content built using default-->

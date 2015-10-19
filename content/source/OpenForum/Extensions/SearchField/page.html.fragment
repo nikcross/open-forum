@@ -7,4 +7,4 @@
 <b><form name="searchForm" action="/OpenForum/Actions/Search"><input type="image" title="Search" src="/OpenForum/Images/icons/gif/magnifier.gif"><input type="text" name="searchTerm" value="food"size="18"></form></b><br/><hr/>
 <h3>renderer.sjs</h3><xmp class="example">searchTerm = extension.getAttributeValueByName("searchTerm");
 
-return "<b><form name=\"searchForm\" action=\"/OpenForum/Actions/Search\"><input type=\"image\" title=\"Search\" src=\"/OpenForum/Images/icons/gif/magnifier.gif\"><input type=\"text\" name=\"searchTerm\" value=\""+searchTerm+"\"size=\"18\"></form></b>";</xmp>
+return "<b><form name=\"searchForm\" action=\"/OpenForum/Actions/Search\"><input type=\"image\" title=\"Search\" src=\"/OpenForum/Images/icons/gif/magnifier.gif\"><input type=\"text\" name=\"searchTerm\" value=\""+searchTerm+"\"size=\"18\"></form></b>";</xmp><!--Content built using default-->

@@ -12,4 +12,4 @@ else
 	wiki.revert(pageName,version);
 
 	transaction.goToPage(pageName);
-} </xmp>
+} </xmp><!--Content built using default-->

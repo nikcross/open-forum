@@ -5,4 +5,4 @@
 [{StartForm}]
 </xmp>
 -Example-<br/><hr/>
-<h3>renderer.sjs</h3><xmp class="example">return "<form name=\"editForm\" id=\"editForm\" method=\"post\" action=\"/OpenForum/Actions/Update\">";</xmp>
+<h3>renderer.sjs</h3><xmp class="example">return "<form name=\"editForm\" id=\"editForm\" method=\"post\" action=\"/OpenForum/Actions/Update\">";</xmp><!--Content built using default-->

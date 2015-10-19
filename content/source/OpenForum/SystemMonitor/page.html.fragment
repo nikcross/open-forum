@@ -22,7 +22,7 @@
               <tr><td>Disk Total</td><td>{{state.disk.total}} M</td></tr>
               <tr><td>Disk Free</td><td>{{state.disk.free}} M {{state.disk.pcFree}}%</td></tr>
             </table>
-          </fieldset>
+          </fieldset> 
           
         </div>
          <div class="large-6 columns">
@@ -49,4 +49,4 @@
 
       <div class="row">
         <ul><li><a href="/OpenForum/SystemMonitor/SessionStoreMonitor" title="/OpenForum/SystemMonitor/SessionStoreMonitor">SessionStoreMonitor</a></li><li><a href="/OpenForum/SystemMonitor/SystemLogs" title="/OpenForum/SystemMonitor/SystemLogs">SystemLogs</a></li><li><a href="/OpenForum/SystemMonitor/SystemStoreMonitor" title="/OpenForum/SystemMonitor/SystemStoreMonitor">SystemStoreMonitor</a></li></ul>
-</div>
+</div><!--Content built using default-->

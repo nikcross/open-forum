@@ -1,19 +1,4 @@
-      <nav class="top-bar" data-topbar>
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <img src="/OpenForum/Images/open-forum-dog-small.png" />
-            </h1>
-          </li>
-        </ul>
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <a href="[{Hash}]">&title;</a>
-            </h1>
-          </li>
-        </ul>
-      </nav>
+
       <div class="row">
         <div class="large-12 columns">
 

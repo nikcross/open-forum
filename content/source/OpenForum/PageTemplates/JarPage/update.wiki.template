@@ -1,6 +1,0 @@
-!!Api Definition
-
-__Api Class__ &apiClass;
-
-__Initialise Javascript:__
-{{{&initialise.sjs;}}}

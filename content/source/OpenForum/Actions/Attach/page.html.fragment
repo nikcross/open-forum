@@ -9,4 +9,4 @@ transaction.confirmPostAttachment(xmlHeader);
 user = transaction.getUser();		
 wiki.addJournalEntry("File ["+pageName+"/"+fileName+"] added to Page ["+pageName+"] by "+user);
 page = wiki.buildPage(pageName);
-transaction.goToPage(pageName);</xmp>
+transaction.goToPage(pageName);</xmp><!--Content built using default-->

@@ -23,4 +23,4 @@ else
 
   html = wiki.renderWikiData(pageName,data);
   transaction.sendPage(html);
-} </xmp>
+} </xmp><!--Content built using default-->

@@ -10,4 +10,4 @@
 </form><br/><form name="templateSubmitForm" action="/OpenForum/Actions/Copy" method="post">
 <input type="hidden" name="newPageName">
 <input type="hidden" name="sourcePageName">
-</form><br/><DIV id="explorer"></DIV>
+</form><br/><DIV id="explorer"></DIV><!--Content built using default-->

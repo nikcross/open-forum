@@ -25,4 +25,4 @@ outStream.close();
 
 var result = {result: "ok", message: "Saved "+pageName+"/"+fileName};
 
-transaction.sendPage( JSON.stringify(result) );</xmp>
+transaction.sendPage( JSON.stringify(result) );</xmp><!--Content built using default-->

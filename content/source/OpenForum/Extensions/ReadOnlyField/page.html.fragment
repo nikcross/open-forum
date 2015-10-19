@@ -12,4 +12,4 @@ if(value==null)
   value="&"+name+";";
 }
 
-return "<input type='hidden' name='"+name+"' id='"+name+"' value='"+value+"'>"+value;</xmp>
+return "<input type='hidden' name='"+name+"' id='"+name+"' value='"+value+"'>"+value;</xmp><!--Content built using default-->

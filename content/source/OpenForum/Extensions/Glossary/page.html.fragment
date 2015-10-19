@@ -15,4 +15,4 @@ else
 {
   return "<a href=\"/Glossary#"+term+"\" title=\"Glossary entry for "+term+"\"><img src=\"/OpenForum/Images/icons/gif/information.gif\" border=\"0\"></a>";
 }
-</xmp>
+</xmp><!--Content built using default-->

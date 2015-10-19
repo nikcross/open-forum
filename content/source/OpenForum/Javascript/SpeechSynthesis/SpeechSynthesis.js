@@ -6,7 +6,7 @@ OpenForum.Speech.voice = {
   name: "",
   spokenName: "Jane",
   pitch: 100,  // 0 to 200
-  rate: 2, // 0 to 10
+  rate: 1, // 0 to 10
   volume: 50 // 0 to 100
 };
 OpenForum.Speech.voices = [];
@@ -30,10 +30,17 @@ OpenForum.Speech.say = function(message,voice) {
   }
   msg.voice = OpenForum.Speech.getVoice(voice.name);
   msg.pitch = voice.pitch/100;
-  msg.rate = voice.rate;
-  msg.volume = voice.volume/100;
-  voice.lang = msg.voice.lang;
-  alert("msg.voice="+msg.voice.name);
+  msg.rate = voice.rate/10;
+  msg.volume = voice.volume;
+  //voice.lang = msg.voice.lang;
+  
+  
+  //msg.pitch = 1;
+  //msg.rate = 1;
+  //msg.volume = 100;
+  //voice.lang = msg.voice.lang;
+  
+  //alert("msg.voice="+msg.voice.name);
     window.speechSynthesis.speak(msg);
 };
 
@@ -66,8 +73,8 @@ OpenForum.Speech.getVoice = function(name) {
   });
   
   
-  alert("Looking for "+name+" found "+found);
-  alert("voice:"+JSON.stringify(OpenForum.Speech.voice));
+  //alert("Looking for "+name+" found "+found);
+  //alert("voice:"+JSON.stringify(OpenForum.Speech.voice));
   
   if(found===null) found = speechSynthesis.getVoices()[0];
   return found;

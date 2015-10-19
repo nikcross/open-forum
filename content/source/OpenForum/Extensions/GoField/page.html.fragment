@@ -7,4 +7,4 @@
 <select name="pageName" id="pageName"></select><script> includeInitFunction("setSelect(\"pageName\");");includeLibrary("/OpenForum/Extensions/PagesListField/select.js");</script><br/><hr/>
 <h3>renderer.sjs</h3><xmp class="example">id = extension.getAttributeValueByName( "name" );
 
-return "<select name=\""+id+"\" id=\""+id+"\"></select><script> includeInitFunction(\"setSelect(\\\""+id+"\\\");\");includeLibrary(\"/OpenForum/Extensions/PagesListField/select.js\");</script>";</xmp>
+return "<select name=\""+id+"\" id=\""+id+"\"></select><script> includeInitFunction(\"setSelect(\\\""+id+"\\\");\");includeLibrary(\"/OpenForum/Extensions/PagesListField/select.js\");</script>";</xmp><!--Content built using default-->

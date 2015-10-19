@@ -4,9 +4,9 @@ if(typeof(exception) === "undefined") {
 
 var json = transaction.getParameter("json");
 if(json!==null) {
-  exception = exception.replace(/<\/br>/g,"\n");
+  exception = ""+exception.replace(/<\/br>/g,"\n");
   result = {result: "Error", exception: exception};
-  transaction.sendPage(JSON.stringify(result));
+  transaction.sendJSON(JSON.stringify(result));
 }
-page = wiki.buildPage("Error",exception,false);
+page = ""+wiki.buildPage("/OpenForum/ErrorPages/500",exception,false).toString();
 transaction.sendPage(page);

@@ -36,4 +36,4 @@ if(listPageName!=null)
 
 wiki.copyPage(sourcePageName,newPageName,listPageName);
 	
-transaction.goToPage("/OpenForum/Actions/Edit?pageName="+newPageName); </xmp>
+transaction.goToPage("/OpenForum/Actions/Edit?pageName="+newPageName); </xmp><!--Content built using default-->

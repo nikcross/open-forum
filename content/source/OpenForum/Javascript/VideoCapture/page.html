@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum/Javascript/VideoCapture";
 		var author = "unknown";
-		var time = "1444474845614";
+		var time = "1445206414663";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -30,53 +30,227 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="[{Hash}]"> Video Capture</a>
+              <a href="#"> Video Capture</a>
             </h1>
           </li>
         </ul>
-     
-            <!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Actions</a>
+              <a href="#">Actions</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VideoCapture">Edit</a></li>
                 <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Javascript/VideoCapture">Refresh Page</a></li>
-                <li><a href="[{Hash}]">Create New Page</a></li>
-                <li><a href="[{Hash}]">Create New Child Page</a></li>
+                <li><a href="#">Create New Page</a></li>
+                <li><a href="#">Create New Child Page</a></li>
+                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
               </ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Signed in as {{currentUser}}</a>
+              <a href="#">Sub Pages</a>
+              <ul class="dropdown"><li>
+
+                </li></ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Attachments</a>
+              <ul class="dropdown"><li>
+<ul><li><a href="/OpenForum/Javascript/VideoCapture/page.js">page.js</a></li><li><a href="/OpenForum/Javascript/VideoCapture/notes.txt">notes.txt</a></li><li><a href="/OpenForum/Javascript/VideoCapture/page.content">page.content</a></li><li><a href="/OpenForum/Javascript/VideoCapture/VideoCapture.js">VideoCapture.js</a></li><li><a href="/OpenForum/Javascript/VideoCapture/tags.txt">tags.txt</a></li><li><a href="/OpenForum/Javascript/VideoCapture/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/Javascript/VideoCapture/printable.html">printable.html</a></li><li><a href="/OpenForum/Javascript/VideoCapture/data.json">data.json</a></li><li><a href="/OpenForum/Javascript/VideoCapture/page.html">page.html</a></li></ul>
+                </li></ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
-                <li><a href="[{Hash}]">Sign Out</a></li>
-                <li><a href="[{Hash}]">Sign In as Different User</a></li>
+                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
               </ul>
             </li>
           </ul>
-        </section><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+        </section>
+
+<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Page</h2>
+  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
+  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForum.copyPage = function() {
+    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Javascript/VideoCapture&newPageName="+document.getElementById("OpenForumCopyPage").value;
+    };
+    </script>
+</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
       </nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">VideoCapture</a></li></nav>
     
+    <div class="row">
     <!--PageContent Start--><h3>Camera Settings
 <ul><li>Camera <input of-id="frameCatcher.camera" id="OpenForum.videoCapture.camera" list="cameras"><button onClick="OpenForum.videoCapture.updateSource()">Select</button></li>
 <datalist of-id="cameras" id="cameras">
   <option of-repeatFor="camera in OpenForum.videoCapture.cameras" value="{{camera.label}}"/>
 </datalist>
 
-<li>Current Camera: {{OpenForum.videoCapture.camera}}</li></ul><div id="testFrame"></div></h3><!--Page Content End-->
-    
-    <!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+<li>Current Camera: {{OpenForum.videoCapture.camera}}</li><canvas id="canvas" width="800" height="400"></canvas>
+
+</ul><a href="/OpenForum/Javascript/VideoCapture/VideoCapture.js">VideoCapture.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/VideoCapture&fileName=VideoCapture.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">if(!OpenForum) {
+  OpenForum = {};
+}
+OpenForum.VideoCapture = function(videoCanvasId) {
+  this.cameras = [];
+  this.microphones = [];
+  this.camera = OpenForum.VideoCapture.defaultCamera;
+  var self = this;
+  var localMediaStream =null;
+  var frame;
+  var paused = false;
+  var width = 640;
+  var height = 480;
+  
+  OpenForum.videoCapture = this;
+  
+  // <video autoplay id="videoIn" width="640" height="480"  style="display: none;"></video>
+  this.video = document.createElement("video");
+  this.video.setAttribute("autoplay","true");
+  this.video.setAttribute("width",width);
+  this.video.setAttribute("height",height);
+  this.video.setAttribute("style","display: none;");
+  document.getElementsByTagName("head")[0].appendChild(this.video);
+  
+  //this.video = document.getElementById("videoIn");
+  this.ctx = document.getElementById(videoCanvasId).getContext('2d');
+  
+    navigator.getUserMedia  = navigator.getUserMedia ||
+                          navigator.webkitGetUserMedia ||
+                          navigator.mozGetUserMedia ||
+                          navigator.msGetUserMedia;
+  
+  this.updateSources = function() {
+    MediaStreamTrack.getSources(function(sourceInfos) {
+      var audioSource = null;
+      var videoSource = null;
+
+      for (var i = 0; i != sourceInfos.length; ++i) {
+        var sourceInfo = sourceInfos[i];
+        if (sourceInfo.kind === 'audio') {
+          console.log(sourceInfo.id, sourceInfo.label || 'microphone');
+          self.microphones[self.microphones.length] = { id: sourceInfo.id, label: sourceInfo.label || 'microphone '+(self.microphones.length+1)};
+        } else if (sourceInfo.kind === 'video') {
+          console.log(sourceInfo.id, sourceInfo.label || 'camera');
+          self.cameras[self.cameras.length] = { id: sourceInfo.id, label: sourceInfo.label || 'camera '+(self.cameras.length+1)};
+          if(!self.camera || self.camera==="") {
+          	self.camera = sourceInfo.label;
+          }
+        } else {
+          console.log('Some other kind of source: ', sourceInfo);
+        }
+      }
+    });
+  };
+  
+  this.getFrame = function() {
+    return frame;
+  };
+  
+  this.pause = function() {
+    paused = true;
+  };
+  
+  this.resume = function() {
+    paused = false;
+  };
+  
+  this.snapshot = function() {
+    if (localMediaStream) {
+      if(!paused) {
+        self.ctx.drawImage(self.video, 0, 0);
+        frame = self.ctx.getImageData(0, 0, width, height);
+      }
+      
+      if(self.processFrame) {
+        var frameData = frame.data;
+        var imageData = new ImageData(width,height,frameData);
+        self.processFrame(imageData);
+        self.ctx.putImageData(frame,0,0);
+      }
+      self.overlayFrame();
+    }
+  };
+  
+  this.onError = function() {
+    alert("Error Found");
+  };
+  
+  this.getCameraId = function (cameraName) {
+    for(var camerai in self.cameras) {
+      if(self.cameras[camerai].label === cameraName) {
+        return self.cameras[camerai].id;
+      }
+    }
+    return null;
+  };
+  
+  this.updateSource = function() {
+    localStorage.setItem("OpenForum.VideoCapture.camera", self.camera);
+   navigator.getUserMedia(
+     { video: {
+      optional: [{sourceId: self.getCameraId(self.camera)}]
+     } },
+     function(stream) {
+        self.video.src = window.URL.createObjectURL(stream);
+        localMediaStream = stream;
+     },
+     self.onError
+   );
+  };
+  
+//  this.processFrame = function(imageData) { return imageData; };
+  this.overlayFrame = function() {};
+  
+  this.updateSources();
+  this.updateSource();
+  
+  setInterval( function() { self.snapshot(); } ,25);
+};
+
+var ImageData = function(iwidth,iheight,idata) {
+  var width = iwidth;
+  var height = iheight;
+  var data = idata;
+
+  this.getPixel = function(x,y) {
+    var cursor = ((y*width)+x)*4;
+    return [data[cursor],data[cursor+1],data[cursor+2],data[cursor+3]];
+  };
+};
+
+OpenForum.VideoCapture.showSettings = function(elementId) {
+  document.getElementById(elementId).innerHTML = OpenForum.loadFile( "/OpenForum/Javascript/VideoCapture/page.html.fragment" );
+  OpenForum.crawl(document.getElementById(elementId));
+};
+
+OpenForum.addInitialiser(
+  function() {
+    OpenForum.VideoCapture.defaultCamera = "";
+    if( localStorage.getItem("OpenForum.VideoCapture.camera") ) {
+      OpenForum.VideoCapture.defaultCamera = localStorage.getItem("OpenForum.VideoCapture.camera" );
+    }
+  }
+);</xmp><!--Content built using default--><!--Page Content End-->
+    </div>
+      
+<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
             <div class="large-12 columns">
               <ul class="inline-list right">
-                <li><a href="[{Hash}]">About</a></li>
-                <li><a href="[{Hash}]">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="[{Hash}]">Documentation</a></li>
-                <li><a href="[{Hash}]">Developers</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
@@ -90,4 +264,4 @@
       $(document).foundation();
     </script>
   </body>
-</html>
+</html></h3>

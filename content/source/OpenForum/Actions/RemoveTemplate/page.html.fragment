@@ -15,4 +15,4 @@ else
   wiki.deleteAttachment( pageName,"footer.html.template.link" );
   wiki.buildPage( pageName );
   transaction.goToPage( pageName );
-} </xmp>
+} </xmp><!--Content built using default-->

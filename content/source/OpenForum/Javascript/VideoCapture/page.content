@@ -6,4 +6,6 @@
 </datalist>
 
 *Current Camera: {{OpenForum.videoCapture.camera}}
-<div id="testFrame"></div>
+<canvas id="canvas" width="800" height="400"></canvas>
+
+[{InsertSourceFile fileName="VideoCapture.js"}]

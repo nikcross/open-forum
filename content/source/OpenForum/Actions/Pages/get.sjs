@@ -5,12 +5,10 @@ if(returnType==null) {
 }
 
 var pages = wiki.getPages();
-var data = "";
+var data = {pages: []};
 for(pageIndex in pages) {
-  if(data.length>0) data+=",";
-  data+="{pageName: \"" + pages[pageIndex] + "\"}";
+  data.pages.push({pageName: ""+pages[pageIndex]});
 }
 
-data = "{pages: [" + data + "]}";
-
-transaction.sendPage(data);
+transaction.sendPage("{}");
+//transaction.sendPage( JSON.stringify(data) );

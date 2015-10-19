@@ -20,4 +20,4 @@ js><input type="text" of-id="giraffe.cliText" size="120" onkeydown="if (event.ke
 <center><canvas id="exampleCanvas" width="800" height="600" style="border: solid 1px;"></canvas></center><br/>
 <button class="actionButton" onClick="saveCanvas('/Sandbox','snapshot.png',exampleCanvas);">Take Snapshot</button><br/>
 <button class="actionButton" onClick="giraffe.clear();" title="Clear"><img src="/OpenForum/Images/icons/png/cross.png">Clear Log</button><br/>
-{{giraffe.text}}
+{{giraffe.text}}<!--Content built using default-->

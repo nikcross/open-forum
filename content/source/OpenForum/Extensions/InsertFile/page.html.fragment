@@ -6,4 +6,4 @@
 [{InsertFile pageName="pageName" fileName="fileName"}]
 </xmp>
 If pageName is not given then the current page name is assumed.<br/><hr/>
-<h3>renderer.sjs</h3>
+<h3>renderer.sjs</h3><!--Content built using default-->

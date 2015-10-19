@@ -26,4 +26,4 @@ if(src!=null)
 else
 {
   return "Invalid Image. No src attribute given.";
-</xmp>}
+</xmp>}<!--Content built using default-->

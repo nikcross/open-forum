@@ -65,4 +65,4 @@ data += "</td></tr>";
 data += "<tr><td colspan='2' align='center'><b>"+xAxisTitle+"</b></td></tr>";
 data += "</table>";
 
-return data;</xmp>
+return data;</xmp><!--Content built using default-->

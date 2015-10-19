@@ -17,4 +17,4 @@ else
   wiki.addJournalEntry("File ["+pageName+"/"+fileName+"] installed by "+user);
   page = wiki.buildPage(pageName);
   transaction.goToPage(pageName);
-} </xmp>
+} </xmp><!--Content built using default-->

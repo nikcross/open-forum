@@ -10,4 +10,4 @@
 
 <h3><button class="actionButton" onClick="pageManager.createPage();">CreatePage</button>  <input of-id="createPageName" list="pagesList">
 
-<dataList id="pagesList"></dataList><dataList id="filesList"></dataList></h3></h3></h3></h3>
+<dataList id="pagesList"></dataList><dataList id="filesList"></dataList><!--Content built using default--></h3></h3></h3></h3>

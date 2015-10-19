@@ -1,4 +1,4 @@
-<!doctype html>
+<a name="section1"></a><!doctype html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum/PageTemplates/Default/LeftMenu";
 		var author = "unknown";
-		var time = "1444474843644";
+		var time = "1445206306526";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -30,36 +30,64 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="[{Hash}]"> Left Menu</a>
+              <a href="#"> Left Menu</a>
             </h1>
           </li>
         </ul>
-     
-            <!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Actions</a>
+              <a href="#">Actions</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Editor?pageName=/OpenForum/PageTemplates/Default/LeftMenu">Edit</a></li>
                 <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/PageTemplates/Default/LeftMenu">Refresh Page</a></li>
-                <li><a href="[{Hash}]">Create New Page</a></li>
-                <li><a href="[{Hash}]">Create New Child Page</a></li>
+                <li><a href="#">Create New Page</a></li>
+                <li><a href="#">Create New Child Page</a></li>
+                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
               </ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Signed in as {{currentUser}}</a>
+              <a href="#">Sub Pages</a>
+              <ul class="dropdown"><li>
+
+                </li></ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Attachments</a>
+              <ul class="dropdown"><li>
+<ul><li><a href="/OpenForum/PageTemplates/Default/LeftMenu/notes.txt">notes.txt</a></li><li><a href="/OpenForum/PageTemplates/Default/LeftMenu/page.js">page.js</a></li><li><a href="/OpenForum/PageTemplates/Default/LeftMenu/page.content">page.content</a></li><li><a href="/OpenForum/PageTemplates/Default/LeftMenu/tags.txt">tags.txt</a></li><li><a href="/OpenForum/PageTemplates/Default/LeftMenu/owner.txt">owner.txt</a></li><li><a href="/OpenForum/PageTemplates/Default/LeftMenu/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/PageTemplates/Default/LeftMenu/printable.html">printable.html</a></li><li><a href="/OpenForum/PageTemplates/Default/LeftMenu/data.json">data.json</a></li><li><a href="/OpenForum/PageTemplates/Default/LeftMenu/page.html">page.html</a></li></ul>
+                </li></ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
-                <li><a href="[{Hash}]">Sign Out</a></li>
-                <li><a href="[{Hash}]">Sign In as Different User</a></li>
+                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
               </ul>
             </li>
           </ul>
-        </section><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+        </section>
+
+<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Page</h2>
+  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
+  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForum.copyPage = function() {
+    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/PageTemplates/Default/LeftMenu&newPageName="+document.getElementById("OpenForumCopyPage").value;
+    };
+    </script>
+</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
       </nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/PageTemplates">PageTemplates</a></li><li role="menuitem"><a href="/OpenForum/PageTemplates/Default">Default</a></li><li role="menuitem" class="current"><a href="/OpenForum/PageTemplates/Default">LeftMenu</a></li></nav>
     
-    <!--PageContent Start--><a name="section1"></a><ul><li><a href="/OpenForum/Editor?pageName=Home" title="/OpenForum/Editor?pageName=Home"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li><li><a href="/OpenForum/Editor?pageName=Sandbox" title="/OpenForum/Editor?pageName=Sandbox"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li><br/></ul>
+    <div class="row">
+    <!--PageContent Start--><ul><li><a href="/OpenForum/Editor?pageName=Home" title="/OpenForum/Editor?pageName=Home"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li><li><a href="/OpenForum/Editor?pageName=Sandbox" title="/OpenForum/Editor?pageName=Sandbox"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li><br/></ul>
 <ul><li><b><form name="searchForm" action="/OpenForum/Actions/Search"><input type="image" title="Search" src="/OpenForum/Images/icons/gif/magnifier.gif"><input type="text" name="searchTerm" size="18"></form></b></li><br/></ul>
 <hr/>
 <ul><li><a href="" onclick="ui.toggleLayer('Site Reference');return false;"><img id="Site ReferenceTwisty" src="/OpenForum/Images/icons/gif/bullet_arrow_down.gif" border="0"/>Site Reference</a></li></ul><DIV id="Site Reference" style="display: none;" width="200"><ul><li>  <ul><li><a class="menuItem" href="/Pages Index">Pages Index</a></li></ul>  <ul><li><a class="menuItem" href="/Wiki Journal">Wiki Journal</a></li></ul>  <ul><li><a class="menuItem" href="/Missing Pages">Missing Pages</a></li></ul>  <ul><li><a class="menuItem" href="/Site Explorer">Site Explorer</a></li></ul>  <ul><li><a class="menuItem" href="/Admin/Deleted">Deleted Pages</a></li></ul></li></ul></DIV>
@@ -82,18 +110,19 @@ Extensions</a></li></ul>  <ul><li><a class="menuItem" href="/OpenForum/Jar Manag
 Jar Manager</a></li></ul>  <ul><li><a class="menuItem" href="http://code.google.com/p/open-forum/issues/list">
 Issue Tracking</a></li></ul>  <ul><li><a class="menuItem" href="http://code.google.com/p/open-forum/source/browse
 ">
-Source Code</a></li></ul></li></ul></DIV><!--Page Content End-->
-    
-    <!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+Source Code</a></li></ul></li></ul></DIV><!--Content built using default--><!--Page Content End-->
+    </div>
+      
+<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
             <div class="large-12 columns">
               <ul class="inline-list right">
-                <li><a href="[{Hash}]">About</a></li>
-                <li><a href="[{Hash}]">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="[{Hash}]">Documentation</a></li>
-                <li><a href="[{Hash}]">Developers</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>

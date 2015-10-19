@@ -1,6 +1,9 @@
 if(!OpenForum) {
   OpenForum = {};
 }
+if(!OpenForum.Speech) {
+  OpenForum.Speech = {};
+}
 OpenForum.Speech.OtherVoice = {};
 OpenForum.Speech.OtherVoice.voice = {
   name: "",

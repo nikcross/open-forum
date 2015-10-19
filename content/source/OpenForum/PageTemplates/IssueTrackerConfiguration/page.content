@@ -1,3 +1,0 @@
-__Target:__ [{PagesListField name="targetPageName"}]\\
-
-<input type="button" value="Create Issue Tracker" onclick="createIssueTracker();return false;">

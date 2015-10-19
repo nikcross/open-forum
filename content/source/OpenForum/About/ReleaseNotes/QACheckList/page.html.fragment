@@ -8,4 +8,4 @@
 <h3>Search</h3><ul><li>Search for page title</li><li>Search for content word</li><li>Search for multiple words</li><li>Search for tag</li><li>Search for multiple tags</li></ul>
 <h3>Wiki Journal</h3><ul><li>Page create logged</li><li>Page update logged</li><li>Page delete logged</li></ul>
 <ul><li>Attachment create logged</li><li>Attachment update logged</li><li>Attachment delete logged</li></ul>
-<h3>Blog</h3><ul><li>Create blog entry</li><li>Read blog entry</li><li>Update blog entry</li><li>Delete blog entry</li></ul>
+<h3>Blog</h3><ul><li>Create blog entry</li><li>Read blog entry</li><li>Update blog entry</li><li>Delete blog entry<!--Content built using default--></li></ul>

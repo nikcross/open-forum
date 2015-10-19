@@ -8,4 +8,4 @@
  Some text to reference<br/>
 See: <a href="/OpenForum/Extensions/GoToMark" title="/OpenForum/Extensions/GoToMark">GoToMark</a> for an example of using this mark<br/><hr/><br/><a href="/OpenForum/Extensions/MarkPage/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/MarkPage&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">name = extension.getAttribute("name");
 
-return "<a name=\""+name+"\"></a>"</xmp>
+return "<a name=\""+name+"\"></a>"</xmp><!--Content built using default-->

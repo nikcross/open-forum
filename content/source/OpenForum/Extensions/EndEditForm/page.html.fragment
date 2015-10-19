@@ -5,4 +5,4 @@
 [{-Example-}]
 </xmp>
 -Example-<br/><hr/>
-<h3>renderer.sjs</h3><xmp class="example">return "<input type='hidden' name='pageName' value='OpenForum/Extensions/EndEditForm'></form>"</xmp>
+<h3>renderer.sjs</h3><xmp class="example">return "<input type='hidden' name='pageName' value='OpenForum/Extensions/EndEditForm'></form>"</xmp><!--Content built using default-->

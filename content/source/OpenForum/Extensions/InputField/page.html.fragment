@@ -12,4 +12,4 @@ if(value==null)
   value="&"+name+";";
 }
 
-return "<input type='text' name='"+name+"' id='"+name+"' value='"+value+"'>";</xmp>
+return "<input type='text' name='"+name+"' id='"+name+"' value='"+value+"'>";</xmp><!--Content built using default-->

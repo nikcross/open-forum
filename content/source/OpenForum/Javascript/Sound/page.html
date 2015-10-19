@@ -1,0 +1,140 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> Sound</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/Sound/page.js"></script>
+
+	<script>
+		var pageName = "OpenForum/Javascript/Sound";
+		var author = "unknown";
+		var time = "1445206414378";
+	    var currentUser = "";
+	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+	</script>
+    
+  </head>
+  <body>
+          <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <img src="/OpenForum/Images/open-forum-dog-small.png" />
+            </h1>
+          </li>
+        </ul>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <a href="#"> Sound</a>
+            </h1>
+          </li>
+        </ul>
+<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+          <ul class="right">
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Actions</a>
+              <ul class="dropdown">
+                <li><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound">Edit</a></li>
+                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Javascript/Sound">Refresh Page</a></li>
+                <li><a href="#">Create New Page</a></li>
+                <li><a href="#">Create New Child Page</a></li>
+                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Sub Pages</a>
+              <ul class="dropdown"><li>
+
+                </li></ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Attachments</a>
+              <ul class="dropdown"><li>
+<ul><li><a href="/OpenForum/Javascript/Sound/page.js">page.js</a></li><li><a href="/OpenForum/Javascript/Sound/page.content">page.content</a></li><li><a href="/OpenForum/Javascript/Sound/torpedo-2.mp3">torpedo-2.mp3</a></li><li><a href="/OpenForum/Javascript/Sound/torpedo-1.mp3">torpedo-1.mp3</a></li><li><a href="/OpenForum/Javascript/Sound/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/Javascript/Sound/page.html">page.html</a></li><li><a href="/OpenForum/Javascript/Sound/small-explosion.mp3">small-explosion.mp3</a></li><li><a href="/OpenForum/Javascript/Sound/SoundPlayer.js">SoundPlayer.js</a></li><li><a href="/OpenForum/Javascript/Sound/large-explosion.mp3">large-explosion.mp3</a></li></ul>
+                </li></ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Signed in as {{currentUser}}</a>
+              <ul class="dropdown">
+                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Page</h2>
+  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
+  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForum.copyPage = function() {
+    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Javascript/Sound&newPageName="+document.getElementById("OpenForumCopyPage").value;
+    };
+    </script>
+</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+      </nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">Sound</a></li></nav>
+    
+    <div class="row">
+    <!--PageContent Start--><button onClick="OpenForum.SoundPlayer.playSound('sound1')">Play Sound 1</button>
+<button onClick="OpenForum.SoundPlayer.playSound('sound2')">Play Sound 2</button>
+<br/>
+<a href="/OpenForum/Javascript/Sound/SoundPlayer.js">SoundPlayer.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/Sound&fileName=SoundPlayer.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">if(!OpenForum) {
+  OpenForum = {};
+}
+OpenForum.SoundPlayer = new function() {
+  var sounds = [];
+
+  this.addSound = function(source,id) {
+    sound = document.createElement('audio');
+    sound.src = source;
+    sounds[id] = [source,sound];
+  };
+
+  this.playSound = function(id) {
+    sounds[id][1].loop=false;
+    sounds[id][1].play();
+  };
+
+  this.loopSound = function(id) {
+    sounds[id][1].loop=true;
+    sounds[id][1].play();
+  };
+};</xmp><!--Content built using default--><!--Page Content End-->
+    </div>
+      
+<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+        <div class="large-12 columns">
+          <hr/>
+          <div class="row">
+            <div class="large-12 columns">
+              <ul class="inline-list right">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Developers</a></li>
+                <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer><!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) end -->
+    
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

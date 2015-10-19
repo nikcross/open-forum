@@ -7,4 +7,4 @@
 </xmp><br/><hr/>
 <h3>renderer.sjs</h3><xmp class="example"> data = "</td></tr></table></DIV></td></tr></table></td><td> </td>";
 
- return data;</xmp>
+ return data;</xmp><!--Content built using default-->

@@ -24,4 +24,4 @@ return data;
 else
 {
  return "Invalid News Page. Missing title attribute.";
-</xmp>}
+</xmp>}<!--Content built using default-->

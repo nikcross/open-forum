@@ -12,4 +12,4 @@ if(targetPageName ==null)
 name = extension.getAttribute("name");
 text = extension.getAttribute("text");
 
-return "<a href=\""+targetPageName+"#"+name+"\">"+text+"</a>";</xmp>
+return "<a href=\""+targetPageName+"#"+name+"\">"+text+"</a>";</xmp><!--Content built using default-->

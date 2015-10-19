@@ -1,4 +1,4 @@
-<!doctype html>
+<a name="section1"></a><!doctype html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum/Actions";
 		var author = "unknown";
-		var time = "1444474842359";
+		var time = "1445206266034";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -30,36 +30,64 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="[{Hash}]"> Actions</a>
+              <a href="#"> Actions</a>
             </h1>
           </li>
         </ul>
-     
-            <!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Actions</a>
+              <a href="#">Actions</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Editor?pageName=/OpenForum/Actions">Edit</a></li>
                 <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Actions">Refresh Page</a></li>
-                <li><a href="[{Hash}]">Create New Page</a></li>
-                <li><a href="[{Hash}]">Create New Child Page</a></li>
+                <li><a href="#">Create New Page</a></li>
+                <li><a href="#">Create New Child Page</a></li>
+                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
               </ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Signed in as {{currentUser}}</a>
+              <a href="#">Sub Pages</a>
+              <ul class="dropdown"><li>
+<ul><li><a href="/OpenForum/Actions/ApplyTemplate" title="/OpenForum/Actions/ApplyTemplate">ApplyTemplate</a></li><li><a href="/OpenForum/Actions/Attach" title="/OpenForum/Actions/Attach">Attach</a></li><li><a href="/OpenForum/Actions/AttachmentExists" title="/OpenForum/Actions/AttachmentExists">AttachmentExists</a></li><li><a href="/OpenForum/Actions/Attachments" title="/OpenForum/Actions/Attachments">Attachments</a></li><li><a href="/OpenForum/Actions/BlogEntry" title="/OpenForum/Actions/BlogEntry">BlogEntry</a></li><li><a href="/OpenForum/Actions/CauseError" title="/OpenForum/Actions/CauseError">CauseError</a></li><li><a href="/OpenForum/Actions/Copy" title="/OpenForum/Actions/Copy">Copy</a></li><li><a href="/OpenForum/Actions/CreateQueue" title="/OpenForum/Actions/CreateQueue">CreateQueue</a></li><li><a href="/OpenForum/Actions/DataSearch" title="/OpenForum/Actions/DataSearch">DataSearch</a></li><li><a href="/OpenForum/Actions/Delete" title="/OpenForum/Actions/Delete">Delete</a></li><li><a href="/OpenForum/Actions/Differences" title="/OpenForum/Actions/Differences">Differences</a></li><li><a href="/OpenForum/Actions/Edit" title="/OpenForum/Actions/Edit">Edit</a></li><li><a href="/OpenForum/Actions/EditText" title="/OpenForum/Actions/EditText">EditText</a></li><li><a href="/OpenForum/Actions/ForkLink" title="/OpenForum/Actions/ForkLink">ForkLink</a></li><li><a href="/OpenForum/Actions/GetAttachments" title="/OpenForum/Actions/GetAttachments">GetAttachments</a></li><li><a href="/OpenForum/Actions/GetAuthentication" title="/OpenForum/Actions/GetAuthentication">GetAuthentication</a></li><li><a href="/OpenForum/Actions/GetInheritedFilePath" title="/OpenForum/Actions/GetInheritedFilePath">GetInheritedFilePath</a></li><li><a href="/OpenForum/Actions/GetPageAsList" title="/OpenForum/Actions/GetPageAsList">GetPageAsList</a></li><li><a href="/OpenForum/Actions/GetPagesList" title="/OpenForum/Actions/GetPagesList">GetPagesList</a></li><li><a href="/OpenForum/Actions/GetUser" title="/OpenForum/Actions/GetUser">GetUser</a></li><li><a href="/OpenForum/Actions/History" title="/OpenForum/Actions/History">History</a></li><li><a href="/OpenForum/Actions/HistoryView" title="/OpenForum/Actions/HistoryView">HistoryView</a></li><li><a href="/OpenForum/Actions/IncrementAttachment" title="/OpenForum/Actions/IncrementAttachment">IncrementAttachment</a></li><li><a href="/OpenForum/Actions/Install" title="/OpenForum/Actions/Install">Install</a></li><li><a href="/OpenForum/Actions/Move" title="/OpenForum/Actions/Move">Move</a></li><li><a href="/OpenForum/Actions/PageExists" title="/OpenForum/Actions/PageExists">PageExists</a></li><li><a href="/OpenForum/Actions/Pages" title="/OpenForum/Actions/Pages">Pages</a></li><li><a href="/OpenForum/Actions/Publish" title="/OpenForum/Actions/Publish">Publish</a></li><li><a href="/OpenForum/Actions/RJSC" title="/OpenForum/Actions/RJSC">RJSC</a></li><li><a href="/OpenForum/Actions/Rebuild" title="/OpenForum/Actions/Rebuild">Rebuild</a></li><li><a href="/OpenForum/Actions/RefreshJarManager" title="/OpenForum/Actions/RefreshJarManager">RefreshJarManager</a></li><li><a href="/OpenForum/Actions/RefreshPage" title="/OpenForum/Actions/RefreshPage">RefreshPage</a></li><li><a href="/OpenForum/Actions/RemoveTemplate" title="/OpenForum/Actions/RemoveTemplate">RemoveTemplate</a></li><li><a href="/OpenForum/Actions/RenderWikiData" title="/OpenForum/Actions/RenderWikiData">RenderWikiData</a></li><li><a href="/OpenForum/Actions/Revert" title="/OpenForum/Actions/Revert">Revert</a></li><li><a href="/OpenForum/Actions/Save" title="/OpenForum/Actions/Save">Save</a></li><li><a href="/OpenForum/Actions/SaveForGroup" title="/OpenForum/Actions/SaveForGroup">SaveForGroup</a></li><li><a href="/OpenForum/Actions/SaveForUser" title="/OpenForum/Actions/SaveForUser">SaveForUser</a></li><li><a href="/OpenForum/Actions/SaveImage" title="/OpenForum/Actions/SaveImage">SaveImage</a></li><li><a href="/OpenForum/Actions/TestExample" title="/OpenForum/Actions/TestExample">TestExample</a></li><li><a href="/OpenForum/Actions/Update" title="/OpenForum/Actions/Update">Update</a></li><li><a href="/OpenForum/Actions/UpdateJarManager" title="/OpenForum/Actions/UpdateJarManager">UpdateJarManager</a></li><li><a href="/OpenForum/Actions/User" title="/OpenForum/Actions/User">User</a></li><li><a href="/OpenForum/Actions/ValidatePageName" title="/OpenForum/Actions/ValidatePageName">ValidatePageName</a></li><li><a href="/OpenForum/Actions/ViewFolder" title="/OpenForum/Actions/ViewFolder">ViewFolder</a></li><li><a href="/OpenForum/Actions/Zip" title="/OpenForum/Actions/Zip">Zip</a></li></ul>
+                </li></ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Attachments</a>
+              <ul class="dropdown"><li>
+<ul><li><a href="/OpenForum/Actions/page.content">page.content</a></li><li><a href="/OpenForum/Actions/data.json">data.json</a></li><li><a href="/OpenForum/Actions/page.js">page.js</a></li><li><a href="/OpenForum/Actions/printable.html">printable.html</a></li><li><a href="/OpenForum/Actions/owner.txt">owner.txt</a></li><li><a href="/OpenForum/Actions/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/Actions/page.html">page.html</a></li><li><a href="/OpenForum/Actions/notes.txt">notes.txt</a></li><li><a href="/OpenForum/Actions/tags.txt">tags.txt</a></li></ul>
+                </li></ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
-                <li><a href="[{Hash}]">Sign Out</a></li>
-                <li><a href="[{Hash}]">Sign In as Different User</a></li>
+                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
               </ul>
             </li>
           </ul>
-        </section><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+        </section>
+
+<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Page</h2>
+  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
+  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForum.copyPage = function() {
+    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Actions&newPageName="+document.getElementById("OpenForumCopyPage").value;
+    };
+    </script>
+</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
       </nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="/OpenForum">Actions</a></li></nav>
     
-    <!--PageContent Start--><a name="section1"></a><h3>Update The Actions List</h3><ul><li><a href="/OpenForum/UpdateActionsPage?save=false" title="/OpenForum/UpdateActionsPage?save=false">Preview</a></li><li><a href="/OpenForum/UpdateActionsPage?save=true" title="/OpenForum/UpdateActionsPage?save=true">Save</a></li></ul>
+    <div class="row">
+    <!--PageContent Start--><h3>Update The Actions List</h3><ul><li><a href="/OpenForum/Editor?pageName=/OpenForum/UpdateActionsPage?save=false" title="/OpenForum/Editor?pageName=/OpenForum/UpdateActionsPage?save=false"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li><li><a href="/OpenForum/Editor?pageName=/OpenForum/UpdateActionsPage?save=true" title="/OpenForum/Editor?pageName=/OpenForum/UpdateActionsPage?save=true"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li></ul>
 <hr/><a name="section2"></a>
 <h3>Create a New Action</h3><form name="templateSubmitForm" action="/OpenForum/Actions/Copy" method="post">
 Get Action Name:<input type="input" name="newPageName" value="/OpenForum/Actions/">
@@ -95,8 +123,7 @@ Post Action Name:<input type="input" name="newPageName" value="/OpenForum/Action
 <tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>EditText</b></td><td class="wikiTableCell"><a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Creates an edit page for the requested page attachment
 </td><td class="wikiTableCell"><a href="/OpenForum/Actions/EditText" title="/OpenForum/Actions/EditText">more...</a></td></tr>
 <tr class="wikiTableOddRow"><td class="wikiTableCell"><b>ForkLink</b></td><td class="wikiTableCell"></td><td class="wikiTableCell"><a href="/OpenForum/Actions/ForkLink" title="/OpenForum/Actions/ForkLink">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>GetAttachmentAsXml</b></td><td class="wikiTableCell"><a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Returns an Xml attachment as Javascript Xml Object
-</td><td class="wikiTableCell"><a href="/OpenForum/Actions/GetAttachmentAsXml" title="/OpenForum/Actions/GetAttachmentAsXml">more...</a></td></tr>
+<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>GetAttachmentAsXml</b></td><td class="wikiTableCell"></td><td class="wikiTableCell"><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/GetAttachmentAsXml" title="/OpenForum/Editor?pageName=/OpenForum/Actions/GetAttachmentAsXml"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></td></tr>
 <tr class="wikiTableOddRow"><td class="wikiTableCell"><b>GetAttachments</b></td><td class="wikiTableCell"><a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Returns a list of the pages attachments as Javascript.
 </td><td class="wikiTableCell"><a href="/OpenForum/Actions/GetAttachments" title="/OpenForum/Actions/GetAttachments">more...</a></td></tr>
 <tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>GetAuthentication</b></td><td class="wikiTableCell"><a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Returns the authentication string for use by applets
@@ -107,14 +134,11 @@ Post Action Name:<input type="input" name="newPageName" value="/OpenForum/Action
 </td><td class="wikiTableCell"><a href="/OpenForum/Actions/GetPageAsList" title="/OpenForum/Actions/GetPageAsList">more...</a></td></tr>
 <tr class="wikiTableOddRow"><td class="wikiTableCell"><b>GetPagesList</b></td><td class="wikiTableCell"><a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Returns a comma delimited list of page names
 </td><td class="wikiTableCell"><a href="/OpenForum/Actions/GetPagesList" title="/OpenForum/Actions/GetPagesList">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>GetPagesListAsJavascript</b></td><td class="wikiTableCell"><a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Returns a list of pages as Javascript array
-</td><td class="wikiTableCell"><a href="/OpenForum/Actions/GetPagesListAsJavascript" title="/OpenForum/Actions/GetPagesListAsJavascript">more...</a></td></tr>
+<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>GetPagesListAsJavascript</b></td><td class="wikiTableCell"></td><td class="wikiTableCell"><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/GetPagesListAsJavascript" title="/OpenForum/Editor?pageName=/OpenForum/Actions/GetPagesListAsJavascript"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></td></tr>
 <tr class="wikiTableOddRow"><td class="wikiTableCell"><b>GetUser</b></td><td class="wikiTableCell"><a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Returns the current users name.
 </td><td class="wikiTableCell"><a href="/OpenForum/Actions/GetUser" title="/OpenForum/Actions/GetUser">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>GetXmlFileAsJS</b></td><td class="wikiTableCell"><a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Returns an Xml attachment as a Javascript Xml object
-</td><td class="wikiTableCell"><a href="/OpenForum/Actions/GetXmlFileAsJS" title="/OpenForum/Actions/GetXmlFileAsJS">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>GetXmlNodeForm</b></td><td class="wikiTableCell"><a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Returns the form for and Xml node based on an Xml view
-</td><td class="wikiTableCell"><a href="/OpenForum/Actions/GetXmlNodeForm" title="/OpenForum/Actions/GetXmlNodeForm">more...</a></td></tr>
+<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>GetXmlFileAsJS</b></td><td class="wikiTableCell"></td><td class="wikiTableCell"><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/GetXmlFileAsJS" title="/OpenForum/Editor?pageName=/OpenForum/Actions/GetXmlFileAsJS"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></td></tr>
+<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>GetXmlNodeForm</b></td><td class="wikiTableCell"></td><td class="wikiTableCell"><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/GetXmlNodeForm" title="/OpenForum/Editor?pageName=/OpenForum/Actions/GetXmlNodeForm"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></td></tr>
 <tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>History</b></td><td class="wikiTableCell"></td><td class="wikiTableCell"><a href="/OpenForum/Actions/History" title="/OpenForum/Actions/History">more...</a></td></tr>
 <tr class="wikiTableOddRow"><td class="wikiTableCell"><b>HistoryView</b></td><td class="wikiTableCell"><a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Lists the History of a Page
 </td><td class="wikiTableCell"><a href="/OpenForum/Actions/HistoryView" title="/OpenForum/Actions/HistoryView">more...</a></td></tr>
@@ -186,18 +210,19 @@ transaction.sendPage( JSON.stringify(result) );</xmp></td><td class="wikiTableCe
 <tr class="wikiTableOddRow"><td class="wikiTableCell"><b>Zip</b></td><td class="wikiTableCell"><a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  -Description-
 </td><td class="wikiTableCell"><a href="/OpenForum/Actions/Zip" title="/OpenForum/Actions/Zip">more...</a></td></tr>
 </table>
-<table width="100%"><tr><td align="right"><a href="OpenForum/Documentation/Reference/UsingWikiActions" title="Help on using Wiki Actions"><img border="0" src="/OpenForum/Images/icons/gif/information.gif"></a></td></tr></table></h3><table width="100%"><tr><td align="right"><a href="OpenForum/Documentation/Reference/AddingNewActions" title="Help on Adding New Wiki Actions"><img border="0" src="/OpenForum/Images/icons/gif/wrench.gif"></a></td></tr></table><!--Page Content End-->
-    
-    <!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+<table width="100%"><tr><td align="right"><a href="OpenForum/Documentation/Reference/UsingWikiActions" title="Help on using Wiki Actions"><img border="0" src="/OpenForum/Images/icons/gif/information.gif"></a></td></tr></table></h3><table width="100%"><tr><td align="right"><a href="OpenForum/Documentation/Reference/AddingNewActions" title="Help on Adding New Wiki Actions"><img border="0" src="/OpenForum/Images/icons/gif/wrench.gif"></a></td></tr></table><!--Content built using default--><!--Page Content End-->
+    </div>
+      
+<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
             <div class="large-12 columns">
               <ul class="inline-list right">
-                <li><a href="[{Hash}]">About</a></li>
-                <li><a href="[{Hash}]">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="[{Hash}]">Documentation</a></li>
-                <li><a href="[{Hash}]">Developers</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>

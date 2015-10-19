@@ -27,4 +27,4 @@ else
 template,data,'&',';' );
 
  transaction.sendPage( wiki.buildPage("Edit Text",pageData) );
-} </xmp>
+} </xmp><!--Content built using default-->

@@ -1,4 +1,4 @@
-<!doctype html>
+<a name="section1"></a><!doctype html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum/Actions/GetInheritedFilePath";
 		var author = "unknown";
-		var time = "1444474842527";
+		var time = "1445206277067";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -30,36 +30,64 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="[{Hash}]"> Get Inherited File Path</a>
+              <a href="#"> Get Inherited File Path</a>
             </h1>
           </li>
         </ul>
-     
-            <!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Actions</a>
+              <a href="#">Actions</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/GetInheritedFilePath">Edit</a></li>
                 <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Actions/GetInheritedFilePath">Refresh Page</a></li>
-                <li><a href="[{Hash}]">Create New Page</a></li>
-                <li><a href="[{Hash}]">Create New Child Page</a></li>
+                <li><a href="#">Create New Page</a></li>
+                <li><a href="#">Create New Child Page</a></li>
+                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
               </ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Signed in as {{currentUser}}</a>
+              <a href="#">Sub Pages</a>
+              <ul class="dropdown"><li>
+
+                </li></ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Attachments</a>
+              <ul class="dropdown"><li>
+<ul><li><a href="/OpenForum/Actions/GetInheritedFilePath/get.sjs">get.sjs</a></li><li><a href="/OpenForum/Actions/GetInheritedFilePath/page.content">page.content</a></li><li><a href="/OpenForum/Actions/GetInheritedFilePath/data-file-map.xml.link">data-file-map.xml.link</a></li><li><a href="/OpenForum/Actions/GetInheritedFilePath/tags.txt">tags.txt</a></li><li><a href="/OpenForum/Actions/GetInheritedFilePath/owner.txt">owner.txt</a></li><li><a href="/OpenForum/Actions/GetInheritedFilePath/update.wiki.template.link">update.wiki.template.link</a></li><li><a href="/OpenForum/Actions/GetInheritedFilePath/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/Actions/GetInheritedFilePath/printable.html">printable.html</a></li><li><a href="/OpenForum/Actions/GetInheritedFilePath/data.json">data.json</a></li><li><a href="/OpenForum/Actions/GetInheritedFilePath/page.html">page.html</a></li></ul>
+                </li></ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
-                <li><a href="[{Hash}]">Sign Out</a></li>
-                <li><a href="[{Hash}]">Sign In as Different User</a></li>
+                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
               </ul>
             </li>
           </ul>
-        </section><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+        </section>
+
+<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Page</h2>
+  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
+  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForum.copyPage = function() {
+    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Actions/GetInheritedFilePath&newPageName="+document.getElementById("OpenForumCopyPage").value;
+    };
+    </script>
+</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
       </nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Actions">GetInheritedFilePath</a></li></nav>
     
-    <!--PageContent Start--><a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Returns the inherited path of at file
+    <div class="row">
+    <!--PageContent Start--><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Returns the inherited path of at file
 <hr/><a name="section2"></a>
 <h3>Parameters</h3><ul><li>pageName - the name of the page to start at</li><li>fileName - the name of the file to get the inherited path for</li><hr/><a name="section3"></a></ul>
 <h3>Usage:</h3><xmp class="example">
@@ -79,18 +107,19 @@ else
   }
 
   transaction.sendPage( path );
-} </xmp><!--Page Content End-->
-    
-    <!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+} </xmp><!--Content built using default--><!--Page Content End-->
+    </div>
+      
+<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
             <div class="large-12 columns">
               <ul class="inline-list right">
-                <li><a href="[{Hash}]">About</a></li>
-                <li><a href="[{Hash}]">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="[{Hash}]">Documentation</a></li>
-                <li><a href="[{Hash}]">Developers</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
