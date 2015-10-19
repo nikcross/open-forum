@@ -173,9 +173,9 @@ public class LocalDriveResourceStore implements ResourceStore {
 	}
 
 	public Resource getResource(String folderName) {
-		if (folderName.startsWith("/")) {
+		/*if (folderName.startsWith("/")) {
 			folderName = folderName.substring(1);
-		}
+		}*/
 		String[] parts = folderName.split("/");
 
 		if (parts.length < 2) {
