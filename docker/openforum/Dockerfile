@@ -1,7 +1,8 @@
 FROM java:openjdk-7-jre
 MAINTAINER  Nik Cross <nikcross@wet-wired.com>
 
-COPY ./open-forum /web/open-forum
+COPY ./source /web/source
+COPY ./changes /web/changes
 COPY ./jetty /web/jetty
 
 ADD entrypoint.sh /opt/entrypoint.sh
