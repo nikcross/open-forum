@@ -1,5 +1,11 @@
+OpenForum.loadScript("/OpenForum/MessageQueue/MessageQueue.js");
+
 var images = [];
 var containers = [];
+var updated = "--";
+var consoleTitle = "--";
+var console = "--";
+var queue = null;
 
 OpenForum.init = function() {
   
@@ -15,6 +21,7 @@ function requestUpdateContainers() {
 
 function updateContainers(response) {
   containers = response.containers;
+  updated = "Updated @ "+new Date();
 }
 
 function requestUpdateImages() {
@@ -28,3 +35,28 @@ function updateImages(response) {
 function kill(containerId) {
   JSON.get("/Docker","kill","containerId="+containerId).onSuccess(updateContainers).go();
 }
+
+function watch(containerId,containerTitle) {
+  consoleTitle = " for "+containerTitle;
+  JSON.get("/Docker","log","containerId="+containerId).onSuccess(startWatching).go();
+}
+
+function startWatching(response) {
+  
+  console = "";
+  queue = new MessageQueue(response.queue);
+
+  queue.processMessages = function(messages) {
+    for(var message in messages) {
+		console += messages[message].substring(8) + "<br/>";
+      
+      if(console.length>5000) {
+        console = console.substring(console.length-5000);
+      }
+    }
+  };
+
+  timer = setInterval( queue.pull , 1000 );
+  
+}
+

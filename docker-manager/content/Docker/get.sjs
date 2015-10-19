@@ -58,6 +58,16 @@ if( action===null ) {
     
     result = JSON.stringify( {result: "ok", data: data} );
     
+  } else  if(action === "log") {
+    var containerId = transaction.getParameter("containerId");
+    
+    var queue = openForum.createQueue();
+    var process = processor.createProcess("docker logs -f "+containerId);
+    openForum.postMessageToQueue(queue,"docker logs for "+containerId);
+    process.onMatch( ".*","(function(text) { openForum.postMessageToQueue(\""+queue+"\",text); })" ).run(false);
+    
+    result = JSON.stringify( {result: "ok", queue: ""+queue} );
+    
   } else if(action === "images") {
     
     var data = (""+processor.createProcess("docker images").run(true).trim()).split("\n");

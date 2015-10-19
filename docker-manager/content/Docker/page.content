@@ -1,20 +1,13 @@
-!!Containers Running
+  
+!!Console {{consoleTitle}}
 <table>
-
-<tr>
-  <td>Container Id</td>
-  <td>Image</td>
-  <td></td>
-</tr>
-
-<tr of-repeatFor="container in containers">
-  <td>{{container.containerId}}</td>
-  <td>{{container.image}}</td>
-  <td><button onclick="kill('{{container.containerId}}');return false;">Kill</button></td>
-</tr>
-
+  <tr>
+    <td>{{console}}</td>
+  </tr>
 </table>
 
+<div class="large-4 columns">
+  
 !!Images
 <table>
 
@@ -29,3 +22,28 @@
 </tr>
 
 </table>
+  
+</div>
+
+<div class="large-4 columns">
+          
+!!Containers Running. {{updated}}
+<table>
+
+<tr>
+  <td>Container Id</td>
+  <td>Image</td>
+  <td></td>
+</tr>
+
+<tr of-repeatFor="container in containers">
+  <td>{{container.containerId}}</td>
+  <td>{{container.image}}</td>
+  <td><button onclick="kill('{{container.containerId}}');return false;">Kill</button></td>
+  <td><button onclick="watch('{{container.containerId}}','{{container.image}}');return false;">Watch</button></td>
+</tr>
+
+</table>
+
+</div>
+
