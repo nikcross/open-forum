@@ -1,0 +1,191 @@
+a {
+	font-weight: bold;
+	font-family: Arial;
+	text-align: left;
+	white-space: nowrap;
+	color: #5050F0;
+	margin: 2px;
+}
+
+p:first-letter {
+	font-family: Verdana;
+	font-size: 12pt;
+	font-weight: bold;
+	color: #000000;
+}
+
+h3 {
+	font-family: Arial;
+	font-size: 12pt;
+	font-weigth: bold;
+	color: #000050;
+}
+
+h2 {
+	font-family: Arial;
+	font-size: 14pt;
+	font-weigth: bold;
+	color: #000050;
+}
+
+h1 {
+	font-family: Arial;
+	font-size: 16pt;
+	font-weigth: bold;
+	color: #000050;
+}
+
+.toolBar a {
+	font-weight: bold;
+	font-family: Arial;
+	text-align: left;
+	white-space: nowrap;
+	color: #FFFFFF;
+	margin: 2px;
+}
+
+.top {
+	margin: 0px;
+	padding: 0px;
+	width: 800px;
+	border-spacing: 0px 0px;
+	border-padding: 0px 0px;
+	border-collapse:	collapse;
+	vertical-align: top;
+}
+.title {
+	font: bold 24pt arial;
+	background-color: #202070;
+	color: #FFFFFF;
+	margin: 20px;
+	padding: 10px;
+	padding-left: 20px;
+	width: 800px;
+}
+
+.logo {
+	background-color: #202070;
+	color: #FFFFFF;
+	margin: 20px;
+	padding: 10px;
+	padding-left: 20px;
+	align: center;
+}
+
+.toolBar {
+	font: bold 12pt arial;
+	background-color: #202070;
+	color: #F0F0FF;
+	margin: 0px;
+	padding: 0px;
+	padding-left: 0px;
+	width: 800px;
+}
+
+.boxTopLeft {
+	background: url(/OpenForum/Styles/Classical/Box/top-left.png) bottom right no-repeat;
+}
+.boxTop {
+	background: url(/OpenForum/Styles/Classical/Box/top.png) bottom repeat-x;
+}
+.boxTopRight {
+	background: url(/OpenForum/Styles/Classical/Box/top-right.png) bottom left no-repeat;
+}
+
+.boxBottomLeft {
+	background: url(/OpenForum/Styles/Classical/Box/bottom-left.png) top right no-repeat;
+}
+.boxBottom {
+	background: url(/OpenForum/Styles/Classical/Box/bottom.png) top repeat-x;
+}
+.boxBottomRight {
+	background: url(/OpenForum/Styles/Classical/Box/bottom-right.png) top left no-repeat;
+}
+.boxLeft {
+	background: url(/OpenForum/Styles/Classical/Box/left.png) right repeat-y;
+}
+.boxMiddle {
+	background-color: #F5F5F5;
+	font-family: Verdana;
+	font-size: 10pt;
+	font-style: bold;
+	color: #505050;
+	margin: 0px;
+	padding: 10px;
+	height: 200px;
+	vertical-align: top;
+	align: left;
+}
+.boxRight {
+	background: url(/OpenForum/Styles/Classical/Box/right.png) left repeat-y;
+}
+
+.topMenu {
+	margin: 0px;
+	padding: 0px;
+	width: 160px;
+	border-spacing: 0px 0px;
+	border-padding: 0px 0px;
+	border-collapse:	collapse;
+	vertical-align: top;
+}
+
+.topMenu ul {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	font-family: arial;
+	font-size: 10px;
+}
+
+.topMenu li {
+	font-size: 8pt;
+	font-weight: bold;
+	font-family: arial;
+	margin: 2px;
+	width: 180px;
+	}
+
+.topMenu li a{
+	display: block;
+	width:160px;
+	padding: 2px 2px 2px 8px;
+	border: 1px solid #A0A0A0;
+	background: #dcdcdc;
+	text-decoration: none;
+	width: 180px; 
+	}
+	
+.topMenu li ul li a{
+	display: block;
+	width:180px;
+	padding: 2px 2px 2px 8px;
+	border: 1px solid #A0A0A0;
+	background: #efefef;
+	text-decoration: none; 
+	}
+
+.topMenu li a:link, .menu a:active, .menu a:visited {
+color: #000000;
+}
+
+.topMenu li a:hover {
+  border: 1px solid #000000;
+  background: #333333;
+  color: #ffffff;
+}
+
+.icon-plus {
+	background: url("/OpenForum/Images/icons/gif/bullet_arrow_right.gif") no-repeat scroll;
+	min-width: 16px;
+	min-height: 16px;
+	display: inline-block;
+	
+}
+
+.icon-minus {
+	background: url("/OpenForum/Images/icons/gif/bullet_arrow_down.gif") no-repeat scroll;
+	min-width: 16px;
+	min-height: 16px;
+	display: inline-block;
+}

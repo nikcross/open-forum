@@ -1,7 +1,7 @@
 //create function
 function access() {
   var userName = ""+login.getUser().getName();
-  if(userName==="Admin") {
+  if(userName==="Admin" || userName==="System") {
     return true;
   }
   
@@ -34,7 +34,7 @@ function access() {
   
 	var accessJSON = JSON.parse(data);
 
-//log.test("Checking "+userName);
+//log.test("Checking "+userName+" for "+pageName);
  
     if(!accessJSON.userAccess) { // If no access element then can access
 //log.test("Passed 1");

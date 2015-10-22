@@ -1,0 +1,13 @@
+{
+	"userAccess": {
+		"read": {
+			"Guest": true
+		},
+		"write": {
+			"Author": true
+		},
+		"delete": {
+			"Admin": true
+		}
+	}
+}

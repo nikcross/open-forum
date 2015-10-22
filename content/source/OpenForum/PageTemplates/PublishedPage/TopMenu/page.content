@@ -1,0 +1,12 @@
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="[{Hash}]">Signed in as {{currentUser}}</a>
+              <ul class="dropdown">
+                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>

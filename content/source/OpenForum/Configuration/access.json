@@ -1,6 +1,9 @@
 {
 	"userAccess": {
 		"read": {
+			"Guest": true
+		},
+		"write": {
 			"Admin": true
 		}
 	}
