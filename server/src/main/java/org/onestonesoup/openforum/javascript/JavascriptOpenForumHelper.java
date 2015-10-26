@@ -128,7 +128,7 @@ public class JavascriptOpenForumHelper {
 	}
 
 	@Deprecated
-	// User JavascriptFileHelper.deleteAttachment
+	// Use JavascriptFileHelper.deleteAttachment
 	public void deleteAttachment(String pageName, String fileName)
 			throws Exception, AuthenticationException {
 		controller.delete(pageName, fileName, login);
@@ -188,7 +188,7 @@ public class JavascriptOpenForumHelper {
 		return controller.getStore().get(key).toString();
 	}
 
-	public void storeObject(String key, Object value) {
+	public void storeObject(String key, String value) {
 		controller.getStore().set(key, value);
 	}
 
