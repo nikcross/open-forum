@@ -15,7 +15,7 @@ public class VersionControllerDelegator implements VersionController{
 	private VersionController getVersionController()
 	{
 		try{
-			return (VersionController)controller.getApi("/OpenForum/JarManager/VersionController");
+			return (VersionController)controller.getApi("/OpenForum/VersionController");
 		}
 		catch(Throwable e)
 		{

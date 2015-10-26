@@ -31,7 +31,7 @@ public class WikiPageInsertRenderer implements WikiTagRenderer {
 			}
 			
 			String pageData = "";
-			if( controller.getFileManager().pageAttachmentExists(insertPageName,WIKI_FILE,ownerLogin) )
+			if( controller.getFileManager().pageAttachmentExists(insertPageName,CONTENT_FILE,ownerLogin) )
 			{
 				pageData = controller.getFileManager().getPageSourceAsString(insertPageName,ownerLogin);
 			}
