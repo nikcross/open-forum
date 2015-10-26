@@ -2,7 +2,8 @@ package org.onestonesoup.openforum.filemanager;
 
 import static org.onestonesoup.openforum.controller.OpenForumConstants.DELETED_PAGES;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.OWNER_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.WIKI_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.CONTENT_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.JOURNAL_PAGE_PATH;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -12,6 +13,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.print.attribute.standard.JobOriginatingUserName;
 
 import org.onestonesoup.core.FileHelper;
 import org.onestonesoup.core.StringHelper;
@@ -82,7 +85,7 @@ public class FileManager {
 	 */
 	public String getPageSourceAsString(String pageName, Login login)
 			throws Exception, AuthenticationException {
-		Resource file = getFile(pageName, WIKI_FILE, login);
+		Resource file = getFile(pageName, CONTENT_FILE, login);
 		if (file == null) {
 			System.err.println("FileManager.getPageSourceAsString("+pageName+") Resource does not exist.");
 			return null;
@@ -182,7 +185,7 @@ public class FileManager {
 	 */
 	public boolean pageExists(String pageName, Login login) throws Exception {
 		try {
-			Resource file = getFile(pageName, WIKI_FILE, login);
+			Resource file = getFile(pageName, CONTENT_FILE, login);
 			if (file == null) {
 				return false;
 			}
@@ -595,13 +598,13 @@ public class FileManager {
 			Login login) throws Exception, AuthenticationException {
 		if (controller.getAuthorizer().isAuthorized(login, pageName,
 				Authorizer.ACTION_UPDATE) == true) {
-			if (pageAttachmentExists(pageName, WIKI_FILE, login)) {
+			if (pageAttachmentExists(pageName, CONTENT_FILE, login)) {
 				resourceStore.appendResource(
-						getFile(pageName, WIKI_FILE, login), data.getBytes());
+						getFile(pageName, CONTENT_FILE, login), data.getBytes());
 			} else {
-				saveStringAsAttachment(data, pageName, WIKI_FILE, login, true);
+				saveStringAsAttachment(data, pageName, CONTENT_FILE, login, true);
 			}
-			backup(pageName, WIKI_FILE, login);
+			backup(pageName, CONTENT_FILE, login);
 		} else {
 			throw new AuthenticationException("No save rights");
 		}
@@ -615,6 +618,11 @@ public class FileManager {
 			if (pageAttachmentExists(pageName, fileName, login)) {
 				resourceStore.appendResource(
 						getFile(pageName, fileName, login), data.getBytes());
+				
+				if(login!=controller.getSystemLogin() && !pageName.equals(JOURNAL_PAGE_PATH)) {
+					controller.addJournalEntry("File " + fileName + " on Page [" + pageName
+						+ "] Appended to by " + login.getUser().getName());
+				}
 			} else {
 				saveStringAsAttachment(data, pageName, fileName, login, true);
 			}
@@ -639,14 +647,14 @@ public class FileManager {
 				Authorizer.ACTION_UPDATE) == true) {
 			String oldData = null;
 
-			if (pageAttachmentExists(pageName, WIKI_FILE, login) == true) {
+			if (pageAttachmentExists(pageName, CONTENT_FILE, login) == true) {
 				oldData = getPageSourceAsString(pageName, login);
 			}
 
 			if (oldData != null && oldData.equals(data)) {
 				return false;
 			} else {
-				saveFile(pageName, WIKI_FILE, data, login, true);
+				saveFile(pageName, CONTENT_FILE, data, login, true);
 				return true;
 			}
 		} else {
@@ -1089,6 +1097,11 @@ public class FileManager {
 			markLastSaved();
 			pageChangeTrigger.triggerListeners(pageName, "Saved Attachment "
 					+ fileName);
+			try {
+				controller.addJournalEntry("File " + fileName + " on Page [" + pageName
+						+ "] changed by " + login.getUser().getName());
+			} catch (Exception ioe) {
+			}
 		} else {
 			throw new AuthenticationException("No save rights");
 		}

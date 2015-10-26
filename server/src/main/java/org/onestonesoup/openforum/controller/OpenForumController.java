@@ -1,5 +1,6 @@
 package org.onestonesoup.openforum.controller;
 
+import static org.onestonesoup.openforum.controller.OpenForumConstants.CONTENT_FILE;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.DATA_FILE;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.DEFAULT_HOME_PAGE_PATH;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.EDIT_FORM_HTML_TEMPLATE;
@@ -27,10 +28,8 @@ import static org.onestonesoup.openforum.controller.OpenForumConstants.START_CON
 import static org.onestonesoup.openforum.controller.OpenForumConstants.SYSTEM_NAME;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.TAGS_FILE;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.UPDATE_WIKI_TEMPLATE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.WIKI_FILE;
 
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
@@ -65,7 +64,7 @@ import org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper;
 import org.onestonesoup.openforum.logger.DefaultOpenForumLogger;
 import org.onestonesoup.openforum.logger.OpenForumLogger;
 import org.onestonesoup.openforum.messagequeue.MessageQueueManager;
-import org.onestonesoup.openforum.plugin.JarManager;
+import org.onestonesoup.openforum.plugin.PluginManager;
 import org.onestonesoup.openforum.renderers.WikiLinkParser;
 import org.onestonesoup.openforum.router.Router;
 import org.onestonesoup.openforum.security.AuthenticationException;
@@ -75,7 +74,6 @@ import org.onestonesoup.openforum.security.DummyAuthenticator;
 import org.onestonesoup.openforum.security.DummyAuthorizer;
 import org.onestonesoup.openforum.security.Login;
 import org.onestonesoup.openforum.store.Store;
-import org.onestonesoup.openforum.transaction.HttpRequestHelper;
 import org.onestonesoup.openforum.trigger.PageChangeTrigger;
 import org.onestonesoup.openforum.trigger.RebuildTrigger;
 import org.onestonesoup.openforum.trigger.StartUpTrigger;
@@ -104,7 +102,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	private String domainName;
 	private FileManager fileManager;
-	private JarManager jarManager;
+	private PluginManager pluginManager;
 	private Login systemLogin = new Login("System", "");
 
 	private RebuildTrigger rebuildTrigger;
@@ -198,7 +196,7 @@ public class OpenForumController implements OpenForumScripting,
 				fileManager.getResourceStore(systemLogin)));
 
 		try {
-			jarManager = new JarManager(this, fileManager);
+			pluginManager = new PluginManager(this, fileManager);
 		} catch (Throwable e) {
 			e.printStackTrace();
 		}
@@ -388,9 +386,9 @@ public class OpenForumController implements OpenForumScripting,
 			}
 			try {
 				queueManager.getQueue("/OpenForum")
-						.postMessage("Updating jar manager",
+						.postMessage("Updating plugin manager",
 								systemLogin.getUser().getName());
-				updateJarManager();
+				updatePluginManager();
 			} catch (Exception e) {
 				String exception = StringHelper.arrayToString(
 						ExceptionHelper.getTrace(e), "\\");
@@ -588,7 +586,7 @@ public class OpenForumController implements OpenForumScripting,
 		String pageBuildScript = fileManager.getPageInheritedFileAsString(name,
 				PAGE_BUILD_JS, OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
 
-		if (fileManager.pageAttachmentExists(name, WIKI_FILE, systemLogin) == false
+		if (fileManager.pageAttachmentExists(name, CONTENT_FILE, systemLogin) == false
 				&& pageBuildScript == null) {
 			return null;
 		}
@@ -867,28 +865,9 @@ public class OpenForumController implements OpenForumScripting,
 	 */
 	public void addJournalEntry(String entry) throws Exception,
 			AuthenticationException {
-		entry = HttpRequestHelper.getHttpDate(System.currentTimeMillis()) + " "
-				+ entry + "\\\\\n";
-		String dateStamp = new SimpleDateFormat("dd-MM-yyyy")
-				.format(new Date());
-
-		if (fileManager.pageExists(JOURNAL_PAGE_PATH + "/blog/" + dateStamp
-				+ "_00-00-00", systemLogin) == false) {
-			fileManager.appendStringToPageSource(entry, JOURNAL_PAGE_PATH
-					+ "/blog/" + dateStamp + "_00-00-00", systemLogin);
-			fileManager.appendStringToPageSource("*[" + dateStamp + "|"
-					+ JOURNAL_PAGE_PATH + "/blog/" + dateStamp + "_00-00-00"
-					+ "]\n", JOURNAL_PAGE_PATH, systemLogin);
-			buildPage(JOURNAL_PAGE_PATH, false);
-			buildPage(JOURNAL_PAGE_PATH + "/blog/" + dateStamp + "_00-00-00",
-					false);
-		} else {
-			fileManager.appendStringToPageSource(entry, JOURNAL_PAGE_PATH
-					+ "/blog/" + dateStamp + "_00-00-00", systemLogin);
-
-		}
-
-		// buildPage(WIKI_JOURNAL,false);
+		
+		entry = "* " + TimeHelper.getDisplayTimestamp(new Date()) + ":" + entry + "<br/>\n";
+		fileManager.appendStringToFile(entry, JOURNAL_PAGE_PATH, CONTENT_FILE, systemLogin);
 	}
 
 	/*
@@ -901,8 +880,7 @@ public class OpenForumController implements OpenForumScripting,
 	public void delete(String pageName, Login login) throws Exception,
 			AuthenticationException, OpenForumException {
 		try {
-			addJournalEntry("Page " + pageName + " deleted by [/Admin/Users/"
-					+ login.getUser().getName() + "]");
+			addJournalEntry("Page " + pageName + " deleted by " + login.getUser().getName() );
 		} catch (Exception ioe) {
 		}
 
@@ -923,8 +901,7 @@ public class OpenForumController implements OpenForumScripting,
 			throws Exception, AuthenticationException {
 		try {
 			addJournalEntry("File " + fileName + " on Page [" + pageName
-					+ "] deleted by [/Admin/Users/" + login.getUser().getName()
-					+ "]");
+					+ "] deleted by " + login.getUser().getName());
 		} catch (Exception ioe) {
 		}
 
@@ -1087,10 +1064,10 @@ public class OpenForumController implements OpenForumScripting,
 		try {
 			if (fileManager.pageExists(pageName, login)) {
 				addJournalEntry("Page [" + pageName
-						+ "] changed by [/Admin/Users/" + author + "]");
+						+ "] changed by " + author);
 			} else {
 				addJournalEntry("Page [" + pageName
-						+ "] added by [/Admin/Users/" + author + "]");
+						+ "] added by " + author);
 			}
 		} catch (Exception ioe) {
 		}
@@ -1168,10 +1145,10 @@ public class OpenForumController implements OpenForumScripting,
 		try {
 			if (fileManager.pageExists(pageName, login)) {
 				addJournalEntry("Page [" + pageName
-						+ "] changed by [/Admin/Users/" + author + "]");
+						+ "] changed by " + author );
 			} else {
 				addJournalEntry("Page [" + pageName
-						+ "] added by [/Admin/Users/" + author + "]");
+						+ "] added by " + author );
 			}
 		} catch (Exception ioe) {
 		}
@@ -1304,11 +1281,11 @@ public class OpenForumController implements OpenForumScripting,
 							String source = getFileManager()
 									.getPageAttachmentAsString(
 											pageName + "/" + fileName,
-											WIKI_FILE, login);
+											CONTENT_FILE, login);
 							String tags = getFileManager()
 									.getPageAttachmentAsString(
 											pageName + "/" + fileName,
-											WIKI_FILE, login);
+											CONTENT_FILE, login);
 							savePage(pageName + "/" + fileName, source, tags,
 									null, login);
 							buildPage(pageName + "/" + fileName);
@@ -1429,7 +1406,7 @@ public class OpenForumController implements OpenForumScripting,
 					if (insertPage.charAt(0) != '/') {
 						insertPage = "/" + pageName + "/" + insertPage;
 					}
-					String file = WIKI_FILE;
+					String file = CONTENT_FILE;
 					String ext = FileHelper.getExtension(insertPage);
 					if (ext.length() > 0) {
 						file = insertPage
@@ -1600,8 +1577,7 @@ public class OpenForumController implements OpenForumScripting,
 			fileManager.revert(pageName, version, login);
 			buildPage(pageName);
 			addJournalEntry("Page " + pageName + " reverted to version "
-					+ version + " by [/Admin/Users/"
-					+ login.getUser().getName() + "]");
+					+ version + " by " + login.getUser().getName());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -1618,11 +1594,11 @@ public class OpenForumController implements OpenForumScripting,
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see org.onestonesoup.wiki.file.manager.FileManager#updateJarManager()
+	 * @see org.onestonesoup.wiki.file.manager.FileManager#updatePluginManager()
 	 */
-	public void updateJarManager() throws Throwable {
-		jarManager.clearAllAPIs();
-		jarManager.updateClassPath();
+	public void updatePluginManager() throws Throwable {
+		pluginManager.clearAllAPIs();
+		pluginManager.updateClassPath();
 	}
 
 	/*
@@ -1632,12 +1608,12 @@ public class OpenForumController implements OpenForumScripting,
 	 * org.onestonesoup.wiki.file.manager.FileManager#getApi(java.lang.String)
 	 */
 	public Object getApi(String pageName) throws Throwable {
-		return jarManager.getApi(pageName);
+		return pluginManager.getApi(pageName);
 	}
 
 	public void initialise() throws IOException, AuthenticationException {
 		try {
-			updateJarManager();
+			updatePluginManager();
 
 			if (fileManager.pageExists("/OpenForum/", getSystemLogin())) {
 				String data = fileManager.getPageAttachmentAsString(
