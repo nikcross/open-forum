@@ -1,0 +1,7 @@
+{
+	"userAccess": {
+		"read": {
+			"Admin": true
+		}
+	}
+}
