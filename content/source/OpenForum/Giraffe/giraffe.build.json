@@ -1,0 +1,30 @@
+{
+  "version": "1.0.0",
+  "steps": [
+    {"action": "append", "file": "/OpenForum/Giraffe/giraffe-header.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/giraffe-canvas.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/giraffe-object.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/circle.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/rectangle.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/line.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/text.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/picture.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/polygon.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/rounded-rectangle.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/arc.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/composite.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/radial-color.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/gradient-color.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/shadow.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/line-style.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/giraffe-core.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/giraffe-animation.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/giraffe-transition.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/giraffe-transition-flip.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/giraffe-transition-move.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/giraffe-transition-rotate.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/giraffe-transition-explode.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/giraffe-interactive.js"},
+    {"action": "append", "file": "/OpenForum/Giraffe/giraffe-tablet.js"}
+    ]
+}
