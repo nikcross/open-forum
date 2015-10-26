@@ -78,8 +78,8 @@ public class JavascriptHelper {
 
 	public void refreshJarManager() throws Throwable
 	{
-		controller.getQueueManager().getQueue("/OpenForum/JarManager").postMessage( "Refreshing JarManager",controller.getSystemLogin().getUser().getName() );
-		controller.updateJarManager();
+		controller.getLogger().info( "Refreshing PluginManager" );
+		controller.updatePluginManager();
 	}
 	
 	public void startJavascript(String scriptFileName,String script) throws Throwable

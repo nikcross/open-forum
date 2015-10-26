@@ -13,7 +13,7 @@ public interface OpenForumConstants {
 	public static final String TAGS_FILE = "tags.txt"; //TODO move to data.json
 	public static final String PRINTABLE_FILE = "printable.html"; //TODO remove this
 	public static final String PAGE_FILE = "page.html";
-	public static final String WIKI_FILE = "page.content";
+	public static final String CONTENT_FILE = "page.content";
 	public static final String PAGE_BUILD_JS = "page.build.js";
 	public static final String GET_SJS_FILE = "get.sjs";
 	public static final String POST_SJS_FILE = "post.sjs";

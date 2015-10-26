@@ -1,7 +1,7 @@
 package org.onestonesoup.openforum.plugin;
 
 import static org.onestonesoup.openforum.controller.OpenForumConstants.DATA_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.WIKI_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.CONTENT_FILE;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -25,7 +25,7 @@ import org.onestonesoup.openforum.javascript.JSONJavaAccess.JSONWrapper;
 import org.onestonesoup.openforum.security.AuthenticationException;
 
 
-public class JarManager{
+public class PluginManager{
 
 	private class ClassPath
 	{
@@ -44,18 +44,19 @@ public class JarManager{
 	private Map<String,ClassPath> classPath;
 	private Map<String,Object> apis;
 	
-	public JarManager( OpenForumController controller,FileManager fileManager ) throws Throwable
+	public PluginManager( OpenForumController controller,FileManager fileManager ) throws Throwable
 	{		
 		this.controller = controller;
 		this.fileManager = fileManager;
 		classPath = new HashMap<String,ClassPath>();
 		apis = new HashMap<String,Object>();
+		updateClassLoader();
 	}
 	
-	public void updateClassPath(String path) throws Throwable
+	private void updateClassPath(String path) throws Throwable
 	{
 		try{
-			controller.getQueueManager().getQueue("/OpenForum/JarManager").postMessage( " Upadateing Class Path",controller.getSystemLogin().getUser().getName() );
+			controller.getLogger().info( " Upadateing Class Path" );
 			
 			String[] list = path.split(";");
 			boolean update = false;
@@ -67,18 +68,18 @@ public class JarManager{
 					long newTime = new File(list[loop]).lastModified();
 					if(oldTime<newTime)
 					{
-						controller.getQueueManager().getQueue("/OpenForum/JarManager").postMessage( new File(list[loop]).getName()+" CHANGED",controller.getSystemLogin().getUser().getName() );						
+						controller.getLogger().info( new File(list[loop]).getName()+" CHANGED" );						
 						update=true;
 					}
 					else
 					{
-						controller.getQueueManager().getQueue("/OpenForum/JarManager").postMessage( new File(list[loop]).getName()+" Unchanged",controller.getSystemLogin().getUser().getName() );						
+						controller.getLogger().info( new File(list[loop]).getName()+" Unchanged" );						
 					}
 					continue;
 				}
 	
 				try{
-					controller.getQueueManager().getQueue("/OpenForum/JarManager").postMessage( list[loop]+" NEW",controller.getSystemLogin().getUser().getName() );
+					controller.getLogger().info( list[loop]+" NEW" );
 					controller.getLogger().info("Found Jar path to add "+list[loop]);
 					Resource resource = fileManager.getResourceStore(controller.getSystemLogin()).getResource(list[loop]);
 					if(resource==null) continue;
@@ -103,16 +104,16 @@ public class JarManager{
 			}
 			else
 			{
-				controller.getQueueManager().getQueue("/OpenForum/JarManager").postMessage( " No Class Paths to update",controller.getSystemLogin().getUser().getName() );
+				controller.getLogger().info( " No Class Paths to update" );
 			}
 			
-			controller.getQueueManager().getQueue("/OpenForum/JarManager").postMessage( " Upadate Complete",controller.getSystemLogin().getUser().getName() );
+			controller.getLogger().info( " Upadate Complete" );
 		}
 		catch(Throwable t)
 		{
 			StringBuffer result = new StringBuffer();
 			result.append(StringHelper.arrayToString(ExceptionHelper.getTrace(t),"\n"));
-			controller.getQueueManager().getQueue("/OpenForum/JarManager").postMessage( result.toString(),controller.getSystemLogin().getUser().getName() );			
+			controller.getLogger().info( result.toString() );			
 			
 			throw t;
 		}
@@ -140,6 +141,9 @@ public class JarManager{
 				return null;
 			}
 			
+
+			apis.put( pageName,null );
+			updateClassPath();
 			api = getInstance(pageName,className);
 			apis.put( pageName,api );
 			initialiseAPI(pageName);
@@ -188,10 +192,6 @@ public class JarManager{
 		{
 			urls[loop] = classPath.get( path ).classPath;
 			controller.getLogger().info("Added JAR path "+classPath.get( path ));
-			if(controller.getQueueManager()!=null)
-			{
-				controller.getQueueManager().getQueue("/OpenForum/JarManager").postMessage( "Added JAR path "+classPath.get( path ),controller.getSystemLogin().getUser().getName() );
-			}
 			
 			classPath.get( path ).timeStamp = fileManager.getResourceStore(controller.getSystemLogin()).lastModified(
 					fileManager.getResourceStore(controller.getSystemLogin()).getResource(path)
@@ -207,7 +207,7 @@ public class JarManager{
 			try{
 				apis.put( className,getInstance(pageName,className) );
 
-				controller.getQueueManager().getQueue("/OpenForum/JarManager").postMessage( "Created instance of "+className,controller.getSystemLogin().getUser().getName() );
+				controller.getLogger().info( "Created instance of "+className );
 			}
 			catch(Exception e)
 			{
@@ -215,7 +215,7 @@ public class JarManager{
 				e.printStackTrace();
 				StringBuffer trace = new StringBuffer();
 				trace.append(StringHelper.arrayToString(ExceptionHelper.getTrace(e),"\n"));
-				controller.getQueueManager().getQueue("/OpenForum/JarManager").postMessage( "Failed to create instance of "+classPath+" "+trace.toString(),controller.getSystemLogin().getUser().getName() );
+				controller.getLogger().info( "Failed to create instance of "+classPath+" "+trace.toString() );
 			}
 		}
 	}
@@ -232,14 +232,14 @@ public class JarManager{
 				
 				js.runJavascript(pageName+"/initialise.sjs",script);
 				
-				controller.getQueueManager().getQueue("/OpenForum/JarManager").postMessage( "Ran initialise.js for API "+pageName,controller.getSystemLogin().getUser().getName() );
+				controller.getLogger().info( "Ran initialise.js for API "+pageName );
 			}
 		}
 		catch(Throwable t)
 		{
 			StringBuffer trace = new StringBuffer();
 			trace.append(StringHelper.arrayToString(ExceptionHelper.getTrace(t),"\n"));
-			controller.getQueueManager().getQueue("/OpenForum/JarManager").postMessage( "Failed in initialise.js for API "+pageName+" "+trace.toString(),controller.getSystemLogin().getUser().getName() );
+			controller.getLogger().info( "Failed in initialise.js for API "+pageName+" "+trace.toString() );
 			
 			throw t;
 		}
@@ -286,10 +286,9 @@ public class JarManager{
 	}
 
 	public void updateClassPath() throws Throwable {
-		String[][] list = DataHelper.getPageAsList( fileManager.getPageAttachmentAsString("/OpenForum/JarManager",WIKI_FILE,controller.getSystemLogin()));
+		
 		String path = "";
-		for(int i=0;i<list.length;i++) {
-			String resource = list[i][0];
+		for(String resource: apis.keySet()) {
 			if(fileManager.getResourceStore(controller.getSystemLogin()).isResourceFolder(resource)) {
 				Resource[] resources = fileManager.getResourceStore(controller.getSystemLogin()).listResources(fileManager.getResourceStore(controller.getSystemLogin()).getResourceFolder(resource,false));
 				for(Resource r: resources) {
@@ -306,7 +305,7 @@ public class JarManager{
 			if(path.length()>0) {
 				path+=";";
 			}
-			path+=list[i][0];
+			path+=resource;
 		}
 		updateClassPath( path );
 	}
