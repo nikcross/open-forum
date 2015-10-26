@@ -1,16 +1,9 @@
 package org.onestonesoup.openforum.controller;
 
 import static org.onestonesoup.openforum.controller.OpenForumConstants.CONTENT_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.DATA_FILE;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.DEFAULT_HOME_PAGE_PATH;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.EDIT_FORM_HTML_TEMPLATE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.EDIT_FORM_WIKI_TEMPLATE;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.EDIT_LINK_DISPLAY_TEMPLATE;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.EDIT_PAGE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.END_CONTENT;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.FOOTER_HTML_TEMPLATE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.FRAGMENT_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.HEADER_HTML_TEMPLATE;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.INDEX_FILE;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.JOURNAL_PAGE_PATH;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.LINKS_FILE;
@@ -23,8 +16,6 @@ import static org.onestonesoup.openforum.controller.OpenForumConstants.OWNER_FIL
 import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGES_INDEX_PAGE_PATH;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_BUILD_JS;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.PRINTABLE_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.START_CONTENT;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.SYSTEM_NAME;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.TAGS_FILE;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.UPDATE_WIKI_TEMPLATE;
@@ -39,9 +30,7 @@ import java.util.Map;
 import java.util.Set;
 
 import org.onestonesoup.core.ExceptionHelper;
-import org.onestonesoup.core.FileHelper;
 import org.onestonesoup.core.StringHelper;
-import org.onestonesoup.core.TemplateHelper;
 import org.onestonesoup.core.data.EntityTree;
 import org.onestonesoup.core.data.KeyValuePair;
 import org.onestonesoup.core.data.XmlHelper;
@@ -79,7 +68,6 @@ import org.onestonesoup.openforum.trigger.RebuildTrigger;
 import org.onestonesoup.openforum.trigger.StartUpTrigger;
 import org.onestonesoup.openforum.trigger.TimerTrigger;
 import org.onestonesoup.openforum.versioncontrol.DefaultVersionController;
-import org.onestonesoup.openforum.versioncontrol.PageVersion;
 
 public class OpenForumController implements OpenForumScripting,
 		OpenForumBuilder, OpenForumPageController, OpenForumSecurity {
@@ -432,8 +420,6 @@ public class OpenForumController implements OpenForumScripting,
 
 		Map<String, String> localTemplateData = getStandardTemplateData(name,
 				name, SYSTEM_NAME, TimeHelper.getCurrentDisplayTimestamp());
-		data = TemplateHelper.generateStringWithTemplate(data,
-				localTemplateData);
 
 		Renderer.wikiToHtml(name, data, html, this, linkRenderer);
 
@@ -441,20 +427,7 @@ public class OpenForumController implements OpenForumScripting,
 	}
 
 	private void buildMissingPages() throws Exception, AuthenticationException {
-		String[] exclude = getExcludesList(EXCLUDE_REFERENCES,
-				MISSING_PAGES_PATH);
-		Map<String, String> localTemplateData = getStandardTemplateData(
-				MISSING_PAGES_PATH, null, SYSTEM_NAME,
-				TimeHelper.getCurrentDisplayTimestamp());
-
-		String headerTemplate = fileManager.getPageInheritedFileAsString(
-				MISSING_PAGES_PATH, HEADER_HTML_TEMPLATE,
-				OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
-		getRequiredTemplateInserts(MISSING_PAGES_PATH, headerTemplate,
-				localTemplateData);
-		String header = TemplateHelper.generateStringWithTemplate(
-				headerTemplate, localTemplateData);
-		StringBuffer html = new StringBuffer(header);
+		String[] exclude = getExcludesList(EXCLUDE_REFERENCES, MISSING_PAGES_PATH);
 
 		Set<String> missingPagesList = missingPages.keySet();
 		String[] missingPageNames = missingPagesList.toArray(new String[] {});
@@ -480,6 +453,8 @@ public class OpenForumController implements OpenForumScripting,
 			data.append("]\r\n");
 		}
 
+		fileManager.saveFile(MISSING_PAGES_PATH, CONTENT_FILE, data.toString(), systemLogin, false);
+		
 		queueManager
 				.getQueue("/OpenForum")
 				.postMessage(
@@ -487,23 +462,8 @@ public class OpenForumController implements OpenForumScripting,
 								+ missingPageNames.length
 								+ " missing pages. A list of them is available <a href=\"/MissingPages\">here</a>",
 						systemLogin.getUser().getName());
+		buildPage(MISSING_PAGES_PATH,false);
 
-		WikiLinkParser linkRenderer = new WikiLinkParser("Missing Pages",
-				EDIT_PAGE, EDIT_LINK_DISPLAY_TEMPLATE, this);
-		Renderer.wikiToHtml("Missing Pages", data.toString(), html, this,
-				linkRenderer);
-
-		String footerTemplate = fileManager.getPageInheritedFileAsString(
-				"MissingPages", FOOTER_HTML_TEMPLATE,
-				OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
-		getRequiredTemplateInserts(MISSING_PAGES_PATH, footerTemplate,
-				localTemplateData);
-		String footer = TemplateHelper.generateStringWithTemplate(
-				footerTemplate, localTemplateData);
-
-		html.append(footer);
-		fileManager.saveStringAsHtmlPage(html.toString(), MISSING_PAGES_PATH,
-				systemLogin);
 	}
 
 	private void buildReservedList() throws Exception {
@@ -583,74 +543,26 @@ public class OpenForumController implements OpenForumScripting,
 			name = name.substring(1);
 		}
 
-		String pageBuildScript = fileManager.getPageInheritedFileAsString(name,
-				PAGE_BUILD_JS, OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
-
-		if (fileManager.pageAttachmentExists(name, CONTENT_FILE, systemLogin) == false
-				&& pageBuildScript == null) {
+		//No content
+		if( data == null && fileManager.pageAttachmentExists(name, CONTENT_FILE, systemLogin)==false ) {
 			return null;
 		}
-
-		Map<String, String> localTemplateData = getStandardTemplateData(name,
-				null, null, null);
+		
+		String pageBuildScript = fileManager.getPageInheritedFileAsString(name,
+				PAGE_BUILD_JS, OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
+		
+		//No build script
+		if (  pageBuildScript == null) return null;
 
 		StringBuffer html = new StringBuffer();
 
-		if (pageBuildScript != null) {
-			try {
-				html.append(runPageBuildScript(name, data, pageBuildScript));
-			} catch (Throwable e) {
-				html.append(StringHelper.arrayToString(
-						ExceptionHelper.getTrace(e), "\n"));
-			}
-		} else {
-			WikiLinkParser linkRenderer = new WikiLinkParser(name, EDIT_PAGE,
-					EDIT_LINK_DISPLAY_TEMPLATE, this);
-
-			String header = fileManager.getPageInheritedFileAsString(name,
-					HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
-					systemLogin);
-			getRequiredTemplateInserts(name, header, localTemplateData);
-
-			header = TemplateHelper.generateStringWithTemplate(header,
-					localTemplateData);
-
-			html.append(header);
-
-			StringBuffer content = new StringBuffer();
-			try {
-				if (data == null) {
-					data = fileManager.getPageSourceAsString(name, systemLogin);
-				}
-
-				// data =
-				// MaskHelper.generateStringWithTemplate(data,localTemplateData);
-				Renderer.wikiToHtml(name, data, content, this, linkRenderer);
-			} catch (Exception e) {
-				html.append(StringHelper.arrayToString(
-						ExceptionHelper.getTrace(e), "\n"));
-			}
-			html.append(START_CONTENT);
-			html.append(content);
-			html.append(END_CONTENT);
-
-			String footer = fileManager.getPageInheritedFileAsString(name,
-					FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
-					systemLogin);
-			getRequiredTemplateInserts(name, footer, localTemplateData);
-			footer = TemplateHelper.generateStringWithTemplate(footer,
-					localTemplateData);
-
-			html.append(footer);
-
-			if (fileManager.saveStringAsHtmlPage(html.toString(), name,
-					systemLogin) == true) {
-				fileManager.saveStringAsAttachment(content.toString(), name,
-						FRAGMENT_FILE, systemLogin, false);
-				fileManager.saveStringAsAttachment(content.toString(), name,
-						PRINTABLE_FILE, systemLogin, false);
-			}
+		try {
+			html.append(runPageBuildScript(name, data, pageBuildScript));
+		} catch (Throwable e) {
+			html.append(StringHelper.arrayToString(
+					ExceptionHelper.getTrace(e), "\n"));
 		}
+
 		pageChangeTrigger.triggerListeners(name, "Page Changed");
 
 		return html;
@@ -666,36 +578,6 @@ public class OpenForumController implements OpenForumScripting,
 
 		return (js.evaluateJavascript(name + "/" + PAGE_BUILD_JS, script))
 				.toString();
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.onestonesoup.wiki.controller.WikiControllerInterface#buildPage(java
-	 * .lang.String, boolean)
-	 */
-	public String buildPageSection(String name, int section) throws Exception,
-			AuthenticationException {
-		StringBuffer html = new StringBuffer("");
-		WikiLinkParser linkRenderer = new WikiLinkParser(name, EDIT_PAGE,
-				EDIT_LINK_DISPLAY_TEMPLATE, this);
-
-		Map<String, String> localTemplateData = getStandardTemplateData(name,
-				name, SYSTEM_NAME, null);
-		String data = fileManager.getPageSourceAsString(name, systemLogin);
-		data = TemplateHelper.generateStringWithTemplate(data,
-				localTemplateData);
-
-		List<String> sections = new ArrayList<String>();
-		Renderer.wikiToHtml(name, data, html, this, linkRenderer, sections);
-
-		section--;
-		if (section >= 0 && sections.size() < section) {
-			return (String) sections.get(section);
-		} else {
-			return null;
-		}
 	}
 
 	private String[] getExcludesList(String excludeFile, String pageName)
@@ -742,101 +624,6 @@ public class OpenForumController implements OpenForumScripting,
 	public long getPageTimeStamp(String pageName) throws Exception,
 			AuthenticationException {
 		return fileManager.getPageTimeStamp(pageName, systemLogin);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.onestonesoup.wiki.controller.WikiControllerInterface#getPageEditForm
-	 * (java.lang.String)
-	 */
-	public String getPageEditForm(String pageName, Login login)
-			throws Exception, AuthenticationException {
-		String form = null;
-		if (fileManager.pageAttachmentExists(pageName, EDIT_FORM_WIKI_TEMPLATE,
-				systemLogin)) {
-			form = fileManager.getPageAttachmentAsString(pageName,
-					EDIT_FORM_WIKI_TEMPLATE, systemLogin);
-			form = renderWikiData(pageName, form);
-		} else if (fileManager.pageAttachmentExists(pageName,
-				EDIT_FORM_HTML_TEMPLATE, systemLogin)) {
-			form = fileManager.getPageAttachmentAsString(pageName,
-					EDIT_FORM_HTML_TEMPLATE, systemLogin);
-		}
-
-		if (form != null) {
-			try {
-
-				Map<String, String> data = new HashMap<String, String>();
-				/*
-				 * if (fileManager.pageAttachmentExists(pageName, DATA_FILE,
-				 * systemLogin)) { EntityTree dataXml =
-				 * JSONHelper.toTree(fileManager.getPageAttachmentAsString(
-				 * pageName, DATA_FILE, systemLogin)); for
-				 * (EntityTree.TreeEntity entity : dataXml.getChildren()) {
-				 * data.put(entity.getName(), entity.getValue()); } }
-				 */
-				data.put("pageName", pageName);
-
-				/*
-				 * EntityTree dataToFileMap = null; if
-				 * (fileManager.pageAttachmentExists(pageName,
-				 * "data-file-map.xml", systemLogin)) { dataToFileMap =
-				 * JSONHelper.toTree(fileManager.getPageAttachmentAsString(
-				 * pageName, DATA_MAP_FILE, systemLogin)); } else if
-				 * (fileManager.pageAttachmentExists(
-				 * OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, systemLogin)) {
-				 * dataToFileMap = JSONHelper.toTree(fileManager
-				 * .getPageAttachmentAsString(OPEN_FORUM_DEFAULT_PAGE_PATH,
-				 * DATA_MAP_FILE, systemLogin)); } if (dataToFileMap != null) {
-				 * for (int loop = 0; loop < dataToFileMap.getChildren()
-				 * .size(); loop++) { EntityTree.TreeEntity mapping =
-				 * dataToFileMap .getChildren().get(loop); String from =
-				 * mapping.getAttribute("from"); String to =
-				 * mapping.getAttribute("to");
-				 * 
-				 * if (from == null || to == null) { continue; }
-				 * 
-				 * if (fileManager.pageAttachmentExists(pageName, to,
-				 * systemLogin)) { String fileData = fileManager
-				 * .getPageAttachmentAsString(pageName, to, systemLogin);
-				 * fileData = DataHelper .prepareTextForEditing(fileData);
-				 * data.put(from, fileData); } } }
-				 */
-				getRequiredTemplateInserts(pageName, form, data);
-
-				return TemplateHelper.generateStringWithTemplate(form, data);
-			} catch (Exception e) {
-				return null;
-			}
-		} else {
-			return fileManager.getPageInheritedFileAsString(pageName,
-					EDIT_FORM_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
-					login);
-		}
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.onestonesoup.wiki.controller.WikiControllerInterface#
-	 * getPageUpdateTemplate(java.lang.String,
-	 * org.onestonesoup.authentication.server.Login)
-	 */
-	public String getPageUpdateTemplate(String pageName, Login login)
-			throws Exception, AuthenticationException {
-		if (fileManager.pageAttachmentExists(pageName, UPDATE_WIKI_TEMPLATE,
-				login)) {
-			try {
-				return fileManager.getPageAttachmentAsString(pageName,
-						UPDATE_WIKI_TEMPLATE, systemLogin);
-			} catch (Exception e) {
-				return null;
-			}
-		} else {
-			return null;
-		}
 	}
 
 	/*
@@ -906,82 +693,6 @@ public class OpenForumController implements OpenForumScripting,
 		}
 
 		fileManager.deleteAttachment(pageName, fileName, login);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.onestonesoup.wiki.controller.WikiControllerInterface#buildDifferencesPage
-	 * (java.lang.String, java.lang.String, java.lang.String)
-	 */
-	public StringBuffer buildDifferencesPage(String pageName, String version1,
-			String version2) throws Exception, AuthenticationException {
-		Map<String, String> localTemplateData = getStandardTemplateData(
-				pageName, pageName + " | Version Differences", SYSTEM_NAME,
-				TimeHelper.getCurrentDisplayTimestamp());
-
-		String headerTemplate = fileManager.getPageInheritedFileAsString(
-				pageName, HEADER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
-				systemLogin);
-		getRequiredTemplateInserts(pageName, headerTemplate, localTemplateData);
-
-		String header = TemplateHelper.generateStringWithTemplate(
-				headerTemplate, localTemplateData);
-		StringBuffer html = new StringBuffer(header);
-
-		html.append("<h3><a href=\"/" + pageName
-				+ "\">Goto Current version of "
-				+ OpenForumNameHelper.wikiNameToTitle(pageName) + "</a></h3>");
-		html.append("<h3><a href=\"/OpenForum/Actions/Revert?pageName="
-				+ pageName + "&version=" + version2
-				+ "\">Revert to this version of "
-				+ OpenForumNameHelper.wikiNameToTitle(pageName)
-				+ "</a></h3><br/><br/>");
-
-		PageVersion current = new PageVersion();
-		current.reference = version1;
-		PageVersion old = new PageVersion();
-		old.reference = version2;
-
-		String[] differences = fileManager.getVersionController()
-				.getDifferences(old, current).split("\n");
-
-		html.append("<table><tr><td class=\"content\">");
-
-		String oldAttachment = "history"
-				+ old.reference.substring(old.reference.lastIndexOf('/'));
-		String oldSource = getFileManager().getPageAttachmentAsString(pageName,
-				oldAttachment, getSystemLogin());
-		String oldPage = renderWikiData(pageName, oldSource);
-
-		html.append(oldPage);
-
-		html.append("</td></tr></table><table><tr><td class=\"differencesNone\"><b><font color=\"red\">Removed</font>-<font color=\"green\">Added</font></b>");
-
-		for (int loop = 0; loop < differences.length; loop++) {
-			char changeType = differences[loop].charAt(0);
-			if (changeType == '+') {
-				html.append("<xmp class='differencesAdd'>"
-						+ differences[loop].substring(1) + "</xmp>");
-			} else if (changeType == '-') {
-				html.append("<xmp class='differencesSub'>"
-						+ differences[loop].substring(1) + "</xmp>");
-			} else {
-				html.append("<xmp class='differencesNone'>" + differences[loop]
-						+ "</xmp>");
-			}
-		}
-		html.append("</td></tr></table>");
-
-		String footerTemplate = fileManager.getPageInheritedFileAsString(
-				pageName, FOOTER_HTML_TEMPLATE, OPEN_FORUM_DEFAULT_PAGE_PATH,
-				systemLogin);
-		String footer = TemplateHelper.generateStringWithTemplate(
-				footerTemplate, localTemplateData);
-		html.append(footer);
-
-		return html;
 	}
 
 	/*
@@ -1081,88 +792,6 @@ public class OpenForumController implements OpenForumScripting,
 		 */
 
 		// globalLinks.put( pageName,pageName );
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.onestonesoup.wiki.controller.WikiControllerInterface#savePage(java
-	 * .lang.String, java.lang.String, org.onestonesoup.xml.EntityTree,
-	 * org.onestonesoup.authentication.server.Login)
-	 */
-	public void savePage(String pageName, String updateTemplate,
-			EntityTree.TreeEntity data, Login login) throws Exception,
-			AuthenticationException {
-		pageName = OpenForumNameHelper.titleToWikiName(pageName);
-		Map<String, String> dataTable = new HashMap<String, String>();
-		for (EntityTree.TreeEntity entity : data.getChildren()) {
-			dataTable.put(entity.getName(), entity.getValue());
-		}
-		String source = TemplateHelper.generateStringWithTemplate(
-				updateTemplate, dataTable);
-
-		EntityTree dataToFileMap = null;
-		/*
-		 * if (fileManager.pageAttachmentExists(pageName, DATA_MAP_FILE, login))
-		 * { dataToFileMap =
-		 * JSONHelper.toTree(fileManager.getPageAttachmentAsString(pageName,
-		 * DATA_MAP_FILE, login)); } else if
-		 * (fileManager.pageAttachmentExists(OPEN_FORUM_DEFAULT_PAGE_PATH,
-		 * DATA_MAP_FILE, login)) { dataToFileMap =
-		 * JSONHelper.toTree(fileManager.getPageAttachmentAsString(
-		 * OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login)); }
-		 */
-		if (dataToFileMap != null) {
-			for (int loop = 0; loop < dataToFileMap.getChildren().size(); loop++) {
-				EntityTree.TreeEntity mapping = dataToFileMap.getChildren()
-						.get(loop);
-				String from = mapping.getAttribute("from");
-				String to = mapping.getAttribute("to");
-
-				EntityTree.TreeEntity fromData = data.getChild(from);
-				if (fromData != null) {
-					fileManager.saveStringAsAttachment(fromData.getValue(),
-							pageName, to, login, true);
-					fromData.setValue("&" + from + ";");
-				}
-			}
-		}
-
-		fileManager.saveStringAsAttachment(
-				XmlHelper.toXml(new EntityTree(data)), pageName, DATA_FILE,
-				login, true);
-		fileManager.saveStringAsPageSource(source, pageName, login);
-
-		EntityTree.TreeEntity tags = data.getChild("tags");
-		if (tags != null) {
-			fileManager.saveStringAsAttachment(tags.getValue(), pageName,
-					TAGS_FILE, login, true);
-		}
-
-		String author = OpenForumNameHelper.titleToWikiName(login.getUser()
-				.getName());
-		try {
-			if (fileManager.pageExists(pageName, login)) {
-				addJournalEntry("Page [" + pageName
-						+ "] changed by " + author );
-			} else {
-				addJournalEntry("Page [" + pageName
-						+ "] added by " + author );
-			}
-		} catch (Exception ioe) {
-		}
-
-		String owner = fileManager.getPageAttachmentAsString(pageName,
-				OWNER_FILE, getSystemLogin());
-
-		if (owner == null) {
-			fileManager.saveStringAsAttachment(author, pageName, OWNER_FILE,
-					login, false);
-		} else if (author.equals("Admin") == false) {
-			fileManager.saveStringAsAttachment(author, pageName, OWNER_FILE,
-					login, false);
-		}
 	}
 
 	/*
@@ -1392,67 +1021,6 @@ public class OpenForumController implements OpenForumScripting,
 
 	public Login getSystemLogin() {
 		return systemLogin;
-	}
-
-	public void getRequiredTemplateInserts(String pageName, String template,
-			Map<String, String> templateData) {
-		try {
-			Set<String> list = TemplateHelper.generateListForTemplate(template);
-			for (String item : list) {
-				if (item.indexOf("insert:") == 0) {
-					String insertPage = KeyValuePair
-							.parseKeyAndValue(item, ":").getValue();
-
-					if (insertPage.charAt(0) != '/') {
-						insertPage = "/" + pageName + "/" + insertPage;
-					}
-					String file = CONTENT_FILE;
-					String ext = FileHelper.getExtension(insertPage);
-					if (ext.length() > 0) {
-						file = insertPage
-								.substring(insertPage.lastIndexOf("/"));
-						insertPage = insertPage.substring(0,
-								insertPage.lastIndexOf("/"));
-
-						insertPage = fileManager.getPageInheritedFileAsString(
-								insertPage, file, OPEN_FORUM_DEFAULT_PAGE_PATH,
-								systemLogin);
-					} else {
-						StringBuffer content = new StringBuffer();
-						try {
-							String data = fileManager.getPageSourceAsString(
-									insertPage, systemLogin);
-
-							if (data != null) {
-								data = TemplateHelper
-										.generateStringWithTemplate(data,
-												templateData);
-								WikiLinkParser linkRenderer = new WikiLinkParser(
-										insertPage, EDIT_PAGE,
-										EDIT_LINK_DISPLAY_TEMPLATE, this);
-								Renderer.wikiToHtml(pageName, data, content,
-										this, linkRenderer);
-							}
-						} catch (Exception e) {
-							content.append(StringHelper.arrayToString(
-									ExceptionHelper.getTrace(e), "\n"));
-						}
-						insertPage = content.toString();
-
-					}
-					if (insertPage == null) {
-						insertPage = "";
-					} else {
-						getRequiredTemplateInserts(pageName, insertPage,
-								templateData);
-					}
-
-					templateData.put(item, insertPage);
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 	}
 
 	/*

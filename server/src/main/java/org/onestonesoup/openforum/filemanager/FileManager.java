@@ -1,9 +1,9 @@
 package org.onestonesoup.openforum.filemanager;
 
-import static org.onestonesoup.openforum.controller.OpenForumConstants.DELETED_PAGES;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.OWNER_FILE;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.CONTENT_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.DELETED_PAGES;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.JOURNAL_PAGE_PATH;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.OWNER_FILE;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -14,11 +14,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.print.attribute.standard.JobOriginatingUserName;
-
 import org.onestonesoup.core.FileHelper;
 import org.onestonesoup.core.StringHelper;
-import org.onestonesoup.core.TemplateHelper;
 import org.onestonesoup.openforum.OpenForumException;
 import org.onestonesoup.openforum.OpenForumNameHelper;
 import org.onestonesoup.openforum.Stream;
@@ -1124,33 +1121,6 @@ public class FileManager {
 	 */
 	public long getLastSavedTimeStamp() {
 		return lastFileSaved;
-	}
-
-	public String getFileTemplate(String link, String displayName,
-			String pageName, String fileName, String templateFileName)
-			throws Exception, AuthenticationException {
-		String extension = FileHelper.getExtension(fileName).toLowerCase();
-
-		Map<String, String> parameters = new HashMap<String, String>();
-		parameters.put("link", link);
-		parameters.put("displayName", displayName);
-		parameters.put("pageName", pageName);
-		parameters.put("fileName", fileName);
-
-		String template;
-		if (pageAttachmentExists("/OpenForum/FileTemplates/" + extension,
-				templateFileName, controller.getSystemLogin())) {
-			template = TemplateHelper.generateStringWithTemplate(
-					getPageAttachmentAsString("/OpenForum/FileTemplates/"
-							+ extension, templateFileName, controller.getSystemLogin()),
-					parameters);
-		} else {
-			template = TemplateHelper.generateStringWithTemplate(
-					getPageAttachmentAsString(
-							"/OpenForum/FileTemplates/default",
-							templateFileName, controller.getSystemLogin()), parameters);
-		}
-		return template;
 	}
 
 	public void setVersionController(VersionController versionController) {

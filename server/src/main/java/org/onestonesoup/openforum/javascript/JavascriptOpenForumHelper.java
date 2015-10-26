@@ -41,11 +41,6 @@ public class JavascriptOpenForumHelper {
 		controller.addJournalEntry(entry);
 	}
 
-	public String buildPageSection(String pageName, int section)
-			throws Exception, AuthenticationException {
-		return controller.buildPageSection(pageName, section).toString();
-	}
-
 	public String buildPage(String pageName) throws Exception,
 			AuthenticationException {
 		controller.markForRebuild();
@@ -95,11 +90,6 @@ public class JavascriptOpenForumHelper {
 	public JavascriptEngine getJavascriptEngine() {
 		return controller.getJavascriptEngine(login);
 	}
-	
-	public String getPageUpdateTemplate(String pageName) throws Exception,
-			AuthenticationException {
-		return controller.getPageUpdateTemplate(pageName, login);
-	}
 
 	public boolean pageExists(String pageName) throws Exception {
 		return controller.getFileManager().pageExists(pageName, login);
@@ -113,12 +103,6 @@ public class JavascriptOpenForumHelper {
 			AuthenticationException {
 		long ts = controller.getPageTimeStamp(pageName);
 		return TimeHelper.getDateTimeStamp(new Date(ts));
-	}
-
-	public String buildDifferencesPage(String pageName, String version1,
-			String version2) throws Exception, AuthenticationException {
-		return controller.buildDifferencesPage(pageName, version1, version2)
-				.toString();
 	}
 
 	public void deletePage(String pageName) throws Exception,

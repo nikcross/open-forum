@@ -104,10 +104,4 @@ public class PostTransaction extends Transaction {
 		controller.savePage(pageName,data,tags,postData,getLogin());
 		controller.markForRebuild();
 	}
-	
-	public void savePageWithTemplate(String pageName,String template) throws Exception,AuthenticationException
-	{
-		controller.savePage(pageName,template,postData,getLogin());
-		controller.markForRebuild();
-	}
 }

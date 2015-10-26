@@ -5,10 +5,6 @@ import org.onestonesoup.openforum.security.Login;
 
 public interface OpenForumBuilder extends OpenForum{
 
-	public abstract StringBuffer buildDifferencesPage(String pageName,
-	String version1, String version2) throws Exception,
-	AuthenticationException;
-
 	public abstract StringBuffer buildPage(String name) throws Exception,
 	AuthenticationException;
 
@@ -18,16 +14,7 @@ public interface OpenForumBuilder extends OpenForum{
 	public abstract StringBuffer buildPage(String name, String data,
 	boolean isWikiContent) throws Exception, AuthenticationException;
 
-	public abstract String buildPageSection(String name,int section) throws Exception,
-	AuthenticationException;
-
 	public abstract String getAliasLink(String name) throws Exception;
-
-	public abstract String getPageEditForm(String pageName,Login login) throws Exception,
-	AuthenticationException;
-
-	public abstract String getPageUpdateTemplate(String pageName, Login login)
-	throws Exception, AuthenticationException;
 
 	public abstract String renderWikiData(String name,String data) throws Exception,AuthenticationException;
 

@@ -23,10 +23,6 @@ public interface OpenForumPageController extends OpenForum{
 	Stream wikiStream, Login login) throws Exception,
 	AuthenticationException;
 
-	public abstract void savePage(String pageName, String updateTemplate,
-	EntityTree.TreeEntity data, Login login) throws Exception,
-	AuthenticationException;
-
 	public abstract void savePage(String pageName, String source, String tags,
 	EntityTree.TreeEntity postParameters, Login login) throws Exception,
 	AuthenticationException;
@@ -46,9 +42,6 @@ public interface OpenForumPageController extends OpenForum{
 	
 	public abstract Map<String,String> getStandardTemplateData(String pageName,
 	String title, String author, String timeStamp);
-
-	public abstract void getRequiredTemplateInserts(String pageName,
-	String template, Map<String,String> templateData);
 
 	public abstract void addMissingPage(String missingPage, String sourcePage);
 
