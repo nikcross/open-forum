@@ -3,7 +3,6 @@ package org.onestonesoup.openforum.controller;
 public interface OpenForumConstants {
 
 	public static final String SYSTEM_NAME = "OpenForum System";
-	public static final String SERVER_VERSION = "${project.version}"; //Populated my Maven
 	
 	public static final String DATA_FILE = "data.json"; //TODO code to use json - To be marker as OpenForum page
 	public static final String DATA_MAP_FILE = "data-file-map.json"; //TODO move to data.json
