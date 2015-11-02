@@ -1,0 +1,22 @@
+<a href="/OpenForum/Javascript/Storage/Storage.js" title="/OpenForum/Javascript/Storage/Storage.js">OpenForum/Javascript/Storage/Storage.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/Storage&fileName=Storage.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">if(!OpenForum) {
+  OpenForum = {};
+}
+OpenForum.Storage = {};
+
+OpenForum.Storage.get = function(key) {
+  return localStorage.getItem(key);
+};
+
+OpenForum.Storage.set = function(key,value) {
+  localStorage.setItem(key,value);
+};
+
+OpenForum.Storage.find = function(regex) {
+  var found = [];
+  for(var i in localStorage) {
+    if( i.match(regex)) {
+      found.push( {key: i, value: localStorage[i]} );
+    }
+  }
+  return found;
+};</xmp><!--Content built using default-->

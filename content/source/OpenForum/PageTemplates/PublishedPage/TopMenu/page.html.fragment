@@ -2,31 +2,6 @@
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="#">Actions</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Editor?pageName=/OpenForum/PageTemplates/Default/TopMenu">Edit</a></li>
-                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/PageTemplates/Default/TopMenu">Refresh Page</a></li>
-                <li><a href="#">Create New Page</a></li>
-                <li><a href="#">Create New Child Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Sub Pages</a>
-              <ul class="dropdown"><li>
-
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Attachments</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/PageTemplates/Default/TopMenu/notes.txt">notes.txt</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/page.js">page.js</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/page.content">page.content</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/old.page.content">old.page.content</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/topMenu.js">topMenu.js</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/tags.txt">tags.txt</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/owner.txt">owner.txt</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/printable.html">printable.html</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/data.json">data.json</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/page.html">page.html</a></li></ul>
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
               <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
@@ -35,15 +10,4 @@
             </li>
           </ul>
         </section>
-
-<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/PageTemplates/Default/TopMenu&newPageName="+document.getElementById("OpenForumCopyPage").value;
-    };
-    </script>
-</div><!--Content built using default-->
+<!--Content built using default-->

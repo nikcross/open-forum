@@ -7,9 +7,9 @@
 if(newPageName===null)
 {
 	transaction.setResult(transaction.SHOW_PAGE);
+  return;
 }
-else
-{
+
 	sourcePageName = ""+transaction.getParameter("sourcePageName");
 	newPageName = ""+transaction.getParameter("newPageName");
 	listPageName = transaction.getParameter("listPageName");
@@ -22,7 +22,7 @@ else
 	wiki.copyPage(sourcePageName,newPageName,listPageName);
 
 	transaction.goToPage("/OpenForum/Editor?pageName="+newPageName);
-}</xmp><br/><hr/>
+</xmp><br/><hr/>
 <h3>Server Side Javascript for POST method</h3><xmp class="example"> transaction.getPostData();
 sourcePageName = transaction.getPostParameter("sourcePageName");
 newPageName = transaction.getPostParameter("newPageName");

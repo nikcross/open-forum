@@ -6,7 +6,7 @@ OpenForum.Speech.voice = {
   name: "",
   spokenName: "Jane",
   pitch: 100,  // 0 to 200
-  rate: 1, // 0 to 10
+  rate: 1, // 0 to 20
   volume: 50 // 0 to 100
 };
 OpenForum.Speech.voices = [];
@@ -32,15 +32,7 @@ OpenForum.Speech.say = function(message,voice) {
   msg.pitch = voice.pitch/100;
   msg.rate = voice.rate/10;
   msg.volume = voice.volume;
-  //voice.lang = msg.voice.lang;
   
-  
-  //msg.pitch = 1;
-  //msg.rate = 1;
-  //msg.volume = 100;
-  //voice.lang = msg.voice.lang;
-  
-  //alert("msg.voice="+msg.voice.name);
     window.speechSynthesis.speak(msg);
 };
 

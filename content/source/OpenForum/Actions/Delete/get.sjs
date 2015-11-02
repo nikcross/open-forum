@@ -1,14 +1,14 @@
 if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
+  return;
 }
-else
-{
+
 	transaction.userCanPerformAction(pageName,"delete",true); 
 	fileName = transaction.getParameter("fileName");
 
         async = transaction.getParameter("async");
-        if(async!=null && async=="true")
+        if(async!==null && async=="true")
         {
           async=true;
         }
@@ -17,7 +17,7 @@ else
           async=false;
         }
 
-	if( fileName==null )
+	if( fileName===null )
 	{
 		wiki.deletePage(pageName);
 
@@ -25,7 +25,7 @@ else
  user = transaction.getUser();
 
  mailer = js.getApi("/OpenForum/JarManager/Mailer");
- if(mailer!=null) {
+ if(mailer!==null) {
 
    subject = pageName+" has been deleted";
    message = "The Wiki Page "+pageName+" has been deleted by "+user; 
@@ -41,11 +41,11 @@ else
 		else
 		{
 			data = file.getAttachment("/Admin/Deleted","page.wiki");
-			data = data + "\n*[Undelete "+pageName+"|/OpenForum/Actions/Move?pageName=/Admin/Deleted/"+pageName+"&newPageName="+pageName+"]";
-			file.saveAttachment("/Admin/Deleted","page.wiki",data);
-			wiki.refreshPage("/Admin/Deleted");
+			data = data + "\n*[Undelete "+pageName+"|/OpenForum/Actions/Move?pageName=/OpenForum/DeletedPages/"+pageName+"&newPageName="+pageName+"]";
+			file.saveAttachment("/OpenForum/DeletedPages","page.wiki",data);
+			wiki.refreshPage("/OpenForum/DeletedPages");
 
-			pageName = "/Admin/Deleted";
+			pageName = "/OpenForum/DeletedPages";
 		}
 		wiki.buildPage(pageName,true);
                 if(async)
@@ -54,7 +54,7 @@ else
                 }
                 else
                 {
-		  transaction.goToPage(pageName);
+                  transaction.goToPage(pageName);
                 }
 	}
 	else
@@ -68,7 +68,6 @@ else
                 }
                 else
                 {
-		  transaction.goToPage(pageName);
+                  transaction.goToPage(pageName);
                 }
 	}
-}

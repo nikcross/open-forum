@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum/Extensions/InsertSourceFile";
 		var author = "unknown";
-		var time = "1445206297263";
+		var time = "1437406924000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -34,33 +34,8 @@
             </h1>
           </li>
         </ul>
-<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Actions</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile">Edit</a></li>
-                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Extensions/InsertSourceFile">Refresh Page</a></li>
-                <li><a href="#">Create New Page</a></li>
-                <li><a href="#">Create New Child Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Sub Pages</a>
-              <ul class="dropdown"><li>
-
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Attachments</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/Extensions/InsertSourceFile/renderer.sjs">renderer.sjs</a></li><li><a href="/OpenForum/Extensions/InsertSourceFile/page.content">page.content</a></li><li><a href="/OpenForum/Extensions/InsertSourceFile/data-file-map.xml.link">data-file-map.xml.link</a></li><li><a href="/OpenForum/Extensions/InsertSourceFile/tags.txt">tags.txt</a></li><li><a href="/OpenForum/Extensions/InsertSourceFile/owner.txt">owner.txt</a></li><li><a href="/OpenForum/Extensions/InsertSourceFile/update.wiki.template.link">update.wiki.template.link</a></li><li><a href="/OpenForum/Extensions/InsertSourceFile/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/Extensions/InsertSourceFile/printable.html">printable.html</a></li><li><a href="/OpenForum/Extensions/InsertSourceFile/data.json">data.json</a></li><li><a href="/OpenForum/Extensions/InsertSourceFile/page.html">page.html</a></li></ul>
-                </li></ul>
-            </li>
             <li class="divider"></li>
             <li class="has-dropdown">
               <a href="#">Signed in as {{currentUser}}</a>
@@ -71,18 +46,7 @@
             </li>
           </ul>
         </section>
-
-<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Extensions/InsertSourceFile&newPageName="+document.getElementById("OpenForumCopyPage").value;
-    };
-    </script>
-</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">InsertSourceFile</a></li></nav>
     
@@ -96,7 +60,7 @@
 </xmp>
 Error parsing Extension tag [{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]. Exception:java.lang.Exception: /OpenForum/Extensions/InsertSourceFile/renderer.sjs Javascipt Error [at 5: 0]:null
 java.lang.String.replace(String.java:2240)
-sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+sun.reflect.GeneratedMethodAccessor14.invoke(Unknown Source)
 sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 java.lang.reflect.Method.invoke(Method.java:497)
 org.mozilla.javascript.MemberBox.invoke(MemberBox.java:161)
@@ -113,9 +77,9 @@ org.onestonesoup.javascript.engine.JavascriptEngine.runJavascript(JavascriptEngi
 org.onestonesoup.openforum.renderers.WikiExtensionRenderer.render(WikiExtensionRenderer.java:35)
 org.onestonesoup.openforum.Renderer.wikiToHtml(Renderer.java:47)
 org.onestonesoup.openforum.Renderer.wikiToHtml(Renderer.java:16)
-org.onestonesoup.openforum.controller.OpenForumController.renderWikiData(OpenForumController.java:440)
-org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.renderWikiData(JavascriptOpenForumHelper.java:67)
-sun.reflect.GeneratedMethodAccessor17.invoke(Unknown Source)
+org.onestonesoup.openforum.controller.OpenForumController.renderWikiData(OpenForumController.java:424)
+org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.renderWikiData(JavascriptOpenForumHelper.java:62)
+sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source)
 sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 java.lang.reflect.Method.invoke(Method.java:497)
 org.mozilla.javascript.MemberBox.invoke(MemberBox.java:161)
@@ -128,14 +92,14 @@ org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3065)
 org.mozilla.javascript.InterpretedFunction.exec(InterpretedFunction.java:175)
 org.mozilla.javascript.Context.evaluateString(Context.java:1104)
 org.onestonesoup.javascript.engine.JavascriptEngine.evaluateJavascript(JavascriptEngine.java:307)
-org.onestonesoup.openforum.controller.OpenForumController.runPageBuildScript(OpenForumController.java:669)
-org.onestonesoup.openforum.controller.OpenForumController.buildPage(OpenForumController.java:603)
-org.onestonesoup.openforum.controller.OpenForumController.buildPage(OpenForumController.java:572)
-org.onestonesoup.openforum.controller.OpenForumController.buildAllPages(OpenForumController.java:538)
-org.onestonesoup.openforum.controller.OpenForumController.doBuild(OpenForumController.java:338)
-org.onestonesoup.openforum.controller.OpenForumController.rebuild(OpenForumController.java:268)
-org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.rebuild(JavascriptOpenForumHelper.java:168)
-org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.rebuild(JavascriptOpenForumHelper.java:160)
+org.onestonesoup.openforum.controller.OpenForumController.runPageBuildScript(OpenForumController.java:579)
+org.onestonesoup.openforum.controller.OpenForumController.buildPage(OpenForumController.java:560)
+org.onestonesoup.openforum.controller.OpenForumController.buildPage(OpenForumController.java:530)
+org.onestonesoup.openforum.controller.OpenForumController.buildAllPages(OpenForumController.java:496)
+org.onestonesoup.openforum.controller.OpenForumController.doBuild(OpenForumController.java:324)
+org.onestonesoup.openforum.controller.OpenForumController.rebuild(OpenForumController.java:254)
+org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.rebuild(JavascriptOpenForumHelper.java:152)
+org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.rebuild(JavascriptOpenForumHelper.java:144)
 sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -152,7 +116,7 @@ org.mozilla.javascript.Context.evaluateString(Context.java:1104)
 org.onestonesoup.javascript.engine.JavascriptEngine.runJavascript(JavascriptEngine.java:265)
 org.onestonesoup.javascript.engine.JavascriptEngine.runJavascript(JavascriptEngine.java:240)
 org.onestonesoup.openforum.trigger.Trigger$TriggerProcessThread.run(Trigger.java:38)
-java.lang.Thread.run(Thread.java:745)<br/><hr/><br/><a href="/OpenForum/Extensions/InsertSourceFile/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var sourcePageName = extension.getAttribute("pageName");
+java.lang.Thread.run(Thread.java:745)<br/><hr/><br/><a href="/OpenForum/Extensions/InsertSourceFile/renderer.sjs" title="/OpenForum/Extensions/InsertSourceFile/renderer.sjs">OpenForum/Extensions/InsertSourceFile/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var sourcePageName = extension.getAttribute("pageName");
 if(sourcePageName==null)
 {
   sourcePageName = pageName;
@@ -171,7 +135,7 @@ pageData = pageData.replace("$contents$",data);
 return pageData;</xmp><!--Content built using default--><!--Page Content End-->
     </div>
       
-<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
@@ -186,7 +150,7 @@ return pageData;</xmp><!--Content built using default--><!--Page Content End-->
             </div>
           </div>
         </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) end -->
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

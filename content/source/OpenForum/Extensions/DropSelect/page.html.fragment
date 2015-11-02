@@ -32,7 +32,7 @@ document.getElementById("_testValue").
 options[index].selected=true;
 if(index==0){document.getElementById("testValue").value=select.options[0].value;}</script>
 <br/>
-<hr/><br/><a href="/OpenForum/Extensions/DropSelect/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/DropSelect&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">options = extension.getAttribute("options");
+<hr/><br/><a href="/OpenForum/Extensions/DropSelect/renderer.sjs" title="/OpenForum/Extensions/DropSelect/renderer.sjs">OpenForum/Extensions/DropSelect/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/DropSelect&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">options = extension.getAttribute("options");
 name = extension.getAttribute("name");
 action = extension.getAttribute("action");
 value = extension.getAttribute("value");

@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum/Javascript/CodeMirror";
 		var author = "unknown";
-		var time = "1445206414821";
+		var time = "1437406924000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -34,33 +34,8 @@
             </h1>
           </li>
         </ul>
-<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Actions</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror">Edit</a></li>
-                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Javascript/CodeMirror">Refresh Page</a></li>
-                <li><a href="#">Create New Page</a></li>
-                <li><a href="#">Create New Child Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Sub Pages</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/Javascript/CodeMirror/addon" title="/OpenForum/Javascript/CodeMirror/addon">addon</a></li><li><a href="/OpenForum/Javascript/CodeMirror/bin" title="/OpenForum/Javascript/CodeMirror/bin">bin</a></li><li><a href="/OpenForum/Javascript/CodeMirror/codemirror-4.0">codemirror-4.0</a></li><li><a href="/OpenForum/Javascript/CodeMirror/demo" title="/OpenForum/Javascript/CodeMirror/demo">demo</a></li><li><a href="/OpenForum/Javascript/CodeMirror/doc" title="/OpenForum/Javascript/CodeMirror/doc">doc</a></li><li><a href="/OpenForum/Javascript/CodeMirror/keymap" title="/OpenForum/Javascript/CodeMirror/keymap">keymap</a></li><li><a href="/OpenForum/Javascript/CodeMirror/lib" title="/OpenForum/Javascript/CodeMirror/lib">lib</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode" title="/OpenForum/Javascript/CodeMirror/mode">mode</a></li><li><a href="/OpenForum/Javascript/CodeMirror/test" title="/OpenForum/Javascript/CodeMirror/test">test</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme" title="/OpenForum/Javascript/CodeMirror/theme">theme</a></li><li><a href="/OpenForum/Javascript/CodeMirror/util" title="/OpenForum/Javascript/CodeMirror/util">util</a></li></ul>
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Attachments</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/Javascript/CodeMirror/codemirror.zip">codemirror.zip</a></li><li><a href="/OpenForum/Javascript/CodeMirror/page.content">page.content</a></li><li><a href="/OpenForum/Javascript/CodeMirror/owner.txt">owner.txt</a></li><li><a href="/OpenForum/Javascript/CodeMirror/data.json">data.json</a></li><li><a href="/OpenForum/Javascript/CodeMirror/page.js">page.js</a></li><li><a href="/OpenForum/Javascript/CodeMirror/index.html">index.html</a></li><li><a href="/OpenForum/Javascript/CodeMirror/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/Javascript/CodeMirror/page.html">page.html</a></li><li><a href="/OpenForum/Javascript/CodeMirror/LICENSE" title="/OpenForum/Javascript/CodeMirror/LICENSE">LICENSE</a></li><li><a href="/OpenForum/Javascript/CodeMirror/notes.txt">notes.txt</a></li><li><a href="/OpenForum/Javascript/CodeMirror/CONTRIBUTING.md">CONTRIBUTING.md</a></li><li><a href="/OpenForum/Javascript/CodeMirror/AUTHORS" title="/OpenForum/Javascript/CodeMirror/AUTHORS">AUTHORS</a></li><li><a href="/OpenForum/Javascript/CodeMirror/printable.html">printable.html</a></li><li><a href="/OpenForum/Javascript/CodeMirror/README.md">README.md</a></li><li><a href="/OpenForum/Javascript/CodeMirror/bower.json">bower.json</a></li><li><a href="/OpenForum/Javascript/CodeMirror/package.json">package.json</a></li></ul>
-                </li></ul>
-            </li>
             <li class="divider"></li>
             <li class="has-dropdown">
               <a href="#">Signed in as {{currentUser}}</a>
@@ -71,18 +46,7 @@
             </li>
           </ul>
         </section>
-
-<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Javascript/CodeMirror&newPageName="+document.getElementById("OpenForumCopyPage").value;
-    };
-    </script>
-</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">CodeMirror</a></li></nav>
     
@@ -90,7 +54,7 @@
     <!--PageContent Start--><h3>Source</h3><a href="http://codemirror.net/" title="http://codemirror.net/" onclick="window.open('http://codemirror.net/');return false;">http://codemirror.net/ <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a><br/><h3>Notes</h3><a href="http://docs.reduxframework.com/extensions/codemirror/" title="http://docs.reduxframework.com/extensions/codemirror/" onclick="window.open('http://docs.reduxframework.com/extensions/codemirror/');return false;">http://docs.reduxframework.com/extensions/codemirror/ <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a><!--Content built using default--><!--Page Content End-->
     </div>
       
-<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
@@ -105,7 +69,7 @@
             </div>
           </div>
         </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) end -->
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

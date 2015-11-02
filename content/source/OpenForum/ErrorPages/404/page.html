@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum/ErrorPages/404";
 		var author = "unknown";
-		var time = "1445206349185";
+		var time = "1444593334000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -34,33 +34,8 @@
             </h1>
           </li>
         </ul>
-<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Actions</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Editor?pageName=/OpenForum/ErrorPages/404">Edit</a></li>
-                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/ErrorPages/404">Refresh Page</a></li>
-                <li><a href="#">Create New Page</a></li>
-                <li><a href="#">Create New Child Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Sub Pages</a>
-              <ul class="dropdown"><li>
-
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Attachments</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/ErrorPages/404/notes.txt">notes.txt</a></li><li><a href="/OpenForum/ErrorPages/404/page.js">page.js</a></li><li><a href="/OpenForum/ErrorPages/404/page.content">page.content</a></li><li><a href="/OpenForum/ErrorPages/404/tags.txt">tags.txt</a></li><li><a href="/OpenForum/ErrorPages/404/owner.txt">owner.txt</a></li><li><a href="/OpenForum/ErrorPages/404/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/ErrorPages/404/printable.html">printable.html</a></li><li><a href="/OpenForum/ErrorPages/404/data.json">data.json</a></li><li><a href="/OpenForum/ErrorPages/404/page.html">page.html</a></li></ul>
-                </li></ul>
-            </li>
             <li class="divider"></li>
             <li class="has-dropdown">
               <a href="#">Signed in as {{currentUser}}</a>
@@ -71,18 +46,7 @@
             </li>
           </ul>
         </section>
-
-<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/ErrorPages/404&newPageName="+document.getElementById("OpenForumCopyPage").value;
-    };
-    </script>
-</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/ErrorPages">ErrorPages</a></li><li role="menuitem" class="current"><a href="/OpenForum/ErrorPages">404</a></li></nav>
     
@@ -101,7 +65,7 @@ document.write("<a href='/OpenForum/Editor?pageName=/"+pageName+"'>You can creat
 </div><!--Content built using default--><!--Page Content End-->
     </div>
       
-<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
@@ -116,7 +80,7 @@ document.write("<a href='/OpenForum/Editor?pageName=/"+pageName+"'>You can creat
             </div>
           </div>
         </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) end -->
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

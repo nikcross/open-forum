@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum/Javascript/CodeMirror/theme";
 		var author = "unknown";
-		var time = "1445206445610";
+		var time = "-1";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -34,33 +34,8 @@
             </h1>
           </li>
         </ul>
-<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Actions</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/theme">Edit</a></li>
-                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Javascript/CodeMirror/theme">Refresh Page</a></li>
-                <li><a href="#">Create New Page</a></li>
-                <li><a href="#">Create New Child Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Sub Pages</a>
-              <ul class="dropdown"><li>
-
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Attachments</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/Javascript/CodeMirror/theme/monokai.css">monokai.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/xq-dark.css">xq-dark.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/erlang-dark.css">erlang-dark.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/data.json">data.json</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/3024-day.css">3024-day.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/cobalt.css">cobalt.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/blackboard.css">blackboard.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/the-matrix.css">the-matrix.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/ambiance-mobile.css">ambiance-mobile.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/midnight.css">midnight.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/base16-light.css">base16-light.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/solarized.css">solarized.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/lesser-dark.css">lesser-dark.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/3024-night.css">3024-night.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/tomorrow-night-eighties.css">tomorrow-night-eighties.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/page.html">page.html</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/twilight.css">twilight.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/ambiance.css">ambiance.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/eclipse.css">eclipse.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/neat.css">neat.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/elegant.css">elegant.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/base16-dark.css">base16-dark.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/xq-light.css">xq-light.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/paraiso-dark.css">paraiso-dark.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/mdn-like.css">mdn-like.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/night.css">night.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/vibrant-ink.css">vibrant-ink.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/mbo.css">mbo.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/paraiso-light.css">paraiso-light.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/pastel-on-dark.css">pastel-on-dark.css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/theme/rubyblue.css">rubyblue.css</a></li></ul>
-                </li></ul>
-            </li>
             <li class="divider"></li>
             <li class="has-dropdown">
               <a href="#">Signed in as {{currentUser}}</a>
@@ -71,18 +46,7 @@
             </li>
           </ul>
         </section>
-
-<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Javascript/CodeMirror/theme&newPageName="+document.getElementById("OpenForumCopyPage").value;
-    };
-    </script>
-</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem"><a href="/OpenForum/Javascript/CodeMirror">CodeMirror</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript/CodeMirror">theme</a></li></nav>
     
@@ -90,7 +54,7 @@
     <!--PageContent Start-->Page content missing. Errors: <ul><li>No content supplied by caller</li><li>No content found at OpenForum/Javascript/CodeMirror/theme/page.content</li><li>No content found at OpenForum/Javascript/CodeMirror/theme/page.wiki (deprecated)</li></ul> Content:<a href="/OpenForum/Editor?pageName=Null" title="/OpenForum/Editor?pageName=Null"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a><!--Content built using default--><!--Page Content End-->
     </div>
       
-<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
@@ -105,7 +69,7 @@
             </div>
           </div>
         </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) end -->
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

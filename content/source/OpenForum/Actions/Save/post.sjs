@@ -1,7 +1,8 @@
 transaction.getPostData();
 var json = false;
 var returnType = transaction.getParameter("returnType");
-if(returnType!=null && (""+returnType)=="json") {
+
+if(returnType!==null && (""+returnType)=="json") {
   json = true;
 }
 
@@ -15,7 +16,7 @@ user = transaction.getUser();
 wiki.saveAsAttachment(pageName,fileName,data,user);
 wiki.buildPage(pageName);
 
-if(json==false) {
+if(json===false) {
   transaction.goToPage(pageName);
 } else {
   transaction.sendPage("{saved: true}");

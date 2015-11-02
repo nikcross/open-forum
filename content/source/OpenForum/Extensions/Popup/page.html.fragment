@@ -6,7 +6,7 @@
 [{Popup showPage="/OpenForum/Extensions" text="Extensions IFrame" asIFrame="true"}]
 </xmp>
 <a href="" onclick="popup.show('/OpenForum/Extensions');return false;" onMouseOut="popup.hide();" onMouseOver="popup.clearHide();">Extensions</a><script>includeLibrary("/OpenForum/Extensions/Popup/popup.js");</script> 
-<a href="" onclick=";popup.showIFrame('/OpenForum/Extensions');return false;" onMouseOut="popup.hide();" onMouseOver="popup.clearHide();">Extensions IFrame</a><script>includeLibrary("/OpenForum/Extensions/Popup/popup.js");</script><br/><hr/><br/><a href="/OpenForum/Extensions/Popup/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/Popup&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">showPage = extension.getAttribute("showPage");
+<a href="" onclick=";popup.showIFrame('/OpenForum/Extensions');return false;" onMouseOut="popup.hide();" onMouseOver="popup.clearHide();">Extensions IFrame</a><script>includeLibrary("/OpenForum/Extensions/Popup/popup.js");</script><br/><hr/><br/><a href="/OpenForum/Extensions/Popup/renderer.sjs" title="/OpenForum/Extensions/Popup/renderer.sjs">OpenForum/Extensions/Popup/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/Popup&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">showPage = extension.getAttribute("showPage");
 text = extension.getAttribute("text");
 asIFrame = extension.getAttribute("asIFrame");
 if(asIFrame==null || asIFrame=="false")

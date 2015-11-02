@@ -4,7 +4,7 @@
 <h3>Usage:</h3><xmp class="example">
 [{AttachmentsList matching=".txt"}]
 </xmp>
-<ul><li><a href="/OpenForum/Extensions/AttachmentsList/notes.txt">notes.txt</a></li><li><a href="/OpenForum/Extensions/AttachmentsList/tags.txt">tags.txt</a></li><li><a href="/OpenForum/Extensions/AttachmentsList/owner.txt">owner.txt</a></li></ul><br/><hr/><br/><a href="/OpenForum/Extensions/AttachmentsList/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/AttachmentsList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">targetPage = extension.getAttribute("pageName");
+<ul><li><a href="/OpenForum/Extensions/AttachmentsList/notes.txt" title="/OpenForum/Extensions/AttachmentsList/notes.txt">notes.txt</a></li><li><a href="/OpenForum/Extensions/AttachmentsList/tags.txt" title="/OpenForum/Extensions/AttachmentsList/tags.txt">tags.txt</a></li></ul><br/><hr/><br/><a href="/OpenForum/Extensions/AttachmentsList/renderer.sjs" title="/OpenForum/Extensions/AttachmentsList/renderer.sjs">OpenForum/Extensions/AttachmentsList/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/AttachmentsList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">targetPage = extension.getAttribute("pageName");
 matching = extension.getAttribute("matching");
 includePage = true;
 if(targetPage==null)

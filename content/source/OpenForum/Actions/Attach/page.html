@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum/Actions/Attach";
 		var author = "unknown";
-		var time = "1445206280054";
+		var time = "1437406924000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -34,33 +34,8 @@
             </h1>
           </li>
         </ul>
-<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Actions</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Attach">Edit</a></li>
-                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Actions/Attach">Refresh Page</a></li>
-                <li><a href="#">Create New Page</a></li>
-                <li><a href="#">Create New Child Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Sub Pages</a>
-              <ul class="dropdown"><li>
-
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Attachments</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/Actions/Attach/post.sjs">post.sjs</a></li><li><a href="/OpenForum/Actions/Attach/page.content">page.content</a></li><li><a href="/OpenForum/Actions/Attach/data-file-map.xml.link">data-file-map.xml.link</a></li><li><a href="/OpenForum/Actions/Attach/tags.txt">tags.txt</a></li><li><a href="/OpenForum/Actions/Attach/owner.txt">owner.txt</a></li><li><a href="/OpenForum/Actions/Attach/update.wiki.template.link">update.wiki.template.link</a></li><li><a href="/OpenForum/Actions/Attach/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/Actions/Attach/printable.html">printable.html</a></li><li><a href="/OpenForum/Actions/Attach/data.json">data.json</a></li><li><a href="/OpenForum/Actions/Attach/page.html">page.html</a></li></ul>
-                </li></ul>
-            </li>
             <li class="divider"></li>
             <li class="has-dropdown">
               <a href="#">Signed in as {{currentUser}}</a>
@@ -71,24 +46,13 @@
             </li>
           </ul>
         </section>
-
-<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Actions/Attach&newPageName="+document.getElementById("OpenForumCopyPage").value;
-    };
-    </script>
-</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Actions">Attach</a></li></nav>
     
     <div class="row">
     <!--PageContent Start--><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Post Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b> <br/><hr/>
-<h3>Server Side Javascript for POST method</h3><a href="/OpenForum/Actions/Attach/post.sjs">post.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Actions/Attach&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">xmlHeader = transaction.getPostFileData();
+<h3>Server Side Javascript for POST method</h3><a href="/OpenForum/Actions/Attach/post.sjs" title="/OpenForum/Actions/Attach/post.sjs">OpenForum/Actions/Attach/post.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Actions/Attach&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">xmlHeader = transaction.getPostFileData();
 fileName = transaction.getPostParameter("fileName");
 pageName = transaction.getParameter("page");
 
@@ -101,7 +65,7 @@ page = wiki.buildPage(pageName);
 transaction.goToPage(pageName);</xmp><!--Content built using default--><!--Page Content End-->
     </div>
       
-<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
@@ -116,7 +80,7 @@ transaction.goToPage(pageName);</xmp><!--Content built using default--><!--Page 
             </div>
           </div>
         </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) end -->
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

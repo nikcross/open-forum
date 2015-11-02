@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum/Javascript/JavaWrapper";
 		var author = "unknown";
-		var time = "1445206475795";
+		var time = "1437406926000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -34,33 +34,8 @@
             </h1>
           </li>
         </ul>
-<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Actions</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper">Edit</a></li>
-                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Javascript/JavaWrapper">Refresh Page</a></li>
-                <li><a href="#">Create New Page</a></li>
-                <li><a href="#">Create New Child Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Sub Pages</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/Javascript/JavaWrapper/External" title="/OpenForum/Javascript/JavaWrapper/External">External</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/File" title="/OpenForum/Javascript/JavaWrapper/File">File</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/JS" title="/OpenForum/Javascript/JavaWrapper/JS">JS</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/Js" title="/OpenForum/Javascript/JavaWrapper/Js">Js</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/Wiki" title="/OpenForum/Javascript/JavaWrapper/Wiki">Wiki</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/wiki" title="/OpenForum/Javascript/JavaWrapper/wiki">wiki</a></li></ul>
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Attachments</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/Javascript/JavaWrapper/notes.txt">notes.txt</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/page.content">page.content</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/owner.txt">owner.txt</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/printable.html">printable.html</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/data.json">data.json</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/get.sjs">get.sjs</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/page.js">page.js</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/service-action-template.sjs">service-action-template.sjs</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/page.html">page.html</a></li><li><a href="/OpenForum/Javascript/JavaWrapper/java-wrapper.sjs">java-wrapper.sjs</a></li></ul>
-                </li></ul>
-            </li>
             <li class="divider"></li>
             <li class="has-dropdown">
               <a href="#">Signed in as {{currentUser}}</a>
@@ -71,23 +46,12 @@
             </li>
           </ul>
         </section>
-
-<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Javascript/JavaWrapper&newPageName="+document.getElementById("OpenForumCopyPage").value;
-    };
-    </script>
-</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">JavaWrapper</a></li></nav>
     
     <div class="row">
-    <!--PageContent Start--><a href="/OpenForum/Javascript/JavaWrapper/get.sjs">get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/JavaWrapper&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">//Version 0.1
+    <!--PageContent Start--><a href="/OpenForum/Javascript/JavaWrapper/get.sjs" title="/OpenForum/Javascript/JavaWrapper/get.sjs">OpenForum/Javascript/JavaWrapper/get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/JavaWrapper&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">//Version 0.1
 var action = transaction.getParameter("action");
 
 if(action===null) {
@@ -327,7 +291,7 @@ Client code documentation template
 </xmp>
 
 <h3>Old Code
-<a href="/OpenForum/Javascript/JavaWrapper/java-wrapper.sjs">java-wrapper.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/JavaWrapper&fileName=java-wrapper.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">/*function wrap(instance) {
+<a href="/OpenForum/Javascript/JavaWrapper/java-wrapper.sjs" title="/OpenForum/Javascript/JavaWrapper/java-wrapper.sjs">OpenForum/Javascript/JavaWrapper/java-wrapper.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/JavaWrapper&fileName=java-wrapper.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">/*function wrap(instance) {
   //if primative, convert to javascript type
   if(instance instanceof String) {
     return ""+instance;
@@ -357,7 +321,7 @@ function wrap(instance) {
 wrap(js);</xmp><!--Content built using default--><!--Page Content End-->
     </div>
       
-<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
@@ -372,7 +336,7 @@ wrap(js);</xmp><!--Content built using default--><!--Page Content End-->
             </div>
           </div>
         </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) end -->
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
@@ -380,4 +344,5 @@ wrap(js);</xmp><!--Content built using default--><!--Page Content End-->
       $(document).foundation();
     </script>
   </body>
-</html></h3></h3></h3>
+</html>
+</h3></h3></h3>

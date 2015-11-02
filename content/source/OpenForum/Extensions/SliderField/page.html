@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum/Extensions/SliderField";
 		var author = "unknown";
-		var time = "1445206294150";
+		var time = "1437406924000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -34,33 +34,8 @@
             </h1>
           </li>
         </ul>
-<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Actions</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/SliderField">Edit</a></li>
-                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Extensions/SliderField">Refresh Page</a></li>
-                <li><a href="#">Create New Page</a></li>
-                <li><a href="#">Create New Child Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Sub Pages</a>
-              <ul class="dropdown"><li>
-
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Attachments</a>
-              <ul class="dropdown"><li>
-<ul><li><img src="/OpenForum/Extensions/SliderField/slider.png" alt="slider.png"/></li><li><img src="/OpenForum/Extensions/SliderField/slider.thumbnail.png" alt="slider.thumbnail.png"/></li><li><a href="/OpenForum/Extensions/SliderField/renderer.sjs">renderer.sjs</a></li><li><a href="/OpenForum/Extensions/SliderField/page.content">page.content</a></li><li><a href="/OpenForum/Extensions/SliderField/slider.js">slider.js</a></li><li><a href="/OpenForum/Extensions/SliderField/tags.txt">tags.txt</a></li><li><a href="/OpenForum/Extensions/SliderField/owner.txt">owner.txt</a></li><li><a href="/OpenForum/Extensions/SliderField/printable.html">printable.html</a></li><li><a href="/OpenForum/Extensions/SliderField/data.json">data.json</a></li><li><img src="/OpenForum/Extensions/SliderField/slider.icon.png" alt="slider.icon.png"/></li><li><a href="/OpenForum/Extensions/SliderField/data-file-map.xml.link">data-file-map.xml.link</a></li><li><a href="/OpenForum/Extensions/SliderField/update.wiki.template.link">update.wiki.template.link</a></li><li><a href="/OpenForum/Extensions/SliderField/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/Extensions/SliderField/page.html">page.html</a></li></ul>
-                </li></ul>
-            </li>
             <li class="divider"></li>
             <li class="has-dropdown">
               <a href="#">Signed in as {{currentUser}}</a>
@@ -71,18 +46,7 @@
             </li>
           </ul>
         </section>
-
-<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Extensions/SliderField&newPageName="+document.getElementById("OpenForumCopyPage").value;
-    };
-    </script>
-</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">SliderField</a></li></nav>
     
@@ -93,7 +57,7 @@
 <h3>Usage:</h3><xmp class="example">
 [{SliderField title="Volume" id="volume" value="25" maxValue="100" width="400" height="30"}]
 </xmp>
-<table class="blog"><tr><td>Volume</td><td height="30" width="425"bgcolor="white"><DIV id="volumeControlLayer"><img id="volumeSlider" src="/OpenForum/Images/area.png" width="20" height="30"><a href="" onMouseDown="mouse.setSelected(volume);return false;" onClick="mouse.setSelected(volume);return false;"><img id="volumeControl" src="/OpenForum/Extensions/SliderField/slider.png" width="20" height="30" border="0"></a></DIV><input type="hidden" id="volume"name="volume"></td><td><DIV id="volumeLayer"></DIV></td></tr></table><script>includeLibrary("/OpenForum/Extensions/SliderField/slider.js");includeInitFunction("volume = new SliderField('volume',25,100,400)")</script><br/><hr/><br/><a href="/OpenForum/Extensions/SliderField/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/SliderField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var title = extension.getAttribute("title");
+<table class="blog"><tr><td>Volume</td><td height="30" width="425"bgcolor="white"><DIV id="volumeControlLayer"><img id="volumeSlider" src="/OpenForum/Images/area.png" width="20" height="30"><a href="" onMouseDown="mouse.setSelected(volume);return false;" onClick="mouse.setSelected(volume);return false;"><img id="volumeControl" src="/OpenForum/Extensions/SliderField/slider.png" width="20" height="30" border="0"></a></DIV><input type="hidden" id="volume"name="volume"></td><td><DIV id="volumeLayer"></DIV></td></tr></table><script>includeLibrary("/OpenForum/Extensions/SliderField/slider.js");includeInitFunction("volume = new SliderField('volume',25,100,400)")</script><br/><hr/><br/><a href="/OpenForum/Extensions/SliderField/renderer.sjs" title="/OpenForum/Extensions/SliderField/renderer.sjs">OpenForum/Extensions/SliderField/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/SliderField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var title = extension.getAttribute("title");
 var id = extension.getAttribute("id");
 var value = extension.getAttribute("value");
 var maxValue = extension.getAttribute("maxValue");
@@ -119,7 +83,7 @@ else
 </xmp><!--Content built using default--><!--Page Content End-->
     </div>
       
-<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
@@ -134,7 +98,7 @@ else
             </div>
           </div>
         </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) end -->
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

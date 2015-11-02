@@ -1,4 +1,6 @@
 <xmp class="example">
 edit=/OpenForum/Editor
 delete=/OpenForum/Actions/Delete
+refresh=/OpenForum/Actions/RefreshPage
+view=/OpenForum/Actions/ViewFolder
 </xmp><!--Content built using default-->

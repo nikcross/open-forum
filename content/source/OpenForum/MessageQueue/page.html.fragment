@@ -6,7 +6,7 @@
 
 <hr/>
 
-<a href="/OpenForum/MessageQueue/get.sjs">get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/MessageQueue&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var action = ""+transaction.getParameter("action");
+<a href="/OpenForum/MessageQueue/get.sjs" title="/OpenForum/MessageQueue/get.sjs">OpenForum/MessageQueue/get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/MessageQueue&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var action = ""+transaction.getParameter("action");
 
 if(action==="null") {
 	transaction.setResult(transaction.SHOW_PAGE);
@@ -51,7 +51,7 @@ if(action==="push") {
 }
 </xmp>
 
-<a href="/OpenForum/MessageQueue/MessageQueue.js">MessageQueue.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/MessageQueue&fileName=MessageQueue.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">function MessageQueue(queueName) {
+<a href="/OpenForum/MessageQueue/MessageQueue.js" title="/OpenForum/MessageQueue/MessageQueue.js">OpenForum/MessageQueue/MessageQueue.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/MessageQueue&fileName=MessageQueue.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">function MessageQueue(queueName) {
   var queue = queueName;
   var timestamp = 0;
   var self = this;

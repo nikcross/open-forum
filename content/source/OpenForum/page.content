@@ -1,20 +1,14 @@
-<div class="row">
+
 !!System Configuration Pages
 *[Actions|/OpenForum/Actions]
 *[Extensions|/OpenForum/Extensions]
 *[Triggers|/OpenForum/Triggers]
 *[Java Plugin Manager|/OpenForum/JarManager]
-*[Site Wide Page Definition|/OpenForum/Page]
+*[Site Wide Page Definition|/OpenForum/PageTemplates/Default]
 *[Javascript|/OpenForum/Javascript]
 *[Aliases|/OpenForum/Aliases]
 *[Dynamic Pages|/OpenForum/DynamicPages]
 
-----
-__Wiki Builder Feed__
-%%box
-[{WebChatView queueName="/OpenForum"}]
-%%
-[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
 ----
 !!Reference
 *[Styles|/OpenForum/Styles]
@@ -24,8 +18,8 @@ __Wiki Builder Feed__
 ----
 !!System Documents
 *[About OpenForum|/OpenForum/About]
-*[Credits|/OpenForum/Credits]
-*[Release Notes|/OpenForum/Release Notes]
-*[License|/OpenForum/License]
-</div>
+*[Credits|/OpenForum/About/Credits]
+*[Release Notes|/OpenForum/About/Release Notes]
+*[License|/OpenForum/About/License]
+
 

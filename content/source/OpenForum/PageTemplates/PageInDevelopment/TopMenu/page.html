@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
 	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-	<script type="text/javascript" src="/OpenForum/PageTemplates/Default/TopMenu/page.js"></script>
+	<script type="text/javascript" src="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/PageTemplates/Default/TopMenu";
+		var pageName = "OpenForum/PageTemplates/PageInDevelopment/TopMenu";
 		var author = "unknown";
-		var time = "1445206306258";
+		var time = "1445263139000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -34,17 +34,18 @@
             </h1>
           </li>
         </ul>
-<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
               <a href="#">Actions</a>
               <ul class="dropdown">
-                <li><a href="/OpenForum/Editor?pageName=/OpenForum/PageTemplates/Default/TopMenu">Edit</a></li>
-                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/PageTemplates/Default/TopMenu">Refresh Page</a></li>
+                <li><a href="/OpenForum/Editor?pageName=/OpenForum/PageTemplates/PageInDevelopment/TopMenu">Edit</a></li>
+                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/PageTemplates/PageInDevelopment/TopMenu">Refresh Page</a></li>
                 <li><a href="#">Create New Page</a></li>
                 <li><a href="#">Create New Child Page</a></li>
                 <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
+                <li><a href="/Development?action=publish&pageName=/OpenForum/PageTemplates/PageInDevelopment/TopMenu">Publish Page</a></li>
               </ul>
             </li>
             <li class="divider"></li>
@@ -58,7 +59,7 @@
             <li class="has-dropdown">
               <a href="#">Attachments</a>
               <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/PageTemplates/Default/TopMenu/notes.txt">notes.txt</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/page.js">page.js</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/page.content">page.content</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/old.page.content">old.page.content</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/topMenu.js">topMenu.js</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/tags.txt">tags.txt</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/owner.txt">owner.txt</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/printable.html">printable.html</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/data.json">data.json</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/page.html">page.html</a></li></ul>
+<ul><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt">notes.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js">page.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content">page.content</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js">topMenu.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt">tags.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html">printable.html</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json">data.json</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html">page.html</a></li></ul>
                 </li></ul>
             </li>
             <li class="divider"></li>
@@ -79,12 +80,13 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/PageTemplates/Default/TopMenu&newPageName="+document.getElementById("OpenForumCopyPage").value;
+    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/PageTemplates/PageInDevelopment/TopMenu&newPageName="+document.getElementById("OpenForumCopyPage").value;
     };
     </script>
-</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+</div>
+<!-- insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/PageTemplates">PageTemplates</a></li><li role="menuitem"><a href="/OpenForum/PageTemplates/Default">Default</a></li><li role="menuitem" class="current"><a href="/OpenForum/PageTemplates/Default">TopMenu</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/PageTemplates">PageTemplates</a></li><li role="menuitem"><a href="/OpenForum/PageTemplates/PageInDevelopment">PageInDevelopment</a></li><li role="menuitem" class="current"><a href="/OpenForum/PageTemplates/PageInDevelopment">TopMenu</a></li></nav>
     
     <div class="row">
     <!--PageContent Start-->        <section class="top-bar-section">
@@ -93,11 +95,12 @@
             <li class="has-dropdown">
               <a href="#">Actions</a>
               <ul class="dropdown">
-                <li><a href="/OpenForum/Editor?pageName=/OpenForum/PageTemplates/Default/TopMenu">Edit</a></li>
-                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/PageTemplates/Default/TopMenu">Refresh Page</a></li>
+                <li><a href="/OpenForum/Editor?pageName=/OpenForum/PageTemplates/PageInDevelopment/TopMenu">Edit</a></li>
+                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/PageTemplates/PageInDevelopment/TopMenu">Refresh Page</a></li>
                 <li><a href="#">Create New Page</a></li>
                 <li><a href="#">Create New Child Page</a></li>
                 <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
+                <li><a href="/Development?action=publish&pageName=/OpenForum/PageTemplates/PageInDevelopment/TopMenu">Publish Page</a></li>
               </ul>
             </li>
             <li class="divider"></li>
@@ -111,7 +114,7 @@
             <li class="has-dropdown">
               <a href="#">Attachments</a>
               <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/PageTemplates/Default/TopMenu/notes.txt">notes.txt</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/page.js">page.js</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/page.content">page.content</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/old.page.content">old.page.content</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/topMenu.js">topMenu.js</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/tags.txt">tags.txt</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/owner.txt">owner.txt</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/printable.html">printable.html</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/data.json">data.json</a></li><li><a href="/OpenForum/PageTemplates/Default/TopMenu/page.html">page.html</a></li></ul>
+<ul><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt">notes.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js">page.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content">page.content</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js">topMenu.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt">tags.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html">printable.html</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json">data.json</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html">page.html</a></li></ul>
                 </li></ul>
             </li>
             <li class="divider"></li>
@@ -132,13 +135,14 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/PageTemplates/Default/TopMenu&newPageName="+document.getElementById("OpenForumCopyPage").value;
+    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/PageTemplates/PageInDevelopment/TopMenu&newPageName="+document.getElementById("OpenForumCopyPage").value;
     };
     </script>
-</div><!--Content built using default--><!--Page Content End-->
+</div>
+<!--Content built using default--><!--Page Content End-->
     </div>
       
-<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+<!-- insert (/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
@@ -153,7 +157,7 @@
             </div>
           </div>
         </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) end -->
+      </footer><!-- insert (/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

@@ -1,0 +1,98 @@
+        <section class="top-bar-section">
+          <ul class="left"> 
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="[{Hash}]">Actions</a>
+              <ul class="dropdown">
+                <li><a href="[{Hash}]" onClick="openPage();">View Current Page</a></li>
+                <li><a href="[{Hash}]" onClick="saveAttachments();">Save All Changes</a></li>
+                <li><a href="[{Hash}]" onClick="openPage();">Edit Another Page</a></li>
+                <li><a href="[{Hash}]" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
+                <li><a href="[{Hash}]" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
+                <li><a href="[{Hash}]" onClick="OpenForum.deletePage();">Delete Page</a></li>
+                <li><a href="[{Hash}]" id="displayStatusModal" data-reveal-id="statusModal">Show Status</a></li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="[{Hash}]">Sub Pages</a>
+              <ul class="dropdown"><li>
+[{ChildPagesList}]
+                </li></ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="[{Hash}]">Attachments</a>
+              <ul class="dropdown">
+                <li of-repeatFor="attachment in attachments"><a href="[{Hash}]" onClick="openAttachment({{attachment.id}});return false;">{{attachment.fileName}}</a></li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="[{Hash}]">Plugins</a>
+              <ul class="dropdown">
+                <li><a onClick="loadPlugin('PageManager');return false;">Page Manager</a></li>
+                <li><a onClick="loadPlugin('Console');return false;">Javascript Console</a></li>
+                <li><a onClick="loadPlugin('ServerConsole');return false;">Server Side Javascript Console</a></li>
+                <li><a onClick="loadPlugin('RemoteEditor');return false;">Remote File Editor</a></li>
+                <li><a onClick="loadPlugin('DataTransform');return false;">Data Transform Helper</a></li>
+                <li><a onClick="loadPlugin('Giraffe');return false;">Giraffe Graphics Environment</a></li>
+                <li><a onClick="loadPlugin('Video');return false;">Video Capture</a></li>
+                <li><a onClick="loadPlugin('GameConsole');return false;">Game Console</a></li>
+                <li><a onClick="loadPlugin('ClientConsole');return false;">Javascript Client Console</a></li>
+                <li><a onClick="loadPlugin('Service');return false;">Web Service Wizard</a></li>
+                <li><a onClick="loadPlugin('Vision');return false;">Vision Developer</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section class="top-bar-section">
+          <ul class="right">
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="[{Hash}]">Signed in as {{currentUser}}</a>
+              <ul class="dropdown">
+                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+<!-- Copy Page -->
+
+<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Page</h2>
+  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
+  <p><a href="[{Hash}]" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+  <script>
+    OpenForum.copyPage = function() {
+    	window.location = "/OpenForum/Actions/Copy?sourcePageName=&pageName;&newPageName="+document.getElementById("OpenForumCopyPage").value;
+    };
+    </script>
+</div>
+
+<!-- Move Page -->
+
+<div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Move Page</h2>
+  <p>Move this page to <input type="text" id="OpenForumMovePage"/></p>
+  <p><a href="[{Hash}]" onClick="OpenForum.movePage();return false;" class="secondary button">Move Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+  <script>
+    OpenForum.movePage = function() {
+    	window.location = "/OpenForum/Actions/Move?sourcePageName=&pageName;&newPageName="+document.getElementById("OpenForumMovePage").value;
+    };
+    </script>
+</div>
+
+<!-- Delete Page -->
+
+  <script>
+    OpenForum.deletePage = function() {
+    	window.location = "/OpenForum/Actions/Delete?pageName=";
+      return false;
+    };
+    </script>

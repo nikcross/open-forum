@@ -1,19 +1,2 @@
 !!JarManager
-<form name="templateSubmitForm" id="templateSubmitForm" action="/OpenForum/Actions/Copy" method="post">
-Extension Name:<input type="input" name="_newPageName" value="">
-<input type="hidden" name="newPageName">
-<input type="hidden" name="sourcePageName" value="/OpenForum/PageTemplates/JarPage">
-<input type="button" value="Create Jar Plugin Page" onclick="createTemplate();return false;">
-</form>
 
-__Jar Manager Feed__
-[{ActionButton action="RefreshJarManager" parameters="pageName=dummy" text="Refresh"}]
-%%box
-[{WebChatView queueName="/OpenForum/JarManager"}]
-%%
-
-__Jars__\\\\
-*/OpenForum/SQL
-*/OpenForum/SystemMonitor
-*/OpenForum/MessageQueue
-*/OpenForum/SystemMonitor/SessionStoreMonitor

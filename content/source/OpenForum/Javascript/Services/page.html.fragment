@@ -1,1 +1,17 @@
-<!--Content built using default-->
+<a href="/OpenForum/Javascript/Services/get.sjs" title="/OpenForum/Javascript/Services/get.sjs">OpenForum/Javascript/Services/get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/Services&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var script = transaction.getParameter("script");
+
+if(script===null) {
+       transaction.setResult(transaction.SHOW_PAGE);
+		return;
+}
+
+var callBack = transaction.getParameter("callback");
+
+javascript = file.getAttachment("",script);
+
+if(callBack!==null) {
+  javascript = javascript+"\n  " + callBack + "(\""+script+"\");";
+}
+
+transaction.sendPage(javascript,"js");
+</xmp><!--Content built using default-->

@@ -1,22 +1,13 @@
 ----
 !!To Do
-* X Make file editor only open once
-* X Make editor focus on attachment load
-* X Make editor refresh on attachement load
-* X Automatically open files for a requested page
-* X Automatically open an editor for a requested file
-* X Mark attachments that have been changed
-* X Implement save all
-* X Implement open page
-* X Implement close tab
+* Implement open page
+* Implement close tab
 * More information on the attachments list
 ** Size
 ** Last modified
 ** Is link
-* X Implement open different page
-* X Implement open file on different page
-* X Extract editors into own script files
-* X Import javascript runner
-* X Add editors for more file types
+* Implement open different page
+* Implement open file on different page
+* Import javascript runner
 * Add read only option for link files
-* X Use Dynamic pages list to route *:edit to the editor
+----

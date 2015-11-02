@@ -1,9 +1,9 @@
 if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
+  return;
 }
-else
-{
+
         transaction.userCanPerformAction(pageName,"update",true);
 
         pageName = transaction.getParameter("pageName");
@@ -15,4 +15,3 @@ else
         wiki.rebuild();
 
         transaction.goToPage(pageName);
-}

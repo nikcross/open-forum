@@ -3,9 +3,9 @@ newPageName = transaction.getParameter("newPageName");
 if(newPageName===null)
 {
 	transaction.setResult(transaction.SHOW_PAGE);
+  return;
 }
-else
-{
+
 	sourcePageName = ""+transaction.getParameter("sourcePageName");
 	newPageName = ""+transaction.getParameter("newPageName");
 	listPageName = transaction.getParameter("listPageName");
@@ -18,4 +18,3 @@ else
 	wiki.copyPage(sourcePageName,newPageName,listPageName);
 
 	transaction.goToPage("/OpenForum/Editor?pageName="+newPageName);
-}

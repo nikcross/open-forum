@@ -1,12 +1,9 @@
 if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
+  return;
 }
-else
-{
-	newPageName = 	transaction.getParameter("newPageName");
+	newPageName = transaction.getParameter("newPageName");
 	wiki.copyPage(pageName,newPageName,null);
 	wiki.deletePage(pageName);
 	transaction.goToPage(newPageName); 
-
-}

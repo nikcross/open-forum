@@ -1,8 +1,8 @@
-<a name="section1"></a><a href="" title="" onclick="window.open('');return false;">See: /OpenForum/Extensions/StartEditForm <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a>
+<a name="section1"></a><a href="/OpenForum/Editor?pageName=See/OpenForum/Extensions/StartEditForm" title="/OpenForum/Editor?pageName=See/OpenForum/Extensions/StartEditForm">See: /OpenForum/Extensions/StartEditForm</a>
 <hr/><a name="section2"></a>
 <h3>Parameters</h3><hr/><a name="section3"></a>
 <h3>Usage:</h3><xmp class="example">
 [{-Example-}]
 </xmp>
 -Example-<br/><hr/>
-<h3>renderer.sjs</h3><xmp class="example">return "<input type='hidden' name='pageName' value='OpenForum/Extensions/EndEditForm'></form>"</xmp><!--Content built using default-->
+<h3>renderer.sjs</h3><xmp class="example">return "<input type='hidden' name='pageName' value='&pageName;'></form>"</xmp><!--Content built using default-->

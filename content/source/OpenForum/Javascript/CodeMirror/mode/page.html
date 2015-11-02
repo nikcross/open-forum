@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum/Javascript/CodeMirror/mode";
 		var author = "unknown";
-		var time = "1445206445760";
+		var time = "-1";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -34,33 +34,8 @@
             </h1>
           </li>
         </ul>
-<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Actions</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/mode">Edit</a></li>
-                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Javascript/CodeMirror/mode">Refresh Page</a></li>
-                <li><a href="#">Create New Page</a></li>
-                <li><a href="#">Create New Child Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Sub Pages</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/Javascript/CodeMirror/mode/apl" title="/OpenForum/Javascript/CodeMirror/mode/apl">apl</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/asterisk" title="/OpenForum/Javascript/CodeMirror/mode/asterisk">asterisk</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/clike" title="/OpenForum/Javascript/CodeMirror/mode/clike">clike</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/clojure" title="/OpenForum/Javascript/CodeMirror/mode/clojure">clojure</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/cobol" title="/OpenForum/Javascript/CodeMirror/mode/cobol">cobol</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/coffeescript" title="/OpenForum/Javascript/CodeMirror/mode/coffeescript">coffeescript</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/commonlisp" title="/OpenForum/Javascript/CodeMirror/mode/commonlisp">commonlisp</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/css" title="/OpenForum/Javascript/CodeMirror/mode/css">css</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/d" title="/OpenForum/Javascript/CodeMirror/mode/d">d</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/diff" title="/OpenForum/Javascript/CodeMirror/mode/diff">diff</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/dtd" title="/OpenForum/Javascript/CodeMirror/mode/dtd">dtd</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/ecl" title="/OpenForum/Javascript/CodeMirror/mode/ecl">ecl</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/eiffel" title="/OpenForum/Javascript/CodeMirror/mode/eiffel">eiffel</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/erlang" title="/OpenForum/Javascript/CodeMirror/mode/erlang">erlang</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/fortran" title="/OpenForum/Javascript/CodeMirror/mode/fortran">fortran</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/gas" title="/OpenForum/Javascript/CodeMirror/mode/gas">gas</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/gfm" title="/OpenForum/Javascript/CodeMirror/mode/gfm">gfm</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/gherkin" title="/OpenForum/Javascript/CodeMirror/mode/gherkin">gherkin</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/go" title="/OpenForum/Javascript/CodeMirror/mode/go">go</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/groovy" title="/OpenForum/Javascript/CodeMirror/mode/groovy">groovy</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/haml" title="/OpenForum/Javascript/CodeMirror/mode/haml">haml</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/haskell" title="/OpenForum/Javascript/CodeMirror/mode/haskell">haskell</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/haxe" title="/OpenForum/Javascript/CodeMirror/mode/haxe">haxe</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/htmlembedded" title="/OpenForum/Javascript/CodeMirror/mode/htmlembedded">htmlembedded</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/htmlmixed" title="/OpenForum/Javascript/CodeMirror/mode/htmlmixed">htmlmixed</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/http" title="/OpenForum/Javascript/CodeMirror/mode/http">http</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/jade" title="/OpenForum/Javascript/CodeMirror/mode/jade">jade</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/javascript" title="/OpenForum/Javascript/CodeMirror/mode/javascript">javascript</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/jinja2" title="/OpenForum/Javascript/CodeMirror/mode/jinja2">jinja2</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/julia" title="/OpenForum/Javascript/CodeMirror/mode/julia">julia</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/livescript" title="/OpenForum/Javascript/CodeMirror/mode/livescript">livescript</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/lua" title="/OpenForum/Javascript/CodeMirror/mode/lua">lua</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/markdown" title="/OpenForum/Javascript/CodeMirror/mode/markdown">markdown</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/mirc" title="/OpenForum/Javascript/CodeMirror/mode/mirc">mirc</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/mllike" title="/OpenForum/Javascript/CodeMirror/mode/mllike">mllike</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/nginx" title="/OpenForum/Javascript/CodeMirror/mode/nginx">nginx</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/ntriples" title="/OpenForum/Javascript/CodeMirror/mode/ntriples">ntriples</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/octave" title="/OpenForum/Javascript/CodeMirror/mode/octave">octave</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/pascal" title="/OpenForum/Javascript/CodeMirror/mode/pascal">pascal</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/pegjs" title="/OpenForum/Javascript/CodeMirror/mode/pegjs">pegjs</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/perl" title="/OpenForum/Javascript/CodeMirror/mode/perl">perl</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/php" title="/OpenForum/Javascript/CodeMirror/mode/php">php</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/pig" title="/OpenForum/Javascript/CodeMirror/mode/pig">pig</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/properties" title="/OpenForum/Javascript/CodeMirror/mode/properties">properties</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/puppet" title="/OpenForum/Javascript/CodeMirror/mode/puppet">puppet</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/python" title="/OpenForum/Javascript/CodeMirror/mode/python">python</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/q" title="/OpenForum/Javascript/CodeMirror/mode/q">q</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/r" title="/OpenForum/Javascript/CodeMirror/mode/r">r</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/rpm" title="/OpenForum/Javascript/CodeMirror/mode/rpm">rpm</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/rst" title="/OpenForum/Javascript/CodeMirror/mode/rst">rst</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/ruby" title="/OpenForum/Javascript/CodeMirror/mode/ruby">ruby</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/rust" title="/OpenForum/Javascript/CodeMirror/mode/rust">rust</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/sass" title="/OpenForum/Javascript/CodeMirror/mode/sass">sass</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/scheme" title="/OpenForum/Javascript/CodeMirror/mode/scheme">scheme</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/shell" title="/OpenForum/Javascript/CodeMirror/mode/shell">shell</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/sieve" title="/OpenForum/Javascript/CodeMirror/mode/sieve">sieve</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/smalltalk" title="/OpenForum/Javascript/CodeMirror/mode/smalltalk">smalltalk</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/smarty" title="/OpenForum/Javascript/CodeMirror/mode/smarty">smarty</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/smartymixed" title="/OpenForum/Javascript/CodeMirror/mode/smartymixed">smartymixed</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/solr" title="/OpenForum/Javascript/CodeMirror/mode/solr">solr</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/sparql" title="/OpenForum/Javascript/CodeMirror/mode/sparql">sparql</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/sql" title="/OpenForum/Javascript/CodeMirror/mode/sql">sql</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/stex" title="/OpenForum/Javascript/CodeMirror/mode/stex">stex</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/tcl" title="/OpenForum/Javascript/CodeMirror/mode/tcl">tcl</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/tiddlywiki" title="/OpenForum/Javascript/CodeMirror/mode/tiddlywiki">tiddlywiki</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/tiki" title="/OpenForum/Javascript/CodeMirror/mode/tiki">tiki</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/toml" title="/OpenForum/Javascript/CodeMirror/mode/toml">toml</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/turtle" title="/OpenForum/Javascript/CodeMirror/mode/turtle">turtle</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/vb" title="/OpenForum/Javascript/CodeMirror/mode/vb">vb</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/vbscript" title="/OpenForum/Javascript/CodeMirror/mode/vbscript">vbscript</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/velocity" title="/OpenForum/Javascript/CodeMirror/mode/velocity">velocity</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/verilog" title="/OpenForum/Javascript/CodeMirror/mode/verilog">verilog</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/xml" title="/OpenForum/Javascript/CodeMirror/mode/xml">xml</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/xquery" title="/OpenForum/Javascript/CodeMirror/mode/xquery">xquery</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/yaml" title="/OpenForum/Javascript/CodeMirror/mode/yaml">yaml</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/z80" title="/OpenForum/Javascript/CodeMirror/mode/z80">z80</a></li></ul>
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Attachments</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/Javascript/CodeMirror/mode/data.json">data.json</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/index.html">index.html</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/meta.js">meta.js</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/Javascript/CodeMirror/mode/page.html">page.html</a></li></ul>
-                </li></ul>
-            </li>
             <li class="divider"></li>
             <li class="has-dropdown">
               <a href="#">Signed in as {{currentUser}}</a>
@@ -71,18 +46,7 @@
             </li>
           </ul>
         </section>
-
-<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Javascript/CodeMirror/mode&newPageName="+document.getElementById("OpenForumCopyPage").value;
-    };
-    </script>
-</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem"><a href="/OpenForum/Javascript/CodeMirror">CodeMirror</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript/CodeMirror">mode</a></li></nav>
     
@@ -90,7 +54,7 @@
     <!--PageContent Start-->Page content missing. Errors: <ul><li>No content supplied by caller</li><li>No content found at OpenForum/Javascript/CodeMirror/mode/page.content</li><li>No content found at OpenForum/Javascript/CodeMirror/mode/page.wiki (deprecated)</li></ul> Content:<a href="/OpenForum/Editor?pageName=Null" title="/OpenForum/Editor?pageName=Null"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a><!--Content built using default--><!--Page Content End-->
     </div>
       
-<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
@@ -105,7 +69,7 @@
             </div>
           </div>
         </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) end -->
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

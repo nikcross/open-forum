@@ -12,7 +12,7 @@
 	<script>
 		var pageName = "OpenForum";
 		var author = "unknown";
-		var time = "1445206040830";
+		var time = "1444565386000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -34,33 +34,8 @@
             </h1>
           </li>
         </ul>
-<!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) start -->        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Actions</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Editor?pageName=/OpenForum">Edit</a></li>
-                <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum">Refresh Page</a></li>
-                <li><a href="#">Create New Page</a></li>
-                <li><a href="#">Create New Child Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Sub Pages</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/About" title="/OpenForum/About">About</a></li><li><a href="/OpenForum/Access" title="/OpenForum/Access">Access</a></li><li><a href="/OpenForum/Actions" title="/OpenForum/Actions">Actions</a></li><li><a href="/OpenForum/Authentication" title="/OpenForum/Authentication">Authentication</a></li><li><a href="/OpenForum/Authorization" title="/OpenForum/Authorization">Authorization</a></li><li><a href="/OpenForum/Configuration" title="/OpenForum/Configuration">Configuration</a></li><li><a href="/OpenForum/DeletedPages" title="/OpenForum/DeletedPages">DeletedPages</a></li><li><a href="/OpenForum/Editor" title="/OpenForum/Editor">Editor</a></li><li><a href="/OpenForum/ErrorPages" title="/OpenForum/ErrorPages">ErrorPages</a></li><li><a href="/OpenForum/Extensions" title="/OpenForum/Extensions">Extensions</a></li><li><a href="/OpenForum/FileTemplates" title="/OpenForum/FileTemplates">FileTemplates</a></li><li><a href="/OpenForum/Giraffe" title="/OpenForum/Giraffe">Giraffe</a></li><li><a href="/OpenForum/Groups" title="/OpenForum/Groups">Groups</a></li><li><a href="/OpenForum/HomePage" title="/OpenForum/HomePage">HomePage</a></li><li><a href="/OpenForum/Images" title="/OpenForum/Images">Images</a></li><li><a href="/OpenForum/JarManager" title="/OpenForum/JarManager">JarManager</a></li><li><a href="/OpenForum/Javascript" title="/OpenForum/Javascript">Javascript</a></li><li><a href="/OpenForum/Journal" title="/OpenForum/Journal">Journal</a></li><li><a href="/OpenForum/MessageQueue" title="/OpenForum/MessageQueue">MessageQueue</a></li><li><a href="/OpenForum/PageTemplates" title="/OpenForum/PageTemplates">PageTemplates</a></li><li><a href="/OpenForum/PagesIndex" title="/OpenForum/PagesIndex">PagesIndex</a></li><li><a href="/OpenForum/Processor" title="/OpenForum/Processor">Processor</a></li><li><a href="/OpenForum/SQL" title="/OpenForum/SQL">SQL</a></li><li><a href="/OpenForum/SearchResults" title="/OpenForum/SearchResults">SearchResults</a></li><li><a href="/OpenForum/SiteExplorer" title="/OpenForum/SiteExplorer">SiteExplorer</a></li><li><a href="/OpenForum/SystemMonitor" title="/OpenForum/SystemMonitor">SystemMonitor</a></li><li><a href="/OpenForum/Temporary" title="/OpenForum/Temporary">Temporary</a></li><li><a href="/OpenForum/Triggers" title="/OpenForum/Triggers">Triggers</a></li><li><a href="/OpenForum/Users" title="/OpenForum/Users">Users</a></li></ul>
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Attachments</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/page.content">page.content</a></li><li><a href="/OpenForum/owner.txt">owner.txt</a></li><li><a href="/OpenForum/data.json">data.json</a></li><li><a href="/OpenForum/mime-types.json">mime-types.json</a></li><li><a href="/OpenForum/page.js">page.js</a></li><li><a href="/OpenForum/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/page.html">page.html</a></li><li><a href="/OpenForum/notes.txt">notes.txt</a></li><li><a href="/OpenForum/tags.txt">tags.txt</a></li><li><a href="/OpenForum/mime-types.xml">mime-types.xml</a></li><li><a href="/OpenForum/printable.html">printable.html</a></li></ul>
-                </li></ul>
-            </li>
             <li class="divider"></li>
             <li class="has-dropdown">
               <a href="#">Signed in as {{currentUser}}</a>
@@ -71,42 +46,25 @@
             </li>
           </ul>
         </section>
-
-<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum&newPageName="+document.getElementById("OpenForumCopyPage").value;
-    };
-    </script>
-</div><!-- insert (/OpenForum/PageTemplates/Default/TopMenu/page.content) end -->
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem" class="current"><a href="">OpenForum</a></li></nav>
     
     <div class="row">
-    <!--PageContent Start--><div class="row">
+    <!--PageContent Start-->
 <h3>System Configuration Pages
-<ul><li><a href="/OpenForum/Actions" title="/OpenForum/Actions">Actions</a></li><li><a href="/OpenForum/Extensions" title="/OpenForum/Extensions">Extensions</a></li><li><a href="/OpenForum/Triggers" title="/OpenForum/Triggers">Triggers</a></li><li><a href="/OpenForum/JarManager" title="/OpenForum/JarManager">Java Plugin Manager</a></li><li><a href="/OpenForum/Editor?pageName=/OpenForum/Page" title="/OpenForum/Editor?pageName=/OpenForum/Page"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li><li><a href="/OpenForum/Javascript" title="/OpenForum/Javascript">Javascript</a></li><li><a href="/OpenForum/Editor?pageName=/OpenForum/Aliases" title="/OpenForum/Editor?pageName=/OpenForum/Aliases"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li><li><a href="/OpenForum/Editor?pageName=/OpenForum/DynamicPages" title="/OpenForum/Editor?pageName=/OpenForum/DynamicPages"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li>
+<ul><li><a href="/OpenForum/Actions" title="/OpenForum/Actions">Actions</a></li><li><a href="/OpenForum/Extensions" title="/OpenForum/Extensions">Extensions</a></li><li><a href="/OpenForum/Triggers" title="/OpenForum/Triggers">Triggers</a></li><li><a href="/OpenForum/JarManager" title="/OpenForum/JarManager">Java Plugin Manager</a></li><li><a href="/OpenForum/PageTemplates/Default" title="/OpenForum/PageTemplates/Default">Site Wide Page Definition</a></li><li><a href="/OpenForum/Javascript" title="/OpenForum/Javascript">Javascript</a></li><li><a href="/OpenForum/Editor?pageName=/OpenForum/Aliases" title="/OpenForum/Editor?pageName=/OpenForum/Aliases">Aliases</a></li><li><a href="/OpenForum/Editor?pageName=/OpenForum/DynamicPages" title="/OpenForum/Editor?pageName=/OpenForum/DynamicPages">Dynamic Pages</a></li>
 <hr/><a name="section2"></a>
-</ul><b>Wiki Builder Feed</b>
-<table class="box"><tr><td>
-<script>includeLibrary("/OpenForum/Extensions/WebChatView/webChatView.js");includeInitFunction("webChatView.init('/OpenForum');");</script><DIV id="/OpenForum"></DIV>
-</td></tr></table>
-<input type="button" value="Rebuild Wiki" onclick="ajax.doGet('/OpenForum/Actions/Rebuild','pageName=Home');return false;">
-<hr/><a name="section3"></a>
-<h3>Reference
-<ul><li><a href="/OpenForum/Editor?pageName=/OpenForum/Styles" title="/OpenForum/Editor?pageName=/OpenForum/Styles"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li><li><a href="/OpenForum/PageTemplates" title="/OpenForum/PageTemplates">System Page Templates</a></li><li><a href="/OpenForum/Images" title="/OpenForum/Images">System Images and Icons</a></li>
+</ul><h3>Reference
+<ul><li><a href="/OpenForum/Editor?pageName=/OpenForum/Styles" title="/OpenForum/Editor?pageName=/OpenForum/Styles">Styles</a></li><li><a href="/OpenForum/PageTemplates" title="/OpenForum/PageTemplates">System Page Templates</a></li><li><a href="/OpenForum/Images" title="/OpenForum/Images">System Images and Icons</a></li>
 <hr/>
 </ul><h3>System Documents
-<ul><li><a href="/OpenForum/About" title="/OpenForum/About">About OpenForum</a></li><li><a href="/OpenForum/Editor?pageName=/OpenForum/Credits" title="/OpenForum/Editor?pageName=/OpenForum/Credits"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li><li><a href="/OpenForum/Editor?pageName=/OpenForum/ReleaseNotes" title="/OpenForum/Editor?pageName=/OpenForum/ReleaseNotes"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li><li><a href="/OpenForum/Editor?pageName=/OpenForum/License" title="/OpenForum/Editor?pageName=/OpenForum/License"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a></li></div>
+<ul><li><a href="/OpenForum/About" title="/OpenForum/About">About OpenForum</a></li><li><a href="/OpenForum/About/Credits" title="/OpenForum/About/Credits">Credits</a></li><li><a href="/OpenForum/About/ReleaseNotes" title="/OpenForum/About/ReleaseNotes">Release Notes</a></li><li><a href="/OpenForum/About/License" title="/OpenForum/About/License">License</a></li>
 
 <!--Content built using default--><!--Page Content End-->
     </div>
       
-<!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) start -->      <footer class="row">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
@@ -121,7 +79,7 @@
             </div>
           </div>
         </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/Default/Footer/page.content) end -->
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
@@ -129,4 +87,5 @@
       $(document).foundation();
     </script>
   </body>
-</html></h3></h3></h3>
+</html>
+</h3></h3></h3>

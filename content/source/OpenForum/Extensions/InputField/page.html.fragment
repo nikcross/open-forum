@@ -4,7 +4,7 @@
 value - optional value
 <hr/><a name="section3"></a>
 <h3>Usage:</h3><xmp class="example">[{InputField name="myField"}]</xmp>
-<input type='text' name='myField' id='myField' value='&myField;'><br/><hr/><br/><a href="/OpenForum/Extensions/InputField/renderer.sjs">renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/InputField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">name = extension.getAttribute("name");
+<input type='text' name='myField' id='myField' value='&myField;'><br/><hr/><br/><a href="/OpenForum/Extensions/InputField/renderer.sjs" title="/OpenForum/Extensions/InputField/renderer.sjs">OpenForum/Extensions/InputField/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/InputField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">name = extension.getAttribute("name");
 value = extension.getAttribute("value");
 
 if(value==null)

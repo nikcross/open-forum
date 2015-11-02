@@ -9,7 +9,7 @@ Also See: <a href="/OpenForum/Extensions/EndNewsPage" title="/OpenForum/Extensio
  [{StartNewsColumn}][{InsertPage page="OpenForum/Styles/LoremIpsum"}][{EndNewsColumn}]
 [{EndNewsPage}]
 </xmp><br/><h3>Example News Page</h3><table width="100%" cellspacing="10" style="border: solid; border-width: 1px; border-color: #A0A0A0; font: 10pt tahoma;"><tr>
- <td valign="top"><img src="/OpenForum/Images/open-forum-small.png" alt="open-forum-small.png"/></td>
+ <td valign="top"><a href="/OpenForum/Images/open-forum-small.png" title="/OpenForum/Images/open-forum-small.png">/OpenForum/Images/open-forum-small.png</a></td>
  <td valign="top"></td>
  <td valign="top"></td>
 </tr></table><br/><hr/>
