@@ -2,7 +2,6 @@ FROM java:openjdk-7-jre
 MAINTAINER  Nik Cross <nikcross@wet-wired.com>
 
 COPY ./source /web/source
-COPY ./changes /web/changes
 COPY ./jetty /web/jetty
 
 ADD entrypoint.sh /opt/entrypoint.sh

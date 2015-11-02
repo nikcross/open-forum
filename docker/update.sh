@@ -2,7 +2,6 @@
 
 rm -rf target
 mkdir target
-mkdir target/changes
 mkdir target/source
 mkdir target/jetty
 
