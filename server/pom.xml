@@ -4,19 +4,19 @@
 	<groupId>onestonesoup.open-forum.server</groupId>
 	<artifactId>open-forum.server</artifactId>
 	<version>3.0.0</version>
-  
+
 	<parent>
 		<groupId>onestonesoup</groupId>
 		<artifactId>open-forum</artifactId>
 		<version>3.0.1</version>
 		<relativePath>../project</relativePath>
 	</parent>
-  
-  <properties>
-	<java.version>1.8</java.version>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  
+
+	<properties>
+		<java.version>1.8</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>rhino</groupId>
@@ -54,7 +54,7 @@
 			<artifactId>core</artifactId>
 			<version>0.1.2</version>
 		</dependency>
-		
+
 		<!-- Test -->
 		<dependency>
 			<groupId>org.mockito</groupId>
@@ -100,21 +100,5 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<resources>
-			<resource>
-				<directory>src/main/java</directory>
-				<filtering>true</filtering>
-				<includes>
-					<include>**/OpenForumConstants.java</include>
-				</includes>
-			</resource>
-			<resource>
-				<directory>src/main/java</directory>
-				<filtering>false</filtering>
-				<excludes>
-					<exclude>**/OpenForumConstants.java</exclude>
-				</excludes>
-			</resource>
-		</resources>
 	</build>
 </project>
