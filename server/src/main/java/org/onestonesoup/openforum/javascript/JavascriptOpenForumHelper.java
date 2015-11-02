@@ -1,12 +1,13 @@
 package org.onestonesoup.openforum.javascript;
 
-import static org.onestonesoup.openforum.controller.OpenForumConstants.SERVER_VERSION;
-
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 import org.onestonesoup.core.data.EntityTree;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
@@ -25,6 +26,7 @@ public class JavascriptOpenForumHelper {
 
 	private OpenForumController controller;
 	private Login login;
+	private String version = null;
 
 	public JavascriptOpenForumHelper(OpenForumController controller, Login login) {
 		this.controller = controller;
@@ -38,7 +40,7 @@ public class JavascriptOpenForumHelper {
 
 	public void addJournalEntry(String entry) throws Exception,
 			AuthenticationException {
-		controller.addJournalEntry(entry);
+		controller.addJournalEntry(entry,login);
 	}
 
 	public String buildPage(String pageName) throws Exception,
@@ -86,7 +88,7 @@ public class JavascriptOpenForumHelper {
 		return DataHelper.getPageAsTable(source);
 	}
 
-	//TODO Remove this and have Processor implement SystemAPI
+	// TODO Remove this and have Processor implement SystemAPI
 	public JavascriptEngine getJavascriptEngine() {
 		return controller.getJavascriptEngine(login);
 	}
@@ -216,7 +218,18 @@ public class JavascriptOpenForumHelper {
 	}
 
 	public String getVersion() {
-		return SERVER_VERSION;
+		if (version != null) {
+			return version;
+		}
+		try {
+			Properties props = new Properties();
+			props.load(this.getClass().getResourceAsStream("/META-INF/maven/onestonesoup.open-forum.server/open-forum.server/pom.properties"));
+			version = props.getProperty("version");
+			
+		} catch (Exception exception) {
+			version = "Unknown";
+		}
+		return version;
 	}
 
 	public String validateWikiTitle(String title) {
@@ -238,12 +251,16 @@ public class JavascriptOpenForumHelper {
 	public String generateUniqueId() {
 		return controller.generateUniqueId();
 	}
-	
+
 	public boolean signIn(Transaction transaction) throws IOException {
-		return controller.getAuthenticator().signIn((HttpHeader)transaction.getHttpHeader(), transaction.getConnection());
+		return controller.getAuthenticator().signIn(
+				(HttpHeader) transaction.getHttpHeader(),
+				transaction.getConnection());
 	}
-	
+
 	public void signOut(Transaction transaction) {
-		controller.getAuthenticator().signOut((HttpHeader)transaction.getHttpHeader(), transaction.getConnection());
+		controller.getAuthenticator().signOut(
+				(HttpHeader) transaction.getHttpHeader(),
+				transaction.getConnection());
 	}
 }

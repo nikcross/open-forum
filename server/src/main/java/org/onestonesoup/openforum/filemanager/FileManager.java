@@ -616,9 +616,9 @@ public class FileManager {
 				resourceStore.appendResource(
 						getFile(pageName, fileName, login), data.getBytes());
 				
-				if(login!=controller.getSystemLogin() && !pageName.equals(JOURNAL_PAGE_PATH)) {
+				if(!pageName.equals(JOURNAL_PAGE_PATH)) {
 					controller.addJournalEntry("File " + fileName + " on Page [" + pageName
-						+ "] Appended to by " + login.getUser().getName());
+						+ "] Appended to by " + login.getUser().getName(),login);
 				}
 			} else {
 				saveStringAsAttachment(data, pageName, fileName, login, true);
@@ -1096,7 +1096,7 @@ public class FileManager {
 					+ fileName);
 			try {
 				controller.addJournalEntry("File " + fileName + " on Page [" + pageName
-						+ "] changed by " + login.getUser().getName());
+						+ "] changed by " + login.getUser().getName(),login);
 			} catch (Exception ioe) {
 			}
 		} else {

@@ -55,7 +55,7 @@ public class SessionCookieAuthenticator implements Authenticator {
 		} else {
 			HttpResponseHeader responseHeader = new HttpResponseHeader(
 					httpHeader, "text/html", 302, connection);
-			responseHeader.addParameter("location", "/OpenForum/Access/SignIn");
+			responseHeader.addParameter("location", "/OpenForum/Access/SignIn?forwardTo="+request);
 
 			connection.getOutputStream().flush();
 			connection.close();

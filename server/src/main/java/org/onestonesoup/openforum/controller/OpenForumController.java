@@ -316,7 +316,7 @@ public class OpenForumController implements OpenForumScripting,
 						"Wiki rebuild failed while building reserved list."
 								+ exception, systemLogin.getUser().getName());
 				addJournalEntry("Wiki rebuild failed while building reserved list.\\\\"
-						+ exception);
+						+ exception,null);
 			}
 			try {
 				queueManager.getQueue("/OpenForum").postMessage(
@@ -329,7 +329,7 @@ public class OpenForumController implements OpenForumScripting,
 						"Wiki rebuild failed while building wiki pages."
 								+ exception, systemLogin.getUser().getName());
 				addJournalEntry("Wiki rebuild failed while building wiki pages.\\\\"
-						+ exception);
+						+ exception,null);
 			}
 			try {
 				queueManager.getQueue("/OpenForum").postMessage(
@@ -342,7 +342,7 @@ public class OpenForumController implements OpenForumScripting,
 						"Wiki rebuild failed while building Wiki Index page."
 								+ exception, systemLogin.getUser().getName());
 				addJournalEntry("Wiki rebuild failed while building Wiki Index page.\\\\"
-						+ exception);
+						+ exception,null);
 			}
 			try {
 				queueManager.getQueue("/OpenForum").postMessage(
@@ -356,7 +356,7 @@ public class OpenForumController implements OpenForumScripting,
 						"Wiki rebuild failed while building Wiki Missing Pages list."
 								+ exception, systemLogin.getUser().getName());
 				addJournalEntry("Wiki rebuild failed while building Wiki Missing Pages list.\\\\"
-						+ exception);
+						+ exception,null);
 			}
 			try {
 				queueManager.getQueue("/OpenForum").postMessage(
@@ -370,7 +370,7 @@ public class OpenForumController implements OpenForumScripting,
 						"Wiki rebuild failed while building Wiki Journal."
 								+ exception, systemLogin.getUser().getName());
 				addJournalEntry("Wiki rebuild failed while building Wiki Journal.\\\\"
-						+ exception);
+						+ exception,null);
 			}
 			try {
 				queueManager.getQueue("/OpenForum")
@@ -384,7 +384,7 @@ public class OpenForumController implements OpenForumScripting,
 						"Wiki rebuild failed while updating jar manager."
 								+ exception, systemLogin.getUser().getName());
 				addJournalEntry("Wiki rebuild failed while updating jar manager.\\\\"
-						+ exception);
+						+ exception,null);
 			}
 
 			queueManager.getQueue("/OpenForum").postMessage("Fin!",
@@ -400,7 +400,7 @@ public class OpenForumController implements OpenForumScripting,
 			queueManager.getQueue("/OpenForum").postMessage(
 					"Wiki rebuild failed." + exception,
 					systemLogin.getUser().getName());
-			addJournalEntry("Wiki rebuild failed.\\\\" + exception);
+			addJournalEntry("Wiki rebuild failed.\\\\" + exception,null);
 		} finally {
 			lastBuildTimeStamp = System.currentTimeMillis();
 			building = false;
@@ -417,9 +417,6 @@ public class OpenForumController implements OpenForumScripting,
 		StringBuffer html = new StringBuffer("");
 		WikiLinkParser linkRenderer = new WikiLinkParser(name, EDIT_PAGE,
 				EDIT_LINK_DISPLAY_TEMPLATE, this);
-
-		Map<String, String> localTemplateData = getStandardTemplateData(name,
-				name, SYSTEM_NAME, TimeHelper.getCurrentDisplayTimestamp());
 
 		Renderer.wikiToHtml(name, data, html, this, linkRenderer);
 
@@ -650,8 +647,11 @@ public class OpenForumController implements OpenForumScripting,
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#addJournalEntry
 	 * (java.lang.String)
 	 */
-	public void addJournalEntry(String entry) throws Exception,
+	public void addJournalEntry(String entry, Login user) throws Exception,
 			AuthenticationException {
+		if(user==systemLogin) {
+			return;
+		}
 		
 		entry = "* " + TimeHelper.getDisplayTimestamp(new Date()) + ":" + entry + "<br/>\n";
 		fileManager.appendStringToFile(entry, JOURNAL_PAGE_PATH, CONTENT_FILE, systemLogin);
@@ -667,7 +667,7 @@ public class OpenForumController implements OpenForumScripting,
 	public void delete(String pageName, Login login) throws Exception,
 			AuthenticationException, OpenForumException {
 		try {
-			addJournalEntry("Page " + pageName + " deleted by " + login.getUser().getName() );
+			addJournalEntry("Page " + pageName + " deleted by " + login.getUser().getName(),login );
 		} catch (Exception ioe) {
 		}
 
@@ -688,7 +688,7 @@ public class OpenForumController implements OpenForumScripting,
 			throws Exception, AuthenticationException {
 		try {
 			addJournalEntry("File " + fileName + " on Page [" + pageName
-					+ "] deleted by " + login.getUser().getName());
+					+ "] deleted by " + login.getUser().getName(),login);
 		} catch (Exception ioe) {
 		}
 
@@ -775,10 +775,10 @@ public class OpenForumController implements OpenForumScripting,
 		try {
 			if (fileManager.pageExists(pageName, login)) {
 				addJournalEntry("Page [" + pageName
-						+ "] changed by " + author);
+						+ "] changed by " + author,login);
 			} else {
 				addJournalEntry("Page [" + pageName
-						+ "] added by " + author);
+						+ "] added by " + author,login);
 			}
 		} catch (Exception ioe) {
 		}
@@ -1145,7 +1145,7 @@ public class OpenForumController implements OpenForumScripting,
 			fileManager.revert(pageName, version, login);
 			buildPage(pageName);
 			addJournalEntry("Page " + pageName + " reverted to version "
-					+ version + " by " + login.getUser().getName());
+					+ version + " by " + login.getUser().getName(),login);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
