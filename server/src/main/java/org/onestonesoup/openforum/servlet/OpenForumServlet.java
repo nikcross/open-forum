@@ -61,8 +61,10 @@ public class OpenForumServlet extends HttpServlet {
 		}
 		
 		TreeEntity cookies = params.addChild("$cookie");
-		for(Cookie cookie: request.getCookies()) {
-			cookies.addChild(cookie.getName()).setValue(cookie.getValue());
+		if(request.getCookies()!=null) {
+			for(Cookie cookie: request.getCookies()) {
+				cookies.addChild(cookie.getName()).setValue(cookie.getValue());
+			}
 		}
 		
 		Enumeration<String> en = request.getAttributeNames();
