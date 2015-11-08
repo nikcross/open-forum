@@ -1,1 +1,0 @@
-return "<table class=\"menuBar\"><tr>";

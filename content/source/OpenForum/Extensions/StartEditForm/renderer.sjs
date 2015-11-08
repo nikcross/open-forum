@@ -1,1 +1,0 @@
-return "<form name=\"editForm\" id=\"editForm\" method=\"post\" action=\"/OpenForum/Actions/Update\">";

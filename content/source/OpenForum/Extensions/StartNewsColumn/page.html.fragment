@@ -1,6 +1,0 @@
-<a name="section1"></a>Starts a new news column in a news page
-<hr/><a name="section2"></a>
-<h3>Also See:<a href="/OpenForum/Extensions/StartNewsPage" title="/OpenForum/Extensions/StartNewsPage">StartNewsPage</a>,<a href="/OpenForum/Extensions/EndNewsColumn" title="/OpenForum/Extensions/EndNewsColumn">EndNewsColumn</a></h3><h3>Usage:</h3><xmp class="example">
-[{StartNewsColumn}]
-</xmp><br/><i>Note: Previous columns must be terminated with EndNewsColumn before a new column is started</i><br/><hr/>
-<h3>renderer.sjs</h3><xmp class="example">return "<td valign=\"top\">";</xmp><!--Content built using default-->
