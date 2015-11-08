@@ -1,14 +1,13 @@
-var action = transaction.getParameter("action");
-if( action===null ) {
+var pageName = transaction.getParameter("pageName");
+if( pageName===null ) {
 	transaction.setResult(transaction.SHOW_PAGE);
   return;
 }
 
-  action = ""+action; // Cast to String
+  action = ""+transaction.getParameter("action");
   result = "";
   
-  if(action === "zip") {
-	var pageName = transaction.getParameter("pageName");
+  if(action === "zip" || action === "null") {
     
     file.zipPage( pageName );
 	wiki.buildPage( pageName );
@@ -17,7 +16,6 @@ if( action===null ) {
 	transaction.goToPage( pageName+"/"+fileName );
     return;
   } else if(action === "unzip") {
-	var pageName = transaction.getParameter("pageName");
 	var fileName = transaction.getParameter("fileName");
     
     file.unZipAttachment(pageName,fileName);
