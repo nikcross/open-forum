@@ -143,6 +143,8 @@ public abstract class Transaction {
 				HttpRequestHelper.getHttpDate(modified));
 		responseHeader.addParameter("cache-control",
 				" max-age=1, must-revalidate ");
+		responseHeader.addParameter("Access-Control-Allow-Origin",
+				"*");
 
 		if (params != null) {
 			for (String key : params.keySet()) {
