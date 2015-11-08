@@ -7,7 +7,9 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.onestonesoup.core.FileHelper;
 
@@ -177,27 +179,33 @@ public class ResourceStoreProxy implements ResourceStore {
 	}
 
 	public ResourceFolder[] listResourceFolders(ResourceFolder folder) {
-		List<ResourceFolder> folders = new ArrayList<ResourceFolder>();
+		Map<String,ResourceFolder> folders = new HashMap<String,ResourceFolder>();
 		
 		for(ResourceStore resourceStore: resourceStores) {
 			if(resourceStore.resourceFolderExists(folder)) {
-				folders.addAll( Arrays.asList(resourceStore.listResourceFolders(folder)) );
+				ResourceFolder[] resourceFolderList = resourceStore.listResourceFolders(folder);
+				for(ResourceFolder resourceFolder: resourceFolderList) {
+					folders.put(resourceFolder.toString(), resourceFolder);
+				}
 			}
 		}
 		
-		return folders.toArray(new ResourceFolder[]{});
+		return folders.values().toArray(new ResourceFolder[]{});
 	}
 
 	public Resource[] listResources(ResourceFolder folder) {
-		List<Resource> resources = new ArrayList<Resource>();
+		Map<String,Resource> resources = new HashMap<String,Resource>();
 		
 		for(ResourceStore resourceStore: resourceStores) {
 			if(resourceStore.resourceFolderExists(folder)) {
-				resources.addAll( Arrays.asList(resourceStore.listResources(folder)) );
+				Resource[] resourceList = resourceStore.listResources(folder);
+				for(Resource resource: resourceList) {
+					resources.put(resource.toString(), resource);
+				}
 			}
 		}
-		
-		return resources.toArray(new Resource[]{});
+
+		return resources.values().toArray(new Resource[]{});
 	}
 
 	public boolean move(Resource sourceResource,
