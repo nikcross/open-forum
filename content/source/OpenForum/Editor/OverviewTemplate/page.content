@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="large-6 columns">
+  <h2>Page Attachments</h2>
+    
+                <p><a href="[{Hash}]" data-reveal-id="CreateAttachmentModal" class="active">[{Icon name="add"}] Create Attachment</a></p>
+                <p><a href="[{Hash}]" data-reveal-id="UploadAttachmentModal" class="active">[{Icon name="add"}] Upload Attachment</a></p>
+  <table>
+    <thead>
+    <tr><th>Page Name</th><th>File Name</th><th></th><th></th><th></th><th></th></tr>
+    </thead>
+    <tbody>
+    <tr of-repeatFor="attachment in attachments"><td>{{attachment.pageName}}</td><td>{{attachment.fileName}}</td>
+      <td><a class="button tiny" onClick="{{attachment.action}}({{attachment.id}});return false;">{{attachment.actionName}}</a></td>
+      <td><a class="button tiny" data-reveal-id="OpenForumDeleteAttachmentModal" onClick="attachmentPageToDelete='{{attachment.pageName}}';attachmentToDelete='{{attachment.fileName}}';return false;">Delete</a></td>
+      <td><a class="button tiny" onClick="alert('not implemented yet');">Copy</a></td>
+      <td><a class="button tiny"  onClick="alert('not implemented yet');">Move</a></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div>
+    <h2>Sub Pages</h2>
+    [{ChildPagesList}]
+  </div>
+</div>
+
+<!-- Delete Attachemnt -->
+
+<div id="OpenForumDeleteAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Delete Attachment</h2>
+  <p>Please confirm that you want to delete the attachment {{attachmentToDelete}} from the page {{attachmentPageToDelete}}
+  <p><a href="[{Hash}]" onClick="OpenForum.file.deleteAttachmentNoBackup(attachmentPageToDelete,attachmentToDelete); return false;" class="secondary button">Delete</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+</div>

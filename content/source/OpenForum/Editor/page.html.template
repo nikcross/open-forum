@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"/>
 	<style>
 		.CodeMirror {
-		height: 100pc;
+          border: 1px solid [{Hash}]eee;
+          height: auto;
 		}
 
 		.CodeMirror-scroll {
@@ -52,11 +53,20 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="[{Hash}]">Page Editor</a>
+              <a href="[{Hash}]">Page Editor - Editing {{pageName}}</a>
             </h1>
           </li>
         </ul>
         &insert:/OpenForum/Editor/top-menu.html.template;
+      </nav>
+      
+      <nav class="top-bar" data-topbar role="navigation">
+        <section class="top-bar-section">
+          <!-- Left Nav Section -->
+          <ul class="left">
+            <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="{{editor.tabButtonStyle}}"><a href="[{Hash}]" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a></li>
+          </ul>
+        </section>
       </nav>
     </div>
 

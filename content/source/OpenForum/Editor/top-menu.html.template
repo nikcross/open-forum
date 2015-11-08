@@ -4,13 +4,14 @@
             <li class="has-dropdown">
               <a href="[{Hash}]">Actions</a>
               <ul class="dropdown">
-                <li><a href="[{Hash}]" onClick="openPage();">View Current Page</a></li>
-                <li><a href="[{Hash}]" onClick="saveAttachments();">Save All Changes</a></li>
-                <li><a href="[{Hash}]" onClick="openPage();">Edit Another Page</a></li>
-                <li><a href="[{Hash}]" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-                <li><a href="[{Hash}]" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
-                <li><a href="[{Hash}]" onClick="OpenForum.deletePage();">Delete Page</a></li>
-                <li><a href="[{Hash}]" id="displayStatusModal" data-reveal-id="statusModal">Show Status</a></li>
+                <li of-repeatFor="extraAction in extraActions" class="active"><a href="[{Hash}]" id="displayStatusModal" onClick="{{extraAction.fn}}();" title="{{extraAction.description}}">[{Icon name="{{extraAction.icon}}"}]  {{extraAction.name}}</a></li>
+                <li class="divider"></li>
+                <li><a href="[{Hash}]" data-reveal-id="OpenForumCopyModal">[{Icon name="page_copy"}] Copy Page</a></li>
+                <li><a href="[{Hash}]" data-reveal-id="OpenForumMoveModal">[{Icon name="page_go"}] Move Page</a></li>
+                <li><a href="[{Hash}]" onClick="OpenForum.zipPage();">[{Icon name="compress"}] Zip Page</a></li>
+                <li><a href="[{Hash}]" data-reveal-id="OpenForumDeleteModal">[{Icon name="bin"}] Delete Page</a></li>
+                <li class="divider"></li>
+                <li><a href="[{Hash}]" id="displayStatusModal" data-reveal-id="statusModal">Show Editor Status</a></li>
               </ul>
             </li>
             <li class="divider"></li>
@@ -24,24 +25,28 @@
             <li class="has-dropdown">
               <a href="[{Hash}]">Attachments</a>
               <ul class="dropdown">
-                <li of-repeatFor="attachment in attachments"><a href="[{Hash}]" onClick="openAttachment({{attachment.id}});return false;">{{attachment.fileName}}</a></li>
+                <li><a href="[{Hash}]" data-reveal-id="CreateAttachmentModal" class="active">[{Icon name="add"}] Create Attachment</a></li>
+                <li><a href="[{Hash}]" data-reveal-id="UploadAttachmentModal" class="active">[{Icon name="add"}] Upload Attachment</a></li>
+                <li class="divider"></li>
+                <li of-repeatFor="attachment in attachments"><a href="[{Hash}]" onClick="{{attachment.action}}({{attachment.id}});return false;" title="{{attachment.actionName}} {{attachment.pageName}}/{{attachment.fileName}}">
+                  [{Icon name="{{attachment.icon}}"}] {{attachment.fileName}} [{Icon name="{{attachment.actionIcon}}"}]</a></li>
               </ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
               <a href="[{Hash}]">Plugins</a>
               <ul class="dropdown">
-                <li><a onClick="loadPlugin('PageManager');return false;">Page Manager</a></li>
-                <li><a onClick="loadPlugin('Console');return false;">Javascript Console</a></li>
-                <li><a onClick="loadPlugin('ServerConsole');return false;">Server Side Javascript Console</a></li>
-                <li><a onClick="loadPlugin('RemoteEditor');return false;">Remote File Editor</a></li>
-                <li><a onClick="loadPlugin('DataTransform');return false;">Data Transform Helper</a></li>
-                <li><a onClick="loadPlugin('Giraffe');return false;">Giraffe Graphics Environment</a></li>
-                <li><a onClick="loadPlugin('Video');return false;">Video Capture</a></li>
-                <li><a onClick="loadPlugin('GameConsole');return false;">Game Console</a></li>
-                <li><a onClick="loadPlugin('ClientConsole');return false;">Javascript Client Console</a></li>
-                <li><a onClick="loadPlugin('Service');return false;">Web Service Wizard</a></li>
-                <li><a onClick="loadPlugin('Vision');return false;">Vision Developer</a></li>
+                <li><a onClick="loadPlugin('PageManager');return false;">[{Icon name="plugin"}] Page Manager</a></li>
+                <li><a onClick="loadPlugin('Console');return false;">[{Icon name="plugin"}] Javascript Console</a></li>
+                <li><a onClick="loadPlugin('ServerConsole');return false;">[{Icon name="plugin"}] Server Side Javascript Console</a></li>
+                <li><a onClick="loadPlugin('RemoteEditor');return false;">[{Icon name="plugin"}] Remote File Editor</a></li>
+                <li><a onClick="loadPlugin('DataTransform');return false;">[{Icon name="plugin"}] Data Transform Helper</a></li>
+                <li><a onClick="loadPlugin('Giraffe');return false;">[{Icon name="plugin"}] Giraffe Graphics Environment</a></li>
+                <li><a onClick="loadPlugin('Video');return false;">[{Icon name="plugin"}] Video Capture</a></li>
+                <li><a onClick="loadPlugin('GameConsole');return false;">[{Icon name="plugin"}] Game Console</a></li>
+                <li><a onClick="loadPlugin('ClientConsole');return false;">[{Icon name="plugin"}] Javascript Client Console</a></li>
+                <li><a onClick="loadPlugin('Service');return false;">[{Icon name="plugin"}] Web Service Wizard</a></li>
+                <li><a onClick="loadPlugin('Vision');return false;">[{Icon name="plugin"}] Vision Developer</a></li>
               </ul>
             </li>
           </ul>
@@ -60,6 +65,7 @@
           </ul>
         </section>
 
+<div style="display: none"><a href="#" target="viewPage" id="newTab">Hidden New Page Link</a></div>
 <!-- Copy Page -->
 
 <div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
@@ -88,11 +94,38 @@
     </script>
 </div>
 
+<!-- Create Attachment -->
+
+<div id="CreateAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Create New Page Attachment</h2>
+  <p>File Name <input type="text" of-id="newAttachmentName"/></p>
+  <p><a href="[{Hash}]" onClick="createAttachment();return false;" class="secondary button">Create</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+</div>
+
+<!-- Upload Attachment -->
+
+<div id="UploadAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Upload Page Attachment</h2>
+  <form name="upload" id="upload" method="post" action="#" enctype="multipart/form-data" target="uploadResponse">
+    <input class="actionButton"  type="file" name="file"/>
+    <input type="submit" class="secondary button" value="Upload" onClick="OpenForum.uploadFile('upload',pageName); return false;"/>
+  </form>
+
+  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+</div>
+
 <!-- Delete Page -->
 
-  <script>
+<div id="OpenForumDeleteModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Delete Page</h2>
+  <p>Please confirm that you want to delete the page {{pageName}}
+  <p><a href="[{Hash}]" onClick="OpenForum.deletePage();return false;" class="secondary button">Delete</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+    <script>
     OpenForum.deletePage = function() {
     	window.location = "/OpenForum/Actions/Delete?pageName=";
       return false;
     };
     </script>
+</div>

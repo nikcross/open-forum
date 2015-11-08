@@ -43,9 +43,9 @@ function showTab(editorId) {
   var editor = editorList[editorId];
   OpenForum.showTab("editor"+editorId);
   for(var edId in editorList) {
-    editorList[edId].tabButtonStyle="tab";
+    editorList[edId].tabButtonStyle="";
   }
-  editor.tabButtonStyle = "tabSelected";
+  editor.tabButtonStyle = "active";
   if(editor.editor && editor.editor!==null) {
     editor.editor.refresh();
   }

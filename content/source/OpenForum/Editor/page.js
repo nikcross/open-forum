@@ -4,6 +4,12 @@ var pageName = "/Sandbox";
 var fileName = "";
 var flavour = "wiki page";
 var newPage = false;
+var data = {};
+
+var extraActions = [
+  {fn: "openPage", name: "View Page", description: "View Current Page in a New Tab", icon: "eye"},
+  {fn: "saveAttachments", name: "Save All", description: "Save All Changes to Page", icon: "disk_multiple"}
+];
 
 
 OpenForum.init = function () {
@@ -64,9 +70,19 @@ function ready() {
   //tabsTree.getRoot().expand();
   
   OpenForum.scan();
-  showStatus("Editor Ready");
+//  showStatus("Editor Ready");
 //  OpenForum.hideElement("splash");
 //  OpenForum.showElement("content");
+  
+  $(document).foundation('reflow');
+  
+  if(OpenForum.fileExists(pageName+"/data.json")) {
+    data = JSON.parse( OpenForum.loadFile( pageName+"/data.json" ) );
+    
+    if(data.pageParent) {
+		extraActions.push( {fn: "publishPage", name: "Publish", description: "Publish page", icon: "page"} );
+    }
+  }
 }
 
 function openPage() {
@@ -85,7 +101,7 @@ function updatePagesList(result) {
 function addOverview() {
   var editor = document.createElement("div");
   editor.setAttribute("id","editor"+editorIndex);
-  editor.setAttribute("style","display:block;");
+  //editor.setAttribute("style","display:block;");
   document.getElementById("editors").appendChild(editor);
 
   var content = OpenForum.loadFile("/OpenForum/Editor/OverviewTemplate/page.html.fragment");
@@ -97,7 +113,7 @@ function addOverview() {
   OpenForum.addTab("editor"+editorIndex);
   editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Overview", changed: ""};
   showTab(editorIndex);
-  JSON.get("/OpenForum/Actions/Pages","","returnType=json"+pageName).onSuccess(updatePagesList).go();
+//  JSON.get("/OpenForum/Actions/Pages","","returnType=json"+pageName).onSuccess(updatePagesList).go();
   loadUpdatedFilesList() ;
   
   currentEditor = editorList[editorIndex];
@@ -173,6 +189,21 @@ function deletePage() {
   window.location = "/OpenForum/Actions/Delete?pageName="+pageName;
 }
 
+function publishPage() {
+  OpenForum.file.zipPage(pageName,publishZippedPage);
+}
+
+function publishZippedPage(response) {
+  var publishingTicket = "pt-"+Math.random()+new Date().getTime();
+  var zipFileName = pageName.substring(pageName.lastIndexOf("/"));
+  
+  OpenForum.file.copyAttachment(pageName,zipFileName+".wiki.zip",pageName,zipFileName+".wiki.zip."+publishingTicket,function(){ publishTicket(publishingTicket); });
+}
+
+function publishTicket(publishingTicket) {
+  JSON.get(data.pageParent+"/OpenForum/PublishingJournal","published","ticket="+publishingTicket+"&page="+pageName+"&host="+window.location.hostname+"&port="+window.location.port).go();
+  showStatus("Page "+pageName+" published to "+data.pageParent+". Ticket:"+publishingTicket);
+}
 
 
 

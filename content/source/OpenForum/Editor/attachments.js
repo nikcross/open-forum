@@ -1,11 +1,13 @@
 var attachments = [];
-
+ 
 function setAttachments(response) {
   attachments = response.attachments;
   for(var ai in attachments) {
     attachments[ai].id = ai;
     attachments[ai].action = "openAttachment";
-    attachments[ai].actionName = "Open Editor";
+    attachments[ai].actionName = "Edit";
+    attachments[ai].actionIcon = "page_edit";
+    attachments[ai].icon = "tag_blue";
     
     //addAttachmentToTree(ai);
   }
@@ -13,7 +15,7 @@ function setAttachments(response) {
     
   OpenForum.scan(document.body);
 
-  openForFlavour();
+  //openForFlavour();
 }
 
 function openFile() {
@@ -57,7 +59,6 @@ function saveAttachments() {
   }
 }
 
-
 function saveAttachment(attachmentIndex) {
   var fileToSave = attachments[attachmentIndex].pageName + "/" + attachments[attachmentIndex].fileName;
   var data = attachments[attachmentIndex].editor.editor.getValue();
@@ -78,6 +79,7 @@ function createAttachment() {
   attachments[ai].pageName = pageName;
   attachments[ai].action = "openAttachment";
   attachments[ai].actionName = "Open Editor";
+  attachments[ai].icon = "tag_blue";
 
   var fileToSave = pageName + "/" + attachments[ai].fileName;
   var data = "";
@@ -104,7 +106,8 @@ function openAttachments(fileNames) {
     var fileName = fileNames[i];
     var attachment = findAttachment(fileName);
     if(attachment!==null) {
-      openAttachment(attachment.id);
+      console.log( "ts "+ (5000*xy) );
+      sopenAttachment(attachment.id);
     } else if( newPage ) {
       newAttachmentName = fileName;
       createAttachment();
@@ -112,39 +115,52 @@ function openAttachments(fileNames) {
   }
 }
 
+function findAttachmentEditor(pageName,fileName) {
+  for(var i in editorList) {
+    var editor = editorList[i];
+    if(editor.pageName===pageName && editor.fileName===fileName) {
+      return editor;
+    }
+  }
+  return null;
+}
+
 function openAttachment(attachmentId) {
   var fileName = attachments[attachmentId].fileName;
   var pageName = attachments[attachmentId].pageName;
 
-  var flavour = "text";
-  if(fileName.indexOf(".js")==fileName.length-3) {
-    flavour = "javascript";
-  } else if(fileName.indexOf(".sjs")==fileName.length-4) {
-    flavour = "javascript";
-  } else if(fileName.indexOf(".json")==fileName.length-5) {
-    flavour = "javascript";
-  } else if(fileName.indexOf(".css")==fileName.length-4) {
-    flavour = "css";
-  } else if(fileName.indexOf(".wiki")==fileName.length-5) {
-    flavour = "html";
-  } else if(fileName.indexOf(".content")==fileName.length-8) {
-    flavour = "html";
-  } else if(fileName.indexOf(".html")==fileName.length-5) {
-    flavour = "html";
-  } else if(fileName.indexOf(".html.template")==fileName.length-14) {
-    flavour = "html";
-  } else if(fileName.indexOf(".html.fragment")==fileName.length-14) {
-    flavour = "html";
-  } else if(fileName.indexOf(".xml")==fileName.length-4) {
-    flavour = "xml";
+  var editor = findAttachmentEditor(pageName,fileName);
+  if(editor===null) {
+    var flavour = "text";
+    if(fileName.indexOf(".js")==fileName.length-3) {
+      flavour = "javascript";
+    } else if(fileName.indexOf(".sjs")==fileName.length-4) {
+      flavour = "javascript";
+    } else if(fileName.indexOf(".json")==fileName.length-5) {
+      flavour = "javascript";
+    } else if(fileName.indexOf(".css")==fileName.length-4) {
+      flavour = "css";
+    } else if(fileName.indexOf(".wiki")==fileName.length-5) {
+      flavour = "html";
+    } else if(fileName.indexOf(".content")==fileName.length-8) {
+      flavour = "html";
+    } else if(fileName.indexOf(".html")==fileName.length-5) {
+      flavour = "html";
+    } else if(fileName.indexOf(".html.template")==fileName.length-14) {
+      flavour = "html";
+    } else if(fileName.indexOf(".html.fragment")==fileName.length-14) {
+      flavour = "html";
+    } else if(fileName.indexOf(".xml")==fileName.length-4) {
+      flavour = "xml";
+    }
+	editor = addEditor(pageName,fileName,flavour);
   }
-
-  var editor = addEditor(pageName,fileName,flavour);
   showTab(editor.id);
 
   editor.attachment = attachments[attachmentId];
   attachments[attachmentId].action = "saveAttachment";
   attachments[attachmentId].actionName = "Save";
+  attachments[attachmentId].actionIcon = "page_save";
   attachments[attachmentId].editor = editor;
   
   //addTreeLeaf(attachments,attachmentId);

@@ -3,45 +3,23 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page Editor</title>
+    <title> Default Editor</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/lib/codemirror.css"/>
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.css"/>
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/lint/lint.css"/>
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.css"/>
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"/>
-	<style>
-		.CodeMirror {
-		height: 100pc;
-		}
-
-		.CodeMirror-scroll {
-		overflow-y: hidden;
-		overflow-x: auto;
-		}
-	</style>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/CodeMirror/lib/codemirror.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/page.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/attachments.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/editors.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/plugins.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/tabs.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/Editor/Editors/DefaultEditor/page.js"></script>
 
-    <script>
-      var pageName = "OpenForum/Editor/Editors/DefaultEditor";
-      var author = "unknown";
-      var time = "1437406924000";
-      var currentUser = "";
-      JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
-    </script>
-
+	<script>
+		var pageName = "OpenForum/Editor/Editors/DefaultEditor";
+		var author = "unknown";
+		var time = "1437406924000";
+	    var currentUser = "";
+	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+	</script>
+    
   </head>
   <body>
-    <div class="fixed">
-      <nav class="top-bar" data-topbar="true">
+          <nav class="top-bar" data-topbar>
         <ul class="title-area">
           <li class="name">
             <h1>
@@ -52,43 +30,11 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="#">Page Editor</a>
+              <a href="#"> Default Editor</a>
             </h1>
           </li>
         </ul>
-        <!-- insert (/OpenForum/Editor/top-menu.html.template) start -->        <section class="top-bar-section">
-          <ul class="left"> 
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Actions</a>
-              <ul class="dropdown">
-                <li><a href="#" onClick="openPage();">View Current Page</a></li>
-                <li><a href="#" onClick="saveAttachments();">Save All Changes</a></li>
-                <li><a href="#" onClick="openPage();">Edit Another Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
-                <li><a href="#" onClick="OpenForum.deletePage();">Delete Page</a></li>
-                <li><a href="#" id="displayStatusModal" data-reveal-id="statusModal">Show Status</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Sub Pages</a>
-              <ul class="dropdown"><li>
-
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Attachments</a>
-              <ul class="dropdown">
-                <li of-repeatFor="attachment in attachments"><a href="#" onClick="openAttachment({{attachment.id}});return false;">{{attachment.fileName}}</a></li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-
-        <section class="top-bar-section">
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
@@ -100,50 +46,15 @@
             </li>
           </ul>
         </section>
-
-<!-- Copy Page -->
-
-<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Editor/Editors/DefaultEditor&newPageName="+document.getElementById("OpenForumCopyPage").value;
-    };
-    </script>
-</div>
-
-<!-- Move Page -->
-
-<div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Move Page</h2>
-  <p>Move this page to <input type="text" id="OpenForumMovePage"/></p>
-  <p><a href="#" onClick="OpenForum.movePage();return false;" class="secondary button">Move Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    OpenForum.movePage = function() {
-    	window.location = "/OpenForum/Actions/Move?sourcePageName=OpenForum/Editor/Editors/DefaultEditor&newPageName="+document.getElementById("OpenForumMovePage").value;
-    };
-    </script>
-</div>
-
-<!-- Delete Page -->
-
-  <script>
-    OpenForum.deletePage = function() {
-    	window.location = "/OpenForum/Actions/Delete?pageName=";
-      return false;
-    };
-    </script>
-<!-- insert (/OpenForum/Editor/top-menu.html.template) end -->
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-    </div>
-
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Editor">Editor</a></li><li role="menuitem"><a href="/OpenForum/Editor/Editors">Editors</a></li><li role="menuitem" class="current"><a href="/OpenForum/Editor/Editors">DefaultEditor</a></li></nav>
+    
+    <div class="row">
     <!--PageContent Start--><!--Content built using default--><!--Page Content End-->
-
-    <!-- insert (/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content) start -->      <footer class="row">
+    </div>
+      
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
@@ -158,8 +69,8 @@
             </div>
           </div>
         </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content) end -->
-
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
+    
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
     <script>

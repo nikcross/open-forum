@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"/>
 	<style>
 		.CodeMirror {
-		height: 100pc;
+          border: 1px solid #eee;
+          height: auto;
 		}
 
 		.CodeMirror-scroll {
@@ -33,7 +34,7 @@
     <script>
       var pageName = "OpenForum/Editor/OverviewTemplate";
       var author = "unknown";
-      var time = "1437406924000";
+      var time = "1446478106000";
       var currentUser = "";
       JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
     </script>
@@ -52,7 +53,7 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="#">Page Editor</a>
+              <a href="#">Page Editor - Editing {{pageName}}</a>
             </h1>
           </li>
         </ul>
@@ -62,13 +63,14 @@
             <li class="has-dropdown">
               <a href="#">Actions</a>
               <ul class="dropdown">
-                <li><a href="#" onClick="openPage();">View Current Page</a></li>
-                <li><a href="#" onClick="saveAttachments();">Save All Changes</a></li>
-                <li><a href="#" onClick="openPage();">Edit Another Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
-                <li><a href="#" onClick="OpenForum.deletePage();">Delete Page</a></li>
-                <li><a href="#" id="displayStatusModal" data-reveal-id="statusModal">Show Status</a></li>
+                <li of-repeatFor="extraAction in extraActions" class="active"><a href="#" id="displayStatusModal" onClick="{{extraAction.fn}}();" title="{{extraAction.description}}"><img src="/OpenForum/Images/icons/png/{{extraAction.icon}}.png">  {{extraAction.name}}</a></li>
+                <li class="divider"></li>
+                <li><a href="#" data-reveal-id="OpenForumCopyModal"><img src="/OpenForum/Images/icons/png/page_copy.png"> Copy Page</a></li>
+                <li><a href="#" data-reveal-id="OpenForumMoveModal"><img src="/OpenForum/Images/icons/png/page_go.png"> Move Page</a></li>
+                <li><a href="#" onClick="OpenForum.zipPage();"><img src="/OpenForum/Images/icons/png/compress.png"> Zip Page</a></li>
+                <li><a href="#" data-reveal-id="OpenForumDeleteModal"><img src="/OpenForum/Images/icons/png/bin.png"> Delete Page</a></li>
+                <li class="divider"></li>
+                <li><a href="#" id="displayStatusModal" data-reveal-id="statusModal">Show Editor Status</a></li>
               </ul>
             </li>
             <li class="divider"></li>
@@ -82,7 +84,28 @@
             <li class="has-dropdown">
               <a href="#">Attachments</a>
               <ul class="dropdown">
-                <li of-repeatFor="attachment in attachments"><a href="#" onClick="openAttachment({{attachment.id}});return false;">{{attachment.fileName}}</a></li>
+                <li><a href="#" data-reveal-id="CreateAttachmentModal" class="active"><img src="/OpenForum/Images/icons/png/add.png"> Create Attachment</a></li>
+                <li><a href="#" data-reveal-id="UploadAttachmentModal" class="active"><img src="/OpenForum/Images/icons/png/add.png"> Upload Attachment</a></li>
+                <li class="divider"></li>
+                <li of-repeatFor="attachment in attachments"><a href="#" onClick="{{attachment.action}}({{attachment.id}});return false;" title="{{attachment.actionName}} {{attachment.pageName}}/{{attachment.fileName}}">
+                  <img src="/OpenForum/Images/icons/png/{{attachment.icon}}.png"> {{attachment.fileName}} <img src="/OpenForum/Images/icons/png/{{attachment.actionIcon}}.png"></a></li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Plugins</a>
+              <ul class="dropdown">
+                <li><a onClick="loadPlugin('PageManager');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Page Manager</a></li>
+                <li><a onClick="loadPlugin('Console');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Javascript Console</a></li>
+                <li><a onClick="loadPlugin('ServerConsole');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Server Side Javascript Console</a></li>
+                <li><a onClick="loadPlugin('RemoteEditor');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Remote File Editor</a></li>
+                <li><a onClick="loadPlugin('DataTransform');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Data Transform Helper</a></li>
+                <li><a onClick="loadPlugin('Giraffe');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Giraffe Graphics Environment</a></li>
+                <li><a onClick="loadPlugin('Video');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Video Capture</a></li>
+                <li><a onClick="loadPlugin('GameConsole');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Game Console</a></li>
+                <li><a onClick="loadPlugin('ClientConsole');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Javascript Client Console</a></li>
+                <li><a onClick="loadPlugin('Service');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Web Service Wizard</a></li>
+                <li><a onClick="loadPlugin('Vision');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Vision Developer</a></li>
               </ul>
             </li>
           </ul>
@@ -101,7 +124,7 @@
           </ul>
         </section>
 
-<!-- Copy Page -->
+<div style="display: none"><a href="<ol><li>" target="viewPage" id="newTab">Hidden New Page Link</a></div></li></ol><!-- Copy Page -->
 
 <div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Copy Page</h2>
@@ -129,19 +152,87 @@
     </script>
 </div>
 
+<!-- Create Attachment -->
+
+<div id="CreateAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Create New Page Attachment</h2>
+  <p>File Name <input type="text" of-id="newAttachmentName"/></p>
+  <p><a href="#" onClick="createAttachment();return false;" class="secondary button">Create</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<!-- Upload Attachment -->
+
+<div id="UploadAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Upload Page Attachment</h2>
+  <form name="upload" id="upload" method="post" action="<ol><li>" enctype="multipart/form-data" target="uploadResponse"></li></ol>    <input class="actionButton"  type="file" name="file"/>
+    <input type="submit" class="secondary button" value="Upload" onClick="OpenForum.uploadFile('upload',pageName); return false;"/>
+  </form>
+
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
 <!-- Delete Page -->
 
-  <script>
+<div id="OpenForumDeleteModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Delete Page</h2>
+  <p>Please confirm that you want to delete the page {{pageName}}
+  <p><a href="#" onClick="OpenForum.deletePage();return false;" class="secondary button">Delete</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    <script>
     OpenForum.deletePage = function() {
     	window.location = "/OpenForum/Actions/Delete?pageName=";
       return false;
     };
     </script>
+</div>
 <!-- insert (/OpenForum/Editor/top-menu.html.template) end -->
+      </nav>
+      
+      <nav class="top-bar" data-topbar role="navigation">
+        <section class="top-bar-section">
+          <!-- Left Nav Section -->
+          <ul class="left">
+            <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="{{editor.tabButtonStyle}}"><a href="#" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a></li>
+          </ul>
+        </section>
       </nav>
     </div>
 
-    <!--PageContent Start--><!--Content built using default--><!--Page Content End-->
+    <!--PageContent Start--><div class="row">
+  <div class="large-6 columns">
+  <h2>Page Attachments</h2>
+    
+                <p><a href="#" data-reveal-id="CreateAttachmentModal" class="active"><img src="/OpenForum/Images/icons/png/add.png"> Create Attachment</a></p>
+                <p><a href="#" data-reveal-id="UploadAttachmentModal" class="active"><img src="/OpenForum/Images/icons/png/add.png"> Upload Attachment</a></p>
+  <table>
+    <thead>
+    <tr><th>Page Name</th><th>File Name</th><th></th><th></th><th></th><th></th></tr>
+    </thead>
+    <tbody>
+    <tr of-repeatFor="attachment in attachments"><td>{{attachment.pageName}}</td><td>{{attachment.fileName}}</td>
+      <td><a class="button tiny" onClick="{{attachment.action}}({{attachment.id}});return false;">{{attachment.actionName}}</a></td>
+      <td><a class="button tiny" data-reveal-id="OpenForumDeleteAttachmentModal" onClick="attachmentPageToDelete='{{attachment.pageName}}';attachmentToDelete='{{attachment.fileName}}';return false;">Delete</a></td>
+      <td><a class="button tiny" onClick="alert('not implemented yet');">Copy</a></td>
+      <td><a class="button tiny"  onClick="alert('not implemented yet');">Move</a></td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  <div>
+    <h2>Sub Pages</h2>
+    
+  </div>
+</div>
+
+<!-- Delete Attachemnt -->
+
+<div id="OpenForumDeleteAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Delete Attachment</h2>
+  <p>Please confirm that you want to delete the attachment {{attachmentToDelete}} from the page {{attachmentPageToDelete}}
+  <p><a href="#" onClick="OpenForum.file.deleteAttachmentNoBackup(attachmentPageToDelete,attachmentToDelete); return false;" class="secondary button">Delete</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div><!--Content built using default--><!--Page Content End-->
 
     <!-- insert (/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

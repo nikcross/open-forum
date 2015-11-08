@@ -1,3 +1,5 @@
+
+
 var editorIndex = 0;
 var editorList = [];
 var currentEditor = {name: "Loading...", changed:" "};
@@ -20,7 +22,7 @@ function addEditor(pageName,fileName,flavour) {
   editorIndex++;
   var editor = document.createElement("div");
   editor.setAttribute("id","editor"+editorIndex);
-  editor.setAttribute("style","display:none;");
+  editor.setAttribute("style","display:block;");
   document.getElementById("editors").appendChild(editor);
 
   var editorObj = null;
