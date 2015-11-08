@@ -7,7 +7,9 @@ action = ""+action;
 result = {error: "action "+action+" not recognised"};
 var systemMonitor = js.getApi("/OpenForum/SystemMonitor");
 
-if(action==="getState") {
+if(action==="getVersion") {
+  result = { version: openForum.getVersion() };
+} else if(action==="getState") {
   
   result = { 
             memory: { 
@@ -42,6 +44,7 @@ if(action==="getState") {
   } catch(e) {};
   
   result = {
+    version: ""+openForum.getVersion(),
     operatingSystem: {
       name: ""+systemMonitor.getOperatingSystem(),
       version: ""+systemMonitor.getOperatingSystemVersion()
@@ -65,7 +68,6 @@ if(action==="getState") {
   };
   
 }
-
 
 result = JSON.stringify(result);
 transaction.sendPage(result);

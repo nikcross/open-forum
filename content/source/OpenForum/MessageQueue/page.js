@@ -2,6 +2,7 @@ OpenForum.loadScript("/OpenForum/MessageQueue/MessageQueue.js");
 
 var queue = null;
 var timer = null;
+var message = null;
 
 function startWatchingQueue() {
   
@@ -17,4 +18,9 @@ function startWatchingQueue() {
 
   timer = setInterval( queue.pull , 1000 );
 
+}
+
+function sendMessage() {
+  queue.push(message);
+  message = "";
 }
