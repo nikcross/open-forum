@@ -51,70 +51,53 @@
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Access">Access</a></li><li role="menuitem" class="current"><a href="/OpenForum/Access">SignIn</a></li></nav>
     
     <div class="row">
-    <!--PageContent Start-->   
-      <div class="row">
-        <div class="large-9 columns">
-          {{result}}
-        </div>
-	  </div>
-
-      <div class="row">
-        <div class="large-9 columns">
-          
-<div data-alert class="alert-box alert round" style="display: none">
-  This is an alert - alert that is rounded.
-  <a href="<ol><li>" class="close">&times;</a></li></ol></div>
-<div data-alert class="alert-box success round" style="display: none">
-  This is a success alert with a radius.
-  <a href="<ol><li>" class="close">&times;</a></li></ol></div>
-          
- <div class="row">
-          <div class="section-container tabs" data-section>
-            <section class="section">
-              <h5 class="title"><a href="#panel1">Sign In</a></h5>
-              <div class="content" data-slug="panel1">
-                <form>
-                  <div class="row collapse">
-                    <div class="large-2 columns">
-                      <label class="inline">User Name</label>
-                    </div>
-                    <div class="large-10 columns">
-                      <input type="text" of-id="userName" placeholder="your user name">
-                    </div>
-                  </div>
-                  <div class="row collapse">
-                    <div class="large-2 columns">
-                      <label class="inline">Password</label>
-                    </div>
-                    <div class="large-10 columns">
-                      <input type="password" of-id="password" placeholder="password">
-                    </div>
-                  </div>
-                  <button class="radius button" onClick="signIn(); return false;">Sign In</button>
-                </form>
-              </div>
-            </section>
-          </div>
-        </div>
-      </div>
+    <!--PageContent Start-->
+<div class="row">
+  <div class="large-9 columns">
+    {{result}}
+  </div>
 </div>
-       
-     
-      <footer class="row">
-        <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-12 columns">
-              <ul class="inline-list right">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Developers</a></li>
-              </ul>
-            </div>
+
+<div class="row">
+  <div class="large-9 columns">
+
+    <div data-alert class="alert-box alert round" style="display: none">
+      This is an alert - alert that is rounded.
+      <a href="<ol><li>" class="close">&times;</a></li></ol>    </div>
+    <div data-alert class="alert-box success round" style="display: none">
+      This is a success alert with a radius.
+      <a href="<ol><li>" class="close">&times;</a></li></ol>    </div>
+
+    <div class="row">
+      <div class="section-container tabs" data-section>
+        <section class="section">
+          <h5 class="title"><a href="#panel1">Sign In</a></h5>
+          <div class="content" data-slug="panel1">
+            <form>
+              <div class="row collapse">
+                <div class="large-2 columns">
+                  <label class="inline">User Name</label>
+                </div>
+                <div class="large-10 columns">
+                  <input type="text" of-id="userNameField" id="userName" placeholder="your user name">
+                </div>
+              </div>
+              <div class="row collapse">
+                <div class="large-2 columns">
+                  <label class="inline">Password</label>
+                </div>
+                <div class="large-10 columns">
+                  <input type="password" of-id="passwordField" id="password" placeholder="password">
+                </div>
+              </div>
+              <button class="radius button" onClick="signIn(); return false;">Sign In</button>
+            </form>
           </div>
-        </div>
-      </footer>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
     <!--Content built using default--><!--Page Content End-->
     </div>
       
