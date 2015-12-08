@@ -1,3 +1,5 @@
+#! /bin/bash
+
 cd ~/git/onestonesoup/Core
 mvn clean install
 
