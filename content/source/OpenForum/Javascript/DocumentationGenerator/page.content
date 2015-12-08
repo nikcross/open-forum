@@ -1,0 +1,25 @@
+<div class="medium-4 columns">
+[{ChildPagesList}]
+</div>
+<div class="medium-4 columns">
+  <h2>Generate Help</h2>
+
+
+||
+|Script to load:|<input type="text" of-id="scriptFileName">
+|Help Script to load:|<input type="text" of-id="helpScriptFileName">
+|Object Name:|<input type="text" of-id="objectName">
+|Page to Generate:|<input type="text" of-id="targetPageName">
+||<button onClick="generateHelpPage();">Generate Help Page</button>
+||<button onClick="generateHelpScript();">Generate Help Script</button>
+
+</div>
+<div class="medium-4 columns">
+
+{{objectName}}
+<div id="output"></div>
+</div>
+
+</div>
+<div class="row">
+!! Needs to be able to run on server side as well to document server side scripts

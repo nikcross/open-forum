@@ -1,0 +1,36 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <title> Blank</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/PageTemplates/Blank/page.js"></script>
+
+	<script>
+		var pageName = "OpenForum/PageTemplates/Blank";
+		var author = "unknown";
+		var time = "1447529685000";
+	    var currentUser = "";
+	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+	</script>
+    
+  </head>
+  <body>
+    <!--PageContent Start--><div id="statusModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">{{status}}</h2>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<section role="main" class="scroll-container">
+        <div id="editors"></div>
+</section><!--Content built using default--><!--Page Content End-->
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

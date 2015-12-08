@@ -50,5 +50,8 @@
 </div>
 
       <div class="row">
-        <ul><li><a href="/OpenForum/SystemMonitor/SessionStoreMonitor" title="/OpenForum/SystemMonitor/SessionStoreMonitor">SessionStoreMonitor</a></li><li><a href="/OpenForum/SystemMonitor/SystemLogs" title="/OpenForum/SystemMonitor/SystemLogs">SystemLogs</a></li><li><a href="/OpenForum/SystemMonitor/SystemStoreMonitor" title="/OpenForum/SystemMonitor/SystemStoreMonitor">SystemStoreMonitor</a></li></ul>
+        <ul><li> <a href="/OpenForum/SystemMonitor/SessionStoreMonitor">SessionStoreMonitor</a></li>
+<li> <a href="/OpenForum/SystemMonitor/SystemLogs">SystemLogs</a></li>
+<li> <a href="/OpenForum/SystemMonitor/SystemStoreMonitor">SystemStoreMonitor</a></li>
+</ul>
 </div><!--Content built using default-->

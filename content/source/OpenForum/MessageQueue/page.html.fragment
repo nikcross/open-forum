@@ -1,4 +1,4 @@
-<a name="section1"></a><h3>Queue Name: <input type="text" of-id="queueName" size="50"/> <button onClick="startWatchingQueue();"> Start Watching</button>
+<h3>Queue Name: <input type="text" of-id="queueName" size="50"/> <button onClick="startWatchingQueue();"> Start Watching</button></h3>
 <br/><br/>
 <div id="queueData" style="border: solid 1px; min-height: 100px;"></div>
 <br/><br/>
@@ -7,14 +7,19 @@
 
 <hr/>
 
-<a href="/OpenForum/MessageQueue/get.sjs" title="/OpenForum/MessageQueue/get.sjs">OpenForum/MessageQueue/get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/MessageQueue&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var action = ""+transaction.getParameter("action");
+[<a href="/OpenForum/MessageQueue/get.sjs" title="/OpenForum/MessageQueue/get.sjs">OpenForum/MessageQueue/get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/MessageQueue&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var action = ""+transaction.getParameter("action");
 
 if(action==="null") {
 	transaction.setResult(transaction.SHOW_PAGE);
 	return;
 }
 
-if(action==="push") {
+if(action==="createQueue") {
+  var id = ""+wiki.createQueue();
+  
+  transaction.sendJSON( JSON.stringify({result: "ok", queue: id}) );
+  
+} else if(action==="push") {
   var queue = transaction.getParameter("queue");
   var message = transaction.getParameter("message");
   
@@ -52,7 +57,12 @@ if(action==="push") {
 }
 </xmp>
 
-<a href="/OpenForum/MessageQueue/MessageQueue.js" title="/OpenForum/MessageQueue/MessageQueue.js">OpenForum/MessageQueue/MessageQueue.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/MessageQueue&fileName=MessageQueue.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">function MessageQueue(queueName) {
+[<a href="/OpenForum/MessageQueue/MessageQueue.js" title="/OpenForum/MessageQueue/MessageQueue.js">OpenForum/MessageQueue/MessageQueue.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/MessageQueue&fileName=MessageQueue.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">function MessageQueue(queueName) {
+  
+  if( typeof(queueName)==="undefined" ) {
+    queueName = JSON.parse( OpenForum.loadFile("/OpenForum/MessageQueue?action=createQueue") ).queue;
+  }
+  
   var queue = queueName;
   var timestamp = 0;
   var self = this;
@@ -83,5 +93,9 @@ if(action==="push") {
           console.log(messages[message]);
     }
   };
+  
+  this.getQueueName = function() {
+    return queueName;
+  };
 }</xmp>
-<!--Content built using default--></h3>
+<!--Content built using default-->

@@ -5,7 +5,12 @@ if(action==="null") {
 	return;
 }
 
-if(action==="push") {
+if(action==="createQueue") {
+  var id = ""+wiki.createQueue();
+  
+  transaction.sendJSON( JSON.stringify({result: "ok", queue: id}) );
+  
+} else if(action==="push") {
   var queue = transaction.getParameter("queue");
   var message = transaction.getParameter("message");
   

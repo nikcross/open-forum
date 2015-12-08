@@ -1,3 +1,14 @@
-<a name="section1"></a><h3>Defects Fixed</h3><ul><li>58 - Exception on JarManager update</li><li>62 - The word Preview is showing below the edit pane on the Edit page</li><li>63 - Entry text parameter on wrong element in edit page blog link</li><li>64 - Error in DB API</li><li>65 - Page author being set to WikiSystem</li><li>67 - New line not working</li><li>69 - Crumb Trail not working on blog entry pages</li><li>71 - Horizontal rule missing from Wiki Help</li><li>73 - Images with capitalized extensions not recognised</li></ul>
+<h3>Defects Fixed</h3>
+<ul><li> 58 - Exception on JarManager update</li>
+<li> 62 - The word Preview is showing below the edit pane on the Edit page</li>
+<li> 63 - Entry text parameter on wrong element in edit page blog link</li>
+<li> 64 - Error in DB API</li>
+<li> 65 - Page author being set to WikiSystem</li>
+<li> 67 - New line not working</li>
+<li> 69 - Crumb Trail not working on blog entry pages</li>
+<li> 71 - Horizontal rule missing from Wiki Help</li>
+<li> 73 - Images with capitalized extensions not recognised</li>
+
 <hr/>
-<h3>Enhancements</h3><ul><li>Removed WhiteBoard Applet from standard release<!--Content built using default--></li></ul>
+!<h3>Enhancements</h3>
+<li> Removed WhiteBoard Applet from standard release<!--Content built using default--></li></ul>

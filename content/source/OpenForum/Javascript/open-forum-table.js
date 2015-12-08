@@ -45,11 +45,11 @@
 				eval("var "+this.element+"=item;");
 
 				var data = ""+this.rowHTML;
-				while(data.indexOf("{{")!=-1) {
-					name = data.substring(data.indexOf("{{")+2,data.indexOf("}}"));
-					data = data.substring(0,data.indexOf("{{"))+
+				while(data.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+					name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
+					data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
 					eval(name)+
-					data.substring(data.indexOf("}}")+2);
+					data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
 				}
 				tableData += data;
 			}

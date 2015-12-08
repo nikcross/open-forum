@@ -16,6 +16,16 @@ var errors = "";
 var contentBuilder = "default";
 var timestamp = new Date().getTime();
 
+if (file.attachmentExists(pageName,"page.content")===false) {
+  file.saveAttachment(pageName,"page.content","");
+}
+if (file.attachmentExists(pageName,"page.js")===false) {
+  file.saveAttachment(pageName,"page.js","");
+}
+if (file.attachmentExists(pageName,"data.json")===false) {
+  file.saveAttachment(pageName,"data.json","{}");
+}
+
 if(typeof(content)==="undefined") {
 	errors += "<li>No content supplied by caller</li>";
 	content = file.getAttachment(pageName,"page.content");
@@ -50,7 +60,7 @@ if(!content) {
 
 htmlContent = htmlContent + "<!--Content built using "+contentBuilder+"-->";
 
-if(savePage===true) file.saveAttachment(pageName,"page.html.fragment",openForum.renderWikiData(pageName,htmlContent));
+if(savePage===true) file.saveAttachment(pageName,"page.html.fragment",js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,htmlContent));
 
 htmlContent = pageTemplate.replace("&content;",htmlContent);
 
@@ -115,7 +125,7 @@ while( searchData.indexOf("&")!=-1 ) {
 	}
 }
 htmlContent += searchData;
-htmlContent = openForum.renderWikiData(pageName,htmlContent);
+htmlContent = js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,htmlContent);
 //openForum.postMessageToQueue("test","Saving Page:(" +pageName+ ") File:(page.html)");
 
 if(savePage===true) file.saveAttachment(pageName,"page.html",htmlContent);

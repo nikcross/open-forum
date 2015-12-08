@@ -1,0 +1,100 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title> Global</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/DeletedPages/TheLab/Javascript/Global/page.js"></script>
+
+	<script>
+		var pageName = "OpenForum/DeletedPages/TheLab/Javascript/Global";
+		var author = "unknown";
+		var time = "1416521821000";
+	    var currentUser = "";
+	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+	</script>
+    
+  </head>
+  <body>
+          <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <img src="/OpenForum/Images/open-forum-dog-small.png" />
+            </h1>
+          </li>
+        </ul>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <a href="#"> Global</a>
+            </h1>
+          </li>
+        </ul>
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
+          <ul class="right">
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Signed in as {{currentUser}}</a>
+              <ul class="dropdown">
+                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
+              </ul>
+            </li>
+          </ul>
+        </section>
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
+      </nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/DeletedPages">DeletedPages</a></li><li role="menuitem"><a href="/OpenForum/DeletedPages/TheLab">TheLab</a></li><li role="menuitem"><a href="/OpenForum/DeletedPages/TheLab/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/DeletedPages/TheLab/Javascript">Global</a></li></nav>
+    
+    <!--PageContent Start-->*decodeURI()	Decodes a URI<ul><li>decodeURIComponent()	Decodes a URI component</li>
+<li>encodeURI()	Encodes a URI</li>
+<li>encodeURIComponent()	Encodes a URI component</li>
+<li>encodeURIComponent() instead</li>
+<li>eval()	Evaluates a string and executes it as if it was script code</li>
+<li>isFinite()	Determines whether a value is a finite, legal number</li>
+<li>isNaN()	Determines whether a value is an illegal number</li>
+<li>Number()	Converts an object's value to a number</li>
+<li>parseFloat()	Parses a string and returns a floating point number</li>
+<li>parseInt()	Parses a string and returns an integer</li>
+<li>String()	Converts an object's value to a string<!--Content built using default--><!--Page Content End--></li>
+      
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
+        <div class="large-12 columns">
+          		<hr/>
+              <ul class="inline-list right">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Developers</a></li>
+                <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+              </ul>
+            </div>
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
+    
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
+</ul>

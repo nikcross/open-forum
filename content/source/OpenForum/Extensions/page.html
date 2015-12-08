@@ -2,7 +2,6 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Extensions</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
@@ -12,7 +11,7 @@
 	<script>
 		var pageName = "OpenForum/Extensions";
 		var author = "unknown";
-		var time = "1445436872000";
+		var time = "1447152051000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -41,7 +40,23 @@
               <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
               </ul>
             </li>
           </ul>
@@ -50,176 +65,287 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="/OpenForum">Extensions</a></li></nav>
     
-    <div class="row">
-    <!--PageContent Start--><h3>Wiki Markup Extensions
+    <!--PageContent Start--><h3>Wiki Markup Extensions</h3>
+<table><tr><td>Name</td><td>Description</td><td>Information</td></tr>
+<tr><td><b>ActionButton</b></td><td>A button that fires an [OpenForum GET action</td><td>/OpenForum/Actions]
+----
+!!Parameters
+* action = Action Name
+* text = Action button text
 
-<table class="wikiTable"><tr class="wikiTableTitle"><td class="wikiTableTitle">Name</td><td class="wikiTableTitle">Description</td><td class="wikiTableTitle">Information</td></tr>
+----
+!!Usage:
+{{{
+[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
+}}}
+[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>ActionButton</b></td><td class="wikiTableCell"><a name="section1"></a>A button that fires an <a href="/OpenForum/Actions" title="/OpenForum/Actions">OpenForum GET action</a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/ActionButton" title="/OpenForum/Extensions/ActionButton">more...</a></td></tr>
+----
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>AttachmentsList</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a bulleted list of attachments on a pages
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/AttachmentsList" title="/OpenForum/Extensions/AttachmentsList">more...</a></td></tr>
+[{InsertSourceFile fileName="renderer.sjs"}]</td><td><a href="/OpenForum/Extensions/ActionButton">more...</a></td></tr>
+<tr><td><b>AttachmentsList</b></td><td>Creates a bulleted list of attachments on a pages
+----
+!!Parameters
+*pageName - The page to list (optional. default = current page)
+----
+!!Usage:
+{{{
+[{AttachmentsList matching=".txt"}]
+}}}
+[{AttachmentsList matching=".txt"}]
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>BarField</b></td><td class="wikiTableCell"><a name="section1"></a>A Bar Graph field
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/BarField" title="/OpenForum/Extensions/BarField">more...</a></td></tr>
+----
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>ChildPagesList</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a bulleted list of child pages
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/ChildPagesList" title="/OpenForum/Extensions/ChildPagesList">more...</a></td></tr>
+[{InsertSourceFile fileName="renderer.sjs"}]</td><td><a href="/OpenForum/Extensions/AttachmentsList">more...</a></td></tr>
+<tr><td><b>BarField</b></td><td>null</td><td><a href="/OpenForum/Extensions/BarField">more...</a></td></tr>
+<tr><td><b>ChildPagesList</b></td><td>Creates a bulleted list of child pages
+----
+!!Parameters
+*pageName - The page to list (optional. default = current page)
+----
+!!Usage:
+{{{
+[{ChildPagesList pageName="/OpenForum"}]
+}}}
+[{ChildPagesList pageName="/OpenForum"}]
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>CrumbTrail</b></td><td class="wikiTableCell"><a name="section1"></a>Displays a page hierachy trail
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/CrumbTrail" title="/OpenForum/Extensions/CrumbTrail">more...</a></td></tr>
+----
+!!renderer.sjs
+{{{targetPage = extension.getAttributeValueByName("pageName");
+if(targetPage==null)
+{
+  targetPage = pageName;
+}
+targetPage = new String(targetPage);
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>DevNotes</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a link to Developer Notes
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/DevNotes" title="/OpenForum/Extensions/DevNotes">more...</a></td></tr>
+list = file.getAttachmentsForPage( targetPage );
+if(targetPage.charAt(0)!='/')
+{
+  targetPage = "/"+targetPage;
+}
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>DropList</b></td><td class="wikiTableCell"><a name="section1"></a>A left menu drop down section
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/DropList" title="/OpenForum/Extensions/DropList">more...</a></td></tr>
+data="";
+enumerator = list.keys();
+while(enumerator.hasMoreElements())
+{
+  key = new String(enumerator.nextElement());
+  if(key.charAt(0)!='+' </td><td></td><td> key=="+history")
+  {
+    continue;
+  }
+  else
+  {
+    item = key.substring(1);
+  }
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>DropSelect</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a Drop Select field for use in web forms.
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/DropSelect" title="/OpenForum/Extensions/DropSelect">more...</a></td></tr>
+  data+="* ["+item+"</td><td>"+targetPage+"/"+item+"]\n";
+}
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>EndDropTab</b></td><td class="wikiTableCell"><a name="section1"></a><a href="/OpenForum/Extensions/StartDropTab" title="/OpenForum/Extensions/StartDropTab">See: StartDropTab</a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/EndDropTab" title="/OpenForum/Extensions/EndDropTab">more...</a></td></tr>
+return wiki.renderWikiData(pageName,data);}}}</td><td><a href="/OpenForum/Extensions/ChildPagesList">more...</a></td></tr>
+<tr><td><b>CrumbTrail</b></td><td>Displays a page hierachy trail
+----
+!!Parameters
+----
+!!Usage:
+{{{
+[{CrumbTrail}]
+}}}
+[{CrumbTrail}]
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>EndEditForm</b></td><td class="wikiTableCell"><a name="section1"></a><a href="/OpenForum/Editor?pageName=See/OpenForum/Extensions/StartEditForm" title="/OpenForum/Editor?pageName=See/OpenForum/Extensions/StartEditForm">See: /OpenForum/Extensions/StartEditForm</a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/EndEditForm" title="/OpenForum/Extensions/EndEditForm">more...</a></td></tr>
+----
+!!renderer.sjs
+{{{parts = pageName.split("/");
+data = "";
+path = "";
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>EndMenu</b></td><td class="wikiTableCell"><a name="section1"></a>Marks the end of a menu
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/EndMenu" title="/OpenForum/Extensions/EndMenu">more...</a></td></tr>
+for(loop=0;loop<parts.length;loop++)
+{
+  path+="/"+parts[loop]
+  data+=" &gt;&gt; <a href=\""+path+"\">"+parts[loop]+"</a>";
+}
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>EndMenuDropDown</b></td><td class="wikiTableCell"><a name="section1"></a><a href="/OpenForum/Extensions/StartMenuDropDown" title="/OpenForum/Extensions/StartMenuDropDown">See:StartMenuDropDown</a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/EndMenuDropDown" title="/OpenForum/Extensions/EndMenuDropDown">more...</a></td></tr>
+return data;}}}</td><td><a href="/OpenForum/Extensions/CrumbTrail">more...</a></td></tr>
+<tr><td><b>DevNotes</b></td><td>Adds a link to Developer Notes
+----
+!!Parameters
+*page - The page containing the notes content
+*toolTip - The tool tip to popup on mouse over
+----
+!!Usage:
+{{{
+[{DevNotes page="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/ExtendingWikiMarkup" toolTip="Developer Notes on extending Wiki Markup"}]
+}}}
+[{DevNotes page="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/ExtendingWikiMarkup" toolTip="Developer Notes on extending Wiki Markup"}]
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>EndNewsColumn</b></td><td class="wikiTableCell"><a name="section1"></a><a href="/OpenForum/Extensions/StartNewsColumn" title="/OpenForum/Extensions/StartNewsColumn">See: StartNewsColumn</a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/EndNewsColumn" title="/OpenForum/Extensions/EndNewsColumn">more...</a></td></tr>
+----
+!!renderer.sjs
+{{{page = extension.getAttributeValueByName("page");
+toolTip = extension.getAttributeValueByName("toolTip");
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>EndNewsPage</b></td><td class="wikiTableCell"><a name="section1"></a><a href="/OpenForum/Extensions/StartNewsPage" title="/OpenForum/Extensions/StartNewsPage">See: StartNewsPage</a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/EndNewsPage" title="/OpenForum/Extensions/EndNewsPage">more...</a></td></tr>
+return "<table width=\"100%\"><tr><td align=\"right\"><a href=\""+page+"\" title=\""+toolTip+"\"><img border=\"0\" src=\"/OpenForum/Images/wrench.png\"></a></td></tr></table>"}}}</td><td><a href="/OpenForum/Extensions/DevNotes">more...</a></td></tr>
+<tr><td><b>DropList</b></td><td>null</td><td><a href="/OpenForum/Extensions/DropList">more...</a></td></tr>
+<tr><td><b>DropSelect</b></td><td>null</td><td><a href="/OpenForum/Extensions/DropSelect">more...</a></td></tr>
+<tr><td><b>EndDropTab</b></td><td>null</td><td><a href="/OpenForum/Extensions/EndDropTab">more...</a></td></tr>
+<tr><td><b>EndEditForm</b></td><td>null</td><td><a href="/OpenForum/Extensions/EndEditForm">more...</a></td></tr>
+<tr><td><b>EndMenu</b></td><td>null</td><td><a href="/OpenForum/Extensions/EndMenu">more...</a></td></tr>
+<tr><td><b>EndMenuDropDown</b></td><td>null</td><td><a href="/OpenForum/Extensions/EndMenuDropDown">more...</a></td></tr>
+<tr><td><b>EndNewsColumn</b></td><td>null</td><td><a href="/OpenForum/Extensions/EndNewsColumn">more...</a></td></tr>
+<tr><td><b>EndNewsPage</b></td><td>null</td><td><a href="/OpenForum/Extensions/EndNewsPage">more...</a></td></tr>
+<tr><td><b>FormSubmit</b></td><td>null</td><td><a href="/OpenForum/Extensions/FormSubmit">more...</a></td></tr>
+<tr><td><b>Glossary</b></td><td>null</td><td><a href="/OpenForum/Extensions/Glossary">more...</a></td></tr>
+<tr><td><b>GoField</b></td><td>null</td><td><a href="/OpenForum/Extensions/GoField">more...</a></td></tr>
+<tr><td><b>GoToMark</b></td><td>null</td><td><a href="/OpenForum/Extensions/GoToMark">more...</a></td></tr>
+<tr><td><b>Help</b></td><td>null</td><td><a href="/OpenForum/Extensions/Help">more...</a></td></tr>
+<tr><td><b>Histogram</b></td><td>null</td><td><a href="/OpenForum/Extensions/Histogram">more...</a></td></tr>
+<tr><td><b>Icon</b></td><td>Places an icon on the page
+----
+!!Parameters
+* name - name of icon
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>FormSubmit</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a submit button to a form
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/FormSubmit" title="/OpenForum/Extensions/FormSubmit">more...</a></td></tr>
+----
+!!Usage:
+{{{
+[{Icon name="chart pie"}]
+}}}
+Example:
+[{Icon name="chart pie"}]</td><td><a href="/OpenForum/Extensions/Icon">more...</a></td></tr>
+<tr><td><b>InputField</b></td><td>Inserts a form input field.
+----
+!!Parameters
+name - the field name
+value - optional value
+----
+!!Usage:
+{{{[{InputField name="myField"}]}}}
+[{InputField name="myField"}]
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>Glossary</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a Glossary Entry if on the Glossary page or a link to the term if on any other page.
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Glossary" title="/OpenForum/Extensions/Glossary">more...</a></td></tr>
+----
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>GoField</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a dropdown selection field of all Wiki Pages
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/GoField" title="/OpenForum/Extensions/GoField">more...</a></td></tr>
+[{InsertSourceFile fileName="renderer.sjs"}]</td><td><a href="/OpenForum/Extensions/InputField">more...</a></td></tr>
+<tr><td><b>InsertFile</b></td><td>Inserts a files contents into the page
+----
+!!Parameters
+* pageName - The page where the file is attached (optional)
+* fileName - The file to insert
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>GoToMark</b></td><td class="wikiTableCell"><a name="section1"></a><a href="/OpenForum/Extensions/MarkPage" title="/OpenForum/Extensions/MarkPage">See: MarkPage</a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/GoToMark" title="/OpenForum/Extensions/GoToMark">more...</a></td></tr>
+----
+!!Usage:
+{{{
+[{InsertFile pageName="pageName" fileName="fileName"}]
+}}}
+If pageName is not given then the current page name is assumed.
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>Help</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a Help link
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Help" title="/OpenForum/Extensions/Help">more...</a></td></tr>
+----
+!!renderer.sjs
+[{InserSourceFile fileName="renderer.sjs"}]</td><td><a href="/OpenForum/Extensions/InsertFile">more...</a></td></tr>
+<tr><td><b>InsertSourceFile</b></td><td>Inserts a files contents into the page
+----
+!!Parameters
+* pageName - The page where the file is attached (optional. default = current page name)
+* fileName - The file to insert
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>Histogram</b></td><td class="wikiTableCell"><a name="section1"></a>Displays a Histogram from a csv file
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Histogram" title="/OpenForum/Extensions/Histogram">more...</a></td></tr>
+----
+!!Usage:
+{{{
+[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]
+}}}
+[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>Icon</b></td><td class="wikiTableCell"><a name="section1"></a>Places an icon on the page
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Icon" title="/OpenForum/Extensions/Icon">more...</a></td></tr>
+----
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>InputField</b></td><td class="wikiTableCell"><a name="section1"></a>Inserts a form input field.
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/InputField" title="/OpenForum/Extensions/InputField">more...</a></td></tr>
+[{InsertSourceFile fileName="renderer.sjs"}]</td><td><a href="/OpenForum/Extensions/InsertSourceFile">more...</a></td></tr>
+<tr><td><b>JSClip</b></td><td>null</td><td><a href="/OpenForum/Extensions/JSClip">more...</a></td></tr>
+<tr><td><b>JSClipFile</b></td><td>null</td><td><a href="/OpenForum/Extensions/JSClipFile">more...</a></td></tr>
+<tr><td><b>LiveField</b></td><td>null</td><td><a href="/OpenForum/Extensions/LiveField">more...</a></td></tr>
+<tr><td><b>MarkPage</b></td><td>Mark a point in a page that can be referenced
+----
+!!Parameters
+name = the name of the mark
+----
+!!Usage:
+{{{
+[{Mark name="TestMark"}] Some text to reference
+}}}
+[{Mark name="TestMark"}] Some text to reference\\
+See: [GoToMark</td><td>/OpenForum/Extensions/GoToMark] for an example of using this mark
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>InsertFile</b></td><td class="wikiTableCell"><a name="section1"></a>Inserts a files contents into the page
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/InsertFile" title="/OpenForum/Extensions/InsertFile">more...</a></td></tr>
+----
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>InsertSourceFile</b></td><td class="wikiTableCell"><a name="section1"></a>Inserts a files contents into the page
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/InsertSourceFile" title="/OpenForum/Extensions/InsertSourceFile">more...</a></td></tr>
+[{InsertSourceFile fileName="renderer.sjs"}]</td><td><a href="/OpenForum/Extensions/MarkPage">more...</a></td></tr>
+<tr><td><b>MenuItem</b></td><td>null</td><td><a href="/OpenForum/Extensions/MenuItem">more...</a></td></tr>
+<tr><td><b>PagesListField</b></td><td>null</td><td><a href="/OpenForum/Extensions/PagesListField">more...</a></td></tr>
+<tr><td><b>Photograph</b></td><td>null</td><td><a href="/OpenForum/Extensions/Photograph">more...</a></td></tr>
+<tr><td><b>PopoutPageButton</b></td><td>null</td><td><a href="/OpenForum/Extensions/PopoutPageButton">more...</a></td></tr>
+<tr><td><b>Popup</b></td><td>null</td><td><a href="/OpenForum/Extensions/Popup">more...</a></td></tr>
+<tr><td><b>ReadOnlyField</b></td><td>null</td><td><a href="/OpenForum/Extensions/ReadOnlyField">more...</a></td></tr>
+<tr><td><b>Redirect</b></td><td>Transfers a page to another page 
+----
+!!Parameters
+* page - The page to redirect to
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>JSClip</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a Client Side Javascript Clip Link
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/JSClip" title="/OpenForum/Extensions/JSClip">more...</a></td></tr>
+----
+!!Usage
+{{{[{Redirect page="new page name"}]}}}
+The example of the page [/OpenForum/Extensions/Redirect/Example] will redirect back to here.</td><td><a href="/OpenForum/Extensions/Redirect">more...</a></td></tr>
+<tr><td><b>SearchField</b></td><td>null</td><td><a href="/OpenForum/Extensions/SearchField">more...</a></td></tr>
+<tr><td><b>SliderField</b></td><td>null</td><td><a href="/OpenForum/Extensions/SliderField">more...</a></td></tr>
+<tr><td><b>SourceEditor</b></td><td>null</td><td><a href="/OpenForum/Extensions/SourceEditor">more...</a></td></tr>
+<tr><td><b>StartDropTab</b></td><td>null</td><td><a href="/OpenForum/Extensions/StartDropTab">more...</a></td></tr>
+<tr><td><b>StartEditForm</b></td><td>null</td><td><a href="/OpenForum/Extensions/StartEditForm">more...</a></td></tr>
+<tr><td><b>StartMenu</b></td><td>null</td><td><a href="/OpenForum/Extensions/StartMenu">more...</a></td></tr>
+<tr><td><b>StartMenuDropDown</b></td><td>null</td><td><a href="/OpenForum/Extensions/StartMenuDropDown">more...</a></td></tr>
+<tr><td><b>StartNewsColumn</b></td><td>null</td><td><a href="/OpenForum/Extensions/StartNewsColumn">more...</a></td></tr>
+<tr><td><b>StartNewsPage</b></td><td>null</td><td><a href="/OpenForum/Extensions/StartNewsPage">more...</a></td></tr>
+<tr><td><b>Tab</b></td><td>null</td><td><a href="/OpenForum/Extensions/Tab">more...</a></td></tr>
+<tr><td><b>Thumbnail</b></td><td>Inserts an image thumbnail with a link to the full size image.
+----
+!!Usage:
+{{{
+[{Thumbnail src="image file name"}]
+}}}
+----
+[{Thumbnail src="/OpenForum/Images/index_abc.png"}]
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>JSClipFile</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a link to a Client Side Javascript Clip File
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/JSClipFile" title="/OpenForum/Extensions/JSClipFile">more...</a></td></tr>
+----
+!!renderer.sjs
+{{{src = extension.getAttributeValueByName("src");
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>LiveField</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a live data view field
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/LiveField" title="/OpenForum/Extensions/LiveField">more...</a></td></tr>
+if(src!=null)
+{
+  src = new String(src);
+  
+  if( src.indexOf('/')!=0 )
+  {
+    src = "/"+pageName+"/"+src;
+  }
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>MarkPage</b></td><td class="wikiTableCell"><a name="section1"></a>Mark a point in a page that can be referenced
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/MarkPage" title="/OpenForum/Extensions/MarkPage">more...</a></td></tr>
+  parts = src.split(".");
+  thumbnail = parts[0]+".thumbnail.png";
 
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>MenuItem</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a drop down menu of links
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/MenuItem" title="/OpenForum/Extensions/MenuItem">more...</a></td></tr>
+  data = "<a href='' onclick='showAlert(\"<img src=\\\""+src+"\\\" border=0>\",\""+src+"\");return false;'><img src='"+thumbnail+"' border=0/></a>";
 
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>PagesListField</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a dropdown selection field of all Wiki Pages
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/PagesListField" title="/OpenForum/Extensions/PagesListField">more...</a></td></tr>
-
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>Photograph</b></td><td class="wikiTableCell"><a name="section1"></a>Inserts an image in a frame with a title and a caption
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Photograph" title="/OpenForum/Extensions/Photograph">more...</a></td></tr>
-
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>PopoutPageButton</b></td><td class="wikiTableCell"><a name="section1"></a>Shows a button that pops out a page into a new window
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/PopoutPageButton" title="/OpenForum/Extensions/PopoutPageButton">more...</a></td></tr>
-
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>Popup</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a link that pops up a Wiki page in a layer
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Popup" title="/OpenForum/Extensions/Popup">more...</a></td></tr>
-
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>ReadOnlyField</b></td><td class="wikiTableCell"><a name="section1"></a>Inserts a form read only field.
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/ReadOnlyField" title="/OpenForum/Extensions/ReadOnlyField">more...</a></td></tr>
-
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>Redirect</b></td><td class="wikiTableCell"><a name="section1"></a>Transfers a page to another page 
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Redirect" title="/OpenForum/Extensions/Redirect">more...</a></td></tr>
-
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>SearchField</b></td><td class="wikiTableCell"><a name="section1"></a>A site search field
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/SearchField" title="/OpenForum/Extensions/SearchField">more...</a></td></tr>
-
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>SliderField</b></td><td class="wikiTableCell"><a name="section1"></a>A draggable slider field
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/SliderField" title="/OpenForum/Extensions/SliderField">more...</a></td></tr>
-
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>SourceEditor</b></td><td class="wikiTableCell"><a name="section1"></a>-Description-
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/SourceEditor" title="/OpenForum/Extensions/SourceEditor">more...</a></td></tr>
-
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>StartDropTab</b></td><td class="wikiTableCell"><a name="section1"></a>Starts a drop down tab
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/StartDropTab" title="/OpenForum/Extensions/StartDropTab">more...</a></td></tr>
-
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>StartEditForm</b></td><td class="wikiTableCell"><a name="section1"></a>Start a Wiki page form
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/StartEditForm" title="/OpenForum/Extensions/StartEditForm">more...</a></td></tr>
-
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>StartMenu</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a drop down menu
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/StartMenu" title="/OpenForum/Extensions/StartMenu">more...</a></td></tr>
-
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>StartMenuDropDown</b></td><td class="wikiTableCell"><a name="section1"></a>Alows the definition of a freeform drop down menu
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/StartMenuDropDown" title="/OpenForum/Extensions/StartMenuDropDown">more...</a></td></tr>
-
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>StartNewsColumn</b></td><td class="wikiTableCell"><a name="section1"></a>Starts a new news column in a news page
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/StartNewsColumn" title="/OpenForum/Extensions/StartNewsColumn">more...</a></td></tr>
-
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>StartNewsPage</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a multicolumn layout like a news paper format.
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/StartNewsPage" title="/OpenForum/Extensions/StartNewsPage">more...</a></td></tr>
-
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>Tab</b></td><td class="wikiTableCell"><a name="section1"></a>Not yet implemented
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Tab" title="/OpenForum/Extensions/Tab">more...</a></td></tr>
-
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>Thumbnail</b></td><td class="wikiTableCell"><a name="section1"></a>Inserts an image thumbnail with a link to the full size image.
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Thumbnail" title="/OpenForum/Extensions/Thumbnail">more...</a></td></tr>
-
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>ViewCounter</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a page view count to a page
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/ViewCounter" title="/OpenForum/Extensions/ViewCounter">more...</a></td></tr>
-
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>WebChatField</b></td><td class="wikiTableCell"><a name="section1"></a>Web Chat send field
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/WebChatField" title="/OpenForum/Extensions/WebChatField">more...</a></td></tr>
-
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>WebChatView</b></td><td class="wikiTableCell"><a name="section1"></a>Displays a Web Chat queue
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/WebChatView" title="/OpenForum/Extensions/WebChatView">more...</a></td></tr>
+  return data;
+}
+else
+{
+  return "Invalid Image. No src attribute given.";
+}}}}</td><td><a href="/OpenForum/Extensions/Thumbnail">more...</a></td></tr>
+<tr><td><b>ViewCounter</b></td><td>null</td><td><a href="/OpenForum/Extensions/ViewCounter">more...</a></td></tr>
+<tr><td><b>WebChatField</b></td><td>null</td><td><a href="/OpenForum/Extensions/WebChatField">more...</a></td></tr>
+<tr><td><b>WebChatView</b></td><td>null</td><td><a href="/OpenForum/Extensions/WebChatView">more...</a></td></tr>
 <!--Content built using default--><!--Page Content End-->
-    </div>
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-12 columns">
+          		<hr/>
               <ul class="inline-list right">
-                <li><a href="</table>
-#">About</a></li>
+                <li><a href="#">About</a></li>
                 <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
                 <li><a href="#">Documentation</a></li>
                 <li><a href="#">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
-          </div>
-        </div>
       </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
@@ -229,4 +355,4 @@
     </script>
   </body>
 </html>
-</h3>
+</table>

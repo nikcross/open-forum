@@ -30,6 +30,10 @@ function HtmlEditor(editorIndex,pageName,fileName) {
     });
   };
 
+  this.getCodeMirror = function() {
+    return cm;
+  };
+  
   this.refresh = function() {
     if(cm) cm.refresh();
   };

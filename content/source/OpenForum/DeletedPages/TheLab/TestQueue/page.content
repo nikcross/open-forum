@@ -1,0 +1,11 @@
+!!Edit file on client
+*Server Send file to client
+*Client Change file
+*Client Send file to server
+
+!!Edit file on web
+*Client send file to server
+*Server Change file
+*Server send file to client
+
+\\[{WebChatView queueName='TheLab/TestQueue'}]\\[{WebChatField queueName='TheLab/TestQueue'}]\\

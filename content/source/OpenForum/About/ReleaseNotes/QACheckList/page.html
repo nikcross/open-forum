@@ -2,7 +2,6 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> QACheck List</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
@@ -12,7 +11,7 @@
 	<script>
 		var pageName = "OpenForum/About/ReleaseNotes/QACheckList";
 		var author = "unknown";
-		var time = "1437406926000";
+		var time = "1447152051000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -41,7 +40,23 @@
               <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
               </ul>
             </li>
           </ul>
@@ -50,24 +65,78 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/About">About</a></li><li role="menuitem"><a href="/OpenForum/About/ReleaseNotes">ReleaseNotes</a></li><li role="menuitem" class="current"><a href="/OpenForum/About/ReleaseNotes">QACheckList</a></li></nav>
     
-    <div class="row">
-    <!--PageContent Start--><h3>Page</h3><ul><li>Create</li><li>Copy</li><li>Read</li><li>Update</li><li>Delete</li><li>UnDelete</li><li>View History</li><li>Revert</li><li>Referring Pages listed</li><li>Tags Listed</li></ul>
-<h3>Attachment</h3><ul><li>Create</li><li>Upload</li><li>Re Upload</li><li>Download</li><li>Delete</li></ul>
-<h3>Editor</h3><ul><li>Insert</li><li>Preview</li><li>Save</li></ul>
-<h3>Admin</h3><ul><li>Add User</li><li>List Users</li><li>Remove User</li><li>Add Group</li><li>List Groups</li><li>Remove Group</li><li>Add Users to Group</li><li>Remove Users from Groups</li></ul>
-<h3>Access</h3><ul><li>Add User read access to page</li><li>Remove User read access to page</li><li>Add Group read access to page</li><li>Remove Group read access to page</li></ul>
-<ul><li>Add User update access to page</li><li>Remove User update access to page</li><li>Add Group update access to page</li><li>Remove Group update access to page</li></ul>
-<ul><li>Add User delete access to page</li><li>Remove User delete access to page</li><li>Add Group delete access to page</li><li>Remove Group delete access to page</li></ul>
-<h3>Search</h3><ul><li>Search for page title</li><li>Search for content word</li><li>Search for multiple words</li><li>Search for tag</li><li>Search for multiple tags</li></ul>
-<h3>Wiki Journal</h3><ul><li>Page create logged</li><li>Page update logged</li><li>Page delete logged</li></ul>
-<ul><li>Attachment create logged</li><li>Attachment update logged</li><li>Attachment delete logged</li></ul>
-<h3>Blog</h3><ul><li>Create blog entry</li><li>Read blog entry</li><li>Update blog entry</li><li>Delete blog entry<!--Content built using default--><!--Page Content End--></li></ul>    </div>
+    <!--PageContent Start--><h3>Page</h3>
+<ul><li>Create</li>
+<li>Copy</li>
+<li>Read</li>
+<li>Update</li>
+<li>Delete</li>
+<li>UnDelete</li>
+<li>View History</li>
+<li>Revert</li>
+<li>Referring Pages listed</li>
+<li>Tags Listed</li>
+
+<h3>Attachment</h3>
+<li>Create</li>
+<li>Upload</li>
+<li>Re Upload</li>
+<li>Download</li>
+<li>Delete</li>
+
+<h3>Editor</h3>
+<li>Insert</li>
+<li>Preview</li>
+<li>Save</li>
+
+<h3>Admin</h3>
+<li>Add User</li>
+<li>List Users</li>
+<li>Remove User</li>
+<li>Add Group</li>
+<li>List Groups</li>
+<li>Remove Group</li>
+<li>Add Users to Group</li>
+<li>Remove Users from Groups</li>
+
+<h3>Access</h3>
+<li>Add User read access to page</li>
+<li>Remove User read access to page</li>
+<li>Add Group read access to page</li>
+<li>Remove Group read access to page</li>
+<li>Add User update access to page</li>
+<li>Remove User update access to page</li>
+<li>Add Group update access to page</li>
+<li>Remove Group update access to page</li>
+<li>Add User delete access to page</li>
+<li>Remove User delete access to page</li>
+<li>Add Group delete access to page</li>
+<li>Remove Group delete access to page</li>
+
+<h3>Search</h3>
+<li>Search for page title</li>
+<li>Search for content word</li>
+<li>Search for multiple words</li>
+<li>Search for tag</li>
+<li>Search for multiple tags</li>
+
+<h3>Wiki Journal</h3>
+<li>Page create logged</li>
+<li>Page update logged</li>
+<li>Page delete logged</li>
+<li>Attachment create logged</li>
+<li>Attachment update logged</li>
+<li>Attachment delete logged</li>
+
+<h3>Blog</h3>
+<li>Create blog entry</li>
+<li>Read blog entry</li>
+<li>Update blog entry</li>
+<li>Delete blog entry<!--Content built using default--><!--Page Content End--></li>
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-12 columns">
+          		<hr/>
               <ul class="inline-list right">
                 <li><a href="#">About</a></li>
                 <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
@@ -76,8 +145,6 @@
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
-          </div>
-        </div>
       </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
@@ -87,3 +154,4 @@
     </script>
   </body>
 </html>
+</ul>

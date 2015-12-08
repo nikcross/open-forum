@@ -1,0 +1,24 @@
+<div class="medium-4 columns">
+
+</div>
+<div class="medium-4 columns">
+  <h2>Generate Help</h2>
+
+<table><tr><td><table><tr><td></td></tr></table></td></tr>
+<tr><td>Script to load:</td><td><input type="text" of-id="scriptFileName"></td></tr>
+<tr><td>Help Script to load:</td><td><input type="text" of-id="helpScriptFileName"></td></tr>
+<tr><td>Object Name:</td><td><input type="text" of-id="objectName"></td></tr>
+<tr><td>Page to Generate:</td><td><input type="text" of-id="targetPageName"></td></tr>
+<table><tr><td><tr><td><button onClick="generateHelpPage();">Generate Help Page</button></td></tr></table></td></tr>
+<table><tr><td><tr><td><button onClick="generateHelpScript();">Generate Help Script</button></td></tr></table></td></tr>
+
+</div>
+<div class="medium-4 columns">
+
+{{objectName}}
+<div id="output"></div>
+</div>
+
+</div>
+<div class="row">
+<h3> Needs to be able to run on server side as well to document server side scripts<!--Content built using default--></h3></table>

@@ -1,2 +1,15 @@
-<h3>Server Side Java</h3><ul><li>Lead Developer: <b>Nik Cross</b></li></ul><h3>Server Side Javascript</h3><ul><li>Lead Developer: <b>Nik Cross</b></li></ul><h3>Client Side Java</h3><ul><li>Lead Developer: <b>Nik Cross</b></li></ul><h3>Client Side Javascript</h3><ul><li>Lead Developer: <b>Nik Cross</b></li></ul><h3>Documentation</h3><ul><li>Editor: <b>Nik Cross</b></li></ul><h3>Page Templates</h3><b>Classical</b>
-<ul><li>Designer: <b>Nik Cross</b></li></ul><h3>Icons</h3><ul><li><a href="http://www.famfamfam.com" title="http://www.famfamfam.com" onclick="window.open('http://www.famfamfam.com');return false;">Fam Fam Fam <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></li></ul><h3>Images</h3><b>Classical</b><!--Content built using default-->
+<h3>Server Side Java</h3>
+<ul><li>Lead Developer: <b>Nik Cross</b></li>
+<h3>Server Side Javascript</h3>
+<li>Lead Developer: <b>Nik Cross</b></li>
+<h3>Client Side Javascript</h3>
+<li>Lead Developer: <b>Nik Cross</b></li>
+<h3>Documentation</h3>
+<li>Editor: <b>Nik Cross</b></li>
+<h3>Page Templates</h3>
+<b>Classical</b>
+<li>Designer: <b>Nik Cross</b></li>
+<h3>Icons</h3>
+<li><a href="http://www.famfamfam.com" target="external_page">Fam Fam Fam</a></li>
+<h3>Images</h3>
+<b>Classical</b><!--Content built using default--></ul>

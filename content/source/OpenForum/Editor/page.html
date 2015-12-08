@@ -2,25 +2,14 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Page Editor</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/lib/codemirror.css"/>
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.css"/>
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/lint/lint.css"/>
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.css"/>
+    <link rel="stylesheet" href="/OpenForum/Editor/code-mirror.css"/>
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"/>
-	<style>
-		.CodeMirror {
-          border: 1px solid #eee;
-          height: auto;
-		}
-
-		.CodeMirror-scroll {
-		overflow-y: hidden;
-		overflow-x: auto;
-		}
-	</style>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/CodeMirror/lib/codemirror.js"></script>
@@ -34,7 +23,7 @@
     <script>
       var pageName = "OpenForum/Editor";
       var author = "unknown";
-      var time = "1446482820000";
+      var time = "1447152051000";
       var currentUser = "";
       JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
     </script>
@@ -63,22 +52,19 @@
             <li class="has-dropdown">
               <a href="#">Actions</a>
               <ul class="dropdown">
-                <li of-repeatFor="extraAction in extraActions" class="active"><a href="#" id="displayStatusModal" onClick="{{extraAction.fn}}();" title="{{extraAction.description}}"><img src="/OpenForum/Images/icons/png/{{extraAction.icon}}.png">  {{extraAction.name}}</a></li>
-                <li class="divider"></li>
                 <li><a href="#" data-reveal-id="OpenForumCopyModal"><img src="/OpenForum/Images/icons/png/page_copy.png"> Copy Page</a></li>
                 <li><a href="#" data-reveal-id="OpenForumMoveModal"><img src="/OpenForum/Images/icons/png/page_go.png"> Move Page</a></li>
-                <li><a href="#" onClick="OpenForum.zipPage();"><img src="/OpenForum/Images/icons/png/compress.png"> Zip Page</a></li>
+                <li><a href="#" onClick="OpenForum.Actions.zipPage();"><img src="/OpenForum/Images/icons/png/compress.png"> Zip Page</a></li>
                 <li><a href="#" data-reveal-id="OpenForumDeleteModal"><img src="/OpenForum/Images/icons/png/bin.png"> Delete Page</a></li>
-                <li class="divider"></li>
                 <li><a href="#" id="displayStatusModal" data-reveal-id="statusModal">Show Editor Status</a></li>
+                <li of-repeatFor="extraAction in extraActions"><a href="#" onClick="{{extraAction.fn}}();return false;" title="{{extraAction.description}}"><img src="/OpenForum/Images/icons/png/{{extraAction.icon}}.png">  {{extraAction.name}}</a></li>
               </ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
               <a href="#">Sub Pages</a>
-              <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/Editor/Editors" title="/OpenForum/Editor/Editors">Editors</a></li><li><a href="/OpenForum/Editor/OverviewTemplate" title="/OpenForum/Editor/OverviewTemplate">OverviewTemplate</a></li><li><a href="/OpenForum/Editor/Plugins" title="/OpenForum/Editor/Plugins">Plugins</a></li></ul>
-                </li></ul>
+              <ul class="dropdown" id="subPageDropdown">
+              </ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
@@ -86,7 +72,6 @@
               <ul class="dropdown">
                 <li><a href="#" data-reveal-id="CreateAttachmentModal" class="active"><img src="/OpenForum/Images/icons/png/add.png"> Create Attachment</a></li>
                 <li><a href="#" data-reveal-id="UploadAttachmentModal" class="active"><img src="/OpenForum/Images/icons/png/add.png"> Upload Attachment</a></li>
-                <li class="divider"></li>
                 <li of-repeatFor="attachment in attachments"><a href="#" onClick="{{attachment.action}}({{attachment.id}});return false;" title="{{attachment.actionName}} {{attachment.pageName}}/{{attachment.fileName}}">
                   <img src="/OpenForum/Images/icons/png/{{attachment.icon}}.png"> {{attachment.fileName}} <img src="/OpenForum/Images/icons/png/{{attachment.actionIcon}}.png"></a></li>
               </ul>
@@ -98,14 +83,17 @@
                 <li><a onClick="loadPlugin('PageManager');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Page Manager</a></li>
                 <li><a onClick="loadPlugin('Console');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Javascript Console</a></li>
                 <li><a onClick="loadPlugin('ServerConsole');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Server Side Javascript Console</a></li>
-                <li><a onClick="loadPlugin('RemoteEditor');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Remote File Editor</a></li>
                 <li><a onClick="loadPlugin('DataTransform');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Data Transform Helper</a></li>
-                <li><a onClick="loadPlugin('Giraffe');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Giraffe Graphics Environment</a></li>
-                <li><a onClick="loadPlugin('Video');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Video Capture</a></li>
-                <li><a onClick="loadPlugin('GameConsole');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Game Console</a></li>
-                <li><a onClick="loadPlugin('ClientConsole');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Javascript Client Console</a></li>
                 <li><a onClick="loadPlugin('Service');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Web Service Wizard</a></li>
-                <li><a onClick="loadPlugin('Vision');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Vision Developer</a></li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Documentation</a>
+              <ul class="dropdown">
+                <li><a href="#" data-reveal-id="OpenForumDocumentationModal" onClick="OpenForum.showDocumentation('/OpenForumDocumentation/Editor'); return false;">The Editor</a></li>
+                <li><a href="#" data-reveal-id="OpenForumDocumentationModal" onClick="OpenForum.showDocumentation('/OpenForumDocumentation/EditorKeys'); return false;">Editor Keys</a></li>
+                <li of-repeatFor="doc in documentation"><a href="#" data-reveal-id="OpenForumDocumentationModal" onClick="OpenForum.showDocumentation('{{doc.pageName}}'); return false;">{{doc.title}}</a></li>
               </ul>
             </li>
           </ul>
@@ -118,22 +106,40 @@
               <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
               </ul>
             </li>
           </ul>
         </section>
 
-<div style="display: none"><a href="<ol><li>" target="viewPage" id="newTab">Hidden New Page Link</a></div></li></ol><!-- Copy Page -->
+<div style="display: none"><a href="#" target="viewPage" id="newTab">Hidden New Page Link</a></div>
+<!-- Copy Page -->
 
 <div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
+  <p>Copy the page {{pageName}} to <input type="text" of-id="openForumCopyPage"/></p>
+  <p><a href="#" onClick="editorCopyPage();return false;" class="secondary button">Copy Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/Editor&newPageName="+document.getElementById("OpenForumCopyPage").value;
+    editorCopyPage = function() {
+      	OpenForum.Actions.copyPage(pageName,openForumCopyPage);
+    	window.location = "/OpenForum/Editor?pageName="+openForumCopyPage;
     };
     </script>
 </div>
@@ -142,12 +148,13 @@
 
 <div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Move Page</h2>
-  <p>Move this page to <input type="text" id="OpenForumMovePage"/></p>
-  <p><a href="#" onClick="OpenForum.movePage();return false;" class="secondary button">Move Page</a></p>
+  <p>Move the page {{pageName}} to <input type="text" of-id="openForumMovePage"/></p>
+  <p><a href="#" onClick="editorMovePage(pageName);return false;" class="secondary button">Move Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
-    OpenForum.movePage = function() {
-    	window.location = "/OpenForum/Actions/Move?sourcePageName=OpenForum/Editor&newPageName="+document.getElementById("OpenForumMovePage").value;
+    editorMovePage = function() {
+      	OpenForum.Actions.movePage(pageName,openForumMovePage);
+    	window.location = "/OpenForum/Editor?pageName="+openForumMovePage;
     };
     </script>
 </div>
@@ -165,7 +172,8 @@
 
 <div id="UploadAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Upload Page Attachment</h2>
-  <form name="upload" id="upload" method="post" action="<ol><li>" enctype="multipart/form-data" target="uploadResponse"></li></ol>    <input class="actionButton"  type="file" name="file"/>
+  <form name="upload" id="upload" method="post" action="#" enctype="multipart/form-data" target="uploadResponse">
+    <input class="actionButton"  type="file" name="file"/>
     <input type="submit" class="secondary button" value="Upload" onClick="OpenForum.uploadFile('upload',pageName); return false;"/>
   </form>
 
@@ -177,15 +185,20 @@
 <div id="OpenForumDeleteModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Delete Page</h2>
   <p>Please confirm that you want to delete the page {{pageName}}
-  <p><a href="#" onClick="OpenForum.deletePage();return false;" class="secondary button">Delete</a></p>
+  <p><a href="#" onClick="OpenForum.Actions.deletePage(pageName);return false;" class="secondary button">Delete</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-    <script>
-    OpenForum.deletePage = function() {
-    	window.location = "/OpenForum/Actions/Delete?pageName=";
-      return false;
-    };
-    </script>
 </div>
+
+<!-- Documentation -->
+<div id="OpenForumDocumentationModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+    <p id="OpenForumDocumentation"></p>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<script>
+  OpenForum.showDocumentation = function(documetationPage) {
+    document.getElementById("OpenForumDocumentation").innerHTML = OpenForum.loadFile(documetationPage+"/page.html.fragment");
+  };
+</script>
 <!-- insert (/OpenForum/Editor/top-menu.html.template) end -->
       </nav>
       

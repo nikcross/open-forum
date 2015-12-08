@@ -2,7 +2,6 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Javascript</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
@@ -12,7 +11,7 @@
 	<script>
 		var pageName = "OpenForum/Javascript";
 		var author = "unknown";
-		var time = "1437406926000";
+		var time = "1447152051000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -41,7 +40,23 @@
               <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
               </ul>
             </li>
           </ul>
@@ -50,10 +65,9 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="/OpenForum">Javascript</a></li></nav>
     
-    <div class="row">
     <!--PageContent Start--><a href="/OpenForum/Javascript/open-forum.js" title="/OpenForum/Javascript/open-forum.js">OpenForum/Javascript/open-forum.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript&fileName=open-forum.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">//==============================================================================================================//
-/* Version 1.0.004*/
-/* Built on Tue Oct 27 2015 19:34:48 GMT-0000 (GMT) */
+/* Version 1.0.005*/
+/* Built on Wed Nov 18 2015 10:58:28 GMT-0000 (UTC) */
 /* Built by /OpenForum/Javascript/Builder.*/
 /* Do not edit as changes may be overwritten */
 //==============================================================================================================//
@@ -153,6 +167,8 @@ function Dependency(serviceReference) {
 //---- OpenForum ----
 
 var OpenForum = new function(){
+  this.FIELD_DELIMETER_START = "{"+"{";
+  this.FIELD_DELIMETER_END = "}"+"}";
   var self = this;
   var objects= [];
   var tables = [];
@@ -163,12 +179,14 @@ var OpenForum = new function(){
   var nodeProcessors = [];
   var initialisers = [];
 
+  self.interval = null;
+  
   self.getVersion = function() {
-    return "1.0.004";
+    return "1.0.005";
   };
 
   self.getBuildDate = function() {
-    return "Tue Oct 27 2015 19:34:48 GMT-0000 (GMT)";
+    return "Wed Nov 18 2015 10:58:28 GMT-0000 (UTC)";
   };
 
   self.initDependencies = DependencyService.createNewDependency();
@@ -260,10 +278,10 @@ var OpenForum = new function(){
         var object = OpenForum.getObject(nodeName).add( node );
         objects[objects.length]=object;
       }
-      if( typeof(node.innerHTML)!="undefined" && node.innerHTML.indexOf("{{")!=-1) {
+      if( typeof(node.innerHTML)!="undefined" && node.innerHTML.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
         self.parseParts(node,objects,prefix);
       }
-      if( node.nodeName=="#text" && node.nodeValue.indexOf("{{")!=-1) {
+      if( node.nodeName=="#text" && node.nodeValue.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
         self.parseText(node,objects,prefix);
       }
     }
@@ -299,12 +317,12 @@ var OpenForum = new function(){
     var data = node.nodeValue;
 
     var spans = [];
-    while(data.indexOf("{{")!=-1) {
-      name = data.substring(data.indexOf("{{")+2,data.indexOf("}}"));
+    while(data.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+      name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
 
-      data = data.substring(0,data.indexOf("{{"))+
+      data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
         "<span id='OpenForumId"+nextId+"'>OpenForumId"+nextId+"</span>"+
-        data.substring(data.indexOf("}}")+2);
+        data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
       spans[spans.length] = {id: 'OpenForumId'+nextId,name: name};
 
       nextId++;
@@ -326,12 +344,12 @@ var OpenForum = new function(){
     var data = node.innerHTML;
 
     var spans = [];
-    while(data.indexOf("{{")!=-1) {
-      name = data.substring(data.indexOf("{{")+2,data.indexOf("}}"));
+    while(data.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+      name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
 
-      data = data.substring(0,data.indexOf("{{"))+
+      data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
         "<span id='OpenForumId"+nextId+"'>OpenForumId"+nextId+"</span>"+
-        data.substring(data.indexOf("}}")+2);
+        data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
       spans[spans.length] = {id: 'OpenForumId'+nextId,name: name};
 
       nextId++;
@@ -392,9 +410,25 @@ var OpenForum = new function(){
     self.scan();
     self.init();
 
-    self.interval = setInterval(self.scan,500,500);
+    self.startAutoScan(500,500);
   };
 
+  self.stopAutoScan = function() {
+    if(self.interval !== null ) {
+      clearInterval( self.interval );
+      self.interval = null;
+    }
+  };
+  
+  self.startAutoScan = function(scanTime) {
+    self.stopAutoScan();
+    if(scanTime) {
+      self.interval = setInterval(self.scan,scanTime,scanTime);
+    } else {
+      self.interval = setInterval(self.scan,500,500);
+    }
+  };
+  
   self.onunload= function() {
     this.close();
   };
@@ -1304,11 +1338,11 @@ Date.prototype.simpleTimeFormat = function() {
 				eval("var "+this.element+"=item;");
 
 				var data = ""+this.rowHTML;
-				while(data.indexOf("{{")!=-1) {
-					name = data.substring(data.indexOf("{{")+2,data.indexOf("}}"));
-					data = data.substring(0,data.indexOf("{{"))+
+				while(data.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+					name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
+					data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
 					eval(name)+
-					data.substring(data.indexOf("}}")+2);
+					data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
 				}
 				tableData += data;
 			}
@@ -1320,14 +1354,24 @@ Date.prototype.simpleTimeFormat = function() {
 //==============================================================================================================//
 </xmp>
 
-<ul><li><a href="/OpenForum/Javascript/Builder" title="/OpenForum/Javascript/Builder">Builder</a></li><li><a href="/OpenForum/Javascript/CodeMirror" title="/OpenForum/Javascript/CodeMirror">CodeMirror</a></li><li><a href="/OpenForum/Javascript/JavaWrapper" title="/OpenForum/Javascript/JavaWrapper">JavaWrapper</a></li><li><a href="/OpenForum/Javascript/OpenForumServer" title="/OpenForum/Javascript/OpenForumServer">OpenForumServer</a></li><li><a href="/OpenForum/Javascript/Services" title="/OpenForum/Javascript/Services">Services</a></li><li><a href="/OpenForum/Javascript/Sound" title="/OpenForum/Javascript/Sound">Sound</a></li><li><a href="/OpenForum/Javascript/SpeechSynthesis" title="/OpenForum/Javascript/SpeechSynthesis">SpeechSynthesis</a></li><li><a href="/OpenForum/Javascript/Storage" title="/OpenForum/Javascript/Storage">Storage</a></li><li><a href="/OpenForum/Javascript/Tree" title="/OpenForum/Javascript/Tree">Tree</a></li><li><a href="/OpenForum/Javascript/VideoCapture" title="/OpenForum/Javascript/VideoCapture">VideoCapture</a></li></ul><!--Content built using default--><!--Page Content End-->
-    </div>
+[<ul><li> <a href="/OpenForum/Javascript/Builder">Builder</a></li>
+<li> <a href="/OpenForum/Javascript/CodeMirror">CodeMirror</a></li>
+<li> <a href="/OpenForum/Javascript/DocumenationGenerator">DocumenationGenerator</a></li>
+<li> <a href="/OpenForum/Javascript/DocumentationGenerator">DocumentationGenerator</a></li>
+<li> <a href="/OpenForum/Javascript/JavaWrapper">JavaWrapper</a></li>
+<li> <a href="/OpenForum/Javascript/OpenForumServer">OpenForumServer</a></li>
+<li> <a href="/OpenForum/Javascript/Renderer">Renderer</a></li>
+<li> <a href="/OpenForum/Javascript/Services">Services</a></li>
+<li> <a href="/OpenForum/Javascript/Sound">Sound</a></li>
+<li> <a href="/OpenForum/Javascript/SpeechSynthesis">SpeechSynthesis</a></li>
+<li> <a href="/OpenForum/Javascript/Storage">Storage</a></li>
+<li> <a href="/OpenForum/Javascript/Tree">Tree</a></li>
+<li> <a href="/OpenForum/Javascript/VideoCapture">VideoCapture</a></li>
+</ul><!--Content built using default--><!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-12 columns">
+          		<hr/>
               <ul class="inline-list right">
                 <li><a href="#">About</a></li>
                 <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
@@ -1336,8 +1380,6 @@ Date.prototype.simpleTimeFormat = function() {
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
-          </div>
-        </div>
       </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>

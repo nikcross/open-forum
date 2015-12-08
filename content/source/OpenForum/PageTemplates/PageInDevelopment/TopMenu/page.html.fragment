@@ -9,6 +9,7 @@
                 <li><a href="#">Create New Page</a></li>
                 <li><a href="#">Create New Child Page</a></li>
                 <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
+                <li><a href="#" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
                 <li><a href="/Development?action=publish&pageName=/&pageName;">Publish Page</a></li>
               </ul>
             </li>
@@ -23,7 +24,7 @@
             <li class="has-dropdown">
               <a href="#">Attachments</a>
               <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.wiki" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.wiki">page.wiki</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt">notes.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js">page.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content">page.content</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js">topMenu.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt">tags.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html">printable.html</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json">data.json</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html">page.html</a></li></ul>
+<ul><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content">page.content</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json">data.json</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js">topMenu.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt">notes.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html">printable.html</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js">page.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.wiki" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.wiki">page.wiki</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt">tags.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html">page.html</a></li></ul>
                 </li></ul>
             </li>
             <li class="divider"></li>
@@ -31,7 +32,23 @@
               <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
               </ul>
             </li>
           </ul>
@@ -39,12 +56,26 @@
 
 <div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
+  <p>Copy this page to <input type="text" of-id="OpenForumCopyPage"/></p>
   <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
+    OpenForumCopyPage = "&pageName;";
     OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=&pageName;&newPageName="+document.getElementById("OpenForumCopyPage").value;
+    	window.location = "/OpenForum/Actions/Copy?sourcePageName=&pageName;&newPageName="+OpenForumCopyPage;
+    };
+    </script>
+</div>
+
+<div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Move Page</h2>
+  <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
+  <p><a href="#" onClick="OpenForum.movePage();return false;" class="secondary button">Move Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumMovePage = "&pageName;";
+    OpenForum.movePage = function() {
+    	window.location = "/OpenForum/Actions/Move?pageName=&pageName;&newPageName="+OpenForumMovePage;
     };
     </script>
 </div>

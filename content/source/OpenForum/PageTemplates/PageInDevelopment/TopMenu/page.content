@@ -9,6 +9,7 @@
                 <li><a href="[{Hash}]">Create New Page</a></li>
                 <li><a href="[{Hash}]">Create New Child Page</a></li>
                 <li><a href="[{Hash}]" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
+                <li><a href="[{Hash}]" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
                 <li><a href="/Development?action=publish&pageName=/&pageName;">Publish Page</a></li>
               </ul>
             </li>
@@ -31,7 +32,23 @@
               <a href="[{Hash}]">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+                <li><a href="[{Hash}]" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
               </ul>
             </li>
           </ul>
@@ -39,12 +56,26 @@
 
 <div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
+  <p>Copy this page to <input type="text" of-id="OpenForumCopyPage"/></p>
   <p><a href="[{Hash}]" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
   <script>
+    OpenForumCopyPage = "&pageName;";
     OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=&pageName;&newPageName="+document.getElementById("OpenForumCopyPage").value;
+    	window.location = "/OpenForum/Actions/Copy?sourcePageName=&pageName;&newPageName="+OpenForumCopyPage;
+    };
+    </script>
+</div>
+
+<div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Move Page</h2>
+  <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
+  <p><a href="[{Hash}]" onClick="OpenForum.movePage();return false;" class="secondary button">Move Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+  <script>
+    OpenForumMovePage = "&pageName;";
+    OpenForum.movePage = function() {
+    	window.location = "/OpenForum/Actions/Move?pageName=&pageName;&newPageName="+OpenForumMovePage;
     };
     </script>
 </div>

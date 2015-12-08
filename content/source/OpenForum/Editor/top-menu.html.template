@@ -2,51 +2,50 @@
           <ul class="left"> 
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Actions</a>
+              <a href="#">Actions</a>
               <ul class="dropdown">
-                <li of-repeatFor="extraAction in extraActions" class="active"><a href="[{Hash}]" id="displayStatusModal" onClick="{{extraAction.fn}}();" title="{{extraAction.description}}">[{Icon name="{{extraAction.icon}}"}]  {{extraAction.name}}</a></li>
-                <li class="divider"></li>
-                <li><a href="[{Hash}]" data-reveal-id="OpenForumCopyModal">[{Icon name="page_copy"}] Copy Page</a></li>
-                <li><a href="[{Hash}]" data-reveal-id="OpenForumMoveModal">[{Icon name="page_go"}] Move Page</a></li>
-                <li><a href="[{Hash}]" onClick="OpenForum.zipPage();">[{Icon name="compress"}] Zip Page</a></li>
-                <li><a href="[{Hash}]" data-reveal-id="OpenForumDeleteModal">[{Icon name="bin"}] Delete Page</a></li>
-                <li class="divider"></li>
+                <li><a href="#" data-reveal-id="OpenForumCopyModal">[{Icon name="page_copy"}] Copy Page</a></li>
+                <li><a href="#" data-reveal-id="OpenForumMoveModal">[{Icon name="page_go"}] Move Page</a></li>
+                <li><a href="#" onClick="OpenForum.Actions.zipPage();">[{Icon name="compress"}] Zip Page</a></li>
+                <li><a href="#" data-reveal-id="OpenForumDeleteModal">[{Icon name="bin"}] Delete Page</a></li>
                 <li><a href="[{Hash}]" id="displayStatusModal" data-reveal-id="statusModal">Show Editor Status</a></li>
+                <li of-repeatFor="extraAction in extraActions"><a href="#" onClick="{{extraAction.fn}}();return false;" title="{{extraAction.description}}">[{Icon name="{{extraAction.icon}}"}]  {{extraAction.name}}</a></li>
               </ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Sub Pages</a>
-              <ul class="dropdown"><li>
-[{ChildPagesList}]
-                </li></ul>
+              <a href="#">Sub Pages</a>
+              <ul class="dropdown" id="subPageDropdown">
+              </ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Attachments</a>
+              <a href="#">Attachments</a>
               <ul class="dropdown">
-                <li><a href="[{Hash}]" data-reveal-id="CreateAttachmentModal" class="active">[{Icon name="add"}] Create Attachment</a></li>
-                <li><a href="[{Hash}]" data-reveal-id="UploadAttachmentModal" class="active">[{Icon name="add"}] Upload Attachment</a></li>
-                <li class="divider"></li>
-                <li of-repeatFor="attachment in attachments"><a href="[{Hash}]" onClick="{{attachment.action}}({{attachment.id}});return false;" title="{{attachment.actionName}} {{attachment.pageName}}/{{attachment.fileName}}">
+                <li><a href="#" data-reveal-id="CreateAttachmentModal" class="active">[{Icon name="add"}] Create Attachment</a></li>
+                <li><a href="#" data-reveal-id="UploadAttachmentModal" class="active">[{Icon name="add"}] Upload Attachment</a></li>
+                <li of-repeatFor="attachment in attachments"><a href="#" onClick="{{attachment.action}}({{attachment.id}});return false;" title="{{attachment.actionName}} {{attachment.pageName}}/{{attachment.fileName}}">
                   [{Icon name="{{attachment.icon}}"}] {{attachment.fileName}} [{Icon name="{{attachment.actionIcon}}"}]</a></li>
               </ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Plugins</a>
+              <a href="#">Plugins</a>
               <ul class="dropdown">
                 <li><a onClick="loadPlugin('PageManager');return false;">[{Icon name="plugin"}] Page Manager</a></li>
                 <li><a onClick="loadPlugin('Console');return false;">[{Icon name="plugin"}] Javascript Console</a></li>
                 <li><a onClick="loadPlugin('ServerConsole');return false;">[{Icon name="plugin"}] Server Side Javascript Console</a></li>
-                <li><a onClick="loadPlugin('RemoteEditor');return false;">[{Icon name="plugin"}] Remote File Editor</a></li>
                 <li><a onClick="loadPlugin('DataTransform');return false;">[{Icon name="plugin"}] Data Transform Helper</a></li>
-                <li><a onClick="loadPlugin('Giraffe');return false;">[{Icon name="plugin"}] Giraffe Graphics Environment</a></li>
-                <li><a onClick="loadPlugin('Video');return false;">[{Icon name="plugin"}] Video Capture</a></li>
-                <li><a onClick="loadPlugin('GameConsole');return false;">[{Icon name="plugin"}] Game Console</a></li>
-                <li><a onClick="loadPlugin('ClientConsole');return false;">[{Icon name="plugin"}] Javascript Client Console</a></li>
                 <li><a onClick="loadPlugin('Service');return false;">[{Icon name="plugin"}] Web Service Wizard</a></li>
-                <li><a onClick="loadPlugin('Vision');return false;">[{Icon name="plugin"}] Vision Developer</a></li>
+              </ul>
+            </li>
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Documentation</a>
+              <ul class="dropdown">
+                <li><a href="#" data-reveal-id="OpenForumDocumentationModal" onClick="OpenForum.showDocumentation('/OpenForumDocumentation/Editor'); return false;">The Editor</a></li>
+                <li><a href="#" data-reveal-id="OpenForumDocumentationModal" onClick="OpenForum.showDocumentation('/OpenForumDocumentation/EditorKeys'); return false;">Editor Keys</a></li>
+                <li of-repeatFor="doc in documentation"><a href="#" data-reveal-id="OpenForumDocumentationModal" onClick="OpenForum.showDocumentation('{{doc.pageName}}'); return false;">{{doc.title}}</a></li>
               </ul>
             </li>
           </ul>
@@ -56,10 +55,26 @@
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Signed in as {{currentUser}}</a>
+              <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
               </ul>
             </li>
           </ul>
@@ -70,12 +85,13 @@
 
 <div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Copy Page</h2>
-  <p>Copy this page to <input type="text" id="OpenForumCopyPage"/></p>
-  <p><a href="[{Hash}]" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+  <p>Copy the page {{pageName}} to <input type="text" of-id="openForumCopyPage"/></p>
+  <p><a href="#" onClick="editorCopyPage();return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=&pageName;&newPageName="+document.getElementById("OpenForumCopyPage").value;
+    editorCopyPage = function() {
+      	OpenForum.Actions.copyPage(pageName,openForumCopyPage);
+    	window.location = "/OpenForum/Editor?pageName="+openForumCopyPage;
     };
     </script>
 </div>
@@ -84,12 +100,13 @@
 
 <div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Move Page</h2>
-  <p>Move this page to <input type="text" id="OpenForumMovePage"/></p>
-  <p><a href="[{Hash}]" onClick="OpenForum.movePage();return false;" class="secondary button">Move Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+  <p>Move the page {{pageName}} to <input type="text" of-id="openForumMovePage"/></p>
+  <p><a href="#" onClick="editorMovePage(pageName);return false;" class="secondary button">Move Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
-    OpenForum.movePage = function() {
-    	window.location = "/OpenForum/Actions/Move?sourcePageName=&pageName;&newPageName="+document.getElementById("OpenForumMovePage").value;
+    editorMovePage = function() {
+      	OpenForum.Actions.movePage(pageName,openForumMovePage);
+    	window.location = "/OpenForum/Editor?pageName="+openForumMovePage;
     };
     </script>
 </div>
@@ -99,8 +116,8 @@
 <div id="CreateAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Create New Page Attachment</h2>
   <p>File Name <input type="text" of-id="newAttachmentName"/></p>
-  <p><a href="[{Hash}]" onClick="createAttachment();return false;" class="secondary button">Create</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+  <p><a href="#" onClick="createAttachment();return false;" class="secondary button">Create</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
 <!-- Upload Attachment -->
@@ -112,7 +129,7 @@
     <input type="submit" class="secondary button" value="Upload" onClick="OpenForum.uploadFile('upload',pageName); return false;"/>
   </form>
 
-  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
 <!-- Delete Page -->
@@ -120,12 +137,17 @@
 <div id="OpenForumDeleteModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Delete Page</h2>
   <p>Please confirm that you want to delete the page {{pageName}}
-  <p><a href="[{Hash}]" onClick="OpenForum.deletePage();return false;" class="secondary button">Delete</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
-    <script>
-    OpenForum.deletePage = function() {
-    	window.location = "/OpenForum/Actions/Delete?pageName=";
-      return false;
-    };
-    </script>
+  <p><a href="#" onClick="OpenForum.Actions.deletePage(pageName);return false;" class="secondary button">Delete</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
+
+<!-- Documentation -->
+<div id="OpenForumDocumentationModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+    <p id="OpenForumDocumentation"></p>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<script>
+  OpenForum.showDocumentation = function(documetationPage) {
+    document.getElementById("OpenForumDocumentation").innerHTML = OpenForum.loadFile(documetationPage+"/page.html.fragment");
+  };
+</script>

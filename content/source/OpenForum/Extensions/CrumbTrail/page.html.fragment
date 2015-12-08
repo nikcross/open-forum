@@ -1,11 +1,16 @@
-<a name="section1"></a>Displays a page hierachy trail
-<hr/><a name="section2"></a>
-<h3>Parameters</h3><hr/><a name="section3"></a>
-<h3>Usage:</h3><xmp class="example">
+Displays a page hierachy trail
+<hr/>
+!<h3>Parameters</h3>
+<hr/>
+!<h3>Usage:</h3>
+<xmp>
 [{CrumbTrail}]
 </xmp>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">CrumbTrail</a></li></nav><br/><hr/>
-<h3>renderer.sjs</h3><xmp class="example">parts = pageName.split("/");
+[<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">CrumbTrail</a></li></nav>
+
+<hr/>
+!<h3>renderer.sjs</h3>
+<xmp>parts = pageName.split("/");
 data = "";
 path = "";
 

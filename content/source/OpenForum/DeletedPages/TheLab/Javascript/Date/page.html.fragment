@@ -1,0 +1,22 @@
+<ul><li>getDate()	Returns the day of the month (from 1-31)</li>
+<li>getDay()	Returns the day of the week (from 0-6)</li>
+<li>getFullYear()	Returns the year (four digits)</li>
+<li>getHours()	Returns the hour (from 0-23)</li>
+<li>getMilliseconds()	Returns the milliseconds (from 0-999)</li>
+<li>getMinutes()	Returns the minutes (from 0-59)</li>
+<li>getMonth()	Returns the month (from 0-11)</li>
+<li>getSeconds()	Returns the seconds (from 0-59)</li>
+<li>getTime()	Returns the number of milliseconds since midnight Jan 1, 1970</li>
+<li>getTimezoneOffset()	Returns the time difference between UTC time and local time, in minutes</li>
+<li>parse()	Parses a date string and returns the number of milliseconds since January 1, 1970</li>
+<li>setDate()	Sets the day of the month of a date object</li>
+<li>setFullYear()	Sets the year (four digits) of a date object</li>
+<li>setHours()	Sets the hour of a date object</li>
+<li>setMilliseconds()	Sets the milliseconds of a date object</li>
+<li>setMinutes()	Set the minutes of a date object</li>
+<li>setMonth()	Sets the month of a date object</li>
+<li>setSeconds()	Sets the seconds of a date object</li>
+<li>setTime()	Sets a date to a specified number of milliseconds after/before January 1, 1970</li>
+<li>toDateString()	Converts the date portion of a Date object into a readable string</li>
+
+<!--Content built using default--></ul>

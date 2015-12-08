@@ -1,11 +1,12 @@
-<a name="section1"></a>Places an icon on the page
-<hr/><a name="section2"></a>
-<h3>Parameters
-<ul><li>name - name of icon</li>
+Places an icon on the page
 <hr/>
-</ul><h3>Usage:
-<xmp class="example">
+<h3>Parameters</h3>
+<ul><li> name - name of icon</li>
+
+-<hr/>
+<h3>Usage:</h3>
+<xmp>
 [{Icon name="chart pie"}]
 </xmp>
 Example:
-<img src="/OpenForum/Images/icons/png/chart_pie.png"><!--Content built using default--></h3></h3>
+<img src="/OpenForum/Images/icons/png/chart_pie.png"><!--Content built using default--></ul>

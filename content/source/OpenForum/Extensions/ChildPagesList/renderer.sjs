@@ -1,13 +1,11 @@
 targetPage = extension.getAttribute("pageName");
-if(targetPage===null)
-{
+if(targetPage===null) {
   targetPage = pageName;
 }
 targetPage = ""+targetPage;
 
 list = file.getAttachmentsForPage( targetPage );
-if(targetPage.charAt(0)!='/')
-{
+if(targetPage.charAt(0)!='/') {
   targetPage = "/"+targetPage;
 }
 
@@ -29,4 +27,4 @@ for(var i in pagesList) {
   data+="* ["+item+"|"+targetPage+"/"+item+"]\n";
 }
 
-return wiki.renderWikiData(pageName,data);
+return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,data);

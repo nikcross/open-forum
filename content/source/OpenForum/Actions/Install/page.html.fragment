@@ -1,8 +1,12 @@
-<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Installs a file with an openforum extension
-<hr/><a name="section2"></a>
-<h3>Get Parameters</h3><ul><li>pageName - The page where the file is attached</li><li>fileName - The file to install</li></ul>
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Installs a file with an openforum extension
 <hr/>
-<h3>Server Side Javascript for GET method</h3><xmp class="example"> if(typeof(pageName)=="undefined")
+!<h3>Get Parameters</h3>
+<ul><li>pageName - The page where the file is attached</li>
+<li>fileName - The file to install</li>
+
+<hr/>
+!<h3>Server Side Javascript for GET method</h3>
+<xmp> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
 }
@@ -17,4 +21,4 @@ else
   wiki.addJournalEntry("File ["+pageName+"/"+fileName+"] installed by "+user);
   page = wiki.buildPage(pageName);
   transaction.goToPage(pageName);
-} </xmp><!--Content built using default-->
+} </xmp><!--Content built using default--></ul>

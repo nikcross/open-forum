@@ -150,6 +150,7 @@
 		<mime-type file-extension="stm">text/html</mime-type>
 		<mime-type file-extension="sv4cpio">application/x-sv4cpio</mime-type>
 		<mime-type file-extension="sv4crc">application/x-sv4crc</mime-type>
+		<mime-type file-extension="svg">image/svg+xml</mime-type>
 		<mime-type file-extension="t">application/x-troff</mime-type>
 		<mime-type file-extension="tar">application/x-tar</mime-type>
 		<mime-type file-extension="tcl">application/x-tcl</mime-type>
