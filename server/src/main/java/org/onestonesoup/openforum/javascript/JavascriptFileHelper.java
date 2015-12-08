@@ -119,17 +119,6 @@ public class JavascriptFileHelper  {
 		controller.markForRebuild();
 	}
 
-	public String incrementAttachment(String pageName, String fileName)
-			throws Exception, AuthenticationException {
-		String data = fileManager.getPageAttachmentAsString(pageName, fileName,
-				login);
-		String newData = "" + (Integer.parseInt(data) + 1);
-		fileManager.saveStringAsAttachment(newData, pageName, fileName,
-				controller.getSystemLogin(), false);
-
-		return data;
-	}
-
 	public void unZipAttachment(String pageName, String fileName)
 			throws Exception, AuthenticationException {
 		fileManager.unZipPageAttachment(pageName, fileName, login);
