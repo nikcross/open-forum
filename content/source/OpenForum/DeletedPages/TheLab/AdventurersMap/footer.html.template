@@ -1,0 +1,30 @@
+<table><tr><td class="author">by &author; &time;</td></tr></table>
+<br/><br/><br/>
+
+<table class="top"><td class="topMenu">
+<tr><td>
+ &attachments;	
+<h3>Upload Attachments</h3>
+<form name="attach" id="attach" method="post" action="/OpenForum/Actions/Attach?page=&pageName;" enctype="multipart/form-data">
+<input type="hidden" name="statusQueue"/>
+<input type="file" name="file">
+<input type="submit" value="Attach file" onClick="uploadAttachment();return false;"/><DIV id="uploadAppletLayer"></DIV>
+</form>
+</td></tr></table>
+
+</td><td class="boxRight">&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td class="boxBottomLeft">&nbsp;&nbsp;&nbsp;&nbsp;</td><td class="boxBottom">&nbsp;</td><td class="boxBottomRight">&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr><td align="right" colspan="3"><a href="http://www.onestonesoup.org/ProjectOpenForum"><img src="/OpenForum/Images/powered-by.png" border="0"></a></td></tr>
+</table>
+
+</td></tr>
+</table>
+
+</center>
+
+<DIV id="screened" style="position: absolute; top: 0; left: 0; display: none;"><img id="screenedImg" src="/OpenForum/Images/area.png" class="nodeImg"/></DIV>
+<DIV id="modal" style="position: absolute; top: 0; left: 0; display: none; border: 1px solid; background: #FFFFFF;"></DIV>
+<DIV id="footer"></DIV>
+
+</BODY>
+</HTML>

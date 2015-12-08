@@ -1,0 +1,5 @@
+!!Example
+{{{
+[{InsertPage page='/OpenForum/PageTemplates/Example'}]
+}}}
+[{InsertPage page='/OpenForum/PageTemplates/Example'}]

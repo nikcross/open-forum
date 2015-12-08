@@ -1,0 +1,67 @@
+Database
+on proposal table add nullable booleans
+ALTER TABLE proposal ADD COLUMN industrial_involvement;
+ALTER TABLE proposal ADD COLUMN industry_group_links;
+
+Model
+
+@NotNull (group = SubmitGroup)
+Boolean industryInvolvement;
+
+@NotNull (group = SubmitGroup)
+Boolean industryGroupLinks;
+
+public Boolean getIndustryInvolvement() {
+	return industryInvolvement;
+}
+public void setIndustryInvolvement(Boolean industryInvolvement) {
+	this.industryInvolvement = industryInvolvement;
+}
+public Boolean getIndustryGroupLinks() {
+	return industryGroupLinks;
+}
+public void setIndustryGroupLinks(Boolean industryGroupLinks) {
+	this.industryGroupLinks = industryGroupLinks;
+}
+
+Tests
+
+cannotSubmitProposalWithoutAnswersToAllIndustryQuestions() {
+	Proposal proposal = ProposalBuilder...
+	
+	proposal.submit();
+	
+	proposal.setIndustryInvolvement(Boolean.TRUE);
+	
+	proposal.submit();
+	
+	proposal.setIndustryInvolvement(null);
+	proposal.setIndustryGroupLinks(Boolean.TRUE);
+	
+	proposal.submit();
+	
+	proposal.setIndustryInvolvement(Boolean.TRUE);
+	proposal.setIndustryGroupLinks(Boolean.TRUE);
+	
+	proposal.submit();
+}
+
+Web Proxy - add to proposal proxy
+
+Boolean getIndustryInvolvement();
+void setIndustryInvolvement(Boolean industryInvolvement);
+Boolean getIndustryGroupLinks();
+void setIndustryGroupLinks(Boolean industryGroupLinks);
+
+Web Java
+
+BooleanField industryInvolvement;
+BooleanField industryGroupLinks;
+
+Web Xml
+
+Industry Section
+
+BooleanField industryInvolvement;
+BooleanField industryGroupLinks;
+

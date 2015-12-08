@@ -1,0 +1,1 @@
+OpenForum.transaction = {};

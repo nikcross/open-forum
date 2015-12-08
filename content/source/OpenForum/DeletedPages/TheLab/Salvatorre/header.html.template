@@ -1,0 +1,17 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>&title;</TITLE>
+<META NAME="Generator" CONTENT="OpenForum">
+<META NAME="Author" CONTENT="&author;">
+	<style type="text/css" media="all">@import url("/OpenForum/Styles/Plain/page.css");</style>
+	<style type="text/css" src="/&pageName;/page.css"></style>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/&pageName;/page.js"></script>
+	<script>
+		pageName = "&pageName;";
+		author = "&author;";
+		time = "&time;";
+	</script>
+</HEAD>
+<body>
