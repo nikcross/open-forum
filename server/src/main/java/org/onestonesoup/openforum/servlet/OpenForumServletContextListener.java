@@ -53,10 +53,14 @@ public class OpenForumServletContextListener implements ServletContextListener {
 	}
 
 	public static OpenForumController getWikiController(String domain) {
-		OpenForumController controller = wikiControllers.get(domain);
-		if(controller==null) {
-			controller = wikiControllers.get("default");
+		for(String key: wikiControllers.keySet()) {
+			//System.out.println(domain+" matches "+key+" ?");
+			if(domain.matches(key)) {
+				//System.out.println("MATCH");
+				return wikiControllers.get(key);
+			}
 		}
-		return controller;
+		//No match found
+		return wikiControllers.get("default");
 	}
 }
