@@ -2,7 +2,6 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>&title;</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
@@ -38,9 +37,7 @@
       </nav>
 [{CrumbTrail}]
     
-    <div class="row">
     <!--PageContent Start-->&content;<!--Page Content End-->
-    </div>
       
 &insert:/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content;
     

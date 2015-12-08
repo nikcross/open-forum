@@ -1,4 +1,4 @@
-<xmp class="example">
+<xmp>
 run:<tab name> // run the data from a tab as a script
 clientConsole.setClient("<client name>"); // change the client to run against
 </xmp>

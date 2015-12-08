@@ -1,8 +1,7 @@
-<a name="section1"></a><!doctype html>
+<!doctype html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Thumbnail</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
@@ -12,7 +11,7 @@
 	<script>
 		var pageName = "OpenForum/Extensions/Thumbnail";
 		var author = "unknown";
-		var time = "1437406924000";
+		var time = "1447152051000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -41,7 +40,23 @@
               <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
               </ul>
             </li>
           </ul>
@@ -50,15 +65,18 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">Thumbnail</a></li></nav>
     
-    <div class="row">
     <!--PageContent Start-->Inserts an image thumbnail with a link to the full size image.
-<hr/><a name="section2"></a>
-<h3>Usage:</h3><xmp class="example">
+<hr/>
+!<h3>Usage:</h3>
+<xmp>
 [{Thumbnail src="image file name"}]
 </xmp>
-<hr/><a name="section3"></a>
-<a href='' onclick='showAlert("<img src=\"/OpenForum/Images/index_abc.png\" border=0>","/OpenForum/Images/index_abc.png");return false;'><img src='/OpenForum/Images/index_abc.thumbnail.png' border=0/></a><br/><hr/>
-<h3>renderer.sjs</h3><xmp class="example">src = extension.getAttributeValueByName("src");
+-<hr/>
+[<a href='' onclick='showAlert("<img src=\"/OpenForum/Images/index_abc.png\" border=0>","/OpenForum/Images/index_abc.png");return false;'><img src='/OpenForum/Images/index_abc.thumbnail.png' border=0/></a>
+
+<hr/>
+!<h3>renderer.sjs</h3>
+<xmp>src = extension.getAttributeValueByName("src");
 
 if(src!=null)
 {
@@ -80,13 +98,10 @@ else
 {
   return "Invalid Image. No src attribute given.";
 </xmp>}<!--Content built using default--><!--Page Content End-->
-    </div>
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-12 columns">
+          		<hr/>
               <ul class="inline-list right">
                 <li><a href="#">About</a></li>
                 <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
@@ -95,8 +110,6 @@ else
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
-          </div>
-        </div>
       </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>

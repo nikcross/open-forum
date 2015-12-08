@@ -1,10 +1,17 @@
-<a name="section1"></a>Creates a bulleted list of attachments on a pages
-<hr/><a name="section2"></a>
-<h3>Parameters</h3><ul><li>pageName - The page to list (optional. default = current page)</li><hr/><a name="section3"></a></ul>
-<h3>Usage:</h3><xmp class="example">
+Creates a bulleted list of attachments on a pages
+<hr/>
+!<h3>Parameters</h3>
+<ul><li>pageName - The page to list (optional. default = current page)</li>
+<hr/>
+!<h3>Usage:</h3>
+<xmp>
 [{AttachmentsList matching=".txt"}]
 </xmp>
-<ul><li><a href="/OpenForum/Extensions/AttachmentsList/notes.txt" title="/OpenForum/Extensions/AttachmentsList/notes.txt">notes.txt</a></li><li><a href="/OpenForum/Extensions/AttachmentsList/tags.txt" title="/OpenForum/Extensions/AttachmentsList/tags.txt">tags.txt</a></li></ul><br/><hr/><br/><a href="/OpenForum/Extensions/AttachmentsList/renderer.sjs" title="/OpenForum/Extensions/AttachmentsList/renderer.sjs">OpenForum/Extensions/AttachmentsList/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/AttachmentsList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">targetPage = extension.getAttribute("pageName");
+[<ul><li><a href="/OpenForum/Extensions/AttachmentsList/notes.txt" title="/OpenForum/Extensions/AttachmentsList/notes.txt">/OpenForum/Extensions/AttachmentsList/notes.txt</a></li><li><a href="/OpenForum/Extensions/AttachmentsList/tags.txt" title="/OpenForum/Extensions/AttachmentsList/tags.txt">/OpenForum/Extensions/AttachmentsList/tags.txt</a></li></ul>
+
+<hr/>
+
+<a href="/OpenForum/Extensions/AttachmentsList/renderer.sjs" title="/OpenForum/Extensions/AttachmentsList/renderer.sjs">OpenForum/Extensions/AttachmentsList/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/AttachmentsList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">targetPage = extension.getAttribute("pageName");
 matching = extension.getAttribute("matching");
 includePage = true;
 if(targetPage==null)
@@ -49,4 +56,4 @@ while(iterator.hasNext())
 
 }
 
-return wiki.renderWikiData(pageName,data);</xmp><!--Content built using default-->
+return wiki.renderWikiData(pageName,data);</xmp><!--Content built using default--></ul>

@@ -1,2 +1,4 @@
-<ul><li>authorizer = org.onestonesoup.openforum.security.JavascriptAuthorizer</li><li>authenticator = org.onestonesoup.openforum.security.cookie.SessionCookieAuthenticator</li><li>resourceStore1 = read-only:../source</li><li>resourceStore0 = ../changes</li></ul>
-<!--Content built using default-->
+<ul><li> authorizer = org.onestonesoup.openforum.security.JavascriptAuthorizer</li>
+<li> authenticator = org.onestonesoup.openforum.security.cookie.SessionCookieAuthenticator</li>
+<li> resourceStore1 = read-only:/web/source</li>
+<li> resourceStore0 = /web/content/open-forum<!--Content built using default--></li></ul>

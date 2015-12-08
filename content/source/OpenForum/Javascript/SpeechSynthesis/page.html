@@ -2,7 +2,6 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Speech Synthesis</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
@@ -12,7 +11,7 @@
 	<script>
 		var pageName = "OpenForum/Javascript/SpeechSynthesis";
 		var author = "unknown";
-		var time = "1445183064000";
+		var time = "1447152051000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -41,7 +40,23 @@
               <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
               </ul>
             </li>
           </ul>
@@ -50,30 +65,59 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">SpeechSynthesis</a></li></nav>
     
-    <div class="row">
-    <!--PageContent Start--><h3>Voice Settings
-<ul><li>Name <input list="voiceList" of-id="OpenForum.Speech.voice.name"/>   <button onClick="OpenForum.Speech.test();">Test</button>  <button onClick="OpenForum.Speech.saveSettings();">Save</button></li><li>Spoken Name <input type="text" of-id="OpenForum.Speech.voice.spokenName"/></li><li>Pitch: <input type="range" of-id="OpenForum.Speech.voice.pitch" min="0" max="200"> {{OpenForum.Speech.voice.pitch/100}}</li><li>Rate: <input type="range" of-id="OpenForum.Speech.voice.rate" min="0" max="20"> {{OpenForum.Speech.voice.rate/10}}</li><li>Volume: <input type="range" of-id="OpenForum.Speech.voice.volume" min="0" max="100"> {{OpenForum.Speech.voice.volume}}</li>
+    <!--PageContent Start--><h2>Voice Settings</h2>
+<form>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Name <input list="voiceList" of-id="OpenForum.Speech.voice.name"/></label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Spoken Name <input type="text" of-id="OpenForum.Speech.voice.spokenName"/></label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Pitch: <input type="range" of-id="OpenForum.Speech.voice.pitch" min="0" max="200"> {{OpenForum.Speech.voice.pitch/100}}</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Rate: <input type="range" of-id="OpenForum.Speech.voice.rate" min="0" max="20"> {{OpenForum.Speech.voice.rate/10}}</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Volume: <input type="range" of-id="OpenForum.Speech.voice.volume" min="0" max="100"> {{OpenForum.Speech.voice.volume}}</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <ul class="button-group round">
+        <li><a class="button" onClick="OpenForum.Speech.test();">Test</a></li>
+        <li><a class="button success" onClick="OpenForum.Speech.saveSettings();">Save</a></li>
+      </ul>
+    </div>
+  </div>
+</form>
+
 <dataList id="voiceList">
   <option of-repeatFor="voiceName in OpenForum.Speech.voices">{{voiceName}}</option>
 </dataList>
 <!--Content built using default--><!--Page Content End-->
-    </div>
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-12 columns">
+          		<hr/>
               <ul class="inline-list right">
-                <li><a href="</ul>#">About</a></li>
+                <li><a href="#">About</a></li>
                 <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
                 <li><a href="#">Documentation</a></li>
                 <li><a href="#">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
-          </div>
-        </div>
       </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
@@ -83,4 +127,3 @@
     </script>
   </body>
 </html>
-</h3>

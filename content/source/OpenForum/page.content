@@ -1,5 +1,7 @@
-
+<div class="row">
+  <div class="large-12 columns">
 !!System Configuration Pages
+    
 *[Actions|/OpenForum/Actions]
 *[Extensions|/OpenForum/Extensions]
 *[Triggers|/OpenForum/Triggers]
@@ -8,18 +10,21 @@
 *[Javascript|/OpenForum/Javascript]
 *[Aliases|/OpenForum/Aliases]
 *[Dynamic Pages|/OpenForum/DynamicPages]
-
-----
-!!Reference
+  </div>
+</div>
+<div class="row">
+  <div class="large-6 columns">
+    !!Reference
 *[Styles|/OpenForum/Styles]
 *[System Page Templates|/OpenForum/PageTemplates]
 *[System Images and Icons|/OpenForum/Images]
-
-----
-!!System Documents
+  </div>
+  <div class="large-6 columns">
+    !!System Documents
 *[About OpenForum|/OpenForum/About]
 *[Credits|/OpenForum/About/Credits]
 *[Release Notes|/OpenForum/About/Release Notes]
 *[License|/OpenForum/About/License]
-
+  </div>
+</div>
 

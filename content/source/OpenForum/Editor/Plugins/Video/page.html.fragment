@@ -2,7 +2,7 @@
 <div id="information{{editorIndex}}" style="display: none;" class="popup">
 <table style="border: 1px dashed;"><tr>
 <td style="min-width: 300px; vertical-align: top;">
-<xmp class="example">
+<xmp>
   videoOut.processFrame = function(image) {
       for(var x=0;x<image.getWidth();x++) {
       for(var y=0;y<image.getHeight();y++) {

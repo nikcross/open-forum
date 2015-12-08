@@ -1,6 +1,7 @@
 <div id="playArea" style="height: 100%">
   <div id="dog">
-  	<a href="<ol><li>" onClick="displayOverlay();return false;"><img src="/OpenForum/ELCStyle/ELC Logo-small.png" style="opacity:0.5;"/></a></li></ol>  </div>
+  	<a href="#" onClick="displayOverlay();return false;"><img src="/OpenForum/ELCStyle/ELC Logo-small.png" style="opacity:0.5;"/></a>
+  </div>
   <div id="overlay" style="display: none;"></div>
   <div id="buttons" style="z-index: 100;">
     <button onMouseDown="GameConsole.press('leftButton');return false;" onMouseUp="GameConsole.release('leftButton');return false;">Left (N)</button>

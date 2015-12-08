@@ -5,7 +5,7 @@
   <option of-repeatFor="camera in OpenForum.videoCapture.cameras" value="{{camera.label}}"/>
 </datalist>
 
-*Current Camera: {{OpenForum.videoCapture.camera}}
+*Current Camera: {{OpenForum.videoCapture.camera}} : {{OpenForum.videoCapture.cameraId}}
 <canvas id="canvas" width="800" height="400"></canvas>
 
 [{InsertSourceFile fileName="VideoCapture.js"}]

@@ -1,10 +1,13 @@
-<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Post Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b> Saves a pages source as page.wiki and rebuilds the page. Also saves the tags to tags.txt
-<hr/><a name="section2"></a>
-<h3>Post Data
-<ul><li>pageName<br/></li><li>source<br/></li><li>tags<br/></li>
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> Saves a pages source as page.wiki and rebuilds the page. Also saves the tags to tags.txt
 <hr/>
-</ul><h3>Server Side Javascript for POST method
-<xmp class="example"> transaction.getPostData();
+<h3>Post Data</h3>
+<ul><li>pageName\\</li>
+<li>source\\</li>
+<li>tags\\</li>
+
+-<hr/>
+<h3>Server Side Javascript for POST method</h3>
+<xmp> transaction.getPostData();
 pageName = transaction.getPostParameter("pageName");
 user = transaction.getUser();
 
@@ -48,4 +51,4 @@ mailer.sendMail("Admin","Admin",subject,message);
 
 /* End of send email*/ 
 
-transaction.goToPage(pageName); </xmp><!--Content built using default--></h3></h3>
+transaction.goToPage(pageName); </xmp><!--Content built using default--></ul>

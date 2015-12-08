@@ -1,4 +1,9 @@
 function MessageQueue(queueName) {
+  
+  if( typeof(queueName)==="undefined" ) {
+    queueName = JSON.parse( OpenForum.loadFile("/OpenForum/MessageQueue?action=createQueue") ).queue;
+  }
+  
   var queue = queueName;
   var timestamp = 0;
   var self = this;
@@ -28,5 +33,9 @@ function MessageQueue(queueName) {
     for(var message in messages) {
           console.log(messages[message]);
     }
+  };
+  
+  this.getQueueName = function() {
+    return queueName;
   };
 }

@@ -1,8 +1,7 @@
-<a name="section1"></a><!doctype html>
+<!doctype html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Action Button</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
@@ -12,7 +11,7 @@
 	<script>
 		var pageName = "OpenForum/Extensions/ActionButton";
 		var author = "unknown";
-		var time = "1437406924000";
+		var time = "1447152051000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -41,7 +40,23 @@
               <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
               </ul>
             </li>
           </ul>
@@ -50,26 +65,30 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">ActionButton</a></li></nav>
     
-    <div class="row">
-    <!--PageContent Start-->A button that fires an <a href="/OpenForum/Actions" title="/OpenForum/Actions">OpenForum GET action</a>
-<hr/><a name="section2"></a>
-<h3>Parameters</h3><ul><li>action = Action Name</li><li>text = Action button text</li></ul>
-<hr/><a name="section3"></a>
-<h3>Usage:</h3><xmp class="example">
+    <!--PageContent Start-->A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
+-<hr/>
+!<h3>Parameters</h3>
+<ul><li> action = Action Name</li>
+<li> text = Action button text</li>
+
+<hr/>
+!<h3>Usage:</h3>
+<xmp>
 [{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
 </xmp>
-<input type="button" value="Rebuild Wiki" onclick="ajax.doGet('/OpenForum/Actions/Rebuild','pageName=Home');return false;"><br/><hr/><br/><a href="/OpenForum/Extensions/ActionButton/renderer.sjs" title="/OpenForum/Extensions/ActionButton/renderer.sjs">OpenForum/Extensions/ActionButton/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/ActionButton&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">action = extension.getAttribute("action");
+[<input type="button" value="Rebuild Wiki" onclick="ajax.doGet('/OpenForum/Actions/Rebuild','pageName=Home');return false;">
+
+<hr/>
+
+<a href="/OpenForum/Extensions/ActionButton/renderer.sjs" title="/OpenForum/Extensions/ActionButton/renderer.sjs">OpenForum/Extensions/ActionButton/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/ActionButton&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">action = extension.getAttribute("action");
 parameters = extension.getAttribute("parameters");
 text = extension.getAttribute("text");
 
 return "<input type=\"button\" value=\""+text+"\" onclick=\"ajax.doGet('/OpenForum/Actions/"+action+"','"+parameters+"');return false;\">";</xmp><!--Content built using default--><!--Page Content End-->
-    </div>
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-12 columns">
+          		<hr/>
               <ul class="inline-list right">
                 <li><a href="#">About</a></li>
                 <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
@@ -78,8 +97,6 @@ return "<input type=\"button\" value=\""+text+"\" onclick=\"ajax.doGet('/OpenFor
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
-          </div>
-        </div>
       </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
@@ -89,3 +106,4 @@ return "<input type=\"button\" value=\""+text+"\" onclick=\"ajax.doGet('/OpenFor
     </script>
   </body>
 </html>
+</ul>

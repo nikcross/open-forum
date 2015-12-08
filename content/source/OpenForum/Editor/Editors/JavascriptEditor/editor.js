@@ -12,6 +12,7 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
                 theme: 'rubyblue',
                 lineNumbers: true,
                 matchBrackets: true,
+                autoMatchParens: true,
                 extraKeys: {
                   "Ctrl-Space": "autocomplete"
                 },
@@ -47,6 +48,21 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
     cm.setValue(newData);
   };
 
+  this.documentation = [
+    {pageName: "/Development/StandardJavascript/Global", title:"Global JS"},
+    {pageName: "/Development/StandardJavascript/Array", title:"JS Arrays"},
+    {pageName: "/Development/StandardJavascript/Math", title:"JS Math"},
+    {pageName: "/Development/StandardJavascript/String", title:"JS Strings"},
+    {pageName: "/Development/StandardJavascript/JSON", title:"JS JSON"},
+    {pageName: "/Development/StandardJavascript/Date", title:"JS Dates"}
+  ];
+  
+  if(fileName.indexOf(".js")!=-1) {
+    this.documentation.push( {pageName: "/Development/OpenForumJavascript/Overview", title:"OpenForum Javascript"} );
+  } else if(fileName==="get.sjs" || fileName==="post.sjs") {
+    this.documentation.push( {pageName: "/OpenForumDocumentation/OpenForumServerSideJavascript/OpenForum", title: "SJS Transaction"} );
+  }
+  
   OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/theme/rubyblue.css");
   
   

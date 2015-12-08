@@ -1,13 +1,7 @@
-<form name="editForm">
-<h3> Add a page template</h3><table class="wikiTable"><tr class="wikiTableTitle"><td class="wikiTableTitle">Page Name</td><td class="wikiTableTitle"><input type="text" name="pageName"></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><input type="button" value="Add" onclick="addPage();"></td><td class="wikiTableCell"></td></tr>
-</table>
-</form><br/><form name="templateForm">
-<h3> Create a page from a template</h3><table class="wikiTable"><tr class="wikiTableTitle"><td class="wikiTableTitle">Page Name</td><td class="wikiTableTitle"><input type="text" name="pageName"></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell">Template</td><td class="wikiTableCell"><select name="template"><option value="/OpenForum/PageTemplates/GetActionPage">Get Action Page</option><option value="/OpenForum/PageTemplates/PostActionPage">Post Action Page</option><option value="/OpenForum/PageTemplates/WikiExtensionPage">Wiki Extension Page</option></select></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><input type="button" value="Add" onclick="useTemplate();"></td><td class="wikiTableCell"></td></tr>
-</table>
-</form><br/><form name="templateSubmitForm" action="/OpenForum/Actions/Copy" method="post">
-<input type="hidden" name="newPageName">
-<input type="hidden" name="sourcePageName">
-</form><br/><DIV id="explorer"></DIV><!--Content built using default-->
+<ul><li> <a href="/OpenForum/PageTemplates/Blank">Blank</a></li>
+<li> <a href="/OpenForum/PageTemplates/Default">Default</a></li>
+<li> <a href="/OpenForum/PageTemplates/Example">Example</a></li>
+<li> <a href="/OpenForum/PageTemplates/Frameworks">Frameworks</a></li>
+<li> <a href="/OpenForum/PageTemplates/PageInDevelopment">PageInDevelopment</a></li>
+<li> <a href="/OpenForum/PageTemplates/PublishedPage">PublishedPage</a></li>
+</ul><!--Content built using default-->

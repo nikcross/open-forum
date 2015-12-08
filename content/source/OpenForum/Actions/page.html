@@ -2,7 +2,6 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Actions</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
@@ -12,7 +11,7 @@
 	<script>
 		var pageName = "OpenForum/Actions";
 		var author = "unknown";
-		var time = "1445436912000";
+		var time = "1447152051000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -41,7 +40,23 @@
               <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
               </ul>
             </li>
           </ul>
@@ -50,20 +65,55 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="/OpenForum">Actions</a></li></nav>
     
-    <div class="row">
-    <!--PageContent Start--><h3>Wiki Actions
-
-<ul><li><a href="/OpenForum/Actions/ApplyTemplate" title="/OpenForum/Actions/ApplyTemplate">ApplyTemplate</a></li><li><a href="/OpenForum/Actions/Attach" title="/OpenForum/Actions/Attach">Attach</a></li><li><a href="/OpenForum/Actions/AttachmentExists" title="/OpenForum/Actions/AttachmentExists">AttachmentExists</a></li><li><a href="/OpenForum/Actions/Attachments" title="/OpenForum/Actions/Attachments">Attachments</a></li><li><a href="/OpenForum/Actions/BlogEntry" title="/OpenForum/Actions/BlogEntry">BlogEntry</a></li><li><a href="/OpenForum/Actions/CauseError" title="/OpenForum/Actions/CauseError">CauseError</a></li><li><a href="/OpenForum/Actions/Copy" title="/OpenForum/Actions/Copy">Copy</a></li><li><a href="/OpenForum/Actions/CreateQueue" title="/OpenForum/Actions/CreateQueue">CreateQueue</a></li><li><a href="/OpenForum/Actions/DataSearch" title="/OpenForum/Actions/DataSearch">DataSearch</a></li><li><a href="/OpenForum/Actions/Delete" title="/OpenForum/Actions/Delete">Delete</a></li><li><a href="/OpenForum/Actions/Differences" title="/OpenForum/Actions/Differences">Differences</a></li><li><a href="/OpenForum/Actions/Edit" title="/OpenForum/Actions/Edit">Edit</a></li><li><a href="/OpenForum/Actions/EditText" title="/OpenForum/Actions/EditText">EditText</a></li><li><a href="/OpenForum/Actions/ForkLink" title="/OpenForum/Actions/ForkLink">ForkLink</a></li><li><a href="/OpenForum/Actions/GetAttachments" title="/OpenForum/Actions/GetAttachments">GetAttachments</a></li><li><a href="/OpenForum/Actions/GetAuthentication" title="/OpenForum/Actions/GetAuthentication">GetAuthentication</a></li><li><a href="/OpenForum/Actions/GetInheritedFilePath" title="/OpenForum/Actions/GetInheritedFilePath">GetInheritedFilePath</a></li><li><a href="/OpenForum/Actions/GetPageAsList" title="/OpenForum/Actions/GetPageAsList">GetPageAsList</a></li><li><a href="/OpenForum/Actions/GetPagesList" title="/OpenForum/Actions/GetPagesList">GetPagesList</a></li><li><a href="/OpenForum/Actions/GetUser" title="/OpenForum/Actions/GetUser">GetUser</a></li><li><a href="/OpenForum/Actions/History" title="/OpenForum/Actions/History">History</a></li><li><a href="/OpenForum/Actions/HistoryView" title="/OpenForum/Actions/HistoryView">HistoryView</a></li><li><a href="/OpenForum/Actions/IncrementAttachment" title="/OpenForum/Actions/IncrementAttachment">IncrementAttachment</a></li><li><a href="/OpenForum/Actions/Install" title="/OpenForum/Actions/Install">Install</a></li><li><a href="/OpenForum/Actions/Move" title="/OpenForum/Actions/Move">Move</a></li><li><a href="/OpenForum/Actions/PageExists" title="/OpenForum/Actions/PageExists">PageExists</a></li><li><a href="/OpenForum/Actions/Pages" title="/OpenForum/Actions/Pages">Pages</a></li><li><a href="/OpenForum/Actions/Publish" title="/OpenForum/Actions/Publish">Publish</a></li><li><a href="/OpenForum/Actions/RJSC" title="/OpenForum/Actions/RJSC">RJSC</a></li><li><a href="/OpenForum/Actions/Rebuild" title="/OpenForum/Actions/Rebuild">Rebuild</a></li><li><a href="/OpenForum/Actions/RefreshJarManager" title="/OpenForum/Actions/RefreshJarManager">RefreshJarManager</a></li><li><a href="/OpenForum/Actions/RefreshPage" title="/OpenForum/Actions/RefreshPage">RefreshPage</a></li><li><a href="/OpenForum/Actions/RemoveTemplate" title="/OpenForum/Actions/RemoveTemplate">RemoveTemplate</a></li><li><a href="/OpenForum/Actions/RenderWikiData" title="/OpenForum/Actions/RenderWikiData">RenderWikiData</a></li><li><a href="/OpenForum/Actions/Revert" title="/OpenForum/Actions/Revert">Revert</a></li><li><a href="/OpenForum/Actions/Save" title="/OpenForum/Actions/Save">Save</a></li><li><a href="/OpenForum/Actions/SaveForGroup" title="/OpenForum/Actions/SaveForGroup">SaveForGroup</a></li><li><a href="/OpenForum/Actions/SaveForUser" title="/OpenForum/Actions/SaveForUser">SaveForUser</a></li><li><a href="/OpenForum/Actions/SaveImage" title="/OpenForum/Actions/SaveImage">SaveImage</a></li><li><a href="/OpenForum/Actions/TestExample" title="/OpenForum/Actions/TestExample">TestExample</a></li><li><a href="/OpenForum/Actions/Update" title="/OpenForum/Actions/Update">Update</a></li><li><a href="/OpenForum/Actions/UpdateJarManager" title="/OpenForum/Actions/UpdateJarManager">UpdateJarManager</a></li><li><a href="/OpenForum/Actions/User" title="/OpenForum/Actions/User">User</a></li><li><a href="/OpenForum/Actions/ValidatePageName" title="/OpenForum/Actions/ValidatePageName">ValidatePageName</a></li><li><a href="/OpenForum/Actions/ViewFolder" title="/OpenForum/Actions/ViewFolder">ViewFolder</a></li><li><a href="/OpenForum/Actions/Zip" title="/OpenForum/Actions/Zip">Zip</a></li></ul>
-
+    <!--PageContent Start--><div class="row"><div class="large-12 columns">
+<h3>Wiki Actions</h3>
+<ul><li> <a href="/OpenForum/Actions/ApplyTemplate">ApplyTemplate</a></li>
+<li> <a href="/OpenForum/Actions/Attach">Attach</a></li>
+<li> <a href="/OpenForum/Actions/AttachmentExists">AttachmentExists</a></li>
+<li> <a href="/OpenForum/Actions/Attachments">Attachments</a></li>
+<li> <a href="/OpenForum/Actions/CauseError">CauseError</a></li>
+<li> <a href="/OpenForum/Actions/Copy">Copy</a></li>
+<li> <a href="/OpenForum/Actions/CreateQueue">CreateQueue</a></li>
+<li> <a href="/OpenForum/Actions/Delete">Delete</a></li>
+<li> <a href="/OpenForum/Actions/ForkLink">ForkLink</a></li>
+<li> <a href="/OpenForum/Actions/GetAttachments">GetAttachments</a></li>
+<li> <a href="/OpenForum/Actions/GetAuthentication">GetAuthentication</a></li>
+<li> <a href="/OpenForum/Actions/GetInheritedFilePath">GetInheritedFilePath</a></li>
+<li> <a href="/OpenForum/Actions/GetPageAsList">GetPageAsList</a></li>
+<li> <a href="/OpenForum/Actions/GetPagesList">GetPagesList</a></li>
+<li> <a href="/OpenForum/Actions/GetUser">GetUser</a></li>
+<li> <a href="/OpenForum/Actions/History">History</a></li>
+<li> <a href="/OpenForum/Actions/Install">Install</a></li>
+<li> <a href="/OpenForum/Actions/Move">Move</a></li>
+<li> <a href="/OpenForum/Actions/PageExists">PageExists</a></li>
+<li> <a href="/OpenForum/Actions/Pages">Pages</a></li>
+<li> <a href="/OpenForum/Actions/Publish">Publish</a></li>
+<li> <a href="/OpenForum/Actions/RJSC">RJSC</a></li>
+<li> <a href="/OpenForum/Actions/Rebuild">Rebuild</a></li>
+<li> <a href="/OpenForum/Actions/RefreshJarManager">RefreshJarManager</a></li>
+<li> <a href="/OpenForum/Actions/RefreshPage">RefreshPage</a></li>
+<li> <a href="/OpenForum/Actions/RemoveTemplate">RemoveTemplate</a></li>
+<li> <a href="/OpenForum/Actions/RenderWikiData">RenderWikiData</a></li>
+<li> <a href="/OpenForum/Actions/Revert">Revert</a></li>
+<li> <a href="/OpenForum/Actions/Save">Save</a></li>
+<li> <a href="/OpenForum/Actions/SaveForGroup">SaveForGroup</a></li>
+<li> <a href="/OpenForum/Actions/SaveForUser">SaveForUser</a></li>
+<li> <a href="/OpenForum/Actions/SaveImage">SaveImage</a></li>
+<li> <a href="/OpenForum/Actions/TestExample">TestExample</a></li>
+<li> <a href="/OpenForum/Actions/Update">Update</a></li>
+<li> <a href="/OpenForum/Actions/UpdateJarManager">UpdateJarManager</a></li>
+<li> <a href="/OpenForum/Actions/User">User</a></li>
+<li> <a href="/OpenForum/Actions/ValidatePageName">ValidatePageName</a></li>
+<li> <a href="/OpenForum/Actions/ViewFolder">ViewFolder</a></li>
+<li> <a href="/OpenForum/Actions/Zip">Zip</a></li>
+</ul>
+</div></div>
 
 <!--Content built using default--><!--Page Content End-->
-    </div>
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-12 columns">
+          		<hr/>
               <ul class="inline-list right">
                 <li><a href="#">About</a></li>
                 <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
@@ -72,8 +122,6 @@
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
-          </div>
-        </div>
       </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
@@ -83,4 +131,3 @@
     </script>
   </body>
 </html>
-</h3>

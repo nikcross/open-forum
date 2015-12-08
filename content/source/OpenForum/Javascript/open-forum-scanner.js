@@ -1,6 +1,8 @@
 //---- OpenForum ----
 
 var OpenForum = new function(){
+  this.FIELD_DELIMETER_START = "{"+"{";
+  this.FIELD_DELIMETER_END = "}"+"}";
   var self = this;
   var objects= [];
   var tables = [];
@@ -11,6 +13,8 @@ var OpenForum = new function(){
   var nodeProcessors = [];
   var initialisers = [];
 
+  self.interval = null;
+  
   self.getVersion = function() {
     return "&version;";
   };
@@ -108,10 +112,10 @@ var OpenForum = new function(){
         var object = OpenForum.getObject(nodeName).add( node );
         objects[objects.length]=object;
       }
-      if( typeof(node.innerHTML)!="undefined" && node.innerHTML.indexOf("{{")!=-1) {
+      if( typeof(node.innerHTML)!="undefined" && node.innerHTML.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
         self.parseParts(node,objects,prefix);
       }
-      if( node.nodeName=="#text" && node.nodeValue.indexOf("{{")!=-1) {
+      if( node.nodeName=="#text" && node.nodeValue.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
         self.parseText(node,objects,prefix);
       }
     }
@@ -147,12 +151,12 @@ var OpenForum = new function(){
     var data = node.nodeValue;
 
     var spans = [];
-    while(data.indexOf("{{")!=-1) {
-      name = data.substring(data.indexOf("{{")+2,data.indexOf("}}"));
+    while(data.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+      name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
 
-      data = data.substring(0,data.indexOf("{{"))+
+      data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
         "<span id='OpenForumId"+nextId+"'>OpenForumId"+nextId+"</span>"+
-        data.substring(data.indexOf("}}")+2);
+        data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
       spans[spans.length] = {id: 'OpenForumId'+nextId,name: name};
 
       nextId++;
@@ -174,12 +178,12 @@ var OpenForum = new function(){
     var data = node.innerHTML;
 
     var spans = [];
-    while(data.indexOf("{{")!=-1) {
-      name = data.substring(data.indexOf("{{")+2,data.indexOf("}}"));
+    while(data.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+      name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
 
-      data = data.substring(0,data.indexOf("{{"))+
+      data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
         "<span id='OpenForumId"+nextId+"'>OpenForumId"+nextId+"</span>"+
-        data.substring(data.indexOf("}}")+2);
+        data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
       spans[spans.length] = {id: 'OpenForumId'+nextId,name: name};
 
       nextId++;
@@ -240,9 +244,25 @@ var OpenForum = new function(){
     self.scan();
     self.init();
 
-    self.interval = setInterval(self.scan,500,500);
+    self.startAutoScan(500,500);
   };
 
+  self.stopAutoScan = function() {
+    if(self.interval !== null ) {
+      clearInterval( self.interval );
+      self.interval = null;
+    }
+  };
+  
+  self.startAutoScan = function(scanTime) {
+    self.stopAutoScan();
+    if(scanTime) {
+      self.interval = setInterval(self.scan,scanTime,scanTime);
+    } else {
+      self.interval = setInterval(self.scan,500,500);
+    }
+  };
+  
   self.onunload= function() {
     this.close();
   };

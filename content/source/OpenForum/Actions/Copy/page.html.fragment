@@ -1,8 +1,17 @@
-<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Post Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b> Copy one page to another
-<hr/><a name="section2"></a>
-<h3>Get parameters</h3><ul><li>newPageName</li><li>sourcePageName</li><li>listPageName</li><hr/><a name="section3"></a></ul>
-<h3>Post parameters</h3><ul><li>newPageName</li><li>sourcePageName</li><li>listPageName</li><hr/><a name="section4"></a></ul>
-<h3>get.sjs</h3><xmp class="example">newPageName = transaction.getParameter("newPageName");
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> Copy one page to another
+<hr/>
+!<h3>Get parameters</h3>
+<ul><li> newPageName</li>
+<li> sourcePageName</li>
+<li> listPageName</li>
+<hr/>
+!<h3>Post parameters</h3>
+<li> newPageName</li>
+<li> sourcePageName</li>
+<li> listPageName</li>
+<hr/>
+!<h3>get.sjs</h3>
+<xmp class="example">newPageName = transaction.getParameter("newPageName");
 
 if(newPageName===null)
 {
@@ -22,8 +31,11 @@ if(newPageName===null)
 	wiki.copyPage(sourcePageName,newPageName,listPageName);
 
 	transaction.goToPage("/OpenForum/Editor?pageName="+newPageName);
-</xmp><br/><hr/>
-<h3>Server Side Javascript for POST method</h3><xmp class="example"> transaction.getPostData();
+</xmp>
+
+<hr/>
+!<h3>Server Side Javascript for POST method</h3>
+<xmp> transaction.getPostData();
 sourcePageName = transaction.getPostParameter("sourcePageName");
 newPageName = transaction.getPostParameter("newPageName");
 listPageName = transaction.getPostParameter("listPageName");
@@ -36,4 +48,4 @@ if(listPageName!=null)
 
 wiki.copyPage(sourcePageName,newPageName,listPageName);
 	
-transaction.goToPage("/OpenForum/Actions/Edit?pageName="+newPageName); </xmp><!--Content built using default-->
+transaction.goToPage("/OpenForum/Actions/Edit?pageName="+newPageName); </xmp><!--Content built using default--></ul>

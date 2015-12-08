@@ -1,8 +1,6 @@
       <footer class="row">
         <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-12 columns">
+          		<hr/>
               <ul class="inline-list right">
                 <li><a href="[{Hash}]">About</a></li>
                 <li><a href="[{Hash}]">Open Forum @ OneStoneSoup.org</a></li>
@@ -11,6 +9,4 @@
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
-          </div>
-        </div>
       </footer>

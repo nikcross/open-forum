@@ -1,7 +1,7 @@
 
 <div class="row">
   <div class="large-9 columns">
-    {{result}}
+    {{OpenForum.Access.result}}
   </div>
 </div>
 
@@ -10,10 +10,12 @@
 
     <div data-alert class="alert-box alert round" style="display: none">
       This is an alert - alert that is rounded.
-      <a href="<ol><li>" class="close">&times;</a></li></ol>    </div>
+      <a href="#" class="close">&times;</a>
+    </div>
     <div data-alert class="alert-box success round" style="display: none">
       This is a success alert with a radius.
-      <a href="<ol><li>" class="close">&times;</a></li></ol>    </div>
+      <a href="#" class="close">&times;</a>
+    </div>
 
     <div class="row">
       <div class="section-container tabs" data-section>
@@ -37,7 +39,7 @@
                   <input type="password" of-id="passwordField" id="password" placeholder="password">
                 </div>
               </div>
-              <button class="radius button" onClick="signIn(); return false;">Sign In</button>
+              <button class="radius button" onClick="OpenForum.Access.signIn(); return false;">Sign In</button>
             </form>
           </div>
         </section>

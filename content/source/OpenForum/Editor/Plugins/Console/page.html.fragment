@@ -1,4 +1,4 @@
-<xmp class="example">
+<xmp>
 run:<tab name> -- run the data from a tab as a script
 Special console functions
   *  console.loadFromTab(tabName); -- load the data from a tab into a variable

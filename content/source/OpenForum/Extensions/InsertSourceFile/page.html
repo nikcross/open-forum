@@ -1,8 +1,7 @@
-<a name="section1"></a><!doctype html>
+<!doctype html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Insert Source File</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
@@ -12,7 +11,7 @@
 	<script>
 		var pageName = "OpenForum/Extensions/InsertSourceFile";
 		var author = "unknown";
-		var time = "1437406924000";
+		var time = "1447152051000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -41,7 +40,23 @@
               <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
               </ul>
             </li>
           </ul>
@@ -50,96 +65,26 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">InsertSourceFile</a></li></nav>
     
-    <div class="row">
     <!--PageContent Start-->Inserts a files contents into the page
-<hr/><a name="section2"></a>
-<h3>Parameters</h3><ul><li>pageName - The page where the file is attached (optional. default = current page name)</li><li>fileName - The file to insert</li></ul>
-<hr/><a name="section3"></a>
-<h3>Usage:</h3><xmp class="example">
-[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]
+<hr/>
+!<h3>Parameters</h3>
+<ul><li> pageName - The page where the file is attached (optional. default = current page name)</li>
+<li> fileName - The file to insert</li>
+
+<hr/>
+!<h3>Usage:</h3>
+<xmp>
+undefined
 </xmp>
-Error parsing Extension tag [{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]. Exception:java.lang.Exception: /OpenForum/Extensions/InsertSourceFile/renderer.sjs Javascipt Error [at 5: 0]:null
-java.lang.String.replace(String.java:2240)
-sun.reflect.GeneratedMethodAccessor17.invoke(Unknown Source)
-sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-java.lang.reflect.Method.invoke(Method.java:497)
-org.mozilla.javascript.MemberBox.invoke(MemberBox.java:161)
-org.mozilla.javascript.NativeJavaMethod.call(NativeJavaMethod.java:247)
-org.mozilla.javascript.Interpreter.interpretLoop(Interpreter.java:3330)
-org.mozilla.javascript.Interpreter.interpret(Interpreter.java:2487)
-org.mozilla.javascript.InterpretedFunction.call(InterpretedFunction.java:164)
-org.mozilla.javascript.ContextFactory.doTopCall(ContextFactory.java:398)
-org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3065)
-org.mozilla.javascript.InterpretedFunction.exec(InterpretedFunction.java:175)
-org.mozilla.javascript.Context.evaluateString(Context.java:1104)
-org.onestonesoup.javascript.engine.JavascriptEngine.runJavascript(JavascriptEngine.java:265)
-org.onestonesoup.javascript.engine.JavascriptEngine.runJavascript(JavascriptEngine.java:240)
-org.onestonesoup.openforum.renderers.WikiExtensionRenderer.render(WikiExtensionRenderer.java:35)
-org.onestonesoup.openforum.Renderer.wikiToHtml(Renderer.java:47)
-org.onestonesoup.openforum.Renderer.wikiToHtml(Renderer.java:16)
-org.onestonesoup.openforum.controller.OpenForumController.renderWikiData(OpenForumController.java:421)
-org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.renderWikiData(JavascriptOpenForumHelper.java:64)
-sun.reflect.GeneratedMethodAccessor9.invoke(Unknown Source)
-sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-java.lang.reflect.Method.invoke(Method.java:497)
-org.mozilla.javascript.MemberBox.invoke(MemberBox.java:161)
-org.mozilla.javascript.NativeJavaMethod.call(NativeJavaMethod.java:247)
-org.mozilla.javascript.Interpreter.interpretLoop(Interpreter.java:3330)
-org.mozilla.javascript.Interpreter.interpret(Interpreter.java:2487)
-org.mozilla.javascript.InterpretedFunction.call(InterpretedFunction.java:164)
-org.mozilla.javascript.ContextFactory.doTopCall(ContextFactory.java:398)
-org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3065)
-org.mozilla.javascript.InterpretedFunction.exec(InterpretedFunction.java:175)
-org.mozilla.javascript.Context.evaluateString(Context.java:1104)
-org.onestonesoup.javascript.engine.JavascriptEngine.evaluateJavascript(JavascriptEngine.java:307)
-org.onestonesoup.openforum.controller.OpenForumController.runPageBuildScript(OpenForumController.java:576)
-org.onestonesoup.openforum.controller.OpenForumController.buildPage(OpenForumController.java:557)
-org.onestonesoup.openforum.controller.OpenForumController.buildPage(OpenForumController.java:527)
-org.onestonesoup.openforum.controller.OpenForumController.buildAllPages(OpenForumController.java:493)
-org.onestonesoup.openforum.controller.OpenForumController.doBuild(OpenForumController.java:324)
-org.onestonesoup.openforum.controller.OpenForumController.rebuild(OpenForumController.java:254)
-org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.rebuild(JavascriptOpenForumHelper.java:154)
-org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper.rebuild(JavascriptOpenForumHelper.java:146)
-sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-java.lang.reflect.Method.invoke(Method.java:497)
-org.mozilla.javascript.MemberBox.invoke(MemberBox.java:161)
-org.mozilla.javascript.NativeJavaMethod.call(NativeJavaMethod.java:247)
-org.mozilla.javascript.Interpreter.interpretLoop(Interpreter.java:3330)
-org.mozilla.javascript.Interpreter.interpret(Interpreter.java:2487)
-org.mozilla.javascript.InterpretedFunction.call(InterpretedFunction.java:164)
-org.mozilla.javascript.ContextFactory.doTopCall(ContextFactory.java:398)
-org.mozilla.javascript.ScriptRuntime.doTopCall(ScriptRuntime.java:3065)
-org.mozilla.javascript.InterpretedFunction.exec(InterpretedFunction.java:175)
-org.mozilla.javascript.Context.evaluateString(Context.java:1104)
-org.onestonesoup.javascript.engine.JavascriptEngine.runJavascript(JavascriptEngine.java:265)
-org.onestonesoup.javascript.engine.JavascriptEngine.runJavascript(JavascriptEngine.java:240)
-org.onestonesoup.openforum.trigger.Trigger$TriggerProcessThread.run(Trigger.java:38)
-java.lang.Thread.run(Thread.java:745)<br/><hr/><br/><a href="/OpenForum/Extensions/InsertSourceFile/renderer.sjs" title="/OpenForum/Extensions/InsertSourceFile/renderer.sjs">OpenForum/Extensions/InsertSourceFile/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var sourcePageName = extension.getAttribute("pageName");
-if(sourcePageName==null)
-{
-  sourcePageName = pageName;
-}
+[undefined
 
-var fileName = extension.getAttribute("fileName");
+<hr/>
 
-data = file.getAttachment( sourcePageName,fileName );
-
-editLink = "/OpenForum/Actions/EditText?pageName="+sourcePageName+"&fileName="+fileName;
-
-pageData = "["+sourcePageName+"/"+fileName+"]<a href=\""+editLink+"\" title=\"Edit\"><img src=\"/OpenForum/Images/icons/gif/pencil.gif\" border=\"0\"></a>{{{$contents$}}}";
-pageData = wiki.renderWikiData(pageName,pageData);
-pageData = pageData.replace("$contents$",data);
-
-return pageData;</xmp><!--Content built using default--><!--Page Content End-->
-    </div>
+undefined<!--Content built using default--><!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-12 columns">
+          		<hr/>
               <ul class="inline-list right">
                 <li><a href="#">About</a></li>
                 <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
@@ -148,8 +93,6 @@ return pageData;</xmp><!--Content built using default--><!--Page Content End-->
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
-          </div>
-        </div>
       </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
@@ -159,3 +102,4 @@ return pageData;</xmp><!--Content built using default--><!--Page Content End-->
     </script>
   </body>
 </html>
+</ul>

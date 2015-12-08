@@ -1,8 +1,12 @@
-<a name="section1"></a><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" title="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" onclick="window.open('http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions');return false;">Get Action <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a></b>  Reverts a page to a specific version
-<hr/><a name="section2"></a>
-<h3>Get Parameters</h3><ul><li>pageName -  The name of the page to revert</li><li>version - The version to revert to</li></ul>
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Reverts a page to a specific version
 <hr/>
-<h3>Server Side Javascript for GET method</h3><xmp class="example"> if(typeof(pageName)=="undefined")
+!<h3>Get Parameters</h3>
+<ul><li>pageName -  The name of the page to revert</li>
+<li>version - The version to revert to</li>
+
+<hr/>
+!<h3>Server Side Javascript for GET method</h3>
+<xmp> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
 }
@@ -12,4 +16,4 @@ else
 	wiki.revert(pageName,version);
 
 	transaction.goToPage(pageName);
-} </xmp><!--Content built using default-->
+} </xmp><!--Content built using default--></ul>

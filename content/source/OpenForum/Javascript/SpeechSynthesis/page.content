@@ -1,9 +1,39 @@
-!!Voice Settings
-* Name <input list="voiceList" of-id="OpenForum.Speech.voice.name"/>   <button onClick="OpenForum.Speech.test();">Test</button>  <button onClick="OpenForum.Speech.saveSettings();">Save</button>
-* Spoken Name <input type="text" of-id="OpenForum.Speech.voice.spokenName"/>
-* Pitch: <input type="range" of-id="OpenForum.Speech.voice.pitch" min="0" max="200"> {{OpenForum.Speech.voice.pitch/100}}
-* Rate: <input type="range" of-id="OpenForum.Speech.voice.rate" min="0" max="20"> {{OpenForum.Speech.voice.rate/10}}
-* Volume: <input type="range" of-id="OpenForum.Speech.voice.volume" min="0" max="100"> {{OpenForum.Speech.voice.volume}}
+<h2>Voice Settings</h2>
+<form>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Name <input list="voiceList" of-id="OpenForum.Speech.voice.name"/></label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Spoken Name <input type="text" of-id="OpenForum.Speech.voice.spokenName"/></label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Pitch: <input type="range" of-id="OpenForum.Speech.voice.pitch" min="0" max="200"> {{OpenForum.Speech.voice.pitch/100}}</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Rate: <input type="range" of-id="OpenForum.Speech.voice.rate" min="0" max="20"> {{OpenForum.Speech.voice.rate/10}}</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <label>Volume: <input type="range" of-id="OpenForum.Speech.voice.volume" min="0" max="100"> {{OpenForum.Speech.voice.volume}}</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="large-12 columns">
+      <ul class="button-group round">
+        <li><a class="button" onClick="OpenForum.Speech.test();">Test</a></li>
+        <li><a class="button success" onClick="OpenForum.Speech.saveSettings();">Save</a></li>
+      </ul>
+    </div>
+  </div>
+</form>
 
 <dataList id="voiceList">
   <option of-repeatFor="voiceName in OpenForum.Speech.voices">{{voiceName}}</option>

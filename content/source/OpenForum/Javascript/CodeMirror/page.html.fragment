@@ -1,1 +1,5 @@
-<h3>Source</h3><a href="http://codemirror.net/" title="http://codemirror.net/" onclick="window.open('http://codemirror.net/');return false;">http://codemirror.net/ <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a><br/><h3>Notes</h3><a href="http://docs.reduxframework.com/extensions/codemirror/" title="http://docs.reduxframework.com/extensions/codemirror/" onclick="window.open('http://docs.reduxframework.com/extensions/codemirror/');return false;">http://docs.reduxframework.com/extensions/codemirror/ <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a><!--Content built using default-->
+<h3>Source</h3>
+<a href="http://codemirror.net/" target="external_page">http://codemirror.net/</a>
+
+<h3>Notes</h3>
+<a href="http://docs.reduxframework.com/extensions/codemirror/" target="external_page">http://docs.reduxframework.com/extensions/codemirror/</a><!--Content built using default-->

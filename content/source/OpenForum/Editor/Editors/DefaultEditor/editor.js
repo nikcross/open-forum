@@ -45,4 +45,8 @@ function DefaultEditor(editorIndex,pageName,fileName) {
   cm.on("change", function(cm, change) {
     editorList[editorIndex].changed="*";
   });
+  
+  this.getCodeMirror = function() {
+    return cm;
+  };
 };

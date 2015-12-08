@@ -2,7 +2,6 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Java Wrapper</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
@@ -12,7 +11,7 @@
 	<script>
 		var pageName = "OpenForum/Javascript/JavaWrapper";
 		var author = "unknown";
-		var time = "1437406926000";
+		var time = "1447152051000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -41,7 +40,23 @@
               <a href="#">Signed in as {{currentUser}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="/OpenForum/Access/SignIn">Sign In as Different User</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
               </ul>
             </li>
           </ul>
@@ -50,46 +65,45 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">JavaWrapper</a></li></nav>
     
-    <div class="row">
     <!--PageContent Start--><a href="/OpenForum/Javascript/JavaWrapper/get.sjs" title="/OpenForum/Javascript/JavaWrapper/get.sjs">OpenForum/Javascript/JavaWrapper/get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/JavaWrapper&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">//Version 0.1
 var action = transaction.getParameter("action");
 
 if(action===null) {
-	transaction.setResult(transaction.SHOW_PAGE);
+  transaction.setResult(transaction.SHOW_PAGE);
   return;
 }
 
 if(action=="buildClientWrapper") {
-    var target = transaction.getParameter("target");
+  var target = transaction.getParameter("target");
 
-var clas = eval((""+target).toLowerCase()).getClass();
-var clasJSON = { methods: [] };
-for(var methodI in clas.getDeclaredMethods()) {
-  var method = clas.getDeclaredMethods()[methodI];
-  var methodName = method.getName();
-  
-  var allPrimatives = true;
-  var methodJSON = {name: methodName,args: []};
-  
-  for(var argI in method.getParameterTypes()) {
-    var arg = method.getParameterTypes()[argI];
-    
-    if(arg.getName()!="java.lang.String" && arg.isPrimitive()===false) {    
-      allPrimatives = false;
-      break;
+  var clas = eval((""+target).toLowerCase()).getClass();
+  var clasJSON = { methods: [] };
+  for(var methodI in clas.getDeclaredMethods()) {
+    var method = clas.getDeclaredMethods()[methodI];
+    var methodName = method.getName();
+
+    var allPrimatives = true;
+    var methodJSON = {name: methodName,args: []};
+
+    for(var argI in method.getParameterTypes()) {
+      var arg = method.getParameterTypes()[argI];
+
+      if(arg.getName()!="java.lang.String" && arg.isPrimitive()===false) {    
+        allPrimatives = false;
+        break;
+      }
+
+      var argName = arg.getName;
+
+      methodJSON.args.push( {name: 'arg'+argI, type: argName} );
     }
-    
-    var argName = arg.getName;
-    
-    methodJSON.args.push( {name: 'arg'+argI, type: argName} );
+    if(allPrimatives) {
+      clasJSON.methods.push(methodJSON);
+    }
   }
-  if(allPrimatives) {
-    clasJSON.methods.push(methodJSON);
-  }
-}
 
 
-/*
+  /*
 Client code template
 file: {
 	methodName: function(arg0,successFn) {
@@ -102,115 +116,115 @@ file: {
 }
 */
 
-var objectName = "OpenForum."+target.toLowerCase();
-var script = objectName+" = {};\n";
+  var objectName = "OpenForum."+target.toLowerCase();
+  var script = objectName+" = {};\n";
 
-for(var mi in clasJSON.methods) {
-	var method = clasJSON.methods[mi];
+  for(var mi in clasJSON.methods) {
+    var method = clasJSON.methods[mi];
     var uri = "/OpenForum/Javascript/JavaWrapper/"+target;
-    
-	script+=objectName+"."+method.name+" = function(";
-    
+
+    script+=objectName+"."+method.name+" = function(";
+
     var args = "";
     var sjsArgs = "";
     for(var ai in method.args) {
-          arg = method.args[ai];
-          if(args.length>0) {
-              args+=",";
-              sjsArgs+="+\"&\"+";
-          }
-          args+=arg.name;
-		  sjsArgs+="\""+arg.name+"=\"+"+arg.name;
+      arg = method.args[ai];
+      if(args.length>0) {
+        args+=",";
+        sjsArgs+="+\"&\"+";
+      }
+      args+=arg.name;
+      sjsArgs+="\""+arg.name+"=\"+"+arg.name;
     }
     if(args.length>0) {
-    	args+=",";
+      args+=",";
     }
     args+="successFn";
     script+=args+") {\n";
-    
+
     script+="\t if(successFn) {\n";
     script+="\t\tJSON.get(\""+uri+"\",\""+method.name+"\","+sjsArgs+").onSuccess(successFn).go();\n";
-	script+="\t} else {\n";
-	script+="\t\treturn OpenForum.loadFile(\""+uri+"?action="+method.name+"&\"+"+sjsArgs+");\n";
-	script+="\t}\n";
+    script+="\t} else {\n";
+    script+="\t\treturn OpenForum.loadFile(\""+uri+"?action="+method.name+"&\"+"+sjsArgs+");\n";
+    script+="\t}\n";
     script+="};\n\n";
-}
+  }
 
-file.saveAttachment("/OpenForum/Javascript/JavaWrapper/"+target,target+".js",script);
+  file.saveAttachment("/OpenForum/Javascript/JavaWrapper/"+target,target+".js",script);
   transaction.sendPage( script );
   return;
 } else if(action=="buildService") {
-  
+
   var targetName = transaction.getParameter("target");
-var clas = eval((""+targetName).toLowerCase()).getClass();
-var clasJSON = { methods: [] };
-for(var methodI in clas.getDeclaredMethods()) {
-  var method = clas.getDeclaredMethods()[methodI];
-  var methodName = method.getName();
-  
-  var allPrimatives = true;
-  var methodJSON = {name: methodName,args: []};
-  
-  for(var argI in method.getParameterTypes()) {
-    var arg = method.getParameterTypes()[argI];
-    
-    if(arg.getName()!="java.lang.String" && arg.isPrimitive()===false) {    
-      allPrimatives = false;
-      break;
+  var clas = eval((""+targetName).toLowerCase()).getClass();
+  var clasJSON = { methods: [] };
+  for(var methodI in clas.getDeclaredMethods()) {
+    var method = clas.getDeclaredMethods()[methodI];
+    var methodName = method.getName();
+
+    var allPrimatives = true;
+    var methodJSON = {name: methodName,args: []};
+
+    for(var argI in method.getParameterTypes()) {
+      var arg = method.getParameterTypes()[argI];
+
+      if(arg.getName()!="java.lang.String" && arg.isPrimitive()===false) {    
+        allPrimatives = false;
+        break;
+      }
+
+      var argName = arg.getName;
+
+      methodJSON.args.push( {name: 'arg'+argI, type: argName} );
     }
-    
-    var argName = arg.getName;
-    
-    methodJSON.args.push( {name: 'arg'+argI, type: argName} );
+    if(allPrimatives) {
+      clasJSON.methods.push(methodJSON);
+    }
   }
-  if(allPrimatives) {
-    clasJSON.methods.push(methodJSON);
-  }
-}
 
 
-/*
+  /*
 Service code template
 if(action==="methodName") {
 	var arg0 = transaction.getParameter("arg0");
-    
+
     return file.methodName(arg0);
 }
 */
 
-var script = "// Service for "+clas.getName()+" \n";
-script += "var action = transaction.getParameter(\"action\");\n";
-script += "if(action===null) {\n";
-script += "\ttransaction.setResult(transaction.SHOW_PAGE);\n";
-script += "\treturn;\n";
-script += "}\n\n";
+  var script = "// Service for "+clas.getName()+" \n";
+  script += "var action = transaction.getParameter(\"action\");\n";
+  script += "if(action===null) {\n";
+  script += "\ttransaction.setResult(transaction.SHOW_PAGE);\n";
+  script += "\treturn;\n";
+  script += "}\n\n";
 
-for(var mi in clasJSON.methods) {
-	var method = clasJSON.methods[mi];
-	script+="if(action==\""+method.name+"\") {\n";
-    
+  for(var mi in clasJSON.methods) {
+    var method = clasJSON.methods[mi];
+    script+="if(action==\""+method.name+"\") {\n";
+
     var args = "";
     for(var ai in method.args) {
-    	arg = method.args[ai];
-    	script+="\tvar "+arg.name+" = transaction.getParameter(\""+arg.name+"\");\n";
-        if(args.length>0) {
-        	args+=",";
-        }
-        args+=arg.name;    
+      arg = method.args[ai];
+      script+="\tvar "+arg.name+" = transaction.getParameter(\""+arg.name+"\");\n";
+      if(args.length>0) {
+        args+=",";
+      }
+      args+=arg.name;    
     }
-    
-    script+="\ttransaction.sendPage( "+targetName.toLowerCase()+"."+method.name+"("+args+") );\n\treturn;\n}\n";
-}
 
-file.saveAttachment("/OpenForum/Javascript/JavaWrapper/"+targetName,"get.sjs",script);
-  
-transaction.sendPage( script );
+    script+="\ttransaction.sendPage( "+targetName.toLowerCase()+"."+method.name+"("+args+") );\n\treturn;\n}\n";
+  }
+
+  file.saveAttachment("/OpenForum/Javascript/JavaWrapper/"+targetName,"get.sjs",script);
+
+  transaction.sendPage( script );
 } else {
   transaction.sendPage("what ?");
 }</xmp>
 
-<h3>Javascript introspection
-<xmp class="example">
+!<h3>Javascript introspection</h3>
+<xmp>
 Obj = {
   fnA: function(a,b,c) {return 5;},
   fnB: function(d,e) {return 6;}
@@ -224,8 +238,8 @@ for(var i in Obj) {
 }
 </xmp>
 
-<h3>Start of server side code
-<xmp class="example">
+!<h3>Start of server side code</h3>
+<xmp>
 println(file.getClass().getName());
 
 var clas = file.getClass();
@@ -290,7 +304,7 @@ Client code documentation template
 */
 </xmp>
 
-<h3>Old Code
+!<h3>Old Code</h3>
 <a href="/OpenForum/Javascript/JavaWrapper/java-wrapper.sjs" title="/OpenForum/Javascript/JavaWrapper/java-wrapper.sjs">OpenForum/Javascript/JavaWrapper/java-wrapper.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/JavaWrapper&fileName=java-wrapper.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">/*function wrap(instance) {
   //if primative, convert to javascript type
   if(instance instanceof String) {
@@ -319,13 +333,10 @@ function wrap(instance) {
 }
 
 wrap(js);</xmp><!--Content built using default--><!--Page Content End-->
-    </div>
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-12 columns">
+          		<hr/>
               <ul class="inline-list right">
                 <li><a href="#">About</a></li>
                 <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
@@ -334,8 +345,6 @@ wrap(js);</xmp><!--Content built using default--><!--Page Content End-->
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
-          </div>
-        </div>
       </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
@@ -345,4 +354,3 @@ wrap(js);</xmp><!--Content built using default--><!--Page Content End-->
     </script>
   </body>
 </html>
-</h3></h3></h3>
