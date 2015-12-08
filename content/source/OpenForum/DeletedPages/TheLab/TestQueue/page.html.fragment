@@ -1,11 +1,0 @@
-<h3>Edit file on client</h3>
-<ul><li>Server Send file to client</li>
-<li>Client Change file</li>
-<li>Client Send file to server</li>
-
-<h3>Edit file on web</h3>
-<li>Client send file to server</li>
-<li>Server Change file</li>
-<li>Server send file to client</li>
-
-\\undefined\\undefined\\<!--Content built using default--></ul>

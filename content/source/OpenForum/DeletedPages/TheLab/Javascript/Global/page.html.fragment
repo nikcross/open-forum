@@ -1,12 +1,0 @@
-<ul><li>decodeURI()	Decodes a URI</li>
-<li>decodeURIComponent()	Decodes a URI component</li>
-<li>encodeURI()	Encodes a URI</li>
-<li>encodeURIComponent()	Encodes a URI component</li>
-<li>encodeURIComponent() instead</li>
-<li>eval()	Evaluates a string and executes it as if it was script code</li>
-<li>isFinite()	Determines whether a value is a finite, legal number</li>
-<li>isNaN()	Determines whether a value is an illegal number</li>
-<li>Number()	Converts an object's value to a number</li>
-<li>parseFloat()	Parses a string and returns a floating point number</li>
-<li>parseInt()	Parses a string and returns an integer</li>
-<li>String()	Converts an object's value to a string<!--Content built using default--></li></ul>

@@ -1,106 +1,0 @@
-<!doctype html>
-<html class="no-js" lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title> Math</title>
-    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
-    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
-	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-	<script type="text/javascript" src="/OpenForum/DeletedPages/TheLab/Javascript/Math/page.js"></script>
-
-	<script>
-		var pageName = "OpenForum/DeletedPages/TheLab/Javascript/Math";
-		var author = "unknown";
-		var time = "1416521679000";
-	    var currentUser = "";
-	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
-	</script>
-    
-  </head>
-  <body>
-          <nav class="top-bar" data-topbar>
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <img src="/OpenForum/Images/open-forum-dog-small.png" />
-            </h1>
-          </li>
-        </ul>
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <a href="#"> Math</a>
-            </h1>
-          </li>
-        </ul>
-<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
-          <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Signed in as {{currentUser}}</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
-                <script>
-  var accessLoading = false;
-  function doSignIn() {
-    
-    if(!OpenForum.Access) {
-      if(!accessLoading) {
-      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
-      	accessLoading=true;
-      }
-      setTimeout(doSignIn,1000);
-      return;
-    }
-    
-    OpenForum.Access.showPopup();
-  };
-                </script>
-              </ul>
-            </li>
-          </ul>
-        </section>
-<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
-      </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/DeletedPages">DeletedPages</a></li><li role="menuitem"><a href="/OpenForum/DeletedPages/TheLab">TheLab</a></li><li role="menuitem"><a href="/OpenForum/DeletedPages/TheLab/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/DeletedPages/TheLab/Javascript">Math</a></li></nav>
-    
-    <!--PageContent Start-->*abs(x)	Returns the absolute value of x<ul><li>acos(x)	Returns the arccosine of x, in radians</li>
-<li>asin(x)	Returns the arcsine of x, in radians</li>
-<li>atan(x)	Returns the arctangent of x as a numeric value between -PI/2 and PI/2 radians</li>
-<li>atan2(y,x)	Returns the arctangent of the quotient of its arguments</li>
-<li>ceil(x)	Returns x, rounded upwards to the nearest integer</li>
-<li>cos(x)	Returns the cosine of x (x is in radians)</li>
-<li>exp(x)	Returns the value of Ex</li>
-<li>floor(x)	Returns x, rounded downwards to the nearest integer</li>
-<li>log(x)	Returns the natural logarithm (base E) of x</li>
-<li>max(x,y,z,...,n)	Returns the number with the highest value</li>
-<li>min(x,y,z,...,n)	Returns the number with the lowest value</li>
-<li>pow(x,y)	Returns the value of x to the power of y</li>
-<li>random()	Returns a random number between 0 and 1</li>
-<li>round(x)	Rounds x to the nearest integer</li>
-<li>sin(x)	Returns the sine of x (x is in radians)</li>
-<li>sqrt(x)	Returns the square root of x</li>
-<li>tan(x)	Returns the tangent of an angle<!--Content built using default--><!--Page Content End--></li>
-      
-<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
-        <div class="large-12 columns">
-          		<hr/>
-              <ul class="inline-list right">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Developers</a></li>
-                <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
-              </ul>
-            </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
-    
-    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
-    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
-  </body>
-</html>
-</ul>

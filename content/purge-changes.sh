@@ -1,3 +1,5 @@
+#! /bin/bash
+
 find ./changes/ -name history -type d -exec rm -rf {} \;
 rm -rf ./changes/OpenForum/Sandbox
 rm -rf ./changes/OpenForum/Journal

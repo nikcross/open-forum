@@ -1,7 +1,0 @@
-!!JSON
-*function get(arg0,arg1,arg2) *<br/>
-**function post(arg0,arg1,arg2) *<br/>
-**function onSuccess(arg0) *<br/>
-**function onError(arg0) *<br/>
-**function go() *<br/>
-**
