@@ -8,6 +8,7 @@ target/
 *.war
 *.class
 *.orig
+*.zip
 *~
 nik-*.sh
 /content/changes/
