@@ -9,7 +9,7 @@ import java.util.Set;
 import org.onestonesoup.core.data.KeyValuePair;
 
 public class Store {
-	private Map<String,String> store = new HashMap<String,String>();
+	private Map<String,Object> store = new HashMap<String,Object>();
 	
 	public Set<String> getKeys() {
 		return store.keySet();
@@ -19,17 +19,23 @@ public class Store {
 		return store.get(key);
 	}
 	
-	public void set(String key,String value) {
+	public void set(String key,Object value) {
 		store.put(key,value);
 	}
 	
-	public List<KeyValuePair> find(String regex) {
-		List<KeyValuePair> found = new ArrayList<KeyValuePair>();
+	public Object remove(String key) {
+		Object thing = store.get(key);
+		store.remove(key);
+		return thing;
+	}
+	
+	public String[] match(String regex) {
+		List<String> found = new ArrayList<String>();
 		for(String key: getKeys()) {
 			if(key.matches(regex)) {
-				found.add(new KeyValuePair(key, store.get(key)));
+				found.add(key);
 			}
 		}
-		return found;
+		return found.toArray(new String[]{});
 	}
 }

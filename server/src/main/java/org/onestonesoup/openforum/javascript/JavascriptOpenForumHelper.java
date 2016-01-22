@@ -18,6 +18,7 @@ import org.onestonesoup.openforum.TimeHelper;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.messagequeue.MessageQueue;
 import org.onestonesoup.openforum.security.AuthenticationException;
+import org.onestonesoup.openforum.security.Authorizer;
 import org.onestonesoup.openforum.security.Login;
 import org.onestonesoup.openforum.servlet.HttpHeader;
 import org.onestonesoup.openforum.transaction.Transaction;
@@ -154,31 +155,68 @@ public class JavascriptOpenForumHelper {
 		return controller.rebuild();
 	}
 
-	public void postMessageToQueue(String queueName, String message) {
+	public void postMessageToQueue(String queueName, String message) throws AuthenticationException, IOException {
+		if(!controller.getAuthorizer().isAuthorized(login, queueName, Authorizer.ACTION_UPDATE)) {
+			throw new AuthenticationException("No update rights");
+		}
+		
 		MessageQueue queue = controller.getQueueManager().getQueue(queueName);
 		queue.postMessage(message, login.getUser().getName());
 	}
 
 	public String createQueue() {
+		/* TODO
+		if(!controller.getAuthorizer().isAuthorized(login, queueName, Authorizer.ACTION_READ)) {
+			throw new AuthenticationException("No read rights");
+		}
+		*/
+		
 		String id = "queue." + controller.generateUniqueId();
 		controller.getQueueManager().getQueue(id);
 
 		return id;
 	}
 
-	public void storeValue(String key, String value) {
+	public String[] findStoreKeys(String regex) throws IOException {
+		String[] keys = controller.getStore().match(regex);
+		List<String> allowedKeys = new ArrayList<String>();
+		for(String key: keys) {
+			if(controller.getAuthorizer().isAuthorized(login, key, Authorizer.ACTION_READ)) {
+				allowedKeys.add(key);
+			}
+		}
+		return allowedKeys.toArray(new String[]{});
+	}
+	
+	public void storeValue(String key, String value) throws AuthenticationException, IOException {
+		if(!controller.getAuthorizer().isAuthorized(login, key, Authorizer.ACTION_UPDATE)) {
+			throw new AuthenticationException("No update rights");
+		}
+		
 		controller.getStore().set(key, value);
 	}
 
-	public String retrieveValue(String key) {
+	public String retrieveValue(String key) throws IOException, AuthenticationException {
+		if(!controller.getAuthorizer().isAuthorized(login, key, Authorizer.ACTION_READ)) {
+			throw new AuthenticationException("No read rights");
+		}
+		
 		return controller.getStore().get(key).toString();
 	}
 
-	public void storeObject(String key, String value) {
-		controller.getStore().set(key, value);
+	public void storeObject(String key, Object object) throws AuthenticationException, IOException {
+		if(!controller.getAuthorizer().isAuthorized(login, key, Authorizer.ACTION_UPDATE)) {
+			throw new AuthenticationException("No update rights");
+		}
+		
+		controller.getStore().set(key, object);
 	}
 
-	public Object retrieveObject(String key) {
+	public Object retrieveObject(String key) throws IOException, AuthenticationException {
+		if(!controller.getAuthorizer().isAuthorized(login, key, Authorizer.ACTION_READ)) {
+			throw new AuthenticationException("No read rights");
+		}
+		
 		try {
 			return controller.getStore().get(key);
 		} catch (NullPointerException npe) {
@@ -186,9 +224,25 @@ public class JavascriptOpenForumHelper {
 		}
 	}
 
-	public String[] getMessagesSince(String queueName, String time) {
+	public Object removeObject(String key) throws IOException, AuthenticationException {
+		if(!controller.getAuthorizer().isAuthorized(login, key, Authorizer.ACTION_DELETE)) {
+			throw new AuthenticationException("No delete rights");
+		}
+		
+		try {
+			return controller.getStore().remove(key);
+		} catch (NullPointerException npe) {
+			return null;
+		}
+	}
+	
+	public String[] getMessagesSince(String queueName, String time) throws IOException, AuthenticationException {
 		long timeStamp = Long.parseLong(time);
 
+		if(!controller.getAuthorizer().isAuthorized(login, queueName, Authorizer.ACTION_READ)) {
+			throw new AuthenticationException("No read rights");
+		}
+		
 		MessageQueue queue = controller.getQueueManager().getQueue(queueName);
 
 		List<String> list = new ArrayList<String>();
