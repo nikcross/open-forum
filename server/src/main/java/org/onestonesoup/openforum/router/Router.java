@@ -165,7 +165,7 @@ public class Router {
 					.postMessage(message, "");
 		}
 
-		public void progress(long position, long end) {
+		public void progress(long position, int end) {
 			long pc = position * 100 / totalSize;
 			controller.getQueueManager().getQueue(progressQueue)
 					.postMessage("progress.setValue(" + pc + ");", "*eval");
@@ -182,11 +182,6 @@ public class Router {
 									+ " bytes", "");
 			controller.getQueueManager().getQueue(progressQueue)
 					.postMessage("progress.setValue(0);", "*eval");
-		}
-
-		public void progress(long count, int i) {
-			// TODO Auto-generated method stub
-
 		}
 	}
 

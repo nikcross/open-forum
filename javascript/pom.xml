@@ -3,8 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<artifactId>open-forum</artifactId>
 		<groupId>onestonesoup</groupId>
+		<artifactId>open-forum</artifactId>
 		<version>3.0.1</version>
 		<relativePath>../project</relativePath>
 	</parent>

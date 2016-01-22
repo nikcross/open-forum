@@ -14,7 +14,7 @@ public class SessionStore implements Runnable {
 
 	private static SessionStore sessionStore;
 
-	private static long TIMEOUT = TimeConstants.HOUR;
+	private static long TIMEOUT = TimeConstants.DAY;
 
 	private Map<String, Session> sessions = new HashMap<String, Session>();
 	private int sessionCount = 0;
