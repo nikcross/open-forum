@@ -1,6 +1,6 @@
 var action = transaction.getParameter("action");
 if( action===null ) {
-	transaction.setResult(transaction.SHOW_PAGE);
+		transaction.setResult(transaction.SHOW_PAGE);
   return;
 }
 

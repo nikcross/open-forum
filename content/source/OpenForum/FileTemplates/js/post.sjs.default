@@ -1,0 +1,20 @@
+var action = transaction.getParameter("action");
+if(action===null) {
+    transaction.sendJSON( {result: "error", message: "No action parameter set"} );
+    return;
+}
+
+try{
+action = ""+action;
+result = {result: "error", message: "Action "+action+" not recognised."};
+
+/*
+if(action==="myAction") {
+	result = {result: "ok", message: "Performed action "+action};
+}
+*/
+} catch(e) {
+  result = {result: "error", message: ""+e};
+}
+  
+transaction.sendJSON( JSON.stringify(result) );

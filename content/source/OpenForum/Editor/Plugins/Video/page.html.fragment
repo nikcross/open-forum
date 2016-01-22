@@ -2,7 +2,7 @@
 <div id="information{{editorIndex}}" style="display: none;" class="popup">
 <table style="border: 1px dashed;"><tr>
 <td style="min-width: 300px; vertical-align: top;">
-<xmp>
+<xmp class="panel">
   videoOut.processFrame = function(image) {
       for(var x=0;x<image.getWidth();x++) {
       for(var y=0;y<image.getHeight();y++) {
@@ -31,4 +31,5 @@
 <canvas id="videoOut" width="800" height="600" style="border: solid 1px;"></canvas>
 
 <textarea id="video.code"></textarea>
-<button class="actionButton" onClick="video.runScript();">Run</button><!--Content built using default-->
+<button class="actionButton" onClick="video.runScript();">Run</button>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

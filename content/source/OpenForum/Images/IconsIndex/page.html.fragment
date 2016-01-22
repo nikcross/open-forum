@@ -1,7 +1,8 @@
 <b>A list of icons available. Each name should be preceded with /OpenForum/Image/icons/gif and   followed by the .gif extension. For example:
-<xmp>[/OpenForum/Images/icons/gif/printer.gif]</xmp> renders as <a href="/OpenForum/Images/icons/gif/printer.gif">/OpenForum/Images/icons/gif/printer.gif</a></b>
+<xmp class="panel">[/OpenForum/Images/icons/gif/printer.gif]</xmp> renders as <a href="/OpenForum/Images/icons/gif/printer.gif">/OpenForum/Images/icons/gif/printer.gif</a></b>
 
 These icons are designed by Mark James at <a href="http://www.famfamfam.com" target="external_page">http://www.famfamfam.com</a> and are licensed under a <a href="http://creativecommons.org/licenses/by/2.5/" target="external_page">Creative Commons Attribution 2.5 License.</a>
-\\\\
+\<br/>
 
-<img src="/OpenForum/Images/index_abc.png"/><!--Content built using default-->
+<img src="/OpenForum/Images/index_abc.png"/>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

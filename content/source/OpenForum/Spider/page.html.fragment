@@ -1,0 +1,5 @@
+<a class="button tiny" onClick="runSpider(); return false;">Release Spider</a>
+<a class="button tiny" onClick="stopSpider(); return false;">Stop Spider</a>
+<a class="button tiny" onClick="clearLog(); return false;">Clear Log</a>
+<xmp id="queueData"></xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

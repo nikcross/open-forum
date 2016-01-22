@@ -59,7 +59,7 @@
             <li class="has-dropdown">
               <a href="#">Attachments</a>
               <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content" title="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content">page.content</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.html.fragment" title="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.html" title="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.html">page.html</a></li></ul>
+<ul><li><a href="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content" title="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content">/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/Footer/data.json" title="/OpenForum/PageTemplates/PageInDevelopment/Footer/data.json">/OpenForum/PageTemplates/PageInDevelopment/Footer/data.json</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.html.fragment" title="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.html.fragment">/OpenForum/PageTemplates/PageInDevelopment/Footer/page.html.fragment</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.js" title="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.js">/OpenForum/PageTemplates/PageInDevelopment/Footer/page.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.html" title="/OpenForum/PageTemplates/PageInDevelopment/Footer/page.html">/OpenForum/PageTemplates/PageInDevelopment/Footer/page.html</a></li></ul>
                 </li></ul>
             </li>
             <li class="divider"></li>
@@ -80,7 +80,6 @@
       setTimeout(doSignIn,1000);
       return;
     }
-    
     OpenForum.Access.showPopup();
   };
                 </script>
@@ -92,33 +91,48 @@
 <div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Copy Page</h2>
   <p>Copy this page to <input type="text" of-id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
+  <p><a href="#" onClick="OpenForum.copyPage('OpenForum/PageTemplates/PageInDevelopment/Footer',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     OpenForumCopyPage = "OpenForum/PageTemplates/PageInDevelopment/Footer";
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=OpenForum/PageTemplates/PageInDevelopment/Footer&newPageName="+OpenForumCopyPage;
-    };
     </script>
 </div>
 
 <div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Move Page</h2>
   <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
-  <p><a href="#" onClick="OpenForum.movePage();return false;" class="secondary button">Move Page</a></p>
+  <p><a href="#" onClick="OpenForum.movePage('OpenForum/PageTemplates/PageInDevelopment/Footer',OpenForumCopyPage);return false;" class="secondary button">Move Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     OpenForumMovePage = "OpenForum/PageTemplates/PageInDevelopment/Footer";
-    OpenForum.movePage = function() {
-    	window.location = "/OpenForum/Actions/Move?pageName=OpenForum/PageTemplates/PageInDevelopment/Footer&newPageName="+OpenForumMovePage;
-    };
+    </script>
+</div>
+
+<div id="OpenForumNewPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Page</h2>
+  <p>New page to create <input type="text" of-id="OpenForumNewPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewPage = "";
+    </script>
+</div>
+
+<div id="OpenForumNewChildPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Child Page</h2>
+  <p>New child page to create <input type="text" of-id="OpenForumNewChildPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewChildPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewChildPage = "OpenForum/PageTemplates/PageInDevelopment/Footer/";
     </script>
 </div>
 <!-- insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) end -->
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/PageTemplates">PageTemplates</a></li><li role="menuitem"><a href="/OpenForum/PageTemplates/PageInDevelopment">PageInDevelopment</a></li><li role="menuitem" class="current"><a href="/OpenForum/PageTemplates/PageInDevelopment">Footer</a></li></nav>
     
-    <!--PageContent Start-->      <footer class="row">
+    <!--PageContent Start-->
+      <footer class="row">
         <div class="large-12 columns">
           <hr/>
           <div class="row">
@@ -133,7 +147,9 @@
             </div>
           </div>
         </div>
-      </footer><!--Content built using default--><!--Page Content End-->
+      </footer>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

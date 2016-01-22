@@ -1,6 +1,6 @@
 var attachments = [];
 var attachmentsReady = false;
- 
+
 function setAttachments(response) {
   attachments = response.attachments;
   for(var ai in attachments) {
@@ -10,7 +10,7 @@ function setAttachments(response) {
     attachments[ai].actionIcon = "page_edit";
     attachments[ai].icon = "tag_blue";
   }
-    
+
   OpenForum.scan(document.body);
   attachmentsReady = true;
 }
@@ -23,34 +23,34 @@ function openFile(openFilePageName,openFileName) {
 
 
 function loadUpdatedFilesList() {
-//  document.getElementById("filesList").innerHTML="Loading...";
-  JSON.get("/OpenForum/Actions/Attachments","","pageName="+pageName).onSuccess( updateFilesList ).go();
+  //  document.getElementById("filesList").innerHTML="Loading...";
+  JSON.get("/OpenForum/Actions/Attachments","","pageName="+pageName).onSuccess( setAttachments ).go();
 }
 
-function updateFilesList(result) {
-	attachements = result.attachments;
-}
+/*function updateFilesList(result) {
+	attachments = result.attachments;
+}*/
 
 function forkAttachment(attachmentId) {
   var sourceAttachment = attachments[attachmentId];
   //alert("Fork"+sourceAttachment.pageName+" : "+sourceAttachment.fileName);
   var result = JSON.parse( OpenForum.loadFile("/OpenForum/Actions/ForkLink?pageName="+sourceAttachment.pageName+"&fileName="+sourceAttachment.fileName ));
-  
- var newAttachment = {pageName: result.pageName, fileName: result.newFileName, id: attachments.length, action: "openAttachment", actionName: "OpenEditor"};
- attachments.push(newAttachment);
- openAttachment(newAttachment.id);
+
+  var newAttachment = {pageName: result.pageName, fileName: result.newFileName, id: attachments.length, action: "openAttachment", actionName: "OpenEditor"};
+  attachments.push(newAttachment);
+  openAttachment(newAttachment.id);
 }
 
 
 function saveAttachments() {
   showStatus("Saving all changes");
   if(hasChanges()) {
-      for(var attachmentIndex in attachments) {
-        if(attachments[attachmentIndex].editor && attachments[attachmentIndex].editor.changed=="*") {
-          saveAttachment(attachmentIndex);
-        }
+    for(var attachmentIndex in attachments) {
+      if(attachments[attachmentIndex].editor && attachments[attachmentIndex].editor.changed=="*") {
+        saveAttachment(attachmentIndex);
       }
-      showStatus("All changes saved.");
+    }
+    showStatus("All changes saved.");
   } else {
     showStatus("No files have been changed.");
   }
@@ -68,7 +68,7 @@ function saveAttachment(attachmentIndex) {
   }
 }
 
-function createAttachment() {
+function createAttachment(createBlankFile) {
   var ai = attachments.length;
   attachments.push({});
   attachments[ai].id = ai;
@@ -78,14 +78,21 @@ function createAttachment() {
   attachments[ai].actionName = "Open Editor";
   attachments[ai].icon = "tag_blue";
 
-  var fileToSave = pageName + "/" + attachments[ai].fileName;
-  var data = "";
-//  var result = OpenForum.saveFile(fileToSave,data);
-  if(result.saved===true) {
-    showStatus("Created "+fileToSave);
-    openAttachment(ai);
-  } else {
-    showStatus("Failed to create "+fileToSave+" :"+result);
+  if(OpenForum.file.attachmentExists(pageName,attachments[ai].fileName)==="false") {
+    var fileToSave = pageName + "/" + attachments[ai].fileName;
+    var data = "";
+    if(createBlankFile) {
+      var result = OpenForum.saveFile(fileToSave,data);
+      if(result.saved===true) {
+        showStatus("Created "+fileToSave);
+        openAttachment(ai);
+      } else {
+        showStatus("Failed to create "+fileToSave+" :"+result);
+      }
+    } else {
+        openAttachment(ai);
+      attachments[ai].editor.changed="*";
+    }
   }
 }
 
@@ -99,15 +106,50 @@ function findAttachment(fileName) {
 }
 
 function openAttachments(fileNames) {
+
+  var editorToWaitFor=editorList.length-1;
+
+  if( newPage ) {
+    for(var i in fileNames) {
+      var fileName = fileNames[i];
+      var attachment = findAttachment(fileName);
+
+      if(attachment===null) {
+        newAttachmentName = fileName;
+        console.log("Creating attachment "+fileName);
+        createAttachment(false);
+      }
+    }
+  }
+
   for(var i in fileNames) {
+
     var fileName = fileNames[i];
     var attachment = findAttachment(fileName);
+
     if(attachment!==null) {
-      //console.log( "ts "+ (5000*xy) );
-      openAttachment(attachment.id);
-    } else if( newPage ) {
-      newAttachmentName = fileName;
-      //createAttachment();
+      new Process().
+      waitFor( 
+        function(id) {
+          return function() { 
+            if(document.getElementById(id)!==null && document.getElementById(id).clientHeight<10) {
+              document.getElementById(id).style.display = "block";
+            }                
+            return (document.getElementById(id)!==null && document.getElementById(id).clientHeight>=10);
+          };
+        }("editor"+editorToWaitFor)
+      ).
+      then( 
+        function(id) {
+          return function() {                  
+            openAttachment(id);
+          };
+        } (attachment.id)
+      ).
+      run();
+
+      editorToWaitFor++;
+
     }
   }
 }
@@ -150,7 +192,7 @@ function openAttachment(attachmentId) {
     } else if(fileName.indexOf(".xml")==fileName.length-4) {
       flavour = "xml";
     }
-	editor = addEditor(pageName,fileName,flavour);
+    editor = addEditor(pageName,fileName,flavour);
   }
   showTab(editor.id);
 
@@ -159,7 +201,7 @@ function openAttachment(attachmentId) {
   attachments[attachmentId].actionName = "Save";
   attachments[attachmentId].actionIcon = "page_save";
   attachments[attachmentId].editor = editor;
-  
+
   //addTreeLeaf(attachments,attachmentId);
 }
 

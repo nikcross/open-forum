@@ -6,15 +6,16 @@ A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
 
 <hr/>
 !<h3>Usage:</h3>
-<xmp>
+<xmp class="panel">
 [{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
 </xmp>
 [<input type="button" value="Rebuild Wiki" onclick="ajax.doGet('/OpenForum/Actions/Rebuild','pageName=Home');return false;">
 
 <hr/>
 
-<a href="/OpenForum/Extensions/ActionButton/renderer.sjs" title="/OpenForum/Extensions/ActionButton/renderer.sjs">OpenForum/Extensions/ActionButton/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/ActionButton&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">action = extension.getAttribute("action");
+<a href="/OpenForum/Extensions/ActionButton/renderer.sjs">/OpenForum/Extensions/ActionButton/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/ActionButton&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">action = extension.getAttribute("action");
 parameters = extension.getAttribute("parameters");
 text = extension.getAttribute("text");
 
-return "<input type=\"button\" value=\""+text+"\" onclick=\"ajax.doGet('/OpenForum/Actions/"+action+"','"+parameters+"');return false;\">";</xmp><!--Content built using default--></ul>
+return "<input type=\"button\" value=\""+text+"\" onclick=\"ajax.doGet('/OpenForum/Actions/"+action+"','"+parameters+"');return false;\">";</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

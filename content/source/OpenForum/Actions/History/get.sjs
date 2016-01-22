@@ -52,7 +52,7 @@ if( action===null ) {
     
     result = JSON.stringify( {result: "ok", message: "Replaced "+pageName+"/"+fileName+" with "+historyFolderName+"/"+fileName+"-"+time} );
   } else {
-      result = "action not recognised";
+    result = JSON.stringify({result: "error", message: "action not recognised"+action});
   }
 
-  transaction.sendPage( result );
+  transaction.sendJSON( result );

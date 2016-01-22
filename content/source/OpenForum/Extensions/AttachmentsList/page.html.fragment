@@ -4,14 +4,14 @@ Creates a bulleted list of attachments on a pages
 <ul><li>pageName - The page to list (optional. default = current page)</li>
 <hr/>
 !<h3>Usage:</h3>
-<xmp>
+<xmp class="panel">
 [{AttachmentsList matching=".txt"}]
 </xmp>
 [<ul><li><a href="/OpenForum/Extensions/AttachmentsList/notes.txt" title="/OpenForum/Extensions/AttachmentsList/notes.txt">/OpenForum/Extensions/AttachmentsList/notes.txt</a></li><li><a href="/OpenForum/Extensions/AttachmentsList/tags.txt" title="/OpenForum/Extensions/AttachmentsList/tags.txt">/OpenForum/Extensions/AttachmentsList/tags.txt</a></li></ul>
 
 <hr/>
 
-<a href="/OpenForum/Extensions/AttachmentsList/renderer.sjs" title="/OpenForum/Extensions/AttachmentsList/renderer.sjs">OpenForum/Extensions/AttachmentsList/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/AttachmentsList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">targetPage = extension.getAttribute("pageName");
+<a href="/OpenForum/Extensions/AttachmentsList/renderer.sjs">/OpenForum/Extensions/AttachmentsList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/AttachmentsList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">targetPage = extension.getAttribute("pageName");
 matching = extension.getAttribute("matching");
 includePage = true;
 if(targetPage==null)
@@ -56,4 +56,5 @@ while(iterator.hasNext())
 
 }
 
-return wiki.renderWikiData(pageName,data);</xmp><!--Content built using default--></ul>
+return wiki.renderWikiData(pageName,data);</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

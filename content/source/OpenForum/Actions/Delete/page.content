@@ -1,4 +1,4 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Moves a page or file to the [Deleted|/Admin/Deleted] page
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Moves a page or file to the [Deleted|/OpenForum/DeletedPages] page
 ----
 !!Get Parameters
 * pageName - The page name to delete
@@ -6,76 +6,6 @@ __[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Referen
 
 ----
 !!Server Side Javascript for GET method
-{{{ if(typeof(pageName)=="undefined")
-{
-	transaction.setResult(transaction.SHOW_PAGE);
-}
-else
-{
-	transaction.userCanPerformAction(pageName,"delete",true); 
-	fileName = transaction.getParameter("fileName");
 
-        async = transaction.getParameter("async");
-        if(async!=null && async=="true")
-        {
-          async=true;
-        }
-        else
-        {
-          async=false;
-        }
 
-	if( fileName==null )
-	{
-		wiki.deletePage(pageName);
-
-/* Send email to administrator */
- user = transaction.getUser();
-
- mailer = js.getApi("/OpenForum/JarManager/Mailer");
-
- subject = pageName+" has been deleted";
- message = "The Wiki Page "+pageName+" has been deleted by "+user; 
-
- mailer.sendMail("Admin","Admin",subject,message);
-
-/* End of send email*/ 
-
-		if(pageName.indexOf("/blog/")!=-1)
-		{
-			pageName = pageName.substring(0,pageName.indexOf("/blog/"));
-		}
-		else
-		{
-			data = file.getAttachment("/Admin/Deleted","page.wiki");
-			data = data + "\n*[Undelete "+pageName+"|/OpenForum/Actions/Move?pageName=/Admin/Deleted/"+pageName+"&newPageName="+pageName+"]";
-			file.saveAttachment("/Admin/Deleted","page.wiki",data);
-			wiki.refreshPage("/Admin/Deleted");
-
-			pageName = "/Admin/Deleted";
-		}
-		wiki.buildPage(pageName,true);
-                if(async)
-                {
-                  transaction.sendPage("OK");
-                }
-                else
-                {
-		  transaction.goToPage(pageName);
-                }
-	}
-	else
-	{
-		wiki.deleteAttachment(pageName,fileName);
-		wiki.buildPage(pageName,true);
-
-                if(async)
-                {
-                  transaction.sendPage("OK");
-                }
-                else
-                {
-		  transaction.goToPage(pageName);
-                }
-	}
-} }}}
+[{InsertSourceFile pageName="/OpenForum/Actions/Delete" fileName="get.sjs"}]

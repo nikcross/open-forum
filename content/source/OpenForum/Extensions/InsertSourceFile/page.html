@@ -65,22 +65,39 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">InsertSourceFile</a></li></nav>
     
-    <!--PageContent Start-->Inserts a files contents into the page
+    <!--PageContent Start-->
+Inserts a files contents into the page
 <hr/>
-!<h3>Parameters</h3>
-<ul><li> pageName - The page where the file is attached (optional. default = current page name)</li>
-<li> fileName - The file to insert</li>
+<h3>Parameters</h3>
+<ul><li> pageName - The page where the file is attached (optional. default = current page name)</li>
+<li> fileName - The file to insert</li>
 
-<hr/>
-!<h3>Usage:</h3>
-<xmp>
-undefined
+-<hr/>
+<h3>Usage:</h3>
+<xmp class="panel">
+[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json"}]
 </xmp>
-[undefined
+<a href="//OpenForum/Extensions/InsertSourceFile/data.json">//OpenForum/Extensions/InsertSourceFile/data.json</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=data.json" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">{}</xmp>
 
-<hr/>
+-<hr/>
 
-undefined<!--Content built using default--><!--Page Content End-->
+[<a href="/OpenForum/Extensions/InsertSourceFile/renderer.sjs">/OpenForum/Extensions/InsertSourceFile/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var sourcePageName = extension.getAttribute("pageName");
+if(sourcePageName===null) {
+  sourcePageName = pageName;
+}
+
+var fileName = extension.getAttribute("fileName");
+var data = ""+file.getAttachment( sourcePageName,fileName );
+data = data.replace(/(xmp)/g,"((xmp))");
+var editLink = "/OpenForum/Editor?pageName="+sourcePageName+"&fileName="+fileName;
+
+pageData = "[/"+sourcePageName+"/"+fileName+"]<a href=\""+editLink+"\" title=\"Edit\"><img src=\"/OpenForum/Images/icons/gif/pencil.gif\" border=\"0\"></a><(xmp) class=\"panel\">$contents$</(xmp)>";
+pageData = js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,pageData);
+pageData = pageData.replace("$contents$",data);
+
+return pageData;</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

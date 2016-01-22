@@ -4,14 +4,14 @@
 <ul><li> pageName - the name of the page to publish</li>
 <hr/>
 !<h3>Usage:</h3>
-<xmp>
+<xmp class="panel">
 /OpenForum/Actions/Publish?pageName=MyPage
 </xmp>
 
 
 <hr/>
 !<h3>Server Side Javascript for GET method</h3>
-<a href="/OpenForum/Actions/Publish/get.sjs" title="/OpenForum/Actions/Publish/get.sjs">OpenForum/Actions/Publish/get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Actions/Publish&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">if(typeof(pageName)=="undefined")
+<a href="/OpenForum/Actions/Publish/get.sjs">/OpenForum/Actions/Publish/get.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Actions/Publish&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
 }
@@ -44,4 +44,5 @@ external.getData(remoteSite+"/OpenForum/Actions/RefreshPage?pageName="+newPageNa
 
   htmlData = wiki.buildPage("/OpenForum/Actions/Publish","Published ["+remoteSite+"/"+newPageName+"]",true);
   transaction.sendPage(htmlData);
-}</xmp><!--Content built using default--></ul>
+}</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

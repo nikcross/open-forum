@@ -1,12 +1,37 @@
 code = transaction.getParameter("code");
-if( code==null )
+queueName = transaction.getParameter("queueName");
+if( code===null )
 {
-	transaction.setResult(transaction.SHOW_PAGE);
+  transaction.setResult(transaction.SHOW_PAGE);
+  return;
 }
-else
-{
-  code = ""+code; // Cast to String does not work. This does !
-  result = eval(code);
 
-  transaction.sendPage( result );
+try{
+ function println(message) {
+   openForum.postMessageToQueue(queueName,message);
+ }
+
+  println("Running");
+
+  code = ""+code;
+
+  result = eval( code );
+
+  if(result) {
+    result = {result: result};
+  } else {
+   result = {result: "ok", message: "Script Completed"};
+  }
+
+  println("Complete");
+  
+  transaction.sendJSON( JSON.stringify( {result: result} ) );
+}
+catch(e)
+{
+  try{
+   println(e);
+  }
+  catch(e2){}
+  transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber()+" of "+e.sourceName(), saved: false}));
 }

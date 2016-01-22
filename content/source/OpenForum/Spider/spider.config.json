@@ -1,0 +1,7 @@
+{
+  "startPage": "/OpenForum/Javascript",
+    "processors": [
+      //{"page": "/OpenForum/Spider", "file": "CatalogueBuilder.sjs"},
+      {"page": "/OpenForum/Javascript/Tester", "file": "TestRunner.sjs"}
+      ]
+}

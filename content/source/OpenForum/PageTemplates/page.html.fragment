@@ -1,7 +1,9 @@
 <ul><li> <a href="/OpenForum/PageTemplates/Blank">Blank</a></li>
 <li> <a href="/OpenForum/PageTemplates/Default">Default</a></li>
+<li> <a href="/OpenForum/PageTemplates/EditorApp">EditorApp</a></li>
 <li> <a href="/OpenForum/PageTemplates/Example">Example</a></li>
 <li> <a href="/OpenForum/PageTemplates/Frameworks">Frameworks</a></li>
 <li> <a href="/OpenForum/PageTemplates/PageInDevelopment">PageInDevelopment</a></li>
 <li> <a href="/OpenForum/PageTemplates/PublishedPage">PublishedPage</a></li>
-</ul><!--Content built using default-->
+</ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

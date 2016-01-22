@@ -24,7 +24,7 @@
             <li class="has-dropdown">
               <a href="#">Attachments</a>
               <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content">page.content</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json">data.json</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js">topMenu.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt">notes.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html">printable.html</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment">page.html.fragment</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js">page.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.wiki" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.wiki">page.wiki</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt">tags.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html">page.html</a></li></ul>
+<ul><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.wiki" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.wiki">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.wiki</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html</a></li></ul>
                 </li></ul>
             </li>
             <li class="divider"></li>
@@ -45,7 +45,6 @@
       setTimeout(doSignIn,1000);
       return;
     }
-    
     OpenForum.Access.showPopup();
   };
                 </script>
@@ -57,26 +56,41 @@
 <div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Copy Page</h2>
   <p>Copy this page to <input type="text" of-id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage();return false;" class="secondary button">Copy Page</a></p>
+  <p><a href="#" onClick="OpenForum.copyPage('&pageName;',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     OpenForumCopyPage = "&pageName;";
-    OpenForum.copyPage = function() {
-    	window.location = "/OpenForum/Actions/Copy?sourcePageName=&pageName;&newPageName="+OpenForumCopyPage;
-    };
     </script>
 </div>
 
 <div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Move Page</h2>
   <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
-  <p><a href="#" onClick="OpenForum.movePage();return false;" class="secondary button">Move Page</a></p>
+  <p><a href="#" onClick="OpenForum.movePage('&pageName;',OpenForumCopyPage);return false;" class="secondary button">Move Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     OpenForumMovePage = "&pageName;";
-    OpenForum.movePage = function() {
-    	window.location = "/OpenForum/Actions/Move?pageName=&pageName;&newPageName="+OpenForumMovePage;
-    };
     </script>
 </div>
-<!--Content built using default-->
+
+<div id="OpenForumNewPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Page</h2>
+  <p>New page to create <input type="text" of-id="OpenForumNewPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewPage = "";
+    </script>
+</div>
+
+<div id="OpenForumNewChildPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Child Page</h2>
+  <p>New child page to create <input type="text" of-id="OpenForumNewChildPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewChildPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewChildPage = "&pageName;/";
+    </script>
+</div>
+
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

@@ -1,1 +1,5 @@
-<!--Content built using default-->
+<h3>History for {{pageName}}</h3>
+
+{{fileTables}}
+
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

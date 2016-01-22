@@ -1,4 +1,4 @@
-<xmp>
+<xmp class="panel">
 {
 	steps: [
 		{action: "append", file: "<file name and path>"},
@@ -8,8 +8,9 @@
 </xmp>
 <hr/>
 
-!<h3>Example <a href="/OpenForum/Javascript/Builder?action=build&buildFile=/OpenForum/Javascript/open-forum.build.json&targetFile=/OpenForum/Javascript/Builder/example-test-build.js&version=1.0.0&json=true">/OpenForum/Javascript/Builder?action=build&buildFile=/OpenForum/Javascript/open-forum.build.json&targetFile=/OpenForum/Javascript/Builder/example-test-build.js&version=1.0.0&json=true</a></h3>
+!<h3>Example <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Builder?action=build&buildFile=/OpenForum/Javascript/open-forum.build.json&targetFile=/OpenForum/Javascript/Builder/example-test-build.js&version=1.0.0&json=true"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Builder?action=build&buildFile=/OpenForum/Javascript/open-forum.build.json&targetFile=/OpenForum/Javascript/Builder/example-test-build.js&version=1.0.0&json=true does not exist. Click to create it.">/OpenForum/Javascript/Builder?action=build&buildFile=/OpenForum/Javascript/open-forum.build.json&targetFile=/OpenForum/Javascript/Builder/example-test-build.js&version=1.0.0&json=true</a></h3>
 
 -<hr/>
 
-!<h3>Build open-forum.js <a href="/OpenForum/Javascript/Builder?action=build&buildFile=/OpenForum/Javascript/open-forum.build.json&targetFile=/OpenForum/Javascript/open-forum.js&version=1.0.001&json=true">/OpenForum/Javascript/Builder?action=build&buildFile=/OpenForum/Javascript/open-forum.build.json&targetFile=/OpenForum/Javascript/open-forum.js&version=1.0.001&json=true</a><!--Content built using default--></h3>
+!<h3>Build open-forum.js <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Builder?action=build&buildFile=/OpenForum/Javascript/open-forum.build.json&targetFile=/OpenForum/Javascript/open-forum.js&version=1.0.001&json=true"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Builder?action=build&buildFile=/OpenForum/Javascript/open-forum.build.json&targetFile=/OpenForum/Javascript/open-forum.js&version=1.0.001&json=true does not exist. Click to create it.">/OpenForum/Javascript/Builder?action=build&buildFile=/OpenForum/Javascript/open-forum.build.json&targetFile=/OpenForum/Javascript/open-forum.js&version=1.0.001&json=true</a></h3>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

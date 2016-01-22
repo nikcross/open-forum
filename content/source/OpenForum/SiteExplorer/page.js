@@ -1,3 +1,5 @@
+var tree;
+
 OpenForum.init = function() {
-	OpenForum.createFileTree("explorer","/");
+  tree = OpenForum.createFileTree("explorer","/");
 };

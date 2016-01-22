@@ -5,12 +5,12 @@ name - the field name
 value - optional value
 <hr/>
 !<h3>Usage:</h3>
-<xmp>[{InputField name="myField"}]</xmp>
+<xmp class="panel">[{InputField name="myField"}]</xmp>
 [<input type='text' name='myField' id='myField' value='&myField;'>
 
 <hr/>
 
-<a href="/OpenForum/Extensions/InputField/renderer.sjs" title="/OpenForum/Extensions/InputField/renderer.sjs">OpenForum/Extensions/InputField/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/InputField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">name = extension.getAttribute("name");
+<a href="/OpenForum/Extensions/InputField/renderer.sjs">/OpenForum/Extensions/InputField/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/InputField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">name = extension.getAttribute("name");
 value = extension.getAttribute("value");
 
 if(value==null)
@@ -18,4 +18,5 @@ if(value==null)
   value="&"+name+";";
 }
 
-return "<input type='text' name='"+name+"' id='"+name+"' value='"+value+"'>";</xmp><!--Content built using default-->
+return "<input type='text' name='"+name+"' id='"+name+"' value='"+value+"'>";</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

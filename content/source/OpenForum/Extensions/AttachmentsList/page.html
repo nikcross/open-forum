@@ -65,20 +65,21 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">AttachmentsList</a></li></nav>
     
-    <!--PageContent Start-->Creates a bulleted list of attachments on a pages
+    <!--PageContent Start-->
+Creates a bulleted list of attachments on a pages
 <hr/>
 !<h3>Parameters</h3>
 <ul><li>pageName - The page to list (optional. default = current page)</li>
 <hr/>
 !<h3>Usage:</h3>
-<xmp>
+<xmp class="panel">
 [{AttachmentsList matching=".txt"}]
 </xmp>
 [<ul><li><a href="/OpenForum/Extensions/AttachmentsList/notes.txt" title="/OpenForum/Extensions/AttachmentsList/notes.txt">/OpenForum/Extensions/AttachmentsList/notes.txt</a></li><li><a href="/OpenForum/Extensions/AttachmentsList/tags.txt" title="/OpenForum/Extensions/AttachmentsList/tags.txt">/OpenForum/Extensions/AttachmentsList/tags.txt</a></li></ul>
 
 <hr/>
 
-<a href="/OpenForum/Extensions/AttachmentsList/renderer.sjs" title="/OpenForum/Extensions/AttachmentsList/renderer.sjs">OpenForum/Extensions/AttachmentsList/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/AttachmentsList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">targetPage = extension.getAttribute("pageName");
+<a href="/OpenForum/Extensions/AttachmentsList/renderer.sjs">/OpenForum/Extensions/AttachmentsList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/AttachmentsList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">targetPage = extension.getAttribute("pageName");
 matching = extension.getAttribute("matching");
 includePage = true;
 if(targetPage==null)
@@ -123,7 +124,9 @@ while(iterator.hasNext())
 
 }
 
-return wiki.renderWikiData(pageName,data);</xmp><!--Content built using default--><!--Page Content End-->
+return wiki.renderWikiData(pageName,data);</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

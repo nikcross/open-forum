@@ -1,11 +1,24 @@
+    OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/lib/codemirror.css");
+    OpenForum.loadCSS("/OpenForum/Editor/code-mirror.css");
+    OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/addon/merge/merge.css");
+OpenForum.loadScript("http://cdnjs.cloudflare.com/ajax/libs/diff_match_patch/20121119/diff_match_patch.js"); 
+
 var status = "Loading...";
 var targetName = "";
 var pageName = "/Sandbox";
 var fileName = "";
+var parentPage = " ";
+var parentPageLink = " ";
 var flavour = "page";
 var newPage = false;
+
 var data = {};
-var dataView = "";
+var dataView = "Loading...";
+
+var builderPath = "Loading...";
+var templatePath = "Loading...";
+var accessPath = "Loading...";
+var accessView = "Loading...";
 
 var documentation = [
   //{pageName: "/OpenForumDocumentation/Editor", title: "The Editor"},
@@ -40,15 +53,24 @@ OpenForum.init = function () {
 function ready() {
   //Possibly page edit
   if(OpenForum.getParameter("pageName")!=="") {
-    if(OpenForum.file.pageExists(pageName)==="true") {
+    pageName = OpenForum.getParameter("pageName");
+
+    if(OpenForum.file.pageExists(pageName)==="false") {
       newPage = true;
     }
-    pageName = OpenForum.getParameter("pageName");
     var name = pageName.substring(pageName.lastIndexOf("/"));
     document.title= name + " (" + pageName + ") " + " Editor";
 
-    if(OpenForum.file.attachmentExists(pageName,"get.sjs")==="true" || OpenForum.file.attachmentExists(pageName,"post.sjs")==="true") {
-      flavour = "service";
+    if(OpenForum.file.attachmentExists(pageName,"get.sjs")==="true") {
+      flavour = "get service";
+    }
+
+    if(OpenForum.file.attachmentExists(pageName,"post.sjs")==="true") {
+      flavour = "post service";
+    }
+
+    if(OpenForum.file.attachmentExists(pageName,"get.sjs")==="true" && OpenForum.file.attachmentExists(pageName,"post.sjs")==="true") {
+      flavour = "mixed service";
     }
   }
 
@@ -69,13 +91,53 @@ function ready() {
   if(OpenForum.fileExists(pageName+"/data.json")) {
     dataView = OpenForum.loadFile( pageName+"/data.json" );
     data = JSON.parse( dataView );
-    
+
     if(data.pageParent) {
       extraActions.push( {fn: "publishPage", name: "Publish", description: "Publish page", icon: "page"} );
     }
+  } else {
+    dataView = "No data.json present";
   }
   
-  //new Process().waitFor( function() { return attachmentsReady; }).then(openForFlavour);
+  if(OpenForum.fileExists(pageName+"/access.json")) {
+    accessView = OpenForum.loadFile( pageName+"/access.json" );
+  } else {
+    accessView = "No access.json present";
+  }
+
+  new Process().waitFor( function() { return attachmentsReady; }).then(openForFlavour).run();
+
+  builderPath = OpenForum.file.getPageInheritedFilePath(pageName,"page.build.js");
+  templatePath = OpenForum.file.getPageInheritedFilePath(pageName,"page.html.template");
+  accessPath = OpenForum.file.getPageInheritedFilePath(pageName,"access.json");
+
+  setKeyMappings();
+}
+
+function setKeyMappings() {
+  $(document).bind('keydown', function(e) {
+    if(e.ctrlKey && !e.shiftKey && (e.which == 83)) {
+      e.preventDefault();
+      saveAttachment(currentEditor.attachment.id);
+      return false;
+    }
+  });
+
+  $(document).bind('keydown', function(e) {
+    if(e.ctrlKey && e.shiftKey && (e.which == 83)) {
+      e.preventDefault();
+      saveAttachments();
+      return false;
+    }
+  });
+  
+    $(document).bind('keydown', function(e) {
+    if(e.ctrlKey && e.shiftKey && (e.which == 70)) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
 }
 
 function openPage() {
@@ -84,16 +146,27 @@ function openPage() {
 }
 
 function updatePagesList(result) {
+  var editIcon = "<img src=\"http://open-forum.onestonesoup.org/OpenForum/Images/icons/png/page_edit.png\"/>";
+
   dropDownData="";
   data="<ul>\n";
   for(var i=0; i<result.length ;i++) {
-    data+="<li><a href=\"/OpenForum/Editor?pageName="+result[i]+"\">"+result[i]+"</a></li>\n";
-    dropDownData+="<li><a href=\"/OpenForum/Editor?pageName="+result[i]+"\">"+result[i]+"</a></li>\n";
+    var link = "<a href=\""+result[i]+"\">"+result[i]+"</a><a href=\"/OpenForum/Editor?pageName="+result[i]+"\">"+editIcon+"</a>";
+    data+="<li ondrop=\"drop(event,'"+result[i]+"')\" ondragover=\"allowDrop(event)\">"+link+"</li>\n";
+    dropDownData+="<li>"+link+"</li>\n";
   }
   data+="</ul>\n";
-  
+
   document.getElementById("subPageDropdown").innerHTML=dropDownData;
   document.getElementById("subPagesList").innerHTML=data;
+
+  if( pageName.lastIndexOf("/")!==0 ) {
+    parentPage = pageName.substring(0,pageName.lastIndexOf("/"));
+    parentPageLink ="<a href=\""+parentPage+"\">"+parentPage+"</a><a href=\"/OpenForum/Editor?pageName="+parentPage+"\">"+editIcon+"</a>";
+  } else {
+    parentPage = "";
+    parentPageLink = "";
+  }
 }
 
 function addOverview() {
@@ -119,21 +192,30 @@ function addOverview() {
 }
 
 function openForFlavour() {
-  alert(flavour);
   if(flavour=="page") {
     openAttachments( [
-      "page.content",
-      "page.js"
+      "page.js",
+      "page.content"
     ]);
-    showTab(0);
-  } else if(flavour=="service") {
+  } else if(flavour=="get service") {
     openAttachments( [
-      "page.content",
       "page.js",
       "get.sjs",
-      "post.sjs"
+      "page.content"
     ]);
-    showTab(0);
+  } else if(flavour=="post service") {
+    openAttachments( [
+      "page.js",
+      "post.sjs",
+      "page.content"
+    ]);
+  } else if(flavour=="mixed service") {
+    openAttachments( [
+      "page.js",
+      "get.sjs",
+      "post.sjs",
+      "page.content"
+    ]);
   } else if(flavour=="file") {
     openAttachments([fileName]);
   }
@@ -168,24 +250,6 @@ function showStatus(message) {
   //  console.log(message);
 }
 
-OpenForum.Actions = {};
-OpenForum.Actions.copyPage = function(pageName,newPageName) {
-  OpenForum.loadFile("/OpenForum/Actions/Copy?newPageName="+newPageName+"&sourcePageName="+pageName);
-};
-
-OpenForum.Actions.movePage = function(pageName,newPageName) {
-  OpenForum.loadFile("/OpenForum/Actions/Copy?newPageName="+newPageName+"&pageName="+pageName);
-};
-
-OpenForum.Actions.zipPage = function(pageName) {
-  OpenForum.loadFile("/OpenForum/Actions/Zip?action=zip&pageName="+pageName);
-};
-
-OpenForum.Actions.deletePage = function(pageName) {
-  OpenForum.loadFile(window.location = "/OpenForum/Actions/Delete?pageName="+pageName);
-};
-
-
 function publishPage() {
   OpenForum.file.zipPage(pageName,publishZippedPage);
 }
@@ -200,41 +264,4 @@ function publishZippedPage(response) {
 function publishTicket(publishingTicket) {
   JSON.get(data.pageParent+"/OpenForum/PublishingJournal","published","ticket="+publishingTicket+"&page="+pageName+"&host="+window.location.hostname+"&port="+window.location.port).go();
   showStatus("Page "+pageName+" published to "+data.pageParent+". Ticket:"+publishingTicket);
-}
-
-
-function Process() {
-  var callFn;
-  var waitTest;
-  var thenFn;
-
-  var self = this;
-
-  self.call = function(newCallFn) {
-    callFn = newCallFn;
-    return self;
-  };
-
-  self.waitFor = function(newWaitTest) {
-    waitTest = newWaitTest;
-    return self;
-  };
-
-  self.then = function(newThenFn) {
-    thenFn = newThenFn;
-    return self;
-  };
-
-  var wait = function() {
-    if(waitTest()===false) {
-      setTimeout(wait,100);
-    } else {
-      if(thenFn) thenFn();
-    }
-  };
-  
-  self.run = function(data) {
-    if(callFn) callFn(data);
-    wait();
-  };
 }

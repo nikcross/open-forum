@@ -19,4 +19,4 @@ user = transaction.getUser();
 wiki.saveAsAttachment(pageName,fileName,data,user);
 wiki.buildPage(pageName);
 
-transaction.goToPage(pageName); }}}
+transaction.goToPage(pageName); }}} 

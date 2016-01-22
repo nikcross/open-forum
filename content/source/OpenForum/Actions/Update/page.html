@@ -65,16 +65,17 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Actions">Update</a></li></nav>
     
-    <!--PageContent Start--><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> Saves a pages source as page.wiki and rebuilds the page. Also saves the tags to tags.txt
+    <!--PageContent Start-->
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> Saves a pages source as page.wiki and rebuilds the page. Also saves the tags to tags.txt
 <hr/>
 <h3>Post Data</h3>
-<ul><li>pageName\\</li>
-<li>source\\</li>
-<li>tags\\</li>
+<ul><li>pageName<br/</li>
+<li>source<br/</li>
+<li>tags<br/</li>
 
 -<hr/>
 <h3>Server Side Javascript for POST method</h3>
-<xmp> transaction.getPostData();
+<xmp class="panel"> transaction.getPostData();
 pageName = transaction.getPostParameter("pageName");
 user = transaction.getUser();
 
@@ -118,7 +119,9 @@ mailer.sendMail("Admin","Admin",subject,message);
 
 /* End of send email*/ 
 
-transaction.goToPage(pageName); </xmp><!--Content built using default--><!--Page Content End-->
+transaction.goToPage(pageName); </xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

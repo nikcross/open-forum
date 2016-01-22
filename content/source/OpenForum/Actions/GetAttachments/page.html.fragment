@@ -1,11 +1,11 @@
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Returns a list of the pages attachments as Javascript.
 <hr/>
 !<h3>Get Parameters</h3>
-<ul><li>pageName\\</li>
+<ul><li>pageName<br/></li>
 
 <hr/>
 !<h3>Server Side Javascript for GET method</h3>
-<xmp> if(typeof(pageName)=="undefined")
+<xmp class="panel"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
 }
@@ -15,4 +15,5 @@ else
 	files = file.getAttachmentsForPage(pageName);
 	page = js.getAttachmentsJS(pageName,files);
 	transaction.sendPage(page);
-} </xmp><!--Content built using default--></ul>
+} </xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

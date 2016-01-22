@@ -65,19 +65,20 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">InputField</a></li></nav>
     
-    <!--PageContent Start-->Inserts a form input field.
+    <!--PageContent Start-->
+Inserts a form input field.
 <hr/>
 !<h3>Parameters</h3>
 name - the field name
 value - optional value
 <hr/>
 !<h3>Usage:</h3>
-<xmp>[{InputField name="myField"}]</xmp>
+<xmp class="panel">[{InputField name="myField"}]</xmp>
 [<input type='text' name='myField' id='myField' value='&myField;'>
 
 <hr/>
 
-<a href="/OpenForum/Extensions/InputField/renderer.sjs" title="/OpenForum/Extensions/InputField/renderer.sjs">OpenForum/Extensions/InputField/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/InputField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">name = extension.getAttribute("name");
+<a href="/OpenForum/Extensions/InputField/renderer.sjs">/OpenForum/Extensions/InputField/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/InputField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">name = extension.getAttribute("name");
 value = extension.getAttribute("value");
 
 if(value==null)
@@ -85,7 +86,9 @@ if(value==null)
   value="&"+name+";";
 }
 
-return "<input type='text' name='"+name+"' id='"+name+"' value='"+value+"'>";</xmp><!--Content built using default--><!--Page Content End-->
+return "<input type='text' name='"+name+"' id='"+name+"' value='"+value+"'>";</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

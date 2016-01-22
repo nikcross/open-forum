@@ -1,0 +1,10 @@
+<h3>Example</h3>
+<a class="button tiny" onClick="doAction(); return false;">Do Action</a>
+
+<br/>
+
+<a href="/OpenForum/Extensions/Button/renderer.sjs">/OpenForum/Extensions/Button/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/Button&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var title = ""+extension.getAttribute("title");
+var fn = ""+extension.getAttribute("function");
+
+return "<a class=\"button tiny\" onClick=\""+fn+"(); return false;\">"+title+"</a>";</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

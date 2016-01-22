@@ -3,14 +3,14 @@ Displays a page hierachy trail
 !<h3>Parameters</h3>
 <hr/>
 !<h3>Usage:</h3>
-<xmp>
+<xmp class="panel">
 [{CrumbTrail}]
 </xmp>
 [<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">CrumbTrail</a></li></nav>
 
 <hr/>
 !<h3>renderer.sjs</h3>
-<xmp>parts = pageName.split("/");
+<xmp class="panel">parts = pageName.split("/");
 data = "";
 path = "";
 
@@ -20,4 +20,5 @@ for(loop=0;loop<parts.length;loop++)
   data+=" &gt;&gt; <a href=\""+path+"\">"+parts[loop]+"</a>";
 }
 
-return data;</xmp><!--Content built using default-->
+return data;</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

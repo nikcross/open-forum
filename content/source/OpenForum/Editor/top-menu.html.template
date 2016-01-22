@@ -32,7 +32,7 @@
             <li class="has-dropdown">
               <a href="#">Plugins</a>
               <ul class="dropdown">
-                <li><a onClick="loadPlugin('PageManager');return false;">[{Icon name="plugin"}] Page Manager</a></li>
+                <li><a onClick="loadPlugin('History');return false;">[{Icon name="plugin"}] Page History</a></li>
                 <li><a onClick="loadPlugin('Console');return false;">[{Icon name="plugin"}] Javascript Console</a></li>
                 <li><a onClick="loadPlugin('ServerConsole');return false;">[{Icon name="plugin"}] Server Side Javascript Console</a></li>
                 <li><a onClick="loadPlugin('DataTransform');return false;">[{Icon name="plugin"}] Data Transform Helper</a></li>
@@ -90,7 +90,7 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     editorCopyPage = function() {
-      	OpenForum.Actions.copyPage(pageName,openForumCopyPage);
+      	OpenForum.action.copyPage(pageName,openForumCopyPage);
     	window.location = "/OpenForum/Editor?pageName="+openForumCopyPage;
     };
     </script>
@@ -105,7 +105,7 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     editorMovePage = function() {
-      	OpenForum.Actions.movePage(pageName,openForumMovePage);
+      	OpenForum.action.movePage(pageName,openForumMovePage);
     	window.location = "/OpenForum/Editor?pageName="+openForumMovePage;
     };
     </script>
@@ -137,7 +137,7 @@
 <div id="OpenForumDeleteModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Delete Page</h2>
   <p>Please confirm that you want to delete the page {{pageName}}
-  <p><a href="#" onClick="OpenForum.Actions.deletePage(pageName);return false;" class="secondary button">Delete</a></p>
+  <p><a href="#" onClick="OpenForum.action.deletePage(pageName);return false;" class="secondary button">Delete</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 

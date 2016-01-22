@@ -39,4 +39,5 @@
 <li>Preview option in editor</li>
 <li>New WebCast functions built in</li>
 <li>New WebChat functions built in</li>
-<li>HTTP1.1 keep alive connections implemented. Makes page response times much faster<!--Content built using default--></li></ul>
+<li>HTTP1.1 keep alive connections implemented. Makes page response times much faster</li>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

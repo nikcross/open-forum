@@ -65,19 +65,20 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Actions">RefreshJarManager</a></li></nav>
     
-    <!--PageContent Start--><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  -Description-
+    <!--PageContent Start-->
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  -Description-
 <hr/>
 !<h3>Parameters</h3>
 <hr/>
 !<h3>Usage:</h3>
-<xmp>
+<xmp class="panel">
 /OpenForum/Actions/RefreshJarManager?pageName=dummy
 </xmp>
 [<a href="/OpenForum/Actions/RefreshJarManager?pageName=dummy">/OpenForum/Actions/RefreshJarManager?pageName=dummy</a>
 
 <hr/>
 !<h3>Server Side Javascript for GET method</h3>
-<xmp> if(typeof(pageName)=="undefined")
+<xmp class="panel"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
 }
@@ -86,7 +87,9 @@ else
   js.refreshJarManager();
 
   transaction.sendPage("OK");
-} </xmp><!--Content built using default--><!--Page Content End-->
+} </xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

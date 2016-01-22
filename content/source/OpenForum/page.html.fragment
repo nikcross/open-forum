@@ -7,14 +7,14 @@
 <li><a href="/OpenForum/JarManager">Java Plugin Manager</a></li>
 <li><a href="/OpenForum/PageTemplates/Default">Site Wide Page Definition</a></li>
 <li><a href="/OpenForum/Javascript">Javascript</a></li>
-<li><a href="/OpenForum/Aliases">Aliases</a></li>
-<li><a href="/OpenForum/DynamicPages">Dynamic Pages</a></li>
+<li><a href="/OpenForum/Editor?pageName=/OpenForum/Aliases"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Aliases does not exist. Click to create it.">Aliases</a></li>
+<li><a href="/OpenForum/Editor?pageName=/OpenForum/DynamicPages"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/DynamicPages does not exist. Click to create it.">Dynamic Pages</a></li>
   </div>
 </div>
 <div class="row">
   <div class="large-6 columns">
     <h3>Reference</h3>
-<li><a href="/OpenForum/Styles">Styles</a></li>
+<li><a href="/OpenForum/Editor?pageName=/OpenForum/Styles"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Styles does not exist. Click to create it.">Styles</a></li>
 <li><a href="/OpenForum/PageTemplates">System Page Templates</a></li>
 <li><a href="/OpenForum/Images">System Images and Icons</a></li>
   </div>
@@ -27,4 +27,5 @@
   </div>
 </div>
 
-<!--Content built using default--></ul>
+
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

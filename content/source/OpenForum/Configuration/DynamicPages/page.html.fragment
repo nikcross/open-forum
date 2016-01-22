@@ -1,5 +1,6 @@
-<xmp>
+<xmp class="panel">
 
 .*/OpenForum/DynamicPages/TestPage/Test/.*=/OpenForum/DynamicPages/TestPage
 
-</xmp><!--Content built using default-->
+</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

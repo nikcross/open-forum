@@ -1,14 +1,18 @@
+<div class="large-4 columns">
 <h3>input</h3>
 <textarea id="dataTransform.input"></textarea>
-
+</div>
+<div class="large-4 columns">
 <h3>Transform Process</h3>
-<xmp>
-dataTransform.imp("tab name"); // Import the data from a tab into the input box
-dataTransform.exp("tab name",output); // Export the data from output into a tab
-output = dataTransform.run("tab name",input); // apply the script in the tab to the input and return the output
-</xmp>
+<div class="panel callout radius"><ul><li> dataTransform.imp("tab name"); - Import the data from a tab into the input box</li>
+<li> output = dataTransform.run("tab name",input); - apply the script in the tab to the input and return the output</li>
+<li> dataTransform.exp("tab name",output); - Export the data from output into a tab</li>
+</ul></div>
 <textarea id="dataTransform.process"></textarea><br/>
-<button class="actionButton" onClick="dataTransform.applyTransform();">Apply Transform</button>
-
+<a class="button tiny" onClick="dataTransform.applyTransform(); return false;">Apply Transform</a>
+</div>
+<div class="large-4 columns">
 <h3>output</h3>
-<textarea id="dataTransform.output"></textarea><!--Content built using default-->
+<textarea id="dataTransform.output"></textarea>
+</div>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
