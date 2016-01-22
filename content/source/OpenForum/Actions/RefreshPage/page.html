@@ -65,14 +65,15 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Actions">RefreshPage</a></li></nav>
     
-    <!--PageContent Start--><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Refreshes the page from it's Wiki Markup
+    <!--PageContent Start-->
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Refreshes the page from it's Wiki Markup
 <hr/>
 !<h3>Get Parameters</h3>
 <ul><li>pageName - The page to refresh</li>
 
 <hr/>
 !<h3>Server Side Javascript for GET method</h3>
-<a href="/OpenForum/Actions/RefreshPage/get.sjs" title="/OpenForum/Actions/RefreshPage/get.sjs">OpenForum/Actions/RefreshPage/get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Actions/RefreshPage&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">if(typeof(pageName)=="undefined")
+<a href="/OpenForum/Actions/RefreshPage/get.sjs">/OpenForum/Actions/RefreshPage/get.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Actions/RefreshPage&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
 }
@@ -81,7 +82,9 @@ else
   transaction.userCanPerformAction(pageName,"update",true);
     wiki.refreshPage(pageName);
   transaction.goToPage(pageName);
-}</xmp><!--Content built using default--><!--Page Content End-->
+}</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

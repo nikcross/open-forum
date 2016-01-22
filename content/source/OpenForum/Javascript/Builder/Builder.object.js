@@ -48,7 +48,7 @@ function Builder(JSON,file) {
 
         this.file.saveAttachment("",buildScript.targetFile,script);
 
-        var versionedTargetFile = buildScript.targetFile.substring(0,buildScript.targetFile.indexOf("."))+"-";
+        var versionedTargetFile = buildScript.versionFile.substring(0,buildScript.versionFile.indexOf("."))+"-";
         versionedTargetFile += buildScript.version.replace(/\./g,"-");
         versionedTargetFile += buildScript.targetFile.substring(buildScript.targetFile.indexOf("."));
         buildScript.versionedTargetFile = versionedTargetFile;

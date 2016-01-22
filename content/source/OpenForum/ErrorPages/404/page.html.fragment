@@ -5,8 +5,9 @@ pageName = pageName.substring(7);
 pageName = pageName.substring(pageName.indexOf("/")+1);
 </script>
 <b>Sorry. The page <script>document.write(pageName);</script> you were looking for has not been found.</b>
-\\\\
+<br/>
 <script>
 document.write("<a href='/OpenForum/Editor?pageName=/"+pageName+"'>You can create the page '"+pageName+"' by clicking here.</a>");
 </script>
-</div><!--Content built using default-->
+</div>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

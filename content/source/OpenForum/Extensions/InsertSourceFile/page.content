@@ -7,9 +7,9 @@ Inserts a files contents into the page
 ----
 !!Usage:
 {{{
-[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]
+[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json"}]
 }}}
-[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.xml"}]
+[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json"}]
 
 ----
 

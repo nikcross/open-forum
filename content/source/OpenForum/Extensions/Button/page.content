@@ -1,0 +1,6 @@
+!!Example
+[{Button title="Do Action" function="doAction"}]
+
+<br/>
+
+[{InsertSourceFile fileName="renderer.sjs"}]

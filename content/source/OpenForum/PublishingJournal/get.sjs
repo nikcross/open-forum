@@ -14,6 +14,7 @@ if( action===null ) {
     var host = ""+transaction.getParameter("host");
     var port = ""+transaction.getParameter("port");
     
+    //file.appendStringToFile("/OpenForum/PublishingJournal","page.content","* Published page "+page+" at "+new Date()+" on "+host+":"+port+" Ticket:"+ticket+"\n");
     file.appendStringToFile("/OpenForum/PublishingJournal","page.content","* Published page "+page+" at "+host+":"+port+" Ticket:"+ticket+"\n");
     result = JSON.stringify( {result: "ticket recorded"} );
   } else {

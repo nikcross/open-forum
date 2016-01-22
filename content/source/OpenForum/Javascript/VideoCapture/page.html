@@ -65,7 +65,8 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">VideoCapture</a></li></nav>
     
-    <!--PageContent Start--><h3>Camera Settings</h3>
+    <!--PageContent Start-->
+<h3>Camera Settings</h3>
 <ul><li>Camera <input of-id="frameCatcher.camera" id="OpenForum.videoCapture.camera" list="cameras"><button onClick="OpenForum.videoCapture.updateSource()">Select</button></li>
 
 <datalist of-id="cameras" id="cameras">
@@ -74,7 +75,7 @@
 <li>Current Camera: {{OpenForum.videoCapture.camera}} : {{OpenForum.videoCapture.cameraId}}</li>
 <canvas id="canvas" width="800" height="400"></canvas>
 
-<a href="/OpenForum/Javascript/VideoCapture/VideoCapture.js" title="/OpenForum/Javascript/VideoCapture/VideoCapture.js">OpenForum/Javascript/VideoCapture/VideoCapture.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/VideoCapture&fileName=VideoCapture.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">if(!OpenForum) {
+<a href="/OpenForum/Javascript/VideoCapture/VideoCapture.js">/OpenForum/Javascript/VideoCapture/VideoCapture.js</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/VideoCapture&fileName=VideoCapture.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
   OpenForum = {};
 }
 OpenForum.VideoCapture = function(videoCanvasId,options) {
@@ -233,7 +234,9 @@ OpenForum.addInitialiser(
       //alert( "OpenForum.VideoCapture.defaultCamera="+OpenForum.VideoCapture.defaultCamera );
     }
   }
-);</xmp><!--Content built using default--><!--Page Content End-->
+);</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

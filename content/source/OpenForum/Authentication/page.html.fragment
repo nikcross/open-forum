@@ -1,4 +1,4 @@
-<a href="/OpenForum/Authentication/login.sjs" title="/OpenForum/Authentication/login.sjs">OpenForum/Authentication/login.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Authentication&fileName=login.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var result = false;
+<a href="/OpenForum/Authentication/login.sjs">/OpenForum/Authentication/login.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Authentication&fileName=login.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var result = false;
 var name = login.getUser().getName();
 var testPassword = file.getAttachment("/Admin/Users/"+name+"/private","password.txt");
 
@@ -6,4 +6,5 @@ var testPassword = file.getAttachment("/Admin/Users/"+name+"/private","password.
 		result = true;
 	}
 	login.clearPassword();
-result;</xmp><!--Content built using default-->
+result;</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

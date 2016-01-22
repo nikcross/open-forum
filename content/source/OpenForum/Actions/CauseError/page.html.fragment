@@ -3,4 +3,5 @@ Throws a Server Side Javascript Error to test error reporting.
 
 
 <h3>post.sjs</h3>
-<xmp>doesNotExist += cheese</xmp><!--Content built using default-->
+<xmp class="panel">doesNotExist += cheese</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

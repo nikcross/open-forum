@@ -28,3 +28,31 @@ for(var i=0;i<50;i++) {
 
   giraffe.canvas.add( circle );
 }
+
+for(var i=0;i<10;i++) {
+  
+  var red = Math.floor(Math.random()*256);
+  var green = Math.floor(Math.random()*256);
+  var blue = Math.floor(Math.random()*256);
+  
+  var color = "rgba("+red+","+green+","+blue+",0.8)";
+  var fillColor = "rgba("+red+","+green+","+blue+",0.5)";
+  var text = new Text(Math.random()*width,Math.random()*height,"Giraffe",20,"Arial").setFillColor( fillColor ).setColor( color );
+  text.vx = (Math.random() * 5)-2.5;
+  text.vy = (Math.random() * 5)-2.5;
+  text.animate = function(frame) {
+    this.x+=this.vx;
+    this.y+=this.vy;
+    
+    if(this.x>width || this.x<0) {
+      this.vx = -this.vx;
+      this.x+=this.vx;
+    }
+    if(this.y>height || this.y<0) {
+      this.vy = -this.vy;
+      this.y+=this.vy;
+    }
+  };
+
+  giraffe.canvas.add( text );
+}

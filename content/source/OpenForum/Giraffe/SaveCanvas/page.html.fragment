@@ -1,0 +1,48 @@
+<a href="/OpenForum/Giraffe/SaveCanvas/save-canvas.js">/OpenForum/Giraffe/SaveCanvas/save-canvas.js</a><a href="/OpenForum/Editor?pageName=OpenForum/Giraffe/SaveCanvas&fileName=save-canvas.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
+  OpenForum = {};
+}
+
+OpenForum.saveCanvas = function(canvas,pageName,fileName) {
+  data = canvas.toDataURL();
+  data = data.substring(22);
+
+  /*post = new Post(data);
+      post.addItem("data",data);
+      post.addItem("fileName",fileName);
+      post.addItem("pageName",pageName);
+      result = ajax.doPost("/OpenForum/Giraffe/SaveCanvas",post.data);
+      return result;*/
+
+  JSON.post("/OpenForum/Giraffe/SaveCanvas","save","pageName="+pageName+"&fileName="+fileName+"&date="+data).go();
+};
+
+OpenForum.downloadCanvas = function(canvas, filename) {
+  var hiddenElement = document.createElement('a');
+  hiddenElement.href = canvas.toDataURL();
+  hiddenElement.download = filename;
+  hiddenElement.style.display = "none";
+  document.body.appendChild(hiddenElement);
+  hiddenElement.click();
+};
+</xmp>
+
+[<a href="/OpenForum/Giraffe/SaveCanvas/post.sjs">/OpenForum/Giraffe/SaveCanvas/post.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Giraffe/SaveCanvas&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Take base64 image and convert to image file
+
+try{
+  dec = Packages.javax.xml.bind.DatatypeConverter;
+
+  data = transaction.getParameter("data");
+  fileName = transaction.getParameter("fileName");
+  pageName = transaction.getParameter("pageName");
+
+  var outStream = file.getAttachmentOutputStream(pageName,fileName);
+  outStream.write( dec.parseBase64Binary(data) );
+  outStream.flush();
+  outStream.close();
+
+
+  transaction.sendJSON( JSON.stringiify({result: "ok", message: "Saved "+pageName+"/"+fileName}));
+} catch(e) {
+  transaction.sendJSON( JSON.stringiify({result: "error", message: ""+e}));
+}</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

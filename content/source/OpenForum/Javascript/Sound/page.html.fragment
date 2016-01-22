@@ -1,7 +1,7 @@
 <button onClick="OpenForum.SoundPlayer.playSound('sound1')">Play Sound 1</button>
 <button onClick="OpenForum.SoundPlayer.playSound('sound2')">Play Sound 2</button>
 <br/>
-<a href="/OpenForum/Javascript/Sound/SoundPlayer.js" title="/OpenForum/Javascript/Sound/SoundPlayer.js">OpenForum/Javascript/Sound/SoundPlayer.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/Sound&fileName=SoundPlayer.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">if(!OpenForum) {
+<a href="/OpenForum/Javascript/Sound/SoundPlayer.js">/OpenForum/Javascript/Sound/SoundPlayer.js</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/Sound&fileName=SoundPlayer.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
   OpenForum = {};
 }
 OpenForum.SoundPlayer = new function() {
@@ -22,4 +22,5 @@ OpenForum.SoundPlayer = new function() {
     sounds[id][1].loop=true;
     sounds[id][1].play();
   };
-};</xmp><!--Content built using default-->
+};</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

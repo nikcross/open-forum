@@ -65,31 +65,59 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Actions">RJSC</a></li></nav>
     
-    <!--PageContent Start--><b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Remote Javascript Call
+    <!--PageContent Start-->
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Remote Javascript Call
 <hr/>
 <h3>Parameters</h3>
 <ul><li>code</li>
 <hr/>
 <h3>Usage:</h3>
-<xmp>
+<xmp class="panel">
 [/OpenForum/Actions/RJSC?code=transaction.getParameter("code");]
 </xmp>
-<a href="/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();">/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();</a>
+<a href="/OpenForum/Editor?pageName=/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp(); does not exist. Click to create it.">/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();</a>
 
 -<hr/>
 <h3>Server Side Javascript for GET method</h3>
-<a href="/OpenForum/Actions/RJSC/get.sjs" title="/OpenForum/Actions/RJSC/get.sjs">OpenForum/Actions/RJSC/get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Actions/RJSC&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">code = transaction.getParameter("code");
-if( code==null )
+<a href="/OpenForum/Actions/RJSC/get.sjs">/OpenForum/Actions/RJSC/get.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Actions/RJSC&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">code = transaction.getParameter("code");
+queueName = transaction.getParameter("queueName");
+if( code===null )
 {
-	transaction.setResult(transaction.SHOW_PAGE);
+  transaction.setResult(transaction.SHOW_PAGE);
+  return;
 }
-else
-{
-  code = ""+code; // Cast to String does not work. This does !
-  result = eval(code);
 
-  transaction.sendPage( result );
-}</xmp><!--Content built using default--><!--Page Content End-->
+try{
+ function println(message) {
+   openForum.postMessageToQueue(queueName,message);
+ }
+
+  println("Running");
+
+  code = ""+code;
+
+  result = eval( code );
+
+  if(result) {
+    result = {result: result};
+  } else {
+   result = {result: "ok", message: "Script Completed"};
+  }
+
+  println("Complete");
+  
+  transaction.sendJSON( JSON.stringify( {result: result} ) );
+}
+catch(e)
+{
+  try{
+   println(e);
+  }
+  catch(e2){}
+  transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber()+" of "+e.sourceName(), saved: false}));
+}</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

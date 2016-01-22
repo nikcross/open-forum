@@ -6,9 +6,22 @@ if(transaction.userCanPerformAction(""+pageName,"edit",false)===false) {
 }
 
 var editor = transaction.getParameter("editor");
-
-if(editor===null) {
-    transaction.setResult(transaction.SHOW_PAGE);
+if(editor!==null && ""+editor!=="/OpenForum/Editor") {
+    transaction.goToPage(""+editor+"?pageName="+pageName+"&overrideEditor=true");
     return;
 }
-editor = ""+editor;
+
+var overrideEditor = transaction.getParameter("overrideEditor");
+if(overrideEditor===null) {
+try{
+  var data = js.getObject("/OpenForum/Javascript/Page","Data.js").getData(pageName);
+  if(data.getEditor() && ""+data.getEditor()!=="/OpenForum/Editor") {
+
+    transaction.goToPage(data.getEditor()+"?pageName="+pageName);
+    return;
+  }
+} catch(e) {
+}
+}
+  
+transaction.setResult(transaction.SHOW_PAGE);

@@ -1,81 +1,54 @@
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Moves a page or file to the <a href="/Admin/Deleted">Deleted</a> page
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Moves a page or file to the <a href="/OpenForum/DeletedPages">Deleted</a> page
 <hr/>
-!<h3>Get Parameters</h3>
-<ul><li> pageName - The page name to delete</li>
-<li> fileName - Optional file to delete. If set then the page is not deleted</li>
+<h3>Get Parameters</h3>
+<ul><li> pageName - The page name to delete</li>
+<li> fileName - Optional file to delete. If set then the page is not deleted</li>
 
-<hr/>
-!<h3>Server Side Javascript for GET method</h3>
-<xmp> if(typeof(pageName)=="undefined")
+-<hr/>
+<h3>Server Side Javascript for GET method</h3>
+
+
+<a href="//OpenForum/Actions/Delete/get.sjs">//OpenForum/Actions/Delete/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Delete&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
 {
-	transaction.setResult(transaction.SHOW_PAGE);
+  transaction.setResult(transaction.SHOW_PAGE);
+  return;
 }
-else
-{
-	transaction.userCanPerformAction(pageName,"delete",true); 
-	fileName = transaction.getParameter("fileName");
 
-        async = transaction.getParameter("async");
-        if(async!=null && async=="true")
-        {
-          async=true;
-        }
-        else
-        {
-          async=false;
-        }
+transaction.userCanPerformAction(pageName,"delete",true); 
+fileName = transaction.getParameter("fileName");
 
-	if( fileName==null )
-	{
-		wiki.deletePage(pageName);
+  var json = false;
+  var returnType = transaction.getParameter("returnType");
 
-/* Send email to administrator */
- user = transaction.getUser();
+  if(returnType!==null && (""+returnType)=="json") {
+    json = true;
+  }
 
- mailer = js.getApi("/OpenForum/JarManager/Mailer");
+if( fileName===null ) {
+  openForum.deletePage(pageName);
 
- subject = pageName+" has been deleted";
- message = "The Wiki Page "+pageName+" has been deleted by "+user; 
+  data = file.getAttachment("/Admin/Deleted","page.content");
+  data = data + "\n*[Undelete "+pageName+"|/OpenForum/Actions/Move?pageName=/OpenForum/DeletedPages/"+pageName+"&newPageName="+pageName+"]";
+  file.saveAttachment("/OpenForum/DeletedPages","page.content",data);
+  openForum.refreshPage("/OpenForum/DeletedPages");
 
- mailer.sendMail("Admin","Admin",subject,message);
+  pageName = "/OpenForum/DeletedPages";
 
-/* End of send email*/ 
+  openForum.buildPage(pageName,true);
+  if(json) {
+      transaction.sendJSON(JSON.stringify({result: "ok", message: "Deleted "+pageName,deleted: true}));
+  }  else  {
+    transaction.goToPage(pageName);
+  }
+} else {
+  openForum.deleteAttachment(pageName,fileName);
+  openForum.buildPage(pageName,true);
 
-		if(pageName.indexOf("/blog/")!=-1)
-		{
-			pageName = pageName.substring(0,pageName.indexOf("/blog/"));
-		}
-		else
-		{
-			data = file.getAttachment("/Admin/Deleted","page.wiki");
-			data = data + "\n*[Undelete "+pageName+"|/OpenForum/Actions/Move?pageName=/Admin/Deleted/"+pageName+"&newPageName="+pageName+"]";
-			file.saveAttachment("/Admin/Deleted","page.wiki",data);
-			wiki.refreshPage("/Admin/Deleted");
-
-			pageName = "/Admin/Deleted";
-		}
-		wiki.buildPage(pageName,true);
-                if(async)
-                {
-                  transaction.sendPage("OK");
-                }
-                else
-                {
-		  transaction.goToPage(pageName);
-                }
-	}
-	else
-	{
-		wiki.deleteAttachment(pageName,fileName);
-		wiki.buildPage(pageName,true);
-
-                if(async)
-                {
-                  transaction.sendPage("OK");
-                }
-                else
-                {
-		  transaction.goToPage(pageName);
-                }
-	}
-} </xmp><!--Content built using default--></ul>
+  if(json) {
+      transaction.sendJSON(JSON.stringify({result: "ok", message: "Deleted "+pageName+"/"+fileName,deleted: true}));
+  }  else  {
+    transaction.goToPage(pageName);
+  }
+}
+</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

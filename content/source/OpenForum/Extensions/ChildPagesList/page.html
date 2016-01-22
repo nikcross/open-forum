@@ -65,28 +65,30 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">ChildPagesList</a></li></nav>
     
-    <!--PageContent Start-->Creates a bulleted list of child pages
+    <!--PageContent Start-->
+Creates a bulleted list of child pages
 <hr/>
-!<h3>Parameters</h3>
-<ul><li>pageName - The page to list (optional. default = current page)</li>
+<h3>Parameters</h3>
+<ul><li>pageName - The page to list (optional. default = current page)</li>
 <hr/>
-!<h3>Usage:</h3>
-<xmp>
+<h3>Usage:</h3>
+<xmp class="panel">
 [{ChildPagesList pageName="/OpenForum"}]
 </xmp>
-[<ul><li> <a href="/OpenForum/About">About</a></li>
+<ul><li> <a href="/OpenForum/About">About</a></li>
 <li> <a href="/OpenForum/Access">Access</a></li>
 <li> <a href="/OpenForum/Actions">Actions</a></li>
-<li> <a href="/OpenForum/Aliases">Aliases</a></li>
+<li> <a href="/OpenForum/AddOn">AddOn</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Aliases"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Aliases does not exist. Click to create it.">Aliases</a></li>
 <li> <a href="/OpenForum/Authentication">Authentication</a></li>
 <li> <a href="/OpenForum/Authorization">Authorization</a></li>
 <li> <a href="/OpenForum/Configuration">Configuration</a></li>
 <li> <a href="/OpenForum/DeletedPages">DeletedPages</a></li>
-<li> <a href="/OpenForum/DynamicPages">DynamicPages</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/DynamicPages"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/DynamicPages does not exist. Click to create it.">DynamicPages</a></li>
 <li> <a href="/OpenForum/Editor">Editor</a></li>
 <li> <a href="/OpenForum/ErrorPages">ErrorPages</a></li>
 <li> <a href="/OpenForum/Extensions">Extensions</a></li>
-<li> <a href="/OpenForum/FileTemplates">FileTemplates</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates does not exist. Click to create it.">FileTemplates</a></li>
 <li> <a href="/OpenForum/Giraffe">Giraffe</a></li>
 <li> <a href="/OpenForum/Groups">Groups</a></li>
 <li> <a href="/OpenForum/HomePage">HomePage</a></li>
@@ -101,47 +103,49 @@
 <li> <a href="/OpenForum/Processor">Processor</a></li>
 <li> <a href="/OpenForum/PublishingJournal">PublishingJournal</a></li>
 <li> <a href="/OpenForum/SQL">SQL</a></li>
-<li> <a href="/OpenForum/SearchResults">SearchResults</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/SearchResults"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/SearchResults does not exist. Click to create it.">SearchResults</a></li>
 <li> <a href="/OpenForum/SiteExplorer">SiteExplorer</a></li>
+<li> <a href="/OpenForum/Spider">Spider</a></li>
 <li> <a href="/OpenForum/SystemMonitor">SystemMonitor</a></li>
-<li> <a href="/OpenForum/Temporary">Temporary</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Temporary"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Temporary does not exist. Click to create it.">Temporary</a></li>
 <li> <a href="/OpenForum/Triggers">Triggers</a></li>
 <li> <a href="/OpenForum/Users">Users</a></li>
 </ul>
 
-<hr/>
-!<h3>renderer.sjs</h3>
-<xmp>targetPage = extension.getAttributeValueByName("pageName");
-if(targetPage==null)
-{
+-<hr/>
+<h3>renderer.sjs</h3>
+<a href="/OpenForum/Extensions/ChildPagesList/renderer.sjs">/OpenForum/Extensions/ChildPagesList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/ChildPagesList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">targetPage = extension.getAttribute("pageName");
+if(targetPage===null) {
   targetPage = pageName;
 }
-targetPage = new String(targetPage);
+targetPage = ""+targetPage;
 
 list = file.getAttachmentsForPage( targetPage );
-if(targetPage.charAt(0)!='/')
-{
+if(targetPage.charAt(0)!='/') {
   targetPage = "/"+targetPage;
 }
 
-data="";
-enumerator = list.keys();
-while(enumerator.hasMoreElements())
-{
-  key = new String(enumerator.nextElement());
-  if(key.charAt(0)!='+' || key=="+history")
-  {
+var pagesList = [];
+iterator= list.keySet().iterator();
+while(iterator.hasNext()) {
+  var key = ""+iterator.next();
+  if(key.charAt(0)!='+' || key=="+history") {
     continue;
+  } else {
+    pagesList.push( key.substring(1) );
   }
-  else
-  {
-    item = key.substring(1);
-  }
+}
+pagesList.sort();
 
+var data = "";
+for(var i in pagesList) {
+  var item = pagesList[i];
   data+="* ["+item+"|"+targetPage+"/"+item+"]\n";
 }
 
-return wiki.renderWikiData(pageName,data);</xmp><!--Content built using default--><!--Page Content End-->
+return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,data);</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

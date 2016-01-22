@@ -7,7 +7,7 @@
 <li>Current Camera: {{OpenForum.videoCapture.camera}} : {{OpenForum.videoCapture.cameraId}}</li>
 <canvas id="canvas" width="800" height="400"></canvas>
 
-<a href="/OpenForum/Javascript/VideoCapture/VideoCapture.js" title="/OpenForum/Javascript/VideoCapture/VideoCapture.js">OpenForum/Javascript/VideoCapture/VideoCapture.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/VideoCapture&fileName=VideoCapture.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">if(!OpenForum) {
+<a href="/OpenForum/Javascript/VideoCapture/VideoCapture.js">/OpenForum/Javascript/VideoCapture/VideoCapture.js</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/VideoCapture&fileName=VideoCapture.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
   OpenForum = {};
 }
 OpenForum.VideoCapture = function(videoCanvasId,options) {
@@ -166,4 +166,5 @@ OpenForum.addInitialiser(
       //alert( "OpenForum.VideoCapture.defaultCamera="+OpenForum.VideoCapture.defaultCamera );
     }
   }
-);</xmp><!--Content built using default--></ul>
+);</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

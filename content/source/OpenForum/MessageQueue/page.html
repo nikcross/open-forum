@@ -65,7 +65,8 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="/OpenForum">MessageQueue</a></li></nav>
     
-    <!--PageContent Start--><h3>Queue Name: <input type="text" of-id="queueName" size="50"/> <button onClick="startWatchingQueue();"> Start Watching</button></h3>
+    <!--PageContent Start-->
+<h3>Queue Name: <input type="text" of-id="queueName" size="50"/> <button onClick="startWatchingQueue();"> Start Watching</button></h3>
 <br/><br/>
 <div id="queueData" style="border: solid 1px; min-height: 100px;"></div>
 <br/><br/>
@@ -74,7 +75,7 @@
 
 <hr/>
 
-[<a href="/OpenForum/MessageQueue/get.sjs" title="/OpenForum/MessageQueue/get.sjs">OpenForum/MessageQueue/get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/MessageQueue&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var action = ""+transaction.getParameter("action");
+[<a href="/OpenForum/MessageQueue/get.sjs">/OpenForum/MessageQueue/get.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/MessageQueue&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var action = ""+transaction.getParameter("action");
 
 if(action==="null") {
 	transaction.setResult(transaction.SHOW_PAGE);
@@ -124,7 +125,7 @@ if(action==="createQueue") {
 }
 </xmp>
 
-[<a href="/OpenForum/MessageQueue/MessageQueue.js" title="/OpenForum/MessageQueue/MessageQueue.js">OpenForum/MessageQueue/MessageQueue.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/MessageQueue&fileName=MessageQueue.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">function MessageQueue(queueName) {
+[<a href="/OpenForum/MessageQueue/MessageQueue.js">/OpenForum/MessageQueue/MessageQueue.js</a><a href="/OpenForum/Editor?pageName=OpenForum/MessageQueue&fileName=MessageQueue.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">function MessageQueue(queueName) {
   
   if( typeof(queueName)==="undefined" ) {
     queueName = JSON.parse( OpenForum.loadFile("/OpenForum/MessageQueue?action=createQueue") ).queue;
@@ -165,7 +166,9 @@ if(action==="createQueue") {
     return queueName;
   };
 }</xmp>
-<!--Content built using default--><!--Page Content End-->
+
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

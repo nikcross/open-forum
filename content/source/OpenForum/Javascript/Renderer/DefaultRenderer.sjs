@@ -6,6 +6,14 @@ function DefaultRenderer() {
   var EOL = "\n";
 
   var aliases = [];
+  
+  self.setAliases = function(newAliases) {
+    aliases = newAliases;
+  };
+  
+  self.getVersion = function() {
+    return "DefaultRenderer v1.02 Mission more possible";
+  };
 
   /*===================================*/
   var MarkUp = function(config) {
@@ -60,7 +68,7 @@ function DefaultRenderer() {
       level=0;
       return close;
     };
-    
+
     self.canBeStacked = function() {
       return stackable;
     };
@@ -93,15 +101,38 @@ function DefaultRenderer() {
         link = prefix+link.substring(link.indexOf(":")+1);
       }
       target = " target=\"external_page\"";
-    } else if(link.charAt(0)!=="/") {
-      link = pageName+"/"+link;
+    } else {
+      if(link.charAt(0)!=="/") {
+        link = pageName+"/"+link;
+      }
+      var targetPageName = link;
+      var targetFileName = "page.content";
+
+      if(targetPageName.indexOf(".")!==-1) {
+        targetFileName = targetPageName.substring(targetPageName.lastIndexOf("/")+1);
+        targetPageName = targetPageName.substring(0,targetPageName.lastIndexOf("/"));
+      }
+
+      if(targetPageName.indexOf("?")!=-1) {
+        targetPageName = targetPageName.substring(0,targetPageName.indexOf("?"));
+//log.debug("TargetPageName now "+targetPageName);        
+      }
+
+      if(targetPageName.indexOf("#")!=-1) {
+        targetPageName = targetPageName.substring(0,targetPageName.indexOf("#"));
+      }
+
+      if (file.attachmentExists(targetPageName,targetFileName)===false) {
+        link = "/OpenForum/Editor?pageName="+link;
+        target = "target=\"editor\" style=\"color: red\" title=\"The page "+link+" does not exist. Click to create it.\"";
+      }
     }
 
     //check if image
     if(link.indexOf(".png")!=-1) {
       var alt = "";
       if(title!==link) {
-        alt = " alt=\""+title+"\"";
+        alt = " alt=\""+title+"\" title=\""+title+"\"";
       }
       output = "<img src=\""+link+"\""+alt+"/>";
     } else {
@@ -200,11 +231,11 @@ function DefaultRenderer() {
       data = data.substring(data.indexOf("=")+1);
       var value = "";
 
-//console.log("data ("+data+")");
+      //console.log("data ("+data+")");
       if(data.length===0 || (data.charAt(0)!=="\"" && data.charAt(0)!=="'")) {
         value = "true";
         attributes.push( {key: key, value: value} );
-//console.log("added: key:"+key+" value:"+value);
+        //console.log("added: key:"+key+" value:"+value);
         break;
       }
       data = data.substring(1);
@@ -223,7 +254,7 @@ function DefaultRenderer() {
         if(data.charAt(i)==="\"" || data.charAt(i)==="'") {
           attributes.push( {key: key, value: value} );
           data = data.substring(i+1);
-//console.log("added: key:"+key+" value:"+value);
+          //console.log("added: key:"+key+" value:"+value);
           break;
         }
         value += data.charAt(i);
@@ -239,19 +270,23 @@ function DefaultRenderer() {
     new MarkUp( { type: "numbered list", match: {start: EOL+"#",end: EOL}, start: "<li>", end: "</li>", open: "<ol>", close: "</ol>" } ),
     new MarkUp( { type: "bold", match: {start: "__",end: "__"}, start: "<b>", end: "</b>" } ),
     new MarkUp( { type: "italic", match: {start: "''",end: "''"}, start: "<i>", end: "</i>" } ),
-    new MarkUp( { type: "code", match: {start: "{{{",end: "}}}"}, start: "<xmp>", end: "</xmp>", stackable: false } ),
+    new MarkUp( { type: "line break", match: {start: "\\\\",end: "\\\\"}, start: "<br/>", end: "" } ),
+    new MarkUp( { type: "code", match: {start: "{{{",end: "}}}"}, start: "<xmp class=\"panel\">", end: "</xmp>", stackable: false } ),
     new MarkUp( { type: "paragraph", match: {start: "((",end: "))"}, start: "<b>", end: "</b>" } ),
+    new MarkUp( { type: "box", match: {start: "[[",end: "]]"}, start: "<div class=\"panel callout radius\">", end: "</div>" } ),
     new MarkUp( { type: "h1", match: {start: "!!!!",end: EOL}, start: "<h1>", end: "</h1>" } ),
     new MarkUp( { type: "h2", match: {start: "!!!",end: EOL}, start: "<h2>", end: "</h2>" } ),
     new MarkUp( { type: "h3", match: {start: "!!",end: EOL}, start: "<h3>", end: "</h3>" } ),
+    new MarkUp( { type: "section", match: {start: EOL+"--8<--",end: EOL+"-->8--"}, start: "<hr/>", end: "" } ),
     new MarkUp( { type: "rule", match: {start: "----",end: ""}, start: "<hr/>", end: "" } ),
-    new MarkUp( { type: "extension", match: {start: "[{",end: "}]"}, start: "", end: "", render: renderExtension } ),
+    new MarkUp( { type: "extension", match: {start: "[{",end: "}]"}, start: "", end: "", render: renderExtension, stackable: false } ),
     new MarkUp( { type: "link", match: {start: "[",end: "]"}, start: "", end: "", render: renderLink } ),
     new MarkUp( { type: "table", match: {start: EOL+"|",end: EOL}, start: "<tr>", end: "</tr>", open: "<table>", close: "</table>", render: renderTableRow } )
   ];
 
   /*===================================*/
   self.render = function(pageName,input) {
+    try{
     input = EOL+input+EOL;
     var rendererStack = [];
     var output = "";
@@ -278,7 +313,7 @@ function DefaultRenderer() {
 
         //Fix to render links in lists
         if(renderer.canBeStacked()===true) {
-        	content = self.render(pageName,content);
+          content = self.render(pageName,content);
         }
 
         after = after.substring( endPoint );
@@ -296,6 +331,10 @@ function DefaultRenderer() {
     }
 
     return output;
+    } catch(e){
+      if(log) {
+        log.error("Error in /OpenForum/Javascript/Renderer/DefaultRenderer. Excpetion "+e+" on line "+e.lineNumber);
+      }
+    }
   };
-
-};
+}

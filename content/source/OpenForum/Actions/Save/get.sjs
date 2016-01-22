@@ -1,17 +1,37 @@
-if(typeof(pageName)=="undefined")
-{
-	transaction.setResult(transaction.SHOW_PAGE);
+if(typeof(pageName)=="undefined") {
+  transaction.setResult(transaction.SHOW_PAGE);
   return;
 }
 
-        transaction.userCanPerformAction(pageName,"update",true);
+try{
+  transaction.getPostData();
+  var json = false;
+  var returnType = transaction.getParameter("returnType");
 
-        pageName = transaction.getParameter("pageName");
-        fileName = transaction.getParameter("fileName");
-        data = transaction.getParameter("data");
-        user = transaction.getUser();
+  if(returnType!==null && (""+returnType)=="json") {
+    json = true;
+  }
 
-        wiki.saveAsAttachment(pageName,fileName,data,user);
-        wiki.rebuild();
+  pageName = transaction.getParameter("pageName");
+  transaction.userCanPerformAction(pageName,"update",true);
 
-        transaction.goToPage(pageName);
+  fileName = transaction.getParameter("fileName");
+  data = transaction.getParameter("data");
+  user = transaction.getUser();
+
+  openForum.saveAsAttachment(pageName,fileName,data,user);
+  try{
+    openForum.buildPage(pageName);
+  } catch(e) {
+    //ignor as may not have page.content
+  }
+
+  if(json===false) {
+    transaction.goToPage(pageName);
+  } else {
+    transaction.sendJSON( JSON.stringify({result: "ok",message: "Saved "+pageName+"/"+fileName, saved: true}));
+  }
+} catch(e) {
+
+  transaction.sendJSON( JSON.stringify({result: "error",message: "Failed to save "+pageName+"/"+fileName+" Error:"+e+" on line "+e.lineNumber()+" of "+e.sourceName(), saved: false}));
+}

@@ -6,7 +6,7 @@
 
 <hr/>
 !<h3>Server Side Javascript for GET method</h3>
-<xmp> if(typeof(pageName)=="undefined")
+<xmp class="panel"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
 }
@@ -17,4 +17,5 @@ else
 
   transaction.sendPage(exists);
 }
- </xmp><!--Content built using default--></ul>
+ </xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

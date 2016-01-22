@@ -1,0 +1,65 @@
+{
+    "version": "1.0.10",
+    "targetFile": "/OpenForum/Javascript/open-forum.js",
+    "versionFile": "/OpenForum/Javascript/Core/Version/open-forum.js",
+    "steps": [
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-dependency.js"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-scanner.js"
+        },
+        {
+            "action": "replace",
+            "searchFor": "&version;",
+            "replaceWith": "$version"
+        },
+        {
+            "action": "replace",
+            "searchFor": "&date;",
+            "replaceWith": "$date"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-json.js"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-ajax-request.js"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-ajax.js"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-ajax-post.js"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-tree.js"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-js-extensions.js"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-object.js"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-table.js"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-browser.js"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-action.js"
+        }
+    ]
+}

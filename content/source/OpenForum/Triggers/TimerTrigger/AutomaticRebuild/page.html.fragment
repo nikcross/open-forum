@@ -1,5 +1,6 @@
-<a href="/OpenForum/Triggers/TimerTrigger/AutomaticRebuild/trigger.sjs" title="/OpenForum/Triggers/TimerTrigger/AutomaticRebuild/trigger.sjs">OpenForum/Triggers/TimerTrigger/AutomaticRebuild/trigger.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Triggers/TimerTrigger/AutomaticRebuild&fileName=trigger.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">if( trigger.isHourPeriod() == false )
+<a href="/OpenForum/Triggers/TimerTrigger/AutomaticRebuild/trigger.sjs">/OpenForum/Triggers/TimerTrigger/AutomaticRebuild/trigger.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Triggers/TimerTrigger/AutomaticRebuild&fileName=trigger.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if( trigger.isHourPeriod() == false )
 {
   return;
 }
-wiki.rebuild();</xmp><!--Content built using default-->
+wiki.rebuild();</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

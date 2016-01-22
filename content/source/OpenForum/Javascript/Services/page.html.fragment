@@ -1,4 +1,4 @@
-<a href="/OpenForum/Javascript/Services/get.sjs" title="/OpenForum/Javascript/Services/get.sjs">OpenForum/Javascript/Services/get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/Services&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">var script = transaction.getParameter("script");
+<a href="/OpenForum/Javascript/Services/get.sjs">/OpenForum/Javascript/Services/get.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/Services&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var script = transaction.getParameter("script");
 
 if(script===null) {
        transaction.setResult(transaction.SHOW_PAGE);
@@ -14,4 +14,5 @@ if(callBack!==null) {
 }
 
 transaction.sendPage(javascript,"js");
-</xmp><!--Content built using default-->
+</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

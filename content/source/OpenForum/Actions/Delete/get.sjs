@@ -1,73 +1,42 @@
 if(typeof(pageName)=="undefined")
 {
-	transaction.setResult(transaction.SHOW_PAGE);
+  transaction.setResult(transaction.SHOW_PAGE);
   return;
 }
 
-	transaction.userCanPerformAction(pageName,"delete",true); 
-	fileName = transaction.getParameter("fileName");
+transaction.userCanPerformAction(pageName,"delete",true); 
+fileName = transaction.getParameter("fileName");
 
-        async = transaction.getParameter("async");
-        if(async!==null && async=="true")
-        {
-          async=true;
-        }
-        else
-        {
-          async=false;
-        }
+  var json = false;
+  var returnType = transaction.getParameter("returnType");
 
-	if( fileName===null )
-	{
-		wiki.deletePage(pageName);
+  if(returnType!==null && (""+returnType)=="json") {
+    json = true;
+  }
 
-/* Send email to administrator */
- user = transaction.getUser();
+if( fileName===null ) {
+  openForum.deletePage(pageName);
 
- mailer = js.getApi("/OpenForum/JarManager/Mailer");
- if(mailer!==null) {
+  data = file.getAttachment("/Admin/Deleted","page.content");
+  data = data + "\n*[Undelete "+pageName+"|/OpenForum/Actions/Move?pageName=/OpenForum/DeletedPages/"+pageName+"&newPageName="+pageName+"]";
+  file.saveAttachment("/OpenForum/DeletedPages","page.content",data);
+  openForum.refreshPage("/OpenForum/DeletedPages");
 
-   subject = pageName+" has been deleted";
-   message = "The Wiki Page "+pageName+" has been deleted by "+user; 
+  pageName = "/OpenForum/DeletedPages";
 
-   mailer.sendMail("Admin","Admin",subject,message);
- }
-/* End of send email*/ 
+  openForum.buildPage(pageName,true);
+  if(json) {
+      transaction.sendJSON(JSON.stringify({result: "ok", message: "Deleted "+pageName,deleted: true}));
+  }  else  {
+    transaction.goToPage(pageName);
+  }
+} else {
+  openForum.deleteAttachment(pageName,fileName);
+  openForum.buildPage(pageName,true);
 
-		if(pageName.indexOf("/blog/")!=-1)
-		{
-			pageName = pageName.substring(0,pageName.indexOf("/blog/"));
-		}
-		else
-		{
-			data = file.getAttachment("/Admin/Deleted","page.wiki");
-			data = data + "\n*[Undelete "+pageName+"|/OpenForum/Actions/Move?pageName=/OpenForum/DeletedPages/"+pageName+"&newPageName="+pageName+"]";
-			file.saveAttachment("/OpenForum/DeletedPages","page.wiki",data);
-			wiki.refreshPage("/OpenForum/DeletedPages");
-
-			pageName = "/OpenForum/DeletedPages";
-		}
-		wiki.buildPage(pageName,true);
-                if(async)
-                {
-                  transaction.sendPage("OK");
-                }
-                else
-                {
-                  transaction.goToPage(pageName);
-                }
-	}
-	else
-	{
-		wiki.deleteAttachment(pageName,fileName);
-		wiki.buildPage(pageName,true);
-
-                if(async)
-                {
-                  transaction.sendPage("OK");
-                }
-                else
-                {
-                  transaction.goToPage(pageName);
-                }
-	}
+  if(json) {
+      transaction.sendJSON(JSON.stringify({result: "ok", message: "Deleted "+pageName+"/"+fileName,deleted: true}));
+  }  else  {
+    transaction.goToPage(pageName);
+  }
+}

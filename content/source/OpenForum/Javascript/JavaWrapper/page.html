@@ -65,7 +65,8 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">JavaWrapper</a></li></nav>
     
-    <!--PageContent Start--><a href="/OpenForum/Javascript/JavaWrapper/get.sjs" title="/OpenForum/Javascript/JavaWrapper/get.sjs">OpenForum/Javascript/JavaWrapper/get.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/JavaWrapper&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">//Version 0.1
+    <!--PageContent Start-->
+<a href="/OpenForum/Javascript/JavaWrapper/get.sjs">/OpenForum/Javascript/JavaWrapper/get.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/JavaWrapper&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Version 0.1
 var action = transaction.getParameter("action");
 
 if(action===null) {
@@ -224,7 +225,7 @@ if(action==="methodName") {
 }</xmp>
 
 !<h3>Javascript introspection</h3>
-<xmp>
+<xmp class="panel">
 Obj = {
   fnA: function(a,b,c) {return 5;},
   fnB: function(d,e) {return 6;}
@@ -239,7 +240,7 @@ for(var i in Obj) {
 </xmp>
 
 !<h3>Start of server side code</h3>
-<xmp>
+<xmp class="panel">
 println(file.getClass().getName());
 
 var clas = file.getClass();
@@ -305,7 +306,7 @@ Client code documentation template
 </xmp>
 
 !<h3>Old Code</h3>
-<a href="/OpenForum/Javascript/JavaWrapper/java-wrapper.sjs" title="/OpenForum/Javascript/JavaWrapper/java-wrapper.sjs">OpenForum/Javascript/JavaWrapper/java-wrapper.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Javascript/JavaWrapper&fileName=java-wrapper.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">/*function wrap(instance) {
+<a href="/OpenForum/Javascript/JavaWrapper/java-wrapper.sjs">/OpenForum/Javascript/JavaWrapper/java-wrapper.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/JavaWrapper&fileName=java-wrapper.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">/*function wrap(instance) {
   //if primative, convert to javascript type
   if(instance instanceof String) {
     return ""+instance;
@@ -332,7 +333,9 @@ function wrap(instance) {
   }
 }
 
-wrap(js);</xmp><!--Content built using default--><!--Page Content End-->
+wrap(js);</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

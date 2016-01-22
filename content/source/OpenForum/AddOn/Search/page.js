@@ -1,0 +1,6 @@
+var searchTerm="";
+
+
+function doSearch() {
+  
+}

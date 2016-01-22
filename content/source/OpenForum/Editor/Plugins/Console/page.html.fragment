@@ -1,11 +1,22 @@
-<xmp>
-run:<tab name> -- run the data from a tab as a script
-Special console functions
-  *  console.loadFromTab(tabName); -- load the data from a tab into a variable
-  *  console.saveToTab(tabName,data); -- save data to a tab
-  *  console.runTab(tabName); -- run (eval) the code in a tab
-</xmp>
-js><input type="text" of-id="console.cliText" size="120" onkeydown="if (event.keyCode == 13) console.runCli(); if (event.keyCode == 38) console.historyCli(-1); if (event.keyCode == 40) console.historyCli(+1);">
-<button class="actionButton" onClick="console.runCli();" title="Run"><img src="/OpenForum/Images/icons/png/cog_go.png"> Run</button><br/>
-<button class="actionButton" onClick="console.clear();" title="Clear"><img src="/OpenForum/Images/icons/png/cross.png">Clear Log</button><br/>
-{{console.text}}<!--Content built using default-->
+<div class="large-12 columns">
+<b>run:{tab name} - run the data from a tab as a script</b>
+Special console functions<ul><li>  console.loadFromTab(tabName); - load the data from a tab into a variable</li>
+<li>  console.saveToTab(tabName,data); - save data to a tab</li>
+<li>  console.runTab(tabName); - run (eval) the code in a tab</li>
+  
+    <ul>
+      <li of-repeatFor="editor in editorList" style="display: {{if(!editor.editor){"none";}else{"block";};}}"><a onclick="console.cliText='run:{{editor.name}}';">run:{{editor.name}}</a></li>
+    </ul>
+    </div>
+      <div class="large-7 columns">
+        <input type="text" placeholder=">sjs" of-id="console.cliText" size="120" onkeydown="if (event.keyCode == 13) console.runCli(); if (event.keyCode == 38) console.historyCli(-1); if (event.keyCode == 40) console.historyCli(+1);">
+</div>
+<div class="large-5 columns">
+<a class="button tiny" onClick="console.runCli(); return false;" title="Run"><img src="/OpenForum/Images/icons/png/server_go.png"> Run</a>
+<a class="button tiny" onClick="console.clear(); return false" title="Clear"><img src="/OpenForum/Images/icons/png/cross.png"> Clear Log</a>
+</div>
+
+  <div class="large-12 columns">
+<div class="panel callout radius"> {{console.text}} </div>
+</div>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

@@ -1,4 +1,4 @@
-<a href="/OpenForum/Authorization/access.sjs" title="/OpenForum/Authorization/access.sjs">OpenForum/Authorization/access.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Authorization&fileName=access.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">//create function
+<a href="/OpenForum/Authorization/access.sjs">/OpenForum/Authorization/access.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Authorization&fileName=access.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//create function
 function access() {
   var userName = ""+login.getUser().getName();
   if(userName==="Admin" || userName==="System") {
@@ -69,4 +69,5 @@ function access() {
 
 // run function
 access();
-</xmp><!--Content built using default-->
+</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

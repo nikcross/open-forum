@@ -1,0 +1,24 @@
+[{Button title="Major Version ++" function="incrementMajorVersion"}][{Button title="Minor Version ++" function="incrementMinorVersion"}][{Button title="Build Version ++" function="incrementBuildVersion"}]
+*Version: __{{buildScript.version}}__
+*Target File: __{{buildScript.targetFile}}__
+*Version File: __{{buildScript.versionFile}}__
+
+<ol>
+  <li of-repeatFor="step in buildScript.steps">
+    {{step.action}} 
+    {{ if(step.file) "File:"+step.file; else ""; }}
+    {{  if(step.searchFor) "Search for " + step.searchFor + " and replace with " + step.replaceWith; else ""; }}
+  </li>
+</ol>
+
+[{Button title="Save" function="saveBuildScript"}] [{Button title="Build" function="runBuildScript"}]
+
+----
+
+!!Scripts
+[{AttachmentsList matching=".js"}]
+
+----
+
+!!Versions
+[{AttachmentsList pageName="/OpenForum/Javascript/Core/Version" matching=".js"}]

@@ -18,6 +18,8 @@ if( action===null ) {
     
     build.loadBuildScript(transaction.getParameter("buildFile"));
     build.setBuildParameter("targetFile",transaction.getParameter("targetFile"));
+    build.setBuildParameter("versionFile",transaction.getParameter("targetFile"));
+    build.setBuildParameter("versionFile",transaction.getParameter("versionFile")); // Override if present
     build.setBuildParameter("version",transaction.getParameter("version"));
     
     build.build();

@@ -1,0 +1,4 @@
+[{Button title="Release Spider" function="runSpider"}]
+[{Button title="Stop Spider" function="stopSpider"}]
+[{Button title="Clear Log" function="clearLog"}]
+<xmp id="queueData"></xmp>

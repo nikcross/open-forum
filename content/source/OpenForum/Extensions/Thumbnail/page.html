@@ -65,10 +65,11 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">Thumbnail</a></li></nav>
     
-    <!--PageContent Start-->Inserts an image thumbnail with a link to the full size image.
+    <!--PageContent Start-->
+Inserts an image thumbnail with a link to the full size image.
 <hr/>
 !<h3>Usage:</h3>
-<xmp>
+<xmp class="panel">
 [{Thumbnail src="image file name"}]
 </xmp>
 -<hr/>
@@ -76,7 +77,7 @@
 
 <hr/>
 !<h3>renderer.sjs</h3>
-<xmp>src = extension.getAttributeValueByName("src");
+<xmp class="panel">src = extension.getAttributeValueByName("src");
 
 if(src!=null)
 {
@@ -97,7 +98,9 @@ if(src!=null)
 else
 {
   return "Invalid Image. No src attribute given.";
-</xmp>}<!--Content built using default--><!--Page Content End-->
+</xmp>}
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

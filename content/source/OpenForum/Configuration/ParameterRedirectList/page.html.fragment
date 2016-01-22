@@ -1,7 +1,8 @@
-<xmp>
+<xmp class="panel">
 edit=/OpenForum/Editor
 delete=/OpenForum/Actions/Delete
 refresh=/OpenForum/Actions/RefreshPage
 view=/OpenForum/Actions/ViewFolder
 zip=/OpenForum/Actions/Zip
-</xmp><!--Content built using default-->
+</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

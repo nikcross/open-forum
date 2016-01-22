@@ -15,4 +15,5 @@
 <li>Fixed Web Chat to check for new messages asychronously</li>
 <li>44 - Search returning blog and history folders that are not valid pages</li>
 <li>39 - Missing Documentation on Changing the Left and Top menus</li>
-<li>23 - Editing link file fails<!--Content built using default--></li></ul>
+<li>23 - Editing link file fails</li>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

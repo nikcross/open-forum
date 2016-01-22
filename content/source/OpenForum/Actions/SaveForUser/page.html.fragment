@@ -7,7 +7,7 @@
 
 <hr/>
 !<h3>Server Side Javascript for POST method</h3>
-<xmp> transaction.getPostData();
+<xmp class="panel"> transaction.getPostData();
 
 pageName = transaction.getPostParameter("pageName");
 transaction.userCanPerformAction(pageName,"update",true);
@@ -19,4 +19,5 @@ user = transaction.getUser();
 wiki.saveAsAttachment(pageName,fileName,data,user);
 wiki.buildPage(pageName);
 
-transaction.goToPage(pageName); </xmp><!--Content built using default--></ul>
+transaction.goToPage(pageName); </xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

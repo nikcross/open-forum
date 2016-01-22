@@ -1,0 +1,37 @@
+<section class="top-bar-section">
+  <ul class="left"> 
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Actions</a>
+      <ul class="dropdown">
+        <li of-repeatFor="fileAction in fileActions"><a href="#" onClick="{{fileAction.fn}}();return false;" title="{{fileAction.description}}">[{Icon name="{{fileAction.icon}}"}]  {{fileAction.name}}</a></li>
+      </ul>
+    </li>
+  </ul>
+  <ul class="right">
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="[{Hash}]">Signed in as {{currentUser}}</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+        <li><a href="[{Hash}]" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+        <script>
+          var accessLoading = false;
+          function doSignIn() {
+
+            if(!OpenForum.Access) {
+              if(!accessLoading) {
+                OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+                accessLoading=true;
+              }
+              setTimeout(doSignIn,1000);
+              return;
+            }
+
+            OpenForum.Access.showPopup();
+          };
+        </script>
+      </ul>
+    </li>
+  </ul>
+</section>

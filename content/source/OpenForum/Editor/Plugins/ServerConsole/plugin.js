@@ -1,5 +1,5 @@
 var serverConsole = {
-  queueName: "serverConsole.log",
+  queueName: "/OpenForum/Editor/Plugins/ServerConsole/serverConsole.log@"+new Date().getTime()+":r:"+Math.random(),
   text: "",
   open: false,
   clear: function() {this.text = "";},
@@ -9,36 +9,34 @@ var serverConsole = {
     this.addToHistory(this.cliText);
     this.log("sjs> "+this.cliText);
     try{
-      
+
       var script = this.cliText;
       if(script.substring(0,4)==="run:") {
-        this.log("Running script from tab "+script.substring(4));
+        serverConsole.log("Running script from tab "+script.substring(4));
         script = findEditor(script.substring(4)).editor.getValue();
       }
-      
-  var post = new Post();
-  post.addItem("code",script);
-  post.addItem("queueName",serverConsole.queueName);
-  try{
-        request = new AjaxRequest(
-"post","/OpenForum/Actions/RJSC","",post.getData(),"webChatView.processData(\"&response;\");",true);
 
-    result = Ajax.sendRequest(request);
-  }
-  catch(e)
-  {
-    this.log("sjs> Error: "+e);
-  }
-  this.log("sjs> Finished");
-      
-      if(typeof(result)==="undefined") {
-      } else if(typeof(result)==="object"){
-        this.log("sjs> "+JSON.stringify(result));
-      } else {
-        this.log("sjs> "+result);
-      }
-    } catch (e) {
-      this.log("sjs> "+e);
+      JSON.post("/OpenForum/Actions/RJSC","run","queueName="+serverConsole.queueName+"&code="+script).
+      onSuccess(
+        function(response) {
+          if(response.message) {
+          	serverConsole.log("sjs> "+response.message);
+          } else {
+          	serverConsole.log("sjs> "+JSON.stringify(response.result));
+          }
+
+          serverConsole.log("sjs> Finished");
+        }
+      ).
+      onError(
+        function(response) {
+          serverConsole.log("sjs> "+response);
+
+          serverConsole.log("sjs> Finished");
+        }
+      ).go();
+    } catch(e) {
+      serverConsole.log("Error "+e);
     }
   },
   cliHistory: [],
@@ -61,85 +59,46 @@ var serverConsole = {
 addPlugin( {
   name: "Server Console",
   init: function() {
-      if(serverConsole.open===true) {
-        return;
-      }
-      serverConsole.open=true;
-      editorIndex++;
-      var editor = document.createElement("div");
-      editor.setAttribute("id","editor"+editorIndex);
-      editor.setAttribute("style","display:block;");
-      document.getElementById("editors").appendChild(editor);
-    
-      OpenForum.crawl(document.getElementById("editor"+editorIndex));
-
-      var content = OpenForum.loadFile("/OpenForum/Editor/Plugins/ServerConsole/page.html.fragment");
-      OpenForum.setElement("editor"+editorIndex,content);    
-    
-          OpenForum.crawl(document.getElementById("editor"+editorIndex));
-    webChatView.init("serverConsole.log");
-    
-      OpenForum.addTab("editor"+editorIndex);
-      editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "ServerConsole", changed: ""};
-      showTab(editorIndex);
-      serverConsole.log("serverConsole Ready");
-      return editorList[editorIndex];
-    }
-});
-
-
-function WebChatView()
-{
-  var self = this;
-  self.timeStamp = 0;
-  self.queueName = null;
-  self.layerName = null;
-
-  this.init = function init(queueName)
-  {
-    self.queueName = queueName;
-    self.layerName = queueName;
-	checkRefreshTimer = setTimeout("webChatView.pickUp();",2000);
-  };
-
-  this.pickUp = function pickUp()
-  {
-    request = new AjaxRequest(
-		"get",
-      "/OpenForum/WebChat",
-      "requestType=pickUp&chatQueue="+self.queueName+"&timeStamp="+self.timeStamp,
-      "",
-      webChatView.processData,
-      "",
-      true
-    );
-
-    Ajax.sendRequest(request);
-  };
-
-  this.processData = function processData(data)
-  {
-    data = unescape(data);
-    try{
-      var result = eval(data);
-    } catch (e) {
-      checkRefreshTimer = setTimeout("webChatView.pickUp();",2000);
+    if(serverConsole.open===true) {
       return;
     }
+    serverConsole.open=true;
+    editorIndex++;
+    var editor = document.createElement("div");
+    editor.setAttribute("id","editor"+editorIndex);
+    editor.setAttribute("style","display:block;");
+    document.getElementById("editors").appendChild(editor);
 
-    self.timeStamp = result;
-    for(loop=0;loop<messages.length;loop++)
-    {
-      if(messages[loop].indexOf("*eval")==0)
-      {
-         eval( messages[loop].substring(6) );
-         continue;
+    OpenForum.crawl(document.getElementById("editor"+editorIndex));
+
+    var content = OpenForum.loadFile("/OpenForum/Editor/Plugins/ServerConsole/page.html.fragment");
+    OpenForum.setElement("editor"+editorIndex,content);    
+
+    OpenForum.crawl(document.getElementById("editor"+editorIndex));
+
+    DependencyService.createNewDependency()
+    .addDependency("/OpenForum/MessageQueue/MessageQueue.js")
+    .setOnLoadTrigger( function() {
+
+      serverConsole.messageQueue = new MessageQueue( serverConsole.queueName );
+      serverConsole.messageQueue.processMessages = function(messages) {
+        for(var i=0;i<messages.length;i++) {
+          serverConsole.log(messages[i]);
+        }
+      };
+      setInterval( function() {
+        serverConsole.messageQueue.pull();
       }
+                  ,1000);
 
-      serverConsole.text+=messages[loop]+"<BR/>";
-    }
-    checkRefreshTimer = setTimeout("webChatView.pickUp();",2000);
-   };
-}
+    } ).loadDependencies();
 
-webChatView = new WebChatView();
+    OpenForum.addTab("editor"+editorIndex);
+    editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "ServerConsole", changed: ""};
+    showTab(editorIndex);
+    serverConsole.log("serverConsole Ready");
+    return editorList[editorIndex];
+
+  }
+});
+

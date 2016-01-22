@@ -65,23 +65,26 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">MarkPage</a></li></nav>
     
-    <!--PageContent Start-->Mark a point in a page that can be referenced
+    <!--PageContent Start-->
+Mark a point in a page that can be referenced
 <hr/>
 !<h3>Parameters</h3>
 name = the name of the mark
 <hr/>
 !<h3>Usage:</h3>
-<xmp>
+<xmp class="panel">
 [{Mark name="TestMark"}] Some text to reference
 </xmp>
-[undefined Some text to reference\\
-See: <a href="/OpenForum/Extensions/GoToMark">GoToMark</a> for an example of using this mark
+[undefined Some text to reference<br/>
+See: <a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/GoToMark"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/GoToMark does not exist. Click to create it.">GoToMark</a> for an example of using this mark
 
 <hr/>
 
-<a href="/OpenForum/Extensions/MarkPage/renderer.sjs" title="/OpenForum/Extensions/MarkPage/renderer.sjs">OpenForum/Extensions/MarkPage/renderer.sjs</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Extensions/MarkPage&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">name = extension.getAttribute("name");
+<a href="/OpenForum/Extensions/MarkPage/renderer.sjs">/OpenForum/Extensions/MarkPage/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/MarkPage&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">name = extension.getAttribute("name");
 
-return "<a name=\""+name+"\"></a>"</xmp><!--Content built using default--><!--Page Content End-->
+return "<a name=\""+name+"\"></a>"</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

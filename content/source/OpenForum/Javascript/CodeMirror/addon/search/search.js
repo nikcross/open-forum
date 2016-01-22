@@ -94,6 +94,8 @@
     cm.setSelection(cursor.from(), cursor.to());
     cm.scrollIntoView({from: cursor.from(), to: cursor.to()});
     state.posFrom = cursor.from(); state.posTo = cursor.to();
+    
+    document.scrollingElement.scrollTop = cm.cursorCoords("page").top-100
   });}
   function clearSearch(cm) {cm.operation(function() {
     var state = getSearchState(cm);

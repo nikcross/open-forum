@@ -10,15 +10,18 @@
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.css"/>
     <link rel="stylesheet" href="/OpenForum/Editor/code-mirror.css"/>
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"/>
-    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    
+    <script type="text/javascript" src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/CodeMirror/lib/codemirror.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+    
     <script type="text/javascript" src="/OpenForum/Editor/page.js"></script>
     <script type="text/javascript" src="/OpenForum/Editor/attachments.js"></script>
     <script type="text/javascript" src="/OpenForum/Editor/editors.js"></script>
     <script type="text/javascript" src="/OpenForum/Editor/plugins.js"></script>
     <script type="text/javascript" src="/OpenForum/Editor/tabs.js"></script>
+    <script type="text/javascript" src="/OpenForum/Editor/drag-and-drop.js"></script>
 
     <script>
       var pageName = "OpenForum/Editor/OverviewTemplate";
@@ -80,7 +83,7 @@
             <li class="has-dropdown">
               <a href="#">Plugins</a>
               <ul class="dropdown">
-                <li><a onClick="loadPlugin('PageManager');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Page Manager</a></li>
+                <li><a onClick="loadPlugin('History');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Page History</a></li>
                 <li><a onClick="loadPlugin('Console');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Javascript Console</a></li>
                 <li><a onClick="loadPlugin('ServerConsole');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Server Side Javascript Console</a></li>
                 <li><a onClick="loadPlugin('DataTransform');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Data Transform Helper</a></li>
@@ -138,7 +141,7 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     editorCopyPage = function() {
-      	OpenForum.Actions.copyPage(pageName,openForumCopyPage);
+      	OpenForum.action.copyPage(pageName,openForumCopyPage);
     	window.location = "/OpenForum/Editor?pageName="+openForumCopyPage;
     };
     </script>
@@ -153,7 +156,7 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     editorMovePage = function() {
-      	OpenForum.Actions.movePage(pageName,openForumMovePage);
+      	OpenForum.action.movePage(pageName,openForumMovePage);
     	window.location = "/OpenForum/Editor?pageName="+openForumMovePage;
     };
     </script>
@@ -185,7 +188,7 @@
 <div id="OpenForumDeleteModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Delete Page</h2>
   <p>Please confirm that you want to delete the page {{pageName}}
-  <p><a href="#" onClick="OpenForum.Actions.deletePage(pageName);return false;" class="secondary button">Delete</a></p>
+  <p><a href="#" onClick="OpenForum.action.deletePage(pageName);return false;" class="secondary button">Delete</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
@@ -212,12 +215,18 @@
       </nav>
     </div>
 
-    <!--PageContent Start--><div class="row">
+    <!--PageContent Start-->
+<div class="row">
   <div class="large-6 columns">
-    <h3>Page Name: {{pageName}}</h3>
-    <h3>Page Type: {{flavour}}</h3>
-    <h3>Page Data:</h3> <xmp>{{dataView}}</xmp>
-    <h2>Sub Pages</h2>
+    <h4>Page Details</h4><ul><li> Page Name: <b>{{pageName}}</b></li>
+<li> Page Type: <b>{{flavour}}</b></li>
+<li> Builder Path: <b><a onClick="window.open('/OpenForum/Editor?pageName='+builderPath+'&fileName=page.build.js'); return false;">{{builderPath}}</a></b></li>
+<li> Access Path: <b><a onClick="window.open('/OpenForum/Editor?pageName='+accessPath+'&fileName=access.json'); return false;">{{accessPath}}</a></b></li>
+<li> Access Data:<xmp class="panel">{{accessView}}</xmp></li>
+<li> Template Path: <b><a onClick="window.open('/OpenForum/Editor?pageName='+templatePath+'&fileName=page.html.template'); return false;">{{templatePath}}</a></b></li>
+<li> Page Meta Data:<xmp class="panel">{{dataView}}</xmp></li>
+<li> <span ondrop="drop(event,'#parentPage')" ondragover="allowDrop(event)">Parent Page: <b>{{parentPageLink}}</b></span></li>
+<li> Sub Pages</li>
     <div id="subPagesList"></div>
   </div>
   <div class="large-6 columns">
@@ -230,11 +239,15 @@
         <tr><th>Page Name</th><th>File Name</th><th></th><th></th><th></th><th></th></tr>
       </thead>
       <tbody>
-        <tr of-repeatFor="attachment in attachments"><td>{{attachment.pageName}}</td><td>{{attachment.fileName}}</td>
+        <tr of-repeatFor="attachment in attachments"><td>{{attachment.pageName}}</td><td><span draggable="true" ondragstart="drag('{{attachment.id}}');">{{attachment.fileName}}</span></td>
           <td><a class="button tiny" onClick="{{attachment.action}}({{attachment.id}});return false;">{{attachment.actionName}}</a></td>
           <td><a class="button tiny" data-reveal-id="OpenForumDeleteAttachmentModal" onClick="attachmentPageToDelete='{{attachment.pageName}}';attachmentToDelete='{{attachment.fileName}}';return false;">Delete</a></td>
-          <td><a class="button tiny" onClick="alert('not implemented yet');">Copy</a></td>
-          <td><a class="button tiny"  onClick="alert('not implemented yet');">Move</a></td>
+          <td><a class="button tiny" data-reveal-id="OpenForumCopyAttachmentModal" 
+                  onClick="attachmentPageToCopy='{{attachment.pageName}}';attachmentToCopy='{{attachment.fileName}}';attachmentPageToCopyTo='{{attachment.pageName}}';attachmentToCopyTo='{{attachment.fileName}}';return false;">
+            Copy</a></td>
+          <td><a class="button tiny" data-reveal-id="OpenForumMoveAttachmentModal" 
+                  onClick="attachmentPageToMove='{{attachment.pageName}}';attachmentToMove='{{attachment.fileName}}';attachmentPageToMoveTo='{{attachment.pageName}}';attachmentToMoveTo='{{attachment.fileName}}';return false;">
+            Move</a></td>
         </tr>
       </tbody>
     </table>
@@ -246,9 +259,33 @@
 <div id="OpenForumDeleteAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Delete Attachment</h2>
   <p>Please confirm that you want to delete the attachment {{attachmentToDelete}} from the page {{attachmentPageToDelete}}
-    <p><a href="#" onClick="OpenForum.file.deleteAttachmentNoBackup(attachmentPageToDelete,attachmentToDelete); return false;" class="secondary button">Delete</a></p>
+    <p><a href="#" onClick="OpenForum.deleteFile(attachmentPageToDelete,attachmentToDelete);loadUpdatedFilesList();
+$('#OpenForumDeleteAttachmentModal').foundation('reveal', 'close'); return false;" class="secondary button">Delete</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div><!--Content built using default--><!--Page Content End-->
+</div>
+
+<!-- Move Attachemnt -->
+
+<div id="OpenForumMoveAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Move Attachment</h2>
+  <p>Move the attachment {{attachmentToMove}} from the page {{attachmentPageToMove}}
+  <p>to page <input type="text" of-id="attachmentPageToMoveTo"/> with the file name <input type="text" of-id="attachmentToMoveTo"/></p>
+    <p><a href="#" onClick="OpenForum.moveFile(attachmentPageToMove+'/'+attachmentToMove,attachmentPageToMoveTo+'/'+attachmentToMoveTo);loadUpdatedFilesList(); $('#OpenForumMoveAttachmentModal').foundation('reveal', 'close');  return false;" class="secondary button">Move</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<!-- Copy Attachemnt -->
+
+<div id="OpenForumCopyAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Attachment</h2>
+  <p>Copy the attachment {{attachmentToCopy}} from the page {{attachmentPageToCopy}}
+  <p>to page <input type="text" of-id="attachmentPageToCopyTo"/> with the file name <input type="text" of-id="attachmentToCopyTo"/></p>
+  <p><a href="#" onClick="OpenForum.copyFile(attachmentPageToCopy+'/'+attachmentToCopy,attachmentPageToCopyTo+'/'+attachmentToCopyTo);loadUpdatedFilesList(); $('#OpenForumCopyAttachmentModal').foundation('reveal', 'close'); return false;" class="secondary button">Copy</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
 
     <!-- insert (/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
@@ -274,3 +311,4 @@
     </script>
   </body>
 </html>
+</ul>

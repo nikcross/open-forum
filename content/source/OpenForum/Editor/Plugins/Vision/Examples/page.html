@@ -10,15 +10,18 @@
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.css"/>
     <link rel="stylesheet" href="/OpenForum/Editor/code-mirror.css"/>
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"/>
-    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    
+    <script type="text/javascript" src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/CodeMirror/lib/codemirror.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+    
     <script type="text/javascript" src="/OpenForum/Editor/page.js"></script>
     <script type="text/javascript" src="/OpenForum/Editor/attachments.js"></script>
     <script type="text/javascript" src="/OpenForum/Editor/editors.js"></script>
     <script type="text/javascript" src="/OpenForum/Editor/plugins.js"></script>
     <script type="text/javascript" src="/OpenForum/Editor/tabs.js"></script>
+    <script type="text/javascript" src="/OpenForum/Editor/drag-and-drop.js"></script>
 
     <script>
       var pageName = "OpenForum/Editor/Plugins/Vision/Examples";
@@ -80,7 +83,7 @@
             <li class="has-dropdown">
               <a href="#">Plugins</a>
               <ul class="dropdown">
-                <li><a onClick="loadPlugin('PageManager');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Page Manager</a></li>
+                <li><a onClick="loadPlugin('History');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Page History</a></li>
                 <li><a onClick="loadPlugin('Console');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Javascript Console</a></li>
                 <li><a onClick="loadPlugin('ServerConsole');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Server Side Javascript Console</a></li>
                 <li><a onClick="loadPlugin('DataTransform');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Data Transform Helper</a></li>
@@ -138,7 +141,7 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     editorCopyPage = function() {
-      	OpenForum.Actions.copyPage(pageName,openForumCopyPage);
+      	OpenForum.action.copyPage(pageName,openForumCopyPage);
     	window.location = "/OpenForum/Editor?pageName="+openForumCopyPage;
     };
     </script>
@@ -153,7 +156,7 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     editorMovePage = function() {
-      	OpenForum.Actions.movePage(pageName,openForumMovePage);
+      	OpenForum.action.movePage(pageName,openForumMovePage);
     	window.location = "/OpenForum/Editor?pageName="+openForumMovePage;
     };
     </script>
@@ -185,7 +188,7 @@
 <div id="OpenForumDeleteModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Delete Page</h2>
   <p>Please confirm that you want to delete the page {{pageName}}
-  <p><a href="#" onClick="OpenForum.Actions.deletePage(pageName);return false;" class="secondary button">Delete</a></p>
+  <p><a href="#" onClick="OpenForum.action.deletePage(pageName);return false;" class="secondary button">Delete</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
@@ -212,10 +215,13 @@
       </nav>
     </div>
 
-    <!--PageContent Start--><a href="/OpenForum/Editor/Plugins/Vision/Examples/circle.js" title="/OpenForum/Editor/Plugins/Vision/Examples/circle.js">OpenForum/Editor/Plugins/Vision/Examples/circle.js</a><a href="/OpenForum/Actions/EditText?pageName=OpenForum/Editor/Plugins/Vision/Examples&fileName=circle.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="example">/*
+    <!--PageContent Start-->
+<a href="/OpenForum/Editor/Plugins/Vision/Examples/circle.js">/OpenForum/Editor/Plugins/Vision/Examples/circle.js</a><a href="/OpenForum/Editor?pageName=OpenForum/Editor/Plugins/Vision/Examples&fileName=circle.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">/*
 Circle( x,y,radius );
 */
-circle = new Circle(50,50,30);</xmp><!--Content built using default--><!--Page Content End-->
+circle = new Circle(50,50,30);</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
 
     <!-- insert (/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">

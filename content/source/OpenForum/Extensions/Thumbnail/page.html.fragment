@@ -1,7 +1,7 @@
 Inserts an image thumbnail with a link to the full size image.
 <hr/>
 !<h3>Usage:</h3>
-<xmp>
+<xmp class="panel">
 [{Thumbnail src="image file name"}]
 </xmp>
 -<hr/>
@@ -9,7 +9,7 @@ Inserts an image thumbnail with a link to the full size image.
 
 <hr/>
 !<h3>renderer.sjs</h3>
-<xmp>src = extension.getAttributeValueByName("src");
+<xmp class="panel">src = extension.getAttributeValueByName("src");
 
 if(src!=null)
 {
@@ -30,4 +30,5 @@ if(src!=null)
 else
 {
   return "Invalid Image. No src attribute given.";
-</xmp>}<!--Content built using default-->
+</xmp>}
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

@@ -1,3 +1,4 @@
+//DELETE ME
 transaction.getPostData();
 sourcePageName = transaction.getPostParameter("sourcePageName");
 newPageName = transaction.getPostParameter("newPageName");
