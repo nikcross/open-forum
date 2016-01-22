@@ -6,8 +6,10 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.Properties;
 
+import javax.activation.CommandMap;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
+import javax.activation.MailcapCommandMap;
 import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -29,16 +31,21 @@ import org.onestonesoup.openforum.plugin.SystemAPI;
 
 public class Mailer extends SystemAPI implements TransportListener{
 
-    public static final String VERSION="OpenForum Mailer 2.3";
+    public static final String VERSION="OpenForum Mailer 3.0.3";
 
-	private static final String MAILER_SERVICE_PAGE="/Mailer";
+	private static final String MAILER_SERVICE_PAGE="/OpenForum/AddOn/Mailer";
 	private static final String MESSAGE_DELIVERED_SCRIPT="message-delivered.sjs"; 
 	private static final String MESSAGE_ERROR_SCRIPT="message-error.sjs"; 
 	private static final String MESSAGE_UNDELIVERED_SCRIPT="message-undelivered.sjs";
 	private static final String MESSAGE_PARTIALLY_DELIVERED_SCRIPT="message-partially-delivered.sjs";
     
 	public static void main(String[] args) throws Exception {
-		new Mailer(args[0], args[1]).sendMail(args[2], args[3], args[4], args[5]);
+		Mailer mailer = new Mailer();
+		mailer.setUserNameAndPassword(args[0], args[1]);
+		mailer.sendMail(args[2], args[3], args[4], args[5]);
+	}
+	public static String getVersion() {
+		return VERSION;
 	}
 	
     private String smtpHost = "smtp.gmail.com";
@@ -94,7 +101,17 @@ public class Mailer extends SystemAPI implements TransportListener{
         }       
     }
     
-    public Mailer(String userName, String password) {
+    public Mailer() {
+    	MailcapCommandMap mc = (MailcapCommandMap) CommandMap.getDefaultCommandMap();
+        mc.addMailcap("text/html;; x-java-content-handler=com.sun.mail.handlers.text_html");
+        mc.addMailcap("text/xml;; x-java-content-handler=com.sun.mail.handlers.text_xml");
+        mc.addMailcap("text/plain;; x-java-content-handler=com.sun.mail.handlers.text_plain");
+        mc.addMailcap("multipart/*;; x-java-content-handler=com.sun.mail.handlers.multipart_mixed");
+        mc.addMailcap("message/rfc822;; x-java-content-handler=com.sun.mail.handlers.message_rfc822");
+        CommandMap.setDefaultCommandMap(mc);
+    }
+    
+    public void setUserNameAndPassword (String userName, String password) {
     	this.userName = userName;
     	this.password = password;
     }
