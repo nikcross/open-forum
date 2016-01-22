@@ -52,6 +52,10 @@ public class OpenForumServletContextListener implements ServletContextListener {
 		}
 	}
 
+	public static String[] getWikiControllerNames() {
+		return wikiControllers.keySet().toArray(new String[]{});
+	}
+	
 	public static OpenForumController getWikiController(String domain) {
 		for(String key: wikiControllers.keySet()) {
 			//System.out.println(domain+" matches "+key+" ?");
