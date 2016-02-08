@@ -1,7 +1,10 @@
 package org.onestonesoup.openforum.javascript;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.URL;
 import java.net.URLConnection;
 
@@ -52,5 +55,53 @@ public class JavascriptExternalResourceHelper {
 		c.setRequestProperty("Authorization", "Basic " + code);
 		OutputStream oStream = fileManager.getAttachmentOutputStream(pageName, fileName, login);
 		FileHelper.copyInputStreamToOutputStream(c.getInputStream(), oStream);
+	}
+	
+	public String postURLAsString(String urlString,String user,String password,String data) throws Exception {
+		String code = StringHelper.encodeBase64(user+":"+password);
+		
+	    URL url = new URL(urlString);
+	    URLConnection conn = url.openConnection();
+	    conn.setDoOutput(true);
+	    conn.setRequestProperty("Authorization", "Basic " + code);
+
+	    OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream());
+
+	    writer.write(data);
+	    writer.flush();
+	    String line;
+	    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	    
+	    String response = "";
+	    while ((line = reader.readLine()) != null) {
+	    	response += line+"\n";
+	    }
+	    writer.close();
+	    reader.close();
+	    
+	    return response;
+	}
+
+	public String postURLAsString(String urlString,String data) throws Exception {
+		
+	    URL url = new URL(urlString);
+	    URLConnection conn = url.openConnection();
+	    conn.setDoOutput(true);
+
+	    OutputStreamWriter writer = new OutputStreamWriter(conn.getOutputStream());
+
+	    writer.write(data);
+	    writer.flush();
+	    String line;
+	    BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+	    
+	    String response = "";
+	    while ((line = reader.readLine()) != null) {
+	    	response += line+"\n";
+	    }
+	    writer.close();
+	    reader.close();
+	    
+	    return response;
 	}
 }
