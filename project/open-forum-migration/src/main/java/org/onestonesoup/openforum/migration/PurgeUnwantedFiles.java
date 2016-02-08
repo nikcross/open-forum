@@ -33,7 +33,7 @@ public class PurgeUnwantedFiles extends CommandLineTool implements FileListener,
 
 	@Override
 	public String getUsage() {
-		return "<root directory> <files-list-file>";
+		return "<root directory> <files-list-file or list of files delimited by :>";
 	}
 
 	@Override
@@ -44,8 +44,12 @@ public class PurgeUnwantedFiles extends CommandLineTool implements FileListener,
 		}
 		String data;
 		try {
-			data = FileHelper.loadFileAsString(new File(getParameter(1)).getAbsolutePath());
-			fileNames = data.split("\n");
+			if(new File(getParameter(1)).exists()) {
+				data = FileHelper.loadFileAsString( new File(getParameter(1)).getAbsolutePath());
+				fileNames = data.split("\n");
+			} else {
+				fileNames = getParameter(1).split(":");
+			}
 			for(int i=0;i<fileNames.length;i++) {
 				fileNames[i] = root+fileNames[i];
 			}
