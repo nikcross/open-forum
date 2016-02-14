@@ -30,7 +30,7 @@ public class JavascriptFileHelper  {
 
 	public void appendStringToFile(String pageName, String fileName, String data)
 			throws Exception {
-		fileManager.appendStringToFile(data, pageName, fileName, login);
+		fileManager.appendStringToFile(data, pageName, fileName, true, true, login);
 	}
 
 	public boolean attachmentExists(String pageName, String fileName)
@@ -61,7 +61,7 @@ public class JavascriptFileHelper  {
 	public boolean deleteAttachmentNoBackup(String pageName, String fileName)
 			throws Exception {
 		fileManager.deleteAttachment(pageName, fileName, false, login);
-		return fileManager.attachmentExists(pageName, fileName, login);
+		return !fileManager.attachmentExists(pageName, fileName, login);
 	}
 
 	public long getAttachmentTimestamp(String pageName, String fileName)
@@ -129,5 +129,10 @@ public class JavascriptFileHelper  {
 			AuthenticationException {
 		fileManager.zipPage(pageName, login);
 		controller.markForRebuild();
+	}
+
+	public void appendStringToFileNoBackup(String pageName, String fileName, String data)
+			throws Exception {
+		fileManager.appendStringToFile(data, pageName, fileName, false, false, login);
 	}
 }

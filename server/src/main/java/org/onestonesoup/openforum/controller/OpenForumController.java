@@ -654,7 +654,7 @@ public class OpenForumController implements OpenForumScripting,
 		}
 		
 		entry = "* " + TimeHelper.getDisplayTimestamp(new Date()) + ":" + entry + "<br/>\n";
-		fileManager.appendStringToFile(entry, JOURNAL_PAGE_PATH, CONTENT_FILE, systemLogin);
+		fileManager.appendStringToFile(entry, JOURNAL_PAGE_PATH, CONTENT_FILE, false, false, systemLogin);
 	}
 
 	/*

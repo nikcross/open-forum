@@ -608,7 +608,7 @@ public class FileManager {
 	}
 
 	public void appendStringToFile(String data, String pageName,
-			String fileName, Login login) throws Exception,
+			String fileName, boolean backup, boolean logInJournal, Login login) throws Exception,
 			AuthenticationException {
 		if (controller.getAuthorizer().isAuthorized(login, pageName,
 				Authorizer.ACTION_UPDATE) == true) {
@@ -616,12 +616,12 @@ public class FileManager {
 				resourceStore.appendResource(
 						getFile(pageName, fileName, login), data.getBytes());
 				
-				if(!pageName.equals(JOURNAL_PAGE_PATH)) {
+				if(logInJournal && !pageName.equals(JOURNAL_PAGE_PATH)) {
 					controller.addJournalEntry("File " + fileName + " on Page [" + pageName
 						+ "] Appended to by " + login.getUser().getName(),login);
 				}
 			} else {
-				saveStringAsAttachment(data, pageName, fileName, login, true);
+				saveStringAsAttachment(data, pageName, fileName, login, backup);
 			}
 			//backup(pageName, fileName, login);
 		} else {
