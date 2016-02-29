@@ -2,7 +2,14 @@ OpenForum.loadScript("/OpenForum/MessageQueue/MessageQueue.js");
 
 var queue = null;
 var timer = null;
-var message = null;
+var queueName = null;
+
+OpenForum.init = function() {
+  queueName = OpenForum.getParameter("queue");
+  if(queueName) {
+    startWatchingQueue();
+  }
+};
 
 function startWatchingQueue() {
   
@@ -16,11 +23,6 @@ function startWatchingQueue() {
     }
   };
 
-  timer = setInterval( queue.pull , 1000 );
+  queue.startPolling();
 
-}
-
-function sendMessage() {
-  queue.push(message);
-  message = "";
 }

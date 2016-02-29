@@ -17,7 +17,8 @@ fileName = transaction.getParameter("fileName");
 if( fileName===null ) {
   openForum.deletePage(pageName);
 
-  data = file.getAttachment("/Admin/Deleted","page.content");
+  //TODO Handle pages deleted from /OpenForum/DeletedPages
+  data = file.getAttachment("/OpenForum/DeletedPages","page.content");
   data = data + "\n*[Undelete "+pageName+"|/OpenForum/Actions/Move?pageName=/OpenForum/DeletedPages/"+pageName+"&newPageName="+pageName+"]";
   file.saveAttachment("/OpenForum/DeletedPages","page.content",data);
   openForum.refreshPage("/OpenForum/DeletedPages");

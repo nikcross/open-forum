@@ -14,14 +14,14 @@ if(action==="getPageTree") {
   }
 
   try{
-    var replaceTime = new Date().getTime()-360000;
+    var replaceTime = new Date().getTime()-3600000;
     var treeData = null;
     var cacheFileName = "tree-"+pageName.replace(/\//g,"-")+".cached.js";
     if( transaction.getParameter("refresh")===null && (file.attachmentExists("/OpenForum/Javascript/Tree",cacheFileName) && file.getAttachmentTimestamp("/OpenForum/Javascript/Tree",cacheFileName)>replaceTime) ) {
       treeData = file.getAttachment("/OpenForum/Javascript/Tree",cacheFileName);
     } else {
       var tree = js.getObject("/OpenForum/Javascript/Tree","Tree.sjs");
-      treeData = tree.createFileTree(targetPage);
+      treeData = JSON.stringify( tree.createFileTree(targetPage) );
       file.saveAttachment("/OpenForum/Javascript/Tree",cacheFileName,treeData);
     }
     transaction.sendPage( treeData );

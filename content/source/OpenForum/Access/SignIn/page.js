@@ -60,4 +60,12 @@ OpenForum.Access = new function() {
     
      $("#AccessSignIn").foundation('reveal','open');
   };
+  
+  this.showPassword = function(show) {
+    if(show) {
+      document.getElementById("password").type="text";
+    } else {
+      document.getElementById("password").type="password";
+    }
+  };
 };

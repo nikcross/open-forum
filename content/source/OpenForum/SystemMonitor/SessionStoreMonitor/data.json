@@ -1,3 +1,5 @@
 {
-	"apiClass": "org.onestonesoup.openforum.security.cookie.SessionStoreView"
+    "apiClass": "org.onestonesoup.openforum.security.cookie.SessionStoreView",
+    "pageName": "//OpenForum/SystemMonitor/SessionStoreMonitor",
+    "title": " Session Store Monitor"
 }

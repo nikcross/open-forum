@@ -1,17 +1,45 @@
-    OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/lib/codemirror.css");
-    OpenForum.loadCSS("/OpenForum/Editor/code-mirror.css");
-    OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/addon/merge/merge.css");
+OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/lib/codemirror.css");
+OpenForum.loadCSS("/OpenForum/Editor/code-mirror.css");
+OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/addon/merge/merge.css");
 OpenForum.loadScript("http://cdnjs.cloudflare.com/ajax/libs/diff_match_patch/20121119/diff_match_patch.js"); 
 
+OpenForum.includeScript("/OpenForum/Editor/attachments.js");
+OpenForum.includeScript("/OpenForum/Editor/editors.js");
+OpenForum.includeScript("/OpenForum/Editor/plugins.js");
+OpenForum.includeScript("/OpenForum/Editor/tabs.js");
+OpenForum.includeScript("/OpenForum/Editor/drag-and-drop.js");
+
+OpenForum.includeScript("/OpenForum/Javascript/JavaWrapper/File/File.js");
+
+OpenForum.includeScript("/OpenForum/Javascript/CodeMirror/lib/codemirror.js");
+OpenForum.includeScript("/OpenForum/Javascript/CodeMirror/addon/search/search.js");
+OpenForum.includeScript("/OpenForum/Javascript/CodeMirror/addon/search/searchcursor.js");
+OpenForum.includeScript("/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.js");
+OpenForum.includeScript("/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.js");
+OpenForum.includeScript("/OpenForum/Javascript/CodeMirror/addon/selection/active-line.js");
+
+OpenForum.includeScript("/OpenForum/Editor/Editors/JavascriptEditor/editor.js");
+OpenForum.includeScript("/OpenForum/Editor/Editors/HTMLEditor/editor.js");
+OpenForum.includeScript("/OpenForum/Editor/Editors/DefaultEditor/editor.js");
+OpenForum.includeScript("/OpenForum/Editor/Editors/CSSEditor/editor.js");
+OpenForum.includeScript("/OpenForum/Editor/Editors/XMLEditor/editor.js");
+
+var popupStatus = "ok";
 var status = "Loading...";
 var targetName = "";
 var pageName = "/Sandbox";
+var pageSize = "?";
+var pageLastModified = "?";
 var fileName = "";
 var parentPage = " ";
 var parentPageLink = " ";
 var flavour = "page";
 var newPage = false;
 
+var uploadURL = "http://";
+var uploadURLFileName = " ";
+
+var tree;
 var data = {};
 var dataView = "Loading...";
 
@@ -32,26 +60,6 @@ var extraActions = [
 
 
 OpenForum.init = function () {
-  DependencyService.createNewDependency()
-  .addDependency("/OpenForum/Javascript/JavaWrapper/File/File.js")
-
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon/search/search.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon/search/searchcursor.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon/selection/active-line.js")
-
-  .addDependency("/OpenForum/Editor/Editors/JavascriptEditor/editor.js")
-  .addDependency("/OpenForum/Editor/Editors/HTMLEditor/editor.js")
-  .addDependency("/OpenForum/Editor/Editors/DefaultEditor/editor.js")
-  .addDependency("/OpenForum/Editor/Editors/CSSEditor/editor.js")
-  .addDependency("/OpenForum/Editor/Editors/XMLEditor/editor.js")
-
-  .setOnLoadTrigger( ready ).loadDependencies();
-};
-
-function ready() {
-  //Possibly page edit
   if(OpenForum.getParameter("pageName")!=="") {
     pageName = OpenForum.getParameter("pageName");
 
@@ -98,7 +106,7 @@ function ready() {
   } else {
     dataView = "No data.json present";
   }
-  
+
   if(OpenForum.fileExists(pageName+"/access.json")) {
     accessView = OpenForum.loadFile( pageName+"/access.json" );
   } else {
@@ -112,6 +120,63 @@ function ready() {
   accessPath = OpenForum.file.getPageInheritedFilePath(pageName,"access.json");
 
   setKeyMappings();
+
+  setInterval(checkForChanges,5000);
+};
+
+var lastCheckTime = new Date().getTime();
+function checkForChanges() {
+  JSON.get("/OpenForum/Editor","getUpdates","pageName="+pageName+"&lastCheckTime="+lastCheckTime).onSuccess( processChanges ).go();
+  JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( checkUser ).go();
+}
+
+function checkUser(response) {
+    if(response!=currentUser) {
+    currentUser = response;
+    if(response=="Guest") {
+      showPopup("You have been logged out.\nYou may not be able to save any changes you have made.\nPlease log back in.");
+      return;
+    } else {
+      showStatus("You have been logged in as a different user.");
+    }
+  }
+}
+
+function processChanges(response) {
+  
+  lastCheckTime = new Date().getTime();
+  
+  if(response.user!=currentUser) {
+    currentUser = response.user;
+    if(response.user=="Guest") {
+      showPopup("You have been logged out.\nYou may not be able to save any changes you have made.\nPlease log back in.");
+      return;
+    } else {
+      showStatus("You have been logged in as a different user.");
+    }
+  }
+
+  for(var i=0;i<response.changedFiles.length;i++) {
+    var changedFile = response.changedFiles[i];
+    var editor = findAttachmentEditor(changedFile.pageName,changedFile.fileName);
+    if(editor) {
+
+      var newData = OpenForum.loadFile(changedFile.pageName+"/"+changedFile.fileName);
+      if(newData==editor.editor.getValue()) {
+        continue;
+      }
+      if(editor.changed==" ") {
+        editor.editor.setValue( newData );
+        editor.changed=" ";
+        showPopup( "The file "+changedFile.fileName+" you have open has been changed on the server.\nThe source in the editor has been updated." );
+      } else {
+        showPopup( "The file "+changedFile.fileName+" you have made chnages to has been changed on the server.\nThe source in the editor has NOT been updated." );
+      }
+    } else {
+      showStatus( "The file "+changedFile.fileName+" has been changed on the server." );
+
+    }
+  }
 }
 
 function setKeyMappings() {
@@ -130,8 +195,8 @@ function setKeyMappings() {
       return false;
     }
   });
-  
-    $(document).bind('keydown', function(e) {
+
+  $(document).bind('keydown', function(e) {
     if(e.ctrlKey && e.shiftKey && (e.which == 70)) {
       e.preventDefault();
       return false;
@@ -152,7 +217,7 @@ function updatePagesList(result) {
   data="<ul>\n";
   for(var i=0; i<result.length ;i++) {
     var link = "<a href=\""+result[i]+"\">"+result[i]+"</a><a href=\"/OpenForum/Editor?pageName="+result[i]+"\">"+editIcon+"</a>";
-    data+="<li ondrop=\"drop(event,'"+result[i]+"')\" ondragover=\"allowDrop(event)\">"+link+"</li>\n";
+    data+="<li><span ondrop=\"drop(event,'"+result[i]+"')\" ondragover=\"allowDrop(event)\" title=\"You can drop files on me\"><img src=\"/OpenForum/Images/icons/png/page.png\"></span>"+link+"</li>\n";
     dropDownData+="<li>"+link+"</li>\n";
   }
   data+="</ul>\n";
@@ -172,23 +237,31 @@ function updatePagesList(result) {
 function addOverview() {
   var editor = document.createElement("div");
   editor.setAttribute("id","editor"+editorIndex);
-  //editor.setAttribute("style","display:block;");
+
   document.getElementById("editors").appendChild(editor);
 
   var content = OpenForum.loadFile("/OpenForum/Editor/OverviewTemplate/page.html.fragment");
   OpenForum.setElement("editor"+editorIndex,content);
   OpenForum.crawl(document.getElementById("editor"+editorIndex));
 
-  JSON.get("/OpenForum/Actions/Attachments","","pageName="+pageName).onSuccess(setAttachments).go();
+  JSON.get("/OpenForum/Actions/Attachments","","pageName="+pageName+"&metaData=true").onSuccess(setAttachments).go();
+
+  var options = "<li><a href=\"#\" data-reveal-id=\"OpenForumDocumentationModal\" onClick=\"OpenForum.showDocumentation('/OpenForumDocumentation/Editor/Overview'); return false;\" title=\"Quick information on the Overview panel.\">Quick Info</a></li>";
 
   OpenForum.addTab("editor"+editorIndex);
-  editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Overview", changed: ""};
+  editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Overview", changed: "", options: options};
   showTab(editorIndex);
   JSON.get("/OpenForum/Actions/Pages","","pageName="+pageName).onSuccess(updatePagesList).go();
-  //  loadUpdatedFilesList() ;
+
+  tree = OpenForum.createFileTree("explorer","/");
+  tree.init = function() {  tree.expandPath(pageName); };
 
   currentEditor = editorList[editorIndex];
   return editorList[editorIndex];
+}
+
+function renderTabOption(name,toolTip,action) {
+  return "<li><a href=\"#\" onClick=\""+action+"; return false;\" title=\""+toolTip+"\">"+name+"</a></li>";
 }
 
 function openForFlavour() {
@@ -244,10 +317,33 @@ window.onbeforeunload = function (e) {
   }
 };
 
+function uploadFromURL() {
+  JSON.get("/OpenForum/Actions/Attach","upload","pageName="+pageName+"&fileName="+uploadURLFileName+"&url="+uploadURL)
+  .onSuccess( 
+    function() {
+      showStatus("Transfered "+uploadURL+" to "+uploadURLFileName);
+    })
+  .onError( 
+    function() {
+      showStatus("Failed to transfer "+uploadUrl);
+    }
+  ).go();
+}
+
+var statusTimeout;
 function showStatus(message) {
-  status = message;
-  document.getElementById("displayStatusModal").click();
-  //  console.log(message);
+  status = message.replaceAll("\n","<br/>");
+  if(statusTimeout) {
+    clearTimeout(statusTimeout);
+  }
+  if(message!=="ready") {
+    statusTimeout = setTimeout(function(){ showStatus("ready");},5000);
+  }
+}
+
+function showPopup(message) {
+  popupStatus = message.replaceAll("\n","<br/>");
+  $('#statusModal').foundation('reveal', 'open');
 }
 
 function publishPage() {

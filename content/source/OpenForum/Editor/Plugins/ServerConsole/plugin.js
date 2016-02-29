@@ -16,7 +16,9 @@ var serverConsole = {
         script = findEditor(script.substring(4)).editor.getValue();
       }
 
-      JSON.post("/OpenForum/Actions/RJSC","run","queueName="+serverConsole.queueName+"&code="+script).
+      var postData = encodeURIComponent(script);
+      
+      JSON.post("/OpenForum/Actions/RJSC","run","queueName="+serverConsole.queueName+"&code="+postData).
       onSuccess(
         function(response) {
           if(response.message) {

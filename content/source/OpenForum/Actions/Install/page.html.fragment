@@ -1,11 +1,11 @@
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Installs a file with an openforum extension
 <hr/>
-!<h3>Get Parameters</h3>
+<h3>Get Parameters</h3>
 <ul><li>pageName - The page where the file is attached</li>
 <li>fileName - The file to install</li>
 
 <hr/>
-!<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);

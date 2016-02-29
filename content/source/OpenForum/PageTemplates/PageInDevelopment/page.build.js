@@ -1,5 +1,6 @@
 //Should use link to /OpenForum/Javascript/PageBuilder
 var htmlContent = "";
+if(pageName.charAt(0)!="/") pageName = "/"+pageName;
 
 try{
 

@@ -1,3 +1,5 @@
 {
-  "apiClass": "org.onestonesoup.javascript.helper.Computer"
+    "apiClass": "org.onestonesoup.javascript.helper.Computer",
+    "pageName": "//OpenForum/SystemMonitor",
+    "title": " System Monitor"
 }

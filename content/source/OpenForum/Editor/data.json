@@ -1,3 +1,5 @@
 {
-  "pageParent": "http://open-forum.onestonesoup.org"
+    "pageParent": "http://open-forum.onestonesoup.org",
+    "pageName": "//OpenForum/Editor",
+    "title": " Editor"
 }

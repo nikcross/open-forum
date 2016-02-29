@@ -30,6 +30,15 @@ function Test() {
       };
       return this;
     };
+    self.thenAttributeEquals = function(key,expected) {
+      checkFunction = function(output) {
+        return output[key]===expected;
+      };
+      errorMessageFunction = function(output) {
+        return "Expected ("+key+"="+JSON.stringify(expected)+") but found ("+JSON.stringify(output[key])+") in "+JSON.stringify(output);
+      };
+      return this;
+    };
     self.thenOutputEquals = self.then;
     self.thenOutputContains = function(expected) {
       checkFunction = function(output) {
@@ -38,7 +47,7 @@ function Test() {
       errorMessageFunction = function(output) {
         return "Expected to contain ("+JSON.stringify(expected)+") but found ("+JSON.stringify(output)+")";
       };
-      
+
       return this;
     };
     self.thenOutputMatches = function(expected) {
@@ -48,13 +57,18 @@ function Test() {
       errorMessageFunction = function(output) {
         return "Expected to match regular expression ("+JSON.stringify(expected)+") but found ("+JSON.stringify(output)+")";
       };
-      
+
       return this;
     };
 
     self.run = function() {
       try{
-        var output = testFunction(input);
+        var output = null;
+        if( typeof(testFunction)==="function") {
+          output = testFunction(input);
+        } else {
+          output = testFunction;
+        }
 
         if(checkFunction(output)===false) {
           openForum.postMessageToQueue( queue,"FAILED:  "+name+". Input ("+JSON.stringify(input)+") "+errorMessageFunction(output));
@@ -79,7 +93,7 @@ function Test() {
   this.unitTest = function(title) {
     return new UnitTest(title);
   };
-  
+
   this.getResults = function() {
     return  {tests: passed+failed, passed: passed, failed: failed};
   };

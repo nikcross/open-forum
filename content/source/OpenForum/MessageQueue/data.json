@@ -1,6 +1,10 @@
 {
-	"access": {
-		"read": ["abc"]
-	},
-	"apiClass": "org.onestonesoup.openforum.messagequeue.MessageQueueView"
+    "access": {
+        "read": [
+            "abc"
+        ]
+    },
+    "apiClass": "org.onestonesoup.openforum.messagequeue.MessageQueueView",
+    "pageName": "//OpenForum/MessageQueue",
+    "title": " Message Queue"
 }

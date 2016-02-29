@@ -29,30 +29,40 @@ function DefaultEditor(editorIndex,pageName,fileName) {
   if(OpenForum.file.attachmentExists(pageName,fileName)==="true") {
     source = OpenForum.loadFile(pageName+"/"+fileName);
   } else if(OpenForum.file.attachmentExists("/OpenForum/FileTemplates/default",fileName+".default")==="true") {
-      source = OpenForum.loadFile("/OpenForum/FileTemplates/default/"+fileName+".default");
-    } else {
-      source = OpenForum.loadFile("/OpenForum/FileTemplates/default/default.txt");
-    }
+    source = OpenForum.loadFile("/OpenForum/FileTemplates/default/"+fileName+".default");
+  } else {
+    source = OpenForum.loadFile("/OpenForum/FileTemplates/default/default.txt");
+  }
   cm.setValue(source);
   cm.refresh();
 
-  this.refresh = function() {
+  self.refresh = function() {
     if(cm) cm.refresh();
   };
 
-  this.getValue = function() {
+  self.getValue = function() {
     return cm.getValue();
   };
 
-  this.setValue = function(newData) {
+  self.getCodeMirror = function() {
+    return cm;
+  };
+
+  self.setValue = function(newData) {
     return cm.setValue(newData);
+  };
+
+  self.renderOptions = function() {
+    //renderTabOption(name,toolTip,action)
+    var data = "";
+
+    data += renderTabOption("Close","Close editor","closeEditor( "+editorIndex+" )");
+    data += renderTabOption("Save","Save "+pageName+"/"+fileName,"saveFile( '"+pageName+"' , '"+fileName+"' )");
+    return data;
   };
 
   cm.on("change", function(cm, change) {
     editorList[editorIndex].changed="*";
   });
 
-  this.getCodeMirror = function() {
-    return cm;
-  };
 };

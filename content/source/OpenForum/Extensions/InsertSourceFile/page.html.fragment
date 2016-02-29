@@ -9,11 +9,14 @@ Inserts a files contents into the page
 <xmp class="panel">
 [{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json"}]
 </xmp>
-<a href="//OpenForum/Extensions/InsertSourceFile/data.json">//OpenForum/Extensions/InsertSourceFile/data.json</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=data.json" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">{}</xmp>
+<a href="//OpenForum/Extensions/InsertSourceFile/data.json">//OpenForum/Extensions/InsertSourceFile/data.json</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=data.json" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">{
+    "pageName": "//OpenForum/Extensions/InsertSourceFile",
+    "title": " Insert Source File"
+}</xmp>
 
 -<hr/>
 
-[<a href="/OpenForum/Extensions/InsertSourceFile/renderer.sjs">/OpenForum/Extensions/InsertSourceFile/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var sourcePageName = extension.getAttribute("pageName");
+[<a href="//OpenForum/Extensions/InsertSourceFile/renderer.sjs">//OpenForum/Extensions/InsertSourceFile/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var sourcePageName = extension.getAttribute("pageName");
 if(sourcePageName===null) {
   sourcePageName = pageName;
 }

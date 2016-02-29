@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="/OpenForum/Actions/Delete/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/Actions/Delete";
+		var pageName = "/OpenForum/Actions/Delete";
 		var author = "unknown";
 		var time = "1447152051000";
 	    var currentUser = "";
@@ -63,7 +63,7 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Actions">Delete</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="//OpenForum/Actions">Delete</a></li></nav>
     
     <!--PageContent Start-->
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Moves a page or file to the <a href="/OpenForum/DeletedPages">Deleted</a> page
@@ -95,7 +95,8 @@ fileName = transaction.getParameter("fileName");
 if( fileName===null ) {
   openForum.deletePage(pageName);
 
-  data = file.getAttachment("/Admin/Deleted","page.content");
+  //TODO Handle pages deleted from /OpenForum/DeletedPages
+  data = file.getAttachment("/OpenForum/DeletedPages","page.content");
   data = data + "\n*[Undelete "+pageName+"|/OpenForum/Actions/Move?pageName=/OpenForum/DeletedPages/"+pageName+"&newPageName="+pageName+"]";
   file.saveAttachment("/OpenForum/DeletedPages","page.content",data);
   openForum.refreshPage("/OpenForum/DeletedPages");

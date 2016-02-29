@@ -1,8 +1,7 @@
 function Tree() {
   var self = this;
   var createLeaves = function(pageName) {
-    var data = "";
-    var isFirst = true;
+    var data = [];
 
     try{
       var list = file.getAttachmentsForPage( pageName );
@@ -18,12 +17,7 @@ function Tree() {
         if(key.charAt(0)=='+') {
           continue;
         }
-        if(isFirst) {
-          isFirst = false;
-        } else {
-          data += ", ";
-        }
-        data += createFileLeaf( pageName, key );
+        data.push( createFileLeaf( pageName, key ) );
       }
 
       for(var i in keys) {
@@ -35,14 +29,8 @@ function Tree() {
           continue;
         } else {
 
-          if(isFirst) {
-            isFirst = false;
-          } else {
-            data += ", ";
-          }
-
           var item = key.substring(1);
-          data += createPageLeaf( pageName + "/" + item );
+          data.push( createPageLeaf( pageName + "/" + item ) );
         }
       }
     } catch (e) { }
@@ -54,29 +42,30 @@ function Tree() {
     var name = fileName;
     var extension = fileName.substring(fileName.lastIndexOf("."));
 
-    var data = "{\"name\": \"" + name + "\", ";
-    data += "\"attributes\": {";
+    var data = {
+      name: name,
+      attributes: { 
+        type: "file",
+        pageName: pageName,
+        fileName: fileName,
+        link: pageName+"/"+fileName,
+        icon: "attach",
+        actions: []
+      },
+      leaves: []
+    };
 
-    data += "\"actions\": [";
 
     if(extension===".link") {
-      data += "new Action( function(node){ window.open('/OpenForum/Actions/ForkLink?pageName=' + node.getAttribute('pageName') + '&fileName=' + node.getAttribute('fileName')); } , \"arrow_divide\", \"Fork linked file\" ), ";
+      data.attributes.actions.push( {fn: "function(node){ window.open('/OpenForum/Actions/ForkLink?pageName=' + node.getAttribute('pageName') + '&fileName=' + node.getAttribute('fileName')); }",
+                                     icon: "arrow_divide",
+                                     toolTip: "Fork linked file"} );
     } else {
-      data += "new Action( function(node){ window.open('/OpenForum/Editor?pageName=' + node.getAttribute('pageName') + '&fileName=' + node.getAttribute('fileName')); } , \"pencil\", \"Edit file\" ), ";
+      data.attributes.actions.push( {fn: "function(node){ window.open('/OpenForum/Editor?pageName=' + node.getAttribute('pageName') + '&fileName=' + node.getAttribute('fileName')); }",
+                                     icon: "pencil",
+                                     toolTip: "Edit file"} );
     }
 
-    data += "new Action( function(node){ window.open('/OpenForum/Actions/Delete?pageName='+node.getAttribute('pageName') + '&fileName=' + node.getAttribute('fileName')); } , \"cancel\", \"Delete file\" )";
-    data += "], ";
-
-    data += "\"type\": \"file\", ";
-    data += "\"pageName\": \"" + pageName + "\", ";
-    data += "\"fileName\": \"" + fileName + "\", ";
-    data += "\"link\": \"" + pageName + "/" + fileName + "\", ";
-    data += "\"icon\": \"attach\" ";
-
-    data += "} ,";
-    data += "\"leaves\": []";
-    data += "}";
     return data;
   };
 
@@ -87,49 +76,46 @@ function Tree() {
       name = name.substring(name.lastIndexOf("/")+1);
     }
 
-    var data = "{\"name\": \"" + name + "\", ";
-    data += "\"attributes\": {";
+    var data = {
+      name: name,
+      attributes: { 
+        type: "page",
+        pageName: pageName,
+        link: pageName,
+        icon: "page",
+        toolTip: "Open page",
+        actions: [] 
+      },
+      leaves:[]
+    };
 
-    data += "\"actions\": [";
-    data += "new Action( function(node){ window.open('/OpenForum/Editor?pageName='+node.getAttribute('pageName')); } , \"layout_edit\", \"Edit page\" ), ";
-    data += "new Action( function(node){ window.open('/OpenForum/Actions/Delete?pageName='+node.getAttribute('pageName')); } , \"cancel\", \"Delete page\" )";
-    data += "], ";
+    data.leaves = createLeaves( pageName );
+    
+    data.attributes.actions.push( { fn: "function(node){ window.open('/OpenForum/Editor?pageName='+node.getAttribute('pageName')); }", icon: "layout_edit", toolTip: "Edit page"} );
+    data.attributes.actions.push( { fn: "function(node){ window.open('/OpenForum/Actions/Delete?pageName='+node.getAttribute('pageName')); }", icon: "cancel", toolTip: "Delete page"} );
 
-    data += "\"type\": \"page\", ";
-    data += "\"pageName\": \"" + pageName + "\", ";
-    data += "\"link\": \"" + pageName + "\", ";
-    data += "\"icon\": \"page\", ";
-    data += "\"toolTip\": \"Open page\"";
-
-    data += "} ,";
-    data += "\"leaves\": [";
-    data += createLeaves( pageName );
-    data += "]";
-    data += "}";
     return data;
   };
-  
+
   self.createFileTree = function(pageName) {
-        pageName = pageName.replace(/\/\//g,"/");
+    pageName = pageName.replace(/\/\//g,"/");
     var name = pageName;
     if(name.indexOf("/")!=-1) {
       name = name.substring(name.lastIndexOf("/")+1);
     }
 
-    var data = "{\"name\": \"" + name + "\", ";
-    data += "\"attributes\": {";
-
-    data += "\"type\": \"page\", ";
-    data += "\"pageName\": \"" + pageName + "\", ";
-    data += "\"link\": \"" + pageName + "\", ";
-    data += "\"icon\": \"page\", ";
-    data += "\"toolTip\": \"Open page\"";
-
-    data += "} ,";
-    data += "\"leaves\": [";
-    data += createLeaves( pageName );
-    data += "]";
-    data += "}";
+    var data = {
+      name: name,
+      attributes: {
+        type: "page",
+        pageName: pageName,
+        link: pageName,
+        icon: "page",
+        toolTip: "Open page"
+      },
+      leaves: []
+    };
+    data.leaves = createLeaves( pageName );
     return data;
   };
 }

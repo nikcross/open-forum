@@ -1,9 +1,9 @@
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> Saves a pages source as page.wiki and rebuilds the page. Also saves the tags to tags.txt
 <hr/>
 <h3>Post Data</h3>
-<ul><li>pageName<br/</li>
-<li>source<br/</li>
-<li>tags<br/</li>
+<ul><li>pageName<br/><br/></li>
+<li>source<br/><br/></li>
+<li>tags<br/><br/></li>
 
 -<hr/>
 <h3>Server Side Javascript for POST method</h3>

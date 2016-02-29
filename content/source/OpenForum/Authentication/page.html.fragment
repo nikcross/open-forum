@@ -1,4 +1,4 @@
-<a href="/OpenForum/Authentication/login.sjs">/OpenForum/Authentication/login.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Authentication&fileName=login.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var result = false;
+<a href="//OpenForum/Authentication/login.sjs">//OpenForum/Authentication/login.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Authentication&fileName=login.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var result = false;
 var name = login.getUser().getName();
 var testPassword = file.getAttachment("/Admin/Users/"+name+"/private","password.txt");
 

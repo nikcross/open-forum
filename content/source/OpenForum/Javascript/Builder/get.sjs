@@ -4,8 +4,9 @@ if( action===null ) {
   return;
 }
 
+try{
   action = ""+action; // Cast to String
-  var result = "";
+  var result = {};
   var HR = "//==============================================================================================================//\n";
   
   if(action === "build") {
@@ -24,9 +25,11 @@ if( action===null ) {
     
     build.build();
     
-    result = JSON.stringify({result: "ok", message: "Built "+build.getBuildParameter("targetFile")+" and "+build.getBuildParameter("versionedTargetFile")});
+    result = {result: "ok", message: "Built "+build.getBuildParameter("targetFile")+" and "+build.getBuildParameter("versionedTargetFile")};
   } else {
-      result = "action not recognised";
+    result = { result: "error", message: "Action "+action+" not recognised"};
   }
-
-  transaction.sendPage( result );
+} catch(e) {
+    result = { result: "error", message: ""+e+" at "+e.lineNumber};
+}
+  transaction.sendJSON( JSON.stringify(result) );

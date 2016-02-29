@@ -2,7 +2,7 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
   var self = this;
   var cm = null;
 
-  this.init = function() {
+  self.init = function() {
     var content = OpenForum.loadFile("/OpenForum/Editor/Editors/JavascriptEditor/page.html.fragment");
     content = content.replace(/\{\{editorIndex\}\}/g,editorIndex);
     OpenForum.setElement("editor"+editorIndex,content);
@@ -43,23 +43,32 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
     });
   };
 
-  this.getCodeMirror = function() {
+  self.getCodeMirror = function() {
     return cm;
   };
 
-  this.refresh = function() {
+  self.refresh = function() {
     if(cm) cm.refresh();
   };
 
-  this.getValue = function() {
+  self.getValue = function() {
     return cm.getValue();
   };
 
-  this.setValue = function(newData) {
+  self.setValue = function(newData) {
     cm.setValue(newData);
   };
 
-  this.documentation = [
+  self.renderOptions = function() {
+    //renderTabOption(name,toolTip,action)
+    var data = "";
+    
+    data += renderTabOption("Close","Close editor","closeEditor( "+editorIndex+" )");
+    data += renderTabOption("Save","Save "+pageName+"/"+fileName,"saveFile( '"+pageName+"' , '"+fileName+"' )");
+    return data;
+  };
+  
+  self.documentation = [
     {pageName: "/Development/StandardJavascript/Global", title:"Global JS"},
     {pageName: "/Development/StandardJavascript/Array", title:"JS Arrays"},
     {pageName: "/Development/StandardJavascript/Math", title:"JS Math"},
@@ -69,10 +78,10 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
   ];
 
   if(fileName.indexOf(".js")!=-1) {
-    this.documentation.push( {pageName: "/Development/OpenForumJavascript/Overview", title:"OpenForum Javascript"} );
-    this.documentation.push( {pageName: "/Development/OpenForumJavascript/DependencyService/Overview", title:"OpenForum DependencyService"} );
+    self.documentation.push( {pageName: "/Development/OpenForumJavascript/Overview", title:"OpenForum Javascript"} );
+    self.documentation.push( {pageName: "/Development/OpenForumJavascript/DependencyService/Overview", title:"OpenForum DependencyService"} );
   } else if(fileName==="get.sjs" || fileName==="post.sjs") {
-    this.documentation.push( {pageName: "/OpenForumDocumentation/OpenForumServerSideJavascript/OpenForum", title: "SJS Transaction"} );
+    self.documentation.push( {pageName: "/OpenForumDocumentation/OpenForumServerSideJavascript/OpenForum", title: "SJS Transaction"} );
   }
 
   OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/theme/rubyblue.css");

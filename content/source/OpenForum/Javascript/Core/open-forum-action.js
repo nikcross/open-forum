@@ -1,6 +1,6 @@
 OpenForum.action = {};
 OpenForum.action.copyPage = function(pageName,newPageName) {
-  OpenForum.loadFile("/OpenForum/Actions/Copy?newPageName="+newPageName+"&sourcePageName="+pageName);
+  OpenForum.loadFile("/OpenForum/Actions/Copy?newPageName="+newPageName+"&pageName="+pageName);
 };
 
 OpenForum.action.movePage = function(pageName,newPageName) {

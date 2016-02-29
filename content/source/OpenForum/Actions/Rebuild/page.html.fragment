@@ -1,17 +1,17 @@
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Requests Wiki to rebuild pages
 <hr/>
-!<h3>Parameters</h3>
+<h3>Parameters</h3>
 <ul><li> pageName - The pageName to return to</li>
 
 <hr/>
-!<h3>Usage:</h3>
+<h3>Usage:</h3>
 <xmp class="panel">
 /OpenForum/Actions/Rebuild?pageName=/Home
 </xmp>
 [<a href="/OpenForum/Actions/Rebuild?pageName=/Home">/OpenForum/Actions/Rebuild?pageName=/Home</a>
 
 <hr/>
-!<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);

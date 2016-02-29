@@ -2,45 +2,46 @@ if(!OpenForum) {
   OpenForum = {};
 }
 OpenForum.VideoCapture = function(videoCanvasId,options) {
-  this.cameras = [];
-  this.microphones = [];
+  var self = this;
+  
+  self.cameras = [];
+  self.microphones = [];
   
 //alert( "2. OpenForum.VideoCapture.defaultCamera="+OpenForum.VideoCapture.defaultCamera );
-  this.camera = OpenForum.VideoCapture.defaultCamera;
-  this.cameraId = "";
-  var self = this;
+  self.camera = OpenForum.VideoCapture.defaultCamera;
+  self.cameraId = "";
   var localMediaStream =null;
   var frame;
   var paused = false;
-  this.width = 640;
-  this.height = 480;
+  self.width = 640;
+  self.height = 480;
   
   if(options) {
     if(options.width && options.height) {
-      this.width = options.width;
-      this.height = options.height;
+      self.width = options.width;
+      self.height = options.height;
     }
   }
   
-  OpenForum.videoCapture = this;
+  OpenForum.videoCapture = self;
   
   // <video autoplay id="videoIn" width="640" height="480"  style="display: none;"></video>
-  this.video = document.createElement("video");
-  this.video.setAttribute("autoplay","true");
-  this.video.setAttribute("width",self.width);
-  this.video.setAttribute("height",self.height);
-  this.video.setAttribute("style","display: none;");
-  document.getElementsByTagName("head")[0].appendChild(this.video);
+  var video = document.createElement("video");
+  video.setAttribute("autoplay","true");
+  video.setAttribute("width",self.width);
+  video.setAttribute("height",self.height);
+  video.setAttribute("style","display: none;");
+  document.getElementsByTagName("head")[0].appendChild(video);
   
-  //this.video = document.getElementById("videoIn");
-  this.ctx = document.getElementById(videoCanvasId).getContext('2d');
+  //video = document.getElementById("videoIn");
+  var ctx = document.getElementById(videoCanvasId).getContext('2d');
   
     navigator.getUserMedia  = navigator.getUserMedia ||
                           navigator.webkitGetUserMedia ||
                           navigator.mozGetUserMedia ||
                           navigator.msGetUserMedia;
   
-  this.updateSources = function(callback) {
+  self.updateSources = function(callback) {
     MediaStreamTrack.getSources(function(sourceInfos) {
       var audioSource = null;
       var videoSource = null;
@@ -65,40 +66,40 @@ OpenForum.VideoCapture = function(videoCanvasId,options) {
                                );
   };
   
-  this.getFrame = function() {
+  self.getFrame = function() {
     return frame;
   };
   
-  this.pause = function() {
+  self.pause = function() {
     paused = true;
   };
   
-  this.resume = function() {
+  self.resume = function() {
     paused = false;
   };
   
-  this.snapshot = function() {
+  self.snapshot = function() {
     if (localMediaStream) {
       if(!paused) {
-        self.ctx.drawImage(self.video, 0, 0);
-        frame = self.ctx.getImageData(0, 0, self.width, self.height);
+        ctx.drawImage(video, 0, 0);
+        frame = ctx.getImageData(0, 0, self.width, self.height);
       }
       
       if(self.processFrame) {
         var frameData = frame.data;
         var imageData = new ImageData(self.width,self.height,frameData);
         self.processFrame(imageData);
-        self.ctx.putImageData(frame,0,0);
+        ctx.putImageData(frame,0,0);
       }
       self.overlayFrame();
     }
   };
   
-  this.onError = function() {
+  self.onError = function() {
     alert("Error Found");
   };
   
-  this.getCameraId = function (cameraName) {
+  self.getCameraId = function (cameraName) {
     for(var camerai in self.cameras) {
       if(self.cameras[camerai].label === cameraName) {
         return self.cameras[camerai].id;
@@ -107,7 +108,7 @@ OpenForum.VideoCapture = function(videoCanvasId,options) {
     return null;
   };
   
-  this.updateSource = function() {
+  self.updateSource = function() {
     localStorage.setItem("OpenForum.VideoCapture.camera", self.camera);
     self.cameraId = self.getCameraId(self.camera);
 //alert(self.cameraId);
@@ -117,8 +118,8 @@ OpenForum.VideoCapture = function(videoCanvasId,options) {
      },
      function(stream) {
        window.stream = stream;
-        self.video.src = window.URL.createObjectURL(stream);
-       self.video.play();
+        video.src = window.URL.createObjectURL(stream);
+       video.play();
         localMediaStream = stream;
      },
      self.onError
@@ -126,19 +127,20 @@ OpenForum.VideoCapture = function(videoCanvasId,options) {
   };
   
 //  this.processFrame = function(imageData) { return imageData; };
-  this.overlayFrame = function() {};
+  self.overlayFrame = function() {};
   
-  this.updateSources( this.updateSource );
+  self.updateSources( this.updateSource );
   
   setInterval( function() { self.snapshot(); } ,25);
 };
 
 var ImageData = function(iwidth,iheight,idata) {
+  var self = this;
   var width = iwidth;
   var height = iheight;
   var data = idata;
 
-  this.getPixel = function(x,y) {
+  self.getPixel = function(x,y) {
     var cursor = ((y*width)+x)*4;
     return [data[cursor],data[cursor+1],data[cursor+2],data[cursor+3]];
   };

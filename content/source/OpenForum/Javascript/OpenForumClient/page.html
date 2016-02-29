@@ -9,9 +9,9 @@
 	<script type="text/javascript" src="/OpenForum/Javascript/OpenForumClient/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/Javascript/OpenForumClient";
+		var pageName = "/OpenForum/Javascript/OpenForumClient";
 		var author = "unknown";
-		var time = "1451912787000";
+		var time = "1454950506000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -63,10 +63,33 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">OpenForumClient</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="//OpenForum/Javascript">OpenForumClient</a></li></nav>
     
     <!--PageContent Start-->
+<a href="//OpenForum/Javascript/OpenForumClient/open-forum-client.js">//OpenForum/Javascript/OpenForumClient/open-forum-client.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OpenForumClient&fileName=open-forum-client.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
+  OpenForum = {};
+}
 
+OpenForum.clients = [];
+
+OpenForum.Client = function(id) {
+  var identifier = id;
+  
+  this.sendCommand = function(command) {
+    command = command.replace(/\"/g,"'");
+    command = "action: "+command;
+  };
+  
+  
+};
+
+OpenForum.addClient = function(identifier) {
+  var newClient = new OpenForum.Client(identifier);
+  
+  OpenForum.clients.push(newClient);
+  
+  return newClient;
+};</xmp>
 <!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
 <!--Page Content End-->
       

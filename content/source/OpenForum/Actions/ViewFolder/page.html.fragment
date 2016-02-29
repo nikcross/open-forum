@@ -1,9 +1,9 @@
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Creates a page view of a folder
 <hr/>
-!<h3>Parameters</h3>
+<h3>Parameters</h3>
 <ul><li> pageName - Name of the page to view as a folder</li>
 <hr/>
-!<h3>Usage:</h3>
+<h3>Usage:</h3>
 <xmp class="panel">
 /OpenForum/Actions/ViewFolder?folderName=Folder to View
 </xmp>
@@ -11,7 +11,7 @@
 <a href="/OpenForum/Actions/ViewFolder?pageName=/OpenForum/Actions/ViewFolder">/OpenForum/Actions/ViewFolder?pageName=/OpenForum/Actions/ViewFolder</a>
 
 <hr/>
-!<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);

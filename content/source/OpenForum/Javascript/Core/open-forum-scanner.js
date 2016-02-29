@@ -459,7 +459,7 @@ var OpenForum = new function(){
       return;
     }
     document.getElementById(id).action="/OpenForum/Actions/Attach?page="+pageName;
-    document.getElementById(id).statusQueue.value = statusQueueName;
+    //document.getElementById(id).statusQueue.value = statusQueueName;
     document.getElementById(id).submit();
   };
 

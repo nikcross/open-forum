@@ -9,9 +9,9 @@
 	<script type="text/javascript" src="/OpenForum/Spider/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/Spider";
+		var pageName = "/OpenForum/Spider";
 		var author = "unknown";
-		var time = "1453203605000";
+		var time = "1455291725000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -63,13 +63,29 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="/OpenForum">Spider</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="//OpenForum">Spider</a></li></nav>
     
     <!--PageContent Start-->
-<a class="button tiny" onClick="runSpider(); return false;">Release Spider</a>
-<a class="button tiny" onClick="stopSpider(); return false;">Stop Spider</a>
-<a class="button tiny" onClick="clearLog(); return false;">Clear Log</a>
+<div class="row">
+  <div class="large-12 columns">
+    <form>
+	<div id="editor0">Editor Loading...</div>
+      <br/>
+<center>
+      <a class="button tiny" onClick="runSpider(); return false;">Release Spider</a>
+      <a class="button tiny" onClick="stopSpider(); return false;">Stop Spider</a>
+      <a class="button tiny" onClick="clearLog(); return false;">Clear Log</a>
+</center>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+<div class="panel callout radius">
 <xmp id="queueData"></xmp>
+</div>
+      </div>
+</div>
 <!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
 <!--Page Content End-->
       

@@ -1,0 +1,9 @@
+{
+    "version": "0.0.0",
+    "targetFile": "<file name and path>",
+    "versionFile": "<file name and path>",
+	"steps": [
+		{"action": "append", "file": "<file name and path>"},
+		{"action": "append", "file": "<file name and path>"}
+	]
+}

@@ -1,3 +1,5 @@
+if(pageName.charAt(0)!="/") pageName = "/"+pageName;
+
 var pageTemplate = file.getPageInheritedFileAsString(pageName,"page.html.template");
 if( pageTemplate===null ) {
 	// Get header content

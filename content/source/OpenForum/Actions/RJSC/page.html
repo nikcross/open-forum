@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="/OpenForum/Actions/RJSC/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/Actions/RJSC";
+		var pageName = "/OpenForum/Actions/RJSC";
 		var author = "unknown";
 		var time = "1447152051000";
 	    var currentUser = "";
@@ -63,7 +63,7 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Actions">RJSC</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="//OpenForum/Actions">RJSC</a></li></nav>
     
     <!--PageContent Start-->
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Remote Javascript Call
@@ -79,7 +79,7 @@
 
 -<hr/>
 <h3>Server Side Javascript for GET method</h3>
-<a href="/OpenForum/Actions/RJSC/get.sjs">/OpenForum/Actions/RJSC/get.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Actions/RJSC&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">code = transaction.getParameter("code");
+<a href="//OpenForum/Actions/RJSC/get.sjs">//OpenForum/Actions/RJSC/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/RJSC&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">code = transaction.getParameter("code");
 queueName = transaction.getParameter("queueName");
 if( code===null )
 {
@@ -114,7 +114,7 @@ catch(e)
    println(e);
   }
   catch(e2){}
-  transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber()+" of "+e.sourceName(), saved: false}));
+  transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber+" of "+e.sourceName, saved: false}));
 }</xmp>
 <!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
 <!--Page Content End-->

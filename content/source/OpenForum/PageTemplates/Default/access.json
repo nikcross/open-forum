@@ -1,7 +1,10 @@
 {
 	"userAccess": {
 		"read": {
-			"Guest": true
+			"Guest": true,
+              "Alex": true,
+              "Theo": true,
+                "NT": true
 		},
 		"write": {
 			"Author": true

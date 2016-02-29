@@ -1,12 +1,12 @@
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Renders Wiki Data to HTML
 <hr/>
-!<h3>Parameters</h3>
+<h3>Parameters</h3>
 <ul><li>pageName</li>
 <li>data</li>
 or<li>sourcePageName</li>
 <li>fileName</li>
 <hr/>
-!<h3>Usage:</h3>
+<h3>Usage:</h3>
 <xmp class="panel">
 RenderWikiData?pageName=PageName&data=WikiData
 or
@@ -14,7 +14,7 @@ RenderWikiData?pageName=PageName&sourcePageName=PageName&fileName=FileName
 </xmp>
 
 <hr/>
-!<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);

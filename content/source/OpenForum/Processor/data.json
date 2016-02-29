@@ -1,3 +1,5 @@
 {
-  "apiClass": "org.onestonesoup.javascript.helper.Process"
+    "apiClass": "org.onestonesoup.javascript.helper.Process",
+    "pageName": "//OpenForum/Processor",
+    "title": " Processor"
 }

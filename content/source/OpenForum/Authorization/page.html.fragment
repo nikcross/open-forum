@@ -1,4 +1,4 @@
-<a href="/OpenForum/Authorization/access.sjs">/OpenForum/Authorization/access.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Authorization&fileName=access.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//create function
+<a href="//OpenForum/Authorization/access.sjs">//OpenForum/Authorization/access.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Authorization&fileName=access.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//create function
 function access() {
   var userName = ""+login.getUser().getName();
   if(userName==="Admin" || userName==="System") {

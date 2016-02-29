@@ -46,7 +46,7 @@ Creates a bulleted list of child pages
 
 -<hr/>
 <h3>renderer.sjs</h3>
-<a href="/OpenForum/Extensions/ChildPagesList/renderer.sjs">/OpenForum/Extensions/ChildPagesList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/ChildPagesList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">targetPage = extension.getAttribute("pageName");
+<a href="//OpenForum/Extensions/ChildPagesList/renderer.sjs">//OpenForum/Extensions/ChildPagesList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildPagesList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">targetPage = extension.getAttribute("pageName");
 if(targetPage===null) {
   targetPage = pageName;
 }

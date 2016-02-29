@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="/OpenForum/Extensions/ActionButton/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/Extensions/ActionButton";
+		var pageName = "/OpenForum/Extensions/ActionButton";
 		var author = "unknown";
 		var time = "1447152051000";
 	    var currentUser = "";
@@ -63,17 +63,17 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">ActionButton</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="//OpenForum/Extensions">ActionButton</a></li></nav>
     
     <!--PageContent Start-->
 A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
 -<hr/>
-!<h3>Parameters</h3>
+<h3>Parameters</h3>
 <ul><li> action = Action Name</li>
 <li> text = Action button text</li>
 
 <hr/>
-!<h3>Usage:</h3>
+<h3>Usage:</h3>
 <xmp class="panel">
 [{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
 </xmp>
@@ -81,7 +81,7 @@ A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
 
 <hr/>
 
-<a href="/OpenForum/Extensions/ActionButton/renderer.sjs">/OpenForum/Extensions/ActionButton/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/ActionButton&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">action = extension.getAttribute("action");
+<a href="//OpenForum/Extensions/ActionButton/renderer.sjs">//OpenForum/Extensions/ActionButton/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ActionButton&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">action = extension.getAttribute("action");
 parameters = extension.getAttribute("parameters");
 text = extension.getAttribute("text");
 

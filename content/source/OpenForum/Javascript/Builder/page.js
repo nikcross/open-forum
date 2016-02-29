@@ -1,0 +1,1 @@
+OpenForum.loadScript("/OpenForum/Javascript/Builder/build-client.js");

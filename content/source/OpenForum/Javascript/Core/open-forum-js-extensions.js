@@ -36,12 +36,8 @@ String.prototype.padAfter = function(padding) {
 };
 
 //---- Date extra methods
-Date.prototype.simpleDateFormat = function() {
-  return (this.getDay()+1).padBefore(2,"0") + "/" + this.getDay().padBefore(2,"0") + "/" + this.getFullYear();
-};
-
-Date.prototype.simpleTimeFormat = function() {
-  return (this.getHours()).padBefore(2,"0") + ":" + this.getMinutes().padBefore(2,"0") + ":" + this.getSeconds().padBefore(2,"0");
+Date.prototype.getDisplayString = function() {
+  return (""+this).substring(0,24);
 };
 
 Date.prototype.SECOND_IN_MILLIS = 1000;
