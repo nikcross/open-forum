@@ -143,7 +143,11 @@ public class SessionCookieAuthenticator implements Authenticator {
 			e.printStackTrace();
 		}
 		String testHashedPassword = generateMD5(password + hash);
-		String sessionId = null;
+		String sessionId = getSessionId(httpHeader);
+		if(sessionId!=null) {
+			sessionStore.invalidateSession(sessionId);
+		}
+		
 		if (testHashedPassword.equals(hashedPassword)) {
 			sessionId = sessionStore.createSession(userId);
 		}
