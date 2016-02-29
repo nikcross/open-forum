@@ -1,6 +1,0 @@
-var searchTerm="";
-
-
-function doSearch() {
-  
-}

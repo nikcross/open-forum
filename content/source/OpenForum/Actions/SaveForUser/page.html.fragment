@@ -1,23 +1,0 @@
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> Saves some text as an attachment
-<hr/>
-<h3>Post Parameters</h3>
-<ul><li>pageName - The name of the page to save attachment to</li>
-<li>fileName - The file name for the attachment</li>
-<li>data - The data to place in the attachment</li>
-
-<hr/>
-<h3>Server Side Javascript for POST method</h3>
-<xmp class="panel"> transaction.getPostData();
-
-pageName = transaction.getPostParameter("pageName");
-transaction.userCanPerformAction(pageName,"update",true);
-
-fileName = transaction.getPostParameter("fileName");
-data = transaction.getPostParameter("data");
-user = transaction.getUser();
-
-wiki.saveAsAttachment(pageName,fileName,data,user);
-wiki.buildPage(pageName);
-
-transaction.goToPage(pageName); </xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

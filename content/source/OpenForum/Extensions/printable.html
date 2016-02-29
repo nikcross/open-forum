@@ -1,111 +1,0 @@
-<a name="section1"></a><hr/><a name="section2"></a>
-<h3>Update The Extensions List</h3><ul><li><a href="/OpenForum/UpdateExtensionsPage?save=false" title="/OpenForum/UpdateExtensionsPage?save=false">Preview</a></li><li><a href="/OpenForum/UpdateExtensionsPage?save=true" title="/OpenForum/UpdateExtensionsPage?save=true">Save</a></li></ul>
-<hr/><a name="section3"></a>
-<h3>Create a New Wiki Markup Extension</h3><form name="templateSubmitForm" id="templateSubmitForm" action="/OpenForum/Actions/Copy" method="post">
-Extension Name:<input type="input" name="_newPageName" value="">
-<input type="hidden" name="newPageName">
-<input type="hidden" name="sourcePageName" value="/OpenForum/PageTemplates/WikiExtensionPage">
-<input type="button" value="Create Wiki Markup Extension" onclick="createTemplate();return false;">
-</form>
-<hr/><h3>Wiki Markup Extensions
-<table class="wikiTable"><tr class="wikiTableTitle"><td class="wikiTableTitle">Name</td><td class="wikiTableTitle">Description</td><td class="wikiTableTitle">Information</td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>ActionButton</b></td><td class="wikiTableCell"><a name="section1"></a>A button that fires an <a href="/OpenForum/Actions" title="/OpenForum/Actions">OpenForum GET action</a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/ActionButton" title="/OpenForum/Extensions/ActionButton">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>AttachmentsList</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a bulleted list of attachments on a pages
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/AttachmentsList" title="/OpenForum/Extensions/AttachmentsList">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>BarField</b></td><td class="wikiTableCell"><a name="section1"></a>A Bar Graph field
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/BarField" title="/OpenForum/Extensions/BarField">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>ChildPagesList</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a bulleted list of child pages
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/ChildPagesList" title="/OpenForum/Extensions/ChildPagesList">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>CrumbTrail</b></td><td class="wikiTableCell"><a name="section1"></a>Displays a page hierachy trail
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/CrumbTrail" title="/OpenForum/Extensions/CrumbTrail">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>DevNotes</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a link to Developer Notes
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/DevNotes" title="/OpenForum/Extensions/DevNotes">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>DropList</b></td><td class="wikiTableCell"><a name="section1"></a>A left menu drop down section
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/DropList" title="/OpenForum/Extensions/DropList">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>DropSelect</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a Drop Select field for use in web forms.
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/DropSelect" title="/OpenForum/Extensions/DropSelect">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>EndDropTab</b></td><td class="wikiTableCell"><a name="section1"></a><a href="/OpenForum/Extensions/StartDropTab" title="/OpenForum/Extensions/StartDropTab">See: StartDropTab</a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/EndDropTab" title="/OpenForum/Extensions/EndDropTab">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>EndEditForm</b></td><td class="wikiTableCell"><a name="section1"></a><a href="" title="" onclick="window.open('');return false;">See: /OpenForum/Extensions/StartEditForm <img src="/OpenForum/Images/icons/gif/link_go.gif" border="0" class="node"></a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/EndEditForm" title="/OpenForum/Extensions/EndEditForm">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>EndMenu</b></td><td class="wikiTableCell"><a name="section1"></a>Marks the end of a menu
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/EndMenu" title="/OpenForum/Extensions/EndMenu">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>EndMenuDropDown</b></td><td class="wikiTableCell"><a name="section1"></a><a href="/OpenForum/Extensions/StartMenuDropDown" title="/OpenForum/Extensions/StartMenuDropDown">See:StartMenuDropDown</a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/EndMenuDropDown" title="/OpenForum/Extensions/EndMenuDropDown">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>EndNewsColumn</b></td><td class="wikiTableCell"><a name="section1"></a><a href="/OpenForum/Extensions/StartNewsColumn" title="/OpenForum/Extensions/StartNewsColumn">See: StartNewsColumn</a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/EndNewsColumn" title="/OpenForum/Extensions/EndNewsColumn">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>EndNewsPage</b></td><td class="wikiTableCell"><a name="section1"></a><a href="/OpenForum/Extensions/StartNewsPage" title="/OpenForum/Extensions/StartNewsPage">See: StartNewsPage</a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/EndNewsPage" title="/OpenForum/Extensions/EndNewsPage">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>FormSubmit</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a submit button to a form
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/FormSubmit" title="/OpenForum/Extensions/FormSubmit">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>Glossary</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a Glossary Entry if on the Glossary page or a link to the term if on any other page.
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Glossary" title="/OpenForum/Extensions/Glossary">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>GoField</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a dropdown selection field of all Wiki Pages
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/GoField" title="/OpenForum/Extensions/GoField">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>GoToMark</b></td><td class="wikiTableCell"><a name="section1"></a><a href="/OpenForum/Extensions/MarkPage" title="/OpenForum/Extensions/MarkPage">See: MarkPage</a>
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/GoToMark" title="/OpenForum/Extensions/GoToMark">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>Help</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a Help link
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Help" title="/OpenForum/Extensions/Help">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>Histogram</b></td><td class="wikiTableCell"><a name="section1"></a>Displays a Histogram from a csv file
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Histogram" title="/OpenForum/Extensions/Histogram">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>Icon</b></td><td class="wikiTableCell"><a name="section1"></a>Places an icon on the page
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Icon" title="/OpenForum/Extensions/Icon">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>InputField</b></td><td class="wikiTableCell"><a name="section1"></a>Inserts a form input field.
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/InputField" title="/OpenForum/Extensions/InputField">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>InsertFile</b></td><td class="wikiTableCell"><a name="section1"></a>Inserts a files contents into the page
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/InsertFile" title="/OpenForum/Extensions/InsertFile">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>InsertSourceFile</b></td><td class="wikiTableCell"><a name="section1"></a>Inserts a files contents into the page
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/InsertSourceFile" title="/OpenForum/Extensions/InsertSourceFile">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>JSClip</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a Client Side Javascript Clip Link
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/JSClip" title="/OpenForum/Extensions/JSClip">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>JSClipFile</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a link to a Client Side Javascript Clip File
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/JSClipFile" title="/OpenForum/Extensions/JSClipFile">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>LiveField</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a live data view field
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/LiveField" title="/OpenForum/Extensions/LiveField">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>MarkPage</b></td><td class="wikiTableCell"><a name="section1"></a>Mark a point in a page that can be referenced
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/MarkPage" title="/OpenForum/Extensions/MarkPage">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>MenuItem</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a drop down menu of links
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/MenuItem" title="/OpenForum/Extensions/MenuItem">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>PagesListField</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a dropdown selection field of all Wiki Pages
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/PagesListField" title="/OpenForum/Extensions/PagesListField">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>Photograph</b></td><td class="wikiTableCell"><a name="section1"></a>Inserts an image in a frame with a title and a caption
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Photograph" title="/OpenForum/Extensions/Photograph">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>PopoutPageButton</b></td><td class="wikiTableCell"><a name="section1"></a>Shows a button that pops out a page into a new window
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/PopoutPageButton" title="/OpenForum/Extensions/PopoutPageButton">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>Popup</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a link that pops up a Wiki page in a layer
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Popup" title="/OpenForum/Extensions/Popup">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>ReadOnlyField</b></td><td class="wikiTableCell"><a name="section1"></a>Inserts a form read only field.
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/ReadOnlyField" title="/OpenForum/Extensions/ReadOnlyField">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>Redirect</b></td><td class="wikiTableCell"><a name="section1"></a>Transfers a page to another page 
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Redirect" title="/OpenForum/Extensions/Redirect">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>SearchField</b></td><td class="wikiTableCell"><a name="section1"></a>A site search field
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/SearchField" title="/OpenForum/Extensions/SearchField">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>SliderField</b></td><td class="wikiTableCell"><a name="section1"></a>A draggable slider field
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/SliderField" title="/OpenForum/Extensions/SliderField">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>SourceEditor</b></td><td class="wikiTableCell"><a name="section1"></a>-Description-
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/SourceEditor" title="/OpenForum/Extensions/SourceEditor">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>StartDropTab</b></td><td class="wikiTableCell"><a name="section1"></a>Starts a drop down tab
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/StartDropTab" title="/OpenForum/Extensions/StartDropTab">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>StartEditForm</b></td><td class="wikiTableCell"><a name="section1"></a>Start a Wiki page form
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/StartEditForm" title="/OpenForum/Extensions/StartEditForm">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>StartMenu</b></td><td class="wikiTableCell"><a name="section1"></a>Creates a drop down menu
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/StartMenu" title="/OpenForum/Extensions/StartMenu">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>StartMenuDropDown</b></td><td class="wikiTableCell"><a name="section1"></a>Alows the definition of a freeform drop down menu
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/StartMenuDropDown" title="/OpenForum/Extensions/StartMenuDropDown">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>StartNewsColumn</b></td><td class="wikiTableCell"><a name="section1"></a>Starts a new news column in a news page
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/StartNewsColumn" title="/OpenForum/Extensions/StartNewsColumn">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>StartNewsPage</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a multicolumn layout like a news paper format.
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/StartNewsPage" title="/OpenForum/Extensions/StartNewsPage">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>Tab</b></td><td class="wikiTableCell"><a name="section1"></a>Not yet implemented
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Tab" title="/OpenForum/Extensions/Tab">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>Thumbnail</b></td><td class="wikiTableCell"><a name="section1"></a>Inserts an image thumbnail with a link to the full size image.
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/Thumbnail" title="/OpenForum/Extensions/Thumbnail">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>ViewCounter</b></td><td class="wikiTableCell"><a name="section1"></a>Adds a page view count to a page
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/ViewCounter" title="/OpenForum/Extensions/ViewCounter">more...</a></td></tr>
-<tr class="wikiTableOddRow"><td class="wikiTableCell"><b>WebChatField</b></td><td class="wikiTableCell"><a name="section1"></a>Web Chat send field
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/WebChatField" title="/OpenForum/Extensions/WebChatField">more...</a></td></tr>
-<tr class="wikiTableEvenRow"><td class="wikiTableCell"><b>WebChatView</b></td><td class="wikiTableCell"><a name="section1"></a>Displays a Web Chat queue
-</td><td class="wikiTableCell"><a href="/OpenForum/Extensions/WebChatView" title="/OpenForum/Extensions/WebChatView">more...</a></td></tr>
-</table>
-<table width="100%"><tr><td align="right"><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/ExtendedWikiMarkup" title="Help on using Extended Wiki Markup"><img border="0" src="/OpenForum/Images/icons/gif/information.gif"></a></td></tr></table></h3><table width="100%"><tr><td align="right"><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/ExtendingWikiMarkup" title="How to Extend Wiki Markup"><img border="0" src="/OpenForum/Images/icons/gif/wrench.gif"></a></td></tr></table>

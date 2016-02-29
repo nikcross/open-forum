@@ -1,5 +1,0 @@
-__[Post Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ &source;
-
-----
-!!Server Side Javascript for POST method
-[{InsertSourceFile fileName="post.sjs"}]

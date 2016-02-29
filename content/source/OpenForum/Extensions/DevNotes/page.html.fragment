@@ -1,19 +1,0 @@
-Adds a link to Developer Notes
-<hr/>
-<h3>Parameters</h3>
-<ul><li>page - The page containing the notes content</li>
-<li>toolTip - The tool tip to popup on mouse over</li>
-<hr/>
-<h3>Usage:</h3>
-<xmp class="panel">
-[{DevNotes page="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/ExtendingWikiMarkup" toolTip="Developer Notes on extending Wiki Markup"}]
-</xmp>
-[<table width="100%"><tr><td align="right"><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/ExtendingWikiMarkup" title="Developer Notes on extending Wiki Markup"><img border="0" src="/OpenForum/Images/icons/gif/wrench.gif"></a></td></tr></table>
-
-<hr/>
-<h3>renderer.sjs</h3>
-<xmp class="panel">page = extension.getAttributeValueByName("page");
-toolTip = extension.getAttributeValueByName("toolTip");
-
-return "<table width=\"100%\"><tr><td align=\"right\"><a href=\""+page+"\" title=\""+toolTip+"\"><img border=\"0\" src=\"/OpenForum/Images/wrench.png\"></a></td></tr></table>"</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>
