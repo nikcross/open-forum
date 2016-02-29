@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="/OpenForum/Extensions/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/Extensions";
+		var pageName = "/OpenForum/Extensions";
 		var author = "unknown";
 		var time = "1447152051000";
 	    var currentUser = "";
@@ -63,248 +63,29 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="/OpenForum">Extensions</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="//OpenForum">Extensions</a></li></nav>
     
     <!--PageContent Start-->
-<h3>Wiki Markup Extensions</h3>
-<table><tr><td>Name</td><td>Description</td><td>Information</td></tr>
-<tr><td><b>ActionButton</b></td><td>A button that fires an [OpenForum GET action</td><td>/OpenForum/Actions]
-----
-!!Parameters
-* action = Action Name
-* text = Action button text
+<h3>Wiki Extended Markup</h3>
 
-----
-!!Usage:
-{{{
-[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
-}}}
-[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
 
-----
-
-[{InsertSourceFile fileName="renderer.sjs"}]</td><td><a href="/OpenForum/Extensions/ActionButton">more...</a></td></tr>
-<tr><td><b>AttachmentsList</b></td><td>Creates a bulleted list of attachments on a pages
-----
-!!Parameters
-*pageName - The page to list (optional. default = current page)
-----
-!!Usage:
-{{{
-[{AttachmentsList matching=".txt"}]
-}}}
-[{AttachmentsList matching=".txt"}]
-
-----
-
-[{InsertSourceFile fileName="renderer.sjs"}]</td><td><a href="/OpenForum/Extensions/AttachmentsList">more...</a></td></tr>
-<tr><td><b>BarField</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/BarField"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/BarField does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>ChildPagesList</b></td><td>Creates a bulleted list of child pages
-----
-!!Parameters
-*pageName - The page to list (optional. default = current page)
-----
-!!Usage:
-{{{
-[{ChildPagesList pageName="/OpenForum"}]
-}}}
-[{ChildPagesList pageName="/OpenForum"}]
-
-----
-!!renderer.sjs
-[{InsertSourceFile fileName="renderer.sjs"}]</td><td><a href="/OpenForum/Extensions/ChildPagesList">more...</a></td></tr>
-<tr><td><b>CrumbTrail</b></td><td>Displays a page hierachy trail
-----
-!!Parameters
-----
-!!Usage:
-{{{
-[{CrumbTrail}]
-}}}
-[{CrumbTrail}]
-
-----
-!!renderer.sjs
-{{{parts = pageName.split("/");
-data = "";
-path = "";
-
-for(loop=0;loop<parts.length;loop++)
-{
-  path+="/"+parts[loop]
-  data+=" &gt;&gt; <a href=\""+path+"\">"+parts[loop]+"</a>";
-}
-
-return data;}}}</td><td><a href="/OpenForum/Extensions/CrumbTrail">more...</a></td></tr>
-<tr><td><b>DevNotes</b></td><td>Adds a link to Developer Notes
-----
-!!Parameters
-*page - The page containing the notes content
-*toolTip - The tool tip to popup on mouse over
-----
-!!Usage:
-{{{
-[{DevNotes page="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/ExtendingWikiMarkup" toolTip="Developer Notes on extending Wiki Markup"}]
-}}}
-[{DevNotes page="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/ExtendingWikiMarkup" toolTip="Developer Notes on extending Wiki Markup"}]
-
-----
-!!renderer.sjs
-{{{page = extension.getAttributeValueByName("page");
-toolTip = extension.getAttributeValueByName("toolTip");
-
-return "<table width=\"100%\"><tr><td align=\"right\"><a href=\""+page+"\" title=\""+toolTip+"\"><img border=\"0\" src=\"/OpenForum/Images/wrench.png\"></a></td></tr></table>"}}}</td><td><a href="/OpenForum/Extensions/DevNotes">more...</a></td></tr>
-<tr><td><b>DropList</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/DropList"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/DropList does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>DropSelect</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/DropSelect"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/DropSelect does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>EndDropTab</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/EndDropTab"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/EndDropTab does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>EndEditForm</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/EndEditForm"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/EndEditForm does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>EndMenu</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/EndMenu"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/EndMenu does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>EndMenuDropDown</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/EndMenuDropDown"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/EndMenuDropDown does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>EndNewsColumn</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/EndNewsColumn"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/EndNewsColumn does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>EndNewsPage</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/EndNewsPage"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/EndNewsPage does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>FormSubmit</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/FormSubmit"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/FormSubmit does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>Glossary</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/Glossary"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/Glossary does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>GoField</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/GoField"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/GoField does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>GoToMark</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/GoToMark"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/GoToMark does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>Help</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/Help"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/Help does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>Histogram</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/Histogram"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/Histogram does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>Icon</b></td><td>Places an icon on the page
-----
-!!Parameters
-* name - name of icon
-
-----
-!!Usage:
-{{{
-[{Icon name="chart pie"}]
-}}}
-Example:
-[{Icon name="chart pie"}]</td><td><a href="/OpenForum/Extensions/Icon">more...</a></td></tr>
-<tr><td><b>InputField</b></td><td>Inserts a form input field.
-----
-!!Parameters
-name - the field name
-value - optional value
-----
-!!Usage:
-{{{[{InputField name="myField"}]}}}
-[{InputField name="myField"}]
-
-----
-
-[{InsertSourceFile fileName="renderer.sjs"}]</td><td><a href="/OpenForum/Extensions/InputField">more...</a></td></tr>
-<tr><td><b>InsertFile</b></td><td>Inserts a files contents into the page
-----
-!!Parameters
-* pageName - The page where the file is attached (optional)
-* fileName - The file to insert
-
-----
-!!Usage:
-{{{
-[{InsertFile pageName="pageName" fileName="fileName"}]
-}}}
-If pageName is not given then the current page name is assumed.
-
-----
-!!renderer.sjs
-[{InserSourceFile fileName="renderer.sjs"}]</td><td><a href="/OpenForum/Extensions/InsertFile">more...</a></td></tr>
-<tr><td><b>InsertSourceFile</b></td><td>Inserts a files contents into the page
-----
-!!Parameters
-* pageName - The page where the file is attached (optional. default = current page name)
-* fileName - The file to insert
-
-----
-!!Usage:
-{{{
-[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json"}]
-}}}
-[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json"}]
-
-----
-
-[{InsertSourceFile fileName="renderer.sjs"}]</td><td><a href="/OpenForum/Extensions/InsertSourceFile">more...</a></td></tr>
-<tr><td><b>JSClip</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/JSClip"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/JSClip does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>JSClipFile</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/JSClipFile"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/JSClipFile does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>LiveField</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/LiveField"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/LiveField does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>MarkPage</b></td><td>Mark a point in a page that can be referenced
-----
-!!Parameters
-name = the name of the mark
-----
-!!Usage:
-{{{
-[{Mark name="TestMark"}] Some text to reference
-}}}
-[{Mark name="TestMark"}] Some text to reference\\
-See: [GoToMark</td><td>/OpenForum/Extensions/GoToMark] for an example of using this mark
-
-----
-
-[{InsertSourceFile fileName="renderer.sjs"}]</td><td><a href="/OpenForum/Extensions/MarkPage">more...</a></td></tr>
-<tr><td><b>MenuItem</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/MenuItem"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/MenuItem does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>PagesListField</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/PagesListField"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/PagesListField does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>Photograph</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/Photograph"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/Photograph does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>PopoutPageButton</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/PopoutPageButton"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/PopoutPageButton does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>Popup</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/Popup"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/Popup does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>ReadOnlyField</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ReadOnlyField"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/ReadOnlyField does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>Redirect</b></td><td>Transfers a page to another page 
-----
-!!Parameters
-* page - The page to redirect to
-
-----
-!!Usage
-{{{[{Redirect page="new page name"}]}}}
-The example of the page [/OpenForum/Extensions/Redirect/Example] will redirect back to here.</td><td><a href="/OpenForum/Extensions/Redirect">more...</a></td></tr>
-<tr><td><b>SearchField</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/SearchField"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/SearchField does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>SliderField</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/SliderField"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/SliderField does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>SourceEditor</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/SourceEditor"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/SourceEditor does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>StartDropTab</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/StartDropTab"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/StartDropTab does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>StartEditForm</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/StartEditForm"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/StartEditForm does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>StartMenu</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/StartMenu"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/StartMenu does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>StartMenuDropDown</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/StartMenuDropDown"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/StartMenuDropDown does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>StartNewsColumn</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/StartNewsColumn"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/StartNewsColumn does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>StartNewsPage</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/StartNewsPage"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/StartNewsPage does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>Tab</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/Tab"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/Tab does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>Thumbnail</b></td><td>Inserts an image thumbnail with a link to the full size image.
-----
-!!Usage:
-{{{
-[{Thumbnail src="image file name"}]
-}}}
-----
-[{Thumbnail src="/OpenForum/Images/index_abc.png"}]
-
-----
-!!renderer.sjs
-{{{src = extension.getAttributeValueByName("src");
-
-if(src!=null)
-{
-  src = new String(src);
-  
-  if( src.indexOf('/')!=0 )
-  {
-    src = "/"+pageName+"/"+src;
-  }
-
-  parts = src.split(".");
-  thumbnail = parts[0]+".thumbnail.png";
-
-  data = "<a href='' onclick='showAlert(\"<img src=\\\""+src+"\\\" border=0>\",\""+src+"\");return false;'><img src='"+thumbnail+"' border=0/></a>";
-
-  return data;
-}
-else
-{
-  return "Invalid Image. No src attribute given.";
-}}}}</td><td><a href="/OpenForum/Extensions/Thumbnail">more...</a></td></tr>
-<tr><td><b>ViewCounter</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ViewCounter"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/ViewCounter does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>WebChatField</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/WebChatField"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/WebChatField does not exist. Click to create it.">more...</a></td></tr>
-<tr><td><b>WebChatView</b></td><td>null</td><td><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/WebChatView"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/WebChatView does not exist. Click to create it.">more...</a></td></tr>
-
+<ul><li> <a href="/OpenForum/Extensions/ActionButton">ActionButton</a></li>
+<li> <a href="/OpenForum/Extensions/AttachmentsList">AttachmentsList</a></li>
+<li> <a href="/OpenForum/Extensions/Button">Button</a></li>
+<li> <a href="/OpenForum/Extensions/ChildPagesList">ChildPagesList</a></li>
+<li> <a href="/OpenForum/Extensions/CrumbTrail">CrumbTrail</a></li>
+<li> <a href="/OpenForum/Extensions/DevNotes">DevNotes</a></li>
+<li> <a href="/OpenForum/Extensions/Hash">Hash</a></li>
+<li> <a href="/OpenForum/Extensions/Icon">Icon</a></li>
+<li> <a href="/OpenForum/Extensions/InputField">InputField</a></li>
+<li> <a href="/OpenForum/Extensions/InsertFile">InsertFile</a></li>
+<li> <a href="/OpenForum/Extensions/InsertPage">InsertPage</a></li>
+<li> <a href="/OpenForum/Extensions/InsertSourceFile">InsertSourceFile</a></li>
+<li> <a href="/OpenForum/Extensions/MarkPage">MarkPage</a></li>
+<li> <a href="/OpenForum/Extensions/Redirect">Redirect</a></li>
+<li> <a href="/OpenForum/Extensions/Star">Star</a></li>
+<li> <a href="/OpenForum/Extensions/Thumbnail">Thumbnail</a></li>
+</ul>
 <!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
 <!--Page Content End-->
       
@@ -328,4 +109,3 @@ else
     </script>
   </body>
 </html>
-</table>

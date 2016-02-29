@@ -2,7 +2,7 @@ function XmlEditor(editorIndex,pageName,fileName) {
   var self = this;
   var cm = null;
 
-  this.init = function() {
+  self.init = function() {
     OpenForum.setElement("editor"+editorIndex,"<textarea id=\"editor"+editorIndex+"Src\">Loading...</textarea>");
     cm = CodeMirror.fromTextArea(
       document.getElementById("editor"+editorIndex+"Src"),
@@ -33,12 +33,29 @@ function XmlEditor(editorIndex,pageName,fileName) {
     });
   };
 
-  this.refresh = function() {
+  self.refresh = function() {
     if(cm) cm.refresh();
   };
 
-  this.getValue = function() {
+  self.getValue = function() {
     return cm.getValue();
+  };
+
+  self.setValue = function(newData) {
+    return cm.setValue(newData);
+  };
+
+  self.getCodeMirror = function() {
+    return cm;
+  };
+
+  self.renderOptions = function() {
+    //renderTabOption(name,toolTip,action)
+    var data = "";
+
+    data += renderTabOption("Close","Close editor","closeEditor( "+editorIndex+" )");
+    data += renderTabOption("Save","Save "+pageName+"/"+fileName,"saveFile( '"+pageName+"' , '"+fileName+"' )");
+    return data;
   };
 
   OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/theme/rubyblue.css");

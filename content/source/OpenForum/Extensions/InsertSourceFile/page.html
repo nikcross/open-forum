@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="/OpenForum/Extensions/InsertSourceFile/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/Extensions/InsertSourceFile";
+		var pageName = "/OpenForum/Extensions/InsertSourceFile";
 		var author = "unknown";
 		var time = "1447152051000";
 	    var currentUser = "";
@@ -63,7 +63,7 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">InsertSourceFile</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="//OpenForum/Extensions">InsertSourceFile</a></li></nav>
     
     <!--PageContent Start-->
 Inserts a files contents into the page
@@ -77,11 +77,14 @@ Inserts a files contents into the page
 <xmp class="panel">
 [{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json"}]
 </xmp>
-<a href="//OpenForum/Extensions/InsertSourceFile/data.json">//OpenForum/Extensions/InsertSourceFile/data.json</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=data.json" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">{}</xmp>
+<a href="//OpenForum/Extensions/InsertSourceFile/data.json">//OpenForum/Extensions/InsertSourceFile/data.json</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=data.json" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">{
+    "pageName": "//OpenForum/Extensions/InsertSourceFile",
+    "title": " Insert Source File"
+}</xmp>
 
 -<hr/>
 
-[<a href="/OpenForum/Extensions/InsertSourceFile/renderer.sjs">/OpenForum/Extensions/InsertSourceFile/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var sourcePageName = extension.getAttribute("pageName");
+[<a href="//OpenForum/Extensions/InsertSourceFile/renderer.sjs">//OpenForum/Extensions/InsertSourceFile/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var sourcePageName = extension.getAttribute("pageName");
 if(sourcePageName===null) {
   sourcePageName = pageName;
 }

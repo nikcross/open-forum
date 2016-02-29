@@ -1,2 +1,25 @@
+<a href="//OpenForum/Javascript/OpenForumClient/open-forum-client.js">//OpenForum/Javascript/OpenForumClient/open-forum-client.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OpenForumClient&fileName=open-forum-client.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
+  OpenForum = {};
+}
 
+OpenForum.clients = [];
+
+OpenForum.Client = function(id) {
+  var identifier = id;
+  
+  this.sendCommand = function(command) {
+    command = command.replace(/\"/g,"'");
+    command = "action: "+command;
+  };
+  
+  
+};
+
+OpenForum.addClient = function(identifier) {
+  var newClient = new OpenForum.Client(identifier);
+  
+  OpenForum.clients.push(newClient);
+  
+  return newClient;
+};</xmp>
 <!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

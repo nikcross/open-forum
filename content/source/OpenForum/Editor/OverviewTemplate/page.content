@@ -3,26 +3,30 @@
     <h4>Page Details</h4>
 * Page Name: __{{pageName}}__
 * Page Type: __{{flavour}}__
+* Last Modified: __{{pageLastModified}}__
+* Size: __{{pageSize}}__
 * Builder Path: __<a onClick="window.open('/OpenForum/Editor?pageName='+builderPath+'&fileName=page.build.js'); return false;">{{builderPath}}</a>__
 * Access Path: __<a onClick="window.open('/OpenForum/Editor?pageName='+accessPath+'&fileName=access.json'); return false;">{{accessPath}}</a>__
 * Access Data:<xmp class="panel">{{accessView}}</xmp>
 * Template Path: __<a onClick="window.open('/OpenForum/Editor?pageName='+templatePath+'&fileName=page.html.template'); return false;">{{templatePath}}</a>__
 * Page Meta Data:<xmp class="panel">{{dataView}}</xmp>
-* <span ondrop="drop(event,'#parentPage')" ondragover="allowDrop(event)">Parent Page: __{{parentPageLink}}__</span>
+* <span ondrop="drop(event,'#parentPage')" ondragover="allowDrop(event)" title="You can drop files on me">[{Icon name="page"}]</span>Parent Page: __{{parentPageLink}}__
 * Sub Pages
     <div id="subPagesList"></div>
+* Site Explorer
+    <div id="explorer"></div>    
   </div>
   <div class="large-6 columns">
-    <h2>Page Attachments</h2>
+    <h4>Page Attachments</h4>
 
-    <p><a href="[{Hash}]" data-reveal-id="CreateAttachmentModal" class="active">[{Icon name="add"}] Create Attachment</a></p>
-    <p><a href="[{Hash}]" data-reveal-id="UploadAttachmentModal" class="active">[{Icon name="add"}] Upload Attachment</a></p>
+    <a href="#" data-reveal-id="CreateAttachmentModal" class="button tiny">Create Attachment</a>
+    <a href="#" data-reveal-id="UploadAttachmentModal" class="button tiny">Upload Attachment</a>
     <table>
       <thead>
         <tr><th>Page Name</th><th>File Name</th><th></th><th></th><th></th><th></th></tr>
       </thead>
       <tbody>
-        <tr of-repeatFor="attachment in attachments"><td>{{attachment.pageName}}</td><td><span draggable="true" ondragstart="drag('{{attachment.id}}');">{{attachment.fileName}}</span></td>
+        <tr of-repeatFor="attachment in attachments"><td>{{attachment.pageName}}</td><td title="Size: {{attachment.size}} Last Modified: {{attachment.lastModified}}">{{attachment.fileName}}  <span title="You can drag me to another page." draggable="true" ondragstart="drag('{{attachment.id}}');">[{Icon name="tag_blue"}]</span></td>
           <td><a class="button tiny" onClick="{{attachment.action}}({{attachment.id}});return false;">{{attachment.actionName}}</a></td>
           <td><a class="button tiny" data-reveal-id="OpenForumDeleteAttachmentModal" onClick="attachmentPageToDelete='{{attachment.pageName}}';attachmentToDelete='{{attachment.fileName}}';return false;">Delete</a></td>
           <td><a class="button tiny" data-reveal-id="OpenForumCopyAttachmentModal" 

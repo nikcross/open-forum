@@ -1,0 +1,118 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title> Core</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/Giraffe/Core/page.js"></script>
+
+	<script>
+		var pageName = "/OpenForum/Giraffe/Core";
+		var author = "unknown";
+		var time = "1455106054000";
+	    var currentUser = "";
+	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+	</script>
+    
+  </head>
+  <body>
+          <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <img src="/OpenForum/Images/open-forum-dog-small.png" />
+            </h1>
+          </li>
+        </ul>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <a href="#"> Core</a>
+            </h1>
+          </li>
+        </ul>
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
+          <ul class="right">
+            <li class="divider"></li>
+            <li class="has-dropdown">
+              <a href="#">Signed in as {{currentUser}}</a>
+              <ul class="dropdown">
+                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <script>
+  var accessLoading = false;
+  function doSignIn() {
+    
+    if(!OpenForum.Access) {
+      if(!accessLoading) {
+      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+      	accessLoading=true;
+      }
+      setTimeout(doSignIn,1000);
+      return;
+    }
+    
+    OpenForum.Access.showPopup();
+  };
+                </script>
+              </ul>
+            </li>
+          </ul>
+        </section>
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
+      </nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/Giraffe">Giraffe</a></li><li role="menuitem" class="current"><a href="//OpenForum/Giraffe">Core</a></li></nav>
+    
+    <!--PageContent Start-->
+<!-- insert (/OpenForum/Javascript/Builder/build-client.content) start --><a class="button tiny" onClick="incrementMajorVersion(); return false;">Major Version ++</a><a class="button tiny" onClick="incrementMinorVersion(); return false;">Minor Version ++</a><a class="button tiny" onClick="incrementBuildVersion(); return false;">Build Version ++</a>
+<ul><li>Version: <b>{{buildScript.version}}</b></li>
+<li>Target File: <b>{{buildScript.targetFile}}</b></li>
+<li>Version File: <b>{{buildScript.versionFile}}</b></li>
+
+<ol>
+  <li of-repeatFor="step in buildScript.steps">
+    {{step.action}} 
+    {{ if(step.file) "File:"+step.file; else ""; }}
+    {{  if(step.searchFor) "Search for " + step.searchFor + " and replace with " + step.replaceWith; else ""; }}
+  </li>
+</ol>
+
+<a class="button tiny" onClick="saveBuildScript(); return false;">Save</a> <a class="button tiny" onClick="runBuildScript(); return false;">Build</a>
+
+
+<hr/>
+
+ <h3>Versions</h3>
+
+ <ul><li><a href="/OpenForum/Giraffe/Core/Version/data.json" title="/OpenForum/Giraffe/Core/Version/data.json">/OpenForum/Giraffe/Core/Version/data.json</a></li><li><a href="/OpenForum/Giraffe/Core/Version/giraffe-0-0-0.js" title="/OpenForum/Giraffe/Core/Version/giraffe-0-0-0.js">/OpenForum/Giraffe/Core/Version/giraffe-0-0-0.js</a></li><li><a href="/OpenForum/Giraffe/Core/Version/page.js" title="/OpenForum/Giraffe/Core/Version/page.js">/OpenForum/Giraffe/Core/Version/page.js</a></li><li><a href="/OpenForum/Giraffe/Core/Version/giraffe-1-0-1.js" title="/OpenForum/Giraffe/Core/Version/giraffe-1-0-1.js">/OpenForum/Giraffe/Core/Version/giraffe-1-0-1.js</a></li></ul>
+
+<div id="statusModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">{{popupStatus}}</h2>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div><!-- insert (/OpenForum/Javascript/Builder/build-client.content) end -->
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
+      
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
+        <div class="large-12 columns">
+          		<hr/>
+              <ul class="inline-list right">
+                <li><a href="#">About</a></li>
+                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="#">Documentation</a></li>
+                <li><a href="#">Developers</a></li>
+                <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+              </ul>
+            </div>
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
+    
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
+</ul>

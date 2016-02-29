@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="/OpenForum/Actions/GetUser/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/Actions/GetUser";
+		var pageName = "/OpenForum/Actions/GetUser";
 		var author = "unknown";
 		var time = "1447152051000";
 	    var currentUser = "";
@@ -63,18 +63,18 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Actions">GetUser</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="//OpenForum/Actions">GetUser</a></li></nav>
     
     <!--PageContent Start-->
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Returns the current users name.
 <hr/>
-!<h3>Get Parameters</h3>
+<h3>Get Parameters</h3>
 <ul><li>pageName</li>
 
 <DIV id="userLayer"></DIV>
 
 <hr/>
-!<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);

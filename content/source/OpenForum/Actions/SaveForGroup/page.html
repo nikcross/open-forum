@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="/OpenForum/Actions/SaveForGroup/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/Actions/SaveForGroup";
+		var pageName = "/OpenForum/Actions/SaveForGroup";
 		var author = "unknown";
 		var time = "1447152051000";
 	    var currentUser = "";
@@ -63,18 +63,18 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Actions">SaveForGroup</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="//OpenForum/Actions">SaveForGroup</a></li></nav>
     
     <!--PageContent Start-->
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> Saves some text as an attachment
 <hr/>
-!<h3>Post Parameters</h3>
+<h3>Post Parameters</h3>
 <ul><li>pageName - The name of the page to save attachment to</li>
 <li>fileName - The file name for the attachment</li>
 <li>data - The data to place in the attachment</li>
 
 <hr/>
-!<h3>Server Side Javascript for POST method</h3>
+<h3>Server Side Javascript for POST method</h3>
 <xmp class="panel"> transaction.getPostData();
 
 pageName = transaction.getPostParameter("pageName");

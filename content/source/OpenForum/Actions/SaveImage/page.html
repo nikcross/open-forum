@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="/OpenForum/Actions/SaveImage/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/Actions/SaveImage";
+		var pageName = "/OpenForum/Actions/SaveImage";
 		var author = "unknown";
 		var time = "1447152051000";
 	    var currentUser = "";
@@ -63,10 +63,10 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Actions">SaveImage</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="//OpenForum/Actions">SaveImage</a></li></nav>
     
     <!--PageContent Start-->
-<a href="/OpenForum/Actions/SaveImage/save-canvas.js">/OpenForum/Actions/SaveImage/save-canvas.js</a><a href="/OpenForum/Editor?pageName=OpenForum/Actions/SaveImage&fileName=save-canvas.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">function saveCanvas(pageName,fileName,canvas) {
+<a href="//OpenForum/Actions/SaveImage/save-canvas.js">//OpenForum/Actions/SaveImage/save-canvas.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/SaveImage&fileName=save-canvas.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">function saveCanvas(pageName,fileName,canvas) {
 	var data = canvas.toDataURL();
       data = data.substring(22);
 
@@ -78,7 +78,7 @@
       JSON.post("/OpenForum/Actions/SaveImage","save",post.getData()).go();
 }</xmp>
 
-[<a href="/OpenForum/Actions/SaveImage/post.sjs">/OpenForum/Actions/SaveImage/post.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Actions/SaveImage&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Take base64 image and convert to image file
+[<a href="//OpenForum/Actions/SaveImage/post.sjs">//OpenForum/Actions/SaveImage/post.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/SaveImage&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Take base64 image and convert to image file
 
 dec = Packages.javax.xml.bind.DatatypeConverter;
 

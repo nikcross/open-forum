@@ -1,16 +1,16 @@
 Inserts a form input field.
 <hr/>
-!<h3>Parameters</h3>
+<h3>Parameters</h3>
 name - the field name
 value - optional value
 <hr/>
-!<h3>Usage:</h3>
+<h3>Usage:</h3>
 <xmp class="panel">[{InputField name="myField"}]</xmp>
 [<input type='text' name='myField' id='myField' value='&myField;'>
 
 <hr/>
 
-<a href="/OpenForum/Extensions/InputField/renderer.sjs">/OpenForum/Extensions/InputField/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/InputField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">name = extension.getAttribute("name");
+<a href="//OpenForum/Extensions/InputField/renderer.sjs">//OpenForum/Extensions/InputField/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InputField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">name = extension.getAttribute("name");
 value = extension.getAttribute("value");
 
 if(value==null)

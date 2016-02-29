@@ -13,18 +13,10 @@
     
     <script type="text/javascript" src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/CodeMirror/lib/codemirror.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-    
     <script type="text/javascript" src="/OpenForum/Editor/page.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/attachments.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/editors.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/plugins.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/tabs.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/drag-and-drop.js"></script>
 
     <script>
-      var pageName = "OpenForum/Editor/Plugins/RemoteEditor";
+      var pageName = "/OpenForum/Editor/Plugins/RemoteEditor";
       var author = "unknown";
       var time = "1447152051000";
       var currentUser = "";
@@ -38,7 +30,7 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <img src="/OpenForum/Images/open-forum-dog-small.png" />
+              <a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" /></a>
             </h1>
           </li>
         </ul>
@@ -59,7 +51,6 @@
                 <li><a href="#" data-reveal-id="OpenForumMoveModal"><img src="/OpenForum/Images/icons/png/page_go.png"> Move Page</a></li>
                 <li><a href="#" onClick="OpenForum.Actions.zipPage();"><img src="/OpenForum/Images/icons/png/compress.png"> Zip Page</a></li>
                 <li><a href="#" data-reveal-id="OpenForumDeleteModal"><img src="/OpenForum/Images/icons/png/bin.png"> Delete Page</a></li>
-                <li><a href="#" id="displayStatusModal" data-reveal-id="statusModal">Show Editor Status</a></li>
                 <li of-repeatFor="extraAction in extraActions"><a href="#" onClick="{{extraAction.fn}}();return false;" title="{{extraAction.description}}"><img src="/OpenForum/Images/icons/png/{{extraAction.icon}}.png">  {{extraAction.name}}</a></li>
               </ul>
             </li>
@@ -101,7 +92,11 @@
             </li>
           </ul>
         </section>
-
+		<section class="top-bar-section">
+          <ul class="center"> 
+            <li class="name"><a href="#" onClick="showStatus('ready'); return false;">Status: {{status}}</a></li>
+          </ul>
+		</section>
         <section class="top-bar-section">
           <ul class="right">
             <li class="divider"></li>
@@ -175,11 +170,16 @@
 
 <div id="UploadAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Upload Page Attachment</h2>
+    <fieldset>
+    <legend>Upload from Current Device</legend>
   <form name="upload" id="upload" method="post" action="#" enctype="multipart/form-data" target="uploadResponse">
-    <input class="actionButton"  type="file" name="file"/>
-    <input type="submit" class="secondary button" value="Upload" onClick="OpenForum.uploadFile('upload',pageName); return false;"/>
+    <input type="file" name="file"/> <a class="button tiny" onClick="OpenForum.uploadFile('upload',pageName); return false;">Upload</a><br/>
   </form>
-
+  </fieldset>
+  <fieldset>
+    <legend>Transfer from URL</legend>
+    From <input type="text" placeholder="File URL" of-id="uploadURL"/> to /OpenForum/Editor/Plugins/RemoteEditor<input type="text" placeholder="File Name" of-id="uploadURLFileName"> <a class="button tiny" onClick="uploadFromURL(); return false;">Upload from URL</a>
+  </fieldset>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
@@ -209,7 +209,12 @@
         <section class="top-bar-section">
           <!-- Left Nav Section -->
           <ul class="left">
-            <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="{{editor.tabButtonStyle}}"><a href="#" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a></li>
+            <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="has-dropdown {{editor.tabButtonStyle}}">
+              <a href="#" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a>
+              <ul class="dropdown">
+                {{editor.options}}
+              </ul>
+            </li>
           </ul>
         </section>
       </nav>

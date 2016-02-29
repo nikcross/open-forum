@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="/OpenForum/Actions/GetInheritedFilePath/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/Actions/GetInheritedFilePath";
+		var pageName = "/OpenForum/Actions/GetInheritedFilePath";
 		var author = "unknown";
 		var time = "1447152051000";
 	    var currentUser = "";
@@ -63,22 +63,22 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Actions">GetInheritedFilePath</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="//OpenForum/Actions">GetInheritedFilePath</a></li></nav>
     
     <!--PageContent Start-->
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Returns the inherited path of at file
 <hr/>
-!<h3>Parameters</h3>
+<h3>Parameters</h3>
 <ul><li>pageName - the name of the page to start at</li>
 <li>fileName - the name of the file to get the inherited path for</li>
 <hr/>
-!<h3>Usage:</h3>
+<h3>Usage:</h3>
 <xmp class="panel">
 /OpenForum/Actions/GetInheritedFilePath?pageName=PageName&fileName=FileName
 </xmp>
 
 <hr/>
-!<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);

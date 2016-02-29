@@ -8,7 +8,6 @@
                 <li><a href="#" data-reveal-id="OpenForumMoveModal">[{Icon name="page_go"}] Move Page</a></li>
                 <li><a href="#" onClick="OpenForum.Actions.zipPage();">[{Icon name="compress"}] Zip Page</a></li>
                 <li><a href="#" data-reveal-id="OpenForumDeleteModal">[{Icon name="bin"}] Delete Page</a></li>
-                <li><a href="[{Hash}]" id="displayStatusModal" data-reveal-id="statusModal">Show Editor Status</a></li>
                 <li of-repeatFor="extraAction in extraActions"><a href="#" onClick="{{extraAction.fn}}();return false;" title="{{extraAction.description}}">[{Icon name="{{extraAction.icon}}"}]  {{extraAction.name}}</a></li>
               </ul>
             </li>
@@ -50,7 +49,11 @@
             </li>
           </ul>
         </section>
-
+		<section class="top-bar-section">
+          <ul class="center"> 
+            <li class="name"><a href="#" onClick="showStatus('ready'); return false;">Status: {{status}}</a></li>
+          </ul>
+		</section>
         <section class="top-bar-section">
           <ul class="right">
             <li class="divider"></li>
@@ -124,11 +127,16 @@
 
 <div id="UploadAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Upload Page Attachment</h2>
+    <fieldset>
+    <legend>Upload from Current Device</legend>
   <form name="upload" id="upload" method="post" action="#" enctype="multipart/form-data" target="uploadResponse">
-    <input class="actionButton"  type="file" name="file"/>
-    <input type="submit" class="secondary button" value="Upload" onClick="OpenForum.uploadFile('upload',pageName); return false;"/>
+    <input type="file" name="file"/> <a class="button tiny" onClick="OpenForum.uploadFile('upload',pageName); return false;">Upload</a><br/>
   </form>
-
+  </fieldset>
+  <fieldset>
+    <legend>Transfer from URL</legend>
+    From <input type="text" placeholder="File URL" of-id="uploadURL"/> to &pageName;<input type="text" placeholder="File Name" of-id="uploadURLFileName"> <a class="button tiny" onClick="uploadFromURL(); return false;">Upload from URL</a>
+  </fieldset>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 

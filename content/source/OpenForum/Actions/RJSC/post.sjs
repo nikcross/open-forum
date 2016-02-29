@@ -28,5 +28,5 @@ catch(e)
    println(e);
   }
   catch(e2){}
-  transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber()+" of "+e.sourceName(), saved: false}));
+  transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e})); //+" on line "+e.lineNumber()+" of "+e.sourceName(), saved: false}));
 }

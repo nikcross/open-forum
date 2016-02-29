@@ -1,4 +1,20 @@
-[{Button title="Release Spider" function="runSpider"}]
-[{Button title="Stop Spider" function="stopSpider"}]
-[{Button title="Clear Log" function="clearLog"}]
+<div class="row">
+  <div class="large-12 columns">
+    <form>
+	<div id="editor0">Editor Loading...</div>
+      <br/>
+==
+      [{Button title="Release Spider" function="runSpider"}]
+      [{Button title="Stop Spider" function="stopSpider"}]
+      [{Button title="Clear Log" function="clearLog"}]
+==
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="large-12 columns">
+[[
 <xmp id="queueData"></xmp>
+]]
+      </div>
+</div>

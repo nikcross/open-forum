@@ -1,6 +1,6 @@
 var action = transaction.getParameter("action");
 if( action===null ) {
-	transaction.setResult(transaction.SHOW_PAGE);
+  transaction.setResult(transaction.SHOW_PAGE);
   return;
 }
 action = ""+action;
@@ -14,7 +14,7 @@ for(var i in jUsers) {
 }
 
 if(action==="getUsersOnline") {
-  
+
   result = { usersOnline: users };
 }
 

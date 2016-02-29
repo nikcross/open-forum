@@ -1,11 +1,11 @@
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Returns a Page as an array of list entries
 <hr/>
-!<h3>Get Parameters</h3>
+<h3>Get Parameters</h3>
 <ul><li>pageName - Page to read as a list</li>
 <li>varName - Name of Javascript array to return</li>
 
 <hr/>
-!<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);

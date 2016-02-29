@@ -1,2 +1,16 @@
-Example <a href="http://localhost/OpenForum/Processor?action=runProcess&exec=docker%20ps&queue=test" target="external_page">http://localhost/OpenForum/Processor?action=runProcess&exec=docker%20ps&queue=test</a>
+<div class="row" id="queueBox" style="height: 80%; overflow: scroll;">
+  <div class="large-12 columns panel callout radius" style="min-height: 100%;">
+    <xmp id="queueData">
+    </xmp>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-8 columns">
+    <input id="exec" onkeydown="execute(event.keyCode);" placeHolder="=>" />
+  </div>
+  <div class="large-4 columns">
+    <a class="button tiny radius" onClick="clearLog(); return;">Clear</a>
+  </div>
+</div>
 <!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

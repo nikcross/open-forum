@@ -3,7 +3,7 @@
 
 <br/>
 
-<a href="/OpenForum/Extensions/Button/renderer.sjs">/OpenForum/Extensions/Button/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/Button&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var title = ""+extension.getAttribute("title");
+<a href="//OpenForum/Extensions/Button/renderer.sjs">//OpenForum/Extensions/Button/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/Button&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var title = ""+extension.getAttribute("title");
 var fn = ""+extension.getAttribute("function");
 
 return "<a class=\"button tiny\" onClick=\""+fn+"(); return false;\">"+title+"</a>";</xmp>

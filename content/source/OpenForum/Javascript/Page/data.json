@@ -1,3 +1,5 @@
 {
-  "editor": "/OpenForum/Editor"
+    "editor": "/OpenForum/Editor",
+    "pageName": "//OpenForum/Javascript/Page",
+    "title": " Page"
 }

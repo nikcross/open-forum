@@ -1,2 +1,5 @@
-
+<h3>Store Data</h3>
+<xmp class="panel">
+{{dataView}}
+</xmp>
 <!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

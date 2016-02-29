@@ -13,15 +13,7 @@
     
     <script type="text/javascript" src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/CodeMirror/lib/codemirror.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-    
     <script type="text/javascript" src="/OpenForum/Editor/page.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/attachments.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/editors.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/plugins.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/tabs.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/drag-and-drop.js"></script>
 
     <script>
       var pageName = "&pageName;";
@@ -38,14 +30,14 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <img src="/OpenForum/Images/open-forum-dog-small.png" />
+              <a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" /></a>
             </h1>
           </li>
         </ul>
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="[{Hash}]">Page Editor - Editing {{pageName}}</a>
+              <a href="#">Page Editor - Editing {{pageName}}</a>
             </h1>
           </li>
         </ul>
@@ -56,7 +48,12 @@
         <section class="top-bar-section">
           <!-- Left Nav Section -->
           <ul class="left">
-            <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="{{editor.tabButtonStyle}}"><a href="[{Hash}]" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a></li>
+            <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="has-dropdown {{editor.tabButtonStyle}}">
+              <a href="#" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a>
+              <ul class="dropdown">
+                {{editor.options}}
+              </ul>
+            </li>
           </ul>
         </section>
       </nav>

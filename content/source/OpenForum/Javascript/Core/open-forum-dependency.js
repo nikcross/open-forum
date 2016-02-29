@@ -1,6 +1,53 @@
 //---- DependencyService ----
 
 var DependencyService = new function() {
+  var dependencies = [];
+  this.createNewDependency = function() {
+    var dependency = new function() {
+      var id = dependencies.length;
+      var self = this;
+      var scripts = [];
+      var onLoadTrigger = function() {};
+      var loaded = false;
+        
+      
+        self.addDependency = function(script) {
+          scripts.push(script);
+          return this;
+        };
+        self.setOnLoadTrigger = function(triggerFunction) {
+          onLoadTrigger = triggerFunction;
+          return this;
+        };
+      
+        self.loadDependencies = function() {
+          var fileName = "";
+          for(var i=0;i<scripts.length;i++) {
+            if(i>0) fileName+=",";
+            fileName+=scripts[i];
+          }
+          
+      	  OpenForum.loadScript("/OpenForum/Javascript/Services?script="+fileName+"&callback=DependencyService.scriptLoaded&callbackId="+id);
+        };
+        self.checkLoaded = function() {
+          return loaded;
+        };
+      self.setLoaded = function() {
+        loaded = true;
+        onLoadTrigger();
+      };
+    };
+    dependencies.push(dependency);
+    return dependency;
+  };
+  this.scriptLoaded = function(id) {
+    dependencies[id].setLoaded();
+  };
+};
+
+
+/*
+var DependencyService = new function() {
   var libraries = [];
   var dependencySet = [];
   
@@ -37,8 +84,9 @@ var DependencyService = new function() {
   this.isLoaded = function(fileName) {
     return libraries[fileName].loaded;
   };
-};
+};*/
 
+/*
 //---- Dependancy ----
 
 function Dependency(serviceReference) {
@@ -82,3 +130,4 @@ function Dependency(serviceReference) {
     }
   };
 }
+*/

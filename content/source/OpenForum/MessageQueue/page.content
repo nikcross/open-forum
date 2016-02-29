@@ -1,12 +1,15 @@
-!!Queue Name: <input type="text" of-id="queueName" size="50"/> <button onClick="startWatchingQueue();"> Start Watching</button>
-<br/><br/>
-<div id="queueData" style="border: solid 1px; min-height: 100px;"></div>
-<br/><br/>
-<input type="text" of-id="message"/> <button onClick="sendMessage();"> Send Message</button>
-<br/><br/>
-
-----
-
-[{InsertSourceFile fileName="get.sjs"}]
-
-[{InsertSourceFile fileName="MessageQueue.js"}]
+<br/>
+<div class="row">
+  <div class="large-2 columns">
+    Queue Name:
+  </div>
+  <div class="large-8 columns">
+    <input type="text" of-id="queueName" size="50"/>
+  </div>
+  <div class="large-2 columns">
+    <a href="#" class="button tiny radius" onClick="startWatchingQueue();"> Start Watching</a>
+  </div>
+</div>
+<div class="row panel radius">
+  <div id="queueData"></div>
+</div>

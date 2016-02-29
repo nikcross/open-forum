@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="/OpenForum/MessageQueue/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/MessageQueue";
+		var pageName = "/OpenForum/MessageQueue";
 		var author = "unknown";
 		var time = "1447152051000";
 	    var currentUser = "";
@@ -63,109 +63,24 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="/OpenForum">MessageQueue</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="//OpenForum">MessageQueue</a></li></nav>
     
     <!--PageContent Start-->
-<h3>Queue Name: <input type="text" of-id="queueName" size="50"/> <button onClick="startWatchingQueue();"> Start Watching</button></h3>
-<br/><br/>
-<div id="queueData" style="border: solid 1px; min-height: 100px;"></div>
-<br/><br/>
-<input type="text" of-id="message"/> <button onClick="sendMessage();"> Send Message</button>
-<br/><br/>
-
-<hr/>
-
-[<a href="/OpenForum/MessageQueue/get.sjs">/OpenForum/MessageQueue/get.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/MessageQueue&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var action = ""+transaction.getParameter("action");
-
-if(action==="null") {
-	transaction.setResult(transaction.SHOW_PAGE);
-	return;
-}
-
-if(action==="createQueue") {
-  var id = ""+wiki.createQueue();
-  
-  transaction.sendJSON( JSON.stringify({result: "ok", queue: id}) );
-  
-} else if(action==="push") {
-  var queue = transaction.getParameter("queue");
-  var message = transaction.getParameter("message");
-  
-  wiki.postMessageToQueue( queue,message );
-
-  var timestamp = ""+wiki.getTimeStamp();
-  
-  transaction.sendJSON( JSON.stringify({result: "ok", timestamp: timestamp}) );
-  
-} else if(action==="pull") {
-  var queue = transaction.getParameter("queue");
-  var since = transaction.getParameter("since");
-  
-  var messages = wiki.getMessagesSince( queue,since );
-  var messageData = [];
-  for(var im in messages) {
-    messageData.push(""+messages[im]);
-  }
-  
-  var timestamp = ""+wiki.getTimeStamp();
- 
-  transaction.sendJSON( JSON.stringify({messages: messageData,timestamp: timestamp, result: "ok"}) );
-  
-} else if (action==="getTotalQueuedMessages") {
-  var queueMonitor = js.getApi("/OpenForum/MessageQueue");
-  
-  var totalMessages = ""+queueMonitor.getTotalQueuedMessages();
-
-  transaction.sendJSON( JSON.stringify({totalMessages: totalMessages }) );
-  
-} else {
-  
-  transaction.sendJSON( JSON.stringify( {result: "error", error: "action "+action+" not recognised"}) );
-  
-}
-</xmp>
-
-[<a href="/OpenForum/MessageQueue/MessageQueue.js">/OpenForum/MessageQueue/MessageQueue.js</a><a href="/OpenForum/Editor?pageName=OpenForum/MessageQueue&fileName=MessageQueue.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">function MessageQueue(queueName) {
-  
-  if( typeof(queueName)==="undefined" ) {
-    queueName = JSON.parse( OpenForum.loadFile("/OpenForum/MessageQueue?action=createQueue") ).queue;
-  }
-  
-  var queue = queueName;
-  var timestamp = 0;
-  var self = this;
-  
-  this.push = function(message) {
-      JSON.get("/OpenForum/MessageQueue","push","queue="+queue+"&message="+message).onSuccess(self.processPushResult).onError(self.processError).go();
-  };
-  
-  this.pull = function() {
-      JSON.get("/OpenForum/MessageQueue","pull","queue="+queue+"&since="+timestamp).onSuccess(self.processPullResult).onError(self.processError).go();
-  };
-  
-  this.processPushResult = function(response) {
-    timestamp = response.timestamp;
-  };
-  
-  this.processPullResult = function(response) {
-    timestamp = response.timestamp;
-    self.processMessages(response.messages);
-  };
-  
-  this.processError = function(error) {
-    console.log(error);
-  };
-  
-  this.processMessages = function(messages) {
-    for(var message in messages) {
-          console.log(messages[message]);
-    }
-  };
-  
-  this.getQueueName = function() {
-    return queueName;
-  };
-}</xmp>
+<br/>
+<div class="row">
+  <div class="large-2 columns">
+    Queue Name:
+  </div>
+  <div class="large-8 columns">
+    <input type="text" of-id="queueName" size="50"/>
+  </div>
+  <div class="large-2 columns">
+    <a href="#" class="button tiny radius" onClick="startWatchingQueue();"> Start Watching</a>
+  </div>
+</div>
+<div class="row panel radius">
+  <div id="queueData"></div>
+</div>
 
 <!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
 <!--Page Content End-->

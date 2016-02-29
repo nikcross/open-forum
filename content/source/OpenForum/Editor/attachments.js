@@ -1,14 +1,26 @@
+//Author: Nik Cross
+
 var attachments = [];
 var attachmentsReady = false;
 
 function setAttachments(response) {
+  pageSize = response.size;
+  var lastModified = new Date();
+  lastModified.setTime(response.lastModified);
+  pageLastModified = lastModified.getDisplayString();
+
+
   attachments = response.attachments;
-  for(var ai in attachments) {
+  for(var ai = 0; ai< attachments.length; ai++) {
     attachments[ai].id = ai;
     attachments[ai].action = "openAttachment";
     attachments[ai].actionName = "Edit";
     attachments[ai].actionIcon = "page_edit";
     attachments[ai].icon = "tag_blue";
+
+    var aLastModified = new Date();
+    aLastModified.setTime(attachments[ai].lastModified);
+    attachments[ai].lastModified = aLastModified.getDisplayString();
   }
 
   OpenForum.scan(document.body);
@@ -24,7 +36,7 @@ function openFile(openFilePageName,openFileName) {
 
 function loadUpdatedFilesList() {
   //  document.getElementById("filesList").innerHTML="Loading...";
-  JSON.get("/OpenForum/Actions/Attachments","","pageName="+pageName).onSuccess( setAttachments ).go();
+  JSON.get("/OpenForum/Actions/Attachments","","pageName="+pageName+"&metaData=true").onSuccess( setAttachments ).go();
 }
 
 /*function updateFilesList(result) {
@@ -90,10 +102,15 @@ function createAttachment(createBlankFile) {
         showStatus("Failed to create "+fileToSave+" :"+result);
       }
     } else {
-        openAttachment(ai);
+      openAttachment(ai);
       attachments[ai].editor.changed="*";
     }
   }
+}
+
+function saveFile(pageName,fileName) {
+  var attachment = findAttachment(fileName);
+  saveAttachment(attachment.id);
 }
 
 function findAttachment(fileName) {
@@ -122,7 +139,7 @@ function openAttachments(fileNames) {
     }
   }
 
-  for(var i in fileNames) {
+  for(var i=0; i<fileNames.length ; i++) {
 
     var fileName = fileNames[i];
     var attachment = findAttachment(fileName);
@@ -152,6 +169,26 @@ function openAttachments(fileNames) {
 
     }
   }
+      new Process().
+      waitFor( 
+        function(id) {
+          return function() { 
+            if(document.getElementById(id)!==null && document.getElementById(id).clientHeight<10) {
+              document.getElementById(id).style.display = "block";
+            }                
+            return (document.getElementById(id)!==null && document.getElementById(id).clientHeight>=10);
+          };
+        }("editor"+editorToWaitFor)
+      ).
+      then( 
+        function(id) {
+          return function() {                  
+            showStatus("ready");
+            showTab(0);
+          };
+        }()
+      ).
+      run();
 }
 
 function findAttachmentEditor(pageName,fileName) {
@@ -168,6 +205,8 @@ function openAttachment(attachmentId) {
   var fileName = attachments[attachmentId].fileName;
   var pageName = attachments[attachmentId].pageName;
 
+  showStatus("Opening "+pageName+"/"+fileName);
+  
   var editor = findAttachmentEditor(pageName,fileName);
   if(editor===null) {
     var flavour = "text";

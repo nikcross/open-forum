@@ -34,8 +34,7 @@ try{
       return;
     }
 
-    var data = file.getAttachment(pageName,fileName);
-    file.saveAttachment(newPageName,newFileName,data);
+    file.copyAttachment(pageName,fileName,newPageName,newFileName);
 
     if(json===false) {
       transaction.goToPage("/OpenForum/Editor?pageName="+newPageName);
@@ -44,13 +43,16 @@ try{
     }
 
   } else {
-    wiki.copyPage(pageName,newPageName,null);
+    //wiki.copyPage(pageName,newPageName,null);
+    var FileManager = js.getObject("/OpenForum/Actions/Copy","FileManager.sjs");
+    var log = FileManager.copyPage( pageName,newPageName );
+    
     if(json===false) {
       transaction.goToPage("/OpenForum/Editor?pageName="+newPageName);
     } else {
-      transaction.sendJSON(JSON.stringify({result: "ok", message: "Copied "+pageName+" to "+newPageName,copied: true}));
+      transaction.sendJSON(JSON.stringify({result: "ok", message: "Copied "+pageName+" to "+newPageName,copied: true,log: log}));
     }
   }
 } catch(e) {
-  transaction.sendJSON(JSON.stringify({result: "error", message: ""+e}));
+  transaction.sendJSON(JSON.stringify({result: "error", message: "Error: "+e+" @ "+e.lineNumber}));
 }

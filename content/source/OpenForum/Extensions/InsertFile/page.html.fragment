@@ -1,17 +1,17 @@
 Inserts a files contents into the page
 <hr/>
-!<h3>Parameters</h3>
+<h3>Parameters</h3>
 <ul><li> pageName - The page where the file is attached (optional)</li>
 <li> fileName - The file to insert</li>
 
 <hr/>
-!<h3>Usage:</h3>
+<h3>Usage:</h3>
 <xmp class="panel">
 [{InsertFile pageName="pageName" fileName="fileName"}]
 </xmp>
 If pageName is not given then the current page name is assumed.
 
 <hr/>
-!<h3>renderer.sjs</h3>
+<h3>renderer.sjs</h3>
 undefined
 <!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

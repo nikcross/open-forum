@@ -1,0 +1,23 @@
+<div class="row">
+<h3>Total Queued Massages {{totalQueuedMessages}}</h3>
+
+<table>
+  <tr>
+    <td>
+      Name
+    </td>
+    <td>
+      Messages
+    </td>
+  </tr>
+    <tr of-repeatFor="queue in queues">
+    <td>
+      <a href="/OpenForum/MessageQueue?queue={{queue.name}}" target="MessageQueue">{{queue.name}}</a>
+    </td>
+    <td>
+      {{queue.messages}}
+    </td>
+  </tr>
+</table>
+</div>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

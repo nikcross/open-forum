@@ -2,6 +2,7 @@
 	OpenForum.loadCSS("/OpenForum/Editor/code-mirror.css");
     OpenForum.includeScript("/OpenForum/Javascript/CodeMirror/lib/codemirror.js");
     OpenForum.includeScript("/OpenForum/Editor/Editors/HTMLEditor/editor.js");
+    OpenForum.includeScript("/OpenForum/Javascript/JavaWrapper/File/File.js");
 
 var editor = null;
 var editorList = [ {changed: ""} ];
@@ -26,38 +27,57 @@ OpenForum.init = function() {
   editor.init = function() {
     editor._init();
 
-    var localNotes = localStorage.getItem( editingPageName+"/"+editingFileName );
-    if( localNotes && localNotes.length>0 ) {
+    var localChanges = localStorage.getItem( editingPageName+"/"+editingFileName );
+    if( localChanges && localChanges.length>0 ) {
       editor.getCodeMirror().setValue( localStorage.getItem( editingPageName+"/"+editingFileName ) );
     }
 
     editor.getCodeMirror().on("change", function(cm, change) {
-      storeNotes();
+      storeChanges();
     });
 
-    setInterval(autoSaveNotes,10000);
+    setInterval(autoSaveChanges,10000);
   };
 };
 
-function storeNotes() {
+function storeChanges() {
   localStorage.setItem( pageName+"/"+editingFileName,editor.getValue() );
 }
 
-function autoSaveNotes() {
+function autoSaveChanges() {
   if(editorList[0].changed!=="*" || autoSave===false) {
     return;
   }
-  saveNotes();
+  save();
 }
 
-function saveNotes() {
+function save() {
   OpenForum.saveFile(editingPageName+"/"+editingFileName,editor.getValue());
   editorList[0].changed="";
   localStorage.setItem( editingPageName+"/"+editingFileName,"");
       showStatus("All changes saved.");
 }
 
+function upload() {
+  OpenForum.Browser.upload( function(data) {editor.getCodeMirror().setValue(data); } ,showError);
+}
+
+function download() {
+  OpenForum.Browser.download(editingFileName,editor.getValue());
+}
+
+var statusClearer = null;
+var status = " ";
+
 function showStatus(message) {
+  if(statusClearer!==null) {
+    clearTimeout(statusClearer);
+  }
   status = message;
-  $('#statusModal').foundation('reveal', 'open');
+ //$('#status').foundation('reveal', 'open');
+  statusClearer = setTimeout( function() { showStatus(" "); },4000);
+}
+
+function showError(message) {
+  showStatus("Error: "+message);
 }

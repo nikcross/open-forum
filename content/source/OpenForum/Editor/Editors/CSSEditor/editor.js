@@ -4,7 +4,7 @@ function CssEditor(editorIndex,pageName,fileName) {
 
   console.log("Loading css editor");
 
-  this.init = function() {
+  self.init = function() {
     OpenForum.setElement("editor"+editorIndex,"<textarea id=\"editor"+editorIndex+"Src\">Loading...</textarea>");
     cm = CodeMirror.fromTextArea(
       document.getElementById("editor"+editorIndex+"Src"),
@@ -36,12 +36,30 @@ function CssEditor(editorIndex,pageName,fileName) {
     console.log("Css editor loaded");
   };
 
-  this.refresh = function() {
+  self.refresh = function() {
     if(cm) cm.refresh();
   };
 
-  this.getValue = function() {
+  self.getValue = function() {
     return cm.getValue();
+  };
+
+
+  self.setValue = function(newData) {
+    return cm.setValue(newData);
+  };
+
+  self.getCodeMirror = function() {
+    return cm;
+  };
+
+  self.renderOptions = function() {
+    //renderTabOption(name,toolTip,action)
+    var data = "";
+
+    data += renderTabOption("Close","Close editor","closeEditor( "+editorIndex+" )");
+    data += renderTabOption("Save","Save "+pageName+"/"+fileName,"saveFile( '"+pageName+"' , '"+fileName+"' )");
+    return data;
   };
 
   OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/theme/ambiance.css");

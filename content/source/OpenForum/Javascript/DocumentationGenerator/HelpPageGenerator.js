@@ -1,8 +1,14 @@
-var HelpPageGenerator = function(objectName) {
+var HelpPageGenerator = function(objectName,object) {
   var self = this;
 
   self.setObjectName = function(newObjectName) {
     objectName = newObjectName;
+    return this;
+  };
+  
+  self.setObject = function(newObject) {
+    object = newObject;
+    return this;
   };
   
   self.generateHelpPage = function() {
@@ -12,15 +18,18 @@ var HelpPageGenerator = function(objectName) {
       helpText = helpText.replace(/\n\n/g,"\n");
     }
     helpText = helpText.replace(/\n/g,"<br/>\n");
-    helpText = helpText.replace(/function/g,"* function");
+    helpText = helpText.replace(/function/g,"<br/>* function");
 
     return helpText;
   };
 
   self.generateHelpScript = function() {
-    var target = eval(objectName);
+    var target = object;
+    if(typeof(target)=="undefined") {
+    	target = eval(objectName);
+    }
 
-    var helpScript = "";
+    var helpScript = "/* Help script for "+objectName+"*/\n\n";
 
     for(var i in target) {
       if(typeof(target[i])==="function") {
@@ -36,11 +45,16 @@ var HelpPageGenerator = function(objectName) {
   };
 
   var generateHelp = function() {
-    var target = eval(objectName);
+    var target = object;
+    if(typeof(target)=="undefined") {
+    	target = eval(objectName);
+    }
 
     var helpText = objectName + "\n\n";
 
     for(var i in target) {
+      if(typeof(target[i])!=="undefined" && target[i]!==null && typeof(target[i].exclude)!=="undefined") continue;
+      
       if(typeof(target[i])==="function") {
         var args = "";
         if(target[i].args) {

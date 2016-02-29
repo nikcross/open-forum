@@ -1,10 +1,10 @@
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Checks if a page exists. Returns true or false
 <hr/>
-!<h3>Parameters</h3>
+<h3>Parameters</h3>
 <ul><li>pageName - The page to check for</li>
 
 <hr/>
-!<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);

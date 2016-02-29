@@ -1,11 +1,11 @@
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Reverts a page to a specific version
 <hr/>
-!<h3>Get Parameters</h3>
+<h3>Get Parameters</h3>
 <ul><li>pageName -  The name of the page to revert</li>
 <li>version - The version to revert to</li>
 
 <hr/>
-!<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);

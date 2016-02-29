@@ -9,7 +9,7 @@
 	<script type="text/javascript" src="/OpenForum/Processor/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/Processor";
+		var pageName = "/OpenForum/Processor";
 		var author = "unknown";
 		var time = "1447152051000";
 	    var currentUser = "";
@@ -63,10 +63,24 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="/OpenForum">Processor</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="//OpenForum">Processor</a></li></nav>
     
     <!--PageContent Start-->
-Example <a href="http://localhost/OpenForum/Processor?action=runProcess&exec=docker%20ps&queue=test" target="external_page">http://localhost/OpenForum/Processor?action=runProcess&exec=docker%20ps&queue=test</a>
+<div class="row" id="queueBox" style="height: 80%; overflow: scroll;">
+  <div class="large-12 columns panel callout radius" style="min-height: 100%;">
+    <xmp id="queueData">
+    </xmp>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-8 columns">
+    <input id="exec" onkeydown="execute(event.keyCode);" placeHolder="=>" />
+  </div>
+  <div class="large-4 columns">
+    <a class="button tiny radius" onClick="clearLog(); return;">Clear</a>
+  </div>
+</div>
 <!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
 <!--Page Content End-->
       

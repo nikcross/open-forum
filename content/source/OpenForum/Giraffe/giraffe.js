@@ -1,11 +1,11 @@
 //==============================================================================================================//
-/* Version 1.0.0*/
-/* Built on Sat Jul 11 2015 10:33:05 GMT+0100 (BST) */
+/* Version 1.0.1*/
+/* Built on Thu Feb 11 2016 10:57:49 GMT-0000 (UTC) */
 /* Built by /OpenForum/Javascript/Builder.*/
 /* Do not edit as changes may be overwritten */
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/giraffe-header.js*/
+/* Source: /OpenForum/Giraffe/Core/giraffe-header.js*/
 //==============================================================================================================//
 /**
  * @overview
@@ -16,11 +16,11 @@
  * @version 0.001 alpha
  * @license MIT
  */
-/* End of: /OpenForum/Giraffe/giraffe-header.js*/
+/* End of: /OpenForum/Giraffe/Core/giraffe-header.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/giraffe-canvas.js*/
+/* Source: /OpenForum/Giraffe/Core/giraffe-canvas.js*/
 //==============================================================================================================//
 /**
  * Canvas is the Giraffe representation of a canvas element on
@@ -166,11 +166,11 @@ function Canvas(canvasElementId)
 	   };
 }
 /**#@-*/
-/* End of: /OpenForum/Giraffe/giraffe-canvas.js*/
+/* End of: /OpenForum/Giraffe/Core/giraffe-canvas.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/giraffe-object.js*/
+/* Source: /OpenForum/Giraffe/Core/giraffe-object.js*/
 //==============================================================================================================//
 /**
  * This is the prototype object for all graphics objects that can be placed on a canvas.
@@ -284,12 +284,16 @@ function GraphicsObject(x,y)
   this.draw = function(){};
 }
 /**#@-*/
-/* End of: /OpenForum/Giraffe/giraffe-object.js*/
+/* End of: /OpenForum/Giraffe/Core/giraffe-object.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/circle.js*/
+/* Source: /OpenForum/Giraffe/Core/circle.js*/
 //==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
 /**
  * Defines a graphics Circle primative
  * @class
@@ -346,13 +350,16 @@ function Circle(x,y,radius)
   };
 }
 Circle.prototype = new GraphicsObject();
-/**#@-*/
-/* End of: /OpenForum/Giraffe/circle.js*/
+/* End of: /OpenForum/Giraffe/Core/circle.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/rectangle.js*/
+/* Source: /OpenForum/Giraffe/Core/rectangle.js*/
 //==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
 /**
  * Defines a graphics Rectangle primative
  * @class
@@ -405,13 +412,16 @@ function Rectangle(x,y,width,height)
   };
 }
 Rectangle.prototype = new GraphicsObject();
-/**#@-*/
-/* End of: /OpenForum/Giraffe/rectangle.js*/
+/* End of: /OpenForum/Giraffe/Core/rectangle.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/line.js*/
+/* Source: /OpenForum/Giraffe/Core/line.js*/
 //==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
 /**
  * Defines a graphics Line primative from one point to another
  * @class
@@ -447,13 +457,16 @@ function Line(x,y,x2,y2)
   };
 }
 Line.prototype = new GraphicsObject();
-/**#@-*/
-/* End of: /OpenForum/Giraffe/line.js*/
+/* End of: /OpenForum/Giraffe/Core/line.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/text.js*/
+/* Source: /OpenForum/Giraffe/Core/text.js*/
 //==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
 /**
  * Defines a graphics primative
  * @class
@@ -510,13 +523,16 @@ function Text(x,y,text,textSize,font)
   };
 }
 Text.prototype = new GraphicsObject();
-/**#@-*/
-/* End of: /OpenForum/Giraffe/text.js*/
+/* End of: /OpenForum/Giraffe/Core/text.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/picture.js*/
+/* Source: /OpenForum/Giraffe/Core/picture.js*/
 //==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
 /**
  * Defines a graphics Picture primative
  * @class
@@ -559,13 +575,16 @@ function Picture(x,y,src)
   };
 }
 Picture.prototype = new GraphicsObject();
-/**#@-*/
-/* End of: /OpenForum/Giraffe/picture.js*/
+/* End of: /OpenForum/Giraffe/Core/picture.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/polygon.js*/
+/* Source: /OpenForum/Giraffe/Core/polygon.js*/
 //==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
 /**
  * Defines a graphics primative
  * @class
@@ -609,7 +628,7 @@ function Polygon(x,y)
         this.canvas.lineTo(this.points[0][0],this.points[0][1]);
       }
     } else {
-         for(var i=1;i<this.points.length ;i++) {
+         for(var i=1;i<(this.points.length-1) ;i++) {
            		var ia = i%this.points.length;
            		var ib = (i+1)%this.points.length;
                 var xc = (this.points[ia][0] + this.points[ib][0]) / 2;
@@ -626,13 +645,16 @@ function Polygon(x,y)
   };
 }
 Polygon.prototype = new GraphicsObject();
-/**#@-*/
-/* End of: /OpenForum/Giraffe/polygon.js*/
+/* End of: /OpenForum/Giraffe/Core/polygon.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/rounded-rectangle.js*/
+/* Source: /OpenForum/Giraffe/Core/rounded-rectangle.js*/
 //==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
 /**
  * Defines a graphics RoundedRectangle primative
  * @class
@@ -695,14 +717,16 @@ function RoundedRectangle(x,y,width,height,radius)
   };
 }
 RoundedRectangle.prototype = new GraphicsObject();
-
-/**#@-*/
-/* End of: /OpenForum/Giraffe/rounded-rectangle.js*/
+/* End of: /OpenForum/Giraffe/Core/rounded-rectangle.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/arc.js*/
+/* Source: /OpenForum/Giraffe/Core/arc.js*/
 //==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
 /**
  * Defines a graphics primative
  * @class
@@ -793,13 +817,16 @@ function Arc(x,y,startAngle,sweepAngle,radius)
   };
 }
 Arc.prototype = new GraphicsObject();
-/**#@-*/
-/* End of: /OpenForum/Giraffe/arc.js*/
+/* End of: /OpenForum/Giraffe/Core/arc.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/composite.js*/
+/* Source: /OpenForum/Giraffe/Core/composite.js*/
 //==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
 /**
  * Defines a graphics primative
  * @class
@@ -936,13 +963,16 @@ function Composite(x,y,rotation)
   };
 }
 Composite.prototype = new GraphicsObject();
-/**#@-*/
-/* End of: /OpenForum/Giraffe/composite.js*/
+/* End of: /OpenForum/Giraffe/Core/composite.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/radial-color.js*/
+/* Source: /OpenForum/Giraffe/Core/radial-color.js*/
 //==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
 /**
  * Defines a graphics primative
  * @description
@@ -974,12 +1004,16 @@ function RadialColor(canvas,color1,color2,x,y,radius) {
     return gradient;
   };
 }
-/* End of: /OpenForum/Giraffe/radial-color.js*/
+/* End of: /OpenForum/Giraffe/Core/radial-color.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/gradient-color.js*/
+/* Source: /OpenForum/Giraffe/Core/gradient-color.js*/
 //==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
 function GradientColor(canvas,color1,color2,x1,y1,x2,y2) {
 	  /**#@+
 	   * @memberOf RadialColor
@@ -1002,25 +1036,32 @@ this.getColor = function() {
   return gradient;
 };
 }
-/* End of: /OpenForum/Giraffe/gradient-color.js*/
+/* End of: /OpenForum/Giraffe/Core/gradient-color.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/shadow.js*/
+/* Source: /OpenForum/Giraffe/Core/shadow.js*/
 //==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
 function Shadow() {
     this.color = '#999';
     this.blur = 20;
     this.offsetX = 15;
     this.offsetY = 15;
 }
+/* End of: /OpenForum/Giraffe/Core/shadow.js*/
 
-/* End of: /OpenForum/Giraffe/shadow.js*/
-
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/line-style.js*/
+/* Source: /OpenForum/Giraffe/Core/line-style.js*/
 //==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
 function LineStyle() {
 	this.thickness=1.5;
 	this.endCap = 'round';
@@ -1033,63 +1074,62 @@ function LineStyle() {
 		return this;
 	};
 }
-/**#@-*/
-/* End of: /OpenForum/Giraffe/line-style.js*/
+/* End of: /OpenForum/Giraffe/Core/line-style.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/giraffe-core.js*/
+/* Source: /OpenForum/Giraffe/Core/giraffe-core.js*/
 //==============================================================================================================//
 /**
  * Some helper methods used by Giraffe
  * @class
  */
 Giraffe = {
-		/**
+  /**
 		 * @private
 		 */
-		canvases : [],
-		/**
+  canvases : [],
+  /**
 		 * @private
 		 */
-		nextCanvasId : 0,		
-		/**
+  nextCanvasId : 0,		
+  /**
 		 * @private
 		 */
-		getCssValue : function(selector,attribute) {
-			selector = selector.toLowerCase();
-		   for(var sheet=0;sheet<document.styleSheets.length;sheet++) {
-			   var stylesheet = document.styleSheets[sheet];
-			   var n = stylesheet.cssRules.length;
-			   for(var i=0; i<n; i++)
-			   {
-			      var selectors = stylesheet.cssRules[i].selectorText.toLowerCase().split(",");
-			      var m = selectors.length;
-			      for(var j=0; j<m; j++)
-			      {
-			         if(selectors[j].trim() == selector)
-			         {
-			            var value = stylesheet.cssRules[i].style.getPropertyValue(attribute);
-			            if(value!="")
-			            {
-			               return value;
-			            }
-			         }
-			      }
-			   }
-		   }
-		   return null;
-		}
+  getCssValue : function(selector,attribute) {
+    selector = selector.toLowerCase();
+    for(var sheet=0;sheet<document.styleSheets.length;sheet++) {
+      var stylesheet = document.styleSheets[sheet];
+      var n = stylesheet.cssRules.length;
+      for(var i=0; i<n; i++)
+      {
+        var selectors = stylesheet.cssRules[i].selectorText.toLowerCase().split(",");
+        var m = selectors.length;
+        for(var j=0; j<m; j++)
+        {
+          if(selectors[j].trim() == selector)
+          {
+            var value = stylesheet.cssRules[i].style.getPropertyValue(attribute);
+            if(value!="")
+            {
+              return value;
+            }
+          }
+        }
+      }
+    }
+    return null;
+  }
 };
 
 Giraffe.X=0;
 Giraffe.Y=1;
 Giraffe.DEG_TO_RAD = Math.PI/180;
-/* End of: /OpenForum/Giraffe/giraffe-core.js*/
+/* End of: /OpenForum/Giraffe/Core/giraffe-core.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/giraffe-animation.js*/
+/* Source: /OpenForum/Giraffe/Core/giraffe-animation.js*/
 //==============================================================================================================//
 Giraffe.setAnimated = function(canvas) {
   canvas.frame = 0;
@@ -1167,15 +1207,16 @@ Giraffe.setAnimated = function(canvas) {
   };
 };
 
-/* End of: /OpenForum/Giraffe/giraffe-animation.js*/
+/* End of: /OpenForum/Giraffe/Core/giraffe-animation.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/giraffe-transition.js*/
+/* Source: /OpenForum/Giraffe/Core/giraffe-transition.js*/
 //==============================================================================================================//
-/**
- * @class
- */
+/*
+* Author: 
+* Description: 
+*/
 Giraffe.Transition = function(target,frames) {
 	this.frames = frames;
 	this.target = target;
@@ -1212,11 +1253,11 @@ Giraffe.Transition = function(target,frames) {
 		this.canvas.removeAnimationListener(this);
 	};
 };
-/* End of: /OpenForum/Giraffe/giraffe-transition.js*/
+/* End of: /OpenForum/Giraffe/Core/giraffe-transition.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/giraffe-transition-flip.js*/
+/* Source: /OpenForum/Giraffe/Core/giraffe-transition-flip.js*/
 //==============================================================================================================//
 /**
  * Creates an animation sequence that squashes the x axis of a GraphicsObject
@@ -1278,11 +1319,11 @@ Giraffe.FlipInY = function(target,frames) {
 	};
 };
 Giraffe.FlipInY.prototype = new Giraffe.Transition();
-/* End of: /OpenForum/Giraffe/giraffe-transition-flip.js*/
+/* End of: /OpenForum/Giraffe/Core/giraffe-transition-flip.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/giraffe-transition-move.js*/
+/* Source: /OpenForum/Giraffe/Core/giraffe-transition-move.js*/
 //==============================================================================================================//
 Giraffe.MoveSequence = function(target,frames,matrix) {
 	this.frames = frames;
@@ -1303,11 +1344,11 @@ Giraffe.MoveSequence = function(target,frames,matrix) {
 	};
 };
 Giraffe.MoveSequence.prototype = new Giraffe.Transition();
-/* End of: /OpenForum/Giraffe/giraffe-transition-move.js*/
+/* End of: /OpenForum/Giraffe/Core/giraffe-transition-move.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/giraffe-transition-rotate.js*/
+/* Source: /OpenForum/Giraffe/Core/giraffe-transition-rotate.js*/
 //==============================================================================================================//
 Giraffe.RotationSequence = function(target,frames,steps) {
 	this.frames = frames;
@@ -1322,11 +1363,11 @@ Giraffe.RotationSequence = function(target,frames,steps) {
 	};
 };
 Giraffe.RotationSequence.prototype = new Giraffe.Transition();
-/* End of: /OpenForum/Giraffe/giraffe-transition-rotate.js*/
+/* End of: /OpenForum/Giraffe/Core/giraffe-transition-rotate.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/giraffe-transition-explode.js*/
+/* Source: /OpenForum/Giraffe/Core/giraffe-transition-explode.js*/
 //==============================================================================================================//
 Giraffe.ExplodeSequence = function(target,frames) {
 	this.frames = frames;
@@ -1372,15 +1413,16 @@ Giraffe.ExplodeSequence = function(target,frames) {
 	};
 };
 Giraffe.ExplodeSequence.prototype = new Giraffe.Transition();
-/* End of: /OpenForum/Giraffe/giraffe-transition-explode.js*/
+/* End of: /OpenForum/Giraffe/Core/giraffe-transition-explode.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/giraffe-interactive.js*/
+/* Source: /OpenForum/Giraffe/Core/giraffe-interactive.js*/
 //==============================================================================================================//
-/**
- * @class
- */
+/*
+* Author: 
+* Description: 
+*/
 Giraffe.Interactive = {
 		shiftKeyDown : false,
 		controlKeyDown : false,
@@ -1553,7 +1595,7 @@ Giraffe.Interactive = {
 		this.draggable[this.draggable.length]=object;
 	  }
 	  canvas.removeDraggable = function(object) {
-		this.dragAndDrop = false;
+		//this.dragAndDrop = false;
 		var foundIndex = -1;
 		for(var index in this.draggable) {
 			if(this.draggable[index]==object) {
@@ -1602,11 +1644,11 @@ function getPosition(obj) {
 	}
 	return [this.curleft,this.curtop];
 }
-/* End of: /OpenForum/Giraffe/giraffe-interactive.js*/
+/* End of: /OpenForum/Giraffe/Core/giraffe-interactive.js*/
 
 //==============================================================================================================//
 //==============================================================================================================//
-/* Source: /OpenForum/Giraffe/giraffe-tablet.js*/
+/* Source: /OpenForum/Giraffe/Core/giraffe-tablet.js*/
 //==============================================================================================================//
 Giraffe.Tablet = {
 		enableTouch : function(canvas) {
@@ -1710,6 +1752,6 @@ Giraffe.Tablet.noramlizeOrientationEvents = function() {
 	  console.log( "Not supported on your device or browser." );
 	}
 }
-/* End of: /OpenForum/Giraffe/giraffe-tablet.js*/
+/* End of: /OpenForum/Giraffe/Core/giraffe-tablet.js*/
 
 //==============================================================================================================//

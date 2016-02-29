@@ -1,4 +1,4 @@
-<a href="/OpenForum/Javascript/JavaWrapper/get.sjs">/OpenForum/Javascript/JavaWrapper/get.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/JavaWrapper&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Version 0.1
+<a href="//OpenForum/Javascript/JavaWrapper/get.sjs">//OpenForum/Javascript/JavaWrapper/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Version 0.1
 var action = transaction.getParameter("action");
 
 if(action===null) {
@@ -238,7 +238,7 @@ Client code documentation template
 </xmp>
 
 !<h3>Old Code</h3>
-<a href="/OpenForum/Javascript/JavaWrapper/java-wrapper.sjs">/OpenForum/Javascript/JavaWrapper/java-wrapper.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/JavaWrapper&fileName=java-wrapper.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">/*function wrap(instance) {
+<a href="//OpenForum/Javascript/JavaWrapper/java-wrapper.sjs">//OpenForum/Javascript/JavaWrapper/java-wrapper.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper&fileName=java-wrapper.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">/*function wrap(instance) {
   //if primative, convert to javascript type
   if(instance instanceof String) {
     return ""+instance;

@@ -1,14 +1,14 @@
 Inserts an image thumbnail with a link to the full size image.
 <hr/>
-!<h3>Usage:</h3>
+<h3>Usage:</h3>
 <xmp class="panel">
 [{Thumbnail src="image file name"}]
 </xmp>
 -<hr/>
-[<a href='' onclick='showAlert("<img src=\"/OpenForum/Images/index_abc.png\" border=0>","/OpenForum/Images/index_abc.png");return false;'><img src='/OpenForum/Images/index_abc.thumbnail.png' border=0/></a>
+<a href='' onclick='showAlert("<img src=\"/OpenForum/Images/index_abc.png\" border=0>","/OpenForum/Images/index_abc.png");return false;'><img src='/OpenForum/Images/index_abc.thumbnail.png' border=0/></a>
 
 <hr/>
-!<h3>renderer.sjs</h3>
+<h3>renderer.sjs</h3>
 <xmp class="panel">src = extension.getAttributeValueByName("src");
 
 if(src!=null)

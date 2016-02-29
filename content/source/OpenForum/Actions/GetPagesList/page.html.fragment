@@ -1,10 +1,10 @@
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Returns a comma delimited list of page names
 <hr/>
-!<h3>Get Parameters</h3>
+<h3>Get Parameters</h3>
 <ul><li>pageName - a dummy parameter</li>
 
 <hr/>
-!<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);

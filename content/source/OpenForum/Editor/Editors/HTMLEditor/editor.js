@@ -2,7 +2,7 @@ function HtmlEditor(editorIndex,pageName,fileName) {
   var self = this;
   var cm = null;
 
-  this.init = function() {
+  self.init = function() {
     var content = OpenForum.loadFile("/OpenForum/Editor/Editors/HTMLEditor/page.html.fragment");
     content = content.replace(/\{\{editorIndex\}\}/g,editorIndex);
     OpenForum.setElement("editor"+editorIndex,content);
@@ -36,22 +36,38 @@ function HtmlEditor(editorIndex,pageName,fileName) {
     });
   };
 
-  this.getCodeMirror = function() {
+  self.getCodeMirror = function() {
     return cm;
   };
 
-  this.refresh = function() {
+  self.refresh = function() {
     if(cm) cm.refresh();
   };
 
-  this.getValue = function() {
+  self.getValue = function() {
     return cm.getValue();
+  };
+
+
+  self.setValue = function(newData) {
+    return cm.setValue(newData);
+  };
+
+  self.renderOptions = function() {
+    //renderTabOption(name,toolTip,action)
+    var data = "";
+
+    data += renderTabOption("Close","Close editor","closeEditor( "+editorIndex+" )");
+    data += renderTabOption("Save","Save "+pageName+"/"+fileName,"saveFile( '"+pageName+"' , '"+fileName+"' )");
+    return data;
   };
 
   OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/theme/rubyblue.css");
 
-  this.documentation = [
-    {pageName: "/OpenForumDocumentation/OpenForumJavascript/KitchenSink", title:"OpenForum JS Binding"}
+  self.documentation = [
+    {pageName: "/OpenForumDocumentation/OpenForumJavascript/KitchenSink", title:"OpenForum JS Binding"},
+    {pageName: "/OpenForumDocumentation/OpenForumMarkup/KitchenSink", title: "OpenForum Markup"},
+    {pageName: "/OpenForum/Extensions", title: "OpenForum Extended Markup"}
   ];
 
   DependencyService.createNewDependency()
