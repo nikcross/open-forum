@@ -70,7 +70,7 @@ public class JavascriptHelper {
 		return controller.getApi(pageName);
 	}
 
-	public void refreshJarManager() throws Throwable {
+	public void refreshPluginManager() throws Throwable {
 		controller.getLogger().info("Refreshing PluginManager");
 		controller.updatePluginManager();
 	}

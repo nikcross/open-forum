@@ -17,7 +17,6 @@ import java.util.Properties;
 
 import org.onestonesoup.core.data.EntityTree;
 import org.onestonesoup.core.data.EntityTree.TreeEntity;
-import org.onestonesoup.core.javascript.JSONHelper;
 import org.onestonesoup.openforum.plugin.SystemAPI;
 
 public class DatabaseAPI extends SystemAPI {

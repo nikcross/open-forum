@@ -31,4 +31,6 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <groupId>onestonesoup</groupId>
+  <version>3.0.2</version>
 </project>

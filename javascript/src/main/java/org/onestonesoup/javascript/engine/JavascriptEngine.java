@@ -139,7 +139,8 @@ public class JavascriptEngine {
 							scriptQueue.remove(script);
 
 							try {
-								runJavascript(fileName, script, -1, -1, null);
+								JsContext context = jsContextFactory.createContext();
+								runJavascript(fileName, script, -1, -1, context);
 							} catch (Throwable t) {
 								t.printStackTrace();
 							}
