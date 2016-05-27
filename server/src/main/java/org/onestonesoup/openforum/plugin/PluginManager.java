@@ -1,7 +1,6 @@
 package org.onestonesoup.openforum.plugin;
 
 import static org.onestonesoup.openforum.controller.OpenForumConstants.DATA_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.CONTENT_FILE;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -16,7 +15,6 @@ import org.onestonesoup.core.ExceptionHelper;
 import org.onestonesoup.core.FileHelper;
 import org.onestonesoup.core.StringHelper;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
-import org.onestonesoup.openforum.DataHelper;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileManager;
 import org.onestonesoup.openforum.filemanager.Resource;

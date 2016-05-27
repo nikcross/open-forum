@@ -276,6 +276,7 @@ public class FileManager {
 	 * org.onestonesoup.wiki.file.manager.FileManager#getPageAttachments(java
 	 * .lang.String, org.onestonesoup.authentication.server.Login)
 	 */
+	@SuppressWarnings("deprecation")
 	public Map<String, String> getPageAttachments(String pageName, Login login)
 			throws Exception, AuthenticationException {
 		Map<String, String> links = new HashMap<String, String>();

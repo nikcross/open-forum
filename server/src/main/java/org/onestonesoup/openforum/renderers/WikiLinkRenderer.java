@@ -1,8 +1,5 @@
 package org.onestonesoup.openforum.renderers;
 
-import java.io.File;
-
-import org.onestonesoup.core.FileHelper;
 import org.onestonesoup.openforum.controller.OpenForumController;
 
 public class WikiLinkRenderer implements WikiTagRenderer {
@@ -15,7 +12,6 @@ public class WikiLinkRenderer implements WikiTagRenderer {
 
 			WikiLink link = linkParser.parseLink(controller, data.toString());
 
-			String extension = FileHelper.getExtension(link.href);
 			if (link.anchor.length() > 0) {
 				link.href += link.anchor;
 			}

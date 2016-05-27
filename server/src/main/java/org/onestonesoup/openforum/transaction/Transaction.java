@@ -108,7 +108,7 @@ public abstract class Transaction {
 	}
 
 	public void sendResponseHeader() throws IOException {
-		HttpResponseHeader header = new HttpResponseHeader(httpHeader,
+		new HttpResponseHeader(httpHeader,
 				fileServer.getMimeTypeForFileExtension("html"), 200, connection);
 	}
 

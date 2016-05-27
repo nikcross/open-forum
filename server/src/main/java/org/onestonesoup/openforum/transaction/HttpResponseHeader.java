@@ -8,11 +8,9 @@ import sun.misc.BASE64Encoder;
 public class HttpResponseHeader {
 
 	private ClientConnectionInterface connection;
-	private int code;
 	
 	public HttpResponseHeader(EntityTree httpRequest,String contentType,int code,ClientConnectionInterface connection)
 	{
-		this.code = code;
 		this.connection = connection;
 		
 		connection.setResponseStatus(code);

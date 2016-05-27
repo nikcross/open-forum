@@ -1,6 +1,11 @@
 package org.onestonesoup.openforum.router;
 
-import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.GET_SJS_FILE;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.HOOK_SJS;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_404_PATH;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_500_PATH;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_503_PATH;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_FILE;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -21,16 +26,9 @@ import org.onestonesoup.openforum.OpenForumException;
 import org.onestonesoup.openforum.OpenForumNameHelper;
 import org.onestonesoup.openforum.Stream;
 import org.onestonesoup.openforum.controller.OpenForumController;
-import org.onestonesoup.openforum.filemanager.FileManager;
 import org.onestonesoup.openforum.filemanager.FileServer;
 import org.onestonesoup.openforum.filemanager.OpenForumFileServer;
-import org.onestonesoup.openforum.filemanager.ResourceStoreProxy;
-import org.onestonesoup.openforum.javascript.JavascriptExternalResourceHelper;
-import org.onestonesoup.openforum.javascript.JavascriptFileHelper;
-import org.onestonesoup.openforum.javascript.JavascriptHelper;
-import org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper;
 import org.onestonesoup.openforum.security.AuthenticationException;
-import org.onestonesoup.openforum.security.Authenticator;
 import org.onestonesoup.openforum.security.Authorizer;
 import org.onestonesoup.openforum.security.Login;
 import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
@@ -295,7 +293,7 @@ public class Router {
 			}
 
 			// Display a 500 error if authentication fails
-			HttpResponseHeader header = new HttpResponseHeader(httpHeader,
+			new HttpResponseHeader(httpHeader,
 					"txt", 500, connection);
 			connection.getOutputStream().write(exception.getBytes());
 			connection.getOutputStream().flush();
@@ -405,7 +403,7 @@ public class Router {
 			} catch (Throwable t2) {
 				t2.printStackTrace();
 
-				HttpResponseHeader header = new HttpResponseHeader(httpHeader,
+				new HttpResponseHeader(httpHeader,
 						"txt", 500, connection);
 				connection.getOutputStream().write(exception.getBytes());
 				connection.getOutputStream().flush();

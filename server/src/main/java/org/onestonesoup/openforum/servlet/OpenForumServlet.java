@@ -14,11 +14,11 @@ import javax.servlet.http.HttpServletResponse;
 import org.onestonesoup.core.data.EntityTree;
 import org.onestonesoup.core.data.EntityTree.TreeEntity;
 import org.onestonesoup.openforum.controller.OpenForumController;
-import org.onestonesoup.openforum.router.Router;
 
 public class OpenForumServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	@SuppressWarnings("deprecation")
 	@Override
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -52,6 +52,7 @@ public class OpenForumServlet extends HttpServlet {
 		}
 				
 		EntityTree.TreeEntity params = httpHeader.addChild("parameters");
+		@SuppressWarnings("unchecked")
 		Map<String,String[]> parameters = request.getParameterMap();
 		if(parameters.size()>0) {
 			for(String key: parameters.keySet()) {
@@ -67,6 +68,7 @@ public class OpenForumServlet extends HttpServlet {
 			}
 		}
 		
+		@SuppressWarnings("unchecked")
 		Enumeration<String> en = request.getAttributeNames();
 		while(en.hasMoreElements()) {
 			String key = en.nextElement();

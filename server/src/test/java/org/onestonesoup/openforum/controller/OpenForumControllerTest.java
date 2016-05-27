@@ -13,6 +13,6 @@ public class OpenForumControllerTest {
 		
 		OpenForumController controller = new OpenForumController("test", "test");
 		
-		String html = controller.buildPage("TestPage").toString();
+		controller.buildPage("TestPage").toString();
 	}
 }

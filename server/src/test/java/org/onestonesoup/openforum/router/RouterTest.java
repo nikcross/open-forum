@@ -7,10 +7,8 @@ import junit.framework.Assert;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import org.onestonesoup.core.data.EntityTree;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileManager;
-import org.onestonesoup.openforum.security.AuthenticationException;
 import org.onestonesoup.openforum.servlet.HttpHeader;
 
 public class RouterTest {

@@ -1,14 +1,11 @@
 package org.onestonesoup.openforum.trigger;
 
 
-import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.TRIGGER_SJS;
 
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.DataHelper;
 import org.onestonesoup.openforum.controller.OpenForumController;
-import org.onestonesoup.openforum.javascript.JavascriptExternalResourceHelper;
-import org.onestonesoup.openforum.javascript.JavascriptFileHelper;
-import org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper;
 
 public abstract class Trigger {
 
@@ -71,10 +68,6 @@ public abstract class Trigger {
 			return;
 		}
 		
-		JavascriptFileHelper fileHelper = new JavascriptFileHelper(controller,controller.getSystemLogin());
-		JavascriptOpenForumHelper wikiHelper = new JavascriptOpenForumHelper( controller,controller.getSystemLogin() );		
-		JavascriptExternalResourceHelper externalHelper = new JavascriptExternalResourceHelper( controller.getFileManager(),controller.getSystemLogin() );
-		
 		for(int loop=0;loop<listeners.length;loop++ )
 		{
 			String pageName = listeners[loop][1];
@@ -86,7 +79,6 @@ public abstract class Trigger {
 				JavascriptEngine js = controller.getJavascriptEngine(controller.getSystemLogin());
 				js.mount("pageName",pageName);
 				js.mount("triggerPage",getPageName());
-				js.mount("external",externalHelper);
 				
 				js.mount("trigger",this);
 				js.mount("triggerValue",value);

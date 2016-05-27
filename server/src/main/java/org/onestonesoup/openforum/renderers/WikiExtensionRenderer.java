@@ -5,9 +5,6 @@ import org.onestonesoup.core.data.XmlHelper;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.javascript.JavascriptExternalResourceHelper;
-import org.onestonesoup.openforum.javascript.JavascriptFileHelper;
-import org.onestonesoup.openforum.javascript.JavascriptHelper;
-import org.onestonesoup.openforum.javascript.JavascriptOpenForumHelper;
 import org.onestonesoup.openforum.security.Login;
 
 public class WikiExtensionRenderer implements WikiTagRenderer {
@@ -22,8 +19,6 @@ public class WikiExtensionRenderer implements WikiTagRenderer {
 			if(script!=null)
 			{
 				JavascriptEngine js =  controller.getJavascriptEngine(ownerLogin);
-				JavascriptOpenForumHelper wikiHelper = new JavascriptOpenForumHelper( controller,ownerLogin );
-				JavascriptFileHelper fileHelper = new JavascriptFileHelper( controller,ownerLogin );
 				JavascriptExternalResourceHelper externalHelper = new JavascriptExternalResourceHelper( controller.getFileManager(),ownerLogin );
 				
 				js.mount("pageName",pageName);

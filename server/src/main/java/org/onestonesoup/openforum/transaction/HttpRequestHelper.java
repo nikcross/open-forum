@@ -69,6 +69,7 @@ public class HttpRequestHelper {
 		String[] parts = lines[0].split(" ");
 		String method = parts[0].toLowerCase();
 		String path = StringHelper.arrayToString(parts," ",1,parts.length-1);
+		@SuppressWarnings("deprecation")
 		String request = URLDecoder.decode( path );
 		String version = parts[parts.length-1];
 		version = version.substring(5);
@@ -93,6 +94,7 @@ public class HttpRequestHelper {
 		return header;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public static void setHttpRequestParameters(EntityTree header,EntityTree params)
 	{
 		String request = header.getChild("request").getValue();
@@ -117,6 +119,7 @@ public class HttpRequestHelper {
 		header.getChild("request").setValue(request);
 	}	
 	
+	@SuppressWarnings("deprecation")
 	public static EntityTree parseHttpCookieParameters(EntityTree header)
 	{
 		EntityTree params = new EntityTree("parameters");
@@ -181,9 +184,12 @@ public class HttpRequestHelper {
 		EntityTree data = new EntityTree("data");
 		data.addChild("data").setValue( buffer.toString() );
 		
+		iStream.close();
+		
 		return data;
 	}	
 	
+	@SuppressWarnings("deprecation")
 	public static EntityTree parseHttpPostData(EntityTree header,InputStream inputStream) throws IOException
 	{
 		long dataSize = 0;
@@ -240,6 +246,8 @@ public class HttpRequestHelper {
 			
 			data.addChild(entity.getKey()).setValue( URLDecoder.decode(entity.getValue()) );
 		}		
+		
+		iStream.close();
 		return data;
 	}
 
@@ -399,6 +407,7 @@ public class HttpRequestHelper {
 		}
 		
 		out.flush();
+		iStream.close();
 		
 		return count;
 	}

@@ -78,6 +78,7 @@ public class TimerTrigger extends Trigger{
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	public boolean isNewDay()
 	{
 		if(new Date(currentTimeStamp).getDate()!=new Date(previousTimeStamp).getDate())
@@ -90,6 +91,7 @@ public class TimerTrigger extends Trigger{
 		}
 	}	
 	
+	@SuppressWarnings("deprecation")
 	public boolean isNewYear()
 	{
 		if(new Date(currentTimeStamp).getYear()!=new Date(previousTimeStamp).getYear())
@@ -102,16 +104,19 @@ public class TimerTrigger extends Trigger{
 		}
 	}
 	
+	@SuppressWarnings("deprecation")
 	public int getSeconds()
 	{
 		return new Date(currentTimeStamp).getSeconds();
 	}
 	
+	@SuppressWarnings("deprecation")
 	public int getMinutes()
 	{
 		return new Date(currentTimeStamp).getMinutes();
 	}	
 	
+	@SuppressWarnings("deprecation")
 	public int getHours()
 	{
 		return new Date(currentTimeStamp).getHours();
@@ -127,21 +132,25 @@ public class TimerTrigger extends Trigger{
 		}
 	}
 
+	@SuppressWarnings("deprecation")
 	public int getDay()
 	{
 		return new Date(currentTimeStamp).getDate();
 	}	
 	
+	@SuppressWarnings("deprecation")
 	public int getDayOfWeek()
 	{
 		return new Date(currentTimeStamp).getDay();
 	}
 	
+	@SuppressWarnings("deprecation")
 	public int getMonth()
 	{
 		return new Date(currentTimeStamp).getMonth()+1;
 	}
 	
+	@SuppressWarnings("deprecation")
 	public int getYear()
 	{
 		return new Date(currentTimeStamp).getYear()+1900;

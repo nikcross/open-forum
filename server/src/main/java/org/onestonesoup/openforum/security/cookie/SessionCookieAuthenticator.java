@@ -19,7 +19,6 @@ import org.onestonesoup.openforum.transaction.HttpResponseHeader;
 public class SessionCookieAuthenticator implements Authenticator {
 
 	private OpenForumController controller;
-	private FileServer fileServer;
 	private SessionStore sessionStore;
 
 	public Login authenticate(HttpHeader httpHeader) {
@@ -69,9 +68,7 @@ public class SessionCookieAuthenticator implements Authenticator {
 		sessionStore = SessionStore.getSessionStore(controller);
 	}
 
-	public void setFileServer(FileServer fileServer) {
-		this.fileServer = fileServer;
-	}
+	public void setFileServer(FileServer fileServer) {}
 
 	// TODO move to core.StringHelper along with Base64
 	private String generateMD5(String input) {

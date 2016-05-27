@@ -12,6 +12,8 @@ import org.mozilla.javascript.ScriptableObject;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileManager;
+import org.onestonesoup.openforum.security.AuthenticationException;
+import org.onestonesoup.openforum.security.Authorizer;
 import org.onestonesoup.openforum.security.Login;
 
 public class JavascriptHelper {
@@ -30,8 +32,13 @@ public class JavascriptHelper {
 		this.login = login;
 	}
 
-	public Object getObject(String pageName, String fileName) throws Throwable {
+	public Object getObject(String pageName, String fileName) throws Throwable {		
 		String name = pageName + "/" + fileName;
+		
+		if(!controller.getAuthorizer().isAuthorized(login, name, Authorizer.ACTION_READ)) {
+			throw new AuthenticationException("No read rights for object "+name);
+		}
+		
 		NativeObject function = (NativeObject) functions.get(name);
 
 		if (function == null) {
@@ -67,6 +74,9 @@ public class JavascriptHelper {
 	}
 
 	public Object getApi(String pageName) throws Throwable {
+		if(!controller.getAuthorizer().isAuthorized(login, pageName, Authorizer.ACTION_UPDATE)) {
+			throw new AuthenticationException("No update rights for Api "+pageName);
+		}
 		return controller.getApi(pageName);
 	}
 

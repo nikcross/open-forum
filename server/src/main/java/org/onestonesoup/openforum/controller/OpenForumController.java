@@ -16,9 +16,7 @@ import static org.onestonesoup.openforum.controller.OpenForumConstants.OWNER_FIL
 import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGES_INDEX_PAGE_PATH;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_BUILD_JS;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.SYSTEM_NAME;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.TAGS_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.UPDATE_WIKI_TEMPLATE;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -724,36 +722,6 @@ public class OpenForumController implements OpenForumScripting,
 				fileManager.saveStringAsAttachment(tags, pageName, TAGS_FILE,
 						login, true);
 				tagsChanged = true;
-			}
-		}
-
-		if (postParameters != null) {
-			EntityTree dataToFileMap = null;
-			/*
-			 * if (fileManager .pageAttachmentExists(pageName, DATA_MAP_FILE,
-			 * login)) { dataToFileMap =
-			 * JSONHelper.toTree(fileManager.getPageAttachmentAsString(pageName,
-			 * DATA_MAP_FILE, login)); } else if
-			 * (fileManager.pageAttachmentExists( OPEN_FORUM_DEFAULT_PAGE_PATH,
-			 * DATA_MAP_FILE, login)) { dataToFileMap =
-			 * JSONHelper.toTree(fileManager.getPageAttachmentAsString(
-			 * OPEN_FORUM_DEFAULT_PAGE_PATH, DATA_MAP_FILE, login)); }
-			 */
-			if (dataToFileMap != null) {
-				for (int loop = 0; loop < dataToFileMap.getChildren().size(); loop++) {
-					EntityTree.TreeEntity mapping = dataToFileMap.getChildren()
-							.get(loop);
-					String from = mapping.getAttribute("from");
-					String to = mapping.getAttribute("to");
-
-					EntityTree.TreeEntity fromData = postParameters
-							.getChild(from);
-					if (fromData != null) {
-						fileManager.saveStringAsAttachment(fromData.getValue(),
-								pageName, to, login, true);
-						fromData.setValue("&" + from + ";");
-					}
-				}
 			}
 		}
 

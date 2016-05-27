@@ -1,7 +1,6 @@
 package org.onestonesoup.openforum.controller;
 
 import org.onestonesoup.openforum.security.AuthenticationException;
-import org.onestonesoup.openforum.security.Login;
 
 public interface OpenForumBuilder extends OpenForum{
 

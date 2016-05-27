@@ -1,6 +1,8 @@
 package org.onestonesoup.openforum.filemanager;
 
-import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_401_PATH;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_404_PATH;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_FILE;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -9,7 +11,6 @@ import java.util.Map;
 import java.util.zip.GZIPOutputStream;
 
 import org.onestonesoup.core.FileHelper;
-import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
 

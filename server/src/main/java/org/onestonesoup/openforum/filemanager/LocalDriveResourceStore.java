@@ -8,9 +8,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import org.onestonesoup.core.FileHelper;
 import org.onestonesoup.core.StringHelper;

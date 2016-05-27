@@ -6,7 +6,6 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -261,15 +260,6 @@ public class ResourceStoreProxy implements ResourceStore {
 	private ResourceStore getResourceStoreToWrite(Resource resource) {
 		for(ResourceStore resourceStore: resourceStores) {
 			if(resourceStore.isReadOnly()==false ){
-				return resourceStore;
-			}
-		}
-		return null;
-	}
-	
-	private ResourceStore getResourceStoreToRead(ResourceFolder folder) {
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.resourceFolderExists(folder) ){
 				return resourceStore;
 			}
 		}
