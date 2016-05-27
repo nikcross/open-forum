@@ -2,16 +2,20 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Help</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+    <script type="text/javascript" src="/TheLab/GoogleMaps/markerclusterer.js"></script>
+    <script type="text/javascript" src="/TheLab/GoogleMaps/infobox.js"></script>
 	<script type="text/javascript" src="/OpenForum/Javascript/Help/page.js"></script>
 
 	<script>
 		var pageName = "/OpenForum/Javascript/Help";
 		var author = "unknown";
-		var time = "1455113610000";
+		var time = "1456912205000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -29,7 +33,7 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="#"> Help</a>
+              <a href="undefined"> Help</a>
             </h1>
           </li>
         </ul>
@@ -37,10 +41,10 @@
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="#">Signed in as {{currentUser}}</a>
+              <a href="undefined">Signed in as {{currentUser}} {{avatar}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <li><a href="undefined" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
                 <script>
   var accessLoading = false;
   function doSignIn() {
@@ -63,12 +67,12 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="//OpenForum/Javascript">Help</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">Help</a></li></nav>
     
     <!--PageContent Start-->
 <!-- insert (/OpenForum/Javascript/Core/open-forum.help.content) start --><div class="large-6 columns"><h3></h3>
 
-!<h3>OpenForum<br/></h3>
+ <h3>OpenForum<br/></h3>
 <br/>* function getVersion()  - Get the version number of this script<br/>
  Returns:  - The version number as a string. eg. 1.0.0<br/>
 <br/>* function getBuildDate()  - Get the build date and time of this script as a UTC date and time string<br/>
@@ -105,11 +109,12 @@
 <br/>* function loadScripts(arg0,arg1) <br/>
 <br/>* function loadScript(arg0) <br/>
 <br/>* function loadCSS(arg0) <br/>
-<br/>* function loadFile(arg0) <br/>
-<br/>* function saveFile(arg0,arg1) <br/>
-<br/>* function deleteFile(arg0,arg1) <br/>
-<br/>* function copyFile(arg0,arg1) <br/>
-<br/>* function moveFile(arg0,arg1) <br/>
+<br/>* function loadFile(arg0,arg1) <br/>
+<br/>* function saveFile(arg0,arg1,arg2) <br/>
+<br/>* function appendFile(arg0,arg1,arg2) <br/>
+<br/>* function deleteFile(arg0,arg1,arg2) <br/>
+<br/>* function copyFile(arg0,arg1,arg2) <br/>
+<br/>* function moveFile(arg0,arg1,arg2) <br/>
 <br/>* function fileExists(arg0) <br/>
 <br/>* function uploadFile(arg0,arg1) <br/>
 <br/>* function addTab(arg0) <br/>
@@ -130,7 +135,7 @@
 
 
 
-<h3>DependencyService<br/></h3>
+ <h3>DependencyService<br/></h3>
 <br/>* function createNewDependency() <br/>
 <br/>* function scriptLoaded(arg0) <br/>
 
@@ -139,7 +144,7 @@
 
 
 
-<h3>Process<br/></h3>
+ <h3>Process<br/></h3>
 <br/>* function call(arg0) <br/>
 <br/>* function waitFor(arg0) <br/>
 <br/>* function then(arg0) <br/>
@@ -148,9 +153,9 @@
 
 <hr/>
 
-<br/><i>Built Wed Feb 10 2016 15:37:48 GMT-0000 (UTC)</i></div><div class="large-6 columns"><xmp class="panel">//==============================================================================================================//
-/* Version 1.0.14*/
-/* Built on Wed Feb 10 2016 15:37:48 GMT-0000 (UTC) */
+<br/><i>Built Thu May 19 2016 09:50:30 GMT-0000 (UTC)</i></div><div class="large-6 columns"><xmp class="panel">//==============================================================================================================//
+/* Version 1.0.19*/
+/* Built on Thu May 19 2016 09:50:30 GMT-0000 (UTC) */
 /* Built by /OpenForum/Javascript/Builder.*/
 /* Do not edit as changes may be overwritten */
 //==============================================================================================================//
@@ -314,11 +319,11 @@ var OpenForum = new function(){
   self.interval = null;
   
   self.getVersion = function() {
-    return "1.0.14";
+    return "1.0.19";
   };
 
   self.getBuildDate = function() {
-    return "Wed Feb 10 2016 15:37:48 GMT-0000 (UTC)";
+    return "Thu May 19 2016 09:50:30 GMT-0000 (UTC)";
   };
 
   self.initDependencies = DependencyService.createNewDependency();
@@ -396,7 +401,7 @@ var OpenForum = new function(){
       prefix="";
     }
 
-    for(var ni in nodeProcessors) {
+    for(var ni = 0; ni<nodeProcessors.length; ni++) {
       nodeProcessors[ni](node);
     }
 
@@ -418,7 +423,7 @@ var OpenForum = new function(){
       }
     }
 
-    for(var nodeIndex in node.childNodes) {
+    for(var nodeIndex=0; nodeIndex<node.childNodes.length; nodeIndex++) {
       var childNode = node.childNodes[nodeIndex];
 
       self.crawlParts(childNode,prefix);
@@ -436,7 +441,7 @@ var OpenForum = new function(){
   };
 
   self.crawlTables = function (node) {
-    for(var nodeIndex in node.childNodes) {
+    for(var nodeIndex=0; nodeIndex<node.childNodes.length; nodeIndex++) {
       var childNode = node.childNodes[nodeIndex];
       self.crawlTables(childNode);
       if(childNode.attributes && childNode.attributes['of-repeatFor']) {
@@ -482,13 +487,13 @@ var OpenForum = new function(){
       data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
         "<span id='OpenForumId"+nextId+"'>OpenForumId"+nextId+"</span>"+
         data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
-      spans[spans.length] = {id: 'OpenForumId'+nextId,name: name};
+      spans.push( {id: 'OpenForumId'+nextId,name: name} );
 
       nextId++;
     }
     node.innerHTML = data;
 
-    for(var spanIndex in spans) {
+    for(var spanIndex = 0; spanIndex<spans.length; spanIndex++) {
       var span = spans[spanIndex];
       var object = self.getObject( span.name );
       object.add( document.getElementById(span.id) );
@@ -517,7 +522,7 @@ var OpenForum = new function(){
 
   var waitForReadyCount = 0;
   self.waitForReady = function() { 
-    if(waitForReadyCount<15) {
+    if(waitForReadyCount<75) {
       if(self.initDependencies.checkLoaded()===false) {
         setTimeout(OpenForum.waitForReady,200);
         waitForReadyCount++;
@@ -682,34 +687,60 @@ var OpenForum = new function(){
     document.getElementsByTagName("head")[0].appendChild(fileref);
   };
 
-  self.loadFile = function(fileName) {
+  self.loadFile = function(fileName,callBack) {
     if(fileName.indexOf("?")!==-1) {
       fileName += "&ts="+new Date().getTime();
     } else {
       fileName += "?ts="+new Date().getTime();
     }
-    return Ajax.sendRequest( new AjaxRequest("GET",fileName,"",null,null,null,false)  );
+    if(callBack) {
+    	Ajax.sendRequest( new AjaxRequest("GET",fileName,"",null,callBack,null,true)  );
+    } else {
+    	return Ajax.sendRequest( new AjaxRequest("GET",fileName,"",null,null,null,false)  );
+    }
   };
 
-  self.saveFile = function(fileName,data) {
+  self.saveFile = function(fileName,data,callBack) {
     var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
     fileName = fileName.substring(fileName.lastIndexOf("/")+1);
 
     data = "pageName="+encodeURIComponent(pageName)+"&fileName="+encodeURIComponent(fileName)+"&data="+encodeURIComponent(data);
 
-    return eval("(" + Ajax.sendRequest( new AjaxRequest("POST","/OpenForum/Actions/Save","returnType=json",data,null,null,false)) + ")");
+    if(callBack) {
+        Ajax.sendRequest( new AjaxRequest("POST","/OpenForum/Actions/Save","returnType=json",data,callBack,null,true));
+    } else {
+    	return JSON.parse( Ajax.sendRequest( new AjaxRequest("POST","/OpenForum/Actions/Save","returnType=json",data,null,null,false)) );
+    }
   };
   
-  self.deleteFile = function(pageName,fileName) {
+  self.appendFile = function(fileName,data,callBack) {
+    var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
+    fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+
+    var parameters = "action=appendStringToFileNoBackup"+
+        "&arg0="+encodeURIComponent(pageName)+"&arg1="+encodeURIComponent(fileName)+"&arg2="+encodeURIComponent(data);
+      
+    if(callBack) {
+    	return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,callBack,null,true));
+    } else {
+    	return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,null,null,false)) );
+    }
+  };
+  
+  self.deleteFile = function(pageName,fileName,callBack) {
 
     var parameters = "action=deleteAttachmentNoBackup"+
         "&arg0="+pageName+
         "&arg1="+fileName;
 
-    return eval("(" + Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,null,null,false)) + ")");
+    if(callBack) {
+    	return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,callBack,null,true));
+    } else {
+    	return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,null,null,false)) );
+    }
   };
   
-  self.copyFile = function(fileName,toFileName) {
+  self.copyFile = function(fileName,toFileName,callBack) {
     var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
     fileName = fileName.substring(fileName.lastIndexOf("/")+1);
     
@@ -721,11 +752,14 @@ var OpenForum = new function(){
       "&newPageName="+toPageName+
       "&newFileName="+toFileName+
       "&returnType=json";
-
-    return eval("(" + Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Copy",parameters,null,null,null,false)) + ")");
+    if(callBack) {
+    	return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Copy",parameters,null,callBack,null,true));
+    } else {
+    	return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Copy",parameters,null,null,null,false)));
+    }
   };
 
-  self.moveFile = function(fileName,toFileName) {
+  self.moveFile = function(fileName,toFileName,callBack) {
     var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
     fileName = fileName.substring(fileName.lastIndexOf("/")+1);
     
@@ -738,7 +772,11 @@ var OpenForum = new function(){
       "&newFileName="+toFileName+
       "&returnType=json";
 
-    return eval("(" + Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Move",parameters,null,null,null,false)) + ")");
+    if(callBack) {
+    	return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Move",parameters,null,callBack,null,true));
+    } else {
+    	return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Move",parameters,null,null,null,false)) );
+    }
   };
   
   self.fileExists = function(fileName) {
@@ -1677,6 +1715,31 @@ OpenForum.Browser.upload = function(callback,onError) {
   hiddenElement.click();
 };
 
+OpenForum.Browser.uploadDataUrl = function(callback,onError) {
+   var hiddenElement = document.createElement('input');
+  hiddenElement.type = "file";
+  hiddenElement.style.display = "none";
+  hiddenElement.onchange = function(event) {
+     var reader = new FileReader();
+
+    reader.onload = function(event) {
+          if(event.target.readyState != 2) return;
+          if(event.target.error) {
+            if(onError) {
+              onError('Error while reading file');
+            } else {
+              alert('Error while reading file');
+            }
+              return;
+          }
+          callback( event.target.result );
+      };
+      reader.readAsDataURL(event.target.files[0]);
+  };
+  document.body.appendChild(hiddenElement);
+  hiddenElement.click();
+};
+
 OpenForum.Browser.overrideSave = function(fn) {
   $(document).bind('keydown', function(e) {
   if(e.ctrlKey && (e.which == 83)) {
@@ -1720,10 +1783,10 @@ OpenForum.action.deletePage = function(pageName) {
         <div class="large-12 columns">
           		<hr/>
               <ul class="inline-list right">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Developers</a></li>
+                <li><a href="undefined">About</a></li>
+                <li><a href="undefined">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="undefined">Documentation</a></li>
+                <li><a href="undefined">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>

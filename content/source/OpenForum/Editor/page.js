@@ -121,7 +121,7 @@ OpenForum.init = function () {
 
   setKeyMappings();
 
-  setInterval(checkForChanges,5000);
+  setTimeout(checkForChanges,5000);
 };
 
 var lastCheckTime = new Date().getTime();
@@ -177,6 +177,8 @@ function processChanges(response) {
 
     }
   }
+  
+  setTimeout(checkForChanges,5000);
 }
 
 function setKeyMappings() {

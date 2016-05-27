@@ -2,7 +2,7 @@
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="[{Hash}]">Signed in as {{currentUser}}</a>
+              <a href="[{Hash}]">Signed in as {{currentUser}} {{avatar}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
                 <li><a href="[{Hash}]" onClick="doSignIn(); return false;">Sign In as Different User</a></li>

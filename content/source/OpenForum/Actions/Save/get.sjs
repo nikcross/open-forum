@@ -22,6 +22,8 @@ try{
   openForum.saveAsAttachment(pageName,fileName,data,user);
   try{
     openForum.buildPage(pageName);
+    
+    file.appendStringToFileNoBackup("/OpenForum/Users/"+transaction.getUser(),"journal.txt","Changed file "+fileName+" on page "+pageName+" at "+new Date()+"\n");
   } catch(e) {
     //ignor as may not have page.content
   }

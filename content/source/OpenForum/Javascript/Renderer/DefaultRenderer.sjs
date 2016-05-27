@@ -280,7 +280,7 @@ function DefaultRenderer() {
     new MarkUp( { type: "h1", match: {start: "!!!!",end: EOL}, start: "<h1>", end: "</h1>" } ),
     new MarkUp( { type: "h2", match: {start: "!!!",end: EOL}, start: "<h2>", end: "</h2>" } ),
     new MarkUp( { type: "h3", match: {start: "!!",end: EOL}, start: "<h3>", end: "</h3>" } ),
-    new MarkUp( { type: "center", match: {start: "==",end: "=="}, start: "<center>", end: "</center>" } ),
+    new MarkUp( { type: "center", match: {start: "=-=",end: "=-="}, start: "<center>", end: "</center>" } ),
     new MarkUp( { type: "section", match: {start: EOL+"--8<!--",end: EOL+"-->8--"}, start: "<hr/>", end: "" } ),
     new MarkUp( { type: "rule", match: {start: "----",end: EOL}, start: "<hr/>", end: "" } ),
     new MarkUp( { type: "extension", match: {start: "[{",end: "}]"}, start: "", end: "", render: renderExtension, stackable: false } ),
@@ -289,13 +289,25 @@ function DefaultRenderer() {
   ];
 
   /*===================================*/
-  self.render = function(pageName,input) {
+  /*  Converts OpenForum Markup to HTML
+   * 
+   *  pageName - Name of page to render for
+   *  input - raw text to render to html 
+   * 
+   */
+  self.render = function(pageName,text) {
     try{
-    input = EOL+input+EOL;
+    var input = EOL+text+EOL;
     var rendererStack = [];
     var output = "";
+      
+    //While there is input text left to render
     while(input.length>0) {
+      //Find the next instance of marked up text
+      //and return the required renderer
       var renderer = findFirstMatch( input,markUp );
+      
+      //If no renderer found in remaining text, add text to output and end
       if(renderer===null) {
         output+=input;
         break;
@@ -305,8 +317,9 @@ function DefaultRenderer() {
         if(input.substring(startCutPoint,1)===EOL) {
           startCutPoint++;
         }
+        
         var before = input.substring(0,startCutPoint);
-
+        
         var after = input.substring(startPoint+renderer.getStart().length);
         var endPoint = after.indexOf(renderer.getEnd());
         var content = after.substring( 0,endPoint );
@@ -323,15 +336,15 @@ function DefaultRenderer() {
         after = after.substring( endPoint );
         output += before + renderer.render(pageName,content);
         input = after;
-
+        
         rendererStack.push(renderer);
       }
     }
     output = output.substring(1,output.length-1);
 
     while(rendererStack.length>0) {
-      var renderer = rendererStack.pop();
-      output = output + renderer.renderClose();
+      var poppedRenderer = rendererStack.pop();
+      output = output + poppedRenderer.renderClose();
     }
 
     return output;

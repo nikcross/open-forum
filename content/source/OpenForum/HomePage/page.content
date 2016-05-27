@@ -1,1 +1,13 @@
 !!Welcome to Open Forum
+
+<div class="row small-up-2 medium-up-3 large-up-4">
+  <div class="column panel">
+    [{MarkDown url="https://raw.githubusercontent.com/nikcross/open-forum/master/README.md"}]
+  </div>
+
+  <div class="column panel">
+    !!Documentation
+    [{InsertFile pageName="/OpenForumDocumentation" fileName="page.html.fragment"}]
+  </div>
+</div>
+

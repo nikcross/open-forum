@@ -1,0 +1,13 @@
+<div class="row">
+!!Example using local source
+{{{
+[{MarkDown pageName="/OpenForum/Extensions/MarkDown" fileName="example.md"}]
+}}}
+[{MarkDown pageName="/OpenForum/Extensions/MarkDown" fileName="example.md"}]
+
+!!Example using remote source
+{{{
+[{MarkDown url="https://raw.githubusercontent.com/wiki/adam-p/markdown-here/Markdown-Here-Cheatsheet.md"}]
+}}}
+[{MarkDown url="https://raw.githubusercontent.com/wiki/adam-p/markdown-here/Markdown-Here-Cheatsheet.md"}]
+  </div>

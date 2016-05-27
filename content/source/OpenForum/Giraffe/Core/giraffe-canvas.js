@@ -35,6 +35,8 @@ function Canvas(canvasElementId)
   this.scaleX=1;
   this.scaleY=1;
   
+  this.paintMode = false;
+  
   /**#@+
    * @memberOf Canvas
    */
@@ -58,7 +60,9 @@ function Canvas(canvasElementId)
    */
   this.repaint = function()
   {
-    this.canvasContext.clearRect(0,0,this.width,this.height); // clear canvas
+    if(!this.paintMode) {
+    	this.canvasContext.clearRect(0,0,this.width,this.height); // clear canvas
+    }
 
     if(this.scaleSet==false) {
     	this.canvasContext.scale(this.scaleX,this.scaleY);

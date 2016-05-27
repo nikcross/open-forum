@@ -8,10 +8,15 @@ OpenForum.init = function() {
   queueName = OpenForum.getParameter("queue");
   if(queueName) {
     startWatchingQueue();
+    document.getElementById( "queueName" ).value = queueName;
   }
 };
 
 function startWatchingQueue() {
+  
+  if(queue) {
+    queue.stopPolling();
+  }
   
   queue = new MessageQueue(queueName);
 
@@ -25,4 +30,8 @@ function startWatchingQueue() {
 
   queue.startPolling();
 
+}
+
+function clear() {
+  document.getElementById( "queueData" ).innerHTML="";
 }

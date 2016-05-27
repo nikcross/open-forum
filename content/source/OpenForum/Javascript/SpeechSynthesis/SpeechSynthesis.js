@@ -3,6 +3,7 @@ if(!OpenForum) {
 }
 OpenForum.Speech = {};
 OpenForum.Speech.voice = {
+  on: true,
   name: "",
   spokenName: "Jane",
   pitch: 100,  // 0 to 200
@@ -27,6 +28,9 @@ OpenForum.Speech.say = function(message,voice) {
 	var msg = new SpeechSynthesisUtterance(message);
   if(!voice) {
 		voice = OpenForum.Speech.voice;
+  }
+  if(voice.on===false) {
+    return;
   }
   msg.voice = OpenForum.Speech.getVoice(voice.name);
   msg.pitch = voice.pitch/100;

@@ -1,3 +1,42 @@
 <h3>Welcome to Open Forum</h3>
 
+<div class="row small-up-2 medium-up-3 large-up-4">
+  <div class="column panel">
+    <h1 id="open-forum">open-forum</h1>
+<p> is a free and open source application providing an integrated web server and Wiki.</p>
+<p>In addition to the standard Wiki functions of page editing,
+ OpenForum allows the Wiki platform to be extended, #
+ tailored and integrated with existing systems. 
+ This is achieved by the use of server side Javascript scripts and Java plugins.
+ The server side scripts can be edited from within the Wiki itself.
+ In fact all the Wiki actions, such as editing pages, uploading attachments and controlling access
+ are defined in Javascript scripts that can be edited from within the Wiki.</p>
+<p>OpenForum has the ability to serve real-time content mixed with static content using a number of AJAX style functions.</p>
+<p>OpenForum can access databases, REST applications and Xml based 
+web services as well as act as a source of information to other applications.</p>
+<p>OpenForum has a rich set of template functions to enable the Wiki to have a consistent look and feel.</p>
+<p>OpenForum allows pages to be organised hierarchically 
+with hierarchical templates and access control.</p>
+
+  </div>
+
+  <div class="column panel">
+    <h3>Documentation</h3>
+    <ul><li> <a href="/OpenForumDocumentation/Architecture">Architecture</a></li>
+<li> <a href="/OpenForumDocumentation/CookBook">CookBook</a></li>
+<li> <a href="/OpenForumDocumentation/Editor">Editor</a></li>
+<li> <a href="/OpenForumDocumentation/EditorKeys">EditorKeys</a></li>
+<li> <a href="/OpenForumDocumentation/Installation">Installation</a></li>
+<li> <a href="/OpenForumDocumentation/Introduction">Introduction</a></li>
+<li> <a href="/OpenForumDocumentation/OpenForumJavascript">OpenForumJavascript</a></li>
+<li> <a href="/OpenForumDocumentation/OpenForumMarkup">OpenForumMarkup</a></li>
+<li> <a href="/OpenForumDocumentation/OpenForumServerSideJavascript">OpenForumServerSideJavascript</a></li>
+<li> <a href="/OpenForumDocumentation/SpecialPages">SpecialPages</a></li>
+<li> <a href="/OpenForumDocumentation/StandardJavascript">StandardJavascript</a></li>
+</ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+  </div>
+</div>
+
+
 <!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

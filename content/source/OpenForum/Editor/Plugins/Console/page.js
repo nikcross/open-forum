@@ -1,0 +1,1 @@
+OpenForum.includeScript("/OpenForum/Editor/Plugins/Console/plugin.js");

@@ -27,6 +27,12 @@ if(action==="getTotalQueuedMessages") {
   }
   
   result = {result: "ok", totalQueuedMessages: total, queues: queues};
+} else if(action==="clearQueue") {
+  var queueName = ""+transaction.getParameter("queue");
+  
+  queueManager.getQueue(queueName).setEmpty();
+  
+  result = {result: "ok", queue: queueName, message: "Cleared "+queueName};
 }
 
 } catch(e) {

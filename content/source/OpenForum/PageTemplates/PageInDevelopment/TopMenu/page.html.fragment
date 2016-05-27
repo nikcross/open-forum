@@ -24,12 +24,12 @@
             <li class="has-dropdown">
               <a href="#">Attachments</a>
               <ul class="dropdown"><li>
-<ul><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/data.json</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/topMenu.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/notes.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/printable.html</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html.fragment</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.js</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.wiki" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.wiki">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.wiki</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/tags.txt</a></li><li><a href="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html" title="/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html">/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.html</a></li></ul>
+
                 </li></ul>
             </li>
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="#">Signed in as {{currentUser}}</a>
+              <a href="#">Signed in as {{currentUser}} {{avatar}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
                 <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>

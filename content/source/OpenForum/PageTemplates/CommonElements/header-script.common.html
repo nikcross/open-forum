@@ -1,0 +1,21 @@
+    <script>
+      var pageName = "&pageName;";
+      var author = "&author;";
+      var time = "&time;";
+      var currentUser = "";
+      var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
+      JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+      JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
+        function (response) {
+          if(response.profile.avatar) {
+            avatar = "<img src='" + response.profile.avatar + "' style='width: 24px; height: 24px;' />";
+          }
+        }
+      ).go();
+      
+      window.onerror = function(errorMsg, url, lineNumber) {
+        OpenForum.error = errorMsg+" url:"+url+" line number:"+lineNumber;
+        OpenForum.errorMessage = "Woops";
+        $('#ofErrorMessage').foundation('reveal', 'open');
+      };
+    </script>

@@ -2,16 +2,20 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Documenation Generator</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+    <script type="text/javascript" src="/TheLab/GoogleMaps/markerclusterer.js"></script>
+    <script type="text/javascript" src="/TheLab/GoogleMaps/infobox.js"></script>
 	<script type="text/javascript" src="/OpenForum/Javascript/DocumenationGenerator/page.js"></script>
 
 	<script>
-		var pageName = "OpenForum/Javascript/DocumenationGenerator";
+		var pageName = "/OpenForum/Javascript/DocumenationGenerator";
 		var author = "unknown";
-		var time = "1449054025000";
+		var time = "1456912205000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -29,7 +33,7 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="#"> Documenation Generator</a>
+              <a href="undefined"> Documenation Generator</a>
             </h1>
           </li>
         </ul>
@@ -37,10 +41,10 @@
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="#">Signed in as {{currentUser}}</a>
+              <a href="undefined">Signed in as {{currentUser}} {{avatar}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <li><a href="undefined" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
                 <script>
   var accessLoading = false;
   function doSignIn() {
@@ -65,7 +69,8 @@
       </nav>
 <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">DocumenationGenerator</a></li></nav>
     
-    <!--PageContent Start--><div class="medium-4 columns">
+    <!--PageContent Start-->
+<div class="medium-4 columns">
 
 </div>
 <div class="medium-4 columns">
@@ -88,16 +93,18 @@
 
 </div>
 <div class="row">
-<h3> Needs to be able to run on server side as well to document server side scripts<!--Content built using default--><!--Page Content End--></h3>
+<h3> Needs to be able to run on server side as well to document server side scripts</h3>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Page Content End-->
       
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           		<hr/>
               <ul class="inline-list right">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Developers</a></li>
+                <li><a href="undefined">About</a></li>
+                <li><a href="undefined">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="undefined">Documentation</a></li>
+                <li><a href="undefined">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>

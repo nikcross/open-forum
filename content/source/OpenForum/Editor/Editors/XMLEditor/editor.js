@@ -1,4 +1,4 @@
-function XmlEditor(editorIndex,pageName,fileName) {
+function XMLEditor(editorIndex,pageName,fileName) {
   var self = this;
   var cm = null;
 

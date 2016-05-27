@@ -7,7 +7,7 @@ var console = {
   runCli: function() {
     this.addToHistory(this.cliText);
     this.log("js> "+this.cliText);
-    try{
+    //try{
       var script = this.cliText;
       if(script.substring(0,4)==="run:") {
         this.log("Running script from tab "+script.substring(4));
@@ -21,7 +21,7 @@ var console = {
       } else {
         this.log(result);
       }
-    } catch (e) {
+    /*} catch (e) {
       var message = ""+e;
       var cursor = ""+e.stack;
       console.log(cursor+"<br/>");
@@ -32,7 +32,7 @@ var console = {
 		cursor = cursor.substring(cursor.indexOf(", :")+3);
       
       this.log(message + " on line " + cursor);
-    }
+    }*/
   },
   cliHistory: [],
   cliHistoryCursor: 0,

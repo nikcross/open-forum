@@ -4,6 +4,6 @@ if(typeof(pageName)=="undefined")
 }
 else
 {
-  page = wiki.buildPage(pageName,"!!Folder: "+pageName+"\n !!ChildPages\n[{ChildPagesList}]\n !!Attachments\n[{AttachmentsList}]",true);
-  transaction.sendPage( page );
+  var page = wiki.buildPage(pageName,"!!Folder: "+pageName+"\n !!ChildPages\n[{ChildPagesList}]\n !!Attachments\n[{AttachmentsList}]",true);
+  transaction.sendPage( ""+page );
 }

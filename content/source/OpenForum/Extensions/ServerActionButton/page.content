@@ -1,0 +1,16 @@
+A button that fires an [OpenForum GET action|/OpenForum/Actions]
+----
+!!Parameters
+* action = Action Name
+* text = Action button text
+
+----
+!!Usage:
+{{{
+[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
+}}}
+[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
+
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

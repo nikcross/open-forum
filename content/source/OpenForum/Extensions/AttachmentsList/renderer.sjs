@@ -1,12 +1,12 @@
 targetPage = extension.getAttribute("pageName");
 matching = extension.getAttribute("matching");
 includePage = true;
-if(targetPage==null)
+if(targetPage===null)
 {
   targetPage = pageName;
   includePage = false;
 }
-targetPage = new String(targetPage);
+targetPage = ""+targetPage;
 
 list = file.getAttachmentsForPage( targetPage );
 if(targetPage.charAt(0)!='/')
@@ -18,12 +18,12 @@ data="";
 iterator= list.keySet().iterator();
 while(iterator.hasNext())
 {
-  key = new String(iterator.next());
+  key = ""+iterator.next();
   if(key.charAt(0)=='+')
   {
     continue;
   }
-  else if(matching!=null && key.search( new String(matching) )==-1 )
+  else if(matching!==null && key.search( ""+matching )==-1 )
   {
     continue;
   }
@@ -32,7 +32,7 @@ while(iterator.hasNext())
     item = key;
   }
 
-  if(includePage==true)
+  if(includePage===true)
   {
     data+="* ["+targetPage+"/"+item+"]\n";
   }

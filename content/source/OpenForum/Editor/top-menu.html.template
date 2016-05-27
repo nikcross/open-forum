@@ -35,6 +35,7 @@
                 <li><a onClick="loadPlugin('Console');return false;">[{Icon name="plugin"}] Javascript Console</a></li>
                 <li><a onClick="loadPlugin('ServerConsole');return false;">[{Icon name="plugin"}] Server Side Javascript Console</a></li>
                 <li><a onClick="loadPlugin('DataTransform');return false;">[{Icon name="plugin"}] Data Transform Helper</a></li>
+                <li><a onClick="loadPlugin('FormBuilder');return false;">[{Icon name="plugin"}] Simple Form Builder</a></li>
                 <li><a onClick="loadPlugin('Service');return false;">[{Icon name="plugin"}] Web Service Wizard</a></li>
               </ul>
             </li>
@@ -71,7 +72,7 @@
       	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
       	accessLoading=true;
       }
-      setTimeout(doSignIn,1000);
+      setTimeout(doSignIn,5000);
       return;
     }
     

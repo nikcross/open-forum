@@ -13,7 +13,9 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
         lineNumbers: true,
         matchBrackets: true,
         autoMatchParens: true,
+        continueComments: "Enter",
         extraKeys: {
+          "Ctrl-Q": "toggleComment",
           "Ctrl-Space": "autocomplete"
         },
         viewportMargin: Infinity,
@@ -62,26 +64,26 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
   self.renderOptions = function() {
     //renderTabOption(name,toolTip,action)
     var data = "";
-    
+
     data += renderTabOption("Close","Close editor","closeEditor( "+editorIndex+" )");
     data += renderTabOption("Save","Save "+pageName+"/"+fileName,"saveFile( '"+pageName+"' , '"+fileName+"' )");
     return data;
   };
-  
+
   self.documentation = [
-    {pageName: "/Development/StandardJavascript/Global", title:"Global JS"},
-    {pageName: "/Development/StandardJavascript/Array", title:"JS Arrays"},
-    {pageName: "/Development/StandardJavascript/Math", title:"JS Math"},
-    {pageName: "/Development/StandardJavascript/String", title:"JS Strings"},
-    {pageName: "/Development/StandardJavascript/JSON", title:"JS JSON"},
-    {pageName: "/Development/StandardJavascript/Date", title:"JS Dates"}
+    {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/StandardJavascript/Global", title:"Global JS"},
+    {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/StandardJavascript/Array", title:"JS Arrays"},
+    {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/StandardJavascript/Math", title:"JS Math"},
+    {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/StandardJavascript/String", title:"JS Strings"},
+    {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/StandardJavascript/JSON", title:"JS JSON"},
+    {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/StandardJavascript/Date", title:"JS Dates"}
   ];
 
   if(fileName.indexOf(".js")!=-1) {
-    self.documentation.push( {pageName: "/Development/OpenForumJavascript/Overview", title:"OpenForum Javascript"} );
-    self.documentation.push( {pageName: "/Development/OpenForumJavascript/DependencyService/Overview", title:"OpenForum DependencyService"} );
+    self.documentation.push( {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/OpenForumJavascript/Overview", title:"OpenForum Javascript"} );
+    self.documentation.push( {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/OpenForumJavascript/DependencyService/Overview", title:"OpenForum DependencyService"} );
   } else if(fileName==="get.sjs" || fileName==="post.sjs") {
-    self.documentation.push( {pageName: "/OpenForumDocumentation/OpenForumServerSideJavascript/OpenForum", title: "SJS Transaction"} );
+    self.documentation.push( {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/OpenForumServerSideJavascript/OpenForum", title: "SJS Transaction"} );
   }
 
   OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/theme/rubyblue.css");
@@ -94,6 +96,10 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
   .addDependency("/OpenForum/Javascript/CodeMirror/addon/lint/lint.js")
   .addDependency("/OpenForum/Javascript/CodeMirror/addon/lint/javascript-lint.js")
   .addDependency("/OpenForum/Javascript/CodeMirror/addon/jshint.js")
+  .addDependency("/OpenForum/Javascript/CodeMirror/addon/edit/matchbrackets.js")
+  .addDependency("/OpenForum/Javascript/CodeMirror/addon/comment/continuecomment.js")
+  .addDependency("/OpenForum/Javascript/CodeMirror/addon/comment/comment.js")
+
   .setOnLoadTrigger( function() {
     var o = self;
     o.init();
