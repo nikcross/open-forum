@@ -20,7 +20,7 @@
     <div class="row">
       <div class="section-container tabs" data-section>
         <section class="section">
-          <h5 class="title"><a href="#panel1">Sign In</a></h5>
+          <h5 class="title"><a href="undefinedpanel1">Sign In</a></h5>
           <div class="content" data-slug="panel1">
             <form>
               <div class="row collapse">

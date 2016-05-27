@@ -2,16 +2,20 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Renderer</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+    <script type="text/javascript" src="/TheLab/GoogleMaps/markerclusterer.js"></script>
+    <script type="text/javascript" src="/TheLab/GoogleMaps/infobox.js"></script>
 	<script type="text/javascript" src="/OpenForum/Javascript/Renderer/page.js"></script>
 
 	<script>
 		var pageName = "/OpenForum/Javascript/Renderer";
 		var author = "unknown";
-		var time = "1449506625000";
+		var time = "1456912205000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -29,7 +33,7 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="#"> Renderer</a>
+              <a href="undefined"> Renderer</a>
             </h1>
           </li>
         </ul>
@@ -37,10 +41,10 @@
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="#">Signed in as {{currentUser}}</a>
+              <a href="undefined">Signed in as {{currentUser}} {{avatar}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <li><a href="undefined" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
                 <script>
   var accessLoading = false;
   function doSignIn() {
@@ -63,7 +67,7 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="//OpenForum/Javascript">Renderer</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">Renderer</a></li></nav>
     
     <!--PageContent Start-->
 <a href="//OpenForum/Javascript/Renderer/DefaultRenderer.sjs">//OpenForum/Javascript/Renderer/DefaultRenderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer&fileName=DefaultRenderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">/**
@@ -348,7 +352,7 @@ function DefaultRenderer() {
     new MarkUp( { type: "h1", match: {start: "!!!!",end: EOL}, start: "<h1>", end: "</h1>" } ),
     new MarkUp( { type: "h2", match: {start: "!!!",end: EOL}, start: "<h2>", end: "</h2>" } ),
     new MarkUp( { type: "h3", match: {start: "!!",end: EOL}, start: "<h3>", end: "</h3>" } ),
-    new MarkUp( { type: "center", match: {start: "==",end: "=="}, start: "<center>", end: "</center>" } ),
+    new MarkUp( { type: "center", match: {start: "=-=",end: "=-="}, start: "<center>", end: "</center>" } ),
     new MarkUp( { type: "section", match: {start: EOL+"--8<!--",end: EOL+"-->8--"}, start: "<hr/>", end: "" } ),
     new MarkUp( { type: "rule", match: {start: "----",end: EOL}, start: "<hr/>", end: "" } ),
     new MarkUp( { type: "extension", match: {start: "[{",end: "}]"}, start: "", end: "", render: renderExtension, stackable: false } ),
@@ -357,13 +361,25 @@ function DefaultRenderer() {
   ];
 
   /*===================================*/
-  self.render = function(pageName,input) {
+  /*  Converts OpenForum Markup to HTML
+   * 
+   *  pageName - Name of page to render for
+   *  input - raw text to render to html 
+   * 
+   */
+  self.render = function(pageName,text) {
     try{
-    input = EOL+input+EOL;
+    var input = EOL+text+EOL;
     var rendererStack = [];
     var output = "";
+      
+    //While there is input text left to render
     while(input.length>0) {
+      //Find the next instance of marked up text
+      //and return the required renderer
       var renderer = findFirstMatch( input,markUp );
+      
+      //If no renderer found in remaining text, add text to output and end
       if(renderer===null) {
         output+=input;
         break;
@@ -373,8 +389,9 @@ function DefaultRenderer() {
         if(input.substring(startCutPoint,1)===EOL) {
           startCutPoint++;
         }
+        
         var before = input.substring(0,startCutPoint);
-
+        
         var after = input.substring(startPoint+renderer.getStart().length);
         var endPoint = after.indexOf(renderer.getEnd());
         var content = after.substring( 0,endPoint );
@@ -391,15 +408,15 @@ function DefaultRenderer() {
         after = after.substring( endPoint );
         output += before + renderer.render(pageName,content);
         input = after;
-
+        
         rendererStack.push(renderer);
       }
     }
     output = output.substring(1,output.length-1);
 
     while(rendererStack.length>0) {
-      var renderer = rendererStack.pop();
-      output = output + renderer.renderClose();
+      var poppedRenderer = rendererStack.pop();
+      output = output + poppedRenderer.renderClose();
     }
 
     return output;
@@ -419,10 +436,10 @@ function DefaultRenderer() {
         <div class="large-12 columns">
           		<hr/>
               <ul class="inline-list right">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Developers</a></li>
+                <li><a href="undefined">About</a></li>
+                <li><a href="undefined">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="undefined">Documentation</a></li>
+                <li><a href="undefined">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>

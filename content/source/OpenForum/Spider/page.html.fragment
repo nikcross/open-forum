@@ -3,11 +3,11 @@
     <form>
 	<div id="editor0">Editor Loading...</div>
       <br/>
-<center>
+==
       <a class="button tiny" onClick="runSpider(); return false;">Release Spider</a>
       <a class="button tiny" onClick="stopSpider(); return false;">Stop Spider</a>
       <a class="button tiny" onClick="clearLog(); return false;">Clear Log</a>
-</center>
+==
     </form>
   </div>
 </div>

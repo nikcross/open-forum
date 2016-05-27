@@ -44,9 +44,9 @@
 <div id="OpenForumDeleteAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Delete Attachment</h2>
   <p>Please confirm that you want to delete the attachment {{attachmentToDelete}} from the page {{attachmentPageToDelete}}
-    <p><a href="#" onClick="OpenForum.deleteFile(attachmentPageToDelete,attachmentToDelete);loadUpdatedFilesList();
+    <p><a href="undefined" onClick="OpenForum.deleteFile(attachmentPageToDelete,attachmentToDelete);loadUpdatedFilesList();
 $('#OpenForumDeleteAttachmentModal').foundation('reveal', 'close'); return false;" class="secondary button">Delete</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <a class="close-reveal-modal" aria-label="Close">&undefined215;</a>
 </div>
 
 <!-- Move Attachemnt -->
@@ -55,8 +55,8 @@ $('#OpenForumDeleteAttachmentModal').foundation('reveal', 'close'); return false
   <h2>Move Attachment</h2>
   <p>Move the attachment {{attachmentToMove}} from the page {{attachmentPageToMove}}
   <p>to page <input type="text" of-id="attachmentPageToMoveTo"/> with the file name <input type="text" of-id="attachmentToMoveTo"/></p>
-    <p><a href="#" onClick="OpenForum.moveFile(attachmentPageToMove+'/'+attachmentToMove,attachmentPageToMoveTo+'/'+attachmentToMoveTo);loadUpdatedFilesList(); $('#OpenForumMoveAttachmentModal').foundation('reveal', 'close');  return false;" class="secondary button">Move</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    <p><a href="undefined" onClick="OpenForum.moveFile(attachmentPageToMove+'/'+attachmentToMove,attachmentPageToMoveTo+'/'+attachmentToMoveTo);loadUpdatedFilesList(); $('#OpenForumMoveAttachmentModal').foundation('reveal', 'close');  return false;" class="secondary button">Move</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&undefined215;</a>
 </div>
 
 <!-- Copy Attachemnt -->
@@ -65,8 +65,8 @@ $('#OpenForumDeleteAttachmentModal').foundation('reveal', 'close'); return false
   <h2>Copy Attachment</h2>
   <p>Copy the attachment {{attachmentToCopy}} from the page {{attachmentPageToCopy}}
   <p>to page <input type="text" of-id="attachmentPageToCopyTo"/> with the file name <input type="text" of-id="attachmentToCopyTo"/></p>
-  <p><a href="#" onClick="OpenForum.copyFile(attachmentPageToCopy+'/'+attachmentToCopy,attachmentPageToCopyTo+'/'+attachmentToCopyTo);loadUpdatedFilesList(); $('#OpenForumCopyAttachmentModal').foundation('reveal', 'close'); return false;" class="secondary button">Copy</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <p><a href="undefined" onClick="OpenForum.copyFile(attachmentPageToCopy+'/'+attachmentToCopy,attachmentPageToCopyTo+'/'+attachmentToCopyTo);loadUpdatedFilesList(); $('#OpenForumCopyAttachmentModal').foundation('reveal', 'close'); return false;" class="secondary button">Copy</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&undefined215;</a>
 </div>
 
 <!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

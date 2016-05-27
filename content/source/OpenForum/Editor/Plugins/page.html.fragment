@@ -3,6 +3,7 @@
 [<ul><li> <a href="/OpenForum/Editor/Plugins/ClientConsole">ClientConsole</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/Console">Console</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/DataTransform">DataTransform</a></li>
+<li> <a href="/OpenForum/Editor/Plugins/FormBuilder">FormBuilder</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/GameConsole">GameConsole</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/Giraffe">Giraffe</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/History">History</a></li>

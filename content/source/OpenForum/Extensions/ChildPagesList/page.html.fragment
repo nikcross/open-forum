@@ -11,12 +11,10 @@ Creates a bulleted list of child pages
 <li> <a href="/OpenForum/Access">Access</a></li>
 <li> <a href="/OpenForum/Actions">Actions</a></li>
 <li> <a href="/OpenForum/AddOn">AddOn</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Aliases"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Aliases does not exist. Click to create it.">Aliases</a></li>
 <li> <a href="/OpenForum/Authentication">Authentication</a></li>
 <li> <a href="/OpenForum/Authorization">Authorization</a></li>
 <li> <a href="/OpenForum/Configuration">Configuration</a></li>
 <li> <a href="/OpenForum/DeletedPages">DeletedPages</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/DynamicPages"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/DynamicPages does not exist. Click to create it.">DynamicPages</a></li>
 <li> <a href="/OpenForum/Editor">Editor</a></li>
 <li> <a href="/OpenForum/ErrorPages">ErrorPages</a></li>
 <li> <a href="/OpenForum/Extensions">Extensions</a></li>
@@ -31,11 +29,10 @@ Creates a bulleted list of child pages
 <li> <a href="/OpenForum/MessageQueue">MessageQueue</a></li>
 <li> <a href="/OpenForum/MissingPages">MissingPages</a></li>
 <li> <a href="/OpenForum/PageTemplates">PageTemplates</a></li>
-<li> <a href="/OpenForum/PagesIndex">PagesIndex</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/PagesIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/PagesIndex does not exist. Click to create it.">PagesIndex</a></li>
 <li> <a href="/OpenForum/Processor">Processor</a></li>
-<li> <a href="/OpenForum/PublishingJournal">PublishingJournal</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/PublishingJournal"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/PublishingJournal does not exist. Click to create it.">PublishingJournal</a></li>
 <li> <a href="/OpenForum/SQL">SQL</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/SearchResults"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/SearchResults does not exist. Click to create it.">SearchResults</a></li>
 <li> <a href="/OpenForum/SiteExplorer">SiteExplorer</a></li>
 <li> <a href="/OpenForum/Spider">Spider</a></li>
 <li> <a href="/OpenForum/SystemMonitor">SystemMonitor</a></li>

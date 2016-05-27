@@ -23,7 +23,7 @@ function DefaultEditor(editorIndex,pageName,fileName) {
     }
   );
   cm.setValue("Loading...");
-
+  
   var source = "";
   //load source if exists
   if(OpenForum.file.attachmentExists(pageName,fileName)==="true") {
@@ -36,6 +36,8 @@ function DefaultEditor(editorIndex,pageName,fileName) {
   cm.setValue(source);
   cm.refresh();
 
+  self.init = function() {};
+  
   self.refresh = function() {
     if(cm) cm.refresh();
   };

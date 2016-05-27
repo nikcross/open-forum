@@ -2,16 +2,20 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Process</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+    <script type="text/javascript" src="/TheLab/GoogleMaps/markerclusterer.js"></script>
+    <script type="text/javascript" src="/TheLab/GoogleMaps/infobox.js"></script>
 	<script type="text/javascript" src="/OpenForum/Access/SignIn/Process/page.js"></script>
 
 	<script>
 		var pageName = "/OpenForum/Access/SignIn/Process";
 		var author = "unknown";
-		var time = "1447152051000";
+		var time = "1456912205000";
 	    var currentUser = "";
 	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
 	</script>
@@ -29,7 +33,7 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="#"> Process</a>
+              <a href="undefined"> Process</a>
             </h1>
           </li>
         </ul>
@@ -37,10 +41,10 @@
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="#">Signed in as {{currentUser}}</a>
+              <a href="undefined">Signed in as {{currentUser}} {{avatar}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <li><a href="undefined" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
                 <script>
   var accessLoading = false;
   function doSignIn() {
@@ -63,7 +67,7 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
       </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/Access">Access</a></li><li role="menuitem"><a href="//OpenForum/Access/SignIn">SignIn</a></li><li role="menuitem" class="current"><a href="//OpenForum/Access/SignIn">Process</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Access">Access</a></li><li role="menuitem"><a href="/OpenForum/Access/SignIn">SignIn</a></li><li role="menuitem" class="current"><a href="/OpenForum/Access/SignIn">Process</a></li></nav>
     
     <!--PageContent Start-->
 
@@ -74,10 +78,10 @@
         <div class="large-12 columns">
           		<hr/>
               <ul class="inline-list right">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Developers</a></li>
+                <li><a href="undefined">About</a></li>
+                <li><a href="undefined">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="undefined">Documentation</a></li>
+                <li><a href="undefined">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>

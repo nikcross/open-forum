@@ -15,13 +15,27 @@
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
     <script type="text/javascript" src="/OpenForum/Editor/page.js"></script>
 
-    <script>
+    <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
       var pageName = "/OpenForum/Editor/OverviewTemplate";
       var author = "unknown";
-      var time = "1447152051000";
+      var time = "1456912205000";
       var currentUser = "";
+      var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
       JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
-    </script>
+      JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
+        function (response) {
+          if(response.profile.avatar) {
+            avatar = "<img src='" + response.profile.avatar + "' style='width: 24px; height: 24px;' />";
+          }
+        }
+      ).go();
+      
+      window.onerror = function(errorMsg, url, lineNumber) {
+        OpenForum.error = errorMsg+" url:"+url+" line number:"+lineNumber;
+        OpenForum.errorMessage = "Woops";
+        $('#ofErrorMessage').foundation('reveal', 'open');
+      };
+    </script><!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) end -->
 
   </head>
   <body>
@@ -78,6 +92,7 @@
                 <li><a onClick="loadPlugin('Console');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Javascript Console</a></li>
                 <li><a onClick="loadPlugin('ServerConsole');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Server Side Javascript Console</a></li>
                 <li><a onClick="loadPlugin('DataTransform');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Data Transform Helper</a></li>
+                <li><a onClick="loadPlugin('FormBuilder');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Simple Form Builder</a></li>
                 <li><a onClick="loadPlugin('Service');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Web Service Wizard</a></li>
               </ul>
             </li>
@@ -114,7 +129,7 @@
       	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
       	accessLoading=true;
       }
-      setTimeout(doSignIn,1000);
+      setTimeout(doSignIn,5000);
       return;
     }
     
@@ -267,9 +282,9 @@
 <div id="OpenForumDeleteAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Delete Attachment</h2>
   <p>Please confirm that you want to delete the attachment {{attachmentToDelete}} from the page {{attachmentPageToDelete}}
-    <p><a href="#" onClick="OpenForum.deleteFile(attachmentPageToDelete,attachmentToDelete);loadUpdatedFilesList();
+    <p><a href="undefined" onClick="OpenForum.deleteFile(attachmentPageToDelete,attachmentToDelete);loadUpdatedFilesList();
 $('#OpenForumDeleteAttachmentModal').foundation('reveal', 'close'); return false;" class="secondary button">Delete</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <a class="close-reveal-modal" aria-label="Close">&undefined215;</a>
 </div>
 
 <!-- Move Attachemnt -->
@@ -278,8 +293,8 @@ $('#OpenForumDeleteAttachmentModal').foundation('reveal', 'close'); return false
   <h2>Move Attachment</h2>
   <p>Move the attachment {{attachmentToMove}} from the page {{attachmentPageToMove}}
   <p>to page <input type="text" of-id="attachmentPageToMoveTo"/> with the file name <input type="text" of-id="attachmentToMoveTo"/></p>
-    <p><a href="#" onClick="OpenForum.moveFile(attachmentPageToMove+'/'+attachmentToMove,attachmentPageToMoveTo+'/'+attachmentToMoveTo);loadUpdatedFilesList(); $('#OpenForumMoveAttachmentModal').foundation('reveal', 'close');  return false;" class="secondary button">Move</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+    <p><a href="undefined" onClick="OpenForum.moveFile(attachmentPageToMove+'/'+attachmentToMove,attachmentPageToMoveTo+'/'+attachmentToMoveTo);loadUpdatedFilesList(); $('#OpenForumMoveAttachmentModal').foundation('reveal', 'close');  return false;" class="secondary button">Move</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&undefined215;</a>
 </div>
 
 <!-- Copy Attachemnt -->
@@ -288,8 +303,8 @@ $('#OpenForumDeleteAttachmentModal').foundation('reveal', 'close'); return false
   <h2>Copy Attachment</h2>
   <p>Copy the attachment {{attachmentToCopy}} from the page {{attachmentPageToCopy}}
   <p>to page <input type="text" of-id="attachmentPageToCopyTo"/> with the file name <input type="text" of-id="attachmentToCopyTo"/></p>
-  <p><a href="#" onClick="OpenForum.copyFile(attachmentPageToCopy+'/'+attachmentToCopy,attachmentPageToCopyTo+'/'+attachmentToCopyTo);loadUpdatedFilesList(); $('#OpenForumCopyAttachmentModal').foundation('reveal', 'close'); return false;" class="secondary button">Copy</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <p><a href="undefined" onClick="OpenForum.copyFile(attachmentPageToCopy+'/'+attachmentToCopy,attachmentPageToCopyTo+'/'+attachmentToCopyTo);loadUpdatedFilesList(); $('#OpenForumCopyAttachmentModal').foundation('reveal', 'close'); return false;" class="secondary button">Copy</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&undefined215;</a>
 </div>
 
 <!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
@@ -301,10 +316,10 @@ $('#OpenForumDeleteAttachmentModal').foundation('reveal', 'close'); return false
           <div class="row">
             <div class="large-12 columns">
               <ul class="inline-list right">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Developers</a></li>
+                <li><a href="undefined">About</a></li>
+                <li><a href="undefined">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="undefined">Documentation</a></li>
+                <li><a href="undefined">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
@@ -312,6 +327,19 @@ $('#OpenForumDeleteAttachmentModal').foundation('reveal', 'close'); return false
         </div>
       </footer><!-- insert (/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content) end -->
 
+    <!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
+  <p>{{OpenForum.errorMessage}}</p>
+  <p><a href="#" data-reveal-id="ofErrorDetails" class="secondary button">See technical details</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="ofErrorDetails" class="reveal-modal" data-reveal aria-labelledby="ofErrorModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorModalTitle">Error details.</h2>
+  <p>{{OpenForum.error}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div><!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) end -->
+    
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
     <script>

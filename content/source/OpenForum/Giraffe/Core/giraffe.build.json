@@ -1,5 +1,5 @@
 {
-    "version": "1.0.1",
+    "version": "1.0.5",
     "targetFile": "/OpenForum/Giraffe/giraffe.js",
     "versionFile": "/OpenForum/Giraffe/Core/Version/giraffe.js",
     "steps": [
@@ -46,6 +46,10 @@
         {
             "action": "append",
             "file": "/OpenForum/Giraffe/Core/arc.js"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Giraffe/Core/pixel-canvas.js"
         },
         {
             "action": "append",

@@ -1,4 +1,4 @@
-function HtmlEditor(editorIndex,pageName,fileName) {
+function HTMLEditor(editorIndex,pageName,fileName) {
   var self = this;
   var cm = null;
 
@@ -10,10 +10,16 @@ function HtmlEditor(editorIndex,pageName,fileName) {
       document.getElementById("editor"+editorIndex+"Src"),
       { 
         theme: 'rubyblue',
+        matchTags: {bothTags: true},
         lineNumbers: true,
         matchBrackets: true,
+        extraKeys: {
+          "Ctrl-J": "toMatchingTag",
+          "Ctrl-Q": "toggleComment",
+          "Ctrl-Space": "autocomplete"
+                   },
         viewportMargin: Infinity,
-        mode: "htmlmixed",
+        mode: "text/html",
         styleActiveLine: true
       }
     );
@@ -71,12 +77,11 @@ function HtmlEditor(editorIndex,pageName,fileName) {
   ];
 
   DependencyService.createNewDependency()
-  .addDependency("/OpenForum/Javascript/CodeMirror/mode/javascript/javascript.js")
+  .addDependency("/OpenForum/Javascript/CodeMirror/addon/fold/xml-fold.js")
+  .addDependency("/OpenForum/Javascript/CodeMirror/addon//edit/matchtags.js")
   .addDependency("/OpenForum/Javascript/CodeMirror/mode/xml/xml.js")
   .addDependency("/OpenForum/Javascript/CodeMirror/mode/css/css.js")
   .addDependency("/OpenForum/Javascript/CodeMirror/mode/htmlmixed/htmlmixed.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon/lint/javascript-lint.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon/jshint.js")
   .setOnLoadTrigger( function() {
     var o = self;
     o.init();

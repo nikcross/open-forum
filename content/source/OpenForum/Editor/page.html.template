@@ -15,13 +15,7 @@
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
     <script type="text/javascript" src="/OpenForum/Editor/page.js"></script>
 
-    <script>
-      var pageName = "&pageName;";
-      var author = "&author;";
-      var time = "&time;";
-      var currentUser = "";
-      JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
-    </script>
+    &insert:/OpenForum/PageTemplates/CommonElements/header-script.common.html;
 
   </head>
   <body>
@@ -63,6 +57,8 @@
 
     &insert:/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content;
 
+    &insert:/OpenForum/PageTemplates/CommonElements/error-alert.common.html;
+    
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
     <script>

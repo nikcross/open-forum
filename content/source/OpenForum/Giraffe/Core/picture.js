@@ -18,7 +18,11 @@ function Picture(x,y,src)
   this.x=x;
   this.y=y;
   this.img = new Image();
-  this.img.src = src;
+  if(src) {
+  	this.img.src = src;
+  } else {
+    this.img.src = "data:image/gif;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==";
+  }
 /**
  * @private
  */

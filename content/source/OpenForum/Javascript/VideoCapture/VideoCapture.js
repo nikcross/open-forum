@@ -142,7 +142,23 @@ var ImageData = function(iwidth,iheight,idata) {
 
   self.getPixel = function(x,y) {
     var cursor = ((y*width)+x)*4;
-    return [data[cursor],data[cursor+1],data[cursor+2],data[cursor+3]];
+    return {red: data[cursor], green: data[cursor+1], blue: data[cursor+2], alpha: data[cursor+3]};
+  };
+  
+    self.setPixel = function(x,y,pixel) {
+    var cursor = ((y*width)+x)*4;
+    data[cursor] = pixel.red;
+    data[cursor+1] = pixel.green;
+    data[cursor+2] = pixel.blue;
+    data[cursor+3] = pixel.alpha;
+  };
+  
+  self.getWidth = function() {
+    return width;
+  };
+  
+  self.getHeight = function() {
+    return height;
   };
 };
 

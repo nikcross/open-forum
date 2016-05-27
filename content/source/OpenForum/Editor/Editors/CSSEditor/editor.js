@@ -1,4 +1,4 @@
-function CssEditor(editorIndex,pageName,fileName) {
+function CSSEditor(editorIndex,pageName,fileName) {
   var self = this;
   var cm = null;
 

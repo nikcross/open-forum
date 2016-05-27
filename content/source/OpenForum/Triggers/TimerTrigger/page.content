@@ -2,3 +2,6 @@
 *[Manage Queues|/OpenForum/Triggers/TimerTrigger/ManageQueues]
 *[Automatic Rebuild|/OpenForum/Triggers/TimerTrigger/AutomaticRebuild]
 *[Halcyon Camera|/TheLab/CameraView/Service]
+*[Lexi|/TheLab/Experiments/Lexi]
+*[TaskScheduler|/TheLab/Experiments/TaskScheduler]
+*[Remote Node Register|/TheLab/RemoteJavascript]

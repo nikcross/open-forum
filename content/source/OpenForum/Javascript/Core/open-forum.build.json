@@ -1,5 +1,5 @@
 {
-    "version": "1.0.14",
+    "version": "1.0.19",
     "targetFile": "/OpenForum/Javascript/open-forum.js",
     "versionFile": "/OpenForum/Javascript/Core/Version/open-forum.js",
     "steps": [

@@ -41,6 +41,13 @@ if(action=="unZipAttachment") {
 	transaction.sendPage( file.unZipAttachment(arg0,arg1) );
 	return;
 }
+if(action=="appendStringToFileNoBackup") {
+	var arg0 = transaction.getParameter("arg0");
+	var arg1 = transaction.getParameter("arg1");
+	var arg2 = transaction.getParameter("arg2");
+	transaction.sendPage( file.appendStringToFileNoBackup(arg0,arg1,arg2) );
+	return;
+}
 if(action=="appendStringToFile") {
 	var arg0 = transaction.getParameter("arg0");
 	var arg1 = transaction.getParameter("arg1");

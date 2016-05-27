@@ -2,10 +2,10 @@
         <div class="large-12 columns">
           		<hr/>
               <ul class="inline-list right">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Developers</a></li>
+                <li><a href="">About</a></li>
+                <li><a href="">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="">Documentation</a></li>
+                <li><a href="">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>

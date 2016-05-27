@@ -26,8 +26,10 @@ if(action==="createQueue") {
   
   var messages = wiki.getMessagesSince( queue,since );
   var messageData = [];
-  for(var im in messages) {
-    messageData.push(""+messages[im]);
+  if(messages!==null) {
+    for(var im in messages) {
+      messageData.push(""+messages[im]);
+    }
   }
   
   var timestamp = ""+wiki.getTimeStamp();

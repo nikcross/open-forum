@@ -17,11 +17,14 @@ OpenForum.WebWorker = function() {
     var processWorkerMessage = function(data) {
       if(data.jobId && jobs[data.jobId] && jobs[data.jobId].callBack) {
         jobs[data.jobId].callBack( data.result,data.jobId );
+        jobs[data.jobId].callBack( "#Finished data.jobId:"+data.jobId,data.jobId );
       } else if(data.getId) {
         var result = eval(data.key);
         worker.postMessage({getId: data.getId, result: result});
+        worker.postMessage({getId: data.getId, result: "#Finished getId:"+data.getId});
       } else if(data.setId) {
         var result = eval(data.key+"="+data.value);
+        worker.postMessage({getId: data.getId, result: "#Finished setId: "+data.setId});
       } else {
         console.log(data);
       }
@@ -44,6 +47,15 @@ OpenForum.WebWorker = function() {
 
       return jobs[jobId];
     };
+    
+    self.stop = function(reason) {
+        worker.postMessage({close: reason});
+    };
+    
+    self.kill = function() {
+      worker.terminate();
+    };
+    
   };
   
   var self = this;

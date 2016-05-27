@@ -4,7 +4,7 @@
 
 <ul class="accordion" data-accordion>
   <li class="accordion-navigation">
-    <a href="[{Hash}]errorPanel">Errors ({{errorQueue.messageCount}})</a>
+    <a href="#errorPanel">Errors ({{errorQueue.messageCount}})</a>
     <div id="errorPanel" class="content">
       Last 20 messages
   <ul>
@@ -14,7 +14,7 @@
   </li>
 
 <li class="accordion-navigation">
-    <a href="[{Hash}]warningPanel">Warnings ({{warningQueue.messageCount}})</a>
+    <a href="#warningPanel">Warnings ({{warningQueue.messageCount}})</a>
   <div id="warningPanel" class="content">
       Last 20 messages
   <ul>
@@ -24,7 +24,7 @@
  </li>
 
 <li class="accordion-navigation">
-    <a href="[{Hash}]infoPanel">General Information ({{infoQueue.messageCount}})</a>
+    <a href="#infoPanel">General Information ({{infoQueue.messageCount}})</a>
   <div id="infoPanel" class="content active">
       Last 20 messages
   <ul>
@@ -34,7 +34,7 @@
  </li>
 
 <li class="accordion-navigation">
-    <a href="[{Hash}]debugPanel">Debug Information ({{debugQueue.messageCount}})</a>
+    <a href="#debugPanel">Debug Information ({{debugQueue.messageCount}})</a>
   <div id="debugPanel" class="content">
       Last 20 messages
   <ul>
@@ -44,7 +44,7 @@
  </li>
 
 <li class="accordion-navigation">
-    <a href="[{Hash}]testPanel">Test Information ({{testQueue.messageCount}})</a>
+    <a href="#testPanel">Test Information ({{testQueue.messageCount}})</a>
   <div id="testPanel" class="content">
       Last 20 messages
   <ul>

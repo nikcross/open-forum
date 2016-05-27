@@ -1,4 +1,6 @@
-<h3>Example</h3>
+<h3>Deprecated - Use <a href="/OpenForum/Extensions/ActionButton">/OpenForum/Extensions/ActionButton</a></h3>
+
+!<h3>Example</h3>
 <a class="button tiny" onClick="doAction(); return false;">Do Action</a>
 
 <br/>

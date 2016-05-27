@@ -1,16 +1,17 @@
 {
-	"userAccess": {
-		"read": {
-			"Guest": true,
-              "Alex": true,
-              "Theo": true,
-                "NT": true
-		},
-		"write": {
-			"Author": true
-		},
-		"delete": {
-			"Admin": true
-		}
-	}
+    "userAccess": {
+        "read": {
+            "Guest": true,
+            "Alex": true,
+            "Theo": true,
+            "Helen": true,
+            "NT": true
+        },
+        "delete": {
+            "Admin": true
+        },
+        "update": {
+            "Author": true
+        }
+    }
 }

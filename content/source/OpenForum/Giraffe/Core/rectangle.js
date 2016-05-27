@@ -41,16 +41,19 @@ function Rectangle(x,y,width,height)
    */
   this.draw = function()
   {
+    this.canvas.beginPath();
     if(this.fillColor!=null)
     {
       this.canvas.fillStyle = this.fillColor;
     }
     this.canvas.strokeStyle = this.color;
+    this.canvas.rect(0,0,this.width,this.height);
+    this.canvas.closePath();
     if(this.fillColor!=null)
     {
       this.canvas.fillRect(0,0,this.width,this.height);
     }
-    this.canvas.strokeRect(0,0,this.width,this.height);
+    this.canvas.stroke();
   };
 }
 Rectangle.prototype = new GraphicsObject();

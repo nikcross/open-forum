@@ -17,3 +17,7 @@ function displayQueues(response) {
   totalQueuedMessages = response.totalQueuedMessages;
   queues = response.queues;
 }
+
+function clearQueue(queue) {
+  JSON.get("/OpenForum/SystemMonitor/QueueManager","clearQueue","queue="+queue).go();
+}

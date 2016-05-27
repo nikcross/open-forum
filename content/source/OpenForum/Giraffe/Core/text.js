@@ -37,9 +37,9 @@ function Text(x,y,text,textSize,font)
     if(this.fillColor!=null)
     {
       this.canvas.fillText(this.text,0,0,400);
-    } else {
-       this.canvas.strokeText(this.text,0,0,400);
     }
+    
+    this.canvas.strokeText(this.text,0,0,400);
   };
   
   /**

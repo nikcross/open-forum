@@ -1,10 +1,10 @@
 {
-	"userAccess": {
-		"read": {
-			"Guest": true
-		},
-		"write": {
-			"Admin": true
-		}
-	}
+    "userAccess": {
+        "read": {
+            "Guest": true
+        },
+        "update": {
+            "Admin": true
+        }
+    }
 }

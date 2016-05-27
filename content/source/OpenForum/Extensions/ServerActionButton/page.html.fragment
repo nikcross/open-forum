@@ -1,0 +1,22 @@
+A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
+-<hr/>
+<h3>Parameters</h3>
+<ul><li> action = Action Name</li>
+<li> text = Action button text</li>
+
+<hr/>
+<h3>Usage:</h3>
+<xmp class="panel">
+[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
+</xmp>
+[<a class='button' href='#' onclick='Rebuild(); return false;'>Rebuild Wiki</a>
+
+<hr/>
+
+<a href="//OpenForum/Extensions/ServerActionButton/renderer.sjs">//OpenForum/Extensions/ServerActionButton/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ServerActionButton&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">action = extension.getAttribute("action");
+parameters = extension.getAttribute("parameters");
+text = extension.getAttribute("text");
+
+return "<a class=\"button\" href=\"#\" onclick=\"ajax.doGet('/OpenForum/Actions/"+action+"','"+parameters+"');return false;\">"+text+"</a>";
+</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>

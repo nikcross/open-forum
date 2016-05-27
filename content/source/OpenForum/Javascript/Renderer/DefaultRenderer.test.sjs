@@ -20,6 +20,12 @@ tester.unitTest("Can render unordered list").
                                                                 when( render("MyPage") ).
                                                                 then("<ul><li> A </li>\n<li> B </li>\n<li> C </li>\n</ul>").
                                                                     run();
+//==================================================================
+tester.unitTest("Can render unordered list followed by text").
+                                                                given("* A \n* B \n* C \n\nsome trailing text").
+                                                                when( render("MyPage") ).
+                                                                then("<ul><li> A </li>\n<li> B </li>\n<li> C </li>\n</ul>\nsome trailing text").
+                                                                    run();
 
 //==================================================================
 tester.unitTest("Can render bold").
@@ -43,6 +49,13 @@ tester.unitTest("Can render heading").
 																run();
 
 //==================================================================
+tester.unitTest("Can render headings with blank line").
+                                                                given("!!Title 1\n\n!!Title 2\n").
+                                                                when( render("MyPage") ).
+                                                                then("<h3>Title 1</h3>\n\n<h3>Title 2</h3>\n").
+                                                                    run();
+
+//==================================================================
 tester.unitTest("Can render rule").
 																given("----").
 																when( render("MyPage") ).
@@ -61,6 +74,13 @@ tester.unitTest("Can render local absolute link").
 																given("[/TheLab]").
 																when( render("MyPage") ).
 																then("<a href=\"/TheLab\">/TheLab</a>").
+																	run();
+
+//==================================================================
+tester.unitTest("Can render local absolute links with blank line").
+																given("[/TheLab]\n\n[/TheLab]").
+																when( render("MyPage") ).
+																then("<a href=\"/TheLab\">/TheLab</a>\n\n<a href=\"/TheLab\">/TheLab</a>").
 																	run();
 
 //==================================================================
@@ -106,9 +126,9 @@ tester.unitTest("Can render a table").
                                                                     run();
 
 tester.unitTest("Can render extension").
-																given("[{Star}]").
+																given("[{Icon name=\"chart pie\"}]").
 																when( render("MyPage") ).
-																then("*").
+																then("<img src=\"/OpenForum/Images/icons/png/chart_pie.png\">").
 																	run();
 
 var results = tester.getResults();
