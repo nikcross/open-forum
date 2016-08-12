@@ -3,5 +3,5 @@ edit=/OpenForum/Editor
 delete=/OpenForum/Actions/Delete
 refresh=/OpenForum/Actions/RefreshPage
 view=/OpenForum/Actions/ViewFolder
-zip=/OpenForum/Actions/Zip
+zip=/OpenForum/Actions/Zip?action=zip
 }}}

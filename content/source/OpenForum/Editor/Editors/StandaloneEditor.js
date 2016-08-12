@@ -8,6 +8,8 @@ if(typeof(editorList)=="undefined") {
   editorList = [ {changed: ""} ];
 }
 
+var autoSave = false;
+
 function StandaloneEditor( config ) {
   var self = this;
   var id = "editor:"+Math.random()+":"+new Date().getTime();
@@ -15,7 +17,6 @@ function StandaloneEditor( config ) {
 
   var flavour = "HTML";
   var elementId = "htmlEditor";
-  var autoSave = false;
   var tree;
   var editor = null;
   var editingPageName = "/TheLab/Sandbox";
@@ -254,7 +255,7 @@ function StandaloneEditor( config ) {
     if(editorList[0].changed!=="*" || autoSave===false) {
       return;
     }
-    save();
+    self.save();
   };
 
   var showStatus = function(message,cleared) {

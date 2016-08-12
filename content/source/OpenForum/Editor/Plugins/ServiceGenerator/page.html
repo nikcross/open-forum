@@ -2,18 +2,11 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Page Editor</title>
+    <title> Service Generator</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/lib/codemirror.css"/>
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.css"/>
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/lint/lint.css"/>
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.css"/>
-    <link rel="stylesheet" href="/OpenForum/Editor/code-mirror.css"/>
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"/>
-    
-    <script type="text/javascript" src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/page.js"></script>
+    <script type="text/javascript" src="/OpenForum/Editor/Plugins/ServiceGenerator/page.js"></script>
 
     <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
       var pageName = "/OpenForum/Editor/Plugins/ServiceGenerator";
@@ -39,87 +32,29 @@
 
   </head>
   <body>
-    <div class="fixed">
-      <nav class="top-bar" data-topbar="true">
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" /></a>
-            </h1>
-          </li>
-        </ul>
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <a href="#">Page Editor - Editing {{pageName}}</a>
-            </h1>
-          </li>
-        </ul>
-        <!-- insert (/OpenForum/Editor/top-menu.html.template) start -->        <section class="top-bar-section">
-          <ul class="left"> 
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Actions</a>
-              <ul class="dropdown">
-                <li><a href="#" data-reveal-id="OpenForumCopyModal"><img src="/OpenForum/Images/icons/png/page_copy.png"> Copy Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumMoveModal"><img src="/OpenForum/Images/icons/png/page_go.png"> Move Page</a></li>
-                <li><a href="#" onClick="OpenForum.Actions.zipPage();"><img src="/OpenForum/Images/icons/png/compress.png"> Zip Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumDeleteModal"><img src="/OpenForum/Images/icons/png/bin.png"> Delete Page</a></li>
-                <li of-repeatFor="extraAction in extraActions"><a href="#" onClick="{{extraAction.fn}}();return false;" title="{{extraAction.description}}"><img src="/OpenForum/Images/icons/png/{{extraAction.icon}}.png">  {{extraAction.name}}</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Sub Pages</a>
-              <ul class="dropdown" id="subPageDropdown">
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Attachments</a>
-              <ul class="dropdown">
-                <li><a href="#" data-reveal-id="CreateAttachmentModal" class="active"><img src="/OpenForum/Images/icons/png/add.png"> Create Attachment</a></li>
-                <li><a href="#" data-reveal-id="UploadAttachmentModal" class="active"><img src="/OpenForum/Images/icons/png/add.png"> Upload Attachment</a></li>
-                <li of-repeatFor="attachment in attachments"><a href="#" onClick="{{attachment.action}}({{attachment.id}});return false;" title="{{attachment.actionName}} {{attachment.pageName}}/{{attachment.fileName}}">
-                  <img src="/OpenForum/Images/icons/png/{{attachment.icon}}.png"> {{attachment.fileName}} <img src="/OpenForum/Images/icons/png/{{attachment.actionIcon}}.png"></a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Plugins</a>
-              <ul class="dropdown">
-                <li><a onClick="loadPlugin('History');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Page History</a></li>
-                <li><a onClick="loadPlugin('Console');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Javascript Console</a></li>
-                <li><a onClick="loadPlugin('ServerConsole');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Server Side Javascript Console</a></li>
-                <li><a onClick="loadPlugin('DataTransform');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Data Transform Helper</a></li>
-                <li><a onClick="loadPlugin('FormBuilder');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Simple Form Builder</a></li>
-                <li><a onClick="loadPlugin('Service');return false;"><img src="/OpenForum/Images/icons/png/plugin.png"> Web Service Wizard</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Documentation</a>
-              <ul class="dropdown">
-                <li><a href="#" data-reveal-id="OpenForumDocumentationModal" onClick="OpenForum.showDocumentation('/OpenForumDocumentation/Editor'); return false;">The Editor</a></li>
-                <li><a href="#" data-reveal-id="OpenForumDocumentationModal" onClick="OpenForum.showDocumentation('/OpenForumDocumentation/EditorKeys'); return false;">Editor Keys</a></li>
-                <li of-repeatFor="doc in documentation"><a href="#" data-reveal-id="OpenForumDocumentationModal" onClick="OpenForum.showDocumentation('{{doc.pageName}}'); return false;">{{doc.title}}</a></li>
-              </ul>
-            </li>
-          </ul>
-        </section>
-		<section class="top-bar-section">
-          <ul class="center"> 
-            <li class="name"><a href="#" onClick="showStatus('ready'); return false;">Status: {{status}}</a></li>
-          </ul>
-		</section>
-        <section class="top-bar-section">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <img src="/OpenForum/Images/open-forum-dog-small.png" />
+          </h1>
+        </li>
+      </ul>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <a href="undefined"> Service Generator</a>
+          </h1>
+        </li>
+      </ul>
+      <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="#">Signed in as {{currentUser}}</a>
+              <a href="undefined">Signed in as {{currentUser}} {{avatar}}</a>
               <ul class="dropdown">
                 <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+                <li><a href="undefined" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
                 <script>
   var accessLoading = false;
   function doSignIn() {
@@ -129,7 +64,7 @@
       	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
       	accessLoading=true;
       }
-      setTimeout(doSignIn,5000);
+      setTimeout(doSignIn,1000);
       return;
     }
     
@@ -140,111 +75,18 @@
             </li>
           </ul>
         </section>
-
-<div style="display: none"><a href="#" target="viewPage" id="newTab">Hidden New Page Link</a></div>
-<!-- Copy Page -->
-
-<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Copy Page</h2>
-  <p>Copy the page {{pageName}} to <input type="text" of-id="openForumCopyPage"/></p>
-  <p><a href="#" onClick="editorCopyPage();return false;" class="secondary button">Copy Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    editorCopyPage = function() {
-      	OpenForum.action.copyPage(pageName,openForumCopyPage);
-    	window.location = "/OpenForum/Editor?pageName="+openForumCopyPage;
-    };
-    </script>
-</div>
-
-<!-- Move Page -->
-
-<div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Move Page</h2>
-  <p>Move the page {{pageName}} to <input type="text" of-id="openForumMovePage"/></p>
-  <p><a href="#" onClick="editorMovePage(pageName);return false;" class="secondary button">Move Page</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-  <script>
-    editorMovePage = function() {
-      	OpenForum.action.movePage(pageName,openForumMovePage);
-    	window.location = "/OpenForum/Editor?pageName="+openForumMovePage;
-    };
-    </script>
-</div>
-
-<!-- Create Attachment -->
-
-<div id="CreateAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Create New Page Attachment</h2>
-  <p>File Name <input type="text" of-id="newAttachmentName"/></p>
-  <p><a href="#" onClick="createAttachment();return false;" class="secondary button">Create</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
-
-<!-- Upload Attachment -->
-
-<div id="UploadAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Upload Page Attachment</h2>
-    <fieldset>
-    <legend>Upload from Current Device</legend>
-  <form name="upload" id="upload" method="post" action="#" enctype="multipart/form-data" target="uploadResponse">
-    <input type="file" name="file"/> <a class="button tiny" onClick="OpenForum.uploadFile('upload',pageName); return false;">Upload</a><br/>
-  </form>
-  </fieldset>
-  <fieldset>
-    <legend>Transfer from URL</legend>
-    From <input type="text" placeholder="File URL" of-id="uploadURL"/> to /OpenForum/Editor/Plugins/ServiceGenerator<input type="text" placeholder="File Name" of-id="uploadURLFileName"> <a class="button tiny" onClick="uploadFromURL(); return false;">Upload from URL</a>
-  </fieldset>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
-
-<!-- Delete Page -->
-
-<div id="OpenForumDeleteModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Delete Page</h2>
-  <p>Please confirm that you want to delete the page {{pageName}}
-  <p><a href="#" onClick="OpenForum.action.deletePage(pageName);return false;" class="secondary button">Delete</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
-
-<!-- Documentation -->
-<div id="OpenForumDocumentationModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-    <p id="OpenForumDocumentation"></p>
-    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-</div>
-<script>
-  OpenForum.showDocumentation = function(documetationPage) {
-    document.getElementById("OpenForumDocumentation").innerHTML = OpenForum.loadFile(documetationPage+"/page.html.fragment");
-  };
-</script>
-<!-- insert (/OpenForum/Editor/top-menu.html.template) end -->
-      </nav>
-      
-      <nav class="top-bar" data-topbar role="navigation">
-        <section class="top-bar-section">
-          <!-- Left Nav Section -->
-          <ul class="left">
-            <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="has-dropdown {{editor.tabButtonStyle}}">
-              <a href="#" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a>
-              <ul class="dropdown">
-                {{editor.options}}
-              </ul>
-            </li>
-          </ul>
-        </section>
-      </nav>
-    </div>
+<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
+    </nav>
+    <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Editor">Editor</a></li><li role="menuitem"><a href="/OpenForum/Editor/Plugins">Plugins</a></li><li role="menuitem" class="current"><a href="/OpenForum/Editor/Plugins">ServiceGenerator</a></li></nav>
 
     <!--PageContent Start-->
 
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
 <!--Page Content End-->
 
-    <!-- insert (/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content) start -->      <footer class="row">
+    <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
-          <hr/>
-          <div class="row">
-            <div class="large-12 columns">
+          		<hr/>
               <ul class="inline-list right">
                 <li><a href="undefined">About</a></li>
                 <li><a href="undefined">Open Forum @ OneStoneSoup.org</a></li>
@@ -253,10 +95,8 @@
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
-          </div>
-        </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content) end -->
-
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
+    
     <!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
   <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
   <p>{{OpenForum.errorMessage}}</p>
@@ -269,7 +109,7 @@
   <p>{{OpenForum.error}}</p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div><!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) end -->
-    
+
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
     <script>

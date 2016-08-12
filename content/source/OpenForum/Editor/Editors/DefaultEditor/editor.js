@@ -24,6 +24,8 @@ function DefaultEditor(editorIndex,pageName,fileName) {
   );
   cm.setValue("Loading...");
   
+  cm.setSize(null,"100%");
+  
   var source = "";
   //load source if exists
   if(OpenForum.file.attachmentExists(pageName,fileName)==="true") {
@@ -34,6 +36,9 @@ function DefaultEditor(editorIndex,pageName,fileName) {
     source = OpenForum.loadFile("/OpenForum/FileTemplates/default/default.txt");
   }
   cm.setValue(source);
+    
+  cm.setSize(null,"100%"); 
+  
   cm.refresh();
 
   self.init = function() {};

@@ -10,4 +10,4 @@ pageName = pageName.substring(pageName.indexOf("/")+1);
 document.write("<a href='/OpenForum/Editor?pageName=/"+pageName+"'>You can create the page '"+pageName+"' by clicking here.</a>");
 </script>
 </div>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

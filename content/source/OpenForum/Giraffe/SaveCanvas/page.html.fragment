@@ -26,7 +26,7 @@ OpenForum.downloadCanvas = function(canvas, filename) {
 };
 </xmp>
 
-[<a href="//OpenForum/Giraffe/SaveCanvas/post.sjs">//OpenForum/Giraffe/SaveCanvas/post.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Giraffe/SaveCanvas&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Take base64 image and convert to image file
+<a href="//OpenForum/Giraffe/SaveCanvas/post.sjs">//OpenForum/Giraffe/SaveCanvas/post.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Giraffe/SaveCanvas&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Take base64 image and convert to image file
 
 try{
   dec = Packages.javax.xml.bind.DatatypeConverter;
@@ -45,4 +45,4 @@ try{
 } catch(e) {
   transaction.sendJSON( JSON.stringiify({result: "error", message: ""+e}));
 }</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

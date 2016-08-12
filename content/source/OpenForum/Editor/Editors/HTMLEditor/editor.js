@@ -35,6 +35,9 @@ function HTMLEditor(editorIndex,pageName,fileName) {
       source = OpenForum.loadFile("/OpenForum/FileTemplates/html/default.html");
     }
     cm.setValue(source);
+    
+    cm.setSize(null,"100%");
+    
     cm.refresh();
 
     cm.on("change", function(cm, change) {
@@ -71,9 +74,9 @@ function HTMLEditor(editorIndex,pageName,fileName) {
   OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/theme/rubyblue.css");
 
   self.documentation = [
-    {pageName: "/OpenForumDocumentation/OpenForumJavascript/KitchenSink", title:"OpenForum JS Binding"},
-    {pageName: "/OpenForumDocumentation/OpenForumMarkup/KitchenSink", title: "OpenForum Markup"},
-    {pageName: "/OpenForum/Extensions", title: "OpenForum Extended Markup"}
+    {pageName: "/OpenForumJavascript/KitchenSink", title:"OpenForum JS Binding"},
+    {pageName: "/OpenForumMarkup/KitchenSink", title: "OpenForum Markup"},
+    {pageName: "/OpenForumExtensions", title: "OpenForum Extended Markup"}
   ];
 
   DependencyService.createNewDependency()

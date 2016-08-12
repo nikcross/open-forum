@@ -84,7 +84,7 @@ addPlugin( {
     webChatView.init("clientConsole.log");
     
       OpenForum.addTab("editor"+editorIndex);
-      editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "ClientConsole", changed: ""};
+      editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "ClientConsole", changed: "", options: []};
       showTab(editorIndex);
       clientConsole.log("clientConsole Ready");
       return editorList[editorIndex];

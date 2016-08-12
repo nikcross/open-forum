@@ -82,7 +82,7 @@ addPlugin( {
       OpenForum.crawl(document.getElementById("editor"+editorIndex));
     
       OpenForum.addTab("editor"+editorIndex);
-      editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Console", changed: ""};
+      editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Console", changed: "", options: []};
       showTab(editorIndex);
       console.log("Console Ready");
       return editorList[editorIndex];

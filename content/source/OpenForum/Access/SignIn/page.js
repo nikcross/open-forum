@@ -1,5 +1,9 @@
 OpenForum.loadScript("/OpenForum/Javascript/md5.js");
 
+OpenForum.init = function() {
+	OpenForum.Access.showPopup();
+};
+
 if(!OpenForum) {
   OpenForum = {};
 }
@@ -49,7 +53,7 @@ OpenForum.Access = new function() {
   this.showPopup = function() {
     var div = document.createElement('div');
     html = "<div id=\"AccessSignIn\" class=\"reveal-modal\" data-reveal aria-labelledby=\"accessSignInModalTitle\" aria-hidden=\"true\" role=\"dialog\">";
-    html += OpenForum.loadFile("/OpenForum/Access/SignIn/page.html.fragment");
+    html += OpenForum.loadFile("/OpenForum/Access/SignIn/popup.html.fragment");
     html += "</div>";
     div.innerHTML = html;
 

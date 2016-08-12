@@ -1,0 +1,66 @@
+<div style="width: 100%;"> <center>
+  <table>
+    <tr>
+      <td>Name</td><td>Page Name</td><td>Script File</td><td>Last Run</td><td>Scheduled Time</td><td>Enabled</td><td>Debug</td><td>Actions</td>
+    </tr>
+    <tr of-repeatFor="task in schedule">
+      <td><a href="/OpenForum/Editor?pageName={{task.pageName}}&fileName={{task.scriptFile}}" target="editor">{{task.name}}</a></td>
+      <td>{{task.pageName}}</td><td>{{task.scriptFile}}</td>
+      <td>{{task.lastRun}}</td><td>{{task.scheduledTime}}</td>
+      <td><div class="switch round small">
+        <input id="enabled{{task.id}}" type="checkbox" checked="{{task.enabled}}">
+        <label for="enabled{{task.id}}"></label>
+        </div>
+      </td>
+      <td>
+      <div class="switch round small">
+        <input id="debug{{task.id}}" type="checkbox" checked="{{task.debug}}">
+        <label for="debug{{task.id}}"></label>
+        </div>
+      </td>
+      <td>
+        <a href="#" class="button" onclick="editTask( '{{task.id}}' );">Edit</a>
+        <a href="#" class="button" onclick="deleteTask( '{{task.id}}' );">Delete</a>
+      </td>
+    </tr>
+  </table>
+
+  <a href="#" class="button" onclick="addTask();">Add Task</a>
+  <a href="#" class="button" onclick="saveSchedule();">Save Schedule</a>
+  </center>
+</div>
+
+<div class="row">
+  <form>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>Name<input type='text' of-id='currentTask.name' placeholder=' ' /></label>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-6 columns'>
+        <label>PageName<input type='text' of-id='currentTask.pageName' placeholder=' ' /></label>
+      </div>
+      <div class='large-6 columns'>
+        <label>Script File<input type='text' of-id='currentTask.scriptFile' placeholder=' ' /></label>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>ScheduledTime<input type='text' list="scheduleTimes" of-id='currentTask.scheduledTime' placeholder=' ' /></label>
+      </div>
+    </div>
+  </form>
+</div>
+
+<datalist id="scheduleTimes">
+  <option value="Every ten seconds"></option>
+  <option value="Every minute"></option>
+  <option value="Every ten minutes"></option>
+  <option value="Every half hour"></option>
+  <option value="Every hour"></option>
+  <option value="Every day @ 08:00"></option>
+  <option value="Every week on Monday @ 08:00"></option>
+  <option value="Every month on 1st"></option>
+</datalist>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

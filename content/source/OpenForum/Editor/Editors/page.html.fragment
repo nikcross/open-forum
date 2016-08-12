@@ -3,7 +3,8 @@
 <li> <a href="/OpenForum/Editor/Editors/HTMLEditor">HTMLEditor</a></li>
 <li> <a href="/OpenForum/Editor/Editors/HtmlEditor">HtmlEditor</a></li>
 <li> <a href="/OpenForum/Editor/Editors/JavascriptEditor">JavascriptEditor</a></li>
+<li> <a href="/OpenForum/Editor/Editors/WYSIWYGEditor">WYSIWYGEditor</a></li>
 <li> <a href="/OpenForum/Editor/Editors/XMLEditor">XMLEditor</a></li>
 <li> <a href="/OpenForum/Editor/Editors/XmlEditor">XmlEditor</a></li>
 </ul>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

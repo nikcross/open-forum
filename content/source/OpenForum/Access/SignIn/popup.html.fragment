@@ -1,0 +1,62 @@
+
+<div class="row">
+  <div class="large-9 columns">
+    {{OpenForum.Access.result}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-9 columns">
+
+    <div data-alert class="alert-box alert round" style="display: none">
+      This is an alert - alert that is rounded.
+      <a href="#" class="close">&times;</a>
+    </div>
+    <div data-alert class="alert-box success round" style="display: none">
+      This is a success alert with a radius.
+      <a href="#" class="close">&times;</a>
+    </div>
+
+    <div class="row">
+      <div class="section-container tabs" data-section>
+        <section class="section">
+          <h5 class="title"><a href="undefinedpanel1">Sign In</a></h5>
+          <div class="content" data-slug="panel1">
+            <form>
+              <div class="row collapse">
+                <div class="large-2 columns">
+                  <label class="inline">User Name</label>
+                </div>
+                <div class="large-10 columns">
+                  <input type="text" of-id="userNameField" id="userName" placeholder="your user name">
+                </div>
+              </div>
+              <div class="row collapse">
+                <div class="large-2 columns">
+                  <label class="inline">Password</label>
+                </div>
+                <div class="large-10 columns">
+                  <input type="password" of-id="passwordField" id="password" placeholder="password">
+                  <div class="row">
+                    <div class="large-3 columns">
+                    <label>Show Password</label>
+                      </div>
+                    <div class="large-9 columns">
+                    <div class="switch round small">
+                      <input id="showPassword" type="checkbox" onClick="OpenForum.Access.showPassword(this.checked);">
+                      <label for="showPassword"></label>
+                    </div> 
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="radius button" onClick="OpenForum.Access.signIn(); return false;">Sign In</button>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->

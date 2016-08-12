@@ -1,0 +1,3 @@
+<div id="overlay" class="panel callout radius" style="position: absolute; bottom: 10px; left: 10px;">Loading...</div>
+<iframe style="width: 100%; height: 100%;" id="ifrm" src="/TheLab/Tools/AutoRefreshPage/loading.html"></iframe>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

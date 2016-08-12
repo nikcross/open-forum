@@ -27,6 +27,9 @@ function CSSEditor(editorIndex,pageName,fileName) {
       source = OpenForum.loadFile("/OpenForum/FileTemplates/css/default.css");
     }
     cm.setValue(source);
+    
+    cm.setSize(null,"100%");
+    
     cm.refresh();
 
     cm.on("change", function(cm, change) {

@@ -33,14 +33,14 @@ if(action==="getVersion") {
   var wlanMACAddress= "?";
   try{
     wlanIpAddress = "" + systemMonitor.getIpAddress("wlan0");
-    wlanMACAddess = "" + systemMonitor.getMACAddress("wlan0");
+    wlanMACAddress = "" + systemMonitor.getMACAddress("wlan0");
   } catch(e) {}
 
   var ethIpAddress = "?";
   var ethMACAddress= "?";
   try{
     ethIpAddress = "" + systemMonitor.getIpAddress("eth0");
-    ethMACAddess = "" + systemMonitor.getMACAddress("eth0");
+    ethMACAddress = "" + systemMonitor.getMACAddress("eth0");
   } catch(e) {}
 
   result = {

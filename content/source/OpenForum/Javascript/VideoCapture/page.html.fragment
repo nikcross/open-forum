@@ -1,10 +1,10 @@
 <h3>Camera Settings</h3>
 <ul><li>Camera <input of-id="frameCatcher.camera" id="OpenForum.videoCapture.camera" list="cameras"><button onClick="OpenForum.videoCapture.updateSource()">Select</button></li>
-
+</ul>
 <datalist of-id="cameras" id="cameras">
   <option of-repeatFor="camera in OpenForum.videoCapture.cameras" value="{{camera.label}}"/>
 </datalist>
-<li>Current Camera: {{OpenForum.videoCapture.camera}} : {{OpenForum.videoCapture.cameraId}}</li>
+<ul><li>Current Camera: {{OpenForum.videoCapture.camera}} : {{OpenForum.videoCapture.cameraId}}</li>
 <canvas id="canvas" width="800" height="400"></canvas>
 
 <a href="//OpenForum/Javascript/VideoCapture/VideoCapture.js">//OpenForum/Javascript/VideoCapture/VideoCapture.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VideoCapture&fileName=VideoCapture.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
@@ -185,4 +185,4 @@ OpenForum.addInitialiser(
     }
   }
 );</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>

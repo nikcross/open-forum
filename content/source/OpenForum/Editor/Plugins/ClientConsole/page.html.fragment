@@ -6,4 +6,4 @@ clientConsole.setClient("<client name>"); // change the client to run against
 <button class="actionButton" onClick="clientConsole.runCli();" title="Run"><img src="/OpenForum/Images/icons/png/server_go.png"> Run</button><br/>
 <button class="actionButton" onClick="clientConsole.clear();" title="Clear"><img src="/OpenForum/Images/icons/png/cross.png"> Clear Log</button><br/>
 {{clientConsole.text}}
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

@@ -13,60 +13,71 @@
 * <span ondrop="drop(event,'#parentPage')" ondragover="allowDrop(event)" title="You can drop files on me">[{Icon name="page"}]</span>Parent Page: __{{parentPageLink}}__
 * Sub Pages
     <div id="subPagesList"></div>
-* Site Explorer
-    <div id="explorer"></div>    
   </div>
   <div class="large-6 columns">
     <h4>Page Attachments</h4>
 
     <a href="#" data-reveal-id="CreateAttachmentModal" class="button tiny">Create Attachment</a>
     <a href="#" data-reveal-id="UploadAttachmentModal" class="button tiny">Upload Attachment</a>
+    <a href="#" data-reveal-id="OpenForumSiteExplorerModal" class="button tiny">Site Explorer</a>
     <table>
       <thead>
-        <tr><th>Page Name</th><th>File Name</th><th></th><th></th><th></th><th></th></tr>
+        <tr><th>File Name</th><th></th><th></th><th></th><th></th><th></th></tr>
       </thead>
       <tbody>
-        <tr of-repeatFor="attachment in attachments"><td>{{attachment.pageName}}</td><td title="Size: {{attachment.size}} Last Modified: {{attachment.lastModified}}">{{attachment.fileName}}  <span title="You can drag me to another page." draggable="true" ondragstart="drag('{{attachment.id}}');">[{Icon name="tag_blue"}]</span></td>
-          <td><a class="button tiny" onClick="{{attachment.action}}({{attachment.id}});return false;">{{attachment.actionName}}</a></td>
-          <td><a class="button tiny" data-reveal-id="OpenForumDeleteAttachmentModal" onClick="attachmentPageToDelete='{{attachment.pageName}}';attachmentToDelete='{{attachment.fileName}}';return false;">Delete</a></td>
+        <tr of-repeatFor="attachment in attachments"><td title="Size: {{attachment.size}} Last Modified: {{attachment.lastModified}}">{{attachment.fileName}}  <span title="You can drag me to another page." draggable="true" ondragstart="drag('{{attachment.id}}');">[{Icon name="tag_blue"}]</span></td>
+          <td><a class="button tiny" 
+                 onClick="{{attachment.action}}({{attachment.id}});return false;">{{attachment.actionName}}</a></td>
+          <td><a class="button tiny" data-reveal-id="OpenForumDeleteAttachmentModal" 
+                 onClick="attachmentPageToDelete='{{attachment.pageName}}';attachmentToDelete='{{attachment.fileName}}';return false;">Delete</a></td>
           <td><a class="button tiny" data-reveal-id="OpenForumCopyAttachmentModal" 
                   onClick="attachmentPageToCopy='{{attachment.pageName}}';attachmentToCopy='{{attachment.fileName}}';attachmentPageToCopyTo='{{attachment.pageName}}';attachmentToCopyTo='{{attachment.fileName}}';return false;">
             Copy</a></td>
           <td><a class="button tiny" data-reveal-id="OpenForumMoveAttachmentModal" 
                   onClick="attachmentPageToMove='{{attachment.pageName}}';attachmentToMove='{{attachment.fileName}}';attachmentPageToMoveTo='{{attachment.pageName}}';attachmentToMoveTo='{{attachment.fileName}}';return false;">
             Move</a></td>
+          <td>{{attachment.extraActions}}</td>
         </tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- Delete Attachemnt -->
+<!-- Delete Attachment -->
 
 <div id="OpenForumDeleteAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Delete Attachment</h2>
   <p>Please confirm that you want to delete the attachment {{attachmentToDelete}} from the page {{attachmentPageToDelete}}
     <p><a href="[{Hash}]" onClick="OpenForum.deleteFile(attachmentPageToDelete,attachmentToDelete);loadUpdatedFilesList();
 $('#OpenForumDeleteAttachmentModal').foundation('reveal', 'close'); return false;" class="secondary button">Delete</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
-<!-- Move Attachemnt -->
+<!-- Move Attachment -->
 
 <div id="OpenForumMoveAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Move Attachment</h2>
   <p>Move the attachment {{attachmentToMove}} from the page {{attachmentPageToMove}}
   <p>to page <input type="text" of-id="attachmentPageToMoveTo"/> with the file name <input type="text" of-id="attachmentToMoveTo"/></p>
     <p><a href="[{Hash}]" onClick="OpenForum.moveFile(attachmentPageToMove+'/'+attachmentToMove,attachmentPageToMoveTo+'/'+attachmentToMoveTo);loadUpdatedFilesList(); $('#OpenForumMoveAttachmentModal').foundation('reveal', 'close');  return false;" class="secondary button">Move</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
-<!-- Copy Attachemnt -->
+<!-- Copy Attachment -->
 
 <div id="OpenForumCopyAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Copy Attachment</h2>
   <p>Copy the attachment {{attachmentToCopy}} from the page {{attachmentPageToCopy}}
   <p>to page <input type="text" of-id="attachmentPageToCopyTo"/> with the file name <input type="text" of-id="attachmentToCopyTo"/></p>
   <p><a href="[{Hash}]" onClick="OpenForum.copyFile(attachmentPageToCopy+'/'+attachmentToCopy,attachmentPageToCopyTo+'/'+attachmentToCopyTo);loadUpdatedFilesList(); $('#OpenForumCopyAttachmentModal').foundation('reveal', 'close'); return false;" class="secondary button">Copy</a></p>
-  <a class="close-reveal-modal" aria-label="Close">&[{Hash}]215;</a>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+
+<!-- Site Explorer -->
+
+<div id="OpenForumSiteExplorerModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog"  style="height: 80%">
+  <h2>Site Explorer</h2>
+  <div style="height: inherit; overflow: auto;"><span id="explorer"></span></div>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>

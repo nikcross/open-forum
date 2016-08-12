@@ -9,7 +9,7 @@
 </xmp>
 <a href="/OpenForum/Editor?pageName=/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp(); does not exist. Click to create it.">/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();</a>
 
--<hr/>
+<hr/>
 <h3>Server Side Javascript for GET method</h3>
 <a href="//OpenForum/Actions/RJSC/get.sjs">//OpenForum/Actions/RJSC/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/RJSC&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">code = transaction.getParameter("code");
 queueName = transaction.getParameter("queueName");
@@ -48,4 +48,4 @@ catch(e)
   catch(e2){}
   transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber+" of "+e.sourceName, saved: false}));
 }</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>

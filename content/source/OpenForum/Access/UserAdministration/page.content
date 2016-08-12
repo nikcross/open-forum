@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="large-6 columns">
+    <table>
+      <tr of-repeatFor="user in users">
+        <td><a href="/OpenForum/Users/{{user}}" target="userTab" >{{user}}</a></td>
+        <td><a  class="button tiny" href="/OpenForum/Users/{{user}}?edit" target="userTab" >Edit User</a></td>
+        <td>
+          <a href="#" class="button tiny">Delete User</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="large-6 columns">
+    <table>
+      <tr of-repeatFor="group in groups">
+        <td><a href="/OpenForum/Groups/{{group}}" target="groupTab" >{{group}}</a></td>
+        <td><a  class="button tiny" href="/OpenForum/Groups/{{group}}?edit" target="groupTab" >Edit Group</a></td>
+        <td>
+          <a href="#" class="button tiny">Delete Group</a>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="large-6 columns">
+    <form>
+      <div class='row'>
+        <div class='large-12 columns'>
+          <label>New User Name<input type='text' of-id='newUserName' placeholder=' ' /></label>
+        </div>
+      </div>
+    </form>
+    <a href="#" class="button tiny" onclick="createNewUser(); return false;">Add New User</a>
+  </div>
+    <div class="large-6 columns">
+    <form>
+      <div class='row'>
+        <div class='large-12 columns'>
+          <label>New Group Name<input type='text' of-id='newGroupName' placeholder=' ' /></label>
+        </div>
+      </div>
+    </form>
+    <a href="#" class="button tiny" onclick="createNewGroup(); return false;">Add New Group</a>
+  </div>
+</div>
