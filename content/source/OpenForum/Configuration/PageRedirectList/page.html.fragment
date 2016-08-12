@@ -1,0 +1,8 @@
+<xmp class="panel">
+edit=/OpenForum/Editor
+delete=/OpenForum/Actions/Delete
+refresh=/OpenForum/Actions/RefreshPage
+view=/OpenForum/Actions/ViewFolder
+zip=/OpenForum/Actions/Zip?action=zip
+</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

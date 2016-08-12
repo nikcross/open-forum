@@ -1,18 +1,17 @@
-
 <!doctype html>
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <title> Html Editor</title>
+    <title> Parameter Redirect List</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/Editors/HtmlEditor/page.js"></script>
+    <script type="text/javascript" src="/OpenForum/Configuration/ParameterRedirectList/page.js"></script>
 
     <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
-      var pageName = "/OpenForum/Editor/Editors/HtmlEditor";
+      var pageName = "/OpenForum/Configuration/ParameterRedirectList";
       var author = "unknown";
-      var time = "1453470781000";
+      var time = "1465477148000";
       var currentUser = "";
       var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
       JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
@@ -44,7 +43,7 @@
       <ul class="title-area">
         <li class="name">
           <h1>
-            <a href="undefined"> Html Editor</a>
+            <a href="undefined"> Parameter Redirect List</a>
           </h1>
         </li>
       </ul>
@@ -78,10 +77,16 @@
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
     </nav>
-    <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Editor">Editor</a></li><li role="menuitem"><a href="/OpenForum/Editor/Editors">Editors</a></li><li role="menuitem" class="current"><a href="/OpenForum/Editor/Editors">HtmlEditor</a></li></nav>
+    <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Configuration">Configuration</a></li><li role="menuitem" class="current"><a href="/OpenForum/Configuration">ParameterRedirectList</a></li></nav>
 
     <!--PageContent Start-->
-<h3>DELETE ME</h3>
+<xmp class="panel">
+edit=/OpenForum/Editor
+delete=/OpenForum/Actions/Delete
+refresh=/OpenForum/Actions/RefreshPage
+view=/OpenForum/Actions/ViewFolder
+zip=/OpenForum/Actions/Zip?action=zip
+</xmp>
 <!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
 <!--Page Content End-->
 
