@@ -1,2 +1,2 @@
 
-<div id="xmlEditor"><textarea id="editor{{editorIndex}}Src" style="hight: 100%;">Loading...</textarea></div>
+<div id="xmlEditor" style="height: 100%;"><textarea id="editor{{editorIndex}}Src" style="hight: 100%;">Loading...</textarea></div>

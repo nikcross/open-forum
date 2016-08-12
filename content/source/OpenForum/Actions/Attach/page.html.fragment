@@ -13,4 +13,4 @@ user = transaction.getUser();
 wiki.addJournalEntry("File ["+pageName+"/"+fileName+"] added to Page ["+pageName+"] by "+user);
 page = wiki.buildPage(pageName);
 transaction.goToPage(pageName);</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

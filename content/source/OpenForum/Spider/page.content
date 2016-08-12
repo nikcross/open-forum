@@ -3,11 +3,11 @@
     <form>
 	<div id="editor0">Editor Loading...</div>
       <br/>
-==
+=-=
       [{Button title="Release Spider" function="runSpider"}]
       [{Button title="Stop Spider" function="stopSpider"}]
       [{Button title="Clear Log" function="clearLog"}]
-==
+=-=
     </form>
   </div>
 </div>

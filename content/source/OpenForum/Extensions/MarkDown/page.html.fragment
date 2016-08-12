@@ -20,7 +20,7 @@ web services as well as act as a source of information to other applications.</p
 with hierarchical templates and access control.</p>
 
 
-!<h3>Example using remote source</h3>
+<h3>Example using remote source</h3>
 <xmp class="panel">
 [{MarkDown url="https://raw.githubusercontent.com/wiki/adam-p/markdown-here/Markdown-Here-Cheatsheet.md"}]
 </xmp>
@@ -334,4 +334,4 @@ alt=&quot;IMAGE ALT TEXT HERE&quot; width=&quot;240&quot; height=&quot;180&quot;
 </code></pre>
 
   </div>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

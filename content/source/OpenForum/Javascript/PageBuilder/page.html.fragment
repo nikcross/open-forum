@@ -155,4 +155,4 @@ try{
 } catch(e) {
   log.error("Failed to build "+pageName+" using /OpenForum/PageTemplates/Default/page.build.js. Exception "+e+" on line number "+e.lineNumber);
 }</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

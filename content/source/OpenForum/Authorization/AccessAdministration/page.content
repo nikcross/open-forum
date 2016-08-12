@@ -1,0 +1,131 @@
+<div style="display: none" id="content">
+  <div class="row">
+    !!!Page {{pageName}} [{ActionButton text="Save Changes" action="saveChanges"}]
+  </div>
+  <div class="row">
+    <div class="large-4 columns">
+      !!!Read Access
+      !!Users
+      <table>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr of-repeatFor="user in accessView.readAccess.users">
+          <td>{{user}}</td>
+          <td>
+            [{ActionButton text="Remove User" action="removeUser" parameters="{{user}},read"}]
+          </td>
+        </tr>
+      </table>
+      !!Groups
+      <table>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr of-repeatFor="group in accessView.readAccess.groups">
+          <td>{{group}}</td>
+          <td>
+            [{ActionButton text="Remove User" action="removeGroup" parameters="{{group}},read"}]
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="large-4 columns">
+      !!!Update Access
+      !!Users
+      <table>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr of-repeatFor="user in accessView.updateAccess.users">
+          <td>{{user}}</td>
+          <td>
+            [{ActionButton text="Remove User" action="removeUser" parameters="{{user}},update"}]
+          </td>
+        </tr>
+      </table>
+      !!Groups
+      <table>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr of-repeatFor="group in accessView.updateAccess.groups">
+          <td>{{group}}</td>
+          <td>
+            [{ActionButton text="Remove Group" action="removeGroup" parameters="{{group}},update"}]
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="large-4 columns">
+      !!!Delete Access
+      !!Users
+      <table>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr of-repeatFor="user in accessView.deleteAccess.users">
+          <td>{{user}}</td>
+          <td>
+            [{ActionButton text="Remove Group" action="removeUser" parameters="{{user}},delete"}]
+          </td>
+        </tr>
+      </table>
+      !!Groups
+      <table>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr of-repeatFor="group in accessView.deleteAccess.groups">
+          <td>{{group}}</td>
+          <td>
+            [{ActionButton text="Remove Group" action="removeGroup" parameters="{{group}},delete"}]
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    [{ActionButton text="Edit User" action="editUser"}]
+    [{ActionButton text="Edit Group" action="editGroup"}]
+
+    <form id="editForm" style="display: none;">
+      <fieldset>
+        <legend>Edit {{editingUser}}{{editingGroup}} Access</legend>
+        <div class='row' id="selectUser" style="display: none;">
+          <div class='large-12 columns'>
+            <label>User Name <select of-id="editingUser"><option of-repeatFor="user in users">{{user}}</option></select></label>
+          </div>
+        </div>
+        <div class='row' id="selectGroup" style="display: none;">
+          <div class='large-12 columns'>
+            <label>Group Name <select of-id="editingGroup"><option of-repeatFor="group in groups">{{group}}</option></select></label>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='large-4 columns'>
+
+            <label for="readAccessCheckBox">Read</label>
+            <div class="switch">
+              <input of-id="readAccessCheckBox" id="readAccessCheckBox" type="checkbox">
+              <label for="readAccessCheckBox"></label>
+            </div>
+
+          </div>
+          <div class='large-4 columns'>
+
+            <label for="updateAccessCheckBox">Update</label>
+            <div class="switch">
+              <input of-id="updateAccessCheckBox" id="updateAccessCheckBox" type="checkbox">
+              <label for="updateAccessCheckBox"></label>
+            </div>
+
+          </div>
+          <div class='large-4 columns'>
+
+            <label for="deleteAccessCheckBox">Delete</label>
+            <div class="switch">
+              <input of-id="deleteAccessCheckBox" id="deleteAccessCheckBox" type="checkbox">
+              <label for="deleteAccessCheckBox"></label>
+            </div>
+
+          </div>
+        </div>
+        <div class='row'>
+          <div class='large-12 columns'>
+            [{ActionButton text="Update" action="updateFromForm"}]
+          </div>
+        </div>
+      </fieldset>
+    </form>
+
+  </div>
+</div>

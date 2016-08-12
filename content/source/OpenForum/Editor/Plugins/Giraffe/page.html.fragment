@@ -21,4 +21,4 @@ js><input type="text" of-id="giraffe.cliText" size="120" onkeydown="if (event.ke
 <button class="actionButton" onClick="saveCanvas('/Sandbox','snapshot.png',exampleCanvas);">Take Snapshot</button><br/>
 <button class="actionButton" onClick="giraffe.clear();" title="Clear"><img src="/OpenForum/Images/icons/png/cross.png">Clear Log</button><br/>
 {{giraffe.text}}
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

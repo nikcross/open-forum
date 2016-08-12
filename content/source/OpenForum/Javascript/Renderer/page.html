@@ -2,42 +2,52 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title> Renderer</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-    <script type="text/javascript" src="/TheLab/GoogleMaps/markerclusterer.js"></script>
-    <script type="text/javascript" src="/TheLab/GoogleMaps/infobox.js"></script>
-	<script type="text/javascript" src="/OpenForum/Javascript/Renderer/page.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/Renderer/page.js"></script>
 
-	<script>
-		var pageName = "/OpenForum/Javascript/Renderer";
-		var author = "unknown";
-		var time = "1456912205000";
-	    var currentUser = "";
-	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
-	</script>
-    
+    <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
+      var pageName = "/OpenForum/Javascript/Renderer";
+      var author = "unknown";
+      var time = "1456912205000";
+      var currentUser = "";
+      var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
+      JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+      JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
+        function (response) {
+          if(response.profile.avatar) {
+            avatar = "<img src='" + response.profile.avatar + "' style='width: 24px; height: 24px;' />";
+          }
+        }
+      ).go();
+      
+      window.onerror = function(errorMsg, url, lineNumber) {
+        OpenForum.error = errorMsg+" url:"+url+" line number:"+lineNumber;
+        OpenForum.errorMessage = "Woops";
+        $('#ofErrorMessage').foundation('reveal', 'open');
+      };
+    </script><!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) end -->
+
   </head>
   <body>
-          <nav class="top-bar" data-topbar>
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <img src="/OpenForum/Images/open-forum-dog-small.png" />
-            </h1>
-          </li>
-        </ul>
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <a href="undefined"> Renderer</a>
-            </h1>
-          </li>
-        </ul>
-<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <img src="/OpenForum/Images/open-forum-dog-small.png" />
+          </h1>
+        </li>
+      </ul>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <a href="undefined"> Renderer</a>
+          </h1>
+        </li>
+      </ul>
+      <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
           <ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
@@ -66,9 +76,9 @@
           </ul>
         </section>
 <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
-      </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">Renderer</a></li></nav>
-    
+    </nav>
+    <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">Renderer</a></li></nav>
+
     <!--PageContent Start-->
 <a href="//OpenForum/Javascript/Renderer/DefaultRenderer.sjs">//OpenForum/Javascript/Renderer/DefaultRenderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer&fileName=DefaultRenderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">/**
 
@@ -84,7 +94,7 @@ function DefaultRenderer() {
   };
   
   self.getVersion = function() {
-    return "DefaultRenderer v1.02 Mission more possible";
+    return "DefaultRenderer v1.03 Clean and smooth";
   };
 
   /*===================================*/
@@ -384,19 +394,27 @@ function DefaultRenderer() {
         output+=input;
         break;
       } else {
+        //Record the start and cut start as the start of the markup
         var startPoint = input.indexOf(renderer.getStart());
         var startCutPoint = startPoint;
-        if(input.substring(startCutPoint,1)===EOL) {
+        //If the first character of the cut is new line and markup is not a title, move cut point past it
+        if(input.substring(startCutPoint,1)===EOL && renderer.getStart().charAt(0)!=="!") {
           startCutPoint++;
         }
         
+        //Record the string before the markup start
         var before = input.substring(0,startCutPoint);
         
+        //Record the string after the markup start
         var after = input.substring(startPoint+renderer.getStart().length);
+        //Record the index of the start of the end markup
         var endPoint = after.indexOf(renderer.getEnd());
+        //Record the string within the markup
         var content = after.substring( 0,endPoint );
 
+        //If the markup does not end at the line end
         if(renderer.getEnd()!==EOL) {
+          //Record the end of the markup as after the end markup
           endPoint += renderer.getEnd().length;
         }
 
@@ -405,11 +423,21 @@ function DefaultRenderer() {
           content = self.render(pageName,content);
         }
 
+        //Record the string after the markup end
         after = after.substring( endPoint );
-        output += before + renderer.render(pageName,content);
+        //Add the string before the markup to the output
+        output += before;
+        //Add the rendered markup to the output
+        output += renderer.render(pageName,content);
+        //Set the input as the string after the markup
         input = after;
         
-        rendererStack.push(renderer);
+        if(input.substring(0,2)==="\n\n") {
+          output += "\n"+renderer.renderClose();
+          input = input.substring(1);
+        } else {        
+          rendererStack.push(renderer);
+        }
       }
     }
     output = output.substring(1,output.length-1);
@@ -429,10 +457,10 @@ function DefaultRenderer() {
 }
 </xmp>
 
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
 <!--Page Content End-->
-      
-<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
+
+    <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           		<hr/>
               <ul class="inline-list right">
@@ -445,6 +473,19 @@ function DefaultRenderer() {
             </div>
       </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
     
+    <!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
+  <p>{{OpenForum.errorMessage}}</p>
+  <p><a href="#" data-reveal-id="ofErrorDetails" class="secondary button">See technical details</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="ofErrorDetails" class="reveal-modal" data-reveal aria-labelledby="ofErrorModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorModalTitle">Error details.</h2>
+  <p>{{OpenForum.error}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div><!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) end -->
+
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
     <script>

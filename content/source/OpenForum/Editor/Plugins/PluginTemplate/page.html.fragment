@@ -2,4 +2,4 @@ sjs><input type="text" of-id="serverConsole.cliText" size="120" onkeydown="if (e
 <button class="actionButton" onClick="serverConsole.runCli();" title="Run"><img src="/OpenForum/Images/icons/png/server_go.png"></button><br/>
 <button class="actionButton" onClick="serverConsole.clear();" title="Clear"><img src="/OpenForum/Images/icons/png/cross.png"></button><br/>
 {{serverConsole.text}}
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

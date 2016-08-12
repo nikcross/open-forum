@@ -156,7 +156,7 @@ if(action==="methodName") {
   transaction.sendPage("what ?");
 }</xmp>
 
-!<h3>Javascript introspection</h3>
+<h3>Javascript introspection</h3>
 <xmp class="panel">
 Obj = {
   fnA: function(a,b,c) {return 5;},
@@ -171,7 +171,7 @@ for(var i in Obj) {
 }
 </xmp>
 
-!<h3>Start of server side code</h3>
+<h3>Start of server side code</h3>
 <xmp class="panel">
 println(file.getClass().getName());
 
@@ -237,7 +237,7 @@ Client code documentation template
 */
 </xmp>
 
-!<h3>Old Code</h3>
+<h3>Old Code</h3>
 <a href="//OpenForum/Javascript/JavaWrapper/java-wrapper.sjs">//OpenForum/Javascript/JavaWrapper/java-wrapper.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper&fileName=java-wrapper.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">/*function wrap(instance) {
   //if primative, convert to javascript type
   if(instance instanceof String) {
@@ -266,4 +266,4 @@ function wrap(instance) {
 }
 
 wrap(js);</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

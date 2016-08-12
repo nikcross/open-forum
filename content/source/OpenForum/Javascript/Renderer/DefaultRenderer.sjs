@@ -12,7 +12,7 @@ function DefaultRenderer() {
   };
   
   self.getVersion = function() {
-    return "DefaultRenderer v1.02 Mission more possible";
+    return "DefaultRenderer v1.03 Clean and smooth";
   };
 
   /*===================================*/
@@ -312,19 +312,27 @@ function DefaultRenderer() {
         output+=input;
         break;
       } else {
+        //Record the start and cut start as the start of the markup
         var startPoint = input.indexOf(renderer.getStart());
         var startCutPoint = startPoint;
-        if(input.substring(startCutPoint,1)===EOL) {
+        //If the first character of the cut is new line and markup is not a title, move cut point past it
+        if(input.substring(startCutPoint,1)===EOL && renderer.getStart().charAt(0)!=="!") {
           startCutPoint++;
         }
         
+        //Record the string before the markup start
         var before = input.substring(0,startCutPoint);
         
+        //Record the string after the markup start
         var after = input.substring(startPoint+renderer.getStart().length);
+        //Record the index of the start of the end markup
         var endPoint = after.indexOf(renderer.getEnd());
+        //Record the string within the markup
         var content = after.substring( 0,endPoint );
 
+        //If the markup does not end at the line end
         if(renderer.getEnd()!==EOL) {
+          //Record the end of the markup as after the end markup
           endPoint += renderer.getEnd().length;
         }
 
@@ -333,11 +341,21 @@ function DefaultRenderer() {
           content = self.render(pageName,content);
         }
 
+        //Record the string after the markup end
         after = after.substring( endPoint );
-        output += before + renderer.render(pageName,content);
+        //Add the string before the markup to the output
+        output += before;
+        //Add the rendered markup to the output
+        output += renderer.render(pageName,content);
+        //Set the input as the string after the markup
         input = after;
         
-        rendererStack.push(renderer);
+        if(input.substring(0,2)==="\n\n") {
+          output += "\n"+renderer.renderClose();
+          input = input.substring(1);
+        } else {        
+          rendererStack.push(renderer);
+        }
       }
     }
     output = output.substring(1,output.length-1);

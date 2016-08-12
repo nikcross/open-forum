@@ -1,0 +1,62 @@
+[
+    {
+        "id": "task1",
+        "name": "Manage Queues",
+        "pageName": "/OpenForum/Triggers/TimerTrigger/ManageQueues",
+        "scriptFile": "trigger.sjs",
+        "lastRun": "Mon Jul 04 2016 13:55:21 GMT-0000 (UTC)",
+        "scheduledTime": "Every ten seconds",
+        "enabled": true,
+        "debug": false
+    },
+    {
+        "id": "task2",
+        "name": "Automatic Rebuild",
+        "pageName": "/OpenForum/Triggers/TimerTrigger/AutomaticRebuild",
+        "scriptFile": "trigger.sjs",
+        "lastRun": "Mon Jun 06 2016 14:44:00 GMT-0000 (UTC)",
+        "scheduledTime": "Every day @ 01:00",
+        "enabled": true,
+        "debug": false
+    },
+    {
+        "id": "task3",
+        "name": "Halcyon Camera",
+        "pageName": "/TheLab/CameraView/Service",
+        "scriptFile": "trigger.sjs",
+        "lastRun": "Mon Jul 04 2016 13:59:40 GMT-0000 (UTC)",
+        "scheduledTime": "Every ten seconds",
+        "enabled": true,
+        "debug": false
+    },
+    {
+        "id": "task4",
+        "name": "Lexi",
+        "pageName": "/TheLab/Experiments/Lexi",
+        "scriptFile": "trigger.sjs",
+        "lastRun": "Mon Jul 04 2016 13:59:40 GMT-0000 (UTC)",
+        "scheduledTime": "Every ten seconds",
+        "enabled": true,
+        "debug": false
+    },
+    {
+        "id": "task5",
+        "name": "Remote Node Register",
+        "pageName": "/TheLab/RemoteJavascript",
+        "scriptFile": "trigger.sjs",
+        "lastRun": "Mon Jul 04 2016 13:59:40 GMT-0000 (UTC)",
+        "scheduledTime": "Every ten seconds",
+        "enabled": true,
+        "debug": false
+    },
+    {
+        "id": "task5",
+        "name": "System State Logger",
+        "pageName": "/OpenForum/AddOn/RemoteLogger/LogSystemStatus",
+        "scriptFile": "trigger.sjs",
+        "lastRun": "",
+        "scheduledTime": "Every ten seconds",
+        "enabled": true,
+        "debug": false
+    }
+]

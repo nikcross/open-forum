@@ -2,12 +2,12 @@ Places an icon on the page
 <hr/>
 <h3>Parameters</h3>
 <ul><li> name - name of icon</li>
-
--<hr/>
+</ul>
+<hr/>
 <h3>Usage:</h3>
 <xmp class="panel">
 [{Icon name="chart pie"}]
 </xmp>
 Example:
 <img src="/OpenForum/Images/icons/png/chart_pie.png">
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

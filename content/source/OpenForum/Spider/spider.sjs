@@ -13,6 +13,13 @@ for(var i=0;i<config.processors.length;i++) {
   logSpiderMessage("Adding processor " + config.processors[i].page + "/" + config.processors[i].file);
   var processor =  js.getObject(config.processors[i].page,config.processors[i].file);
   processor.setLog( logSpiderMessage );
+  try{
+    if(processor.setUp) {
+      processor.setUp();
+    }
+  } catch(e) {
+    logSpiderMessage("Error in setUp for processor "+i+" :"+e);
+  }
   processors.push( processor );
 }
 
@@ -40,9 +47,9 @@ function crawl(targetPage) {
   }
 
   var list = file.getAttachmentsForPage( targetPage );
-  if(targetPage.charAt(0)!='/') {
+  /*if(targetPage.charAt(0)!='/') {
     targetPage = "/"+targetPage;
-  }
+  }*/
 
   var iterator= list.keySet().iterator();
   while(iterator.hasNext()) {
@@ -94,6 +101,15 @@ if(processors.length===0) {
 } else {
   logSpiderMessage("Crawling from "+config.startPage);
   crawl(config.startPage);
+  for(var i=0;i<processors.length;i++) {
+    try{
+      if(processors[i].tearDown) {
+        processors[i].tearDown();
+      }
+    } catch(e) {
+      logSpiderMessage("Error in tearDown for processor "+i+" :"+e);
+    }
+  }
 }
 
 logSpiderMessage("Completed /OpenForum/Spider/spider.sjs");

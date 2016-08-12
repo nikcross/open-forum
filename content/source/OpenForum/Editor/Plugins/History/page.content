@@ -1,8 +1,10 @@
-!!History for {{historyConsole.pageName}}
+<div id="history" style="height: 100%;">
+  !!History for {{historyConsole.pageName}}
 <div class="large-3 columns">
 {{historyConsole.fileTables}}
 </div>
 <div class="large-9 columns" style="height: 100%;">
   __{{historyConsole.mergeTitle}}__ [{Button title="Save" function="historyConsole.saveCurrentSource"}]
   <div style="height: 100%;" id="historyConsoleEditor"></div>
+</div>
 </div>

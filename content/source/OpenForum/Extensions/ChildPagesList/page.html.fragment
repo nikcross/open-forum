@@ -41,7 +41,7 @@ Creates a bulleted list of child pages
 <li> <a href="/OpenForum/Users">Users</a></li>
 </ul>
 
--<hr/>
+<hr/>
 <h3>renderer.sjs</h3>
 <a href="//OpenForum/Extensions/ChildPagesList/renderer.sjs">//OpenForum/Extensions/ChildPagesList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildPagesList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">targetPage = extension.getAttribute("pageName");
 if(targetPage===null) {
@@ -73,4 +73,4 @@ for(var i in pagesList) {
 }
 
 return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,data);</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>

@@ -38,6 +38,9 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
       source = OpenForum.loadFile("/OpenForum/FileTemplates/js/default.js");
     }
     cm.setValue(source);
+    
+    cm.setSize(null,"100%");
+    
     cm.refresh();
 
     cm.on("change", function(cm, change) {
@@ -71,19 +74,23 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
   };
 
   self.documentation = [
-    {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/StandardJavascript/Global", title:"Global JS"},
-    {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/StandardJavascript/Array", title:"JS Arrays"},
-    {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/StandardJavascript/Math", title:"JS Math"},
-    {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/StandardJavascript/String", title:"JS Strings"},
-    {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/StandardJavascript/JSON", title:"JS JSON"},
-    {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/StandardJavascript/Date", title:"JS Dates"}
+    {pageName: "StandardJavascript/Global", title:"Global JS"},
+    {pageName: "StandardJavascript/Array", title:"JS Arrays"},
+    {pageName: "StandardJavascript/Math", title:"JS Math"},
+    {pageName: "StandardJavascript/String", title:"JS Strings"},
+    {pageName: "StandardJavascript/JSON", title:"JS JSON"},
+    {pageName: "StandardJavascript/Date", title:"JS Dates"}
   ];
 
   if(fileName.indexOf(".js")!=-1) {
-    self.documentation.push( {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/OpenForumJavascript/Overview", title:"OpenForum Javascript"} );
-    self.documentation.push( {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/OpenForumJavascript/DependencyService/Overview", title:"OpenForum DependencyService"} );
+    self.documentation.push( {pageName: "OpenForumJavascript/Overview", title:"OpenForum Javascript"} );
+    self.documentation.push( {pageName: "DependencyService/Overview", title:"OpenForum DependencyService"} );
   } else if(fileName==="get.sjs" || fileName==="post.sjs") {
-    self.documentation.push( {pageName: "https://open-forum.onestonesoup.org/OpenForumDocumentation/OpenForumServerSideJavascript/OpenForum", title: "SJS Transaction"} );
+    self.documentation.push( {pageName: "OpenForumServerSideJavascript/OpenForum", title: "SJS Transaction"} );
+  }
+  
+   if(fileName.indexOf(".sjs")!=-1) {
+    self.documentation.push( {pageName: "OpenForumServerSideJavascript/KitchenSink", title: "Javascript Helpers"} );
   }
 
   OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/theme/rubyblue.css");

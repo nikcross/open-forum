@@ -3,12 +3,12 @@
 <h3>Get Parameters</h3>
 <ul><li> pageName - The page name to delete</li>
 <li> fileName - Optional file to delete. If set then the page is not deleted</li>
-
--<hr/>
+</ul>
+<hr/>
 <h3>Server Side Javascript for GET method</h3>
 
 
-<a href="//OpenForum/Actions/Delete/get.sjs">//OpenForum/Actions/Delete/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Delete&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
+[<a href="//OpenForum/Actions/Delete/get.sjs">//OpenForum/Actions/Delete/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Delete&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
 {
   transaction.setResult(transaction.SHOW_PAGE);
   return;
@@ -52,4 +52,4 @@ if( fileName===null ) {
   }
 }
 </xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

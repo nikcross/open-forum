@@ -16,3 +16,6 @@
   overflow-y: hidden;
   overflow-x: auto;
 }
+
+
+.styled-background { background-color: #00cc00; color: #ffffff; }

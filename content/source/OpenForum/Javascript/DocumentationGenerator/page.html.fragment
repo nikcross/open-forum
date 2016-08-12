@@ -8,7 +8,7 @@
 <li>Help Script to load:<input type="text" of-id="helpScriptFileName"></li>
 <li>Object Name:<input type="text" of-id="objectName"></li>
 <li>Page to Generate:<input type="text" of-id="targetPageName"></li>
-
+</ul>
 <button onClick="generateHelpPage();">Generate Help Page</button><button onClick="generateHelpScript();">Generate Help Script</button>
 
 </div>
@@ -21,4 +21,4 @@
 </div>
 <div class="row">
 <h3> Needs to be able to run on server side as well to document server side scripts</h3>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

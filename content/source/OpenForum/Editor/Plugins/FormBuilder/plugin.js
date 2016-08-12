@@ -22,7 +22,7 @@ addPlugin( {
     
       
             OpenForum.addTab("editor"+editorIndex);
-            editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "FormBuilder", changed: ""};
+            editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "FormBuilder", changed: "", options: []};
             showTab(editorIndex);
             return editorList[editorIndex];
           }

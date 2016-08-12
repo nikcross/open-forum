@@ -4,8 +4,8 @@
 <ul><li>pageName<br/><br/></li>
 <li>source<br/><br/></li>
 <li>tags<br/><br/></li>
-
--<hr/>
+</ul>
+<hr/>
 <h3>Server Side Javascript for POST method</h3>
 <xmp class="panel"> transaction.getPostData();
 pageName = transaction.getPostParameter("pageName");
@@ -52,4 +52,4 @@ mailer.sendMail("Admin","Admin",subject,message);
 /* End of send email*/ 
 
 transaction.goToPage(pageName); </xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

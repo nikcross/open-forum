@@ -11,7 +11,7 @@
 <tr><td>Page to Generate:</td><td><input type="text" of-id="targetPageName"></td></tr>
 <table><tr><td><tr><td><button onClick="generateHelpPage();">Generate Help Page</button></td></tr></table></td></tr>
 <table><tr><td><tr><td><button onClick="generateHelpScript();">Generate Help Script</button></td></tr></table></td></tr>
-
+</table>
 </div>
 <div class="medium-4 columns">
 
@@ -22,4 +22,4 @@
 </div>
 <div class="row">
 <h3> Needs to be able to run on server side as well to document server side scripts</h3>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></table>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

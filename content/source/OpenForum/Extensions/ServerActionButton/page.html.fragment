@@ -9,7 +9,7 @@ A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
 <xmp class="panel">
 [{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
 </xmp>
-[<a class='button' href='#' onclick='Rebuild(); return false;'>Rebuild Wiki</a>
+[<a class='button' href='#' onclick='Rebuild("pageName=Home"); return false;'>Rebuild Wiki</a>
 
 <hr/>
 
@@ -19,4 +19,4 @@ text = extension.getAttribute("text");
 
 return "<a class=\"button\" href=\"#\" onclick=\"ajax.doGet('/OpenForum/Actions/"+action+"','"+parameters+"');return false;\">"+text+"</a>";
 </xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>

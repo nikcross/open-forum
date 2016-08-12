@@ -28,7 +28,7 @@ addPlugin( {
           ).loadDependencies();
 
             OpenForum.addTab("editor"+editorIndex);
-            editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Service", changed: ""};
+            editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Service", changed: "", options: []};
             showTab(editorIndex);
             return editorList[editorIndex];
           }

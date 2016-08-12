@@ -22,11 +22,14 @@ if(action==="getPageTree") {
     } else {
       var tree = js.getObject("/OpenForum/Javascript/Tree","Tree.sjs");
       treeData = JSON.stringify( tree.createFileTree(targetPage) );
+      //TODO Fix this
+      try{
       file.saveAttachment("/OpenForum/Javascript/Tree",cacheFileName,treeData);
+      } catch(e) {}
     }
     transaction.sendPage( treeData );
   } catch(e) {
     transaction.sendPage(e);
   }
 }</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

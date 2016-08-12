@@ -41,6 +41,10 @@ function access() {
     return true;
   }
 
+  if(accessJSON.userAccess[action] && accessJSON.userAccess[action]["Guest"]) { // If Guest access allowed
+  	return true;
+  }
+  
   if(!accessJSON.userAccess[action] || !accessJSON.userAccess[action][userName]) { // If no access.action.userName then cannot access
     if(accessJSON.groupAccess && accessJSON.groupAccess[action]) {
       for(var groupName in accessJSON.groupAccess[action]) {
