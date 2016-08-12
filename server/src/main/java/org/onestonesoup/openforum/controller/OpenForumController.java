@@ -12,6 +12,7 @@ import static org.onestonesoup.openforum.controller.OpenForumConstants.OPEN_FORU
 import static org.onestonesoup.openforum.controller.OpenForumConstants.OPEN_FORUM_DEFAULT_PAGE_PATH;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.OPEN_FORUM_DYNAMIC_PAGES;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.OPEN_FORUM_PARAMETER_REDIRECT_LIST;
+import static org.onestonesoup.openforum.controller.OpenForumConstants.OPEN_FORUM_PAGE_REDIRECT_LIST;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.OWNER_FILE;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGES_INDEX_PAGE_PATH;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_BUILD_JS;
@@ -54,12 +55,7 @@ import org.onestonesoup.openforum.messagequeue.MessageQueueManager;
 import org.onestonesoup.openforum.plugin.PluginManager;
 import org.onestonesoup.openforum.renderers.WikiLinkParser;
 import org.onestonesoup.openforum.router.Router;
-import org.onestonesoup.openforum.security.AuthenticationException;
-import org.onestonesoup.openforum.security.Authenticator;
-import org.onestonesoup.openforum.security.Authorizer;
-import org.onestonesoup.openforum.security.DummyAuthenticator;
-import org.onestonesoup.openforum.security.DummyAuthorizer;
-import org.onestonesoup.openforum.security.Login;
+import org.onestonesoup.openforum.security.*;
 import org.onestonesoup.openforum.store.Store;
 import org.onestonesoup.openforum.trigger.PageChangeTrigger;
 import org.onestonesoup.openforum.trigger.RebuildTrigger;
@@ -100,6 +96,7 @@ public class OpenForumController implements OpenForumScripting,
 	private Store store = new Store();
 	private KeyValueListPage dynamicPages;
 	private KeyValueListPage parameterRedirectList;
+	private KeyValueListPage pageRedirectList;
 	private KeyValueListPage aliasList;
 	private Map<String, String> mimeTypes = new HashMap<String, String>();
 
@@ -189,10 +186,16 @@ public class OpenForumController implements OpenForumScripting,
 
 		dynamicPages = new KeyValueListPage(fileManager,
 				OPEN_FORUM_DYNAMIC_PAGES);
+
 		parameterRedirectList = new KeyValueListPage(fileManager,
 				OPEN_FORUM_PARAMETER_REDIRECT_LIST);
 
-		aliasList = new KeyValueListPage(fileManager, OPEN_FORUM_ALIASES);
+		pageRedirectList = new KeyValueListPage(fileManager,
+				OPEN_FORUM_PAGE_REDIRECT_LIST);
+
+		aliasList = new KeyValueListPage(fileManager,
+				OPEN_FORUM_ALIASES);
+
 		this.domainName = domainName;
 	}
 
@@ -1065,6 +1068,10 @@ public class OpenForumController implements OpenForumScripting,
 		return parameterRedirectList.getList();
 	}
 
+	public List<KeyValuePair> getPageRedirectList() throws Exception {
+		return pageRedirectList.getList();
+	}
+
 	public String getHomePage() {
 		return homePage;
 	}
@@ -1076,6 +1083,8 @@ public class OpenForumController implements OpenForumScripting,
 	public JavascriptEngine getJavascriptEngine(Login login) {
 		// Create a javascript engine to run the script
 		JavascriptEngine js = new JavascriptEngine();
+		UserClassShutter classShutter = new UserClassShutter(login);
+		js.getJsContext().setClassShutter(classShutter);
 
 		// Create processors for use by the script
 		JavascriptHelper jsHelper = new JavascriptHelper(js, this,
@@ -1193,10 +1202,6 @@ public class OpenForumController implements OpenForumScripting,
 			}
 
 			initialised = true;
-
-			logger.info("Building Wiki Page List");
-			buildPagesList();
-			logger.info("Built Wiki Page List");
 
 			logger.info("Running Wiki Startup Triggers");
 			StartUpTrigger startUpTrigger = new StartUpTrigger(this);

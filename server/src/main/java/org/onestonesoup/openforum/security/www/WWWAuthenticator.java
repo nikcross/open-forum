@@ -46,6 +46,7 @@ public class WWWAuthenticator implements Authenticator {
 			
 			JavascriptEngine js = controller.getJavascriptEngine(controller.getSystemLogin());
 			js.mount("login", login);
+			js.mount("httpHeader", httpHeader);
 			try{
 				String script = controller.getFileManager().getPageAttachmentAsString(AUTHENTICATION_PAGE, LOGIN_SCRIPT_FILE, controller.getSystemLogin());
 				String result = js.runJavascript(AUTHENTICATION_PAGE + "/" + LOGIN_SCRIPT_FILE, script);

@@ -7,6 +7,7 @@ import java.security.NoSuchAlgorithmException;
 import javax.xml.bind.DatatypeConverter;
 
 import org.onestonesoup.core.data.EntityTree;
+import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileServer;
 import org.onestonesoup.openforum.security.Authenticator;
@@ -17,6 +18,8 @@ import org.onestonesoup.openforum.transaction.HttpRequestHelper;
 import org.onestonesoup.openforum.transaction.HttpResponseHeader;
 
 public class SessionCookieAuthenticator implements Authenticator {
+	private static final String AUTHENTICATION_PAGE="/OpenForum/Authentication";
+	private static final String LOGIN_SCRIPT_FILE="login.sjs";
 
 	private OpenForumController controller;
 	private SessionStore sessionStore;
@@ -122,7 +125,7 @@ public class SessionCookieAuthenticator implements Authenticator {
 
 	@Override
 	public boolean signIn(HttpHeader httpHeader,ClientConnectionInterface connection) throws IOException {
-		String userId = httpHeader.getChild("parameters")
+		/*String userId = httpHeader.getChild("parameters")
 				.getChild("userId").getValue();
 		String hash = httpHeader.getChild("parameters").getChild("hash")
 				.getValue();
@@ -180,7 +183,31 @@ public class SessionCookieAuthenticator implements Authenticator {
 				return true;
 			}
 		}
-		return false;
+		return false;*/
+
+		Login login = Login.getGuestLogin();
+		JavascriptEngine js = controller.getJavascriptEngine(controller.getSystemLogin());
+		js.mount("httpHeader", httpHeader);
+		js.mount("sessionStore", sessionStore);
+
+		boolean booleanResult;
+		try{
+			String script = controller.getFileManager().getPageAttachmentAsString(AUTHENTICATION_PAGE, LOGIN_SCRIPT_FILE, controller.getSystemLogin());
+			String result = js.runJavascript(AUTHENTICATION_PAGE + "/" + LOGIN_SCRIPT_FILE, script);
+			booleanResult = Boolean.parseBoolean(result);
+			login.setLoggedIn(booleanResult);
+			login.clearPassword();
+
+			if(booleanResult==true) {
+				controller.getLogger().info(login.getUser()+" logged in.");
+			} else {
+				controller.getLogger().info(login.getUser()+" failed to log in.");
+			}
+		} catch(Throwable t) {
+			throw new IOException(t);
+		}
+
+		return booleanResult;
 	}
 	
 	private String getSessionId(HttpHeader httpHeader) {

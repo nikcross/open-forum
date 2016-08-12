@@ -245,11 +245,26 @@ public class Router {
 	
 				HttpResponseHeader responseHeader = new HttpResponseHeader(
 						httpHeader, "text/html", 302, connection);
-				responseHeader.addParameter("location", redirectParameter.getValue() + "?pageName="+request); // Rediect to page eg. editor
+				responseHeader.addParameter("location", redirectParameter.getValue() + "?pageName="+request); // Redirect to page eg. editor with original page name as parameter
 	
 				connection.getOutputStream().flush();
 				connection.close();
 	
+				return true;
+			}
+		}
+
+		for(KeyValuePair redirectPage: controller.getPageRedirectList()) {
+			String pageName = redirectPage.getKey();
+			if( getPageName(request).equals(pageName) ) {
+
+				HttpResponseHeader responseHeader = new HttpResponseHeader(
+						httpHeader, "text/html", 302, connection);
+				responseHeader.addParameter("location", redirectPage.getValue()); // Redirect to page eg. editor
+
+				connection.getOutputStream().flush();
+				connection.close();
+
 				return true;
 			}
 		}
