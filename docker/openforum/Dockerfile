@@ -1,4 +1,4 @@
-FROM alpine-java:jre7
+FROM openjdk:8-jre-alpine
 MAINTAINER  Nik Cross <nikcross@wet-wired.com>
 
 COPY ./source /web/source
