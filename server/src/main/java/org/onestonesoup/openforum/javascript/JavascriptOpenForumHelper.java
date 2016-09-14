@@ -300,6 +300,10 @@ public class JavascriptOpenForumHelper {
 		controller.setHomePage(homePage);
 	}
 
+	public String getHomePage() {
+		return controller.getHomePage();
+	}
+
 	public String generateUniqueId() {
 		return controller.generateUniqueId();
 	}

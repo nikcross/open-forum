@@ -1083,8 +1083,9 @@ public class OpenForumController implements OpenForumScripting,
 	public JavascriptEngine getJavascriptEngine(Login login) {
 		// Create a javascript engine to run the script
 		JavascriptEngine js = new JavascriptEngine();
-		UserClassShutter classShutter = new UserClassShutter(login);
-		js.getJsContext().setClassShutter(classShutter);
+		//TODO
+		//UserClassShutter classShutter = new UserClassShutter(login);
+		//js.getJsContext().setClassShutter(classShutter);
 
 		// Create processors for use by the script
 		JavascriptHelper jsHelper = new JavascriptHelper(js, this,

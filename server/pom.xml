@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>onestonesoup.open-forum.server</groupId>
 	<artifactId>open-forum.server</artifactId>
-	<version>3.0.2</version>
+	<version>3.0.4</version>
 
 	<parent>
 		<groupId>onestonesoup</groupId>

@@ -185,10 +185,20 @@ public class SessionCookieAuthenticator implements Authenticator {
 		}
 		return false;*/
 
-		Login login = Login.getGuestLogin();
+
+		String flavour = httpHeader.getChild("parameters")
+				.getChild("flavour").getValue();
+		String userId = httpHeader.getChild("parameters")
+				.getChild("userId").getValue();
+		String password = httpHeader.getChild("parameters")
+				.getChild("password").getValue();
+		Login login = new Login(userId,password);
+
 		JavascriptEngine js = controller.getJavascriptEngine(controller.getSystemLogin());
 		js.mount("httpHeader", httpHeader);
 		js.mount("sessionStore", sessionStore);
+		js.mount("login", login);
+		js.mount("flavour", flavour);
 
 		boolean booleanResult;
 		try{
@@ -199,6 +209,16 @@ public class SessionCookieAuthenticator implements Authenticator {
 			login.clearPassword();
 
 			if(booleanResult==true) {
+				if ("json".equals(flavour)) {
+					sendJSONResponse(httpHeader, connection, "{result:\"ok\"}",
+							login.getSessionId());
+				} else {
+					HttpResponseHeader responseHeader = new HttpResponseHeader(
+							httpHeader, "text/html", 302, connection);
+					responseHeader.addParameter("Set-Cookie",
+							"openForumSession=" + login.getSessionId() + "; Path=/");
+					responseHeader.addParameter("location", "/SignedIn");
+				}
 				controller.getLogger().info(login.getUser()+" logged in.");
 			} else {
 				controller.getLogger().info(login.getUser()+" failed to log in.");
