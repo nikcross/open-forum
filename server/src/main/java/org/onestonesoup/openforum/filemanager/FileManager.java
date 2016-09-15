@@ -1052,6 +1052,7 @@ public class FileManager {
 	 * org.onestonesoup.wiki.file.manager.FileManager#readFile(java.lang.String)
 	 */
 	private String readFile(Resource file) throws Exception {
+		//TODO Add cache in here
 		return FileHelper.loadFileAsString(resourceStore.retrieve(file));
 	}
 
