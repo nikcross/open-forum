@@ -169,7 +169,7 @@ public class ResourceStoreProxy implements ResourceStore {
 		long lastModified = 0;
 		for(ResourceStore resourceStore: resourceStores) {
 			if(resourceStore.resourceFolderExists(resource)) {
-				if(lastModified==0 || resourceStore.lastModified(resource)<lastModified) {
+				if(lastModified==0 || resourceStore.lastModified(resource)>lastModified) {
 					lastModified =  resourceStore.lastModified(resource);
 				}
 			}
