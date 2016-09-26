@@ -39,8 +39,7 @@ public class KeyValueListPage extends ListPage {
 		catch(Exception e){}
 	}
 
-	public Map<String,String> getHashList() throws Exception
-	{
+	public Map<String,String> getHashList() throws Exception {
 		loadPagesList();
 		return hashList;
 	}

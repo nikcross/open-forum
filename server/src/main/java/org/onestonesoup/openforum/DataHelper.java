@@ -9,8 +9,7 @@ import org.onestonesoup.core.data.KeyValuePair;
 
 public class DataHelper {
 
-	public static Map<String,String> getWikiTableAsTable(String source)
-	{
+	public static Map<String,String> getWikiTableAsTable(String source)	{
 		source = source.replace('\\','\n');
 		String[] fields = source.split("\n");
 		Map<String,String> fieldsTable = new HashMap<String,String>();
@@ -31,8 +30,7 @@ public class DataHelper {
 		return fieldsTable;
 	}
 	
-	public static Map<String,String> getPageAsTable(String source)
-	{
+	public static Map<String,String> getPageAsTable(String source) {
 		if(source==null) {
 			return new HashMap<String,String>();
 		}
@@ -56,8 +54,7 @@ public class DataHelper {
 		return fieldsTable;
 	}
 	
-	public static ArrayList<KeyValuePair> getPageAsKeyValuePairList(String source)
-	{
+	public static ArrayList<KeyValuePair> getPageAsKeyValuePairList(String source) {
 		source = source.replace('\\','\n');
 		String[] fields = source.split("\n");
 		ArrayList<KeyValuePair> fieldsTable = new ArrayList<KeyValuePair>();
@@ -75,8 +72,7 @@ public class DataHelper {
 		return fieldsTable;
 	}	
 	
-	public static String[][] getPageAsList(String source)
-	{
+	public static String[][] getPageAsList(String source) {
 		source = source.replace('\\','\n');
 		String[] fields = source.split("\n");
 		List<String> keyList = new ArrayList<String>();
@@ -117,13 +113,12 @@ public class DataHelper {
 		return list;
 	}
 	
-	public static String prepareTextForEditing(String data)
-	{
+	public static String prepareTextForEditing(String data)	{
+
 		return data.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;");
 	}
 	
-	public static String getFileSizeDisplayString(long size)
-	{
+	public static String getFileSizeDisplayString(long size) {
 		String displayString = ""+size;
 		
 		if(displayString.length()<4)
