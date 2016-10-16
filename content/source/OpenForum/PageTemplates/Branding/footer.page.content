@@ -1,0 +1,12 @@
+      <footer class="row">
+        <div class="large-12 columns">
+          		<hr/>
+              <ul class="inline-list right">
+                <li><a href="/OpenForum/About">About</a></li>
+                <li><a href="https://open-forum.onestonesoup.org">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/Introduction">Documentation</a></li>
+                <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/CookBook">Developers</a></li>
+                <li><a href="https://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+              </ul>
+            </div>
+      </footer>

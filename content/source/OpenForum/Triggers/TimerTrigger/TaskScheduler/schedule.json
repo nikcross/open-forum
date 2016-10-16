@@ -4,10 +4,11 @@
         "name": "Manage Queues",
         "pageName": "/OpenForum/Triggers/TimerTrigger/ManageQueues",
         "scriptFile": "trigger.sjs",
-        "lastRun": "Mon Jul 04 2016 13:55:21 GMT-0000 (UTC)",
+        "lastRun": "Sun Oct 16 2016 21:57:33 GMT-0000 (GMT)",
         "scheduledTime": "Every ten seconds",
         "enabled": true,
-        "debug": false
+        "debug": true,
+        "cheese": "Wed Sep 07 2016 14:19:35 GMT-0000 (GMT)"
     },
     {
         "id": "task2",
@@ -24,39 +25,43 @@
         "name": "Halcyon Camera",
         "pageName": "/TheLab/CameraView/Service",
         "scriptFile": "trigger.sjs",
-        "lastRun": "Mon Jul 04 2016 13:59:40 GMT-0000 (UTC)",
+        "lastRun": "Sun Oct 16 2016 22:10:17 GMT-0000 (GMT)",
         "scheduledTime": "Every ten seconds",
         "enabled": true,
-        "debug": false
+        "debug": false,
+        "cheese": "Wed Sep 07 2016 14:32:18 GMT-0000 (GMT)"
     },
     {
         "id": "task4",
         "name": "Lexi",
         "pageName": "/TheLab/Experiments/Lexi",
         "scriptFile": "trigger.sjs",
-        "lastRun": "Mon Jul 04 2016 13:59:40 GMT-0000 (UTC)",
+        "lastRun": "Sun Oct 16 2016 22:10:17 GMT-0000 (GMT)",
         "scheduledTime": "Every ten seconds",
         "enabled": true,
-        "debug": false
+        "debug": false,
+        "cheese": "Wed Sep 07 2016 14:32:18 GMT-0000 (GMT)"
     },
     {
         "id": "task5",
         "name": "Remote Node Register",
         "pageName": "/TheLab/RemoteJavascript",
         "scriptFile": "trigger.sjs",
-        "lastRun": "Mon Jul 04 2016 13:59:40 GMT-0000 (UTC)",
+        "lastRun": "Sun Oct 16 2016 22:10:17 GMT-0000 (GMT)",
         "scheduledTime": "Every ten seconds",
         "enabled": true,
-        "debug": false
+        "debug": false,
+        "cheese": "Wed Sep 07 2016 14:32:18 GMT-0000 (GMT)"
     },
     {
         "id": "task5",
         "name": "System State Logger",
         "pageName": "/OpenForum/AddOn/RemoteLogger/LogSystemStatus",
         "scriptFile": "trigger.sjs",
-        "lastRun": "",
+        "lastRun": "Sun Oct 16 2016 22:10:17 GMT-0000 (GMT)",
         "scheduledTime": "Every ten seconds",
         "enabled": true,
-        "debug": false
+        "debug": false,
+        "cheese": "Wed Sep 07 2016 14:32:18 GMT-0000 (GMT)"
     }
 ]

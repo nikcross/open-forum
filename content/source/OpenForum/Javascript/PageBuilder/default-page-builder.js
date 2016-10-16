@@ -80,6 +80,13 @@ try{
   var fields = [];
   fields["pageName"] = pageName;
   fields["title"] = openForum.wikiToTitleName(pageName);
+  
+  shortTitle = fields["title"];
+  if(shortTitle.length>20) {
+    shortTitle = "..."+shortTitle.substring(shortTitle.length-17);
+  }  
+  fields["shortTitle"] = shortTitle;
+  
   fields["author"] = "unknown";
   fields["lastChangedBy"] = "unknown";
   fields["referringPages"] = "";

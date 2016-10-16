@@ -1,57 +1,68 @@
-        <section class="top-bar-section">
-          <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Actions</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Editor?pageName=&pageName;">Edit</a></li>
-                <li><a href="/OpenForum/Actions/RefreshPage?pageName=&pageName;">Refresh Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumNewPageModal">Create New Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumNewChildPageModal">Create New Child Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
-                <li><a href="#" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
-                <li><a href="/Development?action=publish&pageName=&pageName;">Publish Page</a></li>
-              </ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Sub Pages</a>
-              <ul class="dropdown"><li>
+<section class="top-bar-section">
+  <ul class="right">
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Actions</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Editor?pageName=&pageName;">Edit</a></li>
+        <li><a href="/OpenForum/Actions/RefreshPage?pageName=&pageName;">Refresh Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewPageModal">Create New Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewChildPageModal">Create New Child Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
+        <li><a href="/Development?action=publish&pageName=&pageName;">Publish Page</a></li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Sub Pages</a>
+      <ul class="dropdown"><li>
+        
+        </li></ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Attachments</a>
+      <ul class="dropdown"><li>
+        
+        </li></ul>
+    </li>
+    <li class="divider"></li>
 
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Attachments</a>
-              <ul class="dropdown"><li>
+    <li class="has-dropdown">
+      <a href="#">Favourite Pages</a>
+      <ul class="dropdown">
+        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="/{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
+      </ul>
+    </li>
 
-                </li></ul>
-            </li>
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Signed in as {{currentUser}} {{avatar}}</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
-                <script>
-  var accessLoading = false;
-  function doSignIn() {
-    
-    if(!OpenForum.Access) {
-      if(!accessLoading) {
-      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
-      	accessLoading=true;
-      }
-      setTimeout(doSignIn,1000);
-      return;
-    }
-    OpenForum.Access.showPopup();
-  };
-                </script>
-              </ul>
-            </li>
-          </ul>
-        </section>
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="undefined">Signed in as {{currentUser}} {{avatar}}</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+        <li><a href="undefined" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+        <script>
+          var accessLoading = false;
+          function doSignIn() {
+
+            if(!OpenForum.Access) {
+              if(!accessLoading) {
+                OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+                accessLoading=true;
+              }
+              setTimeout(doSignIn,1000);
+              return;
+            }
+
+            OpenForum.Access.showPopup();
+          };
+        </script>
+      </ul>
+    </li>
+  </ul>
+</section>
 
 <div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Copy Page</h2>
@@ -60,7 +71,7 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     OpenForumCopyPage = "&pageName;";
-    </script>
+  </script>
 </div>
 
 <div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
@@ -70,7 +81,7 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     OpenForumMovePage = "&pageName;";
-    </script>
+  </script>
 </div>
 
 <div id="OpenForumNewPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
@@ -80,7 +91,7 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     OpenForumNewPage = "/";
-    </script>
+  </script>
 </div>
 
 <div id="OpenForumNewChildPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
@@ -90,7 +101,7 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     OpenForumNewChildPage = "&pageName;/";
-    </script>
+  </script>
 </div>
 
 <!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

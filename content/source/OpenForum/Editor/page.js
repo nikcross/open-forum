@@ -1,7 +1,7 @@
 OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/lib/codemirror.css");
 OpenForum.loadCSS("/OpenForum/Editor/code-mirror.css");
 OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/addon/merge/merge.css");
-OpenForum.loadScript("http://cdnjs.cloudflare.com/ajax/libs/diff_match_patch/20121119/diff_match_patch.js"); 
+OpenForum.loadScript("https://cdnjs.cloudflare.com/ajax/libs/diff_match_patch/20121119/diff_match_patch.js"); 
 
 OpenForum.includeScript("/OpenForum/Editor/attachments.js");
 OpenForum.includeScript("/OpenForum/Editor/editors.js");
@@ -29,6 +29,7 @@ var popupStatus = "ok";
 var status = "Loading...";
 var targetName = "";
 var pageName = "/Sandbox";
+var shortPageName = pageName;
 var pageSize = "?";
 var pageLastModified = "?";
 var fileName = "";
@@ -64,9 +65,15 @@ var extraActions = [
 OpenForum.init = function () {
   if(OpenForum.getParameter("pageName")==="") {
     pageName = "/Sandbox";
+    shortPageName = pageName;
   } else {
     pageName = OpenForum.getParameter("pageName");
+    shortPageName = pageName;
+    if(shortPageName.length>20) {
+      shortPageName="..."+shortPageName.substring(shortPageName.length-17);
+    }
   }
+  document.getElementById("pageTitle").title="Editing "+pageName;
 
   if(OpenForum.file.pageExists(pageName)==="false") {
     newPage = true;
@@ -189,7 +196,9 @@ function setKeyMappings() {
   $(document).bind('keydown', function(e) {
     if(e.ctrlKey && !e.shiftKey && (e.which == 83)) {
       e.preventDefault();
-      saveAttachment(currentEditor.attachment.id);
+      if(currentEditor.attachment) {
+      	saveAttachment(currentEditor.attachment.id);
+      }
       return false;
     }
   });
@@ -222,7 +231,7 @@ function openLivePage() {
 }
 
 function updatePagesList(result) {
-  var editIcon = "<img src=\"http://open-forum.onestonesoup.org/OpenForum/Images/icons/png/page_edit.png\"/>";
+  var editIcon = "<img src=\"/OpenForum/Images/icons/png/page_edit.png\"/>";
 
   dropDownData="";
   data="<ul>\n";

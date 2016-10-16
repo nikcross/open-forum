@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-    <script type="text/javascript" src="&pageName;/page.js"></script>
+    <script type="text/javascript" src="/&pageName;/page.js"></script>
 
     &insert:/OpenForum/PageTemplates/CommonElements/header-script.common.html;
 
@@ -23,7 +23,7 @@
       <ul class="title-area">
         <li class="name">
           <h1>
-            <a href="[{Hash}]">&title;</a>
+            <a href="#" title="&title;">&shortTitle;</a>
           </h1>
         </li>
       </ul>
@@ -36,6 +36,7 @@
     &insert:/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content;
 
     &insert:/OpenForum/PageTemplates/CommonElements/error-alert.common.html;
+    &insert:/OpenForum/PageTemplates/CommonElements/alert.common.html;
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

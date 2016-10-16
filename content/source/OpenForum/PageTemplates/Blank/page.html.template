@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
 	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-	<script type="text/javascript" src="&pageName;/page.js"></script>
+	<script type="text/javascript" src="/&pageName;/page.js"></script>
 
 	<script>
 		var pageName = "&pageName;";

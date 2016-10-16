@@ -7,16 +7,19 @@
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
     <script type="text/javascript" src="/OpenForum/Actions/Attachments/page.js"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css" />
 
     <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
-      var pageName = "/OpenForum/Actions/Attachments";
+      var pageName = "OpenForum/Actions/Attachments";
       var author = "unknown";
-      var time = "1456912205000";
+      var time = "1472908784000";
       var currentUser = "";
+      var user = {};
       var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
-      JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+      JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName).onSuccess( function (response) {  currentUser = response;  } ).go();
       JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
         function (response) {
+          user.profile = response.profile;
           if(response.profile.avatar) {
             avatar = "<img src='" + response.profile.avatar + "' style='width: 24px; height: 24px;' />";
           }
@@ -28,6 +31,14 @@
         OpenForum.errorMessage = "Woops";
         $('#ofErrorMessage').foundation('reveal', 'open');
       };
+      
+      window.alert = function(message,title) {
+        if(!title) {
+          title = "Open Forum";
+        }
+        OpenForum.alert = { message: message, title: title};
+        $('#ofAlertMessage').foundation('reveal', 'open');
+      };
     </script><!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) end -->
 
   </head>
@@ -36,51 +47,61 @@
       <ul class="title-area">
         <li class="name">
           <h1>
-            <img src="/OpenForum/Images/open-forum-dog-small.png" />
+            <!-- insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) start --><a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" /></a><!-- insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) end -->
           </h1>
         </li>
       </ul>
       <ul class="title-area">
         <li class="name">
           <h1>
-            <a href="undefined"> Attachments</a>
+            <a href="#" title=" Attachments"> Attachments</a>
           </h1>
         </li>
       </ul>
-      <!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
-          <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="undefined">Signed in as {{currentUser}} {{avatar}}</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="undefined" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
-                <script>
-  var accessLoading = false;
-  function doSignIn() {
-    
-    if(!OpenForum.Access) {
-      if(!accessLoading) {
-      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
-      	accessLoading=true;
-      }
-      setTimeout(doSignIn,1000);
-      return;
-    }
-    
-    OpenForum.Access.showPopup();
-  };
-                </script>
-              </ul>
-            </li>
-          </ul>
-        </section>
-<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
+      <!-- insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) start --><section class="top-bar-section">
+  <ul class="right">
+
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="#">Favourite Pages</a>
+      <ul class="dropdown">
+        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="/{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
+      </ul>
+    </li>
+
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="undefined">Signed in as {{currentUser}} {{avatar}}</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+        <li><a href="undefined" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+        <script>
+          var accessLoading = false;
+          function doSignIn() {
+
+            if(!OpenForum.Access) {
+              if(!accessLoading) {
+                OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+                accessLoading=true;
+              }
+              setTimeout(doSignIn,1000);
+              return;
+            }
+
+            OpenForum.Access.showPopup();
+          };
+        </script>
+      </ul>
+    </li>
+  </ul>
+</section><!-- insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) end -->
     </nav>
-    <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Actions">Attachments</a></li></nav>
+    <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/Actions">Actions</a></li><li role="menuitem" class="current"><a href="/Actions">Attachments</a></li></nav>
 
     <!--PageContent Start-->
-<a href="//OpenForum/Actions/Attachments/get.sjs">//OpenForum/Actions/Attachments/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Attachments&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var targetPage = transaction.getParameter("pageName");
+<a href="/OpenForum/Actions/Attachments/get.sjs">/OpenForum/Actions/Attachments/get.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Actions/Attachments&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var targetPage = transaction.getParameter("pageName");
 var matching = transaction.getParameter("matching");
 
 if(targetPage===null) {
@@ -131,18 +152,18 @@ transaction.sendPage(JSON.stringify(data));</xmp>
 <!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
 <!--Page Content End-->
 
-    <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
+    <!-- insert (/OpenForum/PageTemplates/Branding/footer.page.content) start -->      <footer class="row">
         <div class="large-12 columns">
           		<hr/>
               <ul class="inline-list right">
-                <li><a href="undefined">About</a></li>
-                <li><a href="undefined">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="undefined">Documentation</a></li>
-                <li><a href="undefined">Developers</a></li>
-                <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+                <li><a href="/OpenForum/About">About</a></li>
+                <li><a href="https://open-forum.onestonesoup.org">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/Introduction">Documentation</a></li>
+                <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/CookBook">Developers</a></li>
+                <li><a href="https://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
+      </footer><!-- insert (/OpenForum/PageTemplates/Branding/footer.page.content) end -->
     
     <!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
   <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
@@ -156,6 +177,12 @@ transaction.sendPage(JSON.stringify(data));</xmp>
   <p>{{OpenForum.error}}</p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div><!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) end -->
+    <!-- insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) start --><div id="ofAlertMessage" class="reveal-modal" data-reveal aria-labelledby="ofAlertMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofAlertMessageModalTitle" class="alert-box success round">{{OpenForum.alert.title}}</h2>
+  <p>{{OpenForum.alert.message}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<!-- insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) end -->
 
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

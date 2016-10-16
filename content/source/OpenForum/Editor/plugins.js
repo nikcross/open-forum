@@ -1,11 +1,20 @@
 var plugins = [];
 
-function loadPlugin(pluginName) {
+function loadPlugin(pluginName,callback) {
+  for(var pi in plugins) {
+    if(plugins[pi].name==pluginName) {
+      if(callback) {
+        callback(plugins[pi]);
+        return;
+      }
+    }
+  }
+  
     DependencyService.createNewDependency()
   .addDependency("/OpenForum/Editor/Plugins/"+pluginName+"/plugin.js")
     .setOnLoadTrigger(
       function() {
-         initPlugin(plugins[plugins.length-1]);
+         initPlugin(plugins[plugins.length-1],callback);
       }
     ).loadDependencies();
 }
@@ -20,6 +29,9 @@ function initPlugins() {
   }
 }
 
-function initPlugin(plugin) {
+function initPlugin(plugin,callback) {
   plugin.init();
+  if(callback) {
+    callback(plugin);
+  }
 }

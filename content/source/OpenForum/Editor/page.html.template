@@ -30,7 +30,7 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="#">Page Editor - Editing {{pageName}}</a>
+              <a href="#" id="pageTitle">Page Editor - Editing {{shortPageName}}</a>
             </h1>
           </li>
         </ul>
@@ -62,7 +62,7 @@
     </section>
 
     &insert:/OpenForum/PageTemplates/CommonElements/error-alert.common.html;
-
+    &insert:/OpenForum/PageTemplates/CommonElements/alert.common.html;
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
     <script>

@@ -20,8 +20,23 @@ tester.unitTest("Can render unordered list").
                                                                 when( render("MyPage") ).
                                                                 then("<ul><li> A </li>\n<li> B </li>\n<li> C </li>\n</ul>").
                                                                     run();
+
 //==================================================================
 tester.unitTest("Can render unordered list followed by text").
+                                                                given("* A \n# B \n# C \n\nsome trailing text").
+                                                                when( render("MyPage") ).
+                                                                then("<ol><li> A </li>\n<li> B </li>\n<li> C </li>\n</ol>\nsome trailing text").
+                                                                    run();
+
+//==================================================================
+tester.unitTest("Can render ordered list").
+                                                                given("* A \n# B \n#C \n").
+                                                                when( render("MyPage") ).
+                                                                then("<o><li> A </li>\n<li> B </li>\n<li> C </li>\n</ol>").
+                                                                    run();
+
+//==================================================================
+tester.unitTest("Can render ordered list followed by text").
                                                                 given("* A \n* B \n* C \n\nsome trailing text").
                                                                 when( render("MyPage") ).
                                                                 then("<ul><li> A </li>\n<li> B </li>\n<li> C </li>\n</ul>\nsome trailing text").

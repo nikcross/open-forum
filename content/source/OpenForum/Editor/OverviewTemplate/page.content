@@ -5,10 +5,14 @@
 * Page Type: __{{flavour}}__
 * Last Modified: __{{pageLastModified}}__
 * Size: __{{pageSize}}__
-* Builder Path: __<a onClick="window.open('/OpenForum/Editor?pageName='+builderPath+'&fileName=page.build.js'); return false;">{{builderPath}}</a>__
-* Access Path: __<a onClick="window.open('/OpenForum/Editor?pageName='+accessPath+'&fileName=access.json'); return false;">{{accessPath}}</a>__
+    
+
+<a class="tiny button" onClick="window.open('/OpenForum/Authorization/AccessAdministration?pageName='+pageName); return false;">Administer Access</a>
+* Access Path: __<a onClick="window.open('/OpenForum/Authorization/AccessAdministration?pageName='+accessPath); return false;">{{accessPath}}</a>__
 * Access Data:<xmp class="panel">{{accessView}}</xmp>
+    
 * Template Path: __<a onClick="window.open('/OpenForum/Editor?pageName='+templatePath+'&fileName=page.html.template'); return false;">{{templatePath}}</a>__
+* Builder Path: __<a onClick="window.open('/OpenForum/Editor?pageName='+builderPath+'&fileName=page.build.js'); return false;">{{builderPath}}</a>__
 * Page Meta Data:<xmp class="panel">{{dataView}}</xmp>
 * <span ondrop="drop(event,'#parentPage')" ondragover="allowDrop(event)" title="You can drop files on me">[{Icon name="page"}]</span>Parent Page: __{{parentPageLink}}__
 * Sub Pages

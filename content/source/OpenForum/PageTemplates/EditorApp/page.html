@@ -12,14 +12,16 @@
     <link href="http://open-forum.onestonesoup.org/OpenForum/PageTemplates/EditorApp/icon-128x128.png" rel="icon" sizes="128x128" />
 
     <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
-      var pageName = "/OpenForum/PageTemplates/EditorApp";
+      var pageName = "OpenForum/PageTemplates/EditorApp";
       var author = "unknown";
-      var time = "1456912205000";
+      var time = "1472908784000";
       var currentUser = "";
+      var user = {};
       var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
-      JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+      JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName).onSuccess( function (response) {  currentUser = response;  } ).go();
       JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
         function (response) {
+          user.profile = response.profile;
           if(response.profile.avatar) {
             avatar = "<img src='" + response.profile.avatar + "' style='width: 24px; height: 24px;' />";
           }
@@ -30,6 +32,14 @@
         OpenForum.error = errorMsg+" url:"+url+" line number:"+lineNumber;
         OpenForum.errorMessage = "Woops";
         $('#ofErrorMessage').foundation('reveal', 'open');
+      };
+      
+      window.alert = function(message,title) {
+        if(!title) {
+          title = "Open Forum";
+        }
+        OpenForum.alert = { message: message, title: title};
+        $('#ofAlertMessage').foundation('reveal', 'open');
       };
     </script><!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) end -->
     
@@ -46,7 +56,7 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="undefined"> Editor App</a>
+            <a href="#" title=" Editor App"> Editor App</a>
             </h1>
           </li>
         </ul>
@@ -62,8 +72,18 @@
   </ul>
   <ul class="right">
     <li class="divider"></li>
+
     <li class="has-dropdown">
-      <a href="undefined">Signed in as {{currentUser}}</a>
+      <a href="#">Favourite Pages</a>
+      <ul class="dropdown">
+        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="/{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
+      </ul>
+    </li>
+
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="undefined">Signed in as {{currentUser}} {{avatar}}</a>
       <ul class="dropdown">
         <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
         <li><a href="undefined" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
@@ -120,6 +140,12 @@
   <p>{{OpenForum.error}}</p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div><!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) end -->
+    <!-- insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) start --><div id="ofAlertMessage" class="reveal-modal" data-reveal aria-labelledby="ofAlertMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofAlertMessageModalTitle" class="alert-box success round">{{OpenForum.alert.title}}</h2>
+  <p>{{OpenForum.alert.message}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<!-- insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) end -->
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

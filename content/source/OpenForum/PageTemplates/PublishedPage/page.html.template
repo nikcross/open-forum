@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-    <script type="text/javascript" src="&pageName;/page.js"></script>
+    <script type="text/javascript" src="/&pageName;/page.js"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css" />
 
     &insert:/OpenForum/PageTemplates/CommonElements/header-script.common.html;
 
@@ -16,26 +17,27 @@
       <ul class="title-area">
         <li class="name">
           <h1>
-            <img src="/OpenForum/Images/open-forum-dog-small.png" />
+            &insert:/OpenForum/PageTemplates/Branding/top-left-logo.page.content;
           </h1>
         </li>
       </ul>
       <ul class="title-area">
         <li class="name">
           <h1>
-            <a href="[{Hash}]">&title;</a>
+            <a href="#" title="&title;">&shortTitle;</a>
           </h1>
         </li>
       </ul>
-      &insert:/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content;
+      &insert:/OpenForum/PageTemplates/CommonElements/signin.common.html;
     </nav>
     [{CrumbTrail}]
 
     <!--PageContent Start-->&content;<!--Page Content End-->
 
-    &insert:/OpenForum/PageTemplates/PublishedPage/Footer/page.content;
+    &insert:/OpenForum/PageTemplates/Branding/footer.page.content;
     
     &insert:/OpenForum/PageTemplates/CommonElements/error-alert.common.html;
+    &insert:/OpenForum/PageTemplates/CommonElements/alert.common.html;
 
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

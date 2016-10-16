@@ -57,20 +57,22 @@ var console = {
       var editor = findEditor(editorName);
       editor.editor.setValue(data);
   },
-  runTab: function(editorName) {
-      var editor = findEditor(editorName);
-      eval(editor.editor.getValue());
-  }
+  runTab: function(tabName) {
+    this.cliText="run:"+tabName;
+    this.runCli();
+	}
 };
 
 addPlugin( {
   name: "Console",
+  editorIndex: 0,
   init: function() {
       if(console.open===true) {
         return;
       }
       console.open=true;
       editorIndex++;
+    this.editorIndex = editorIndex;
       var editor = document.createElement("div");
       editor.setAttribute("id","editor"+editorIndex);
       editor.setAttribute("style","display:block;");
@@ -86,5 +88,8 @@ addPlugin( {
       showTab(editorIndex);
       console.log("Console Ready");
       return editorList[editorIndex];
-    }
+    },
+  run: function(tabName) {
+    console.runTab(tabName);
+  }
 });

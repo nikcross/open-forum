@@ -13,7 +13,7 @@ A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
 
 <hr/>
 
-<a href="//OpenForum/Extensions/ActionButton/renderer.sjs">//OpenForum/Extensions/ActionButton/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ActionButton&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">action = extension.getAttribute("action");
+<a href="/OpenForum/Extensions/ActionButton/renderer.sjs">/OpenForum/Extensions/ActionButton/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/ActionButton&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">action = extension.getAttribute("action");
 parameters = extension.getAttribute("parameters");
 text = extension.getAttribute("text");
 

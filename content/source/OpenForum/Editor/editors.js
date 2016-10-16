@@ -71,9 +71,10 @@ function addEditor(pageName,fileName,flavour) {
   editorDiv.setAttribute("style","display:block;");
   document.getElementById("editors").appendChild(editorDiv);
 
+  var isScrap = fileName.startsWith("scrap.");
   var editorObj = null;
   if(flavour=="javascript") {
-    editorObj = new JavascriptEditor(editorIndex,pageName,fileName);
+    editorObj = new JavascriptEditor(editorIndex,pageName,fileName,isScrap);
   } else if(flavour=="css") {
     editorObj = new CSSEditor(editorIndex,pageName,fileName);
   } else if(flavour=="xml") {

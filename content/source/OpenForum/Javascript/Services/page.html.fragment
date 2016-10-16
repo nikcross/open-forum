@@ -1,4 +1,4 @@
-<a href="//OpenForum/Javascript/Services/get.sjs">//OpenForum/Javascript/Services/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Services&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var script = transaction.getParameter("script");
+<a href="/OpenForum/Javascript/Services/get.sjs">/OpenForum/Javascript/Services/get.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/Services&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var script = transaction.getParameter("script");
 
 if(script===null) {
        transaction.setResult(transaction.SHOW_PAGE);

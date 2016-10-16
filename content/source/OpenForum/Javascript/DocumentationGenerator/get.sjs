@@ -8,7 +8,7 @@ action = ""+action;
 result = {result: "error", message: "Action not recognised"};
 
 if(action==="buildDocumentation") {
-  var objectName=transaction.getParameter("objectName");
+  var objectName = ""+transaction.getParameter("objectName");
   
   var HelpPageGenerator = js.getObject("/OpenForum/Javascript/DocumentationGenerator","HelpPageGenerator.js");
   HelpPageGenerator.setObjectName(objectName);
