@@ -23,16 +23,13 @@ Creates a bulleted list of child pages
 <li> <a href="/OpenForum/Groups">Groups</a></li>
 <li> <a href="/OpenForum/HomePage">HomePage</a></li>
 <li> <a href="/OpenForum/Images">Images</a></li>
-<li> <a href="/OpenForum/JarManager">JarManager</a></li>
 <li> <a href="/OpenForum/Javascript">Javascript</a></li>
 <li> <a href="/OpenForum/Journal">Journal</a></li>
 <li> <a href="/OpenForum/MessageQueue">MessageQueue</a></li>
 <li> <a href="/OpenForum/MissingPages">MissingPages</a></li>
 <li> <a href="/OpenForum/PageTemplates">PageTemplates</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/PagesIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/PagesIndex does not exist. Click to create it.">PagesIndex</a></li>
 <li> <a href="/OpenForum/Processor">Processor</a></li>
 <li> <a href="/OpenForum/Editor?pageName=/OpenForum/PublishingJournal"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/PublishingJournal does not exist. Click to create it.">PublishingJournal</a></li>
-<li> <a href="/OpenForum/SQL">SQL</a></li>
 <li> <a href="/OpenForum/SiteExplorer">SiteExplorer</a></li>
 <li> <a href="/OpenForum/Spider">Spider</a></li>
 <li> <a href="/OpenForum/SystemMonitor">SystemMonitor</a></li>
@@ -43,7 +40,7 @@ Creates a bulleted list of child pages
 
 <hr/>
 <h3>renderer.sjs</h3>
-<a href="//OpenForum/Extensions/ChildPagesList/renderer.sjs">//OpenForum/Extensions/ChildPagesList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildPagesList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">targetPage = extension.getAttribute("pageName");
+<a href="/OpenForum/Extensions/ChildPagesList/renderer.sjs">/OpenForum/Extensions/ChildPagesList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/ChildPagesList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">targetPage = extension.getAttribute("pageName");
 if(targetPage===null) {
   targetPage = pageName;
 }

@@ -92,6 +92,10 @@ function saveAttachments() {
 }
 
 function saveAttachment(attachmentIndex) {
+  if(attachments[attachmentIndex].fileName.startsWith("scrap.")) {
+    return;
+  }
+  
   var fileToSave = attachments[attachmentIndex].pageName + "/" + attachments[attachmentIndex].fileName;
   var data = attachments[attachmentIndex].editor.editor.getValue();
   var result = OpenForum.saveFile(fileToSave,data);
@@ -126,7 +130,11 @@ function createAttachment(createBlankFile) {
       }
     } else {
       openAttachment(ai);
-      attachments[ai].editor.changed="*";
+      if(attachments[ai].fileName.startsWith("scrap.")) {
+      	attachments[ai].editor.changed=" ";
+      } else {
+      	attachments[ai].editor.changed="*";
+      }
     }
   }
 }
@@ -233,7 +241,9 @@ function openAttachment(attachmentId) {
   var editor = findAttachmentEditor(pageName,fileName);
   if(editor===null) {
     var flavour = "text";
-    if(fileName.indexOf(".js")==fileName.length-3) {
+    if(fileName.indexOf(".link")==fileName.length-5) {
+      flavour = "link";
+    } else if(fileName.indexOf(".js")==fileName.length-3) {
       flavour = "javascript";
     } else if(fileName.indexOf(".sjs")==fileName.length-4) {
       flavour = "javascript";

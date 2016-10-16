@@ -1,4 +1,4 @@
-<a href="//OpenForum/Actions/SaveImage/save-canvas.js">//OpenForum/Actions/SaveImage/save-canvas.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/SaveImage&fileName=save-canvas.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">function saveCanvas(pageName,fileName,canvas) {
+<a href="/OpenForum/Actions/SaveImage/save-canvas.js">/OpenForum/Actions/SaveImage/save-canvas.js</a><a href="/OpenForum/Editor?pageName=OpenForum/Actions/SaveImage&fileName=save-canvas.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">function saveCanvas(pageName,fileName,canvas) {
 	var data = canvas.toDataURL();
       data = data.substring(22);
 
@@ -10,7 +10,7 @@
       JSON.post("/OpenForum/Actions/SaveImage","save",post.getData()).go();
 }</xmp>
 
-<a href="//OpenForum/Actions/SaveImage/post.sjs">//OpenForum/Actions/SaveImage/post.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/SaveImage&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Take base64 image and convert to image file
+<a href="/OpenForum/Actions/SaveImage/post.sjs">/OpenForum/Actions/SaveImage/post.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Actions/SaveImage&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Take base64 image and convert to image file
 
 dec = Packages.javax.xml.bind.DatatypeConverter;
 

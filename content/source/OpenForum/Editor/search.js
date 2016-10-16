@@ -16,12 +16,22 @@ OpenForum.focusOnSearch = function() {
 };
 
 OpenForum.search = function(query) {
+  if(query.startsWith("#")) {
+    OpenForum.gotoLine( parseInt(query.substring(1)) );
+    return;
+  }
+  
   OpenForum.clearSearch();
 
   var cm = currentEditor.editor.getCodeMirror();
   var cursor = cm.getSearchCursor(query);
 
   OpenForum.currentSearch = {cm: cm, cursor: cursor, query: query};
+};
+
+OpenForum.gotoLine = function(lineNo) {
+  currentEditor.editor.getCodeMirror().setCursor(lineNo,0);
+  OpenForum.scrollToLine(lineNo);
 };
 
 OpenForum.repeatSearch = function() {

@@ -6,6 +6,22 @@ function HTMLEditor(editorIndex,pageName,fileName) {
     var content = OpenForum.loadFile("/OpenForum/Editor/Editors/HTMLEditor/page.html.fragment");
     content = content.replace(/\{\{editorIndex\}\}/g,editorIndex);
     OpenForum.setElement("editor"+editorIndex,content);
+
+    var autocomplete = new Autocomplete( "html" );
+    autocomplete.addCompleter(
+      function (params) {
+        var list = [];
+        var exclusive = false;
+        if(params.toCursor.endsWith("[")) {
+          list.push("{Icon name=\"\"}]");
+        } else if(params.toCursor.endsWith("[{icon name=\"")) {
+          list.push("chart pie");
+          exclusive = true;
+        }
+        return {list: list, exclusive: exclusive};
+      }
+    );
+
     cm = CodeMirror.fromTextArea(
       document.getElementById("editor"+editorIndex+"Src"),
       { 
@@ -17,7 +33,7 @@ function HTMLEditor(editorIndex,pageName,fileName) {
           "Ctrl-J": "toMatchingTag",
           "Ctrl-Q": "toggleComment",
           "Ctrl-Space": "autocomplete"
-                   },
+        },
         viewportMargin: Infinity,
         mode: "text/html",
         styleActiveLine: true
@@ -35,9 +51,9 @@ function HTMLEditor(editorIndex,pageName,fileName) {
       source = OpenForum.loadFile("/OpenForum/FileTemplates/html/default.html");
     }
     cm.setValue(source);
-    
+
     cm.setSize(null,"100%");
-    
+
     cm.refresh();
 
     cm.on("change", function(cm, change) {
@@ -80,12 +96,17 @@ function HTMLEditor(editorIndex,pageName,fileName) {
   ];
 
   DependencyService.createNewDependency()
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon/fold/xml-fold.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon//edit/matchtags.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/mode/xml/xml.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/mode/css/css.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/mode/htmlmixed/htmlmixed.js")
-  .setOnLoadTrigger( function() {
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/fold/xml-fold.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon//edit/matchtags.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/mode/xml/xml.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/mode/css/css.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/mode/htmlmixed/htmlmixed.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/hint/xml-hint.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/hint/html-hint.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/hint/javascript-hint.js")
+    .addDependency("/OpenForum/Editor/Editors/HTMLEditor/Autocomplete.js")
+    .setOnLoadTrigger( function() {
     var o = self;
     o.init();
   } ).loadDependencies();

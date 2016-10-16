@@ -1,7 +1,6 @@
 <div class="row"><div class="large-12 columns">
 <h3>Wiki Actions</h3>
-<ul><li> <a href="/OpenForum/Editor?pageName=/OpenForum/Actions/ApplyTemplate"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/ApplyTemplate does not exist. Click to create it.">ApplyTemplate</a></li>
-<li> <a href="/OpenForum/Actions/Attach">Attach</a></li>
+<ul><li> <a href="/OpenForum/Actions/Attach">Attach</a></li>
 <li> <a href="/OpenForum/Actions/AttachmentExists">AttachmentExists</a></li>
 <li> <a href="/OpenForum/Actions/Attachments">Attachments</a></li>
 <li> <a href="/OpenForum/Actions/CauseError">CauseError</a></li>
@@ -16,7 +15,6 @@
 <li> <a href="/OpenForum/Actions/GetPagesList">GetPagesList</a></li>
 <li> <a href="/OpenForum/Actions/GetUser">GetUser</a></li>
 <li> <a href="/OpenForum/Actions/History">History</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Install"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/Install does not exist. Click to create it.">Install</a></li>
 <li> <a href="/OpenForum/Actions/Move">Move</a></li>
 <li> <a href="/OpenForum/Actions/PageExists">PageExists</a></li>
 <li> <a href="/OpenForum/Actions/Pages">Pages</a></li>
@@ -25,12 +23,9 @@
 <li> <a href="/OpenForum/Actions/Rebuild">Rebuild</a></li>
 <li> <a href="/OpenForum/Actions/RefreshJarManager">RefreshJarManager</a></li>
 <li> <a href="/OpenForum/Actions/RefreshPage">RefreshPage</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Actions/RemoveTemplate"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/RemoveTemplate does not exist. Click to create it.">RemoveTemplate</a></li>
 <li> <a href="/OpenForum/Actions/RenderWikiData">RenderWikiData</a></li>
 <li> <a href="/OpenForum/Actions/Revert">Revert</a></li>
 <li> <a href="/OpenForum/Actions/Save">Save</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Actions/SaveForGroup"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/SaveForGroup does not exist. Click to create it.">SaveForGroup</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Actions/SaveForUser"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/SaveForUser does not exist. Click to create it.">SaveForUser</a></li>
 <li> <a href="/OpenForum/Actions/SaveImage">SaveImage</a></li>
 <li> <a href="/OpenForum/Actions/TestExample">TestExample</a></li>
 <li> <a href="/OpenForum/Actions/Update">Update</a></li>

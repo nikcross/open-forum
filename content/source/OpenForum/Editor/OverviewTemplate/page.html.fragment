@@ -4,10 +4,12 @@
 <li> Page Type: <b>{{flavour}}</b></li>
 <li> Last Modified: <b>{{pageLastModified}}</b></li>
 <li> Size: <b>{{pageSize}}</b></li>
-<li> Builder Path: <b><a onClick="window.open('/OpenForum/Editor?pageName='+builderPath+'&fileName=page.build.js'); return false;">{{builderPath}}</a></b></li>
-<li> Access Path: <b><a onClick="window.open('/OpenForum/Editor?pageName='+accessPath+'&fileName=access.json'); return false;">{{accessPath}}</a></b></li>
+    
+
+<a class="tiny button" onClick="window.open('/OpenForum/Authorization/AccessAdministration?pageName='+pageName); return false;">Administer Access</a><li> Access Path: <b><a onClick="window.open('/OpenForum/Authorization/AccessAdministration?pageName='+accessPath); return false;">{{accessPath}}</a></b></li>
 <li> Access Data:<xmp class="panel">{{accessView}}</xmp></li>
-<li> Template Path: <b><a onClick="window.open('/OpenForum/Editor?pageName='+templatePath+'&fileName=page.html.template'); return false;">{{templatePath}}</a></b></li>
+    <li> Template Path: <b><a onClick="window.open('/OpenForum/Editor?pageName='+templatePath+'&fileName=page.html.template'); return false;">{{templatePath}}</a></b></li>
+<li> Builder Path: <b><a onClick="window.open('/OpenForum/Editor?pageName='+builderPath+'&fileName=page.build.js'); return false;">{{builderPath}}</a></b></li>
 <li> Page Meta Data:<xmp class="panel">{{dataView}}</xmp></li>
 <li> <span ondrop="drop(event,'#parentPage')" ondragover="allowDrop(event)" title="You can drop files on me"><img src="/OpenForum/Images/icons/png/page.png"></span>Parent Page: <b>{{parentPageLink}}</b></li>
 <li> Sub Pages</li>

@@ -55,17 +55,23 @@ var serverConsole = {
       this.cliHistoryCursor=0;
     }
     this.cliText = this.cliHistory[this.cliHistoryCursor];
-  }
+  },
+  runTab: function(tabName) {
+    this.cliText="run:"+tabName;
+    this.runCli();
+	}
 };
 
 addPlugin( {
   name: "Server Console",
+  editorIndex: 0,
   init: function() {
     if(serverConsole.open===true) {
       return;
     }
     serverConsole.open=true;
     editorIndex++;
+    this.editorIndex = editorIndex;
     var editor = document.createElement("div");
     editor.setAttribute("id","editor"+editorIndex);
     editor.setAttribute("style","display:block;");
@@ -101,6 +107,9 @@ addPlugin( {
     serverConsole.log("serverConsole Ready");
     return editorList[editorIndex];
 
+  },
+  run: function(tabName) {
+    serverConsole.runTab(tabName);
   }
 });
 

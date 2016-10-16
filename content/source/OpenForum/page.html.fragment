@@ -4,7 +4,7 @@
     <ul><li><a href="/OpenForum/Actions">Actions</a></li>
 <li><a href="/OpenForum/Extensions">Extensions</a></li>
 <li><a href="/OpenForum/Triggers">Triggers</a></li>
-<li><a href="/OpenForum/JarManager">Java Plugin Manager</a></li>
+<li><a href="/OpenForum/Editor?pageName=/OpenForum/JarManager"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/JarManager does not exist. Click to create it.">Java Plugin Manager</a></li>
 <li><a href="/OpenForum/PageTemplates/Default">Site Wide Page Definition</a></li>
 <li><a href="/OpenForum/Javascript">Javascript</a></li>
 <li><a href="/OpenForum/Editor?pageName=/OpenForum/Aliases"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Aliases does not exist. Click to create it.">Aliases</a></li>

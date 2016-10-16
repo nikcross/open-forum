@@ -1,4 +1,4 @@
-<a href="//OpenForum/Javascript/PageBuilder/default-page-builder.js">//OpenForum/Javascript/PageBuilder/default-page-builder.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/PageBuilder&fileName=default-page-builder.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var htmlContent = "";
+<a href="/OpenForum/Javascript/PageBuilder/default-page-builder.js">/OpenForum/Javascript/PageBuilder/default-page-builder.js</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/PageBuilder&fileName=default-page-builder.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var htmlContent = "";
 
 try{
 
@@ -80,6 +80,13 @@ try{
   var fields = [];
   fields["pageName"] = pageName;
   fields["title"] = openForum.wikiToTitleName(pageName);
+  
+  shortTitle = fields["title"];
+  if(shortTitle.length>20) {
+    shortTitle = "..."+shortTitle.substring(shortTitle.length-17);
+  }  
+  fields["shortTitle"] = shortTitle;
+  
   fields["author"] = "unknown";
   fields["lastChangedBy"] = "unknown";
   fields["referringPages"] = "";

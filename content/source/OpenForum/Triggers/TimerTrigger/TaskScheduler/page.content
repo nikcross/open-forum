@@ -59,7 +59,12 @@
   <option value="Every ten minutes"></option>
   <option value="Every half hour"></option>
   <option value="Every hour"></option>
-  <option value="Every day @ 08:00"></option>
-  <option value="Every week on Monday @ 08:00"></option>
-  <option value="Every month on 1st"></option>
+  <option value="Every day at 08:00"></option>
+  <option value="On 01/01/1970 at 09:00"></option>
+  <option value="On 01/01/1970"></option>
+  <option value="script:{pageName: '', fileName: ''}"></option>
+  <option value="Every week"></option>
+  <option value="Every week on Monday"></option>
+  <option value="Every month"></option>
+  <option value="Every year"></option>
 </datalist>

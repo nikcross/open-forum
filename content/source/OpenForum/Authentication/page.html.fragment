@@ -1,10 +1,24 @@
-<a href="//OpenForum/Authentication/login.sjs">//OpenForum/Authentication/login.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Authentication&fileName=login.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var result = false;
+<a href="/OpenForum/Authentication/login.sjs">/OpenForum/Authentication/login.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Authentication&fileName=login.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var result = false;
 var name = login.getUser().getName();
-var testPassword = file.getAttachment("/Admin/Users/"+name+"/private","password.txt");
+var password = login.getPassword();
+var testPassword = ""+file.getAttachment("/OpenForum/Users/"+name,"password.txt");
+var siteHashA = ""+file.getAttachment("/OpenForum/Authentication","authentication.hash.a");
+var siteHashB = ""+file.getAttachment("/OpenForum/Authentication","authentication.hash.b");
+var hashedPasswordA = ""+js.generateMD5( testPassword + siteHashA );
+var hashedPasswordB = ""+js.generateMD5( testPassword + siteHashB );
 
-	if(login.getPassword()==testPassword) {
+	if(
+      hashedPasswordA.toUpperCase()==password.toUpperCase() ||
+      hashedPasswordB.toUpperCase()==password.toUpperCase()
+    ) {
 		result = true;
+      if(typeof(sessionStore) != "undefined") {
+		var sessionId = sessionStore.createSession(name);
+        login.setSessionId( sessionId );
+      }
 	}
 	login.clearPassword();
-result;</xmp>
+
+result=result;
+</xmp>
 <!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

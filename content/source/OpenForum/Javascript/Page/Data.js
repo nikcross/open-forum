@@ -42,6 +42,7 @@ function Data(pageName) {
 
   //eg. service.get.attribute.1
   self.find = function(path) {
+    if(typeof(data)=="undefined" || data==null) return;
     var parts = path.split(".");
     var found = data;
     for(var i=0;i<parts.length;i++) {

@@ -17,7 +17,7 @@ function loadSchedule() {
 
 function saveSchedule() {
   if(validateSchedule()===true) {
-    OpenForum.saveFile("/OpenForum/Triggers/TimerTrigger/TaskScheduler/schedule.json",JSON.stringify(schedule,null,4));
+    OpenForum.saveFile("/OpenForum/Triggers/TimerTrigger/TaskScheduler/updated-schedule.json",JSON.stringify(schedule,null,4));
   }
 }
 

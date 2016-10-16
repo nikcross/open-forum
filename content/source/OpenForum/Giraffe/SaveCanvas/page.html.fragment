@@ -1,4 +1,4 @@
-<a href="//OpenForum/Giraffe/SaveCanvas/save-canvas.js">//OpenForum/Giraffe/SaveCanvas/save-canvas.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Giraffe/SaveCanvas&fileName=save-canvas.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
+<a href="/OpenForum/Giraffe/SaveCanvas/save-canvas.js">/OpenForum/Giraffe/SaveCanvas/save-canvas.js</a><a href="/OpenForum/Editor?pageName=OpenForum/Giraffe/SaveCanvas&fileName=save-canvas.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
   OpenForum = {};
 }
 
@@ -26,7 +26,7 @@ OpenForum.downloadCanvas = function(canvas, filename) {
 };
 </xmp>
 
-<a href="//OpenForum/Giraffe/SaveCanvas/post.sjs">//OpenForum/Giraffe/SaveCanvas/post.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Giraffe/SaveCanvas&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Take base64 image and convert to image file
+<a href="/OpenForum/Giraffe/SaveCanvas/post.sjs">/OpenForum/Giraffe/SaveCanvas/post.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Giraffe/SaveCanvas&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Take base64 image and convert to image file
 
 try{
   dec = Packages.javax.xml.bind.DatatypeConverter;

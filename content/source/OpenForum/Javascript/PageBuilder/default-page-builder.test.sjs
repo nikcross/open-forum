@@ -29,18 +29,30 @@ mockLog = new mockLog();
 var mockFile = function() {
   var self = this;
   self.getPageInheritedFileAsString = function(pageName,fileName) {
-    if(fileName==="page.html.template") {
-      return "<!-- Page Content -->" + "&content;" + "<!-- End of Page Content -->";
-    } else if(fileName==="page.content") {
-      return "Dummy Page Content";
-    }
+    return getFile(pageName,fileName);
   };
   self.attachmentExists= function(pageName,fileName) {  };
-  self.getAttachment = function(pageName,fileName) {  };
+  self.getAttachment = function(pageName,fileName) {
+    return getFile(pageName,fileName);
+  };
   self.saveAttachment= function(pageName,fileName,data) {  };
-  self.getAttachmentTimestamp= function(pageName,fileName) {  };
+  self.getAttachmentTimestamp= function(pageName,fileName) {
+    return getFile(pageName,fileName);
+  };
+  
+  var mockData = [];
+  self.addMockFile = function(pageName,fileName,data) {
+    mockData[pageName+"/"+fileName] = data;
+  };
+  
+  var getFile = function(pageName,fileName) {
+    return mockData[pageName+"/"+fileName];
+  };
 };
 mockFile = new mockFile();
+
+mockFile.addMockFile( "/OpenForum/Javascript/PageBuilder", "page.html.template","<!-- Page Content -->" + "&content;" + "<!-- End of Page Content -->" );
+mockFile.addMockFile( "/OpenForum/Javascript/PageBuilder", "page.content","Dummy Page Content" );
 
 buildPage = function(content) {
   return renderer(content,"/OpenForum/Javascript/PageBuilder",mockFile,mockLog);

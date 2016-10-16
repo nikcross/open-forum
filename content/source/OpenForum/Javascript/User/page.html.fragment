@@ -1,4 +1,4 @@
-<a href="//OpenForum/Javascript/User/open-forum-user.js">//OpenForum/Javascript/User/open-forum-user.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/User&fileName=open-forum-user.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
+<a href="/OpenForum/Javascript/User/open-forum-user.js">/OpenForum/Javascript/User/open-forum-user.js</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/User&fileName=open-forum-user.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
   OpenForum = {};
 }
 OpenForum.User = { user: "Guest" };

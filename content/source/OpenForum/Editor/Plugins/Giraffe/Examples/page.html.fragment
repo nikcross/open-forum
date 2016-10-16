@@ -1,4 +1,4 @@
-<a href="//OpenForum/Editor/Plugins/Giraffe/Examples/circle.js">//OpenForum/Editor/Plugins/Giraffe/Examples/circle.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Editor/Plugins/Giraffe/Examples&fileName=circle.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">/*
+<a href="/OpenForum/Editor/Plugins/Giraffe/Examples/circle.js">/OpenForum/Editor/Plugins/Giraffe/Examples/circle.js</a><a href="/OpenForum/Editor?pageName=OpenForum/Editor/Plugins/Giraffe/Examples&fileName=circle.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">/*
 Circle( x,y,radius );
 */
 circle = new Circle(50,50,30);</xmp>

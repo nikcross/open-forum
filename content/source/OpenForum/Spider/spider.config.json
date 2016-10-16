@@ -1,7 +1,8 @@
 {
-  "startPage": "/OpenForum/Javascript",
+  "startPage": "/TheLab/NoteBook",
     "processors": [
       //{"page": "/OpenForum/Spider", "file": "CatalogueBuilder.sjs"},
-      {"page": "/OpenForum/Javascript/Tester", "file": "TestRunner.sjs"}
+      //{"page": "/OpenForum/Javascript/Tester", "file": "TestRunner.sjs"}
+      {"page": "/TheLab/Experiments/Search", "file": "SearchSpider.sjs"}
       ]
 }
