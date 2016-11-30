@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css" />
 
     <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
-      var pageName = "OpenForum/Extensions/ActionInput";
+      var pageName = "/OpenForum/Extensions/ActionInput";
       var author = "unknown";
-      var time = "1472908784000";
+      var time = "1476694641000";
       var currentUser = "";
       var user = {};
       var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
@@ -98,7 +98,7 @@
   </ul>
 </section><!-- insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) end -->
     </nav>
-    <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/Extensions">ActionInput</a></li></nav>
+    <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">ActionInput</a></li></nav>
 
     <!--PageContent Start-->
 A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
@@ -116,7 +116,7 @@ A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
 
 <hr/>
 
-<a href="/OpenForum/Extensions/ActionInput/renderer.sjs">/OpenForum/Extensions/ActionInput/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/ActionInput&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">action = extension.getAttribute("action");
+<a href="//OpenForum/Extensions/ActionInput/renderer.sjs">//OpenForum/Extensions/ActionInput/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ActionInput&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">action = extension.getAttribute("action");
 
 return "<input type=\"text\" onKeyPress=\"(function(element,event) { if(event.charCode != 13) {return false;} else { "+action+"( element.value ); } })(this,event);\">";
 </xmp>

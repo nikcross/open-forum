@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css" />
 
     <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
-      var pageName = "OpenForum/Javascript/Help";
+      var pageName = "/OpenForum/Javascript/Help";
       var author = "unknown";
-      var time = "1472908784000";
+      var time = "1476694641000";
       var currentUser = "";
       var user = {};
       var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
@@ -98,7 +98,7 @@
   </ul>
 </section><!-- insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) end -->
     </nav>
-    <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/Javascript">Help</a></li></nav>
+    <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">Help</a></li></nav>
 
     <!--PageContent Start-->
 <!-- insert (/OpenForum/Javascript/Core/open-forum.help.content) start --><div class="large-6 columns"><h3></h3>
@@ -184,9 +184,9 @@
 
 <hr/>
 
-<br/><i>Built Thu May 19 2016 09:50:30 GMT-0000 (UTC)</i></div><div class="large-6 columns"><xmp class="panel">//==============================================================================================================//
-/* Version 1.0.19*/
-/* Built on Thu May 19 2016 09:50:30 GMT-0000 (UTC) */
+<br/><i>Built Tue Oct 18 2016 10:27:00 GMT-0000 (GMT)</i></div><div class="large-6 columns"><xmp class="panel">//==============================================================================================================//
+/* Version 1.1.19*/
+/* Built on Tue Oct 18 2016 10:27:00 GMT-0000 (GMT) */
 /* Built by /OpenForum/Javascript/Builder.*/
 /* Do not edit as changes may be overwritten */
 //==============================================================================================================//
@@ -350,11 +350,11 @@ var OpenForum = new function(){
   self.interval = null;
   
   self.getVersion = function() {
-    return "1.0.19";
+    return "1.1.19";
   };
 
   self.getBuildDate = function() {
-    return "Thu May 19 2016 09:50:30 GMT-0000 (UTC)";
+    return "Tue Oct 18 2016 10:27:00 GMT-0000 (GMT)";
   };
 
   self.initDependencies = DependencyService.createNewDependency();
@@ -1685,6 +1685,7 @@ function Process() {
 			var collection = this.targetObject.getValue();
 			for( var elementIndex in collection ) {
 				var item = collection[elementIndex];
+                item.index = elementIndex;
 				eval("var "+this.element+"=item;");
 
 				var data = ""+this.rowHTML;

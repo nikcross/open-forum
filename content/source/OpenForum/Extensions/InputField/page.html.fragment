@@ -10,7 +10,7 @@ value - optional value
 
 <hr/>
 
-<a href="/OpenForum/Extensions/InputField/renderer.sjs">/OpenForum/Extensions/InputField/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/InputField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">name = extension.getAttribute("name");
+<a href="//OpenForum/Extensions/InputField/renderer.sjs">//OpenForum/Extensions/InputField/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InputField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">name = extension.getAttribute("name");
 value = extension.getAttribute("value");
 type = extension.getAttribute("type");
 action = extension.getAttribute("action");

@@ -10,7 +10,7 @@
 
 <hr/>
 <h3>Server Side Javascript for GET method</h3>
-<a href="/OpenForum/Actions/GetAuthentication/get.sjs">/OpenForum/Actions/GetAuthentication/get.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Actions/GetAuthentication&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
+<a href="//OpenForum/Actions/GetAuthentication/get.sjs">//OpenForum/Actions/GetAuthentication/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/GetAuthentication&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
 }

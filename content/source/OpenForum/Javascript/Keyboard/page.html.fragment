@@ -1,0 +1,13 @@
+<div class="row">
+  <h2><span id="typed"></span><span id="cursor"></span></h2>
+</div>
+<div class="row">
+  <div id="keyboard" class="large-12 columns"></div>
+</div>
+<div class="row">
+  <div id="numberPad" class="large-12 columns"></div>
+</div>
+<div class="row">
+  <div id="multiPad" class="large-12 columns"></div>
+</div>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

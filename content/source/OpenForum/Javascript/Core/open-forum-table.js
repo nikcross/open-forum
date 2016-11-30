@@ -42,6 +42,7 @@
 			var collection = this.targetObject.getValue();
 			for( var elementIndex in collection ) {
 				var item = collection[elementIndex];
+                item.index = elementIndex;
 				eval("var "+this.element+"=item;");
 
 				var data = ""+this.rowHTML;

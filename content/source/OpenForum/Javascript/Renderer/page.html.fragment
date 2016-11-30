@@ -1,4 +1,4 @@
-<a href="/OpenForum/Javascript/Renderer/DefaultRenderer.sjs">/OpenForum/Javascript/Renderer/DefaultRenderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/Renderer&fileName=DefaultRenderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">/**
+<a href="//OpenForum/Javascript/Renderer/DefaultRenderer.sjs">//OpenForum/Javascript/Renderer/DefaultRenderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer&fileName=DefaultRenderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">/**
 
 **/
 function DefaultRenderer() {

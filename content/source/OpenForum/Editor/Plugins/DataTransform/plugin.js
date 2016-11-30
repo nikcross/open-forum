@@ -148,7 +148,7 @@ dataTransform.modifyTreeNode  =function(data) {
 };
 
 dataTransform.openFile = function(pageName,fileName) {
-  dataTransform.transformFileName = pageName+"/"+fileName;
+  dataTransform.transformFileName = fileName;
   OpenForum.loadFile(pageName+"/"+fileName, function(data) {
     dataTransform.process.setValue( data );
   });  

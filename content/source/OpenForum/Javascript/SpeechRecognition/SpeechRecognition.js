@@ -36,13 +36,21 @@ function SpeechRecognition() {
   self.setWaitingForCommand = function(state) {
     waitingCommand = state;
   };
-  
+
   self.setSuspendCommand = function(state) {
     suspendCommand = state;
   };
 
   self.start = function() {
     listen = true;
+    if(typeof(OpenForum.Speech)!="undefined") {
+      OpenForum.Speech.stoppedSay = function() {
+        if(recognition) {
+          recognition.abort();
+        }
+      };
+    }
+
     getSpeech();
   };
 
@@ -101,7 +109,7 @@ function SpeechRecognition() {
 
     recognition = new webkitSpeechRecognition();
     recognition.lang = "en-GB";
-    recognition.continuous = true;
+    recognition.continuous = false;
     recognition.interimResults = false;
     recognition.onresult = function(event) { processSpeech(event); };
     recognition.onnomatch = function() { console.log("On No Match"); };
@@ -115,7 +123,11 @@ function SpeechRecognition() {
     return false;
   };
 
-  var onUnrecognised = function(transcript) {
+  self.preProcessTranscript = function(transcript) {
+    return transcript;
+  };
+
+  self.onUnrecognised = function(transcript) {
     console.log("Did not recognise \""+transcript+"\" ");
   };
 
@@ -133,6 +145,12 @@ function SpeechRecognition() {
     if(speechEvent.results[0][0].isFinal===false) return;
 
     var transcript = speechEvent.results[0][0].transcript.trim();
+    transcript = self.preProcessTranscript(transcript);
+    if(!transcript) {
+      recognition.abort();
+      return;
+    }
+
     var foundMatch = false;
     if(debug) console.log("Transcript: "+transcript);
 
@@ -141,7 +159,7 @@ function SpeechRecognition() {
     if(suspendCommand && startCommand && transcriptLC.indexOf(startCommand)!=-1) {
       suspendCommand = false;
     }
-    
+
     if(!waitingCommand && startCommand && transcriptLC.indexOf(startCommand)!=-1) {
       waitingCommand = true;
       if(startFunction) {
@@ -157,31 +175,60 @@ function SpeechRecognition() {
     if(waitingCommand) {
 
       if(!suspendCommand) {
-      for(var i=0; i<commands.length;i++) {
-        if(commands[i].command.indexOf(" ")==-1) continue;
-        if(transcriptLC.indexOf(commands[i].command)!=-1) {
-          if(debug) console.log("Matched "+commands[i].command);
-          commands[i].action(transcript);
-          foundMatch=true;
+        for(var i=0; i<commands.length;i++) {
+          if(commands[i].command.indexOf(" ")==-1) continue;
+          if(transcriptLC.indexOf(commands[i].command)!=-1) {
+            if(debug) console.log("Matched "+commands[i].command);
+            commands[i].action(transcript);
+            foundMatch=true;
+            break;
+          }
         }
-      }
 
-      var words = transcriptLC.split(" ");
-        for(var w in words) {
-          var word = words[w];
+        if(!foundMatch) {
           for(var i=0; i<commands.length;i++) {
-            if(commands[i].command===word) {
-              if(debug) console.log("Matched "+commands[i].command);
-              commands[i].action(transcript);
-              foundMatch=true;
+            var commandParts = commands[i].command.split(" ");
+            var transcriptParts = transcriptLC.split(" ");
+            var params = [];
+            if(commandParts.length == transcriptParts.length) {
+              var matches = true;
+              for( var w=0; w<commandParts.length;w++) {
+                if(commandParts[w]=="*") {
+                  params.push( transcriptParts[w] );
+                }
+                if(commandParts[w]!="*" && commandParts[w]!=transcriptParts[w]) {
+                  matches = false;
+                  break;
+                }
+              }
+              if(matches) {
+                commands[i].action(transcript,params);
+                foundMatch=true;
+                break;
+              }
+            }
+          }
+        }
+
+        if(!foundMatch) {
+          var words = transcriptLC.split(" ");
+          for(var w in words) {
+            var word = words[w];
+            for(var i=0; i<commands.length;i++) {
+              if(commands[i].command===word) {
+                if(debug) console.log("Matched "+commands[i].command);
+                commands[i].action(transcript);
+                foundMatch=true;
+                break;
+              }
             }
           }
         }
       }
-      
+
       if(foundMatch===false) {
         if(self.processTranscript(transcript)===false) {
-          onUnrecognised(transcript);
+          self.onUnrecognised(transcript);
         }
       }
     }

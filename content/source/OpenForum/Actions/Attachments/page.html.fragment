@@ -1,4 +1,4 @@
-<a href="/OpenForum/Actions/Attachments/get.sjs">/OpenForum/Actions/Attachments/get.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Actions/Attachments&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var targetPage = transaction.getParameter("pageName");
+<a href="//OpenForum/Actions/Attachments/get.sjs">//OpenForum/Actions/Attachments/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Attachments&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var targetPage = transaction.getParameter("pageName");
 var matching = transaction.getParameter("matching");
 
 if(targetPage===null) {

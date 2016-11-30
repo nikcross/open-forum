@@ -11,7 +11,7 @@ Creates a bulleted list of attachments on a pages
 
 <hr/>
 
-<a href="/OpenForum/Extensions/AttachmentsList/renderer.sjs">/OpenForum/Extensions/AttachmentsList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/AttachmentsList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">targetPage = extension.getAttribute("pageName");
+<a href="//OpenForum/Extensions/AttachmentsList/renderer.sjs">//OpenForum/Extensions/AttachmentsList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/AttachmentsList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">targetPage = extension.getAttribute("pageName");
 matching = extension.getAttribute("matching");
 includePage = true;
 if(targetPage===null)

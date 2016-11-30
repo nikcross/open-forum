@@ -10,9 +10,9 @@
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css" />
 
     <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
-      var pageName = "OpenForum/Triggers/TimerTrigger/TaskScheduler";
+      var pageName = "/OpenForum/Triggers/TimerTrigger/TaskScheduler";
       var author = "unknown";
-      var time = "1475662379000";
+      var time = "1479942028000";
       var currentUser = "";
       var user = {};
       var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
@@ -98,7 +98,7 @@
   </ul>
 </section><!-- insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) end -->
     </nav>
-    <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/Triggers">Triggers</a></li><li role="menuitem"><a href="/Triggers/TimerTrigger">TimerTrigger</a></li><li role="menuitem" class="current"><a href="/Triggers/TimerTrigger">TaskScheduler</a></li></nav>
+    <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Triggers">Triggers</a></li><li role="menuitem"><a href="/OpenForum/Triggers/TimerTrigger">TimerTrigger</a></li><li role="menuitem" class="current"><a href="/OpenForum/Triggers/TimerTrigger">TaskScheduler</a></li></nav>
 
     <!--PageContent Start-->
 <div style="width: 100%;"> <center>
@@ -110,26 +110,16 @@
       <td><a href="/OpenForum/Editor?pageName={{task.pageName}}&fileName={{task.scriptFile}}" target="editor">{{task.name}}</a></td>
       <td>{{task.pageName}}</td><td>{{task.scriptFile}}</td>
       <td>{{task.lastRun}}</td><td>{{task.scheduledTime}}</td>
-      <td><div class="switch round small">
-        <input id="enabled{{task.id}}" type="checkbox" checked="{{task.enabled}}">
-        <label for="enabled{{task.id}}"></label>
-        </div>
-      </td>
+      <td>{{task.enabled}}</td>
+      <td>{{task.debug}}</td>
       <td>
-      <div class="switch round small">
-        <input id="debug{{task.id}}" type="checkbox" checked="{{task.debug}}">
-        <label for="debug{{task.id}}"></label>
-        </div>
-      </td>
-      <td>
-        <a href="#" class="button" onclick="editTask( '{{task.id}}' );">Edit</a>
-        <a href="#" class="button" onclick="deleteTask( '{{task.id}}' );">Delete</a>
+        <a href="#" class="button" onclick="editTask( '{{task.id}}' ); return false;">Edit</a>
+        <a href="#" class="button" onclick="deleteTask( '{{task.id}}' ); return false;">Delete</a>
       </td>
     </tr>
   </table>
 
-  <a href="#" class="button" onclick="addTask();">Add Task</a>
-  <a href="#" class="button" onclick="saveSchedule();">Save Schedule</a>
+  <a href="#" class="button" onclick="addTask(); return false;">Add Task</a>
   </center>
 </div>
 
@@ -151,6 +141,22 @@
     <div class='row'>
       <div class='large-12 columns'>
         <label>ScheduledTime<input type='text' list="scheduleTimes" of-id='currentTask.scheduledTime' placeholder=' ' /></label>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-6 columns'>
+        <label for="enabledCheckBox">Enabled</label>
+        <div class="switch">
+          <input of-id="enabledCheckBox" id="enabledCheckBox" type="checkbox">
+          <label for="enabledCheckBox"></label>
+        </div>
+      </div>
+      <div class='large-6 columns'>
+        <label for="debugCheckBox">Debug</label>
+        <div class="switch">
+          <input of-id="debugCheckBox" id="debugCheckBox" type="checkbox">
+          <label for="debugCheckBox"></label>
+        </div>
       </div>
     </div>
   </form>

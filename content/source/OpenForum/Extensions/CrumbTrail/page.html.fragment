@@ -6,6 +6,6 @@ Displays a page hierachy trail
 <xmp class="panel">
 [{CrumbTrail}]
 </xmp>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/Extensions">CrumbTrail</a></li></nav>
+<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">CrumbTrail</a></li></nav>
 
 <!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
