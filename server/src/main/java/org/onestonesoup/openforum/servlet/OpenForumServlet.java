@@ -67,13 +67,6 @@ public class OpenForumServlet extends HttpServlet {
 			}
 		}
 		
-		@SuppressWarnings("unchecked")
-		/*Enumeration<String> en = request.getAttributeNames();
-		while(en.hasMoreElements()) {
-			String key = en.nextElement();
-			controller.getLogger().info("A:"+key+"="+request.getAttribute(key));
-		}*/
-		
 		try {
 			controller.getRouter().route(connection, httpHeader);
 		} catch (Exception e) {

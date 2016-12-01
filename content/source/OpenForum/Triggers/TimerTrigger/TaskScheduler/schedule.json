@@ -4,64 +4,92 @@
         "name": "Manage Queues",
         "pageName": "/OpenForum/Triggers/TimerTrigger/ManageQueues",
         "scriptFile": "trigger.sjs",
-        "lastRun": "Sun Oct 16 2016 21:57:33 GMT-0000 (GMT)",
+        "lastRun": "Fri Nov 04 2016 22:30:08 GMT-0000 (GMT)",
         "scheduledTime": "Every ten seconds",
         "enabled": true,
-        "debug": true,
-        "cheese": "Wed Sep 07 2016 14:19:35 GMT-0000 (GMT)"
+        "debug": false,
+        "cheese": "Wed Sep 07 2016 14:19:35 GMT-0000 (GMT)",
+        "index": "0"
     },
     {
         "id": "task2",
         "name": "Automatic Rebuild",
         "pageName": "/OpenForum/Triggers/TimerTrigger/AutomaticRebuild",
         "scriptFile": "trigger.sjs",
-        "lastRun": "Mon Jun 06 2016 14:44:00 GMT-0000 (UTC)",
-        "scheduledTime": "Every day @ 01:00",
+        "lastRun": "Thu Nov 03 2016 09:16:55 GMT-0000 (GMT)",
+        "scheduledTime": "Every day at 01:00",
         "enabled": true,
-        "debug": false
+        "debug": false,
+        "index": "1"
     },
     {
         "id": "task3",
         "name": "Halcyon Camera",
         "pageName": "/TheLab/CameraView/Service",
         "scriptFile": "trigger.sjs",
-        "lastRun": "Sun Oct 16 2016 22:10:17 GMT-0000 (GMT)",
-        "scheduledTime": "Every ten seconds",
+        "lastRun": "Fri Nov 04 2016 22:34:26 GMT-0000 (GMT)",
+        "scheduledTime": "Every ten minutes",
         "enabled": true,
         "debug": false,
-        "cheese": "Wed Sep 07 2016 14:32:18 GMT-0000 (GMT)"
+        "cheese": "Wed Sep 07 2016 14:32:18 GMT-0000 (GMT)",
+        "index": "2"
     },
     {
         "id": "task4",
         "name": "Lexi",
         "pageName": "/TheLab/Experiments/Lexi",
         "scriptFile": "trigger.sjs",
-        "lastRun": "Sun Oct 16 2016 22:10:17 GMT-0000 (GMT)",
+        "lastRun": "Fri Nov 04 2016 22:34:26 GMT-0000 (GMT)",
         "scheduledTime": "Every ten seconds",
         "enabled": true,
         "debug": false,
-        "cheese": "Wed Sep 07 2016 14:32:18 GMT-0000 (GMT)"
+        "cheese": "Wed Sep 07 2016 14:32:18 GMT-0000 (GMT)",
+        "index": "3"
     },
     {
         "id": "task5",
         "name": "Remote Node Register",
         "pageName": "/TheLab/RemoteJavascript",
         "scriptFile": "trigger.sjs",
-        "lastRun": "Sun Oct 16 2016 22:10:17 GMT-0000 (GMT)",
+        "lastRun": "Fri Nov 04 2016 22:34:26 GMT-0000 (GMT)",
         "scheduledTime": "Every ten seconds",
         "enabled": true,
         "debug": false,
-        "cheese": "Wed Sep 07 2016 14:32:18 GMT-0000 (GMT)"
+        "cheese": "Wed Sep 07 2016 14:32:18 GMT-0000 (GMT)",
+        "index": "4"
     },
     {
-        "id": "task5",
+        "id": "task6",
         "name": "System State Logger",
         "pageName": "/OpenForum/AddOn/RemoteLogger/LogSystemStatus",
         "scriptFile": "trigger.sjs",
-        "lastRun": "Sun Oct 16 2016 22:10:17 GMT-0000 (GMT)",
+        "lastRun": "Fri Nov 04 2016 22:34:26 GMT-0000 (GMT)",
         "scheduledTime": "Every ten seconds",
         "enabled": true,
         "debug": false,
-        "cheese": "Wed Sep 07 2016 14:32:18 GMT-0000 (GMT)"
+        "cheese": "Wed Sep 07 2016 14:32:18 GMT-0000 (GMT)",
+        "index": "5"
+    },
+    {
+        "id": "task7",
+        "name": "Alert",
+        "pageName": "/OpenForum/AddOn/Alert",
+        "scriptFile": "trigger.sjs",
+        "lastRun": "Fri Nov 04 2016 22:34:26 GMT-0000 (GMT)",
+        "scheduledTime": "Every ten seconds",
+        "enabled": true,
+        "debug": false,
+        "index": "6"
+    },
+    {
+        "id": "task7",
+        "name": "PowisHughes Report",
+        "pageName": "/TheLab/WebSiteProjects/PowisHughes/Reporting",
+        "scriptFile": "trigger.sjs",
+        "lastRun": "Fri Nov 04 2016 22:17:10 GMT-0000 (GMT)",
+        "scheduledTime": "Every day at 22:17",
+        "enabled": true,
+        "debug": false,
+        "index": "7"
     }
 ]

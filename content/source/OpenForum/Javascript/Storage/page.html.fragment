@@ -1,4 +1,4 @@
-<a href="/OpenForum/Javascript/Storage/Storage.js">/OpenForum/Javascript/Storage/Storage.js</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/Storage&fileName=Storage.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
+<a href="//OpenForum/Javascript/Storage/Storage.js">//OpenForum/Javascript/Storage/Storage.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Storage&fileName=Storage.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
   OpenForum = {};
 }
 OpenForum.Storage = {};

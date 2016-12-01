@@ -1,4 +1,4 @@
-<a href="/OpenForum/Javascript/OpenForumClient/open-forum-client.js">/OpenForum/Javascript/OpenForumClient/open-forum-client.js</a><a href="/OpenForum/Editor?pageName=OpenForum/Javascript/OpenForumClient&fileName=open-forum-client.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
+<a href="//OpenForum/Javascript/OpenForumClient/open-forum-client.js">//OpenForum/Javascript/OpenForumClient/open-forum-client.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OpenForumClient&fileName=open-forum-client.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
   OpenForum = {};
 }
 

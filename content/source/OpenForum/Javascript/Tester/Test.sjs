@@ -1,4 +1,22 @@
+/*
+* Author: Nik Cross
+* Description: 
+*   var tester = js.getObject("/OpenForum/Javascript/Tester","Test.sjs");
+*   tester.unitTest([test name]).
+*     given([input]).
+*	  when([function]).
+*	  then([output]).
+*	  thenOutputEquals([output]).
+*	  thenOutputContains([part output]).
+*	  thenAttributeEquals([key],[output]).
+*	  thenOutputMatches([regex]);
+*	  run();
+* 
+*	Only one then allowed at the moment
+*/
+
 function Test() {
+  var tester = this;
   var queue = "/OpenForum/Javascript/Tester";
   var passed = 0;
   var failed = 0;
@@ -22,11 +40,19 @@ function Test() {
     };
 
     self.then = function(expected) {
-      checkFunction = function(output) {
-        return output===expected;
-      };
+      if(typeof(expected) == "function") {
+        checkFunction = expected;
+      } else {
+        checkFunction = function(output) {
+          return output===expected;
+        };
+      }
       errorMessageFunction = function(output) {
-        return "Expected ("+JSON.stringify(expected)+") but found ("+JSON.stringify(output)+")";
+        if(typeof(expected) == "function") {
+        	return "Expected Function "+expected+" to return true was false";
+        } else {
+        	return "Expected ("+JSON.stringify(expected)+") but found ("+JSON.stringify(output)+")";
+        }
       };
       return this;
     };
@@ -35,7 +61,16 @@ function Test() {
         return output[key]===expected;
       };
       errorMessageFunction = function(output) {
-        return "Expected ("+key+"="+JSON.stringify(expected)+") but found ("+JSON.stringify(output[key])+") in "+JSON.stringify(output);
+        return "Expected ("+key+"="+JSON.stringify(expected)+") but found ("+key+"="+JSON.stringify(output[key])+") in "+JSON.stringify(output);
+      };
+      return this;
+    };
+    self.thenEvaluationEquals = function(evil,expected) {
+      checkFunction = function(output) {
+        return JSON.stringify(eval( "("+JSON.stringify(output)+")."+evil ))==JSON.stringify(expected);
+      };
+      errorMessageFunction = function(output) {
+        return "Expected (output."+evil+"="+JSON.stringify(expected)+") but found (output."+evil+"="+JSON.stringify(eval( "("+JSON.stringify(output)+")."+evil ))+") in "+JSON.stringify(output);
       };
       return this;
     };
@@ -71,30 +106,38 @@ function Test() {
         }
 
         if(checkFunction(output)===false) {
-          openForum.postMessageToQueue( queue,"FAILED:  "+name+". Input ("+JSON.stringify(input)+") "+errorMessageFunction(output));
+          tester.logFailed( name+". Input ("+JSON.stringify(input)+") "+errorMessageFunction(output));
           failed++;
           return false;
         } else {
-          openForum.postMessageToQueue( queue,"  PASSED: "+name);
+          tester.logPassed(name);
           passed++;
           return true;
         }
       } catch(e) {
         failed++;
-        openForum.postMessageToQueue( queue,"FAILED:  "+name+". Exception ("+e+")");
+        tester.logFailed( name+". Exception ("+e+")");
       }
     };
   };
 
-  this.log = function(message) {
+  tester.logPassed = function(message) {
+    openForum.postMessageToQueue( queue,"  PASSED:  "+message);
+  }
+ 
+  tester.logFailed = function(message) {
+    openForum.postMessageToQueue( queue,"  FAILED:  "+message);
+  }
+  
+  tester.log = function(message) {
     openForum.postMessageToQueue( queue,"  MESSAGE:  "+message);
   };
 
-  this.unitTest = function(title) {
+  tester.unitTest = function(title) {
     return new UnitTest(title);
   };
 
-  this.getResults = function() {
+  tester.getResults = function() {
     return  {tests: passed+failed, passed: passed, failed: failed};
   };
 }

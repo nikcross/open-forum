@@ -472,7 +472,10 @@ public class Router {
 		pageName = transaction.getParameter("pageName");
 		js.mount("pageName", pageName);
 
-		js.runJavascript(jsFile, script);
+		Integer maximumInstructions = 1000000000;
+		Integer maximumTime = 30000;
+
+		js.runJavascript(jsFile, script, maximumInstructions, maximumTime,null);
 
 		// If the transaction result is set to show the page, return false
 		if (transaction.getResult().equals(Transaction.SHOW_PAGE) == false) {
@@ -507,7 +510,10 @@ public class Router {
 				connection, fileServer, controller, login);
 		js.mount("transaction", transaction);
 
-		js.runJavascript(jsFile, script);
+		Integer maximumInstructions = 1000000000;
+		Integer maximumTime = 30000;
+
+		js.runJavascript(jsFile, script, maximumInstructions, maximumTime,null);
 	}
 
 	/*

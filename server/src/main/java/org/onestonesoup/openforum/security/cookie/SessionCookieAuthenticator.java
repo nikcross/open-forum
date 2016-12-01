@@ -217,17 +217,28 @@ public class SessionCookieAuthenticator implements Authenticator {
 							httpHeader, "text/html", 302, connection);
 					responseHeader.addParameter("Set-Cookie",
 							"openForumSession=" + login.getSessionId() + "; Path=/");
-					responseHeader.addParameter("location", "/SignedIn");
+					responseHeader.addParameter("location", "OpenForum/Acsess/SignedIn?message=Signed in as "+userId);
 				}
 				controller.getLogger().info(login.getUser()+" logged in.");
 			} else {
+				if ("json".equals(flavour)) {
+					sendJSONResponse(httpHeader, connection, "{result:\"error\"}",
+							login.getSessionId());
+				} else {
+					HttpResponseHeader responseHeader = new HttpResponseHeader(
+							httpHeader, "text/html", 302, connection);
+					responseHeader.addParameter("Set-Cookie",
+							"openForumSession=" + login.getSessionId() + "; Path=/");
+					responseHeader.addParameter("location", "/OpenForum/Access/SignIn?message=Sign in failed for "+userId);
+				}
 				controller.getLogger().info(login.getUser()+" failed to log in.");
 			}
 		} catch(Throwable t) {
 			throw new IOException(t);
 		}
 
-		return booleanResult;
+		//Request has been handled
+		return true;
 	}
 	
 	private String getSessionId(HttpHeader httpHeader) {

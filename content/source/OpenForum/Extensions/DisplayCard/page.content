@@ -1,0 +1,30 @@
+!!&title;
+{{{
+Add this line to page javascript:
+OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
+}}}
+
+<div class="row">
+  [{DisplayCard linkURL="#" linkText="Link" title="Title" description="Description"}]&nbsp;&nbsp;
+  [{DisplayCard linkURL="#" linkText="Link" title="Title" description="Description"}]&nbsp;&nbsp;
+  [{DisplayCard linkURL="#" linkText="Link" title="Title" description="Description"}]
+</div>
+<div class="row">
+  {{{
+  [{DisplayCard linkURL="#" linkText="Link" title="Title" description="Description"}]
+  }}}
+</div>
+
+----
+
+<div class="row">
+  [{DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg"}]
+  [{DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg"}]
+  [{DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg"}]
+</div>
+<div class="row">
+  {{{
+  [{DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" 
+  imageURL="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg"}]
+  }}}
+</div>

@@ -16,7 +16,7 @@ Inserts a files contents into the page
 
 <hr/>
 
-<a href="/OpenForum/Extensions/InsertSourceFile/renderer.sjs">/OpenForum/Extensions/InsertSourceFile/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var sourcePageName = extension.getAttribute("pageName");
+<a href="//OpenForum/Extensions/InsertSourceFile/renderer.sjs">//OpenForum/Extensions/InsertSourceFile/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var sourcePageName = extension.getAttribute("pageName");
 if(sourcePageName===null) {
   sourcePageName = pageName;
 }

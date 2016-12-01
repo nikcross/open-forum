@@ -66,6 +66,8 @@ OpenForum.init = function () {
   if(OpenForum.getParameter("pageName")==="") {
     pageName = "/Sandbox";
     shortPageName = pageName;
+  } else if(OpenForum.getParameter("pageName")==="/") {
+    pageName = "/OpenForum/HomePage";
   } else {
     pageName = OpenForum.getParameter("pageName");
     shortPageName = pageName;

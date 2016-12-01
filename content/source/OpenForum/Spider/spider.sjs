@@ -69,6 +69,11 @@ function crawl(targetPage) {
 
 function processPage(pageName) {
   //logSpiderMessage("Processing page "+pageName);
+  if(pageName.charAt(0)!=="/") {
+    pageName = "/"+pageName;
+  } else if(pageName.indexOf("//")==0) {
+    pageName = pageName.substring(1);
+  }
 
   for(var i=0;i<processors.length;i++) {
     try{

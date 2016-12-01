@@ -1,6 +1,6 @@
 //==============================================================================================================//
-/* Version 1.0.19*/
-/* Built on Thu May 19 2016 09:50:30 GMT-0000 (UTC) */
+/* Version 1.1.19*/
+/* Built on Tue Oct 18 2016 10:27:00 GMT-0000 (GMT) */
 /* Built by /OpenForum/Javascript/Builder.*/
 /* Do not edit as changes may be overwritten */
 //==============================================================================================================//
@@ -164,11 +164,11 @@ var OpenForum = new function(){
   self.interval = null;
   
   self.getVersion = function() {
-    return "1.0.19";
+    return "1.1.19";
   };
 
   self.getBuildDate = function() {
-    return "Thu May 19 2016 09:50:30 GMT-0000 (UTC)";
+    return "Tue Oct 18 2016 10:27:00 GMT-0000 (GMT)";
   };
 
   self.initDependencies = DependencyService.createNewDependency();
@@ -1499,6 +1499,7 @@ function Process() {
 			var collection = this.targetObject.getValue();
 			for( var elementIndex in collection ) {
 				var item = collection[elementIndex];
+                item.index = elementIndex;
 				eval("var "+this.element+"=item;");
 
 				var data = ""+this.rowHTML;

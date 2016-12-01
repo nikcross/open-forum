@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>onestonesoup.open-forum.server</groupId>
 	<artifactId>open-forum.server</artifactId>
-	<version>3.0.4</version>
+	<version>3.0.5</version>
 
 	<parent>
 		<groupId>onestonesoup</groupId>
@@ -40,7 +40,7 @@
 		<dependency>
 			<groupId>onestonesoup</groupId>
 			<artifactId>javascript</artifactId>
-			<version>0.0.2</version>
+			<version>0.0.3</version>
 		</dependency>
 
 		<dependency>

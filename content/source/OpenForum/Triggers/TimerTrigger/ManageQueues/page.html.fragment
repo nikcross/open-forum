@@ -1,2 +1,8 @@
-<a href="/OpenForum/Triggers/TimerTrigger/ManageQueues/trigger.sjs">/OpenForum/Triggers/TimerTrigger/ManageQueues/trigger.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Triggers/TimerTrigger/ManageQueues&fileName=trigger.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">wiki.cleanUpQueues();</xmp>
+<a href="//OpenForum/Triggers/TimerTrigger/ManageQueues/trigger.sjs">//OpenForum/Triggers/TimerTrigger/ManageQueues/trigger.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Triggers/TimerTrigger/ManageQueues&fileName=trigger.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var Alert = js.getObject("/OpenForum/AddOn/Alert","Alert.sjs");
+Alert.beatAlert("Manage Queues");
+try{
+	openForum.cleanUpQueues();
+} catch(e) {
+  Alert.triggerAlert("Error in /OpenForum/Triggers/TimerTrigger/ManageQueues",e);
+}</xmp>
 <!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

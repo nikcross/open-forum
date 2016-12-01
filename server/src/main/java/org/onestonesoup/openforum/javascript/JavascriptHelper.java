@@ -1,8 +1,11 @@
 package org.onestonesoup.openforum.javascript;
 
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.xml.bind.DatatypeConverter;
@@ -54,13 +57,12 @@ public class JavascriptHelper {
 	private NativeObject loadObject(String pageName, String fileName)
 			throws Throwable {
 		String script = fileManager.getPageAttachmentAsString(pageName,
-				fileName, controller.getSystemLogin());
+				fileName, login);
 
 		String functionName = fileName.substring(0, fileName.indexOf('.'));
 		script = script + "\n new " + functionName + "();";
 
-		JavascriptEngine engine = controller.getJavascriptEngine(controller
-				.getSystemLogin());
+		//JavascriptEngine engine = controller.getJavascriptEngine(controller.getSystemLogin());
 		String name = pageName + "/" + fileName;
 		NativeObject function = (NativeObject) engine.evaluateJavascript(name,
 				script);
@@ -85,9 +87,41 @@ public class JavascriptHelper {
 		controller.updatePluginManager();
 	}
 
-	public void startJavascript(String scriptFileName, String script)
+	public JavascriptEngine.JavascriptProcessThread startJavascript(String scriptFileName, String script)
 			throws Throwable {
-		engine.startJavascript(scriptFileName, script, false);
+		return engine.startJavascript(scriptFileName, script, false);
+	}
+
+	public List<String> getRunningThreads() {
+		List<JavascriptEngine.JavascriptProcessThread> javascriptProcessThreads = engine.getRunningThreads();
+		List<String> threadIds = new ArrayList();
+		for(JavascriptEngine.JavascriptProcessThread thread: javascriptProcessThreads) {
+			//try {
+				//if (controller.getAuthorizer().isAuthorized(login, thread.getFileName(), Authorizer.ACTION_READ)) {
+					threadIds.add(thread.getFileName() + ":" + thread.getStartTimeStamp());
+				//}
+			//} catch(IOException ioe) {
+				//Do nothing
+			//}
+		}
+		return threadIds;
+	}
+
+	public boolean stopThread(String threadId) {
+		List<JavascriptEngine.JavascriptProcessThread> javascriptProcessThreads = engine.getRunningThreads();
+		for(JavascriptEngine.JavascriptProcessThread thread: javascriptProcessThreads) {
+			//try {
+				//if (controller.getAuthorizer().isAuthorized(login, thread.getFileName(), Authorizer.ACTION_DELETE)) {
+					if( (thread.getFileName() + ":" + thread.getStartTimeStamp()).equals(threadId)) {
+						thread.stop();
+						return true;
+					}
+				//}
+			//} catch(IOException ioe) {
+				//Do nothing
+			//}
+		}
+		return false;
 	}
 
 	public void sleep(long time) {

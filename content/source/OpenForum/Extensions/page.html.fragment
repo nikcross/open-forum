@@ -7,6 +7,7 @@
 <li> <a href="/OpenForum/Extensions/Button">Button</a></li>
 <li> <a href="/OpenForum/Extensions/ChildPagesList">ChildPagesList</a></li>
 <li> <a href="/OpenForum/Extensions/CrumbTrail">CrumbTrail</a></li>
+<li> <a href="/OpenForum/Extensions/DisplayCard">DisplayCard</a></li>
 <li> <a href="/OpenForum/Extensions/HttpsOnly">HttpsOnly</a></li>
 <li> <a href="/OpenForum/Extensions/Icon">Icon</a></li>
 <li> <a href="/OpenForum/Extensions/InputField">InputField</a></li>
