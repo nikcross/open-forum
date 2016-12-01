@@ -19,6 +19,8 @@ import org.onestonesoup.core.StringHelper;
 public class JavascriptEngine {
 	private static String GLOBAL = "global";
 
+	private static List<JavascriptProcessThread> threads = new ArrayList<JavascriptProcessThread>();
+
 	private JsContextFactory contextFactory = new JsContextFactory();
 	private static Map<String, JsContext> scopes = new HashMap<String, JsContext>();
 
@@ -100,6 +102,8 @@ public class JavascriptEngine {
 		private boolean isCLI;
 		private boolean running = false;
 		private List<String> scriptQueue = new ArrayList<String>();
+		private JsContext context;
+		private long startTimeStamp;
 
 		private JavascriptProcessThread(String fileName, String script,
 				boolean isCLI) {
@@ -123,12 +127,27 @@ public class JavascriptEngine {
 
 		public void stop() {
 			running = false;
+			context.stop();
+		}
+
+		public String getFileName() {
+			return fileName;
+		}
+
+		public String getScript() {
+			return script;
+		}
+
+		public long getStartTimeStamp() {
+			return startTimeStamp;
 		}
 
 		public void run() {
 			running = true;
+			startTimeStamp = System.currentTimeMillis();
 			try {
-				runJavascript(fileName, script, -1, -1, null);
+				context = jsContextFactory.createContext();
+				runJavascript(fileName, script, -1, -1, context);
 
 				if (isCLI) {
 					while (running) {
@@ -139,7 +158,7 @@ public class JavascriptEngine {
 							scriptQueue.remove(script);
 
 							try {
-								JsContext context = jsContextFactory.createContext();
+								context = jsContextFactory.createContext();
 								runJavascript(fileName, script, -1, -1, context);
 							} catch (Throwable t) {
 								t.printStackTrace();
@@ -150,6 +169,8 @@ public class JavascriptEngine {
 			} catch (Throwable th) {
 				th.printStackTrace();
 			}
+			threads.remove(this);
+			running = false;
 		}
 	}
 
@@ -231,9 +252,15 @@ public class JavascriptEngine {
 		return keys;
 	}
 
-	public void startJavascript(String fileName, String script, boolean isCLI)
+	public JavascriptProcessThread startJavascript(String fileName, String script, boolean isCLI)
 			throws Throwable {
-		new JavascriptProcessThread(fileName, script, isCLI);
+		JavascriptProcessThread javascriptProcessThread = new JavascriptProcessThread(fileName, script, isCLI);
+		threads.add( javascriptProcessThread );
+		return javascriptProcessThread;
+	}
+
+	public List<JavascriptProcessThread> getRunningThreads() {
+		return threads;
 	}
 
 	public String runJavascript(String fileName, String script)
