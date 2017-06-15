@@ -303,9 +303,11 @@ public class JavascriptEngine {
 	public Object evaluateJavascript(String fileName, String script)
 			throws Throwable {
 		try {
-			JsContext localJsContext = jsContextFactory.createContext();
-			jsContextFactory.enterContext(localJsContext);
-			return localJsContext.evaluateString(jsScope, script,
+			jsContext = jsContextFactory.createContext();
+			jsContext.resetStartTime();
+			jsContext.setMaximumScriptTime(-1);
+			jsContextFactory.enterContext(jsContext);
+			return jsContext.evaluateString(jsScope, script,
 					"Javascript Engine", 1, null);
 		} catch (WrappedException we) {
 			String trace = StringHelper.arrayToString(

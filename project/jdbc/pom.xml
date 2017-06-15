@@ -2,14 +2,20 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
+	<url>http://maven.apache.org</url>
+
   <parent>
     <groupId>onestonesoup</groupId>
     <artifactId>open-forum</artifactId>
     <version>3.0.1</version>
   </parent>
+
   <artifactId>jdbc</artifactId>
   <name>jdbc</name>
-  <url>http://maven.apache.org</url>
+
+	<groupId>onestonesoup</groupId>
+	<version>3.0.2</version>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -17,12 +23,12 @@
     <dependency>
     	<groupId>onestonesoup.open-forum.server</groupId>
     	<artifactId>open-forum.server</artifactId>
-    	<version>2.0.4-SNAPSHOT</version>
+    	<version>3.0.2</version>
     </dependency>
     <dependency>
-    	<groupId>org.onestonesoup</groupId>
+    	<groupId>onestonesoup</groupId>
     	<artifactId>javascript</artifactId>
-    	<version>0.0.1-SNAPSHOT</version>
+    	<version>0.0.2</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -31,6 +37,4 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <groupId>onestonesoup</groupId>
-  <version>3.0.2</version>
 </project>

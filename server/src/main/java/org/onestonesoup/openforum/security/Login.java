@@ -1,29 +1,27 @@
 package org.onestonesoup.openforum.security;
 
-
 public class Login {
+	private static Login GUEST_LOGIN = new Login("Guest", "");
+	private String password;
+	private String sessionId;
+	private User user;
+	private boolean loggedIn = false;
 
-	private static Login GUEST_LOGIN = new Login("Guest","");
-	
 	public static Login getGuestLogin() {
 		GUEST_LOGIN.setLoggedIn(true);
 		return GUEST_LOGIN;
 	}
-	
-	private String password;
-	private User user;
-	private boolean loggedIn = false;
-	
+
 	public Login(String userName, String password) {
 		this.password = password;
-		user = new User(userName);
+		this.user = new User(userName);
 	}
 
 	public Login() {
 	}
 
 	public User getUser() {
-		return user;
+		return this.user;
 	}
 
 	public void setLoggedIn(boolean state) {
@@ -31,7 +29,7 @@ public class Login {
 	}
 
 	public boolean isLoggedIn() {
-		return loggedIn;
+		return this.loggedIn;
 	}
 
 	public void setUser(User user) {
@@ -39,10 +37,18 @@ public class Login {
 	}
 
 	public String getPassword() {
-		return password;
+		return this.password;
 	}
-	
+
 	public void clearPassword() {
-		password = null;
+		this.password = null;
+	}
+
+	public String getSessionId() {
+		return this.sessionId;
+	}
+
+	public void setSessionId(String sessionId) {
+		this.sessionId = sessionId;
 	}
 }
