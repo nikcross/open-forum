@@ -3,10 +3,9 @@ package org.onestonesoup.openforum.security.cookie;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
 import javax.xml.bind.DatatypeConverter;
-
 import org.onestonesoup.core.data.EntityTree;
+import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileServer;
 import org.onestonesoup.openforum.security.Authenticator;
@@ -17,182 +16,144 @@ import org.onestonesoup.openforum.transaction.HttpRequestHelper;
 import org.onestonesoup.openforum.transaction.HttpResponseHeader;
 
 public class SessionCookieAuthenticator implements Authenticator {
-
+	private static final String AUTHENTICATION_PAGE = "/OpenForum/Authentication";
+	private static final String LOGIN_SCRIPT_FILE = "login.sjs";
 	private OpenForumController controller;
-	private FileServer fileServer;
 	private SessionStore sessionStore;
+
+	public SessionCookieAuthenticator() {
+	}
 
 	public Login authenticate(HttpHeader httpHeader) {
 		String memberAlias = null;
-
-		String sessionId = getSessionId(httpHeader);
-		if(sessionId!=null) {
-			memberAlias = sessionStore.authenticateUser(sessionId);
+		String sessionId = this.getSessionId(httpHeader);
+		if(sessionId != null) {
+			memberAlias = this.sessionStore.authenticateUser(sessionId);
 		}
 
-		if (memberAlias == null) {
+		if(memberAlias == null) {
 			return Login.getGuestLogin();
+		} else {
+			Login login = new Login(memberAlias, (String)null);
+			login.setLoggedIn(true);
+			return login;
 		}
-
-		Login login = new Login(memberAlias, null);
-		login.setLoggedIn(true);
-		return login;
 	}
 
-	public boolean obtainAuthentication(HttpHeader httpHeader,
-			ClientConnectionInterface connection) throws IOException {
+	public boolean obtainAuthentication(HttpHeader httpHeader, ClientConnectionInterface connection) throws IOException {
 		String request = httpHeader.getChild("request").getValue();
-
-		if (request.equals("/OpenForum/Access/SignIn/Process")
-				&& httpHeader.getChild("method").getValue().equals("post")) {
-			if( signIn(httpHeader,connection) == true) {
-				return true;
-			}
-		}
-		if (request.equals("/OpenForum/Access/SignIn")
-				&& httpHeader.getChild("method").getValue().equals("get")) {
+		if(request.equals("/OpenForum/Access/SignIn/Process") && httpHeader.getChild("method").getValue().equals("post") && this.signIn(httpHeader, connection)) {
+			return true;
+		} else if(request.equals("/OpenForum/Access/SignIn") && httpHeader.getChild("method").getValue().equals("get")) {
 			return true;
 		} else {
-			HttpResponseHeader responseHeader = new HttpResponseHeader(
-					httpHeader, "text/html", 302, connection);
-			responseHeader.addParameter("location", "/OpenForum/Access/SignIn?forwardTo="+request);
-
+			HttpResponseHeader responseHeader = new HttpResponseHeader(httpHeader, "text/html", 302, connection);
+			responseHeader.addParameter("location", "/OpenForum/Access/SignIn?forwardTo=" + request);
 			connection.getOutputStream().flush();
 			connection.close();
-
 			return false;
 		}
 	}
 
 	public void setController(OpenForumController controller) {
 		this.controller = controller;
-		sessionStore = SessionStore.getSessionStore(controller);
+		this.sessionStore = SessionStore.getSessionStore(controller);
 	}
 
 	public void setFileServer(FileServer fileServer) {
-		this.fileServer = fileServer;
 	}
 
-	// TODO move to core.StringHelper along with Base64
 	private String generateMD5(String input) {
-		MessageDigest MD5;
 		try {
-			MD5 = MessageDigest.getInstance("MD5");
+			MessageDigest MD5 = MessageDigest.getInstance("MD5");
 			MD5.update(input.getBytes());
 			byte[] hash = MD5.digest();
 			return DatatypeConverter.printHexBinary(hash).toLowerCase();
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
+		} catch (NoSuchAlgorithmException var4) {
+			var4.printStackTrace();
+			return null;
 		}
-		return null;
 	}
 
-	// TODO belongs in a helper
-	private void sendJSONResponse(EntityTree httpHeader,
-			ClientConnectionInterface connection, String data, String sessionId)
-			throws IOException {
-		HttpResponseHeader responseHeader = new HttpResponseHeader(httpHeader,
-				"application/json", 200, connection);
-		if (sessionId != null) {
-			responseHeader.addParameter("Set-Cookie", "openForumSession="
-					+ sessionId + "; Path=/");
-
+	private void sendJSONResponse(EntityTree httpHeader, ClientConnectionInterface connection, String data, String sessionId) throws IOException {
+		HttpResponseHeader responseHeader = new HttpResponseHeader(httpHeader, "application/json", 200, connection);
+		if(sessionId != null) {
+			responseHeader.addParameter("Set-Cookie", "openForumSession=" + sessionId + "; Path=/");
 		}
+
 		responseHeader.addParameter("content-length", "" + data.length());
 		long modified = System.currentTimeMillis();
-		responseHeader.addParameter("last-modified",
-				HttpRequestHelper.getHttpDate(modified));
-		responseHeader.addParameter("expires",
-				HttpRequestHelper.getHttpDate(modified));
-		responseHeader.addParameter("cache-control",
-				" max-age=1, must-revalidate ");
-
+		responseHeader.addParameter("last-modified", HttpRequestHelper.getHttpDate(modified));
+		responseHeader.addParameter("expires", HttpRequestHelper.getHttpDate(modified));
+		responseHeader.addParameter("cache-control", " max-age=1, must-revalidate ");
 		connection.getOutputStream().write(data.getBytes());
 		connection.getOutputStream().flush();
 	}
 
 	protected SessionStore getSessionStore() {
-		return sessionStore;
+		return this.sessionStore;
 	}
 
-	@Override
-	public void signOut(HttpHeader httpHeader,ClientConnectionInterface connection) {
-		String sessionId = getSessionId(httpHeader);
+	public void signOut(HttpHeader httpHeader, ClientConnectionInterface connection) {
+		String sessionId = this.getSessionId(httpHeader);
 		if(sessionId != null) {
-			sessionStore.invalidateSession(sessionId);
+			this.sessionStore.invalidateSession(sessionId);
 		}
+
 	}
 
-	@Override
-	public boolean signIn(HttpHeader httpHeader,ClientConnectionInterface connection) throws IOException {
-		String userId = httpHeader.getChild("parameters")
-				.getChild("userId").getValue();
-		String hash = httpHeader.getChild("parameters").getChild("hash")
-				.getValue();
-		String hashedPassword = httpHeader.getChild("parameters")
-				.getChild("password").getValue();
-		String flavour = httpHeader.getChild("parameters")
-				.getChild("flavour").getValue();
-		String password = null;
+	public boolean signIn(HttpHeader httpHeader, ClientConnectionInterface connection) throws IOException {
+		String flavour = httpHeader.getChild("parameters").getChild("flavour").getValue();
+		String userId = httpHeader.getChild("parameters").getChild("userId").getValue();
+		String password = httpHeader.getChild("parameters").getChild("password").getValue();
+		Login login = new Login(userId, password);
+		JavascriptEngine js = this.controller.getJavascriptEngine(this.controller.getSystemLogin());
+		js.mount("httpHeader", httpHeader);
+		js.mount("sessionStore", this.sessionStore);
+		js.mount("login", login);
+		js.mount("flavour", flavour);
+
 		try {
-			password = controller.getFileManager()
-					.getPageAttachmentAsString(
-							"/OpenForum/Users/" + userId, "password.txt",
-							controller.getSystemLogin());
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		String testHashedPassword = generateMD5(password + hash);
-		String sessionId = getSessionId(httpHeader);
-		if(sessionId!=null) {
-			sessionStore.invalidateSession(sessionId);
-		}
-		
-		if (testHashedPassword.equals(hashedPassword)) {
-			sessionId = sessionStore.createSession(userId);
-		}
+			String script = this.controller.getFileManager().getPageAttachmentAsString("/OpenForum/Authentication", "login.sjs", this.controller.getSystemLogin());
+			String result = js.runJavascript("/OpenForum/Authentication/login.sjs", script);
+			boolean booleanResult = Boolean.parseBoolean(result);
+			login.setLoggedIn(booleanResult);
+			login.clearPassword();
+			HttpResponseHeader responseHeader;
+			if(booleanResult) {
+				if("json".equals(flavour)) {
+					this.sendJSONResponse(httpHeader, connection, "{result:\"ok\"}", login.getSessionId());
+				} else {
+					responseHeader = new HttpResponseHeader(httpHeader, "text/html", 302, connection);
+					responseHeader.addParameter("Set-Cookie", "openForumSession=" + login.getSessionId() + "; Path=/");
+					responseHeader.addParameter("location", "OpenForum/Acsess/SignedIn?message=Signed in as " + userId);
+				}
 
-		if (sessionId != null) {
-			if ("json".equals(flavour)) {
-				sendJSONResponse(httpHeader, connection, "{result:\"ok\"}",
-						sessionId);
+				this.controller.getLogger().info(login.getUser() + " logged in.");
 			} else {
-				HttpResponseHeader responseHeader = new HttpResponseHeader(
-						httpHeader, "text/html", 302, connection);
-				responseHeader.addParameter("Set-Cookie",
-						"openForumSession=" + sessionId + "; Path=/");
-				responseHeader.addParameter("location", "/SignedIn");
+				if("json".equals(flavour)) {
+					this.sendJSONResponse(httpHeader, connection, "{result:\"error\"}", login.getSessionId());
+				} else {
+					responseHeader = new HttpResponseHeader(httpHeader, "text/html", 302, connection);
+					responseHeader.addParameter("Set-Cookie", "openForumSession=" + login.getSessionId() + "; Path=/");
+					responseHeader.addParameter("location", "/OpenForum/Access/SignIn?message=Sign in failed for " + userId);
+				}
+
+				this.controller.getLogger().info(login.getUser() + " failed to log in.");
 			}
-			controller.getLogger().info(userId + " logged in.");
+
 			return true;
-		} else {
-			controller.getLogger().info(userId + " failed to log in.");
-
-			if ("json".equals(flavour)) {
-				sendJSONResponse(
-						httpHeader,
-						connection,
-						"{result:\"error\", errors:\"Sign In Failed. Incorrect user id / password combination.\"}",
-						null);
-			} else {
-				HttpResponseHeader responseHeader = new HttpResponseHeader(
-						httpHeader, "text/html", 302, connection);
-				responseHeader
-						.addParameter("location",
-								"/OpenForum/Access/SignIn?errors=Sign In Failed. Incorrect user id / password combination.");
-				return true;
-			}
+		} catch (Throwable var12) {
+			throw new IOException(var12);
 		}
-		return false;
 	}
-	
+
 	private String getSessionId(HttpHeader httpHeader) {
 		String sessionId = null;
-		if (httpHeader.getChild("parameters").getChild("$cookie")
-				.getChild("openForumSession") != null) {
-			sessionId = httpHeader.getChild("parameters").getChild("$cookie")
-					.getChild("openForumSession").getValue();
+		if(httpHeader.getChild("parameters").getChild("$cookie").getChild("openForumSession") != null) {
+			sessionId = httpHeader.getChild("parameters").getChild("$cookie").getChild("openForumSession").getValue();
 		}
+
 		return sessionId;
 	}
 }

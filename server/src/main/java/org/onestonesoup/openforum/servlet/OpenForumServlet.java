@@ -4,17 +4,14 @@ import java.io.IOException;
 import java.net.URLDecoder;
 import java.util.Enumeration;
 import java.util.Map;
-
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.onestonesoup.core.data.EntityTree;
 import org.onestonesoup.core.data.EntityTree.TreeEntity;
 import org.onestonesoup.openforum.controller.OpenForumController;
-import org.onestonesoup.openforum.router.Router;
 
 public class OpenForumServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
