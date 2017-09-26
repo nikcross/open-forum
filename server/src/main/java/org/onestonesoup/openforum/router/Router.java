@@ -237,7 +237,18 @@ public class Router {
 
 		String request = httpHeader.getChild("request").getValue();
 		String method = httpHeader.getChild("method").getValue();
-		
+
+		if(httpHeader.getChild("secure").getValue().equals("false") && controller.isSecure()) {
+			HttpResponseHeader responseHeader = new HttpResponseHeader(
+						httpHeader, "text/html", 302, connection);
+				responseHeader.addParameter("location", "https:"+httpHeader.getChild("host").getValue() + "/" + request); // Rediect to https page
+
+				connection.getOutputStream().flush();
+				connection.close();
+
+				return true;
+		}
+
 		for(KeyValuePair redirectParameter: controller.getParameterRedirectList()) {
 			String parameterName = redirectParameter.getKey();
 			if( httpHeader.getChild("parameters").getChild(parameterName)!=null && httpHeader.getChild("parameters").getChild(parameterName).getValue().equals("") ) {

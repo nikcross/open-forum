@@ -21,8 +21,9 @@ public class OpenForumServlet extends HttpServlet {
 
 		String host = request.getHeader("host");
 		if(host.indexOf(":")!=-1) {
-			host = host.substring(0,host.indexOf(":"));
+			host = host.substring(0, host.indexOf(":"));
 		}
+
 		OpenForumController controller = OpenForumServletContextListener.getWikiController(host);
 		if(controller==null) {
 			throw new ServletException("No controller found for host "+host);
@@ -42,6 +43,7 @@ public class OpenForumServlet extends HttpServlet {
 		httpHeader.addChild("method").setValue(request.getMethod().toLowerCase());
 		httpHeader.addChild("request").setValue(requestURI);
 
+		httpHeader.addChild("secure").setValue(""+request.isSecure());
 		httpHeader.addChild("content-type").setValue(request.getContentType());
 		httpHeader.addChild("content-length").setValue(""+request.getContentLength());
 		if(request.getHeaders("authorization").hasMoreElements()) {

@@ -16,9 +16,7 @@ import static org.onestonesoup.openforum.controller.OpenForumConstants.OWNER_FIL
 import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGES_INDEX_PAGE_PATH;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_BUILD_JS;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.SYSTEM_NAME;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.TAGS_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.UPDATE_WIKI_TEMPLATE;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,7 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
 import org.onestonesoup.core.ExceptionHelper;
 import org.onestonesoup.core.StringHelper;
 import org.onestonesoup.core.data.EntityTree;
@@ -110,6 +107,7 @@ public class OpenForumController implements OpenForumScripting,
 	private boolean initialised = false;
 	private Authenticator authenticator;
 	private Authorizer authorizer;
+	private boolean secure = true;
 
 	private OpenForumLogger logger;
 
@@ -126,6 +124,9 @@ public class OpenForumController implements OpenForumScripting,
 
 			KeyValueListPage keyValueListPage = new KeyValueListPage(
 					newFileManager, "/OpenForum/Configuration");
+
+			secure = keyValueListPage.getValue("secure").equals("true");
+
 			ResourceStoreProxy resourceStore = null;
 			boolean hasMoreResourceStores = true;
 			int resourceStoreIndex = 0;
@@ -1251,5 +1252,9 @@ public class OpenForumController implements OpenForumScripting,
 
 	public OpenForumLogger getLogger() {
 		return logger;
+	}
+
+	public boolean isSecure() {
+		return secure;
 	}
 }

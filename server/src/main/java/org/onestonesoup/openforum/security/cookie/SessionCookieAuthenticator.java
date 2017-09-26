@@ -126,7 +126,7 @@ public class SessionCookieAuthenticator implements Authenticator {
 				} else {
 					responseHeader = new HttpResponseHeader(httpHeader, "text/html", 302, connection);
 					responseHeader.addParameter("Set-Cookie", "openForumSession=" + login.getSessionId() + "; Path=/");
-					responseHeader.addParameter("location", "OpenForum/Acsess/SignedIn?message=Signed in as " + userId);
+					responseHeader.addParameter("location", "/OpenForum/Access/SignedIn?message=Signed in as " + userId);
 				}
 
 				this.controller.getLogger().info(login.getUser() + " logged in.");
