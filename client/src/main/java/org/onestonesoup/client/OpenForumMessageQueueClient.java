@@ -14,7 +14,7 @@ public class OpenForumMessageQueueClient implements Runnable {
 	private String queue;
 	private Thread thread;
 	private OpenForumClient client;
-	private long lastTime = 0;
+	private long lastTime = System.currentTimeMillis();
 	private JavascriptEngine javascript;
 	private boolean running;
 	private List<MessageQueueListener> listeners;
@@ -24,7 +24,7 @@ public class OpenForumMessageQueueClient implements Runnable {
 				"https://open-forum.onestonesoup.org",
 				args[0],
 				args[1],
-				"/OpenForum/AddOn/DataLogger"
+				args[2]
 				);
 		client.start();
 	}

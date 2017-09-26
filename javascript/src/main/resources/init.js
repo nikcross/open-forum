@@ -6,7 +6,6 @@ try{ js.mount("NameHelper","org.onestonesoup.core.NameHelper"); } catch(e) {}
 try{ js.mount("DirectoryHelper","org.onestonesoup.core.DirectoryHelper"); } catch(e) {}
 try{ js.mount("FileHelper","org.onestonesoup.core.FileHelper"); } catch(e) {}
 try{ js.mount("ImageHelper","org.onestonesoup.core.ImageHelper"); } catch(e) {}
-try{ js.mount("JSONHelper","org.onestonesoup.core.javascript.JSONHelper"); } catch(e) {}
 try{ js.mount("RegExBuilder","org.onestonesoup.core.RegExBuilder"); } catch(e) {}
 try{ js.mount("ZipHelper","org.onestonesoup.core.ZipHelper"); } catch(e) {}
 try{ js.mount("CSVHelper","org.onestonesoup.core.data.CSVHelper"); } catch(e) {}
