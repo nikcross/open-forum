@@ -205,6 +205,10 @@ public abstract class Transaction {
 		return login.getUser().getName();
 	}
 
+	public String getSessionId() {
+		return login.getSessionId();
+	}
+
 	public ClientConnectionInterface getconnection() {
 		return connection;
 	}

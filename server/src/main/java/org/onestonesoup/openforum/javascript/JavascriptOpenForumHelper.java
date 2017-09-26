@@ -1,14 +1,11 @@
 package org.onestonesoup.openforum.javascript;
 
 import java.io.IOException;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
-
 import org.onestonesoup.core.data.EntityTree;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.DataHelper;
@@ -20,6 +17,7 @@ import org.onestonesoup.openforum.messagequeue.MessageQueue;
 import org.onestonesoup.openforum.security.AuthenticationException;
 import org.onestonesoup.openforum.security.Authorizer;
 import org.onestonesoup.openforum.security.Login;
+import org.onestonesoup.openforum.security.cookie.SessionCookieAuthenticator;
 import org.onestonesoup.openforum.servlet.HttpHeader;
 import org.onestonesoup.openforum.transaction.Transaction;
 
@@ -261,6 +259,10 @@ public class JavascriptOpenForumHelper {
 		}
 
 		return list.toArray(new String[] {});
+	}
+
+	public String getMemberAliasForSessionId(String sessionId) {
+		return ((SessionCookieAuthenticator)controller.getAuthenticator()).getMemberAlias(sessionId);
 	}
 
 	public void cleanUpQueues() {

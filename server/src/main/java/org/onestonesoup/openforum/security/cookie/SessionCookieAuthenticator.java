@@ -24,6 +24,10 @@ public class SessionCookieAuthenticator implements Authenticator {
 	public SessionCookieAuthenticator() {
 	}
 
+	public String getMemberAlias(String sessionId) {
+		return this.sessionStore.authenticateUser(sessionId);
+	}
+
 	public Login authenticate(HttpHeader httpHeader) {
 		String memberAlias = null;
 		String sessionId = this.getSessionId(httpHeader);
