@@ -1,2 +1,4 @@
 
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<div id="xmlEditor" style="height: 100%;"><textarea id="editor{{editorIndex}}Src" style="hight: 100%;">Loading...</textarea></div>
+
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

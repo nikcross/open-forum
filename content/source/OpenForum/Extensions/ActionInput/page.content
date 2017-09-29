@@ -1,0 +1,16 @@
+A button that fires an [OpenForum GET action|/OpenForum/Actions]
+----
+!!Parameters
+* action = Action Name
+* text = Action button text
+
+----
+!!Usage:
+{{{
+[{ActionInput action="alert" parameters="pageName=Home"}]
+}}}
+[{ActionInput action="alert" parameters="pageName=Home"}]
+
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

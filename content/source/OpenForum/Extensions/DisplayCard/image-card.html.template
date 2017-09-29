@@ -1,0 +1,14 @@
+<div class="medium-4 columns">
+  <div class="card">
+    <div class="image">
+      <img src="&imageURL;">
+      <span class="title">&title;</span>
+    </div>
+    <div class="content">
+      <p>&description;</p>
+    </div>
+    <div class="action">
+      <a href='&linkURL;'>&linkText;</a>
+    </div>
+  </div>
+</div>

@@ -3,8 +3,8 @@ Inserts a files contents into the page
 <h3>Parameters</h3>
 <ul><li> pageName - The page where the file is attached (optional. default = current page name)</li>
 <li> fileName - The file to insert</li>
-
--<hr/>
+</ul>
+<hr/>
 <h3>Usage:</h3>
 <xmp class="panel">
 [{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json"}]
@@ -14,9 +14,9 @@ Inserts a files contents into the page
     "title": " Insert Source File"
 }</xmp>
 
--<hr/>
+<hr/>
 
-[<a href="//OpenForum/Extensions/InsertSourceFile/renderer.sjs">//OpenForum/Extensions/InsertSourceFile/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var sourcePageName = extension.getAttribute("pageName");
+<a href="//OpenForum/Extensions/InsertSourceFile/renderer.sjs">//OpenForum/Extensions/InsertSourceFile/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var sourcePageName = extension.getAttribute("pageName");
 if(sourcePageName===null) {
   sourcePageName = pageName;
 }
@@ -31,4 +31,4 @@ pageData = js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").
 pageData = pageData.replace("$contents$",data);
 
 return pageData;</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

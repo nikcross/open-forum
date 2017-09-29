@@ -7,66 +7,71 @@
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/lib/codemirror.css"/>
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.css"/>
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/lint/lint.css"/>
-    <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/dialog/dialog.css"/>
     <link rel="stylesheet" href="/OpenForum/Editor/code-mirror.css"/>
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"/>
-    
+
     <script type="text/javascript" src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
     <script type="text/javascript" src="/OpenForum/Editor/page.js"></script>
 
-    <script>
-      var pageName = "&pageName;";
-      var author = "&author;";
-      var time = "&time;";
-      var currentUser = "";
-      JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
-    </script>
+    &insert:/OpenForum/PageTemplates/CommonElements/header-script.common.html;
 
   </head>
   <body>
-    <div class="fixed">
-      <nav class="top-bar" data-topbar="true">
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" /></a>
-            </h1>
-          </li>
-        </ul>
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <a href="#">Page Editor - Editing {{pageName}}</a>
-            </h1>
-          </li>
-        </ul>
-        &insert:/OpenForum/Editor/top-menu.html.template;
-      </nav>
-      
-      <nav class="top-bar" data-topbar role="navigation">
-        <section class="top-bar-section">
-          <!-- Left Nav Section -->
-          <ul class="left">
-            <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="has-dropdown {{editor.tabButtonStyle}}">
-              <a href="#" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a>
-              <ul class="dropdown">
-                {{editor.options}}
-              </ul>
+    <div id="loading-splash">
+      <center><h1 style="font-size: 100px;">Loading ...</h1></center>
+    </div>
+    <div id="page" style="display: none;">
+      <div class="fixed">
+        <nav class="top-bar" data-topbar="true">
+          <ul class="title-area">
+            <li class="name">
+              <h1>
+                <a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" /></a>
+              </h1>
             </li>
           </ul>
-        </section>
-      </nav>
+          <ul class="title-area">
+            <li class="name">
+              <h1>
+                <a href="#" id="pageTitle">Page Editor - Editing {{shortPageName}}</a>
+              </h1>
+            </li>
+          </ul>
+          &insert:/OpenForum/Editor/top-menu.html.template;
+        </nav>
+
+        <nav class="top-bar" data-topbar role="navigation">
+          <section class="top-bar-section">
+            <!-- Left Nav Section -->
+            <ul class="left">
+              <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="has-dropdown {{editor.tabButtonStyle}}">
+                <a href="#" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a>
+                <ul class="dropdown">
+                  {{editor.options}}
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+
+      <div id="statusModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <h2 id="modalTitle">{{popupStatus}}</h2>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+      </div>
+
+      <section role="main" class="scroll-container" style="height: 100%">
+        <div id="editors" style="height: 100%"></div>
+      </section>
+
+      &insert:/OpenForum/PageTemplates/CommonElements/error-alert.common.html;
+      &insert:/OpenForum/PageTemplates/CommonElements/alert.common.html;
+      <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+      <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+      <script>
+        $(document).foundation();
+      </script>
     </div>
-
-    <!--PageContent Start-->&content;<!--Page Content End-->
-
-    &insert:/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content;
-
-    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
-    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
   </body>
 </html>

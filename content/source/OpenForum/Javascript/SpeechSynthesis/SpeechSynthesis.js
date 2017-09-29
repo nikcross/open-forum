@@ -3,6 +3,7 @@ if(!OpenForum) {
 }
 OpenForum.Speech = {};
 OpenForum.Speech.voice = {
+  on: true,
   name: "",
   spokenName: "Jane",
   pitch: 100,  // 0 to 200
@@ -11,7 +12,7 @@ OpenForum.Speech.voice = {
 };
 OpenForum.Speech.voices = [];
 OpenForum.Speech.onLoadSay = null;
-  if(OpenForum.addNodeProcessor) {
+if(OpenForum.addNodeProcessor) {
   OpenForum.addNodeProcessor(
     function(node) { 
       if(node.attributes && node.attributes['of-say'] && !(node.childNodes && node.childNodes.length>1)) {
@@ -23,18 +24,43 @@ OpenForum.Speech.onLoadSay = null;
   );
 }
 
+OpenForum.Speech.speaking = false;
+OpenForum.Speech.queueLength = 0
+
 OpenForum.Speech.say = function(message,voice) {
-	var msg = new SpeechSynthesisUtterance(message);
+  if(OpenForum.Speech.speaking) {
+    OpenForum.Speech.queueLength++;
+    if(OpenForum.Speech.queueLength>3) {
+      window.speechSynthesis.cancel();
+      OpenForum.Speech.speaking = false;
+      OpenForum.Speech.queueLength = 0;
+    }
+    setTimeout( function(){ OpenForum.Speech.say(message,voice); },1000 );
+    return;
+  }
+  OpenForum.Speech.queueLength--;
+
+  var msg = new SpeechSynthesisUtterance(message);
   if(!voice) {
-		voice = OpenForum.Speech.voice;
+    voice = OpenForum.Speech.voice;
+  }
+  if(voice.on===false) {
+    return;
   }
   msg.voice = OpenForum.Speech.getVoice(voice.name);
   msg.pitch = voice.pitch/100;
   msg.rate = voice.rate/10;
   msg.volume = voice.volume;
-  
-    window.speechSynthesis.speak(msg);
+
+  OpenForum.Speech.speaking = true;
+  OpenForum.Speech.stoppedSay();
+  OpenForum.Speech.currentMessage = msg;
+  msg.onend = function() {OpenForum.Speech.speaking = false; OpenForum.Speech.stoppedSay();} ;
+  window.speechSynthesis.speak(msg);
 };
+
+OpenForum.Speech.startedSay = function() {};
+OpenForum.Speech.stoppedSay = function() {};
 
 OpenForum.Speech.showSettings = function(elementId) {
   document.getElementById(elementId).innerHTML = OpenForum.loadFile( "/OpenForum/Javascript/SpeechSynthesis/page.html.fragment" );
@@ -52,7 +78,7 @@ OpenForum.Speech.saveSettings = function() {
 OpenForum.Speech.voiceReady = false;
 
 window.speechSynthesis.onvoiceschanged = function() {
-    OpenForum.Speech.voiceReady = true;
+  OpenForum.Speech.voiceReady = true;
   if(OpenForum.Speech.OtherVoice) {
     OpenForum.Speech.OtherVoice.voiceReady = true;
   }
@@ -63,11 +89,11 @@ OpenForum.Speech.getVoice = function(name) {
   speechSynthesis.getVoices().forEach(function(voice) {
     if(voice.name===name) found = voice;
   });
-  
-  
+
+
   //alert("Looking for "+name+" found "+found);
   //alert("voice:"+JSON.stringify(OpenForum.Speech.voice));
-  
+
   if(found===null) found = speechSynthesis.getVoices()[0];
   return found;
 };
@@ -78,9 +104,9 @@ OpenForum.Speech.init = function() {
     OpenForum.Speech.voice = JSON.parse( localStorage.getItem("OpenForum.Speech.voice") );
   }
   speechSynthesis.getVoices().forEach(function(voice) {
-      OpenForum.Speech.voices.push(voice.name);
-   });
-  
+    OpenForum.Speech.voices.push(voice.name);
+  });
+
   if(OpenForum.Speech.onLoadSay) {
     OpenForum.Speech.say(OpenForum.Speech.onLoadSay);
   }

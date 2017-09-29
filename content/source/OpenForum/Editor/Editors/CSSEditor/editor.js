@@ -1,4 +1,4 @@
-function CssEditor(editorIndex,pageName,fileName) {
+function CSSEditor(editorIndex,pageName,fileName) {
   var self = this;
   var cm = null;
 
@@ -27,6 +27,9 @@ function CssEditor(editorIndex,pageName,fileName) {
       source = OpenForum.loadFile("/OpenForum/FileTemplates/css/default.css");
     }
     cm.setValue(source);
+    
+    cm.setSize(null,"100%");
+    
     cm.refresh();
 
     cm.on("change", function(cm, change) {

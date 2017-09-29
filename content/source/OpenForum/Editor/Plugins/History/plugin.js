@@ -15,33 +15,17 @@ var historyConsole = {
     for(var i=0; i<result.length; i++) {
       var file = result[i];
       historyConsole.fileTables+="<li class='accordion-navigation'>";
-      historyConsole.fileTables+="<a href='#historyConsoleAttachment"+i+"'>"+file.file+"</a>";
+
+      var lastModified = historyConsole.convertTimeStampToDateString(file.history[0].time,true);
+      var fileName = file.file;
+      historyConsole.fileTables+="<a href='#historyConsoleAttachment"+i+"'>"+fileName+" (changed "+lastModified+")</a>";
 
       historyConsole.fileTables+="<div id='historyConsoleAttachment"+i+"' class='content' style='overflow-y: auto; height: 200px;'><ul>";
       for(var j=0; j<file.history.length; j++) {
         var version = file.history[j];
-        
-        //2016-01-15-11-43-58-0738
-        var parts = version.time.split("-");
-        version.dateTime = new Date(0);
-        version.dateTime.setFullYear( parts[0] );
-        version.dateTime.setMonth( parts[1]-1 );
-        version.dateTime.setDate( parts[2] );
-        version.dateTime.setHours( parts[3] );
-        version.dateTime.setMinutes( parts[4] );
-        parts = (""+version.dateTime).split(" ");
-        
- 		var daysAgo = Math.round(-(version.dateTime.getTime() - new Date().getTime())/version.dateTime.DAY_IN_MILLIS);
-        if(daysAgo===0) {
-           daysAgo = "Today";
-           } else if(daysAgo===1) {
-             daysAgo = "Yesterday";
-           } else {
-             daysAgo = daysAgo + " days ago";
-           }
-        
-        version.dateTime = parts[0]+" "+parts[1]+" "+parts[2]+" "+parts[3]+" at "+parts[4] + " ("+daysAgo+")";
-        
+
+        version.dateTime = historyConsole.convertTimeStampToDateString(version.time);
+
         historyConsole.fileTables+="<li><a class='button tiny' onclick=\"historyConsole.setCurrentSourceFile('"+historyConsole.pageName+"/"+file.file+"'); " +
           "historyConsole.setHistoricSourceFile('"+historyConsole.pageName+"/history/"+version.file+"'); " +
           "historyConsole.mergeTitle='Compare current version of "+file.file+" with version from "+version.dateTime+"'; " +
@@ -51,8 +35,35 @@ var historyConsole = {
       historyConsole.fileTables+="</li>";
     }
     historyConsole.fileTables+="</ul>";
-      
+
     setTimeout( function(){ $(document).foundation('reflow'); },500);
+  },
+
+  convertTimeStampToDateString: function(time,short) {
+    //2016-01-15-11-43-58-0738
+    var parts = time.split("-");
+    var dateTime = new Date(0);
+    dateTime.setFullYear( parts[0] );
+    dateTime.setMonth( parts[1]-1 );
+    dateTime.setDate( parts[2] );
+    dateTime.setHours( parts[3] );
+    dateTime.setMinutes( parts[4] );
+    parts = (""+dateTime).split(" ");
+
+    var daysAgo = Math.round(-(dateTime.getTime() - new Date().getTime())/dateTime.DAY_IN_MILLIS);
+    if(daysAgo===0) {
+      daysAgo = "Today";
+    } else if(daysAgo===1) {
+      daysAgo = "Yesterday";
+    } else {
+      daysAgo = daysAgo + " days ago";
+    }
+
+    if(short) {
+      return daysAgo;
+    } else {
+    	return parts[0]+" "+parts[1]+" "+parts[2]+" "+parts[3]+" at "+parts[4] + " ("+daysAgo+")";
+    }
   },
 
   editor: null,
@@ -77,7 +88,7 @@ var historyConsole = {
     historyConsole.fileName = fileName;
     historyConsole.setCurrentSource( OpenForum.loadFile(historyConsole.fileName) );
   },
-  
+
   setCurrentSource: function(data) {
     historyConsole.view.edit.setValue(data);
   },
@@ -85,11 +96,11 @@ var historyConsole = {
   setHistoricSourceFile: function(fileName) {
     historyConsole.setHistoricSource( OpenForum.loadFile(fileName) );
   },
-  
+
   setHistoricSource: function(data) {
     historyConsole.view.right.orig.setValue(data);
   },
-  
+
   saveCurrentSource: function() {
     var data = historyConsole.view.edit.getValue();
     OpenForum.saveFile(historyConsole.fileName,data);
@@ -121,7 +132,7 @@ addPlugin( {
     historyConsole.updateHistory();
 
     OpenForum.addTab("editor"+editorIndex);
-    editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "History", changed: ""};
+    editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "History", changed: "", options: []};
     showTab(editorIndex);
 
     DependencyService.createNewDependency()

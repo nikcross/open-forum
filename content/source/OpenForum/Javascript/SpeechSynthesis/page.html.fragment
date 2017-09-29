@@ -1,8 +1,19 @@
 <h2>Voice Settings</h2>
 <form>
   <div class="row">
-    <div class="large-12 columns">
-      <label>Name <input list="voiceList" of-id="OpenForum.Speech.voice.name"/></label>
+    <div class="large-4 columns">
+      <label>Voice On/Off</label>
+      <div class="switch round small">
+        <input id="OpenForum.Speech.voice.on" type="checkbox" of-id="OpenForum.Speech.voice.on">
+        <label for="OpenForum.Speech.voice.on"></label>
+      </div>
+    </div>
+    <div class="large-8 columns">
+      <label>Name 
+        <select of-id="OpenForum.Speech.voice.name">
+  			<option of-repeatFor="voiceName in OpenForum.Speech.voices" selected>{{voiceName}}</option>
+        </select>
+      </label>
     </div>
   </div>
   <div class="row">
@@ -11,17 +22,13 @@
     </div>
   </div>
   <div class="row">
-    <div class="large-12 columns">
+    <div class="large-4 columns">
       <label>Pitch: <input type="range" of-id="OpenForum.Speech.voice.pitch" min="0" max="200"> {{OpenForum.Speech.voice.pitch/100}}</label>
     </div>
-  </div>
-  <div class="row">
-    <div class="large-12 columns">
+    <div class="large-4 columns">
       <label>Rate: <input type="range" of-id="OpenForum.Speech.voice.rate" min="0" max="20"> {{OpenForum.Speech.voice.rate/10}}</label>
     </div>
-  </div>
-  <div class="row">
-    <div class="large-12 columns">
+    <div class="large-4 columns">
       <label>Volume: <input type="range" of-id="OpenForum.Speech.voice.volume" min="0" max="100"> {{OpenForum.Speech.voice.volume}}</label>
     </div>
   </div>
@@ -35,8 +42,4 @@
   </div>
 </form>
 
-<dataList id="voiceList">
-  <option of-repeatFor="voiceName in OpenForum.Speech.voices">{{voiceName}}</option>
-</dataList>
-
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

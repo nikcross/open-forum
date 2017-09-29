@@ -69,13 +69,16 @@ function _generateHelpScript() {
   OpenForum.setElement("output","<xmp>"+helpScript+"</xmp>");
 };
 
-function generateHelp(objectName) {
+function generateHelp(objectList) {
   var helpText = "";
-  var objectName = step.objectName.split(",");
-  for(var o=0; o<objectName.length;o++) {
-    var target = eval(objectName[o]);
+  var objectList = objectList.split(",");
+  for(var o=0; o<objectList.length;o++) {
+    var target = eval(objectList[o]);
+    if(typeof(target)==="function") {
+      target = new target();
+    }
 
-    helpText += objectName + "\n\n";
+    helpText += "\n\n\n----\n"+objectList[o] + "\n\n";
 
     for(var i in target) {
       if(typeof(target[i])==="function") {

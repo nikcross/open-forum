@@ -1,0 +1,20 @@
+A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
+<hr/>
+<h3>Parameters</h3>
+<ul><li> action = Action Name</li>
+<li> text = Action button text</li>
+</ul>
+<hr/>
+<h3>Usage:</h3>
+<xmp class="panel">
+[{ActionInput action="alert" parameters="pageName=Home"}]
+</xmp>
+<input type="text" onKeyPress="(function(element,event) { if(event.charCode != 13) {return false;} else { alert( element.value ); } })(this,event);">
+
+<hr/>
+
+<a href="//OpenForum/Extensions/ActionInput/renderer.sjs">//OpenForum/Extensions/ActionInput/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ActionInput&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">action = extension.getAttribute("action");
+
+return "<input type=\"text\" onKeyPress=\"(function(element,event) { if(event.charCode != 13) {return false;} else { "+action+"( element.value ); } })(this,event);\">";
+</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

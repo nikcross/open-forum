@@ -1,7 +1,10 @@
 <a href="//OpenForum/Javascript/PageBuilder/default-page-builder.js">//OpenForum/Javascript/PageBuilder/default-page-builder.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/PageBuilder&fileName=default-page-builder.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var htmlContent = "";
 
 try{
-
+  if(pageName.indexOf("/")!==0) {
+    pageName = "/"+pageName;
+  }
+  
   var pageTemplate = file.getPageInheritedFileAsString(pageName,"page.html.template");
   if( pageTemplate===null ) {
     // Get header content
@@ -80,6 +83,13 @@ try{
   var fields = [];
   fields["pageName"] = pageName;
   fields["title"] = openForum.wikiToTitleName(pageName);
+  
+  shortTitle = fields["title"];
+  if(shortTitle.length>20) {
+    shortTitle = "..."+shortTitle.substring(shortTitle.length-17);
+  }  
+  fields["shortTitle"] = shortTitle;
+  
   fields["author"] = "unknown";
   fields["lastChangedBy"] = "unknown";
   fields["referringPages"] = "";
@@ -155,4 +165,4 @@ try{
 } catch(e) {
   log.error("Failed to build "+pageName+" using /OpenForum/PageTemplates/Default/page.build.js. Exception "+e+" on line number "+e.lineNumber);
 }</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

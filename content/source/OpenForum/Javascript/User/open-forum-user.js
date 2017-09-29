@@ -100,3 +100,7 @@ JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (respon
     document.getElementById(id).statusQueue.value = statusQueueName;
     document.getElementById(id).submit();
   };
+
+OpenForum.User.getUserRoot = function() {
+  return "/OpenForum/Users/"+OpenForum.User.user;
+};

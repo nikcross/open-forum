@@ -55,6 +55,14 @@ OpenForum.file.appendStringToFile = function(arg0,arg1,arg2,successFn) {
 	}
 };
 
+OpenForum.file.appendStringToFileNoBackup = function(arg0,arg1,arg2,successFn) {
+	 if(successFn) {
+		JSON.get("/OpenForum/Javascript/OpenForumServer/File","appendStringToFile","arg0="+arg0+"&"+"arg1="+arg1+"&"+"arg2="+arg2).onSuccess(successFn).go();
+	} else {
+		return OpenForum.loadFile("/OpenForum/Javascript/OpenForumServer/File?action=appendStringToFileNoBackup&"+"arg0="+arg0+"&"+"arg1="+arg1+"&"+"arg2="+arg2);
+	}
+};
+
 OpenForum.file.getAttachmentSize = function(arg0,arg1,successFn) {
 	 if(successFn) {
 		JSON.get("/OpenForum/Javascript/OpenForumServer/File","getAttachmentSize","arg0="+arg0+"&"+"arg1="+arg1).onSuccess(successFn).go();

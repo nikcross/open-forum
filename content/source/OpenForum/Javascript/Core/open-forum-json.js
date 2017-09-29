@@ -28,13 +28,15 @@
 			return this;
 		};
 		JSON.go = function() {
-			var request = "action="+this.action;
+			var request = null;
+          if(this.action && this.action != null && this.action != "") request = "action="+this.action;
+          
           if(this.method=="GET") {
 			if(this.parameters && this.parameters.length>0) {
 				request+="&"+this.parameters;
             }
             Ajax.sendRequest( new AjaxRequest(this.method,this.page,request,"",this.onSuccess,this.onError,true) );
           } else {
-			Ajax.sendRequest( new AjaxRequest(this.method,this.page,"",this.parameters,this.onSuccess,this.onError,true) );
+			Ajax.sendRequest( new AjaxRequest(this.method,this.page,request,this.parameters,this.onSuccess,this.onError,true) );
           }
 		};

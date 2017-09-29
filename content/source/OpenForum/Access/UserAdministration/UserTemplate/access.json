@@ -1,0 +1,13 @@
+{
+    "userAccess": {
+        "read": {
+            "User": true
+        },
+        "delete": {
+            "User": true
+        },
+        "update": {
+            "User": true
+        }
+    }
+}

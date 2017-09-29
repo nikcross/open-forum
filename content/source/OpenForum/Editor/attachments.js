@@ -12,15 +12,31 @@ function setAttachments(response) {
 
   attachments = response.attachments;
   for(var ai = 0; ai< attachments.length; ai++) {
-    attachments[ai].id = ai;
-    attachments[ai].action = "openAttachment";
-    attachments[ai].actionName = "Edit";
-    attachments[ai].actionIcon = "page_edit";
-    attachments[ai].icon = "tag_blue";
+    var attachment = attachments[ai];
+    attachment.id = ai;
+    attachment.extension = attachment.fileName.substring(attachment.fileName.lastIndexOf("."));
+    attachment.action = "openAttachment";
+    attachment.action = "openAttachment";
+    attachment.actionName = "Edit";
+    attachment.actionIcon = "page_edit";
+    attachment.icon = "tag_blue";
+    attachment.extraActions = "";
 
+    if(attachment.extension==".zip") {
+      attachment.action = "unzipAttachment";
+      attachment.actionName = "Unzip";
+      attachment.actionIcon = "zip";
+    } else if(attachment.extension==".link") {
+      attachment.extraActions = "<a class=\"button tiny\" onClick=\"forkAttachment('"+attachment.id+"'); return false;\">Fork</a>";
+    } else if(attachment.extension==".png" || attachment.extension==".jpg" || attachment.extension==".gif") {
+      attachment.action = "";
+      attachment.actionName = "";
+      attachment.actionIcon = "";
+    }
+    
     var aLastModified = new Date();
-    aLastModified.setTime(attachments[ai].lastModified);
-    attachments[ai].lastModified = aLastModified.getDisplayString();
+    aLastModified.setTime(attachment.lastModified);
+    attachment.lastModified = aLastModified.getDisplayString();
   }
 
   OpenForum.scan(document.body);
@@ -42,6 +58,13 @@ function loadUpdatedFilesList() {
 /*function updateFilesList(result) {
 	attachments = result.attachments;
 }*/
+
+function unzipAttachment(attachmentId) {
+  var sourceAttachment = attachments[attachmentId];
+  var result = JSON.parse( OpenForum.loadFile("/OpenForum/Actions/Zip?action=unzip&pageName="+sourceAttachment.pageName+"&fileName="+sourceAttachment.fileName ));
+  
+  updateOverview();
+}
 
 function forkAttachment(attachmentId) {
   var sourceAttachment = attachments[attachmentId];
@@ -69,6 +92,10 @@ function saveAttachments() {
 }
 
 function saveAttachment(attachmentIndex) {
+  if(attachments[attachmentIndex].fileName.startsWith("scrap.")) {
+    return;
+  }
+  
   var fileToSave = attachments[attachmentIndex].pageName + "/" + attachments[attachmentIndex].fileName;
   var data = attachments[attachmentIndex].editor.editor.getValue();
   var result = OpenForum.saveFile(fileToSave,data);
@@ -103,7 +130,11 @@ function createAttachment(createBlankFile) {
       }
     } else {
       openAttachment(ai);
-      attachments[ai].editor.changed="*";
+      if(attachments[ai].fileName.startsWith("scrap.")) {
+      	attachments[ai].editor.changed=" ";
+      } else {
+      	attachments[ai].editor.changed="*";
+      }
     }
   }
 }
@@ -210,7 +241,9 @@ function openAttachment(attachmentId) {
   var editor = findAttachmentEditor(pageName,fileName);
   if(editor===null) {
     var flavour = "text";
-    if(fileName.indexOf(".js")==fileName.length-3) {
+    if(fileName.indexOf(".link")==fileName.length-5) {
+      flavour = "link";
+    } else if(fileName.indexOf(".js")==fileName.length-3) {
       flavour = "javascript";
     } else if(fileName.indexOf(".sjs")==fileName.length-4) {
       flavour = "javascript";

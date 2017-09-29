@@ -1,8 +1,10 @@
 <h3>Plugins</h3>
 
-[<ul><li> <a href="/OpenForum/Editor/Plugins/ClientConsole">ClientConsole</a></li>
+<ul><li> <a href="/OpenForum/Editor/Plugins/ClientConsole">ClientConsole</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/Console">Console</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/DataTransform">DataTransform</a></li>
+<li> <a href="/OpenForum/Editor/Plugins/FileDiff">FileDiff</a></li>
+<li> <a href="/OpenForum/Editor/Plugins/FormBuilder">FormBuilder</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/GameConsole">GameConsole</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/Giraffe">Giraffe</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/History">History</a></li>
@@ -17,4 +19,4 @@
 <li> <a href="/OpenForum/Editor/Plugins/Video">Video</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/Vision">Vision</a></li>
 </ul>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

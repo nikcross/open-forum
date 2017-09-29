@@ -1,8 +1,11 @@
 <div class="row">
 <script>
-pageName = new String(window.location);
-pageName = pageName.substring(7);
+pageName = window.location.pathname
 pageName = pageName.substring(pageName.indexOf("/")+1);
+if(pageName.indexOf(".")!=-1) {
+  pageName = pageName.substring( 0,pageName.lastIndexOf("/") );
+}
+  
 </script>
 <b>Sorry. The page <script>document.write(pageName);</script> you were looking for has not been found.</b>
 <br/><br/><br/><br/>
@@ -10,4 +13,4 @@ pageName = pageName.substring(pageName.indexOf("/")+1);
 document.write("<a href='/OpenForum/Editor?pageName=/"+pageName+"'>You can create the page '"+pageName+"' by clicking here.</a>");
 </script>
 </div>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

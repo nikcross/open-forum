@@ -1,4 +1,13 @@
 .CodeMirror {
+  border-top: 1px solid black; 
+  border-bottom: 1px solid black;
+}
+
+.CodeMirror-matchingtag { 
+  background: rgba(255, 150, 0, .3); 
+}
+
+.CodeMirror {
   border: 1px solid #eee;
   height: auto;
 }
@@ -7,3 +16,6 @@
   overflow-y: hidden;
   overflow-x: auto;
 }
+
+
+.styled-background { background-color: #00cc00; color: #ffffff; }

@@ -3,10 +3,18 @@
 var NextTreeNodeIndex = 0;
 var TreeNodes = [];
 
-function Tree(elementId,name,attributes) {
-  var root = new TreeNode(name,attributes);
+function Tree(elementId,name,attributes,modifier) {
+  var jsonModifier = function(json) {
+    if(modifier) modifier(json);
+  }
+  
+  var root = new TreeNode(name,attributes,null,jsonModifier);
   var elementId = elementId;
 
+  this.setJSONModifier = function(newModifier) {
+    modifier = newModifier;
+  }
+  
   this.render = function() {
     var element = document.getElementById(elementId);
     element.innerHTML = root.render(0);
@@ -104,7 +112,7 @@ function Action(config) {
   };
 }
 
-function TreeNode(name,attributes) {
+function TreeNode(name,attributes,parent,jsonModifier) {
   var that = this;
   var id = "TreeNode"+NextTreeNodeIndex;
   NextTreeNodeIndex++;
@@ -124,14 +132,19 @@ function TreeNode(name,attributes) {
     return this;
   };
 
+  this.getParent = function() {
+    return parent;
+  }
+  
   this.addChild = function(name,attributes) {
-    var newChild = new TreeNode(name,attributes);
+    var newChild = new TreeNode(name,attributes,this,jsonModifier);
     children[children.length] = newChild;
     newChild.parent = that;
     return newChild;
   };
 
   this.addJSON = function(node) {
+    if(jsonModifier!=null) jsonModifier(node);
     var child = this.addChild( node.name,node.attributes );
     if(node.leaves) {
       for(var i in node.leaves) {
@@ -141,6 +154,18 @@ function TreeNode(name,attributes) {
     child.parent = that;
     return child;
   };
+  
+  this.importJSON = function(url,action,parameters) {
+    JSON.get(url,action,parameters).onSuccess(
+      function(response) {
+        for(var i in response.leaves) {
+          that.addJSON( response.leaves[i] );
+        }
+        paint();
+      }
+    ).go();
+  }
+  
   this.deleteChild = function(node) {
     for(var index in children) {
       if(children[index].getId()===node.getId()) {

@@ -9,6 +9,9 @@
     <td>
       Messages
     </td>
+    <td>
+      Actions
+    </td>
   </tr>
     <tr of-repeatFor="queue in queues">
     <td>
@@ -17,7 +20,10 @@
     <td>
       {{queue.messages}}
     </td>
+      <td>
+      <a href="#" class="button tiny" onClick="clearQueue('{{queue.name}}'); return false;">Clear</a>
+    </td>
   </tr>
 </table>
 </div>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

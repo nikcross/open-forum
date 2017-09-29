@@ -4,14 +4,14 @@
           <div class="row">
             <div class="large-12 columns">
               <ul class="inline-list right">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Developers</a></li>
+                <li><a href="undefined">About</a></li>
+                <li><a href="undefined">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="undefined">Documentation</a></li>
+                <li><a href="undefined">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
           </div>
         </div>
       </footer>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

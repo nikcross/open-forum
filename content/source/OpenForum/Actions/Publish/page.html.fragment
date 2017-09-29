@@ -45,4 +45,4 @@ external.getData(remoteSite+"/OpenForum/Actions/RefreshPage?pageName="+newPageNa
   htmlData = wiki.buildPage("/OpenForum/Actions/Publish","Published ["+remoteSite+"/"+newPageName+"]",true);
   transaction.sendPage(htmlData);
 }</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>

@@ -7,35 +7,31 @@ Creates a bulleted list of child pages
 <xmp class="panel">
 [{ChildPagesList pageName="/OpenForum"}]
 </xmp>
-<ul><li> <a href="/OpenForum/About">About</a></li>
+<li> <a href="/OpenForum/About">About</a></li>
 <li> <a href="/OpenForum/Access">Access</a></li>
 <li> <a href="/OpenForum/Actions">Actions</a></li>
 <li> <a href="/OpenForum/AddOn">AddOn</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Aliases"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Aliases does not exist. Click to create it.">Aliases</a></li>
 <li> <a href="/OpenForum/Authentication">Authentication</a></li>
 <li> <a href="/OpenForum/Authorization">Authorization</a></li>
 <li> <a href="/OpenForum/Configuration">Configuration</a></li>
 <li> <a href="/OpenForum/DeletedPages">DeletedPages</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/DynamicPages"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/DynamicPages does not exist. Click to create it.">DynamicPages</a></li>
 <li> <a href="/OpenForum/Editor">Editor</a></li>
 <li> <a href="/OpenForum/ErrorPages">ErrorPages</a></li>
 <li> <a href="/OpenForum/Extensions">Extensions</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates does not exist. Click to create it.">FileTemplates</a></li>
+<li> <a href="/OpenForum/FileTemplates">FileTemplates</a></li>
 <li> <a href="/OpenForum/Giraffe">Giraffe</a></li>
 <li> <a href="/OpenForum/Groups">Groups</a></li>
 <li> <a href="/OpenForum/HomePage">HomePage</a></li>
 <li> <a href="/OpenForum/Images">Images</a></li>
-<li> <a href="/OpenForum/JarManager">JarManager</a></li>
 <li> <a href="/OpenForum/Javascript">Javascript</a></li>
 <li> <a href="/OpenForum/Journal">Journal</a></li>
+<li> <a href="/OpenForum/Keyboard">Keyboard</a></li>
 <li> <a href="/OpenForum/MessageQueue">MessageQueue</a></li>
 <li> <a href="/OpenForum/MissingPages">MissingPages</a></li>
 <li> <a href="/OpenForum/PageTemplates">PageTemplates</a></li>
-<li> <a href="/OpenForum/PagesIndex">PagesIndex</a></li>
 <li> <a href="/OpenForum/Processor">Processor</a></li>
 <li> <a href="/OpenForum/PublishingJournal">PublishingJournal</a></li>
-<li> <a href="/OpenForum/SQL">SQL</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/SearchResults"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/SearchResults does not exist. Click to create it.">SearchResults</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/ReleaseNotes"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/ReleaseNotes does not exist. Click to create it.">ReleaseNotes</a></li>
 <li> <a href="/OpenForum/SiteExplorer">SiteExplorer</a></li>
 <li> <a href="/OpenForum/Spider">Spider</a></li>
 <li> <a href="/OpenForum/SystemMonitor">SystemMonitor</a></li>
@@ -44,7 +40,7 @@ Creates a bulleted list of child pages
 <li> <a href="/OpenForum/Users">Users</a></li>
 </ul>
 
--<hr/>
+<hr/>
 <h3>renderer.sjs</h3>
 <a href="//OpenForum/Extensions/ChildPagesList/renderer.sjs">//OpenForum/Extensions/ChildPagesList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildPagesList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">targetPage = extension.getAttribute("pageName");
 if(targetPage===null) {
@@ -76,4 +72,4 @@ for(var i in pagesList) {
 }
 
 return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,data);</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

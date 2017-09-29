@@ -1,0 +1,33 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <title> Live Page View</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/Editor/LivePageView/page.js"></script>
+
+	<script>
+		var pageName = "/OpenForum/Editor/LivePageView";
+		var author = "unknown";
+		var time = "1480609592000";
+	    var currentUser = "";
+	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+	</script>
+    
+  </head>
+  <body>
+    <!--PageContent Start-->
+<div id="overlay" class="panel callout radius" style="position: absolute; bottom: 10px; left: 10px;">Loading...</div>
+<iframe style="width: 100%; height: 100%;" id="ifrm" src="/TheLab/Tools/AutoRefreshPage/loading.html"></iframe>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Page Content End-->
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

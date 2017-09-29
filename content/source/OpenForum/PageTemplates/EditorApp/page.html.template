@@ -8,13 +8,10 @@
 	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
 	<script type="text/javascript" src="&pageName;/page.js"></script>
 
-	<script>
-		var pageName = "&pageName;";
-		var author = "&author;";
-		var time = "&time;";
-	    var currentUser = "";
-	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
-	</script>
+    <link href="http://open-forum.onestonesoup.org/OpenForum/PageTemplates/EditorApp/icon-192x192.png" rel="icon" sizes="192x192" />
+    <link href="http://open-forum.onestonesoup.org/OpenForum/PageTemplates/EditorApp/icon-128x128.png" rel="icon" sizes="128x128" />
+
+    &insert:/OpenForum/PageTemplates/CommonElements/header-script.common.html;
     
   </head>
   <body>
@@ -29,7 +26,7 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="[{Hash}]">&title;</a>
+            <a href="#" title="&title;">&shortTitle;</a>
             </h1>
           </li>
         </ul>
@@ -38,7 +35,10 @@
     
     <!--PageContent Start-->&content;<!--Page Content End-->
       
-&insert:/OpenForum/PageTemplates/PublishedPage/Footer/page.content;
+    &insert:/OpenForum/PageTemplates/PublishedPage/Footer/page.content;
+    
+    &insert:/OpenForum/PageTemplates/CommonElements/error-alert.common.html;
+    &insert:/OpenForum/PageTemplates/CommonElements/alert.common.html;
     
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>

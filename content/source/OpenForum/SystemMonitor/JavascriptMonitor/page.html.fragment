@@ -1,0 +1,7 @@
+<div class="row">
+  <table>
+    <thead><tr><td>Thread Id</td><td></td></tr></thead>
+    <tbody><tr of-repeatFor="thread in threads"><td>{{thread}}</td><td><a class="button" onclick="stopThread('{{thread}}'); return false;">Stop</a></td></tr></tbody>
+  </table>
+</div>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

@@ -1,4 +1,4 @@
-function XmlEditor(editorIndex,pageName,fileName) {
+function XMLEditor(editorIndex,pageName,fileName) {
   var self = this;
   var cm = null;
 
@@ -26,6 +26,9 @@ function XmlEditor(editorIndex,pageName,fileName) {
       source = OpenForum.loadFile("/OpenForum/FileTemplates/xml/default.xml");
     }
     cm.setValue(source);
+    
+    cm.setSize(null,"100%");
+    
     cm.refresh();
 
     cm.on("change", function(cm, change) {

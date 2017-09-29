@@ -1,4 +1,3 @@
+!!Deprecated. Now uses Task Scheduler
 
-*[Manage Queues|/OpenForum/Triggers/TimerTrigger/ManageQueues]
-*[Automatic Rebuild|/OpenForum/Triggers/TimerTrigger/AutomaticRebuild]
-*[Halcyon Camera|/TheLab/CameraView/Service]
+*[Task Scheduler|/OpenForum/Triggers/TimerTrigger/TaskScheduler]

@@ -1,0 +1,12 @@
+<h3>Start = "Hello Lexi"</h3>
+
+<h3>Stop = "Goodbye Lexi"</h3>
+
+<xmp class="panel">
+{{commandList}}
+</xmp>
+
+<xmp class="panel">
+{{commandView}}
+</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

@@ -1,4 +1,4 @@
-function JavascriptEditor(editorIndex,pageName,fileName) {
+function JavascriptEditor(editorIndex,pageName,fileName,markChanged) {
   var self = this;
   var cm = null;
 
@@ -6,6 +6,25 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
     var content = OpenForum.loadFile("/OpenForum/Editor/Editors/JavascriptEditor/page.html.fragment");
     content = content.replace(/\{\{editorIndex\}\}/g,editorIndex);
     OpenForum.setElement("editor"+editorIndex,content);
+
+    var autocomplete = new Autocomplete( "javascript" );
+    autocomplete.addCompleter(
+      function (params) {
+        var list = [];
+        var exclusive = false;
+        if(params.toCursor.endsWith("O")) {
+          list.push("penForum");
+        } else if(params.toCursor.endsWith("OpenForum")) {
+          list.push(".setElement();");
+          list.push(".getElement();");
+          list.push(".showTab();");
+          list.push(".loadScript();");
+          exclusive = true;
+        }
+        return {list: list, exclusive: exclusive};
+      }
+    );
+
     cm = CodeMirror.fromTextArea(
       document.getElementById("editor"+editorIndex+"Src"),
       { 
@@ -13,13 +32,15 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
         lineNumbers: true,
         matchBrackets: true,
         autoMatchParens: true,
+        continueComments: "Enter",
         extraKeys: {
+          "Ctrl-Q": "toggleComment",
           "Ctrl-Space": "autocomplete"
         },
         viewportMargin: Infinity,
         mode: "javascript",
         styleActiveLine: true,
-        gutters: ["CodeMirror-lint-markers"],
+        gutters: ["CodeMirror-lint-markers","CodeMirror-linenumbers"],
         lint: true
       }
     );
@@ -36,10 +57,15 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
       source = OpenForum.loadFile("/OpenForum/FileTemplates/js/default.js");
     }
     cm.setValue(source);
+
+    cm.setSize(null,"100%");
+
     cm.refresh();
 
     cm.on("change", function(cm, change) {
-      editorList[editorIndex].changed="*";
+      if(markChanged) {
+        editorList[editorIndex].changed="*";
+      }
     });
   };
 
@@ -62,39 +88,66 @@ function JavascriptEditor(editorIndex,pageName,fileName) {
   self.renderOptions = function() {
     //renderTabOption(name,toolTip,action)
     var data = "";
-    
+
     data += renderTabOption("Close","Close editor","closeEditor( "+editorIndex+" )");
     data += renderTabOption("Save","Save "+pageName+"/"+fileName,"saveFile( '"+pageName+"' , '"+fileName+"' )");
+    data += renderTabOption("Run","Run "+pageName+"/"+fileName,"editorList["+editorIndex+"].editor.run()");
+
     return data;
   };
-  
+
+  self.run = function() {
+    var pluginName = "Console";
+    if(fileName.indexOf(".sjs")!=-1) {
+      pluginName = "ServerConsole";
+    }
+
+    loadPlugin(pluginName,
+               function(plugin) {
+      showTab(plugin.editorIndex);
+      plugin.run(fileName);
+    }
+              );
+  };
+
   self.documentation = [
-    {pageName: "/Development/StandardJavascript/Global", title:"Global JS"},
-    {pageName: "/Development/StandardJavascript/Array", title:"JS Arrays"},
-    {pageName: "/Development/StandardJavascript/Math", title:"JS Math"},
-    {pageName: "/Development/StandardJavascript/String", title:"JS Strings"},
-    {pageName: "/Development/StandardJavascript/JSON", title:"JS JSON"},
-    {pageName: "/Development/StandardJavascript/Date", title:"JS Dates"}
+    {pageName: "StandardJavascript/Global", title:"Global JS"},
+    {pageName: "StandardJavascript/Array", title:"JS Arrays"},
+    {pageName: "StandardJavascript/Math", title:"JS Math"},
+    {pageName: "StandardJavascript/String", title:"JS Strings"},
+    {pageName: "StandardJavascript/JSON", title:"JS JSON"},
+    {pageName: "StandardJavascript/Date", title:"JS Dates"}
   ];
 
   if(fileName.indexOf(".js")!=-1) {
-    self.documentation.push( {pageName: "/Development/OpenForumJavascript/Overview", title:"OpenForum Javascript"} );
-    self.documentation.push( {pageName: "/Development/OpenForumJavascript/DependencyService/Overview", title:"OpenForum DependencyService"} );
+    self.documentation.push( {pageName: "OpenForumJavascript/Overview", title:"OpenForum Javascript"} );
+    self.documentation.push( {pageName: "DependencyService/Overview", title:"OpenForum DependencyService"} );
   } else if(fileName==="get.sjs" || fileName==="post.sjs") {
-    self.documentation.push( {pageName: "/OpenForumDocumentation/OpenForumServerSideJavascript/OpenForum", title: "SJS Transaction"} );
+    self.documentation.push( {pageName: "OpenForumServerSideJavascript/OpenForum", title: "SJS Transaction"} );
+  }
+
+  if(fileName.indexOf(".sjs")!=-1) {
+    self.documentation.push( {pageName: "OpenForumServerSideJavascript/KitchenSink", title: "Javascript Helpers"} );
   }
 
   OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/theme/rubyblue.css");
 
-
   DependencyService.createNewDependency()
-  .addDependency("OpenForum/Javascript/CodeMirror/mode/javascript/javascript.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon/hint/javascript-hint.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon/lint/lint.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon/lint/javascript-lint.js")
-  .addDependency("/OpenForum/Javascript/CodeMirror/addon/jshint.js")
-  .setOnLoadTrigger( function() {
+    .addDependency("OpenForum/Javascript/CodeMirror/mode/javascript/javascript.js")
+    
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/hint/javascript-hint.js")
+  
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/lint/lint.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/lint/javascript-lint.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/jshint.js")
+  
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/edit/matchbrackets.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/comment/continuecomment.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/comment/comment.js")
+    .addDependency("/OpenForum/Editor/Editors/HTMLEditor/Autocomplete.js")
+
+    .setOnLoadTrigger( function() {
     var o = self;
     o.init();
   } ).loadDependencies();

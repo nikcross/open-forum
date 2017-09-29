@@ -1,9 +1,14 @@
-<ul><li> <a href="/OpenForum/PageTemplates/Blank">Blank</a></li>
+<ul><li> <a href="/OpenForum/PageTemplates/Alloy-WYSIWYG">Alloy-WYSIWYG</a></li>
+<li> <a href="/OpenForum/PageTemplates/Blank">Blank</a></li>
+<li> <a href="/OpenForum/PageTemplates/Branding">Branding</a></li>
+<li> <a href="/OpenForum/PageTemplates/CommonElements">CommonElements</a></li>
 <li> <a href="/OpenForum/PageTemplates/Default">Default</a></li>
 <li> <a href="/OpenForum/PageTemplates/EditorApp">EditorApp</a></li>
 <li> <a href="/OpenForum/PageTemplates/Example">Example</a></li>
 <li> <a href="/OpenForum/PageTemplates/Frameworks">Frameworks</a></li>
+<li> <a href="/OpenForum/PageTemplates/Html">Html</a></li>
+<li> <a href="/OpenForum/PageTemplates/MarkDown">MarkDown</a></li>
 <li> <a href="/OpenForum/PageTemplates/PageInDevelopment">PageInDevelopment</a></li>
 <li> <a href="/OpenForum/PageTemplates/PublishedPage">PublishedPage</a></li>
 </ul>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

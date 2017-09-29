@@ -9,7 +9,7 @@ A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
 <xmp class="panel">
 [{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
 </xmp>
-[<input type="button" value="Rebuild Wiki" onclick="ajax.doGet('/OpenForum/Actions/Rebuild','pageName=Home');return false;">
+[<a class='button' href='#' onclick='Rebuild("pageName=Home"); return false;'>Rebuild Wiki</a>
 
 <hr/>
 
@@ -17,5 +17,17 @@ A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
 parameters = extension.getAttribute("parameters");
 text = extension.getAttribute("text");
 
-return "<input type=\"button\" value=\""+text+"\" onclick=\"ajax.doGet('/OpenForum/Actions/"+action+"','"+parameters+"');return false;\">";</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible--></ul>
+if(parameters===null) {
+  parameters = "";
+} else {
+  var parts = (""+parameters).split(",");
+  parameters = "";
+  for(var part in parts) {
+    if(parameters.length>0) parameters += ",";
+    parameters += "\""+parts[part]+"\"";
+  }
+}
+//return "<a class='button' href='#' onclick='"+action+"(); return false;'>"+text+"</a>";
+return "<a class='button' href='#' onclick='"+action+"("+parameters+"); return false;'>"+text+"</a>";
+</xmp>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>

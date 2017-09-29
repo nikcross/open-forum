@@ -71,15 +71,16 @@ function addEditor(pageName,fileName,flavour) {
   editorDiv.setAttribute("style","display:block;");
   document.getElementById("editors").appendChild(editorDiv);
 
+  var isScrap = fileName.startsWith("scrap.");
   var editorObj = null;
   if(flavour=="javascript") {
-    editorObj = new JavascriptEditor(editorIndex,pageName,fileName);
+    editorObj = new JavascriptEditor(editorIndex,pageName,fileName,isScrap);
   } else if(flavour=="css") {
-    editorObj = new CssEditor(editorIndex,pageName,fileName);
+    editorObj = new CSSEditor(editorIndex,pageName,fileName);
   } else if(flavour=="xml") {
-    editorObj = new XmlEditor(editorIndex,pageName,fileName);
+    editorObj = new XMLEditor(editorIndex,pageName,fileName);
   }else if(flavour=="html") {
-    editorObj = new HtmlEditor(editorIndex,pageName,fileName);
+    editorObj = new HTMLEditor(editorIndex,pageName,fileName);
   } else {
     editorObj = new DefaultEditor(editorIndex,pageName,fileName);
   }

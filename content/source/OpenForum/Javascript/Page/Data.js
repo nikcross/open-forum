@@ -3,19 +3,24 @@ function Data(pageName) {
   var data = {};
   var rawData = null;
 
-
   self.setPageName = function(newPageName) {
     pageName = newPageName;
+    if(pageName.charAt(0)!=="/") pageName = "/"+pageName;
     self.load();
+    return this;
   };
 
+  self.getEditor = function() {
+    return self.find("editor");
+  };
+  
   self.load = function() {
 
     try{
       if(typeof(OpenForum)!=="undefined") {
-        rawData = OpenForum.loadFile("/"+pageName+"/data.json");
+        rawData = OpenForum.loadFile(pageName+"/data.json");
       } else {
-        rawData = file.getAttachment("/"+pageName,"data.json");
+        rawData = file.getAttachment(pageName,"data.json");
       }
       data = JSON.parse(rawData);
     } catch(e) {}
@@ -37,6 +42,7 @@ function Data(pageName) {
 
   //eg. service.get.attribute.1
   self.find = function(path) {
+    if(typeof(data)=="undefined" || data==null) return;
     var parts = path.split(".");
     var found = data;
     for(var i=0;i<parts.length;i++) {

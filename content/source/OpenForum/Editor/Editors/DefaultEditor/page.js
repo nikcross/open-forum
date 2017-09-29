@@ -1,83 +1,20 @@
-    OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/lib/codemirror.css");
-	OpenForum.loadCSS("/OpenForum/Editor/code-mirror.css");
-    OpenForum.includeScript("/OpenForum/Javascript/CodeMirror/lib/codemirror.js");
-    OpenForum.includeScript("/OpenForum/Editor/Editors/DefaultEditor/editor.js");
-    OpenForum.includeScript("/OpenForum/Javascript/JavaWrapper/File/File.js");
+OpenForum.includeScript("/OpenForum/Editor/Editors/StandaloneEditor.js");
 
-var editor = null;
-var editorList = [ {changed: ""} ];
-var editingPageName = "/TheLab/DefaultEditor";
-var editingFileName = "editing.txt";
-var autoSave = true;
+var editor;
 
 OpenForum.init = function() {
-  document.getElementById("defaultEditor").innerHTML = OpenForum.loadFile("/OpenForum/Editor/Editors/DefaultEditor/standalone.page.html");
-  OpenForum.crawl(document.getElementById("defaultEditor"));
-  
-  if(OpenForum.getParameter("pageName")) {
-    editingPageName = OpenForum.getParameter("pageName");
-    editingFileName = "page.content";
-    autoSave = false;
-  }
-  
-  document.title = "Editing "+editingPageName+"/"+editingFileName;
-  
-  editor = new DefaultEditor(0,editingPageName,editingFileName);
-  editor._init = editor.init;
-  editor.init = function() {
-    editor._init();
 
-    var localChanges = localStorage.getItem( editingPageName+"/"+editingFileName );
-    if( localChanges && localChanges.length>0 ) {
-      editor.getCodeMirror().setValue( localStorage.getItem( editingPageName+"/"+editingFileName ) );
-    }
-
-    editor.getCodeMirror().on("change", function(cm, change) {
-      storeChanges();
-    });
-
-    setInterval(autoSaveChanges,10000);
+  var editorConfig = {
+    flavour: "Default",
+    editingPageName: "/TheLab/Sandbox",
+    editingFileName: "sandbox.txt",
+    elementId: "defaultEditor"
   };
-};
-
-function storeChanges() {
-  localStorage.setItem( pageName+"/"+editingFileName,editor.getValue() );
-}
-
-function autoSaveChanges() {
-  if(editorList[0].changed!=="*" || autoSave===false) {
-    return;
+  if(OpenForum.getParameter("pageName")) {
+    editorConfig.editingPageName = OpenForum.getParameter("pageName");
+      editorConfig.editingFileName = "page.content";
+      editorConfig.autoSave = false;
   }
-  save();
-}
 
-function save() {
-  OpenForum.saveFile(editingPageName+"/"+editingFileName,editor.getValue());
-  editorList[0].changed="";
-  localStorage.setItem( editingPageName+"/"+editingFileName,"");
-      showStatus("All changes saved.");
-}
-
-function upload() {
-  OpenForum.Browser.upload( function(data) {editor.getCodeMirror().setValue(data); } ,showError);
-}
-
-function download() {
-  OpenForum.Browser.download(editingFileName,editor.getValue());
-}
-
-var statusClearer = null;
-var status = " ";
-
-function showStatus(message) {
-  if(statusClearer!==null) {
-    clearTimeout(statusClearer);
-  }
-  status = message;
- //$('#status').foundation('reveal', 'open');
-  statusClearer = setTimeout( function() { showStatus(" "); },4000);
-}
-
-function showError(message) {
-  showStatus("Error: "+message);
-}
+    editor = new StandaloneEditor( editorConfig );
+  };

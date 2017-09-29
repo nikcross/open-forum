@@ -1,0 +1,46 @@
+<div id="openModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Open File</h2>
+  <div>Create new file <input type="text" id="newFileName" onKeyPress="&editor;.createNew(this.value,event);" /></div>
+  <div id="fileTree"></div>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="confirmRetrieveModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">The file {{&editor;.getEditingPageName()}}/{{&editor;.getEditingFileName()}} has changed on the server.</h2>
+  <div id="row"><a class="button" href="#" onclick="&editor;.retrieveChanges(true);return false;">Use Local Version</a></div>
+  <div id="row"><a class="button" href="#" onclick="&editor;.openFile();return false;">Load Server Version</a></div>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div class="row">
+  <div class="large-12 columns">
+    <span class='success label'>{{&editor;.getStatus()}}</span>
+  </div>
+</div>
+<div class="row" id="editorButtons">
+  <div class="large-4 columns" id="standalone-buttons">
+    <a class="button round tiny" onClick="&editor;.openFileSelect(); return false;">Open</a>
+    <a class="button round tiny" onClick="&editor;.save(); return false;">Save</a>
+  </div>
+  <div class="large-4 columns">
+    <a class="button round tiny" onClick="upload(); return false;" title="Upload an HTML document to your browser.">Upload</a>
+    <a class="button round tiny" onClick="download(); return false;" title="Download the current HTML document">Download {{&editor;.getEditingFileName()}}</a>
+  </div>
+  <div class="large-4 columns">
+    <div class="row">
+      <div class="large-8 columns">
+        <p>Autosave</p>
+      </div><div class="large-4 columns">
+      <div class="switch round small">
+        <input id="autoSaveSwitch" type="checkbox"  of-id="autoSave">
+        <label for="autoSaveSwitch">
+        </label>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="large-12 columns">
+  <div id="editor0">Editor Loading...</div>
+</div>

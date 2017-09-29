@@ -5,6 +5,12 @@ function SpiderProcessorTemplate() {
     log = newLog;
   };
 
+  self.setUp = function() {
+  };
+  
+  self.tearDown = function() {
+  };
+  
   self.processPage = function(pageName) {
     if(pageName.indexOf("/history")!=-1) {
       return;

@@ -5,84 +5,154 @@
     <title>500</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
-	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-	<script type="text/javascript" src="/OpenForum/ErrorPages/500/page.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+    <script type="text/javascript" src="/OpenForum/ErrorPages/500/page.js"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css" />
 
-	<script>
-		var pageName = "/OpenForum/ErrorPages/500";
-		var author = "unknown";
-		var time = "1447152051000";
-	    var currentUser = "";
-	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
-	</script>
-    
+    <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
+      var pageName = "/OpenForum/ErrorPages/500";
+      var author = "unknown";
+      var time = "1480609592000";
+      var currentUser = "";
+      var user = {};
+      var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
+      JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName).onSuccess( function (response) {  currentUser = response;  } ).go();
+      JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
+        function (response) {
+          user.profile = response.profile;
+          if(response.profile.avatar) {
+            avatar = "<img src='" + response.profile.avatar + "' style='width: 24px; height: 24px;' />";
+          }
+        }
+      ).go();
+      
+      window.onerror = function(errorMsg, url, lineNumber) {
+        OpenForum.error = errorMsg+" url:"+url+" line number:"+lineNumber;
+        OpenForum.errorMessage = "Woops";
+        $('#ofErrorMessage').foundation('reveal', 'open');
+      };
+      
+      window.alert = function(message,title) {
+        if(!title) {
+          title = "Open Forum";
+        }
+        OpenForum.alert = { message: message, title: title};
+        $('#ofAlertMessage').foundation('reveal', 'open');
+      };
+    </script><!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) end -->
+
   </head>
   <body>
-          <nav class="top-bar" data-topbar>
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <img src="/OpenForum/Images/open-forum-dog-small.png" />
-            </h1>
-          </li>
-        </ul>
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <a href="#">500</a>
-            </h1>
-          </li>
-        </ul>
-<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) start -->        <section class="top-bar-section">
-          <ul class="right">
-            <li class="divider"></li>
-            <li class="has-dropdown">
-              <a href="#">Signed in as {{currentUser}}</a>
-              <ul class="dropdown">
-                <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-                <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
-                <script>
-  var accessLoading = false;
-  function doSignIn() {
-    
-    if(!OpenForum.Access) {
-      if(!accessLoading) {
-      	OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
-      	accessLoading=true;
-      }
-      setTimeout(doSignIn,1000);
-      return;
-    }
-    
-    OpenForum.Access.showPopup();
-  };
-                </script>
-              </ul>
-            </li>
-          </ul>
-        </section>
-<!-- insert (/OpenForum/PageTemplates/PublishedPage/TopMenu/page.content) end -->
-      </nav>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/"></a></li><li role="menuitem"><a href="//OpenForum">OpenForum</a></li><li role="menuitem"><a href="//OpenForum/ErrorPages">ErrorPages</a></li><li role="menuitem" class="current"><a href="//OpenForum/ErrorPages">500</a></li></nav>
-    
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <!-- insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) start --><a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" /></a><!-- insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) end -->
+          </h1>
+        </li>
+      </ul>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <a href="#" title="500">500</a>
+          </h1>
+        </li>
+      </ul>
+      <!-- insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) start --><section class="top-bar-section">
+  <ul class="right">
+
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="#">Favourite Pages</a>
+      <ul class="dropdown">
+        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="/{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
+      </ul>
+    </li>
+
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="undefined">Signed in as {{currentUser}} {{avatar}}</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+        <li><a href="undefined" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+        <script>
+          var accessLoading = false;
+          function doSignIn() {
+
+            if(!OpenForum.Access) {
+              if(!accessLoading) {
+                OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+                accessLoading=true;
+              }
+              setTimeout(doSignIn,1000);
+              return;
+            }
+
+            OpenForum.Access.showPopup();
+          };
+        </script>
+      </ul>
+    </li>
+  </ul>
+</section><!-- insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) end -->
+    </nav>
+    <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/ErrorPages">ErrorPages</a></li><li role="menuitem" class="current"><a href="/OpenForum/ErrorPages">500</a></li></nav>
+
     <!--PageContent Start-->
 
-<!--Content built using default builder and renderer DefaultRenderer v1.02 Mission more possible-->
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
 <!--Page Content End-->
-      
-<!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
-        <div class="large-12 columns">
-          		<hr/>
-              <ul class="inline-list right">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="#">Documentation</a></li>
-                <li><a href="#">Developers</a></li>
-                <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
-              </ul>
-            </div>
-      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
+
+    <!-- insert (/OpenForum/PageTemplates/Branding/footer.page.content) start --><footer class="row">
+  <div class="large-12 columns">
+    <hr/>
+    <ul class="inline-list right">
+      <li><a href="https://open-forum.onestonesoup.org/OpenForum/About">About</a></li>
+      <li><a href="https://www.gratipay.com/open-forum/">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="146" height="20">
+          <style>#llink:hover{fill:url(#b);stroke:#ccc}#rlink:hover{fill:#4183c4}</style>
+          <linearGradient id="a" x2="0" y2="100%"><stop offset="0" stop-color="#fcfcfc" stop-opacity="0"/><stop offset="1" stop-opacity=".1"/></linearGradient>
+          <linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#ccc" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient>
+          <g stroke="#d5d5d5">
+            <rect stroke="none" fill="#fcfcfc" x=".5" y=".5" width="66" height="19" rx="2"/><rect y=".5" x="72.5" width="69" height="19" rx="2" fill="#fafafa"/>
+            <path stroke="#fafafa" d="M72 7.5h.5v5h-.5z"/><path d="M72.5 6.5l-3 3v1l3 3" stroke="d5d5d5" fill="#fafafa"/></g>
+          <image x="5" y="3" width="14" height="14" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgdmlld0JveD0iMTYgMTYgOTYgOTYiPgo8cGF0aCBmaWxsPSIjNjYzMzAwIiBkPSJNNjMuOTk4LDE2QzM3LjQ5LDE2LDE2LDM3LjQ4OSwxNiw2My45OThDMTYsOTAuNTA5LDM3LjQ5LDExMiw2My45OTgsMTEyIGMyNi41MTQsMCw0OC0yMS40OTEsNDgtNDguMDAyQzExMS45OTgsMzcuNDg5LDkwLjUxMywxNiw2My45OTgsMTZ6IE04Ni4xNjksNTkuODI3TDY0LjMzLDg5LjM5NEw0Mi40OTIsNTkuODI3IGMtMS44NDgtMi4xNzMtMy42OTItOS43MzgsMi42NS0xMy45MTljNS40MDItMy41NjEsMTAuNTMzLTAuODY0LDEzLjIyMiwyLjI2MWMxLjAwMywxLjE2NiwyLjcyMiwyLjUzOSw1Ljk2NiwyLjUzOSBjMy4yNDUsMCw0Ljk2NC0xLjM3Myw1Ljk2Ny0yLjUzOWMyLjY4OC0zLjEyNSw3LjgxOS01LjgyMiwxMy4yMjItMi4yNjFDODkuODYxLDUwLjA4OSw4OC4wMTYsNTcuNjUzLDg2LjE2OSw1OS44Mjd6Ii8+Cjwvc3ZnPgo="/>
+          <g fill="#333" text-anchor="middle" font-family="Helvetica Neue,Helvetica,Arial,sans-serif" font-weight="700" font-size="11">
+            <text x="41.5" y="15" fill="#fff">Donate</text><text x="41.5" y="14">Donate</text>
+            <text x="106.5" y="15" fill="#fff">anonymous</text><text id="rlink" x="106.5" y="14">anonymous</text>
+          </g>
+          <rect id="llink" stroke="#d5d5d5" fill="url(#a)" x=".5" y=".5" width="66" height="19" rx="2" />
+        </svg>
+        </a></li>
+      <li><a href="https://open-forum.onestonesoup.org">Open Forum @ OneStoneSoup.org</a></li>
+      <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/Introduction">Documentation</a></li>
+      <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/CookBook">Developers</a></li>
+      <li><a href="https://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+    </ul>
+  </div>
+</footer><!-- insert (/OpenForum/PageTemplates/Branding/footer.page.content) end -->
     
+    <!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
+  <p>{{OpenForum.errorMessage}}</p>
+  <p><a href="#" data-reveal-id="ofErrorDetails" class="secondary button">See technical details</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="ofErrorDetails" class="reveal-modal" data-reveal aria-labelledby="ofErrorModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorModalTitle">Error details.</h2>
+  <p>{{OpenForum.error}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div><!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) end -->
+    <!-- insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) start --><div id="ofAlertMessage" class="reveal-modal" data-reveal aria-labelledby="ofAlertMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofAlertMessageModalTitle" class="alert-box success round">{{OpenForum.alert.title}}</h2>
+  <p>{{OpenForum.alert.message}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<!-- insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) end -->
+
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
     <script>

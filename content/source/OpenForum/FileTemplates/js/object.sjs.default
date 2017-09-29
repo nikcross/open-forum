@@ -1,0 +1,10 @@
+/*
+* Author: 
+* Description: 
+*/
+
+function Object() {
+  var self = this;
+  
+  /*---8<---Add Funtions Below Here--->8---*/
+}
