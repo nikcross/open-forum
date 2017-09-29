@@ -92,11 +92,14 @@ function Composite(x,y,rotation)
       this.parts[this.loop].animate(frame);
     }
   };
-
+  
   this.isInside = function(posX,posY) {
+    var relativePosX = (posX-this.x) / this.scaleX;
+    var relativePosY = (posY-this.y) / this.scaleY;
+    
     for(this.loop=0;this.loop<this.parts.length;this.loop++)
     {    
-      if(this.parts[this.loop].visible===true && this.parts[this.loop].isInside(posX-this.x,posY-this.y)) {
+      if(this.parts[this.loop].visible===true && this.parts[this.loop].isInside(relativePosX,relativePosY)) {
         return true;
       }
     }
@@ -104,47 +107,57 @@ function Composite(x,y,rotation)
   };
 
   this.onClick = function(posX,posY) {
+    var relativePosX = (posX-this.x) / this.scaleX;
+    var relativePosY = (posY-this.y) / this.scaleY;
     for(this.loop=0;this.loop<this.parts.length;this.loop++)
     {    
-      if(this.parts[this.loop].visible===true && this.parts[this.loop].isInside(posX-this.x,posY-this.y)) {
-        this.parts[this.loop].onClick(posX-this.x,posY-this.y);
+      if(this.parts[this.loop].visible===true && this.parts[this.loop].isInside(relativePosX,relativePosY)) {
+        this.parts[this.loop].onClick(relativePosX,relativePosY);
       }
     }
     return false;
   };
   this.onMouseOver = function(posX,posY) {
+    var relativePosX = (posX-this.x) / this.scaleX;
+    var relativePosY = (posY-this.y) / this.scaleY;
     for(this.loop=0;this.loop<this.parts.length;this.loop++)
     {
-      if(this.parts[this.loop].visible===true && this.parts[this.loop].isInside(posX-this.x,posY-this.y)) {    
-        this.parts[this.loop].onMouseOver(posX-this.x,posY-this.y);
+      if(this.parts[this.loop].visible===true && this.parts[this.loop].isInside(relativePosX,relativePosY)) {    
+        this.parts[this.loop].onMouseOver(relativePosX,relativePosY);
         this.parts[this.loop].mouseOver=true;
       } else if(this.parts[this.loop].mouseOver==true) {
         this.parts[this.loop].mouseOver=false;
-        this.parts[this.loop].onMouseOut(posX-this.x,posY-this.y);
+        this.parts[this.loop].onMouseOut(relativePosX,relativePosY);
       }
     }
   };
   this.onMouseOut = function(posX,posY) {
+    var relativePosX = (posX-this.x) / this.scaleX;
+    var relativePosY = (posY-this.y) / this.scaleY;
     for(this.loop=0;this.loop<this.parts.length;this.loop++)
     {
       if(this.parts[this.loop].mouseOver==true) {
         this.parts[this.loop].mouseOver=false;
-        this.parts[this.loop].onMouseOut(posX-this.x,posY-this.y);
+        this.parts[this.loop].onMouseOut(relativePosX,relativePosY);
       }
     }
   };
   this.onMousePressed = function(posX,posY) {
+    var relativePosX = (posX-this.x) / this.scaleX;
+    var relativePosY = (posY-this.y) / this.scaleY;
     for(this.loop=0;this.loop<this.parts.length;this.loop++)
     {    
-      if(this.parts[this.loop].visible===true && this.parts[this.loop].isInside(posX-this.x,posY-this.y)) {  
-        this.parts[this.loop].onMousePressed(posX-this.x,posY-this.y);
+      if(this.parts[this.loop].visible===true && this.parts[this.loop].isInside(relativePosX,relativePosY)) {  
+        this.parts[this.loop].onMousePressed(relativePosX,relativePosY);
       }
     }
   };
   this.onMouseReleased = function(posX,posY) {
+    var relativePosX = (posX-this.x) / this.scaleX;
+    var relativePosY = (posY-this.y) / this.scaleY;
     for(this.loop=0;this.loop<this.parts.length;this.loop++)
     {    
-      this.parts[this.loop].onMouseReleased(posX-this.x,posY-this.y);
+      this.parts[this.loop].onMouseReleased(relativePosX,relativePosY);
     }
   };
 }

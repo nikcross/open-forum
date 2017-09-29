@@ -155,7 +155,7 @@ var OpenForum = new function(){
       name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
 
       data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
-        "<span id='OpenForumId"+nextId+"'>OpenForumId"+nextId+"</span>"+
+        "<span id='OpenForumId"+nextId+"'>&nbsp;</span>"+
         data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
       spans[spans.length] = {id: 'OpenForumId'+nextId,name: name};
 
@@ -182,7 +182,7 @@ var OpenForum = new function(){
       name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
 
       data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
-        "<span id='OpenForumId"+nextId+"'>OpenForumId"+nextId+"</span>"+
+        "<span id='OpenForumId"+nextId+"'>&nbsp;</span>"+
         data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
       spans.push( {id: 'OpenForumId'+nextId,name: name} );
 
@@ -228,7 +228,7 @@ var OpenForum = new function(){
       for(var fni in initialisers) {
         var initialiser = initialisers[fni];
         if(!initialiser.ready) {
-          initialiser.ready = initialiser();
+          initialiser.ready = initialiser()!==false;
           setTimeout(OpenForum.waitForReady,200);
           waitForReadyCount++;
           return;

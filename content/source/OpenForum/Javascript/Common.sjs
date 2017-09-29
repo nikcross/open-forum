@@ -112,5 +112,11 @@ var Common = function() {
       }
       return result;
     };
+    
+    s.prototype.trim = function() {
+      var result = this;
+      result = result.replace(/^\s\s*/, '').replace(/\s\s*$/, '');
+      return result;
+    }
   };
 };

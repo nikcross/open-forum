@@ -29,7 +29,7 @@ with hierarchical templates and access control.</p>
 <p>You can play around with Markdown on our <a href="http://www.markdown-here.com/livedemo.html">live demo page</a>.</p>
 <p>(If you&#39;re not a Markdown Here user, check out the <a href="./Markdown-Cheatsheet">Markdown Cheatsheet</a> that is not specific to MDH. But, really, you should also use Markdown Here, because it&#39;s awesome. <a href="http://markdown-here.com">http://markdown-here.com</a>)</p>
 <h5 id="table-of-contents">Table of Contents</h5>
-<p><a href="#headers">Headers</a><br><a href="#emphasis">Emphasis</a><br><a href="#lists">Lists</a><br><a href="#links">Links</a><br><a href="#images">Images</a><br><a href="#code">Code and Syntax Highlighting</a><br><a href="#tables">Tables</a><br><a href="#blockquotes">Blockquotes</a><br><a href="#html">Inline HTML</a><br><a href="#hr">Horizontal Rule</a><br><a href="#lines">Line Breaks</a><br><a href="#videos">Youtube videos</a>  </p>
+<p><a href="#headers">Headers</a><br><a href="#emphasis">Emphasis</a><br><a href="#lists">Lists</a><br><a href="#links">Links</a><br><a href="#images">Images</a><br><a href="#code">Code and Syntax Highlighting</a><br><a href="#tables">Tables</a><br><a href="#blockquotes">Blockquotes</a><br><a href="#html">Inline HTML</a><br><a href="#hr">Horizontal Rule</a><br><a href="#lines">Line Breaks</a><br><a href="#videos">YouTube Videos</a>  </p>
 <p><a name="headers"/></p>
 <h2 id="headers">Headers</h2>
 <pre><code class="lang-no-highlight"># H1
@@ -323,7 +323,7 @@ This line is only separated by a single newline, so it&#39;s a separate line in 
 <p>This line is also begins a separate paragraph, but...<br>This line is only separated by a single newline, so it&#39;s a separate line in the <em>same paragraph</em>.</p>
 <p>(Technical note: <em>Markdown Here</em> uses GFM line breaks, so there&#39;s no need to use MD&#39;s two-space line breaks.)</p>
 <p><a name="videos"/></p>
-<h2 id="youtube-videos">Youtube videos</h2>
+<h2 id="youtube-videos">YouTube Videos</h2>
 <p>They can&#39;t be added directly but you can add an image with a link to the video like this:</p>
 <pre><code class="lang-no-highlight">&lt;a href=&quot;http://www.youtube.com/watch?feature=player_embedded&amp;v=YOUTUBE_VIDEO_ID_HERE
 &quot; target=&quot;_blank&quot;&gt;&lt;img src=&quot;http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg&quot; 

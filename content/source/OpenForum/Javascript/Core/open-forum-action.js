@@ -8,7 +8,7 @@ OpenForum.action.movePage = function(pageName,newPageName) {
 };
 
 OpenForum.action.zipPage = function(pageName) {
-  OpenForum.loadFile("/OpenForum/Actions/Zip?action=zip&pageName="+pageName);
+  window.location = "/OpenForum/Actions/Zip?action=zip&pageName="+pageName;
 };
 
 OpenForum.action.deletePage = function(pageName) {

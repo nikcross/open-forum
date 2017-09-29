@@ -47,7 +47,12 @@ OpenForum.Access = new function() {
         }
       }
     } else {
-      self.result = "<div data-alert class=\"alert-box alert round\">"+response.errors+"</div>";
+      if(response.errors) {
+      	self.result = "<div data-alert class=\"alert-box alert round\">"+response.errors+"</div>";
+      } else {
+      	self.result = "<div data-alert class=\"alert-box alert round\">Your member name or password was incorrect.</br>" +
+          "Please try again.</div>";
+      }
     }
   };
 

@@ -22,7 +22,8 @@ try{
     try{
       if(task.debug) log.debug("Running script "+task.scriptFile+" on page "+task.pageName);
       var script = "(function(debug) {"+file.getAttachment(task.pageName,task.scriptFile)+"})(task.debug);";
-      var result = js.startJavascript(task.pageName+"/"+task.fileName,script); //eval( script );
+      //var result = js.startJavascript(task.pageName+"/"+task.fileName,script); 
+      var result = eval( script );
       if(result) {
         if(task.debug) log.debug("Completed script "+task.scriptFile+" on page "+task.pageName+" with result "+result);
       }

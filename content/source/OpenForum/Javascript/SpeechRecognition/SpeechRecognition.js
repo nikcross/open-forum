@@ -74,6 +74,10 @@ function SpeechRecognition() {
     stopFunction = action;
   };
 
+  self.clearCommands = function() {
+    commands = [];
+  }
+  
   self.addCommand = function(command,action) {
     commands.push( {command: command.toLowerCase(), action: action} );
   };
@@ -138,6 +142,22 @@ function SpeechRecognition() {
     }
   };
 
+  self.processSpeech = function(text) {
+    var foundMatch = false;
+    for(var i=0; i<commands.length;i++) {
+      if(commands[i].command===text) {
+        if(debug) console.log("Matched "+commands[i].command);
+        commands[i].action(text);
+        foundMatch=true;
+        break;
+      }
+    }
+    if(!foundMatch) {
+      self.onUnrecognised(text);
+    }
+    return foundMatch;
+  }
+  
   var processSpeech = function(speechEvent) {
 
     if( speechEvent.currentTarget !== recognition ) return;

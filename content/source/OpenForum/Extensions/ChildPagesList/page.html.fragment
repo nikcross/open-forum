@@ -7,7 +7,7 @@ Creates a bulleted list of child pages
 <xmp class="panel">
 [{ChildPagesList pageName="/OpenForum"}]
 </xmp>
-<ul><li> <a href="/OpenForum/About">About</a></li>
+<li> <a href="/OpenForum/About">About</a></li>
 <li> <a href="/OpenForum/Access">Access</a></li>
 <li> <a href="/OpenForum/Actions">Actions</a></li>
 <li> <a href="/OpenForum/AddOn">AddOn</a></li>
@@ -18,7 +18,7 @@ Creates a bulleted list of child pages
 <li> <a href="/OpenForum/Editor">Editor</a></li>
 <li> <a href="/OpenForum/ErrorPages">ErrorPages</a></li>
 <li> <a href="/OpenForum/Extensions">Extensions</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates does not exist. Click to create it.">FileTemplates</a></li>
+<li> <a href="/OpenForum/FileTemplates">FileTemplates</a></li>
 <li> <a href="/OpenForum/Giraffe">Giraffe</a></li>
 <li> <a href="/OpenForum/Groups">Groups</a></li>
 <li> <a href="/OpenForum/HomePage">HomePage</a></li>
@@ -30,7 +30,8 @@ Creates a bulleted list of child pages
 <li> <a href="/OpenForum/MissingPages">MissingPages</a></li>
 <li> <a href="/OpenForum/PageTemplates">PageTemplates</a></li>
 <li> <a href="/OpenForum/Processor">Processor</a></li>
-<li> <a href="/OpenForum/Editor?pageName=/OpenForum/PublishingJournal"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/PublishingJournal does not exist. Click to create it.">PublishingJournal</a></li>
+<li> <a href="/OpenForum/PublishingJournal">PublishingJournal</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/ReleaseNotes"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/ReleaseNotes does not exist. Click to create it.">ReleaseNotes</a></li>
 <li> <a href="/OpenForum/SiteExplorer">SiteExplorer</a></li>
 <li> <a href="/OpenForum/Spider">Spider</a></li>
 <li> <a href="/OpenForum/SystemMonitor">SystemMonitor</a></li>
@@ -71,4 +72,4 @@ for(var i in pagesList) {
 }
 
 return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,data);</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

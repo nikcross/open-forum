@@ -6,7 +6,7 @@
       <ul class="dropdown" style="overflow: auto; max-height:500px;">
         <li><a href="#" data-reveal-id="OpenForumCopyModal">[{Icon name="page_copy"}] Copy Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumMoveModal">[{Icon name="page_go"}] Move Page</a></li>
-        <li><a href="#" onClick="OpenForum.Actions.zipPage();">[{Icon name="compress"}] Zip Page</a></li>
+        <li><a href="#" onClick="OpenForum.action.zipPage(pageName);">[{Icon name="compress"}] Zip Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumDeleteModal">[{Icon name="bin"}] Delete Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumOpenModal">[{Icon name="page_go"}] Open Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumSearchModal" onClick="OpenForum.focusOnSearch(); return false;">[{Icon name="magnifier"}] Search</a></li>

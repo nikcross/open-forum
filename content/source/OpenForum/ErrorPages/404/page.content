@@ -1,8 +1,11 @@
 <div class="row">
 <script>
-pageName = new String(window.location);
-pageName = pageName.substring(7);
+pageName = window.location.pathname
 pageName = pageName.substring(pageName.indexOf("/")+1);
+if(pageName.indexOf(".")!=-1) {
+  pageName = pageName.substring( 0,pageName.lastIndexOf("/") );
+}
+  
 </script>
 __Sorry. The page <script>document.write(pageName);</script> you were looking for has not been found.__
 \\\\

@@ -3,7 +3,7 @@
     <h2>Page {{pageName}} <a class='button' href='#' onclick='saveChanges("undefined"); return false;'>Save Changes</a></h2>
   </div>
   <div class="row">
-    <div class="large-4 columns">
+    <div class="large-3 columns">
       <h2>Read Access</h2>
       <h3>Users</h3>
       <table>
@@ -26,7 +26,30 @@
         </tr>
       </table>
     </div>
-    <div class="large-4 columns">
+    <div class="large-3 columns">
+      <h2>Call Access</h2>
+      <h3>Users</h3>
+      <table>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr of-repeatFor="user in accessView.callAccess.users">
+          <td>{{user}}</td>
+          <td>
+            <a class='button' href='#' onclick='removeUser("{{user}}","call"); return false;'>Remove User</a>
+          </td>
+        </tr>
+      </table>
+      <h3>Groups</h3>
+      <table>
+        <tr><td>&nbsp;</td><td>&nbsp;</td></tr>
+        <tr of-repeatFor="group in accessView.callAccess.groups">
+          <td>{{group}}</td>
+          <td>
+            <a class='button' href='#' onclick='removeGroup("{{group}}","call"); return false;'>Remove User</a>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="large-3 columns">
       <h2>Update Access</h2>
       <h3>Users</h3>
       <table>
@@ -49,7 +72,7 @@
         </tr>
       </table>
     </div>
-    <div class="large-4 columns">
+    <div class="large-3 columns">
       <h2>Delete Access</h2>
       <h3>Users</h3>
       <table>
@@ -91,7 +114,7 @@
           </div>
         </div>
         <div class='row'>
-          <div class='large-4 columns'>
+          <div class='large-3 columns'>
 
             <label for="readAccessCheckBox">Read</label>
             <div class="switch">
@@ -100,7 +123,16 @@
             </div>
 
           </div>
-          <div class='large-4 columns'>
+        <div class='large-3 columns'>
+
+            <label for="callAccessCheckBox">Call</label>
+            <div class="switch">
+              <input of-id="callAccessCheckBox" id="callAccessCheckBox" type="checkbox">
+              <label for="callAccessCheckBox"></label>
+            </div>
+
+          </div>
+          <div class='large-3 columns'>
 
             <label for="updateAccessCheckBox">Update</label>
             <div class="switch">
@@ -109,7 +141,7 @@
             </div>
 
           </div>
-          <div class='large-4 columns'>
+          <div class='large-3 columns'>
 
             <label for="deleteAccessCheckBox">Delete</label>
             <div class="switch">

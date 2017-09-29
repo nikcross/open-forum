@@ -25,12 +25,20 @@ if(OpenForum.addNodeProcessor) {
 }
 
 OpenForum.Speech.speaking = false;
+OpenForum.Speech.queueLength = 0
 
 OpenForum.Speech.say = function(message,voice) {
   if(OpenForum.Speech.speaking) {
+    OpenForum.Speech.queueLength++;
+    if(OpenForum.Speech.queueLength>3) {
+      window.speechSynthesis.cancel();
+      OpenForum.Speech.speaking = false;
+      OpenForum.Speech.queueLength = 0;
+    }
     setTimeout( function(){ OpenForum.Speech.say(message,voice); },1000 );
     return;
   }
+  OpenForum.Speech.queueLength--;
 
   var msg = new SpeechSynthesisUtterance(message);
   if(!voice) {

@@ -63,78 +63,88 @@ var extraActions = [
 
 
 OpenForum.init = function () {
-  if(OpenForum.getParameter("pageName")==="") {
-    pageName = "/Sandbox";
-    shortPageName = pageName;
-  } else if(OpenForum.getParameter("pageName")==="/") {
-    pageName = "/OpenForum/HomePage";
-  } else {
-    pageName = OpenForum.getParameter("pageName");
-    shortPageName = pageName;
-    if(shortPageName.length>20) {
-      shortPageName="..."+shortPageName.substring(shortPageName.length-17);
+  try {
+
+    if(OpenForum.getParameter("pageName")==="") {
+      pageName = "/Sandbox";
+      shortPageName = pageName;
+    } else if(OpenForum.getParameter("pageName")==="/") {
+      pageName = "/OpenForum/HomePage";
+    } else {
+      pageName = OpenForum.getParameter("pageName");
+      shortPageName = pageName;
+      if(shortPageName.length>20) {
+        shortPageName="..."+shortPageName.substring(shortPageName.length-17);
+      }
     }
-  }
-  document.getElementById("pageTitle").title="Editing "+pageName;
+    document.getElementById("pageTitle").title="Editing "+pageName;
 
-  if(OpenForum.file.pageExists(pageName)==="false") {
-    newPage = true;
-  }
-  var name = pageName.substring(pageName.lastIndexOf("/"));
-  document.title= name + " (" + pageName + ") " + " Editor";
+    if(OpenForum.file.pageExists(pageName)==="false") {
+      newPage = true;
+    }
+    var name = pageName.substring(pageName.lastIndexOf("/"));
+    document.title= name + " (" + pageName + ") " + " Editor";
 
-  if(OpenForum.file.attachmentExists(pageName,"get.sjs")==="true") {
-    flavour = "get service";
-  }
+    if(OpenForum.file.attachmentExists(pageName,"get.sjs")==="true") {
+      flavour = "get service";
+    }
 
-  if(OpenForum.file.attachmentExists(pageName,"post.sjs")==="true") {
-    flavour = "post service";
-  }
+    if(OpenForum.file.attachmentExists(pageName,"post.sjs")==="true") {
+      flavour = "post service";
+    }
 
-  if(OpenForum.file.attachmentExists(pageName,"get.sjs")==="true" && OpenForum.file.attachmentExists(pageName,"post.sjs")==="true") {
-    flavour = "mixed service";
-  }
+    if(OpenForum.file.attachmentExists(pageName,"get.sjs")==="true" && OpenForum.file.attachmentExists(pageName,"post.sjs")==="true") {
+      flavour = "mixed service";
+    }
 
-  //File Edit
-  if(OpenForum.getParameter("fileName")!=="") {
-    fileName = OpenForum.getParameter("fileName");
-    flavour = "file";
-    document.title=fileName + " ("+pageName+"/"+fileName+")" + " Editor";
-  }
-  addOverview();
-  //loadUpdatedFilesList();
-  initPlugins();
+    //File Edit
+    if(OpenForum.getParameter("fileName")!=="") {
+      fileName = OpenForum.getParameter("fileName");
+      flavour = "file";
+      document.title=fileName + " ("+pageName+"/"+fileName+")" + " Editor";
+    }
+    addOverview();
+    //loadUpdatedFilesList();
+    initPlugins();
 
-  OpenForum.scan();
+    OpenForum.scan();
+
+    if(OpenForum.fileExists(pageName+"/data.json")) {
+      dataView = OpenForum.loadFile( pageName+"/data.json" );
+      data = JSON.parse( dataView );
+
+      if(data.pageParent) {
+        extraActions.push( {fn: "publishPage", name: "Publish", description: "Publish page", icon: "page"} );
+      }
+    } else {
+      dataView = "No data.json present";
+    }
+
+    if(OpenForum.fileExists(pageName+"/access.json")) {
+      accessView = OpenForum.loadFile( pageName+"/access.json" );
+    } else {
+      accessView = "No access.json present";
+    }
+
+    new Process().waitFor( function() { return attachmentsReady; }).then( function() { openForFlavour(); showPage(); }).run();
+
+    builderPath = OpenForum.file.getPageInheritedFilePath(pageName,"page.build.js");
+    templatePath = OpenForum.file.getPageInheritedFilePath(pageName,"page.html.template");
+    accessPath = OpenForum.file.getPageInheritedFilePath(pageName,"access.json");
+
+    setKeyMappings();
+
+    setTimeout(checkForChanges,5000);
+  } catch( e ) {
+    document.getElementById("loading-splash").innerHTML = "<h1>Error Loading Page<h1> <p>"+e+"<p>";
+  }
+}
+
+function showPage() {
+  document.getElementById("loading-splash").style.display="none";
+  document.getElementById("page").style.display="block";
 
   $(document).foundation('reflow');
-
-  if(OpenForum.fileExists(pageName+"/data.json")) {
-    dataView = OpenForum.loadFile( pageName+"/data.json" );
-    data = JSON.parse( dataView );
-
-    if(data.pageParent) {
-      extraActions.push( {fn: "publishPage", name: "Publish", description: "Publish page", icon: "page"} );
-    }
-  } else {
-    dataView = "No data.json present";
-  }
-
-  if(OpenForum.fileExists(pageName+"/access.json")) {
-    accessView = OpenForum.loadFile( pageName+"/access.json" );
-  } else {
-    accessView = "No access.json present";
-  }
-
-  new Process().waitFor( function() { return attachmentsReady; }).then(openForFlavour).run();
-
-  builderPath = OpenForum.file.getPageInheritedFilePath(pageName,"page.build.js");
-  templatePath = OpenForum.file.getPageInheritedFilePath(pageName,"page.html.template");
-  accessPath = OpenForum.file.getPageInheritedFilePath(pageName,"access.json");
-
-  setKeyMappings();
-
-  setTimeout(checkForChanges,5000);
 };
 
 var lastCheckTime = new Date().getTime();
@@ -199,7 +209,7 @@ function setKeyMappings() {
     if(e.ctrlKey && !e.shiftKey && (e.which == 83)) {
       e.preventDefault();
       if(currentEditor.attachment) {
-      	saveAttachment(currentEditor.attachment.id);
+        saveAttachment(currentEditor.attachment.id);
       }
       return false;
     }
@@ -269,7 +279,7 @@ function addOverview() {
   var content = OpenForum.loadFile("/OpenForum/Editor/OverviewTemplate/page.html.fragment");
   OpenForum.setElement("editor"+editorIndex,content);
   OpenForum.crawl(document.getElementById("editor"+editorIndex));
-  
+
   updateOverview();
 }
 

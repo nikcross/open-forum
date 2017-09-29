@@ -1,11 +1,28 @@
-!!Camera Settings
-*Camera <input of-id="frameCatcher.camera" id="OpenForum.videoCapture.camera" list="cameras"><button onClick="OpenForum.videoCapture.updateSource()">Select</button>
-
-<datalist of-id="cameras" id="cameras">
-  <option of-repeatFor="camera in OpenForum.videoCapture.cameras" value="{{camera.label}}"/>
-</datalist>
-
-*Current Camera: {{OpenForum.videoCapture.camera}} : {{OpenForum.videoCapture.cameraId}}
-<canvas id="canvas" width="800" height="400"></canvas>
-
-[{InsertSourceFile fileName="VideoCapture.js"}]
+<h2>Camera Settings</h2>
+<div id="videoSettingsLoading">
+  <div class="row"><h1>Finding Cameras...</h1></div>
+</div>
+<div id="videoSettings" style="display: none;">
+  <form>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>Cameras
+          <select of-id="OpenForum.videoCapture.camera" value="{{OpenForum.videoCapture.camera}}">
+            <option of-repeatFor="camera in OpenForum.videoCapture.cameras">{{camera.label}}</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-12 columns' style="text-align: center;">
+        <h3>{{OpenForum.videoCapture.camera}}</h3>
+        <canvas id="canvas" width="800" height="400"></canvas>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-12 columns' style="text-align: center;">
+        <a class="button round" onclick="OpenForum.videoCapture.saveSettings(); return false;">Save</a>
+      </div>
+    </div>
+  </form>
+</div>

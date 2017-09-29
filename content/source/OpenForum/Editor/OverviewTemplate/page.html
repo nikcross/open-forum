@@ -17,7 +17,7 @@
     <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
       var pageName = "/OpenForum/Editor/OverviewTemplate";
       var author = "unknown";
-      var time = "1476694641000";
+      var time = "1480609592000";
       var currentUser = "";
       var user = {};
       var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
@@ -48,23 +48,27 @@
 
   </head>
   <body>
-    <div class="fixed">
-      <nav class="top-bar" data-topbar="true">
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" /></a>
-            </h1>
-          </li>
-        </ul>
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <a href="#" id="pageTitle">Page Editor - Editing {{shortPageName}}</a>
-            </h1>
-          </li>
-        </ul>
-        <!-- insert (/OpenForum/Editor/top-menu.html.template) start --><section class="top-bar-section">
+    <div id="loading-splash">
+      <center><h1 style="font-size: 100px;">Loading ...</h1></center>
+    </div>
+    <div id="page" style="display: none;">
+      <div class="fixed">
+        <nav class="top-bar" data-topbar="true">
+          <ul class="title-area">
+            <li class="name">
+              <h1>
+                <a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" /></a>
+              </h1>
+            </li>
+          </ul>
+          <ul class="title-area">
+            <li class="name">
+              <h1>
+                <a href="#" id="pageTitle">Page Editor - Editing {{shortPageName}}</a>
+              </h1>
+            </li>
+          </ul>
+          <!-- insert (/OpenForum/Editor/top-menu.html.template) start --><section class="top-bar-section">
   <ul class="left"> 
     <li class="divider"></li>
     <li class="has-dropdown" style="width: 150px;">
@@ -72,7 +76,7 @@
       <ul class="dropdown" style="overflow: auto; max-height:500px;">
         <li><a href="#" data-reveal-id="OpenForumCopyModal"><img src="/OpenForum/Images/icons/png/page_copy.png"> Copy Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumMoveModal"><img src="/OpenForum/Images/icons/png/page_go.png"> Move Page</a></li>
-        <li><a href="#" onClick="OpenForum.Actions.zipPage();"><img src="/OpenForum/Images/icons/png/compress.png"> Zip Page</a></li>
+        <li><a href="#" onClick="OpenForum.action.zipPage(pageName);"><img src="/OpenForum/Images/icons/png/compress.png"> Zip Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumDeleteModal"><img src="/OpenForum/Images/icons/png/bin.png"> Delete Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumOpenModal"><img src="/OpenForum/Images/icons/png/page_go.png"> Open Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumSearchModal" onClick="OpenForum.focusOnSearch(); return false;"><img src="/OpenForum/Images/icons/png/magnifier.png"> Search</a></li>
@@ -274,33 +278,33 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 <!-- insert (/OpenForum/Editor/top-menu.html.template) end -->
-      </nav>
+        </nav>
 
-      <nav class="top-bar" data-topbar role="navigation">
-        <section class="top-bar-section">
-          <!-- Left Nav Section -->
-          <ul class="left">
-            <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="has-dropdown {{editor.tabButtonStyle}}">
-              <a href="#" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a>
-              <ul class="dropdown">
-                {{editor.options}}
-              </ul>
-            </li>
-          </ul>
-        </section>
-      </nav>
-    </div>
+        <nav class="top-bar" data-topbar role="navigation">
+          <section class="top-bar-section">
+            <!-- Left Nav Section -->
+            <ul class="left">
+              <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="has-dropdown {{editor.tabButtonStyle}}">
+                <a href="#" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a>
+                <ul class="dropdown">
+                  {{editor.options}}
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </nav>
+      </div>
 
-    <div id="statusModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-      <h2 id="modalTitle">{{popupStatus}}</h2>
-      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-    </div>
+      <div id="statusModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <h2 id="modalTitle">{{popupStatus}}</h2>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+      </div>
 
-    <section role="main" class="scroll-container" style="height: 100%">
-      <div id="editors" style="height: 100%"></div>
-    </section>
+      <section role="main" class="scroll-container" style="height: 100%">
+        <div id="editors" style="height: 100%"></div>
+      </section>
 
-    <!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
+      <!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
   <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
   <p>{{OpenForum.errorMessage}}</p>
   <p><a href="#" data-reveal-id="ofErrorDetails" class="secondary button">See technical details</a></p>
@@ -312,16 +316,17 @@
   <p>{{OpenForum.error}}</p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div><!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) end -->
-    <!-- insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) start --><div id="ofAlertMessage" class="reveal-modal" data-reveal aria-labelledby="ofAlertMessageModalTitle" aria-hidden="true" role="dialog">
+      <!-- insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) start --><div id="ofAlertMessage" class="reveal-modal" data-reveal aria-labelledby="ofAlertMessageModalTitle" aria-hidden="true" role="dialog">
   <h2 id="ofAlertMessageModalTitle" class="alert-box success round">{{OpenForum.alert.title}}</h2>
   <p>{{OpenForum.alert.message}}</p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 <!-- insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) end -->
-    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
-    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
+      <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+      <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+      <script>
+        $(document).foundation();
+      </script>
+    </div>
   </body>
 </html>

@@ -2,6 +2,7 @@
 <li> <a href="/OpenForum/Editor/Editors/DefaultEditor">DefaultEditor</a></li>
 <li> <a href="/OpenForum/Editor/Editors/HTMLEditor">HTMLEditor</a></li>
 <li> <a href="/OpenForum/Editor/Editors/JavascriptEditor">JavascriptEditor</a></li>
+<li> <a href="/OpenForum/Editor/Editors/PythonEditor">PythonEditor</a></li>
 <li> <a href="/OpenForum/Editor/Editors/WYSIWYGEditor">WYSIWYGEditor</a></li>
 <li> <a href="/OpenForum/Editor/Editors/XMLEditor">XMLEditor</a></li>
 </ul>

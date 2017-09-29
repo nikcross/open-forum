@@ -15,7 +15,9 @@ try{
     if(currentPage!==null) {
       var Users = js.getObject("/OpenForum/Actions/User","Users.sjs");
       var user = Users.getUser(userName);
-      user.updatePageHistory(""+currentPage);
+      if(userName!="Guest") {
+      	user.updatePageHistory(""+currentPage);
+      }
     }
     
     result = userName;

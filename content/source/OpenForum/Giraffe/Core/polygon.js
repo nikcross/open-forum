@@ -45,7 +45,9 @@ function Polygon(x,y)
         this.canvas.lineTo(this.points[0][0],this.points[0][1]);
       }
     } else {
-         for(var i=1;i<this.points.length ;i++) {
+      var lastPoint = this.points.length;
+      if(!closed) lastPoint--;
+         for(var i=1;i<lastPoint ;i++) {
            		var ia = i%this.points.length;
            		var ib = (i+1)%this.points.length;
                 var xc = (this.points[ia][0] + this.points[ib][0]) / 2;

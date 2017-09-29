@@ -60,11 +60,13 @@ function saveChanges() {
   var access = {
     userAccess: {
       read: toAccessList(accessView.readAccess.users),
+      call: toAccessList(accessView.callAccess.users),
       update: toAccessList(accessView.updateAccess.users),
       delete: toAccessList(accessView.deleteAccess.users)
     },
     groupAccess: {
       read: toAccessList(accessView.readAccess.groups),
+      call: toAccessList(accessView.callAccess.groups),
       update: toAccessList(accessView.updateAccess.groups),
       delete: toAccessList(accessView.deleteAccess.groups)
     }
@@ -84,6 +86,7 @@ function toAccessList(list) {
 function clearAccessView() {
   accessView = {
     readAccess: {users: [],groups: []},
+    callAccess: {users: [],groups: []},
     updateAccess: {users: [],groups: []},
     deleteAccess: {users: [],groups: []}
   };
@@ -97,6 +100,11 @@ function convertToAccessView(access) {
     if(access.userAccess.read) {
       for(user in access.userAccess.read) {
         accessView.readAccess.users.push(user);
+      }
+    }
+    if(access.userAccess.call) {
+      for(user in access.userAccess.call) {
+        accessView.callAccess.users.push(user);
       }
     }
     if(access.userAccess.update) {
@@ -117,6 +125,11 @@ function convertToAccessView(access) {
         accessView.readAccess.groups.push(group);
       }
     }
+    if(access.groupAccess.call) {
+      for(group in access.groupAccess.call) {
+        accessView.callAccess.groups.push(group);
+      }
+    }
     if(access.groupAccess.update) {
       for(group in access.groupAccess.update) {
         accessView.updateAccess.groups.push(group);
@@ -133,6 +146,8 @@ function convertToAccessView(access) {
 function removeUser(user,accessType) {
   if(accessType==="read") {
     removeFromSet("accessView.readAccess.users",user);
+  } else if(accessType==="call") {
+    removeFromSet("accessView.callAccess.users",user);
   } else if(accessType==="update") {
     removeFromSet("accessView.updateAccess.users",user);
   } else if(accessType==="delete") {
@@ -143,6 +158,8 @@ function removeUser(user,accessType) {
 function removeGroup(group,accessType) {
   if(accessType==="read") {
     removeFromSet("accessView.readAccess.groups",group);
+  } else if(accessType==="call") {
+    removeFromSet("accessView.callAccess.groups",group);
   } else if(accessType==="update") {
     removeFromSet("accessView.updateAccess.groups",group);
   } else if(accessType==="delete") {
@@ -176,6 +193,11 @@ function updateFromForm() {
       } else {
         removeFromSet("accessView.readAccess.users",editingUser);
       }
+      if(callAccessCheckBox===true) {
+        addToSet("accessView.callAccess.users",editingUser);
+      } else {
+        removeFromSet("accessView.callAccess.users",editingUser);
+      }
       if(updateAccessCheckBox===true) {
         addToSet("accessView.updateAccess.users",editingUser);
       } else {
@@ -193,6 +215,11 @@ function updateFromForm() {
         addToSet("accessView.readAccess.groups",editingGroup);
       } else {
         removeFromSet("accessView.readAccess.groups",editingGroup);
+      }
+      if(callAccessCheckBox===true) {
+        addToSet("accessView.callAccess.groups",editingGroup);
+      } else {
+        removeFromSet("accessView.callAccess.groups",editingGroup);
       }
       if(updateAccessCheckBox===true) {
         addToSet("accessView.updateAccess.groups",editingGroup);
@@ -212,18 +239,22 @@ function updateFromForm() {
 
 function updateEditingUser(user) {
   readAccessCheckBox = false;
+  callAccessCheckBox = false;
   updateAccessCheckBox = false;
   deleteAccessCheckBox = false;
   readAccessCheckBox = setContains("accessView.readAccess.users",user);
+  callAccessCheckBox = setContains("accessView.callAccess.users",user);
   updateAccessCheckBox = setContains("accessView.updateAccess.users",user);
   deleteAccessCheckBox = setContains("accessView.deleteAccess.users",user);
 }
 
 function updateEditingGroup(group) {
   readAccessCheckBox = false;
+  callAccessCheckBox = false;
   updateAccessCheckBox = false;
   deleteAccessCheckBox = false;
   readAccessCheckBox = setContains("accessView.readAccess.groups",group);
+  callAccessCheckBox = setContains("accessView.callAccess.groups",group);
   updateAccessCheckBox = setContains("accessView.updateAccess.groups",group);
   deleteAccessCheckBox = setContains("accessView.deleteAccess.groups",group);
 }

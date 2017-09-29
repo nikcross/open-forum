@@ -40,7 +40,7 @@ function JavascriptEditor(editorIndex,pageName,fileName,markChanged) {
         viewportMargin: Infinity,
         mode: "javascript",
         styleActiveLine: true,
-        gutters: ["CodeMirror-lint-markers"],
+        gutters: ["CodeMirror-lint-markers","CodeMirror-linenumbers"],
         lint: true
       }
     );
@@ -132,14 +132,16 @@ function JavascriptEditor(editorIndex,pageName,fileName,markChanged) {
 
   OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/theme/rubyblue.css");
 
-
   DependencyService.createNewDependency()
     .addDependency("OpenForum/Javascript/CodeMirror/mode/javascript/javascript.js")
+    
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.js")
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/hint/javascript-hint.js")
+  
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/lint/lint.js")
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/lint/javascript-lint.js")
-    //.addDependency("/OpenForum/Javascript/CodeMirror/addon/jshint.js")
+    .addDependency("/OpenForum/Javascript/CodeMirror/addon/jshint.js")
+  
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/edit/matchbrackets.js")
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/comment/continuecomment.js")
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/comment/comment.js")

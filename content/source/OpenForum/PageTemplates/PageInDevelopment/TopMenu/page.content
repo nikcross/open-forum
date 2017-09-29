@@ -67,7 +67,7 @@
 <div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Copy Page</h2>
   <p>Copy this page to <input type="text" of-id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.copyPage('&pageName;',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
+  <p><a href="#" onClick="OpenForum.action.copyPage('&pageName;',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     OpenForumCopyPage = "&pageName;";
@@ -77,7 +77,7 @@
 <div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Move Page</h2>
   <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
-  <p><a href="#" onClick="OpenForum.movePage('&pageName;',OpenForumCopyPage);return false;" class="secondary button">Move Page</a></p>
+  <p><a href="#" onClick="OpenForum.action.movePage('&pageName;',OpenForumCopyPage);return false;" class="secondary button">Move Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     OpenForumMovePage = "&pageName;";

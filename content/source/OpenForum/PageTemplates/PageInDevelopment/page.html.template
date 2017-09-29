@@ -33,7 +33,7 @@
 
     <!--PageContent Start-->&content;<!--Page Content End-->
 
-    &insert:/OpenForum/PageTemplates/PageInDevelopment/Footer/page.content;
+    &insert:/OpenForum/PageTemplates/Branding/footer.page.content;
 
     &insert:/OpenForum/PageTemplates/CommonElements/error-alert.common.html;
     &insert:/OpenForum/PageTemplates/CommonElements/alert.common.html;

@@ -10,6 +10,10 @@ if(typeof(editorList)=="undefined") {
 
 var autoSave = false;
 
+function renderTabOption(name,toolTip,action) {
+  return "<li><a href=\"#\" onClick=\""+action+"; return false;\" title=\""+toolTip+"\">"+name+"</a></li>";
+}
+
 function StandaloneEditor( config ) {
   var self = this;
   var id = "editor:"+Math.random()+":"+new Date().getTime();
@@ -25,9 +29,10 @@ function StandaloneEditor( config ) {
   var status = " ";
   var lastCheckTime = new Date().getTime();
   var overrideSave = true;
+  var overridePageName = false;
 
   for(var i in config) {
-    if(eval(i)) {
+    if(typeof(eval(i)) !== "undefined") {
       eval(i+"=config[i]");
     }
   }
@@ -68,20 +73,29 @@ function StandaloneEditor( config ) {
       } catch(e) {
         console.log(e);
       }
+      if(overridePageName) {
+        editingPageName = overridePageName;
+      }
 
       editor.getCodeMirror().on("change", function(cm, change) {
         self.storeChanges();
       });
-
+      
       setInterval(autoSaveChanges,10000);
       setInterval(checkForChanges,11000);
 
+      self.onLoad();
+      
       showStatus("Ready");
     };
-
-    editor.init();
   };
 
+  self.onLoad = function() {}
+  
+  self.getOptions = function() {
+    return editor.renderOptions();
+  }
+  
   self.getEditingPageName = function() {
     return editingPageName;
   };
@@ -177,7 +191,8 @@ function StandaloneEditor( config ) {
   };
 
   var getRoot = function() {
-    return OpenForum.User.getUserRoot()+"/"+flavour;
+    //return OpenForum.User.getUserRoot()+"/"+flavour;
+    return editingPageName;
   };
 
   self.openFileSelect = function() {
@@ -185,10 +200,9 @@ function StandaloneEditor( config ) {
 
       var root = getRoot();
 
-      tree = new Tree("fileTree","Loading...","");
-      JSON.get("/OpenForum/Javascript/Tree","getPageTree","pageName="+root).onSuccess(
+      tree = new Tree("fileTree","Loading...","",modifyTreeNode);
+      JSON.get("/OpenForum/Javascript/Tree","getPageTree","pageName="+root+"&match=.*\.js").onSuccess(
         function(result) {
-          modifyTreeNode(result);
           tree.setJSON(result);
           tree.render();
           tree.getRoot().expand();
@@ -207,7 +221,9 @@ function StandaloneEditor( config ) {
       var actions = data.attributes.actions;
       var newActions = [];
       for(var a = 0;a<actions.length;a++) {
-        if(data.attributes.type==="file" && actions[a].icon==="pencil") {
+        if(data.attributes.type==="more") {
+          newActions.push(actions[a]);
+        } else if(data.attributes.type==="file" && actions[a].icon==="pencil") {
           actions[a].fn = "function(node) { editors['"+id+"'].openFile('"+data.attributes.pageName+"','"+data.attributes.fileName+"'); }";
           newActions.push(actions[a]);
         }

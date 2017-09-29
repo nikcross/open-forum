@@ -50,7 +50,8 @@
 </div>
 
       <div class="row">
-        <ul><li> <a href="/OpenForum/SystemMonitor/QueueManager">QueueManager</a></li>
+        <ul><li> <a href="/OpenForum/SystemMonitor/JavascriptMonitor">JavascriptMonitor</a></li>
+<li> <a href="/OpenForum/SystemMonitor/QueueManager">QueueManager</a></li>
 <li> <a href="/OpenForum/SystemMonitor/SessionStoreMonitor">SessionStoreMonitor</a></li>
 <li> <a href="/OpenForum/SystemMonitor/SystemLogs">SystemLogs</a></li>
 <li> <a href="/OpenForum/SystemMonitor/SystemStoreMonitor">SystemStoreMonitor</a></li>

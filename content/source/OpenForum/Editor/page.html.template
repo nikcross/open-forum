@@ -18,55 +18,60 @@
 
   </head>
   <body>
-    <div class="fixed">
-      <nav class="top-bar" data-topbar="true">
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" /></a>
-            </h1>
-          </li>
-        </ul>
-        <ul class="title-area">
-          <li class="name">
-            <h1>
-              <a href="#" id="pageTitle">Page Editor - Editing {{shortPageName}}</a>
-            </h1>
-          </li>
-        </ul>
-        &insert:/OpenForum/Editor/top-menu.html.template;
-      </nav>
-
-      <nav class="top-bar" data-topbar role="navigation">
-        <section class="top-bar-section">
-          <!-- Left Nav Section -->
-          <ul class="left">
-            <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="has-dropdown {{editor.tabButtonStyle}}">
-              <a href="#" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a>
-              <ul class="dropdown">
-                {{editor.options}}
-              </ul>
+    <div id="loading-splash">
+      <center><h1 style="font-size: 100px;">Loading ...</h1></center>
+    </div>
+    <div id="page" style="display: none;">
+      <div class="fixed">
+        <nav class="top-bar" data-topbar="true">
+          <ul class="title-area">
+            <li class="name">
+              <h1>
+                <a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" /></a>
+              </h1>
             </li>
           </ul>
-        </section>
-      </nav>
+          <ul class="title-area">
+            <li class="name">
+              <h1>
+                <a href="#" id="pageTitle">Page Editor - Editing {{shortPageName}}</a>
+              </h1>
+            </li>
+          </ul>
+          &insert:/OpenForum/Editor/top-menu.html.template;
+        </nav>
+
+        <nav class="top-bar" data-topbar role="navigation">
+          <section class="top-bar-section">
+            <!-- Left Nav Section -->
+            <ul class="left">
+              <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="has-dropdown {{editor.tabButtonStyle}}">
+                <a href="#" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a>
+                <ul class="dropdown">
+                  {{editor.options}}
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+
+      <div id="statusModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <h2 id="modalTitle">{{popupStatus}}</h2>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+      </div>
+
+      <section role="main" class="scroll-container" style="height: 100%">
+        <div id="editors" style="height: 100%"></div>
+      </section>
+
+      &insert:/OpenForum/PageTemplates/CommonElements/error-alert.common.html;
+      &insert:/OpenForum/PageTemplates/CommonElements/alert.common.html;
+      <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+      <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+      <script>
+        $(document).foundation();
+      </script>
     </div>
-
-    <div id="statusModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-      <h2 id="modalTitle">{{popupStatus}}</h2>
-      <a class="close-reveal-modal" aria-label="Close">&#215;</a>
-    </div>
-
-    <section role="main" class="scroll-container" style="height: 100%">
-      <div id="editors" style="height: 100%"></div>
-    </section>
-
-    &insert:/OpenForum/PageTemplates/CommonElements/error-alert.common.html;
-    &insert:/OpenForum/PageTemplates/CommonElements/alert.common.html;
-    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
-    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
   </body>
 </html>

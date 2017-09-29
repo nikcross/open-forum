@@ -3,8 +3,12 @@
 * Description: 
 */
 
-log.debug("Debug Mode:"+debug);
+//log.debug("Debug Mode:"+debug);
 
-log.test("New Script run @ "+new Date());
+//log.test("New Script run @ "+new Date());
 
-return( "hello from the server side" );
+
+var Alert = js.getObject("/OpenForum/AddOn/Alert","Alert.sjs");
+ Alert.triggerAlert("Test","testing");
+
+//return( "hello from the server side" );

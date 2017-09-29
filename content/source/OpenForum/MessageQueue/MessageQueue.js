@@ -8,6 +8,7 @@ function MessageQueue(queueName) {
   var timestamp = 0;
   var self = this;
   var waiting = false;
+  var waitingResponse = false;
 
   var jsonProcessor = null;
 
@@ -57,8 +58,22 @@ function MessageQueue(queueName) {
     self.pull();
   };
 
+  self.isWaitingResponse = function() {
+    return waitingResponse;
+  }
+  
   self.push = function(message) {
-    JSON.get("/OpenForum/MessageQueue","push","queue="+queue+"&message="+message).onSuccess(self.processPushResult).onError(self.processError).go();
+    waitingResponse = true;
+    JSON.get("/OpenForum/MessageQueue","push","queue="+queue+"&message="+message).onSuccess(
+      function(response) {
+        self.processPushResult(response);
+        waitingResponse = false;
+      }
+    ).onError(self.processError).go();
+    if(adaptivePollingConfig && adaptivePollingConfig!=null) {
+      pollTime = adaptivePollingConfig.minPollingTime;
+      self.startPolling();
+    }
   };
 
   self.pull = function() {
@@ -78,13 +93,13 @@ function MessageQueue(queueName) {
   };
 
   var preprocessPullResult = function(response) {
-    var hasMessages = response.messages > 0;
+    var hasMessages = response.messages.length > 0;
 
     if(adaptivePollingConfig && adaptivePollingConfig!=null) {
       if(hasMessages) {
         pollTime = adaptivePollingConfig.minPollingTime;
       } else {
-        pollTime =+ adaptivePollingConfig.reductionTime;
+        pollTime += adaptivePollingConfig.reductionTime;
         if(pollTime>adaptivePollingConfig.maxPollingTime) {
           pollTime = adaptivePollingConfig.maxPollingTime;
         }
@@ -141,5 +156,9 @@ function MessageQueue(queueName) {
 
   self.getQueueName = function() {
     return queueName;
+  };
+  
+  self.getPollTime = function() {
+    return pollTime;
   };
 }

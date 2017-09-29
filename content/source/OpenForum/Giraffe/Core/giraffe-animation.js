@@ -5,6 +5,7 @@ Giraffe.setAnimated = function(canvas) {
   canvas.looped = true;
   canvas.fps = 0;
   canvas.animationListeners = new Array();
+  canvas.animated = false;
 
   canvas.addAnimationListener = function(listener) {
   	this.animationListeners[this.animationListeners.length]=listener;
@@ -20,6 +21,7 @@ Giraffe.setAnimated = function(canvas) {
 
   canvas.startAnimation = function(fps,frames,looped)
   {
+    this.animated = true;
     this.frame = 0;
     this.frames = frames;
     this.looped = looped;
@@ -29,13 +31,15 @@ Giraffe.setAnimated = function(canvas) {
 
   canvas.stopAnimation = function()
   {
-    clearInterval( this.interval );
+    this.animated = false;
   };
 
   canvas.processing = false;
   
   canvas.animate = function()
   {
+    if(this.animated == false) return;
+    
     if(this.processing===true) {
       console.log("running slow");
       return;

@@ -49,8 +49,9 @@ Giraffe.Interactive = {
 
     canvas.convertEvent = function(event,element) { 
       position = getPosition(element);
-      x=event.x-position[Giraffe.X];
-      y=event.y-position[Giraffe.Y];
+      x=event.x-position[Giraffe.X]+window.scrollX;
+      y=event.y-position[Giraffe.Y]+window.scrollY;
+      
       return {
         x : x, y : y  
       };
