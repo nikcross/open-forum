@@ -1,6 +1,0 @@
-<canvas width="100" height="100" id="mapCanvas" style="background-color: #ccccff;"></canvas>
-<div id="form" style="position: absolute; left: 100px; top: 100px; z-index: 100;">
-  Lat: <input type="text" of-id="lat" value="52.717209"> , Lng: <input type="text" of-id="lng" value="1.618095"> <button onClick="go();">GO</button><br/>
-  Lat: <input type="text" of-id="lat2" value="52.619496"> , Lng: <input type="text" of-id="lng2" value="1.439400"> <button onClick="go2();">GO</button><br/>
-  Lat: <input type="text" of-id="east" value="642049"> , Lng: <input type="text" of-id="north" value="316847"> <button onClick="go3();">GO</button><br/>
-</div>
