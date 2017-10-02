@@ -114,60 +114,67 @@ public class OpenForumController implements OpenForumScripting,
 	private FileManager initialiseFileManager(String rootFolderName)
 			throws Exception {
 
-		FileManager newFileManager = new FileManager(domainName,
-				pageChangeTrigger, this);
-		newFileManager.setResourceStore(new LocalDriveResourceStore(
-				rootFolderName, false));
+		try {
+			FileManager newFileManager = new FileManager(domainName,
+					pageChangeTrigger, this);
+			newFileManager.setResourceStore(new LocalDriveResourceStore(
+					rootFolderName, false));
 
-		if (newFileManager.pageExists("/OpenForum/Configuration",
-				getSystemLogin())) {
+			if (newFileManager.pageExists("/OpenForum/Configuration",
+					getSystemLogin())) {
 
-			KeyValueListPage keyValueListPage = new KeyValueListPage(
-					newFileManager, "/OpenForum/Configuration");
+				KeyValueListPage keyValueListPage = new KeyValueListPage(
+						newFileManager, "/OpenForum/Configuration");
 
-			secure = keyValueListPage.getValue("secure").equals("true");
-
-			ResourceStoreProxy resourceStore = null;
-			boolean hasMoreResourceStores = true;
-			int resourceStoreIndex = 0;
-
-			while (hasMoreResourceStores) {
-				String storeEntry = keyValueListPage.getValue("resourceStore"
-						+ resourceStoreIndex);
-				if (storeEntry == null) {
-					hasMoreResourceStores = false;
-					continue;
+				if(keyValueListPage.getValue("secure")!=null) {
+					secure = keyValueListPage.getValue("secure").equals("true");
 				}
 
-				if (storeEntry.startsWith("read-only:")) {
-					if (resourceStore == null) {
-						resourceStore = new ResourceStoreProxy(
-								new LocalDriveResourceStore(
-										storeEntry.substring(10), true));
-					} else {
-						resourceStore
-								.addResourceStore(new LocalDriveResourceStore(
-										storeEntry.substring(10), true));
+				ResourceStoreProxy resourceStore = null;
+				boolean hasMoreResourceStores = true;
+				int resourceStoreIndex = 0;
+
+				while (hasMoreResourceStores) {
+					String storeEntry = keyValueListPage.getValue("resourceStore"
+							+ resourceStoreIndex);
+					if (storeEntry == null) {
+						hasMoreResourceStores = false;
+						continue;
 					}
-				} else {
-					if (resourceStore == null) {
-						resourceStore = new ResourceStoreProxy(
-								new LocalDriveResourceStore(storeEntry, false));
+
+					if (storeEntry.startsWith("read-only:")) {
+						if (resourceStore == null) {
+							resourceStore = new ResourceStoreProxy(
+									new LocalDriveResourceStore(
+											storeEntry.substring(10), true));
+						} else {
+							resourceStore
+									.addResourceStore(new LocalDriveResourceStore(
+											storeEntry.substring(10), true));
+						}
 					} else {
-						resourceStore
-								.addResourceStore(new LocalDriveResourceStore(
-										storeEntry, false));
+						if (resourceStore == null) {
+							resourceStore = new ResourceStoreProxy(
+									new LocalDriveResourceStore(storeEntry, false));
+						} else {
+							resourceStore
+									.addResourceStore(new LocalDriveResourceStore(
+											storeEntry, false));
+						}
 					}
+					resourceStoreIndex++;
 				}
-				resourceStoreIndex++;
+
+				if (resourceStore != null) {
+					newFileManager.setResourceStore(resourceStore);
+				}
 			}
 
-			if (resourceStore != null) {
-				newFileManager.setResourceStore(resourceStore);
-			}
+			return newFileManager;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new OpenForumException("Failed to initialise file manager with Root Folder Name "+rootFolderName);
 		}
-
-		return newFileManager;
 	}
 
 	public OpenForumController(String rootFolderName, String domainName)

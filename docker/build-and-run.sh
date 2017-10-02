@@ -2,4 +2,4 @@
 
 ./update.sh
 ./docker-build.sh
-./docker-run.sh
+./docker-run.sh latest

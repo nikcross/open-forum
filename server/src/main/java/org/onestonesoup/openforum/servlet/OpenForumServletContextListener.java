@@ -27,15 +27,21 @@ public class OpenForumServletContextListener implements ServletContextListener {
 	public void contextInitialized(ServletContextEvent event) {
 		File domainXml = new File(new File(event.getServletContext().getInitParameter("domainList")).getAbsolutePath());
 		try {
+			System.out.println("Configuring Wiki Controller");
 			EntityTree domainList = XmlHelper.loadXml(domainXml);
 			List<TreeEntity> domains = domainList.getChildren("domain");
 			for(TreeEntity domain: domains) {
 				String root = domain.getChild("root").getValue();
 				String domainName = domain.getChild("host").getValue();
+
+				System.out.println("  Adding Wiki Controller for "+domainName+" root:"+root);
 				OpenForumController wikiController = new OpenForumController(root, domainName);
 				wikiController.initialise();
 				wikiControllers.put(domainName,wikiController);
-				System.out.println("Wiki Controller added for "+domainName);
+				System.out.println("  Wiki Controller added for "+domainName);
+			}
+			if(domains.size()==0) {
+				System.out.println("  No Wiki Controllers Listed");
 			}
 		} catch (XmlParseException e2) {
 			// TODO Auto-generated catch block

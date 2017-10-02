@@ -1,4 +1,4 @@
-FROM java:openjdk-7-jre
+FROM anapsix/alpine-java:8
 MAINTAINER  Nik Cross <nikcross@wet-wired.com>
 
 COPY ./source /web/source

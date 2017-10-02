@@ -40,6 +40,7 @@ public class SessionCookieAuthenticator implements Authenticator {
 		} else {
 			Login login = new Login(memberAlias, (String)null);
 			login.setLoggedIn(true);
+			login.setSessionId(sessionId);
 			return login;
 		}
 	}
