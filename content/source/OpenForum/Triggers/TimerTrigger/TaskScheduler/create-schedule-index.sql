@@ -1,1 +1,0 @@
-create unique index triggerSchedule_name_index on triggerSchedule (name)

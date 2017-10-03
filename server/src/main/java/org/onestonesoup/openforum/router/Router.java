@@ -240,8 +240,8 @@ public class Router {
 
 		if(httpHeader.getChild("secure").getValue().equals("false") && controller.isSecure()) {
 			HttpResponseHeader responseHeader = new HttpResponseHeader(
-						httpHeader, "text/html", 302, connection);
-				responseHeader.addParameter("location", "https:"+httpHeader.getChild("host").getValue() + "/" + request); // Rediect to https page
+						httpHeader, "text/html", 301, connection);
+				responseHeader.addParameter("location", "https://"+httpHeader.getChild("host").getValue() + "/" + request); // Rediect to https page
 
 				connection.getOutputStream().flush();
 				connection.close();

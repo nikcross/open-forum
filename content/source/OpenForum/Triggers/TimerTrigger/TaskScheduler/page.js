@@ -1,44 +1,32 @@
 /*
 * Author: 
 */
-OpenForum.includeScript("/OpenForum/AddOn/SQL/DB.js");
 
-var db;
 var schedule;
 var taskTemplate = {"id": "", "name": "", "pageName": "", "scriptFile": "", "lastRun": "", "scheduledTime": "", "enabled": true, "debug": false};
 var currentTask = createTask();
 
 OpenForum.init = function() {
-  db = new DB("open-forum");
   loadSchedule();
 };
 
 
 function loadSchedule() {
-  db.query("select * from triggerSchedule order by name",updateSchedule,errorSchedule);
+  OpenForum.loadFile("/OpenForum/Triggers/TimerTrigger/TaskScheduler/schedule.json",updateSchedule );
 }
 
-function errorSchedule(error) {
-  alert(error);
+function saveSchedule() {
+  if(validateSchedule()===true) {
+    OpenForum.saveFile("/OpenForum/Triggers/TimerTrigger/TaskScheduler/updated-schedule.json",JSON.stringify(schedule,null,4));
+  }
+}
+
+function validateSchedule() {
+  return true;
 }
 
 function updateSchedule(newSchedule) {
-    var list = [];
-    for(var i in newSchedule.table.rows) {
-      var row = newSchedule.table.rows[i];
-      var entry = {
-        id: "task"+i,
-        name: row.cell0,
-        pageName: row.cell1,
-        scriptFile: row.cell2,
-        lastRun: row.cell3,
-        scheduledTime: row.cell4,
-        enabled: (row.cell5=="t"),
-        debug: (row.cell6=="t")
-      };
-      list.push(entry);
-    }
-  schedule = list;
+  schedule = JSON.parse(newSchedule);
 }
 
 function editTask(taskId) {
@@ -46,8 +34,6 @@ function editTask(taskId) {
     var task = schedule[i];
     if(task.id===taskId) {
       currentTask = task;
-      document.getElementById("enabledCheckBox").checked = currentTask.enabled;
-      document.getElementById("debugCheckBox").checked = currentTask.debug;
       break;
     }
   }
@@ -64,38 +50,9 @@ function deleteTask(taskId) {
 }
 
 function addTask() {
-  
-  currentTask.enabled = document.getElementById("enabledCheckBox").checked;
-  currentTask.debug = document.getElementById("debugCheckBox").checked;
-  
-  var sql = "insert into triggerSchedule values("+
-      "'" + currentTask.name+"','"+
-      currentTask.pageName+"','"+
-      currentTask.scriptFile+"','"+
-      currentTask.lastRun+"','"+
-      currentTask.scheduledTime+"',"+
-      currentTask.enabled+","+
-      currentTask.debug+")"+
-      " ON CONFLICT (name) DO UPDATE SET "+
-      " name = '"+
-      currentTask.name+"', pageName = '"+
-      currentTask.pageName+"', scriptFile = '"+
-      currentTask.scriptFile+"', lastRun = '"+
-      currentTask.lastRun+"',scheduledTime = '"+
-      currentTask.scheduledTime+"', enabled = "+
-      currentTask.enabled+", debug = "+
-      currentTask.debug;
-      
-  console.log(sql);
-  
-  //sql,callBack,errorCallBack
-  db.execute(
-    sql,
-    alert,
-    alert
-  );
-  
-  loadSchedule();
+  currentTask = createTask();
+  currentTask.id = "task"+schedule.length;
+  schedule.push( currentTask );
 }
 
 function createTask() {
