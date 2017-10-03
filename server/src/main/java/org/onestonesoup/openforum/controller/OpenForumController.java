@@ -1234,9 +1234,10 @@ public class OpenForumController implements OpenForumScripting,
 
 			initialised = true;
 
-			logger.info("Building Wiki Page List");
+			//TODO This does not seem to do anything
+			/*logger.info("Building Wiki Page List");
 			buildPagesList();
-			logger.info("Built Wiki Page List");
+			logger.info("Built Wiki Page List");*/
 
 			logger.info("Running Wiki Startup Triggers");
 			StartUpTrigger startUpTrigger = new StartUpTrigger(this);
