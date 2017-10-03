@@ -17,8 +17,6 @@ try{
       task.lastRun = new Date().toString();
     } catch(e) {
       if(task.debug) log.debug("Failed to run "+task.scriptFile+" on page "+task.pageName+" Error:"+e);
-        var Alert = js.getObject("/OpenForum/AddOn/Alert","Alert.sjs");
-  		Alert.triggerAlert("Scheduled Task Error "+task.pageName+"/"+task.scriptFile);
     }
   }
 
@@ -134,6 +132,4 @@ try{
 
 } catch(e) {
   log.error("Error in /OpenForum/Triggers/TimerTrigger/TaskScheduler/trigger.sjs Error:"+e);
-  var Alert = js.getObject("/OpenForum/AddOn/Alert","Alert.sjs");
-  Alert.triggerAlert("Task Scheduler Error");
 }
