@@ -3,7 +3,7 @@ package org.onestonesoup.openforum.transaction;
 import org.onestonesoup.core.data.EntityTree;
 import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
 
-import sun.misc.BASE64Encoder;
+import java.util.Base64;
 
 public class HttpResponseHeader {
 
@@ -21,7 +21,7 @@ public class HttpResponseHeader {
 		
 		String pebble = httpRequest.getAttribute("session");
 		if(pebble!=null) {
-			addParameter("Set-Cookie","sessionCookie="+new String(new BASE64Encoder().encode(pebble.getBytes()))+"; path=/");
+			addParameter("Set-Cookie","sessionCookie="+new String(Base64.getEncoder().encode(pebble.getBytes()))+"; path=/");
 		}
 	}
 	

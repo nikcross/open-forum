@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="client" />
+        <module name="email" />
+        <module name="javascript" />
+        <module name="jdbc" />
+        <module name="open-forum-migration" />
+        <module name="open-forum.server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="client" target="1.8" />
+      <module name="email" target="1.5" />
+      <module name="javascript" target="1.8" />
+      <module name="jdbc" target="1.5" />
+      <module name="open-forum" target="1.5" />
+      <module name="open-forum-migration" target="1.5" />
+      <module name="open-forum.server" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
