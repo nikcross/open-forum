@@ -1,6 +1,7 @@
 <div id="openModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h2 id="modalTitle">Open File</h2>
-  <div>Create new file <input type="text" id="newFileName" onKeyPress="&editor;.createNew(this.value,event);" /></div>
+  <h2 id="modalTitle">Select File</h2>
+  <div>Open <input type="text" id="newFileName" onKeyPress="&editor;.createNew(this.value,event);" onKeyUp="&editor;.updateTreeView(this);"/></div>
+  <div>{{&editor;.getEditingPageName()}}</div>
   <div id="fileTree"></div>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>

@@ -4,53 +4,53 @@ var NextTreeNodeIndex = 0;
 var TreeNodes = [];
 
 function Tree(elementId,name,attributes,modifier) {
+  var self = this;
   var jsonModifier = function(json) {
     if(modifier) modifier(json);
-  }
+  };
   
   var root = new TreeNode(name,attributes,null,jsonModifier);
-  var elementId = elementId;
 
-  this.setJSONModifier = function(newModifier) {
+  self.setJSONModifier = function(newModifier) {
     modifier = newModifier;
-  }
+  };
   
-  this.render = function() {
+  self.render = function() {
     var element = document.getElementById(elementId);
     element.innerHTML = root.render(0);
     return this;
   };
-  this.addChild = function(name,attributes) {
+  self.addChild = function(name,attributes) {
     return root.addChild(name,attributes);
   };
-  this.addJSON = function(node) {
+  self.addJSON = function(node) {
     return root.addJSON(node);
   };
-  this.setJSON = function(node) {
+  self.setJSON = function(node) {
     root = root.addJSON(node);
     return root;
   };
-  this.render();
+  self.render();
 
-  this.expandAll = function() {
+  self.expandAll = function() {
     root.applyToChildren( function(child){ child.expand(); } );
     root.expand();
     return this;
   };
 
-  this.collapseAll = function() {
+  self.collapseAll = function() {
     root.applyToChildren( function(child){ child.collapse(); } );
     root.collapse();
     return this;
   };
-  this.deleteChild = function(node) {
+  self.deleteChild = function(node) {
     node.parent.deleteChild(node);
     return this;
   };
-  this.getRoot = function() {
+  self.getRoot = function() {
     return root;
   };
-  this.expandPath = function(path) {
+  self.expandPath = function(path) {
 
     var nodePath = findPath(path);
     if(nodePath!==null) {
@@ -60,10 +60,10 @@ function Tree(elementId,name,attributes,modifier) {
       return false;
     }
   };
-  this.findNode = function(path) {
+  self.findNode = function(path) {
     return findPath(path);
   };
-  this.init = function() {};
+  self.init = function() {};
   var findPath = function(path) {
     if(path.charAt(0)==="/") {
       path = path.substring(1);
@@ -91,7 +91,8 @@ function Tree(elementId,name,attributes,modifier) {
 var NextActionId=0;
 var Actions = [];
 function Action(config) {
-  var fn = eval("("+config.fn+")");
+  var self = this;
+  var fn = OpenForum.evaluate("("+config.fn+")");
   var icon = config.icon;
   var toolTip = config.toolTip;
   
@@ -101,10 +102,10 @@ function Action(config) {
 
   icon = "/OpenForum/Images/icons/png/" + icon + ".png";
 
-  this.call = function(node) {
+  self.call = function(node) {
     fn(node);
   };
-  this.render = function(target)
+  self.render = function(target)
   {
     data="&nbsp;<a href='#' onClick='Actions[\""+id+"\"].call("+target+");return false;'>"+
       "<i style='background: url(\""+icon+"\") no-repeat scroll; min-width: 16px; min-height: 16px;	display: inline-block;' title='"+toolTip+"'></i></a>";
@@ -113,7 +114,7 @@ function Action(config) {
 }
 
 function TreeNode(name,attributes,parent,jsonModifier) {
-  var that = this;
+  var self = this;
   var id = "TreeNode"+NextTreeNodeIndex;
   NextTreeNodeIndex++;
   TreeNodes[id] = this;
@@ -123,50 +124,54 @@ function TreeNode(name,attributes,parent,jsonModifier) {
   var localDepth = 0;
   var lazyLoad = null;
 
-  this.getId = function() {
+  var paint = function() {
+    document.getElementById(id).innerHTML = self.render(localDepth);
+  };
+  
+  self.getId = function() {
     return id;
   };
 
-  this.setLazyLoad = function(lazyLoadFn) {
+  self.setLazyLoad = function(lazyLoadFn) {
     lazyLoad = lazyLoadFn;
     return this;
   };
 
-  this.getParent = function() {
+  self.getParent = function() {
     return parent;
-  }
+  };
   
-  this.addChild = function(name,attributes) {
+  self.addChild = function(name,attributes) {
     var newChild = new TreeNode(name,attributes,this,jsonModifier);
     children[children.length] = newChild;
-    newChild.parent = that;
+    newChild.parent = self;
     return newChild;
   };
 
-  this.addJSON = function(node) {
-    if(jsonModifier!=null) jsonModifier(node);
-    var child = this.addChild( node.name,node.attributes );
+  self.addJSON = function(node) {
+    if(jsonModifier!==null) jsonModifier(node);
+    var child = self.addChild( node.name,node.attributes );
     if(node.leaves) {
       for(var i in node.leaves) {
         child.addJSON( node.leaves[i] );
       }
     }
-    child.parent = that;
+    child.parent = self;
     return child;
   };
   
-  this.importJSON = function(url,action,parameters) {
+  self.importJSON = function(url,action,parameters) {
     JSON.get(url,action,parameters).onSuccess(
       function(response) {
         for(var i in response.leaves) {
-          that.addJSON( response.leaves[i] );
+          self.addJSON( response.leaves[i] );
         }
         paint();
       }
     ).go();
-  }
+  };
   
-  this.deleteChild = function(node) {
+  self.deleteChild = function(node) {
     for(var index in children) {
       if(children[index].getId()===node.getId()) {
         children.splice(index,1);
@@ -176,9 +181,9 @@ function TreeNode(name,attributes,parent,jsonModifier) {
     return this;
   };
 
-  this.expand = function() {
+  self.expand = function() {
     if(lazyLoad!==null) {
-      lazyLoad(that);
+      lazyLoad(self);
       lazyLoad = null;
       return this;
     }
@@ -186,21 +191,18 @@ function TreeNode(name,attributes,parent,jsonModifier) {
     paint();
     return this;
   };
-  this.collapse = function() {
+  self.collapse = function() {
     expanded=false;
     paint();
     return this;
   };
-  this.toggle = function() {
+  self.toggle = function() {
     expanded=!expand;
     paint();
     return this;
   };
-  var paint = function() {
-    document.getElementById(id).innerHTML = that.render(localDepth);
-  };
-
-  this.render = function(depth) {
+  
+  self.render = function(depth) {
     if(!depth) {
       depth=0;
     }
@@ -256,19 +258,19 @@ function TreeNode(name,attributes,parent,jsonModifier) {
     data+="</span>";
     return data;
   };
-  this.getName = function() {
+  self.getName = function() {
     return name;
   };
-  this.setName = function(newName) {
+  self.setName = function(newName) {
     name = newName;
   };
-  this.getAttribute = function(name) {
+  self.getAttribute = function(name) {
     return attributes[name];
   };
-  this.applyToChildren = function( fn ) {
+  self.applyToChildren = function( fn ) {
     children.forEach( fn(child) );
   };
-  this.getChildren = function() {
+  self.getChildren = function() {
     return children;
   };
 }

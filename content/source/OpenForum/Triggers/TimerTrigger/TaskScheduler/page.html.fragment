@@ -10,8 +10,9 @@
       <td>{{task.enabled}}</td>
       <td>{{task.debug}}</td>
       <td>
-        <a href="#" class="button" onclick="editTask( '{{task.id}}' ); return false;">Edit</a>
-        <a href="#" class="button" onclick="deleteTask( '{{task.id}}' ); return false;">Delete</a>
+        <a href="#" class="button tiny round" onclick="runTask( '{{task.id}}' ); return false;">Run Now</a>
+        <a href="#" class="button tiny round" onclick="editTask( '{{task.id}}' ); return false;">Edit</a>
+        <a href="#" class="button tiny round" onclick="deleteTask( '{{task.id}}' ); return false;">Delete</a>
       </td>
     </tr>
   </table>

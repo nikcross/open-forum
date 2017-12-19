@@ -1,27 +1,54 @@
 //---- OpenForumObject ----
 
 function OpenForumObject(objectId) {
+  var self = this;
   var id = objectId;
-  var value = "";
-  this.targets=[];
-  this.listeners=[];
+  var value = null;
+  var targets=[];
+  var listeners=[];
 
-  this.getId = function() {
+  OpenForum.debug("INFO","Object " + id + " created");
+  
+  var notifyListeners = function() {
+    for(var listenerIndex in listeners) {
+      var listener = listeners[listenerIndex];
+      listener( self );
+      
+      if(listener.getId) {
+        OpenForum.debug("INFO","Object " + id + " has notified " + listener.getId() + "of change");
+      }
+    }
+  };
+  
+  self.getId = function() {
     return id;
   };
 
-  this.add = function(target) {
-    this.targets[this.targets.length]=target;
+  self.add = function(target) {
+    targets.push(target);
+    
+    if(target.getId) {
+      OpenForum.debug("INFO","Object " + id + " has added new target " + target.getId());
+    } else {
+      OpenForum.debug("INFO","Object " + id + " has added new target " + target);
+    }
   };
 
-  this.setValue = function(newValue,exclude) {
+  self.reset = function() {
+    value = null;
+  };
+  
+  self.setValue = function(newValue,exclude) {
     if(newValue===value) {
       return;
     }
+    
+    OpenForum.debug("INFO","Object " + id + " value set to " + newValue);
+    
     value = newValue;
-    for(var targetIndex in this.targets) {
-      var target = this.targets[targetIndex];
-      if(target==null) {
+    for(var targetIndex in targets) {
+      var target = targets[targetIndex];
+      if(target===null) {
         continue;
       }
       if(exclude && exclude===target) {
@@ -41,14 +68,14 @@ function OpenForumObject(objectId) {
     }
   };
 
-  this.getValue = function() {
+  self.getValue = function() {
     return value;
   };
 
-  this.scan = function() {
-    for(var targetIndex in this.targets) {
+  self.scan = function() {
+    for(var targetIndex in targets) {
       try {
-        var target = this.targets[targetIndex];
+        var target = targets[targetIndex];
         if(target===null) {
           continue;
         }
@@ -56,63 +83,56 @@ function OpenForumObject(objectId) {
         if(typeof(target.type)!="undefined" && target.type=="checkbox") {
           if(target.checked!==value) {
 
-            this.setValue(target.checked,target);
-            eval(this.getId()+"=value;");
-            this.notifyListeners();
+            self.setValue(target.checked,target);
+            OpenForum.setGlobal(id,target.checked);
+			OpenForum.debug("INFO","Object (checkbox) " + id + " value set to " + value);
+            notifyListeners();
             return;
           }
         } else if(typeof(target.value)!="undefined") {
           if(target.value!=value) {
-            this.setValue(target.value,target);
-            eval(this.getId()+"=value;");
-            this.notifyListeners();
+            self.setValue(target.value,target);
+            OpenForum.setGlobal(id,value);
+			OpenForum.debug("INFO","Object " + id + " value set to " + value);
+            notifyListeners();
             return;
           }
         }
       } catch(e) {
-        //Maybe needs debug mode
+        OpenForum.debug("ERROR","Object " + id + " error in setting value (case 1).", e);
       }
     }
     try{
-      var testId = this.getId();
-      if( eval("typeof("+testId+")")!="undefined") {
-        if( value!=eval(testId)) {
-          this.setValue(eval(testId));
-          this.notifyListeners();
+      var testId = id;
+      if( OpenForum.globalExists(testId) ) {
+        if( value!=OpenForum.getGlobal(testId)) {
+          self.setValue(OpenForum.getGlobal(testId));
+          notifyListeners();
         }
       } else {
-        eval(testId+"=value;");
+        OpenForum.setGlobal(testId,value,true);
+		OpenForum.debug("INFO","Global object created " + testId + " and value set to " + value);
       }
     } catch(e) {
-      //Maybe needs debug mode
+        OpenForum.debug("ERROR","Object " + id + " error in setting value (case 2).", e);
     }
 
   };
 
-  this.addListener = function(listener) {
-    this.listeners.push(listener);
-  };
-
-  this.notifyListeners = function() {
-    for(var listenerIndex in this.listeners) {
-      listener = this.listeners[listenerIndex];
-      listener( this );
+  self.addListener = function(listener) {
+    listeners.push(listener);
+    if(listener.getId) {
+      OpenForum.debug("INFO","Object " + id + " has added new listener " + listener.getId());
+    } else {
+      OpenForum.debug("INFO","Object " + id + " has added new listener " + listener);
     }
   };
 
-  this.getId = function() {
+  self.getId = function() {
     return id;
   };
 
-  this.getTargets = function() {
-    return this.targets;
+  self.getTargets = function() {
+    return targets;
   };
-}	
-
-onload = function() {
-  OpenForum.onload();
-};
-
-onunload = function() {
-  OpenForum.onunload();
-};
+}

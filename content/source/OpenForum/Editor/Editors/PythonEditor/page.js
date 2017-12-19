@@ -8,6 +8,7 @@ OpenForum.init = function() {
     flavour: "Python",
     editingPageName: "/TheLab/Sandbox",
     editingFileName: "sandbox-giraffe.py",
+    fileExtension: "py",
     elementId: "pythonEditor"
   };
   if(OpenForum.getParameter("pageName")) {

@@ -1,0 +1,1 @@
+window.open('{{domain}}/OpenForum/Extensions/Bookmarklet?action=appendLink&pageName={{pageName}}&url=' + encodeURIComponent(window.location.href),'_blank');

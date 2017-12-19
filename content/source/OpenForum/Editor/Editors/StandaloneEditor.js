@@ -16,7 +16,10 @@ function renderTabOption(name,toolTip,action) {
 
 function StandaloneEditor( config ) {
   var self = this;
-  var id = "editor:"+Math.random()+":"+new Date().getTime();
+  
+  self.status = "status is..";
+  
+  var id = "editor:"+(""+Math.random()).replace(".","")+":"+new Date().getTime();
   editors[id] = this;
 
   var flavour = "HTML";
@@ -25,11 +28,13 @@ function StandaloneEditor( config ) {
   var editor = null;
   var editingPageName = "/TheLab/Sandbox";
   var editingFileName = "sandbox.html";
+  var fileExtension = "html";
   var statusClearer = null;
-  var status = " ";
+  var status = "";
   var lastCheckTime = new Date().getTime();
   var overrideSave = true;
   var overridePageName = false;
+  var waitToUpdateTree;
 
   for(var i in config) {
     if(typeof(eval(i)) !== "undefined") {
@@ -80,22 +85,100 @@ function StandaloneEditor( config ) {
       editor.getCodeMirror().on("change", function(cm, change) {
         self.storeChanges();
       });
-      
+
       setInterval(autoSaveChanges,10000);
       setInterval(checkForChanges,11000);
 
       self.onLoad();
-      
+
       showStatus("Ready");
     };
   };
 
-  self.onLoad = function() {}
+  var autoSaveChanges = function() {
+    if(editorList[0].changed!=="*" || autoSave===false) {
+      return;
+    }
+    self.save();
+  };
+
+  var showStatus = function(message,cleared) {
+    if(statusClearer!==null) {
+      clearTimeout(statusClearer);
+    }
+    status = message;
+    if(!cleared) {
+      statusClearer = setTimeout( function() { showStatus("Editing "+editingPageName+"/"+editingFileName+" "+editorList[0].changed,true); },4000);
+    }
+  };
+
+  var showError = function(message) {
+    showStatus("Error: "+message);
+  };
+
+  var checkForChanges = function() {
+    OpenForum.file.getAttachmentTimestamp( editingPageName,editingFileName, function(modifiedTs) {
+      if(modifiedTs>lastCheckTime) {
+        showStatus( "The file "+editingPageName+"/"+editingFileName+" has been changed on the server." );
+        if(self.hasChanges()===false) {
+          self.openFile();
+        }
+      }
+      lastCheckTime = new Date().getTime();
+    }
+                                         );
+  };
   
+  
+  var getRoot = function() {
+    //return OpenForum.User.getUserRoot()+"/"+flavour;
+    return editingPageName;
+  };
+
+  
+  var initialiseTree = function() {
+    var root = getRoot();
+
+    tree = new Tree("fileTree","Loading...","",modifyTreeNode);
+    JSON.get("/OpenForum/Javascript/Tree","getPageTree","pageName="+root+"&match=.*\."+fileExtension).onSuccess(
+      function(result) {
+        tree.setJSON(result);
+        tree.render();
+        tree.getRoot().expand();
+        tree.init();
+      }
+    ).go();
+  };
+
+  var modifyTreeNode  =function(data) {
+    delete data.attributes.link;
+    if(data.attributes.actions) {
+      var actions = data.attributes.actions;
+      var newActions = [];
+      for(var a = 0;a<actions.length;a++) {
+        if(data.attributes.type==="more") {
+          newActions.push(actions[a]);
+        } else if(data.attributes.type==="file" && actions[a].icon==="pencil") {
+          actions[a].fn = "function(node) { editors['"+id+"'].openFile('"+data.attributes.pageName+"','"+data.attributes.fileName+"'); }";
+          newActions.push(actions[a]);
+        }
+      }
+      data.attributes.actions = newActions;
+    }
+
+    for(var l=0;l<data.leaves.length;l++) {
+      modifyTreeNode(data.leaves[l]);
+    }
+  };
+
+  
+  
+  self.onLoad = function() {};
+
   self.getOptions = function() {
     return editor.renderOptions();
-  }
-  
+  };
+
   self.getEditingPageName = function() {
     return editingPageName;
   };
@@ -128,19 +211,6 @@ function StandaloneEditor( config ) {
     return editor.getValue();
   };
 
-  var checkForChanges = function() {
-    OpenForum.file.getAttachmentTimestamp( editingPageName,editingFileName, function(modifiedTs) {
-      if(modifiedTs>lastCheckTime) {
-        showStatus( "The file "+editingPageName+"/"+editingFileName+" has been changed on the server." );
-        if(self.hasChanges()===false) {
-          self.openFile();
-        }
-      }
-      lastCheckTime = new Date().getTime();
-    }
-                                         );
-  };
-
   self.storeChanges = function() {
     localStorage.setItem( editingPageName+"/"+editingFileName, JSON.stringify({content: editor.getValue(), ts: new Date().getTime()}) );
   };
@@ -165,75 +235,54 @@ function StandaloneEditor( config ) {
         // If time after last modified time, ask for confirmation
         OpenForum.file.getAttachmentTimestamp( editingPageName,editingFileName,
                                               function (savedTs) {
-                                                if(savedTs<localChanges.ts) {
-                                                  $("#confirmRetrieveModal").foundation('reveal', 'open');
-                                                } else {
-                                                  editor.changed="*";
-                                                  editor.getCodeMirror().setValue(localChanges.content );
-                                                }
-                                              });
+          if(savedTs<localChanges.ts) {
+            $("#confirmRetrieveModal").foundation('reveal', 'open');
+          } else {
+            editor.changed="*";
+            editor.getCodeMirror().setValue(localChanges.content );
+          }
+        });
       }
     }
   };
 
-  self.createNew = function(newFileName,keyEvent) {
+  self.updateTreeView = function(inputField) {
+    var newFileName = inputField.value;
+    if(newFileName.indexOf('~')==0) {
+      newFileName = "/OpenForum/Users/"+currentUser+"/";
+      inputField.value = newFileName;
+    }
+    if(newFileName.indexOf("/")===0) {
+      var newEditingPageName = newFileName.substring(0,newFileName.lastIndexOf("/"));
+      if(newEditingPageName!==editingPageName) {
+
+        //Stop tree updateing too fast
+        if(waitToUpdateTree) clearTimeout(waitToUpdateTree);
+        waitToUpdateTree = setTimeout( function() {
+          editingPageName = newEditingPageName;
+          initialiseTree();
+        },2000);
+      }
+    }
+  };
+
+  self.createNew = function(newFileName,keyEvent) {  
     if(keyEvent) {
       if(keyEvent.charCode!=13) {
         return;
       }
     }
 
-    editingPageName = getRoot();
+    var root = getRoot();
     editingFileName = newFileName;
-    OpenForum.saveFile(editingPageName+"/"+editingFileName,"");
+    OpenForum.saveFile(root+"/"+editingFileName,"");
 
     self.openFile();
   };
-
-  var getRoot = function() {
-    //return OpenForum.User.getUserRoot()+"/"+flavour;
-    return editingPageName;
-  };
-
+  
   self.openFileSelect = function() {
-    if(!tree) {
-
-      var root = getRoot();
-
-      tree = new Tree("fileTree","Loading...","",modifyTreeNode);
-      JSON.get("/OpenForum/Javascript/Tree","getPageTree","pageName="+root+"&match=.*\.js").onSuccess(
-        function(result) {
-          tree.setJSON(result);
-          tree.render();
-          tree.getRoot().expand();
-          tree.init();
-        }
-      ).go();
-
-    }
-
+    if(!tree) initialiseTree();
     $("#openModal").foundation('reveal', 'open');
-  };
-
-  var modifyTreeNode  =function(data) {
-    delete data.attributes.link;
-    if(data.attributes.actions) {
-      var actions = data.attributes.actions;
-      var newActions = [];
-      for(var a = 0;a<actions.length;a++) {
-        if(data.attributes.type==="more") {
-          newActions.push(actions[a]);
-        } else if(data.attributes.type==="file" && actions[a].icon==="pencil") {
-          actions[a].fn = "function(node) { editors['"+id+"'].openFile('"+data.attributes.pageName+"','"+data.attributes.fileName+"'); }";
-          newActions.push(actions[a]);
-        }
-      }
-      data.attributes.actions = newActions;
-    }
-
-    for(var l=0;l<data.leaves.length;l++) {
-      modifyTreeNode(data.leaves[l]);
-    }
   };
 
   self.openFile = function( pageName,fileName ) {
@@ -241,7 +290,7 @@ function StandaloneEditor( config ) {
       editingPageName = pageName;
       editingFileName = fileName;
     }
-    
+
     localStorage.setItem( "/OpenForum/Editor/Editors/"+flavour, JSON.stringify( {editingPageName: editingPageName, editingFileName: editingFileName} ) );
     editor.setValue( OpenForum.loadFile(editingPageName+"/"+editingFileName));
     lastCheckTime = new Date().getTime();
@@ -265,26 +314,5 @@ function StandaloneEditor( config ) {
 
   self.downloadToComputer = function() {
     OpenForum.Browser.download(editingFileName,editor.getValue());
-  };
-
-  var autoSaveChanges = function() {
-    if(editorList[0].changed!=="*" || autoSave===false) {
-      return;
-    }
-    self.save();
-  };
-
-  var showStatus = function(message,cleared) {
-    if(statusClearer!==null) {
-      clearTimeout(statusClearer);
-    }
-    status = message;
-    if(!cleared) {
-      statusClearer = setTimeout( function() { showStatus("Editing "+editingPageName+"/"+editingFileName+" "+editorList[0].changed,true); },4000);
-    }
-  };
-
-  var showError = function(message) {
-    showStatus("Error: "+message);
   };
 }

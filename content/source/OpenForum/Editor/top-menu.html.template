@@ -40,6 +40,7 @@
         <li><a onClick="loadPlugin('FormBuilder');return false;">[{Icon name="plugin"}] Simple Form Builder</a></li>
         <li><a onClick="loadPlugin('FileDiff');return false;">[{Icon name="plugin"}] Difference View</a></li>
         <li><a onClick="loadPlugin('Service');return false;">[{Icon name="plugin"}] Web Service Wizard</a></li>
+        <li><a onClick="loadPlugin('JavascriptBuilder');return false;">[{Icon name="plugin"}] Javascript Builder</a></li>
       </ul>
     </li>
     <li class="divider"></li>

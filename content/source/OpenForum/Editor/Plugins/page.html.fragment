@@ -8,6 +8,7 @@
 <li> <a href="/OpenForum/Editor/Plugins/GameConsole">GameConsole</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/Giraffe">Giraffe</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/History">History</a></li>
+<li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder">JavascriptBuilder</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/JavascriptConsole">JavascriptConsole</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/PageManager">PageManager</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/PluginGenerator">PluginGenerator</a></li>

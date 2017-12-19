@@ -1,0 +1,33 @@
+A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
+<hr/>
+<h3>Parameters</h3>
+<ul><li> title = Bookmark title Name</li>
+<li> domain = external site domain</li>
+<li> script = Path to script</li>
+</ul>
+<hr/>
+<h3>Usage:</h3>
+<xmp class="panel">
+[{Bookmarklet title="Bookmark" domain="https://open-forum.onestonesoup.org" script="/OpenForum/Extensions/Bookmarklet/append-link.js" text="Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:"}]
+</xmp>
+Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:<a class='button tiny round success' href="javascript: window.open('https://open-forum.onestonesoup.org/OpenForum/Extensions/Bookmarklet?action=appendLink&pageName=/OpenForum/Extensions/Bookmarklet&url=' + encodeURIComponent(window.location.href),'_blank');">Bookmark</a>
+
+<hr/>
+
+<a href="//OpenForum/Extensions/Bookmarklet/renderer.sjs">//OpenForum/Extensions/Bookmarklet/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/Bookmarklet&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">try{
+domain = extension.getAttribute("domain");
+title = extension.getAttribute("title");
+script = extension.getAttribute("script");
+text = extension.getAttribute("text");
+
+var script = file.getAttachment( "",script ).replaceAll("\"","\\\\\"");
+script = script.replaceAll("\\{\\{domain\\}\\}",domain);
+script = script.replaceAll("\\{\\{pageName\\}\\}",pageName);
+var bmHref = "javascript: " + script;
+
+return text + "<a class='button tiny round success' href=\"" + bmHref + "\">" + title + "</a>";
+} catch(e) {
+  return e;
+}</xmp>
+
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

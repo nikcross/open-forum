@@ -60,7 +60,7 @@ function MessageQueue(queueName) {
 
   self.isWaitingResponse = function() {
     return waitingResponse;
-  }
+  };
   
   self.push = function(message) {
     waitingResponse = true;
@@ -70,7 +70,7 @@ function MessageQueue(queueName) {
         waitingResponse = false;
       }
     ).onError(self.processError).go();
-    if(adaptivePollingConfig && adaptivePollingConfig!=null) {
+    if(adaptivePollingConfig && adaptivePollingConfig!==null) {
       pollTime = adaptivePollingConfig.minPollingTime;
       self.startPolling();
     }
@@ -95,7 +95,7 @@ function MessageQueue(queueName) {
   var preprocessPullResult = function(response) {
     var hasMessages = response.messages.length > 0;
 
-    if(adaptivePollingConfig && adaptivePollingConfig!=null) {
+    if(adaptivePollingConfig && adaptivePollingConfig!==null) {
       if(hasMessages) {
         pollTime = adaptivePollingConfig.minPollingTime;
       } else {

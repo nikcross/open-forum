@@ -12,7 +12,7 @@
     <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
       var pageName = "/OpenForum/Extensions/ChildPagesList";
       var author = "unknown";
-      var time = "1480609592000";
+      var time = "1507029118000";
       var currentUser = "";
       var user = {};
       var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
@@ -110,7 +110,7 @@ Creates a bulleted list of child pages
 <xmp class="panel">
 [{ChildPagesList pageName="/OpenForum"}]
 </xmp>
-<li> <a href="/OpenForum/About">About</a></li>
+<ul><li> <a href="/OpenForum/About">About</a></li>
 <li> <a href="/OpenForum/Access">Access</a></li>
 <li> <a href="/OpenForum/Actions">Actions</a></li>
 <li> <a href="/OpenForum/AddOn">AddOn</a></li>
@@ -126,6 +126,7 @@ Creates a bulleted list of child pages
 <li> <a href="/OpenForum/Groups">Groups</a></li>
 <li> <a href="/OpenForum/HomePage">HomePage</a></li>
 <li> <a href="/OpenForum/Images">Images</a></li>
+<li> <a href="/OpenForum/JarManager">JarManager</a></li>
 <li> <a href="/OpenForum/Javascript">Javascript</a></li>
 <li> <a href="/OpenForum/Journal">Journal</a></li>
 <li> <a href="/OpenForum/Keyboard">Keyboard</a></li>
@@ -135,10 +136,12 @@ Creates a bulleted list of child pages
 <li> <a href="/OpenForum/Processor">Processor</a></li>
 <li> <a href="/OpenForum/PublishingJournal">PublishingJournal</a></li>
 <li> <a href="/OpenForum/Editor?pageName=/OpenForum/ReleaseNotes"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/ReleaseNotes does not exist. Click to create it.">ReleaseNotes</a></li>
+<li> <a href="/OpenForum/SQL">SQL</a></li>
 <li> <a href="/OpenForum/SiteExplorer">SiteExplorer</a></li>
 <li> <a href="/OpenForum/Spider">Spider</a></li>
 <li> <a href="/OpenForum/SystemMonitor">SystemMonitor</a></li>
 <li> <a href="/OpenForum/Editor?pageName=/OpenForum/Temporary"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Temporary does not exist. Click to create it.">Temporary</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/TheLab"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/TheLab does not exist. Click to create it.">TheLab</a></li>
 <li> <a href="/OpenForum/Triggers">Triggers</a></li>
 <li> <a href="/OpenForum/Users">Users</a></li>
 </ul>
@@ -185,7 +188,7 @@ return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").rend
       <li><a href="https://open-forum.onestonesoup.org/OpenForum/About">About</a></li>
       <li><a href="https://www.gratipay.com/open-forum/">
         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="146" height="20">
-          <style>#llink:hover{fill:url(#b);stroke:#ccc}#rlink:hover{fill:#4183c4}</style>
+          <style>#link:hover{fill:url(#b);stroke:#ccc}#rlink:hover{fill:#4183c4}</style>
           <linearGradient id="a" x2="0" y2="100%"><stop offset="0" stop-color="#fcfcfc" stop-opacity="0"/><stop offset="1" stop-opacity=".1"/></linearGradient>
           <linearGradient id="b" x2="0" y2="100%"><stop offset="0" stop-color="#ccc" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/></linearGradient>
           <g stroke="#d5d5d5">
@@ -233,3 +236,4 @@ return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").rend
     </script>
   </body>
 </html>
+</ul>

@@ -14,7 +14,7 @@ var OpenForum = new function(){
   var initialisers = [];
 
   self.interval = null;
-  
+
   self.getVersion = function() {
     return "&version;";
   };
@@ -49,7 +49,7 @@ var OpenForum = new function(){
   };
 
   self.addTable = function(table) {
-    tables[table.id]=table;
+    tables[table.getId()]=table;
   };
 
   self.getTable = function(ofId) {
@@ -253,7 +253,7 @@ var OpenForum = new function(){
       self.interval = null;
     }
   };
-  
+
   self.startAutoScan = function(scanTime) {
     self.stopAutoScan();
     if(scanTime) {
@@ -262,13 +262,17 @@ var OpenForum = new function(){
       self.interval = setInterval(self.scan,500,500);
     }
   };
-  
+
   self.onunload= function() {
     this.close();
   };
 
   self.getObjects = function() {
     return objects;
+  };
+
+  self.getTables = function() {
+    return tables;
   };
 
   self.listData = function() {
@@ -292,8 +296,8 @@ var OpenForum = new function(){
         continue;
       }
       this.createParents(object.getId());
-      if( eval("typeof("+object.getId()+")")==="undefined" ) {
-        eval(object.getId()+"=\"\";");
+      if( OpenForum.evaluate("typeof("+object.getId()+")")==="undefined" ) {
+        OpenForum.evaluate(object.getId()+"=\"\";");
         object.setValue("");
       }
     }
@@ -311,8 +315,8 @@ var OpenForum = new function(){
       }
       id+=parts[index];
 
-      if( eval("typeof("+id+")")=="undefined" ) {
-        eval(id+"={};");
+      if( OpenForum.evaluate("typeof("+id+")")=="undefined" ) {
+        OpenForum.evaluate(id+"={};");
       }
     }
   };
@@ -391,9 +395,9 @@ var OpenForum = new function(){
       fileName += "?ts="+new Date().getTime();
     }
     if(callBack) {
-    	Ajax.sendRequest( new AjaxRequest("GET",fileName,"",null,callBack,null,true)  );
+      Ajax.sendRequest( new AjaxRequest("GET",fileName,"",null,callBack,null,true)  );
     } else {
-    	return Ajax.sendRequest( new AjaxRequest("GET",fileName,"",null,null,null,false)  );
+      return Ajax.sendRequest( new AjaxRequest("GET",fileName,"",null,null,null,false)  );
     }
   };
 
@@ -404,26 +408,26 @@ var OpenForum = new function(){
     data = "pageName="+encodeURIComponent(pageName)+"&fileName="+encodeURIComponent(fileName)+"&data="+encodeURIComponent(data);
 
     if(callBack) {
-        Ajax.sendRequest( new AjaxRequest("POST","/OpenForum/Actions/Save","returnType=json",data,callBack,null,true));
+      Ajax.sendRequest( new AjaxRequest("POST","/OpenForum/Actions/Save","returnType=json",data,callBack,null,true));
     } else {
-    	return JSON.parse( Ajax.sendRequest( new AjaxRequest("POST","/OpenForum/Actions/Save","returnType=json",data,null,null,false)) );
+      return JSON.parse( Ajax.sendRequest( new AjaxRequest("POST","/OpenForum/Actions/Save","returnType=json",data,null,null,false)) );
     }
   };
-  
+
   self.appendFile = function(fileName,data,callBack) {
     var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
     fileName = fileName.substring(fileName.lastIndexOf("/")+1);
 
     var parameters = "action=appendStringToFileNoBackup"+
         "&arg0="+encodeURIComponent(pageName)+"&arg1="+encodeURIComponent(fileName)+"&arg2="+encodeURIComponent(data);
-      
+
     if(callBack) {
-    	return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,callBack,null,true));
+      return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,callBack,null,true));
     } else {
-    	return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,null,null,false)) );
+      return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,null,null,false)) );
     }
   };
-  
+
   self.deleteFile = function(pageName,fileName,callBack) {
 
     var parameters = "action=deleteAttachmentNoBackup"+
@@ -431,51 +435,51 @@ var OpenForum = new function(){
         "&arg1="+fileName;
 
     if(callBack) {
-    	return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,callBack,null,true));
+      return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,callBack,null,true));
     } else {
-    	return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,null,null,false)) );
+      return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,null,null,false)) );
     }
   };
-  
+
   self.copyFile = function(fileName,toFileName,callBack) {
     var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
     fileName = fileName.substring(fileName.lastIndexOf("/")+1);
-    
+
     var toPageName = toFileName.substring(0,toFileName.lastIndexOf("/"));
     toFileName = toFileName.substring(toFileName.lastIndexOf("/")+1);
 
     var parameters = "pageName="+pageName+
-      "&fileName="+fileName+
-      "&newPageName="+toPageName+
-      "&newFileName="+toFileName+
-      "&returnType=json";
+        "&fileName="+fileName+
+        "&newPageName="+toPageName+
+        "&newFileName="+toFileName+
+        "&returnType=json";
     if(callBack) {
-    	return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Copy",parameters,null,callBack,null,true));
+      return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Copy",parameters,null,callBack,null,true));
     } else {
-    	return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Copy",parameters,null,null,null,false)));
+      return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Copy",parameters,null,null,null,false)));
     }
   };
 
   self.moveFile = function(fileName,toFileName,callBack) {
     var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
     fileName = fileName.substring(fileName.lastIndexOf("/")+1);
-    
+
     var toPageName = toFileName.substring(0,toFileName.lastIndexOf("/"));
     toFileName = toFileName.substring(toFileName.lastIndexOf("/")+1);
 
     var parameters = "pageName="+pageName+
-      "&fileName="+fileName+
-      "&newPageName="+toPageName+
-      "&newFileName="+toFileName+
-      "&returnType=json";
+        "&fileName="+fileName+
+        "&newPageName="+toPageName+
+        "&newFileName="+toFileName+
+        "&returnType=json";
 
     if(callBack) {
-    	return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Move",parameters,null,callBack,null,true));
+      return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Move",parameters,null,callBack,null,true));
     } else {
-    	return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Move",parameters,null,null,null,false)) );
+      return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Move",parameters,null,null,null,false)) );
     }
   };
-  
+
   self.fileExists = function(fileName) {
     var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
     fileName = fileName.substring(fileName.lastIndexOf("/")+1);
@@ -540,7 +544,7 @@ var OpenForum = new function(){
   };
 
   self.getParameter = function( name ) {
-    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    name = name.replace(/[\[]/g,"\\\[").replace(/[\]]/g,"\\\]");
     var regexS = "[\\?&]"+name+"=([^&#]*)";
     var regex = new RegExp( regexS );
     var results = regex.exec( window.location.href );
@@ -567,4 +571,58 @@ var OpenForum = new function(){
     }
     return null;
   };
+
+  //Keep all the evil in one place
+  self.evaluate = function(script) {
+    try{
+      return eval(script);
+    } catch (e) {
+      OpenForum.debug( "ERROR", "Exception evaluating '" + script + "'",e );
+      throw e;
+    }
+  };
+
+  self.globalExists = function( name ) {
+    name = name.replace(/\[/g,".").replace(/\]/g,"").replace(/'/g,"").replace(/\(.*\)/g,"");
+    var parts = name.split(".");
+    var obj = window;
+    for(var part in parts) {
+      if( typeof obj[parts[part]] === "undefined" ) return false;
+      obj = obj[parts[part]];
+    }
+
+    return true;
+  };
+
+  self.getGlobal = function( name ) {
+    name = name.replace(/\[/g,".").replace(/\]/g,"").replace(/'/g,"").replace(/\(.*\)/g,"");
+    var parts = name.split(".");
+    var obj = window;
+    for(var part in parts) obj = obj[parts[part]];
+
+    if(typeof obj === "function") return obj();
+    else return obj;
+  };
+
+  self.setGlobal = function( name,value,create ) {
+    name = name.replace(/\[/g,".").replace(/\]/g,"").replace(/'/g,"");
+    var parts = name.split(".");
+    var obj = window;
+    var i=0;
+    for(i=0; i<parts.length-1; i++) {
+      if( typeof obj[parts[i]] === "undefined" && create===true ) obj[parts[i]] = {};
+      obj = obj[parts[i]];
+    }
+
+    obj[parts[i]] = value;
+  };
+};
+
+
+onload = function() {
+  OpenForum.onload();
+};
+
+onunload = function() {
+  OpenForum.onunload();
 };

@@ -4,6 +4,7 @@
 [<ul><li> <a href="/OpenForum/Extensions/ActionButton">ActionButton</a></li>
 <li> <a href="/OpenForum/Extensions/ActionInput">ActionInput</a></li>
 <li> <a href="/OpenForum/Extensions/AttachmentsList">AttachmentsList</a></li>
+<li> <a href="/OpenForum/Extensions/Bookmarklet">Bookmarklet</a></li>
 <li> <a href="/OpenForum/Extensions/Button">Button</a></li>
 <li> <a href="/OpenForum/Extensions/ChildPagesList">ChildPagesList</a></li>
 <li> <a href="/OpenForum/Extensions/CrumbTrail">CrumbTrail</a></li>

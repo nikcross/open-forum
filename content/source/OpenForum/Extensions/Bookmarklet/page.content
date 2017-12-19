@@ -1,0 +1,17 @@
+A button that fires an [OpenForum GET action|/OpenForum/Actions]
+----
+!!Parameters
+* title = Bookmark title Name
+* domain = external site domain
+* script = Path to script
+
+----
+!!Usage:
+{{{
+[{Bookmarklet title="Bookmark" domain="https://open-forum.onestonesoup.org" script="/OpenForum/Extensions/Bookmarklet/append-link.js" text="Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:"}]
+}}}
+[{Bookmarklet title="Bookmark" domain="https://open-forum.onestonesoup.org" script="/OpenForum/Extensions/Bookmarklet/append-link.js" text="Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:"}]
+
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

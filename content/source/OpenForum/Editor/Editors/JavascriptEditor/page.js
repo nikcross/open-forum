@@ -6,6 +6,7 @@ OpenForum.init = function() {
 
   var editorConfig = {
     flavour: "Javascript",
+    fileExtension: "js",
     editingPageName: "/TheLab/Sandbox",
     editingFileName: "sandbox-giraffe.js",
     elementId: "javascriptEditor"

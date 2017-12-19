@@ -23,21 +23,21 @@ function errorSchedule(error) {
 }
 
 function updateSchedule(newSchedule) {
-    var list = [];
-    for(var i in newSchedule.table.rows) {
-      var row = newSchedule.table.rows[i];
-      var entry = {
-        id: "task"+i,
-        name: row.cell0,
-        pageName: row.cell1,
-        scriptFile: row.cell2,
-        lastRun: row.cell3,
-        scheduledTime: row.cell4,
-        enabled: (row.cell5=="t"),
-        debug: (row.cell6=="t")
-      };
-      list.push(entry);
-    }
+  var list = [];
+  for(var i in newSchedule.table.rows) {
+    var row = newSchedule.table.rows[i];
+    var entry = {
+      id: "task"+i,
+      name: row.cell0,
+      pageName: row.cell1,
+      scriptFile: row.cell2,
+      lastRun: row.cell3,
+      scheduledTime: row.cell4,
+      enabled: (row.cell5=="t"),
+      debug: (row.cell6=="t")
+    };
+    list.push(entry);
+  }
   schedule = list;
 }
 
@@ -48,6 +48,24 @@ function editTask(taskId) {
       currentTask = task;
       document.getElementById("enabledCheckBox").checked = currentTask.enabled;
       document.getElementById("debugCheckBox").checked = currentTask.debug;
+      break;
+    }
+  }
+}
+
+function runTask(taskId) {
+  for(var i in schedule) {
+    var task = schedule[i];
+    if(task.id===taskId) {
+      JSON.get("","runTrigger","pageName="+task.pageName+"&triggerFile="+task.scriptFile).onSuccess(
+        function(response) {
+          if(response.error) {
+            alert("Ran "+response.pageName+"/"+response.fileName,"Error: "+response.error);
+          } else {
+            alert("Ran "+response.pageName+"/"+response.fileName,"Time Taken: "+response.timeTaken);
+          }
+        }
+      ).go();
       break;
     }
   }
@@ -64,10 +82,10 @@ function deleteTask(taskId) {
 }
 
 function addTask() {
-  
+
   currentTask.enabled = document.getElementById("enabledCheckBox").checked;
   currentTask.debug = document.getElementById("debugCheckBox").checked;
-  
+
   var sql = "insert into triggerSchedule values("+
       "'" + currentTask.name+"','"+
       currentTask.pageName+"','"+
@@ -85,16 +103,16 @@ function addTask() {
       currentTask.scheduledTime+"', enabled = "+
       currentTask.enabled+", debug = "+
       currentTask.debug;
-      
+
   console.log(sql);
-  
+
   //sql,callBack,errorCallBack
   db.execute(
     sql,
     alert,
     alert
   );
-  
+
   loadSchedule();
 }
 
