@@ -1,9 +1,16 @@
 package org.onestonesoup.client;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import org.apache.http.HttpEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.onestonesoup.core.FileHelper;
+import org.onestonesoup.core.StringHelper;
+
+import java.io.*;
 import java.math.BigInteger;
 import java.net.URL;
 import java.net.URLConnection;
@@ -22,6 +29,9 @@ public class OpenForumClient
 
 	public static void main( String[] args ) throws Exception {
         OpenForumClient client = new OpenForumClient( "https://open-forum.onestonesoup.org",args[0],args[1] );
+        String result = client.uploadFile("/TheLab/Uploads","test.file.txt",
+				"/Users/nicholas.cross/os-git/open-forum/client/src/main/java/org/onestonesoup/client/OpenForumClient.java");
+        System.out.println(result);
     }
 
     private String host;
@@ -72,6 +82,20 @@ public class OpenForumClient
 		sessionCookie = sessionCookie.substring(0,sessionCookie.indexOf(";"));
 	}
 
+	public String doGet(String pageName) throws IOException {
+		String url = host + "/" + pageName;
+		URLConnection connection = new URL(url).openConnection();
+		connection.setRequestProperty("Cookie",sessionCookie);
+
+		BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+		String inputLine;
+		String data = "";
+		while ((inputLine = in.readLine()) != null)
+			data += inputLine + "\n";
+		in.close();
+		return data;
+	}
+
 	public String getFile(String pageName, String fileName) throws IOException {
     	String url = host + "/" + pageName + "/" + fileName;
 		URLConnection connection = new URL(url).openConnection();
@@ -81,8 +105,37 @@ public class OpenForumClient
 		String inputLine;
 		String data = "";
 		while ((inputLine = in.readLine()) != null)
-			data += inputLine;
+			data += inputLine + "\n";
 		in.close();
+		return data;
+	}
+
+
+	public void downloadFile(String pageName, String fileName, String localFileName) throws IOException {
+		String url = host + "/" + pageName + "/" + fileName;
+		URLConnection connection = new URL(url).openConnection();
+		connection.setRequestProperty("Cookie",sessionCookie);
+
+		FileHelper.copyInputStreamToFile( connection.getInputStream(),new File(localFileName) );
+	}
+
+	public String uploadFile(String pageName, String fileName, String  localFileName) throws IOException {
+		String url = host + "/OpenForum/Actions/Attach?page=" + pageName + "&fileName=" + fileName;
+
+		CloseableHttpClient httpClient = HttpClients.createDefault();
+		HttpPost uploadFile = new HttpPost(url);
+		uploadFile.addHeader("Cookie",sessionCookie);
+
+		MultipartEntityBuilder builder = MultipartEntityBuilder.create();
+		builder.addTextBody("fileName", fileName, ContentType.TEXT_PLAIN);
+		builder.addBinaryBody("file", new File(localFileName), ContentType.APPLICATION_OCTET_STREAM, fileName);
+		HttpEntity multipart = builder.build();
+
+		uploadFile.setEntity(multipart);
+
+		CloseableHttpResponse response = httpClient.execute(uploadFile);
+		String data = FileHelper.loadFileAsString(response.getEntity().getContent());
+		System.out.println(data);
 		return data;
 	}
 

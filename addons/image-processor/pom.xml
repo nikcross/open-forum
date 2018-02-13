@@ -4,8 +4,8 @@
   <modelVersion>4.0.0</modelVersion>
 	<url>http://maven.apache.org</url>
 
-  <artifactId>jdbc</artifactId>
-  <name>jdbc</name>
+  <artifactId>image-processor</artifactId>
+  <name>image-processor</name>
 
 	<groupId>org.onestonesoup</groupId>
 	<version>3.0.6</version>
@@ -24,6 +24,11 @@
     	<artifactId>javascript</artifactId>
     	<version>0.0.2</version>
     </dependency>
+      <dependency>
+          <groupId>org.onestonesoup</groupId>
+          <artifactId>core</artifactId>
+          <version>0.1.2</version>
+      </dependency>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>

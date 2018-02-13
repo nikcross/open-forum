@@ -67,6 +67,7 @@ public class OpenForumMessageQueueClient implements Runnable {
 	}
 
 	public void run() {
+		if(running) return;
 		running = true;
 		while(running) {
 			try {
@@ -75,32 +76,43 @@ public class OpenForumMessageQueueClient implements Runnable {
 				for (String message : messages) {
 					String user = message.substring(0,message.indexOf(":"));
 					message = message.substring( message.indexOf(":")+1 );
-					System.out.println(user + ">" + message);
+					//System.out.println(user + ">" + message);
 
 					for(MessageQueueListener listener: listeners) {
 						listener.processMessage(user,message);
 					}
 				}
 
-				Thread.sleep(5000);
+				if(messages.size()>0) {
+					Thread.sleep(500);
+				} else {
+					Thread.sleep(5000);
+				}
 			} catch (Throwable t) {
 				t.printStackTrace();
 			}
 		}
 	}
 
+	public void setQueueLastTime(long time) {
+		lastTime = time;
+	}
+
 	private List<String> pullMessages() throws Throwable {
+		//System.out.println("Downloading since "+lastTime);
 		String jsonData = client.getFile("/OpenForum","MessageQueue?action=pull&queue=" + queue + "&since=" + lastTime);
 
 		String script = "var response = "+jsonData+";";
 		script += "for(var i in response.messages) messageList.add( response.messages[i] );";
+		script += "qc.setQueueLastTime(response.timestamp);";
 
 		List<String> messages = new ArrayList<String>();
 		javascript.mount("messageList",messages);
+		javascript.mount("qc",this);
 
 		javascript.evaluateJavascript("OpenForumMessageQueueClient",script);
 
-		lastTime = System.currentTimeMillis();
+		//System.out.println("Downloaded " + messages.size() + " messages since "+lastTime);
 
 		return messages;
 	}
