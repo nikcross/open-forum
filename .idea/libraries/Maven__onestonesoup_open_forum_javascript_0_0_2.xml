@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Maven: onestonesoup.open-forum:javascript:0.0.2">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/onestonesoup/open-forum/javascript/0.0.2/javascript-0.0.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/javascript/javascript-0.0.2-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/onestonesoup/open-forum/javascript/0.0.2/javascript-0.0.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/javascript/javascript-0.0.2-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/onestonesoup/open-forum/javascript/0.0.2/javascript-0.0.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

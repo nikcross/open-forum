@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Maven: onestonesoup.open-forum.server:open-forum.server:3.0.6">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/onestonesoup/open-forum/server/open-forum.server/3.0.6/open-forum.server-3.0.6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/server/open-forum.server-3.0.6-javadoc.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/onestonesoup/open-forum/server/open-forum.server/3.0.6/open-forum.server-3.0.6-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/server/open-forum.server-3.0.6-sources.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/onestonesoup/open-forum/server/open-forum.server/3.0.6/open-forum.server-3.0.6-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

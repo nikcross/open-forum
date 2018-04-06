@@ -1,0 +1,1054 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/HttpResponseHeader.java" line="23" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3557c3be-9bd8-417c-a27b-8e4842d6a6a3" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/addons/queue-stream/pom.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamServer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/streamer/MessageQueueStreamerClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" afterPath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumMessageQueueClient.java" afterPath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumMessageQueueClient.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/pom.xml" afterPath="$PROJECT_DIR$/server/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/messagequeue/MessageQueue.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/messagequeue/MessageQueue.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" />
+    </list>
+    <ignored path="$PROJECT_DIR$/javascript/target/" />
+    <ignored path="$PROJECT_DIR$/client/target/" />
+    <ignored path="$PROJECT_DIR$/server/target/" />
+    <ignored path="$PROJECT_DIR$/addons/email/target/" />
+    <ignored path="$PROJECT_DIR$/addons/open-forum-migration/target/" />
+    <ignored path="$PROJECT_DIR$/addons/target/" />
+    <ignored path="$PROJECT_DIR$/addons/jdbc/target/" />
+    <ignored path="$PROJECT_DIR$/addons/image-processor/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="Transaction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/Transaction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="780">
+              <caret line="76" column="16" lean-forward="false" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostTransaction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/PostTransaction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="34" column="32" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EntityTree.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/org/onestonesoup/core/0.1.2/core-0.1.2.jar!/org/onestonesoup/core/data/EntityTree.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="795">
+              <caret line="104" column="18" lean-forward="false" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OpenForumController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1500">
+              <caret line="100" column="28" lean-forward="false" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
+              <folding>
+                <marker date="1523012465142" expanded="true" signature="35026:35052" ph="{...}" />
+                <marker date="1523012465142" expanded="false" signature="35082:35087" ph=" { " />
+                <marker date="1523012465142" expanded="false" signature="35103:35106" ph=" }" />
+                <marker date="1523012465142" expanded="false" signature="35149:35154" ph=" { " />
+                <marker date="1523012465142" expanded="false" signature="35179:35182" ph=" }" />
+                <marker date="1523012465142" expanded="true" signature="35242:36039" ph="{...}" />
+                <marker date="1523012465142" expanded="false" signature="36083:36088" ph=" { " />
+                <marker date="1523012465142" expanded="false" signature="36105:36108" ph=" }" />
+                <marker date="1523012465142" expanded="true" signature="36144:36273" ph="{...}" />
+                <marker date="1523012465142" expanded="true" signature="36375:36638" ph="{...}" />
+                <marker date="1523012465142" expanded="false" signature="36680:36685" ph=" { " />
+                <marker date="1523012465142" expanded="false" signature="36706:36709" ph=" }" />
+                <marker date="1523012465142" expanded="false" signature="36745:36750" ph=" { " />
+                <marker date="1523012465142" expanded="false" signature="36768:36771" ph=" }" />
+                <marker date="1523012465142" expanded="true" signature="36935:37006" ph="{...}" />
+                <marker date="1523012465142" expanded="true" signature="37181:37226" ph="{...}" />
+                <marker date="1523012465142" expanded="true" signature="37298:39482" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KeyValueListPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/KeyValueListPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="15">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding>
+                <element signature="e#685#699#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="450">
+              <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="OpenForumConstants.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="46" column="60" lean-forward="false" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Router.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3120">
+              <caret line="251" column="62" lean-forward="false" selection-start-line="251" selection-start-column="62" selection-end-line="251" selection-end-column="62" />
+              <folding>
+                <marker date="1523012465142" expanded="true" signature="8753:8864" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="9212:9304" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="9591:9664" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="10316:10389" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="10685:10826" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="11099:11197" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="11524:11631" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="11865:11974" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="12189:12260" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="12352:12417" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="12522:12614" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="12850:12941" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="13301:13352" ph="//..." />
+                <marker date="1523012465142" expanded="false" signature="14028:14033" ph=" { " />
+                <marker date="1523012465142" expanded="false" signature="14095:14098" ph=" }" />
+                <marker date="1523012465142" expanded="false" signature="14227:14232" ph=" { " />
+                <marker date="1523012465142" expanded="false" signature="14250:14253" ph=" }" />
+                <marker date="1523012465142" expanded="true" signature="14391:15558" ph="{...}" />
+                <marker date="1523012465142" expanded="true" signature="14568:14716" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="15694:16610" ph="{...}" />
+                <marker date="1523012465142" expanded="true" signature="15871:16020" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="17027:17720" ph="{...}" />
+                <marker date="1523012465142" expanded="true" signature="17871:23640" ph="{...}" />
+                <marker date="1523012465142" expanded="true" signature="18284:18391" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="18689:18804" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="19264:19454" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="19520:19640" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="19958:20021" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="21494:21577" ph="//..." />
+                <marker date="1523012465142" expanded="true" signature="22597:22696" ph="//..." />
+                <marker date="1523012465142" expanded="false" signature="23711:23714" ph=" }" />
+                <marker date="1523012465142" expanded="true" signature="23786:24030" ph="{...}" />
+                <marker date="1523012465142" expanded="true" signature="24116:24360" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LinkListPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/LinkListPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>getTopCall</find>
+      <find>processMessage</find>
+      <find>redirect</find>
+      <find>parameterRedirectList</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GradleLocalSettings">
+    <option name="externalProjectsViewState">
+      <projects_view />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/HttpResponseHeader.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/addons/os-street-view/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/jdbc/src/main/java/org/onestonesoup/openforum/jdbc/DatabaseAPI.java" />
+        <option value="$PROJECT_DIR$/addons/image-processor/src/main/java/org/onestonesoup/openforum/image/ImageProcessorAPI.java" />
+        <option value="$PROJECT_DIR$/addons/pom.xml" />
+        <option value="$PROJECT_DIR$/client/pom.xml" />
+        <option value="$PROJECT_DIR$/javascript/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/jdbc/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/image-processor/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/open-forum-migration/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/email/pom.xml" />
+        <option value="$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/cli/JavascriptCommandLineInterface.java" />
+        <option value="$MAVEN_REPOSITORY$/onestonesoup/open-forum/javascript/0.0.2/javascript-0.0.2.jar!/org/onestonesoup/javascript/cli/JavascriptCommandLineInterface.class" />
+        <option value="$MAVEN_REPOSITORY$/onestonesoup/open-forum/javascript/0.0.2/javascript-0.0.2.jar!/org/onestonesoup/javascript/engine/JSON.class" />
+        <option value="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClientHelper.java" />
+        <option value="$PROJECT_DIR$/../local-of-client/local-of-client.js" />
+        <option value="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" />
+        <option value="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumMessageQueueClient.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/messagequeue/MessageQueue.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/queue-stream/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueAStreamer.java" />
+        <option value="$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamServer.java" />
+        <option value="$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamer.java" />
+        <option value="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/streamer/MessageQueueStreamerClient.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" />
+        <option value="$PROJECT_DIR$/server/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="javascript" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="open-forum.server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="y" value="23" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="open-forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/addons/queue-stream" />
+      <recent name="$PROJECT_DIR$/addons/image-processor" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.OpenForumClient">
+    <configuration name="OpenForumClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="org.onestonesoup.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.client.OpenForumClient" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="Admin wintersun" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="client" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <module />
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+    </configuration>
+    <configuration default="true" type="Remote" factoryName="Remote">
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="5005" />
+    </configuration>
+    <configuration default="true" type="TestNG" factoryName="TestNG">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Application.OpenForumClient" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3557c3be-9bd8-417c-a27b-8e4842d6a6a3" name="Default" comment="" />
+      <created>1509639862669</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1509639862669</updated>
+      <workItem from="1509639863864" duration="3129000" />
+      <workItem from="1509705641813" duration="4358000" />
+      <workItem from="1509878593826" duration="387000" />
+      <workItem from="1513591444781" duration="1090000" />
+      <workItem from="1513690699272" duration="585000" />
+      <workItem from="1513847965063" duration="7498000" />
+      <workItem from="1514887435985" duration="10905000" />
+      <workItem from="1514972790298" duration="5330000" />
+      <workItem from="1515065918789" duration="122000" />
+      <workItem from="1515145344074" duration="2101000" />
+      <workItem from="1515165132397" duration="624000" />
+      <workItem from="1515430229736" duration="880000" />
+      <workItem from="1516700918219" duration="6657000" />
+      <workItem from="1517500021402" duration="622000" />
+      <workItem from="1517562408120" duration="507000" />
+      <workItem from="1518514414099" duration="75000" />
+      <workItem from="1519037033490" duration="2797000" />
+      <workItem from="1519053084873" duration="3425000" />
+      <workItem from="1519290826860" duration="3815000" />
+      <workItem from="1519769638168" duration="3000" />
+      <workItem from="1520370315896" duration="887000" />
+      <workItem from="1520589114876" duration="1495000" />
+      <workItem from="1521543052313" duration="1932000" />
+      <workItem from="1523009157315" duration="3071000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="62295000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="0" y="23" width="1440" height="877" extended-state="1" />
+    <layout>
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20314735" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41560102" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39484978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3991684" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3478261" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.sjs" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java</url>
+          <line>30</line>
+          <properties />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java</url>
+          <line>136</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="3" />
+    </breakpoint-manager>
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/addons/jdbc/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="56" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/open-forum-migration/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="36" lean-forward="false" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/email/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/docker-manager/update.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/rhino/js/1.7R2/js-1.7R2.jar!/org/mozilla/javascript/ScriptRuntime.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/rhino/js/1.7R2/js-1.7R2-sources.jar!/org/mozilla/javascript/ScriptRuntime.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="3042" column="39" lean-forward="false" selection-start-line="3042" selection-start-column="29" selection-end-line="3042" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/io/BufferedReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1290">
+          <caret line="114" column="11" lean-forward="false" selection-start-line="114" selection-start-column="11" selection-end-line="114" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/javascript/JavascriptFileHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/onestonesoup/core/0.1.2/core-0.1.2.jar!/org/onestonesoup/core/FileHelper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="35" column="46" lean-forward="false" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/ScriptStreamer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/FileChooser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/io/File.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1725">
+          <caret line="147" column="13" lean-forward="false" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/Tray.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="49" column="50" lean-forward="false" selection-start-line="49" selection-start-column="50" selection-end-line="49" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/Popup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/docker-manager/src/open-forum/Docker/page.content">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="2" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/docker-manager/src/open-forum/Docker/page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="24" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/JSWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/Computer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="148" column="25" lean-forward="false" selection-start-line="148" selection-start-column="25" selection-end-line="148" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/FileCrawler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/cli/JavascriptCommandLineInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1770">
+          <caret line="154" column="45" lean-forward="false" selection-start-line="154" selection-start-column="32" selection-end-line="154" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/engine/JavascriptEngine.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3825">
+          <caret line="283" column="26" lean-forward="false" selection-start-line="283" selection-start-column="26" selection-end-line="283" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/docker-manager/src/open-forum/Docker/get.sjs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="3" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="25" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/onestonesoup/open-forum/javascript/0.0.2/javascript-0.0.2.jar!/org/onestonesoup/javascript/cli/JavascriptCommandLineInterface.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4170">
+          <caret line="319" column="22" lean-forward="false" selection-start-line="319" selection-start-column="22" selection-end-line="319" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/onestonesoup/open-forum/javascript/0.0.2/javascript-0.0.2.jar!/org/onestonesoup/javascript/engine/JSON.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../local-of-client/local-of-client.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="414" column="20" lean-forward="false" selection-start-line="414" selection-start-column="0" selection-end-line="414" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/PostHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1725">
+          <caret line="124" column="37" lean-forward="false" selection-start-line="124" selection-start-column="22" selection-end-line="124" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/RemoteWebServiceAccess.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="825">
+          <caret line="70" column="40" lean-forward="false" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClientHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="24" column="56" lean-forward="false" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/MessageQueueListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1830">
+          <caret line="142" column="16" lean-forward="false" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/messagequeue/MessageQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="19" lean-forward="false" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/os-street-view/src/main/open-forum/Maps/ordinance-survey-map.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/queue-stream/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/jdbc/src/main/java/org/onestonesoup/openforum/jdbc/DatabaseAPI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/net/ServerSocket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3000">
+          <caret line="234" column="11" lean-forward="false" selection-start-line="234" selection-start-column="11" selection-end-line="234" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumMessageQueueClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1005">
+          <caret line="81" column="67" lean-forward="false" selection-start-line="81" selection-start-column="67" selection-end-line="81" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/streamer/MessageQueueStreamerClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="76" column="16" lean-forward="false" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/PostTransaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="34" column="32" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/onestonesoup/core/0.1.2/core-0.1.2.jar!/org/onestonesoup/core/data/EntityTree.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="795">
+          <caret line="104" column="18" lean-forward="false" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="46" column="60" lean-forward="false" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3120">
+          <caret line="251" column="62" lean-forward="false" selection-start-line="251" selection-start-column="62" selection-end-line="251" selection-end-column="62" />
+          <folding>
+            <marker date="1523012465142" expanded="true" signature="8753:8864" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="9212:9304" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="9591:9664" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="10316:10389" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="10685:10826" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="11099:11197" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="11524:11631" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="11865:11974" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="12189:12260" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="12352:12417" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="12522:12614" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="12850:12941" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="13301:13352" ph="//..." />
+            <marker date="1523012465142" expanded="false" signature="14028:14033" ph=" { " />
+            <marker date="1523012465142" expanded="false" signature="14095:14098" ph=" }" />
+            <marker date="1523012465142" expanded="false" signature="14227:14232" ph=" { " />
+            <marker date="1523012465142" expanded="false" signature="14250:14253" ph=" }" />
+            <marker date="1523012465142" expanded="true" signature="14391:15558" ph="{...}" />
+            <marker date="1523012465142" expanded="true" signature="14568:14716" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="15694:16610" ph="{...}" />
+            <marker date="1523012465142" expanded="true" signature="15871:16020" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="17027:17720" ph="{...}" />
+            <marker date="1523012465142" expanded="true" signature="17871:23640" ph="{...}" />
+            <marker date="1523012465142" expanded="true" signature="18284:18391" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="18689:18804" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="19264:19454" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="19520:19640" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="19958:20021" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="21494:21577" ph="//..." />
+            <marker date="1523012465142" expanded="true" signature="22597:22696" ph="//..." />
+            <marker date="1523012465142" expanded="false" signature="23711:23714" ph=" }" />
+            <marker date="1523012465142" expanded="true" signature="23786:24030" ph="{...}" />
+            <marker date="1523012465142" expanded="true" signature="24116:24360" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/LinkListPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1500">
+          <caret line="100" column="28" lean-forward="false" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
+          <folding>
+            <marker date="1523012465142" expanded="true" signature="35026:35052" ph="{...}" />
+            <marker date="1523012465142" expanded="false" signature="35082:35087" ph=" { " />
+            <marker date="1523012465142" expanded="false" signature="35103:35106" ph=" }" />
+            <marker date="1523012465142" expanded="false" signature="35149:35154" ph=" { " />
+            <marker date="1523012465142" expanded="false" signature="35179:35182" ph=" }" />
+            <marker date="1523012465142" expanded="true" signature="35242:36039" ph="{...}" />
+            <marker date="1523012465142" expanded="false" signature="36083:36088" ph=" { " />
+            <marker date="1523012465142" expanded="false" signature="36105:36108" ph=" }" />
+            <marker date="1523012465142" expanded="true" signature="36144:36273" ph="{...}" />
+            <marker date="1523012465142" expanded="true" signature="36375:36638" ph="{...}" />
+            <marker date="1523012465142" expanded="false" signature="36680:36685" ph=" { " />
+            <marker date="1523012465142" expanded="false" signature="36706:36709" ph=" }" />
+            <marker date="1523012465142" expanded="false" signature="36745:36750" ph=" { " />
+            <marker date="1523012465142" expanded="false" signature="36768:36771" ph=" }" />
+            <marker date="1523012465142" expanded="true" signature="36935:37006" ph="{...}" />
+            <marker date="1523012465142" expanded="true" signature="37181:37226" ph="{...}" />
+            <marker date="1523012465142" expanded="true" signature="37298:39482" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/KeyValueListPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="e#685#699#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>No facets are configured</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>queue-stream</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: ant:ant:1.6.5</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

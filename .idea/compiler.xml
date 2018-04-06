@@ -7,10 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="client" />
-        <module name="email" />
         <module name="javascript" />
-        <module name="jdbc" />
-        <module name="open-forum-migration" />
         <module name="open-forum.server" />
       </profile>
     </annotationProcessing>

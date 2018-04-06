@@ -3,11 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/client/client.iml" filepath="$PROJECT_DIR$/client/client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/addons/email/email.iml" filepath="$PROJECT_DIR$/addons/email/email.iml" />
       <module fileurl="file://$PROJECT_DIR$/javascript/javascript.iml" filepath="$PROJECT_DIR$/javascript/javascript.iml" />
-      <module fileurl="file://$PROJECT_DIR$/addons/jdbc/jdbc.iml" filepath="$PROJECT_DIR$/addons/jdbc/jdbc.iml" />
       <module fileurl="file://$PROJECT_DIR$/addons/open-forum.iml" filepath="$PROJECT_DIR$/addons/open-forum.iml" />
-      <module fileurl="file://$PROJECT_DIR$/addons/open-forum-migration/open-forum-migration.iml" filepath="$PROJECT_DIR$/addons/open-forum-migration/open-forum-migration.iml" />
       <module fileurl="file://$PROJECT_DIR$/server/open-forum.server.iml" filepath="$PROJECT_DIR$/server/open-forum.server.iml" />
     </modules>
   </component>
