@@ -249,6 +249,21 @@ public class Router {
 				return true;
 		}
 
+		for(KeyValuePair pageRedirect: controller.getPageRedirectList()) {
+			String redirectPageName = pageRedirect.getKey();
+			if( request.equals(redirectPageName) ) {
+
+				HttpResponseHeader responseHeader = new HttpResponseHeader(
+						httpHeader, "text/html", 302, connection);
+				responseHeader.addParameter("location", pageRedirect.getValue()); // Rediect to page eg. editor
+
+				connection.getOutputStream().flush();
+				connection.close();
+
+				return true;
+			}
+		}
+
 		for(KeyValuePair redirectParameter: controller.getParameterRedirectList()) {
 			String parameterName = redirectParameter.getKey();
 			if( httpHeader.getChild("parameters").getChild(parameterName)!=null && httpHeader.getChild("parameters").getChild(parameterName).getValue().equals("") ) {

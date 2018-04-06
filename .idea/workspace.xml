@@ -5,22 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3557c3be-9bd8-417c-a27b-8e4842d6a6a3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/addons/queue-stream/pom.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamServer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/streamer/MessageQueueStreamerClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" afterPath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumMessageQueueClient.java" afterPath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumMessageQueueClient.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/pom.xml" afterPath="$PROJECT_DIR$/server/pom.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/messagequeue/MessageQueue.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/messagequeue/MessageQueue.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" />
     </list>
     <ignored path="$PROJECT_DIR$/javascript/target/" />
@@ -40,16 +28,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Transaction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/Transaction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="76" column="16" lean-forward="false" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PostTransaction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/PostTransaction.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -70,30 +48,22 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OpenForumController.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OpenForumController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
-              <caret line="100" column="28" lean-forward="false" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
-              <folding>
-                <marker date="1523012465142" expanded="true" signature="35026:35052" ph="{...}" />
-                <marker date="1523012465142" expanded="false" signature="35082:35087" ph=" { " />
-                <marker date="1523012465142" expanded="false" signature="35103:35106" ph=" }" />
-                <marker date="1523012465142" expanded="false" signature="35149:35154" ph=" { " />
-                <marker date="1523012465142" expanded="false" signature="35179:35182" ph=" }" />
-                <marker date="1523012465142" expanded="true" signature="35242:36039" ph="{...}" />
-                <marker date="1523012465142" expanded="false" signature="36083:36088" ph=" { " />
-                <marker date="1523012465142" expanded="false" signature="36105:36108" ph=" }" />
-                <marker date="1523012465142" expanded="true" signature="36144:36273" ph="{...}" />
-                <marker date="1523012465142" expanded="true" signature="36375:36638" ph="{...}" />
-                <marker date="1523012465142" expanded="false" signature="36680:36685" ph=" { " />
-                <marker date="1523012465142" expanded="false" signature="36706:36709" ph=" }" />
-                <marker date="1523012465142" expanded="false" signature="36745:36750" ph=" { " />
-                <marker date="1523012465142" expanded="false" signature="36768:36771" ph=" }" />
-                <marker date="1523012465142" expanded="true" signature="36935:37006" ph="{...}" />
-                <marker date="1523012465142" expanded="true" signature="37181:37226" ph="{...}" />
-                <marker date="1523012465142" expanded="true" signature="37298:39482" ph="{...}" />
-              </folding>
+            <state relative-caret-position="151">
+              <caret line="1095" column="39" lean-forward="false" selection-start-line="1095" selection-start-column="32" selection-end-line="1095" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ListPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/ListPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -110,11 +80,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+            <state relative-caret-position="75">
+              <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -123,8 +103,8 @@
       <file leaf-file-name="OpenForumConstants.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="46" column="60" lean-forward="false" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="42" />
+            <state relative-caret-position="243">
+              <caret line="43" column="4" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -133,43 +113,9 @@
       <file leaf-file-name="Router.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3120">
-              <caret line="251" column="62" lean-forward="false" selection-start-line="251" selection-start-column="62" selection-end-line="251" selection-end-column="62" />
-              <folding>
-                <marker date="1523012465142" expanded="true" signature="8753:8864" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="9212:9304" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="9591:9664" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="10316:10389" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="10685:10826" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="11099:11197" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="11524:11631" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="11865:11974" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="12189:12260" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="12352:12417" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="12522:12614" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="12850:12941" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="13301:13352" ph="//..." />
-                <marker date="1523012465142" expanded="false" signature="14028:14033" ph=" { " />
-                <marker date="1523012465142" expanded="false" signature="14095:14098" ph=" }" />
-                <marker date="1523012465142" expanded="false" signature="14227:14232" ph=" { " />
-                <marker date="1523012465142" expanded="false" signature="14250:14253" ph=" }" />
-                <marker date="1523012465142" expanded="true" signature="14391:15558" ph="{...}" />
-                <marker date="1523012465142" expanded="true" signature="14568:14716" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="15694:16610" ph="{...}" />
-                <marker date="1523012465142" expanded="true" signature="15871:16020" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="17027:17720" ph="{...}" />
-                <marker date="1523012465142" expanded="true" signature="17871:23640" ph="{...}" />
-                <marker date="1523012465142" expanded="true" signature="18284:18391" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="18689:18804" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="19264:19454" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="19520:19640" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="19958:20021" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="21494:21577" ph="//..." />
-                <marker date="1523012465142" expanded="true" signature="22597:22696" ph="//..." />
-                <marker date="1523012465142" expanded="false" signature="23711:23714" ph=" }" />
-                <marker date="1523012465142" expanded="true" signature="23786:24030" ph="{...}" />
-                <marker date="1523012465142" expanded="true" signature="24116:24360" ph="{...}" />
-              </folding>
+            <state relative-caret-position="132">
+              <caret line="266" column="62" lean-forward="false" selection-start-line="266" selection-start-column="62" selection-end-line="266" selection-end-column="62" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -232,14 +178,14 @@
         <option value="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" />
         <option value="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumMessageQueueClient.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/messagequeue/MessageQueue.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/addons/queue-stream/pom.xml" />
         <option value="$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueAStreamer.java" />
         <option value="$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamServer.java" />
         <option value="$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamer.java" />
         <option value="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/streamer/MessageQueueStreamerClient.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" />
         <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java" />
+        <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" />
         <option value="$PROJECT_DIR$/server/pom.xml" />
       </list>
@@ -273,7 +219,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
@@ -299,6 +245,41 @@
             <path>
               <item name="open-forum" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="open-forum" type="b2602c69:ProjectViewProjectNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="OpenForumController" type="1a9f42e2:ClassTreeNode" />
             </path>
           </expand>
           <select />
@@ -479,15 +460,15 @@
       <workItem from="1520370315896" duration="887000" />
       <workItem from="1520589114876" duration="1495000" />
       <workItem from="1521543052313" duration="1932000" />
-      <workItem from="1523009157315" duration="3071000" />
+      <workItem from="1523009157315" duration="5719000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62295000" />
+    <option name="totallyTimeSpent" value="64943000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="1" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -498,10 +479,10 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20314735" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41560102" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41560102" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39484978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39484978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -550,13 +531,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/addons/jdbc/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="56" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/addons/open-forum-migration/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -775,14 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
@@ -872,87 +838,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="46" column="60" lean-forward="false" selection-start-line="46" selection-start-column="31" selection-end-line="46" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3120">
-          <caret line="251" column="62" lean-forward="false" selection-start-line="251" selection-start-column="62" selection-end-line="251" selection-end-column="62" />
-          <folding>
-            <marker date="1523012465142" expanded="true" signature="8753:8864" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="9212:9304" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="9591:9664" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="10316:10389" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="10685:10826" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="11099:11197" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="11524:11631" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="11865:11974" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="12189:12260" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="12352:12417" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="12522:12614" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="12850:12941" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="13301:13352" ph="//..." />
-            <marker date="1523012465142" expanded="false" signature="14028:14033" ph=" { " />
-            <marker date="1523012465142" expanded="false" signature="14095:14098" ph=" }" />
-            <marker date="1523012465142" expanded="false" signature="14227:14232" ph=" { " />
-            <marker date="1523012465142" expanded="false" signature="14250:14253" ph=" }" />
-            <marker date="1523012465142" expanded="true" signature="14391:15558" ph="{...}" />
-            <marker date="1523012465142" expanded="true" signature="14568:14716" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="15694:16610" ph="{...}" />
-            <marker date="1523012465142" expanded="true" signature="15871:16020" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="17027:17720" ph="{...}" />
-            <marker date="1523012465142" expanded="true" signature="17871:23640" ph="{...}" />
-            <marker date="1523012465142" expanded="true" signature="18284:18391" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="18689:18804" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="19264:19454" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="19520:19640" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="19958:20021" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="21494:21577" ph="//..." />
-            <marker date="1523012465142" expanded="true" signature="22597:22696" ph="//..." />
-            <marker date="1523012465142" expanded="false" signature="23711:23714" ph=" }" />
-            <marker date="1523012465142" expanded="true" signature="23786:24030" ph="{...}" />
-            <marker date="1523012465142" expanded="true" signature="24116:24360" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/LinkListPage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="100" column="28" lean-forward="false" selection-start-line="100" selection-start-column="28" selection-end-line="100" selection-end-column="28" />
-          <folding>
-            <marker date="1523012465142" expanded="true" signature="35026:35052" ph="{...}" />
-            <marker date="1523012465142" expanded="false" signature="35082:35087" ph=" { " />
-            <marker date="1523012465142" expanded="false" signature="35103:35106" ph=" }" />
-            <marker date="1523012465142" expanded="false" signature="35149:35154" ph=" { " />
-            <marker date="1523012465142" expanded="false" signature="35179:35182" ph=" }" />
-            <marker date="1523012465142" expanded="true" signature="35242:36039" ph="{...}" />
-            <marker date="1523012465142" expanded="false" signature="36083:36088" ph=" { " />
-            <marker date="1523012465142" expanded="false" signature="36105:36108" ph=" }" />
-            <marker date="1523012465142" expanded="true" signature="36144:36273" ph="{...}" />
-            <marker date="1523012465142" expanded="true" signature="36375:36638" ph="{...}" />
-            <marker date="1523012465142" expanded="false" signature="36680:36685" ph=" { " />
-            <marker date="1523012465142" expanded="false" signature="36706:36709" ph=" }" />
-            <marker date="1523012465142" expanded="false" signature="36745:36750" ph=" { " />
-            <marker date="1523012465142" expanded="false" signature="36768:36771" ph=" }" />
-            <marker date="1523012465142" expanded="true" signature="36935:37006" ph="{...}" />
-            <marker date="1523012465142" expanded="true" signature="37181:37226" ph="{...}" />
-            <marker date="1523012465142" expanded="true" signature="37298:39482" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -966,10 +856,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="43" column="4" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="266" column="62" lean-forward="false" selection-start-line="266" selection-start-column="62" selection-end-line="266" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+        <state relative-caret-position="75">
+          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/ListPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="1095" column="39" lean-forward="false" selection-start-line="1095" selection-start-column="32" selection-end-line="1095" selection-end-column="39" />
           <folding />
         </state>
       </provider>

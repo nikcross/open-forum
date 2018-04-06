@@ -1,23 +1,5 @@
 package org.onestonesoup.openforum.controller;
 
-import static org.onestonesoup.openforum.controller.OpenForumConstants.CONTENT_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.DEFAULT_HOME_PAGE_PATH;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.EDIT_LINK_DISPLAY_TEMPLATE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.EDIT_PAGE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.INDEX_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.JOURNAL_PAGE_PATH;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.LINKS_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.MISSING_PAGES_PATH;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.OPEN_FORUM_ALIASES;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.OPEN_FORUM_DEFAULT_PAGE_PATH;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.OPEN_FORUM_DYNAMIC_PAGES;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.OPEN_FORUM_PARAMETER_REDIRECT_LIST;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.OWNER_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGES_INDEX_PAGE_PATH;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_BUILD_JS;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.PAGE_FILE;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.TAGS_FILE;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -66,6 +48,8 @@ import org.onestonesoup.openforum.trigger.StartUpTrigger;
 import org.onestonesoup.openforum.trigger.TimerTrigger;
 import org.onestonesoup.openforum.versioncontrol.DefaultVersionController;
 
+import static org.onestonesoup.openforum.controller.OpenForumConstants.*;
+
 public class OpenForumController implements OpenForumScripting,
 		OpenForumBuilder, OpenForumPageController, OpenForumSecurity {
 
@@ -99,6 +83,7 @@ public class OpenForumController implements OpenForumScripting,
 	private Store store = new Store();
 	private KeyValueListPage dynamicPages;
 	private KeyValueListPage parameterRedirectList;
+	private KeyValueListPage pageRedirectList;
 	private KeyValueListPage aliasList;
 	private Map<String, String> mimeTypes = new HashMap<String, String>();
 
@@ -201,6 +186,8 @@ public class OpenForumController implements OpenForumScripting,
 				OPEN_FORUM_DYNAMIC_PAGES);
 		parameterRedirectList = new KeyValueListPage(fileManager,
 				OPEN_FORUM_PARAMETER_REDIRECT_LIST);
+		pageRedirectList = new KeyValueListPage(fileManager,
+				OPEN_FORUM_PAGE_REDIRECT_LIST);
 
 		aliasList = new KeyValueListPage(fileManager, OPEN_FORUM_ALIASES);
 		this.domainName = domainName;
@@ -1103,6 +1090,10 @@ public class OpenForumController implements OpenForumScripting,
 
 	public List<KeyValuePair> getParameterRedirectList() throws Exception {
 		return parameterRedirectList.getList();
+	}
+
+	public List<KeyValuePair> getPageRedirectList() throws Exception {
+		return pageRedirectList.getList();
 	}
 
 	public String getHomePage() {

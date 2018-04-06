@@ -5,10 +5,8 @@ mkdir target
 mkdir target/source
 mkdir target/jetty
 
-#cd ../content
-#./update-jar.sh
-#cd ../docker
+./update-jar.sh
 
 cp -r openforum/* target
 cp -r ../content/source/* target/source
-cp -r ../content/jetty/* target/jetty
+cp -r jetty/* target/jetty

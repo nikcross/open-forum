@@ -44,6 +44,7 @@ public interface OpenForumConstants {
 	
 	public static final String OPEN_FORUM_ALIASES = "/OpenForum/Configuration/Aliases";
 	public static final String OPEN_FORUM_PARAMETER_REDIRECT_LIST = "/OpenForum/Configuration/ParameterRedirectList";
+	public static final String OPEN_FORUM_PAGE_REDIRECT_LIST = "/OpenForum/Configuration/PageRedirectList";
 	public static final String OPEN_FORUM_DYNAMIC_PAGES = "/OpenForum/Configuration/DynamicPages";
 	
 	public static final String PAGE_404_PATH = "/OpenForum/ErrorPages/404/";
