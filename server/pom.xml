@@ -31,7 +31,7 @@
 		</dependency>
 
 		<dependency>
-			<groupId>onestonesoup.open-forum</groupId>
+			<groupId>org.onestonesoup</groupId>
 			<artifactId>javascript</artifactId>
 			<version>0.0.2</version>
 		</dependency>
