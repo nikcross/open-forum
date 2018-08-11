@@ -4,7 +4,7 @@
 	<groupId>org.onestonesoup.open-forum</groupId>
 
   <artifactId>client</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <packaging>jar</packaging>
 
   <name>client</name>
@@ -22,7 +22,7 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-    	<groupId>onestonesoup.open-forum</groupId>
+    	<groupId>org.onestonesoup</groupId>
     	<artifactId>javascript</artifactId>
     	<version>0.0.2</version>
     </dependency>
