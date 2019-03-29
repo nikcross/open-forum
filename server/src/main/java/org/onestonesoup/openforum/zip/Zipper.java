@@ -130,14 +130,26 @@ public class Zipper {
 
 	public void zipAll(ResourceStore resourceStore, ResourceFolder folder)
 			throws IOException {
-		zipAll(resourceStore, folder, folder, true);
+		zipAll(resourceStore, folder, folder, true, false);
+	}
+
+	public void zipAllNoChildPages(ResourceStore resourceStore, ResourceFolder folder)
+			throws IOException {
+		zipAll(resourceStore, folder, folder, true, true);
 	}
 
 	public void zipAll(ResourceStore resourceStore, ResourceFolder root,
-			ResourceFolder folder, boolean close) throws IOException {
+			ResourceFolder folder, boolean close, boolean excludeChildFolders) throws IOException {
 		ResourceFolder[] folderList = resourceStore.listResourceFolders(folder);
-		for (int loop = 0; loop < folderList.length; loop++) {
-			zipAll(resourceStore, root, folderList[loop], false);
+
+		if(excludeChildFolders==false) {
+			for (int loop = 0; loop < folderList.length; loop++) {
+				if (folderList[loop].getName().endsWith("history"))
+					continue;
+				if (folderList[loop].getName().endsWith("private"))
+					continue;
+				zipAll(resourceStore, root, folderList[loop], false, false);
+			}
 		}
 
 		Resource[] list = resourceStore.listResources(folder);

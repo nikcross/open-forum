@@ -131,6 +131,12 @@ public class JavascriptFileHelper  {
 		controller.markForRebuild();
 	}
 
+	public void zipPageNoChildPages(String pageName) throws Exception,
+			AuthenticationException {
+		fileManager.zipAllNoChildPages(pageName, login);
+		controller.markForRebuild();
+	}
+
 	public void appendStringToFileNoBackup(String pageName, String fileName, String data)
 			throws Exception {
 		fileManager.appendStringToFile(data, pageName, fileName, false, false, login);

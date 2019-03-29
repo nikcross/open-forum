@@ -472,6 +472,23 @@ public class FileManager {
 		}
 	}
 
+	public void zipAllNoChildPages(String pageName, Login login) throws Exception,
+			AuthenticationException {
+		if (controller.getAuthorizer().isAuthorized(login, Authorizer.ACTION_UPDATE,
+				pageName) == true) {
+			ResourceFolder folder = getFolder(pageName, false, login);
+			if (folder == null) {
+				return;
+			}
+
+			Zipper zipper = new Zipper(resourceStore.getOutputStream(folder,
+					folder.getName() + ".wiki.zip"));
+			zipper.zipAllNoChildPages(resourceStore, folder);
+		} else {
+			throw new AuthenticationException("No save rights");
+		}
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
