@@ -67,6 +67,8 @@ public class OpenForumMessageQueueClient implements Runnable {
 	}
 
 	public void run() {
+		int errorCount = 0;
+
 		if(running) return;
 		running = true;
 		while(running) {
@@ -84,12 +86,33 @@ public class OpenForumMessageQueueClient implements Runnable {
 				}
 
 				if(messages.size()>0) {
-					Thread.sleep(500);
+					Thread.sleep(2000); // 2 seconds because has more messages
 				} else {
-					Thread.sleep(5000);
+					Thread.sleep(5000); // 5 seconds because no messages
 				}
+
+				errorCount = 0;
 			} catch (Throwable t) {
+				errorCount ++;
 				t.printStackTrace();
+				try {
+					Thread.sleep(15000); // 15 seconds because of error
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				System.out.println("Error count " + errorCount);
+
+				if(errorCount>10) {
+					System.out.println("Trying to re-log in");
+					client.reSignIn();
+				} if(errorCount>20) {
+					System.out.println("Slowing down message pull attempts");
+					try {
+						Thread.sleep(120000); // 2 minutes because of repeated errors
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
 			}
 		}
 	}

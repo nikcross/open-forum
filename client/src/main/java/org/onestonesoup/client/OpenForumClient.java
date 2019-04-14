@@ -22,10 +22,10 @@ import java.security.NoSuchAlgorithmException;
  * OF Client
  *
  */
-public class OpenForumClient 
-{
+public class OpenForumClient  {
 
 	private final String userId;
+	private final String password;
 
 	public static void main( String[] args ) throws Exception {
         OpenForumClient client = new OpenForumClient( "https://open-forum.onestonesoup.org",args[0],args[1] );
@@ -40,12 +40,21 @@ public class OpenForumClient
     public OpenForumClient(String host, String userId,String password) throws Exception {
     	this.host = host;
     	this.userId = userId;
+    	this.password = password;
 
     	signIn(userId,password);
 	}
 
 	public String getUserId() {
     	return userId;
+	}
+
+	public void reSignIn() {
+		try {
+			signIn(userId,password);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	private void signIn(String userId, String password) throws IOException, NoSuchAlgorithmException {
