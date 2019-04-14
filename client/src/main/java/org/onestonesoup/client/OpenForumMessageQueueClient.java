@@ -63,7 +63,14 @@ public class OpenForumMessageQueueClient implements Runnable {
 	}
 
 	public void postMessage(String message) throws IOException {
-		client.getFile("OpenForum","MessageQueue?action=push&queue=" + queue + "&message=" + URLEncoder.encode(message,"UTF-8"));
+		try {
+			client.getFile("OpenForum", "MessageQueue?action=push&queue=" + queue + "&message=" + URLEncoder.encode(message, "UTF-8"));
+		} catch(IOException e) {
+			e.printStackTrace();
+
+			client.reSignIn();
+			client.getFile("OpenForum", "MessageQueue?action=push&queue=" + queue + "&message=" + URLEncoder.encode(message, "UTF-8"));
+		}
 	}
 
 	public void run() {
