@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.onestonesoup</groupId>
   <artifactId>email</artifactId>
-  <version>4.0.1</version>
+  <version>4.0.3</version>
   <name>email</name>
   <url>http://maven.apache.org</url>
   <properties>

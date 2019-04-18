@@ -1,37 +1,19 @@
 package org.onestonesoup.openforum.email;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.Properties;
-
-import javax.activation.CommandMap;
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.MailcapCommandMap;
-import javax.mail.Address;
 import javax.mail.Message;
-import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.event.TransportEvent;
-import javax.mail.event.TransportListener;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMessage.RecipientType;
-import javax.mail.internet.MimeMultipart;
-import javax.mail.util.ByteArrayDataSource;
 
-import org.onestonesoup.javascript.engine.JavascriptEngine;
-import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.plugin.SystemAPI;
 
 public class Mailer extends SystemAPI {
 
-    public static final String VERSION="OpenForum Mailer 4.0.1";
+    public static final String VERSION="OpenForum Mailer 4.0.3";
     
 	private static final String SMTP_PORT = "465";
 	private static final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
@@ -46,7 +28,11 @@ public class Mailer extends SystemAPI {
 		this.userName = userName;
 		this.password = password;
 	}
-	
+
+	public String getVersion() {
+		return VERSION;
+	}
+
 	public void setUserNameAndPassword(String userName, String password) {
 		this.userName = userName;
 		this.password = password;
@@ -55,9 +41,12 @@ public class Mailer extends SystemAPI {
 	public void setSmtpHost(String smtpHostName) {
 		this.smtpHostName = smtpHostName;
 	}
-	
-	public void sendEmail(String fromEmail,String[] toEmails,String subject,String message) throws IOException
-	{
+
+	public void sendEmail(String fromEmail,String[] toEmails,String subject,String message) throws IOException {
+		sendEmail(fromEmail,toEmails,subject,message,false);
+	}
+
+	public void sendEmail(String fromEmail,String[] toEmails,String subject,String message, boolean htmlContent) throws IOException {
 		try{
 			Properties props = new Properties();
 			props.put("mail.smtp.host", smtpHostName);
@@ -79,6 +68,7 @@ public class Mailer extends SystemAPI {
 			session.setDebug(false);
 			
 			Message msg = new MimeMessage(session);
+
 			InternetAddress addressFrom = new InternetAddress(fromEmail);
 			msg.setFrom(addressFrom);
 			
@@ -90,7 +80,11 @@ public class Mailer extends SystemAPI {
 		
 			// Setting the Subject and Content Type
 			msg.setSubject(subject);
-			msg.setContent(message, "text/plain");
+			if(htmlContent) {
+				msg.setContent(message, "text/html; charset=utf-8");
+			} else {
+				msg.setContent(message, "text/plain");
+			}
 			Transport.send(msg);		
 		}
 		catch(Exception e)

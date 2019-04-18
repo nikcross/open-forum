@@ -9,7 +9,13 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.nio.ByteBuffer;
 
-public class ImageProcessorAPI extends SystemAPI {
+public class ImageProcessor extends SystemAPI {
+
+	private static final String VERSION = "3.0.1 alpha";
+
+	public String getVersion() {
+		return VERSION;
+	}
 
     public BufferedImage getImage(String pageName, String fileName) throws Exception {
         InputStream iStream = getController()
@@ -23,6 +29,22 @@ public class ImageProcessorAPI extends SystemAPI {
         BufferedImage image = ImageIO.read(iStream);
         return image;
     }
+
+    public void addText(BufferedImage image, String text, int x, int y, String color, String font) {
+
+    	if(color==null) {
+    		color = "black";
+		}
+		if(font==null) {
+			font = "Arial-bold-20";
+		}
+
+		Graphics2D grfx = image.createGraphics();
+		grfx.setFont(Font.decode(font));
+		grfx.setColor( Color.getColor(color));
+    	grfx.drawString(text,x,y);
+
+	}
 
     public Image clipImage(BufferedImage image,int x, int y, int w, int h) {
         return ImageHelper.clipImage(image,x,y,w,h);

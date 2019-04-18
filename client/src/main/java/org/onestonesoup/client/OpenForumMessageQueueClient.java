@@ -3,6 +3,7 @@ package org.onestonesoup.client;
 import java.io.IOException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 
@@ -64,7 +65,12 @@ public class OpenForumMessageQueueClient implements Runnable {
 
 	public void postMessage(String message) throws IOException {
 		try {
-			client.getFile("OpenForum", "MessageQueue?action=push&queue=" + queue + "&message=" + URLEncoder.encode(message, "UTF-8"));
+			HashMap<String,String> postData = new HashMap();
+			postData.put("queue",queue);
+			postData.put("message",URLEncoder.encode(message, "UTF-8"));
+
+			client.doPost("OpenForum/MessageQueue",postData);
+
 		} catch(IOException e) {
 			e.printStackTrace();
 

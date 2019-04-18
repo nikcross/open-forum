@@ -119,8 +119,8 @@ public class DatabaseAPI extends SystemAPI {
 			table.setAttribute("columnCount", "" + columns);
 			table.setAttribute("rowCount", "" + row);
 
-			System.out.println("Database Processed Query " + query
-					+ " for schema alias " + alias);
+			//System.out.println("Database Processed Query " + query
+			//		+ " for schema alias " + alias);
 
 			return table;
 		} finally {
@@ -140,8 +140,8 @@ public class DatabaseAPI extends SystemAPI {
 				connection.commit();
 			}
 
-			System.out.println("Database Executed " + executeStatement
-					+ " for schema alias " + alias);
+			//System.out.println("Database Executed " + executeStatement
+			//		+ " for schema alias " + alias);
 
 			return true;
 		} finally {
@@ -194,9 +194,9 @@ public class DatabaseAPI extends SystemAPI {
 		result.setAttribute("pageSize", "" + pageSize);
 		result.setAttribute("pageNumber", "" + pageNumber);
 
-		System.out.println("Database Processed Paged Query " + selection
-				+ " for schema alias " + alias + " page " + pageNumber + " of "
-				+ pageSize);
+		//System.out.println("Database Processed Paged Query " + selection
+		//		+ " for schema alias " + alias + " page " + pageNumber + " of "
+		//		+ pageSize);
 
 		return JSONHelper.toJSON(result);
 	}

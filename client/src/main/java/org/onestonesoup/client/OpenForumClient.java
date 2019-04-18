@@ -17,6 +17,7 @@ import java.net.URLConnection;
 import java.net.URLEncoder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Map;
 
 /**
  * OF Client
@@ -105,10 +106,23 @@ public class OpenForumClient  {
 		return data;
 	}
 
-	public String getFile(String pageName, String fileName) throws IOException {
-    	String url = host + "/" + pageName + "/" + fileName;
+	public String doPost(String pageName,Map<String,String> postData)  throws IOException {
+		String url = host + "/" + pageName;
 		URLConnection connection = new URL(url).openConnection();
+
+		connection.setDoOutput(true);
 		connection.setRequestProperty("Cookie",sessionCookie);
+
+		String urlParameters = "";
+		for(String name: postData.keySet()) {
+			if(urlParameters.length()>0) urlParameters += "&";
+			urlParameters += name + "=" + postData.get(name);
+		}
+
+		DataOutputStream oStream = new DataOutputStream(connection.getOutputStream());
+		oStream.writeBytes(urlParameters);
+		oStream.flush();
+		oStream.close();
 
 		BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 		String inputLine;
@@ -117,6 +131,10 @@ public class OpenForumClient  {
 			data += inputLine + "\n";
 		in.close();
 		return data;
+	}
+
+	public String getFile(String pageName, String fileName) throws IOException {
+    	return doGet(pageName + "/" + fileName );
 	}
 
 
