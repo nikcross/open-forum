@@ -3,15 +3,15 @@ package org.onestonesoup.openforum.security.cookie;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import javax.xml.bind.DatatypeConverter;
 import org.onestonesoup.core.data.EntityTree;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileServer;
+import org.onestonesoup.openforum.javascript.JavascriptHelper;
 import org.onestonesoup.openforum.security.Authenticator;
 import org.onestonesoup.openforum.security.Login;
-import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
-import org.onestonesoup.openforum.servlet.HttpHeader;
+import org.onestonesoup.openforum.server.ClientConnectionInterface;
+import org.onestonesoup.openforum.server.HttpHeader;
 import org.onestonesoup.openforum.transaction.HttpRequestHelper;
 import org.onestonesoup.openforum.transaction.HttpResponseHeader;
 
@@ -54,8 +54,7 @@ public class SessionCookieAuthenticator implements Authenticator {
 		} else {
 			HttpResponseHeader responseHeader = new HttpResponseHeader(httpHeader, "text/html", 302, connection);
 			responseHeader.addParameter("location", "/OpenForum/Access/SignIn?forwardTo=" + request);
-			connection.getOutputStream().flush();
-			connection.close();
+			connection.sendEmpty();
 			return false;
 		}
 	}
@@ -68,12 +67,13 @@ public class SessionCookieAuthenticator implements Authenticator {
 	public void setFileServer(FileServer fileServer) {
 	}
 
+
 	private String generateMD5(String input) {
 		try {
 			MessageDigest MD5 = MessageDigest.getInstance("MD5");
 			MD5.update(input.getBytes());
 			byte[] hash = MD5.digest();
-			return DatatypeConverter.printHexBinary(hash).toLowerCase();
+			return JavascriptHelper.bytesToHex(hash);
 		} catch (NoSuchAlgorithmException var4) {
 			var4.printStackTrace();
 			return null;
@@ -86,13 +86,11 @@ public class SessionCookieAuthenticator implements Authenticator {
 			responseHeader.addParameter("Set-Cookie", "openForumSession=" + sessionId + "; Path=/");
 		}
 
-		responseHeader.addParameter("content-length", "" + data.length());
 		long modified = System.currentTimeMillis();
 		responseHeader.addParameter("last-modified", HttpRequestHelper.getHttpDate(modified));
 		responseHeader.addParameter("expires", HttpRequestHelper.getHttpDate(modified));
 		responseHeader.addParameter("cache-control", " max-age=1, must-revalidate ");
-		connection.getOutputStream().write(data.getBytes());
-		connection.getOutputStream().flush();
+		connection.send(data);
 	}
 
 	protected SessionStore getSessionStore() {

@@ -6,7 +6,6 @@ import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,8 +24,12 @@ import org.onestonesoup.core.FileHelper;
  */
 
 public class ResourceStoreProxy implements ResourceStore {
-	
+
+	private static final Resource CHANGE_LOG = new Resource( new ResourceFolder("/OpenForum","ChangeLog"), "change_log.txt" );
+
 	private List<ResourceStore> resourceStores = new ArrayList<ResourceStore>();
+
+	private ResourceStore changeLogeStore;
 	
 	public ResourceStoreProxy(ResourceStore resourceStore)
 	{
@@ -35,6 +38,9 @@ public class ResourceStoreProxy implements ResourceStore {
 	
 	public void addResourceStore(ResourceStore resourceStore) {
 		resourceStores.add(resourceStore);
+		if( resourceStore.isReadOnly()==false && resourceStore.resourceExists( CHANGE_LOG ) ) {
+			changeLogeStore = resourceStore;
+		}
 	}
 	
 	public void appendResource(Resource resource, byte[] data)
@@ -44,7 +50,8 @@ public class ResourceStoreProxy implements ResourceStore {
 
 	public Resource buildResource(ResourceFolder folder, String name,
 			byte[] data) throws IOException {
-		return getResourceStoreToWrite(folder).buildResource(folder, name, data);
+		Resource resource = getResourceStoreToWrite(folder).buildResource(folder, name, data);
+		return resource;
 	}
 
 	public Resource buildResource(ResourceFolder folder, String name,
@@ -54,7 +61,8 @@ public class ResourceStoreProxy implements ResourceStore {
 	
 	public Resource buildResource(ResourceFolder folder, String name,
 			InputStream stream, long size, boolean closeStream) throws IOException {
-		return getResourceStoreToWrite(folder).buildResource(folder, name, stream, size, closeStream);
+		Resource resource = getResourceStoreToWrite(folder).buildResource(folder, name, stream, size, closeStream);
+		return resource;
 	}
 
 	public boolean copy(Resource sourceResource,
@@ -70,7 +78,7 @@ public class ResourceStoreProxy implements ResourceStore {
 			e.printStackTrace();
 			return false;
 		}
-		
+		Resource resource = null;//Todo
 		return true;
 	}
 
@@ -93,6 +101,9 @@ public class ResourceStoreProxy implements ResourceStore {
 
 	public boolean delete(ResourceFolder folder) {
 		getResourceStoreToWrite(folder).delete(folder);
+
+		Resource resource = null;//Todo
+
 		return !resourceFolderExists(folder);
 	}
 
@@ -110,6 +121,7 @@ public class ResourceStoreProxy implements ResourceStore {
 
 	public OutputStream getOutputStream(ResourceFolder resourceFolder,
 			String name) throws IOException {
+		Resource resource = null;//Todo
 		return getResourceStoreToWrite(resourceFolder).getOutputStream(resourceFolder,name);
 	}
 
@@ -210,16 +222,19 @@ public class ResourceStoreProxy implements ResourceStore {
 
 	public boolean move(Resource sourceResource,
 			ResourceFolder targetResourceFolder, String name) {
+		Resource resource  = null;//Todo
 		return getResourceStoreToWrite(targetResourceFolder).move(sourceResource, targetResourceFolder, name);
 	}
 
 	public boolean move(ResourceFolder sourceResourceFolder,
 			ResourceFolder targetResourceFolder) {
+		Resource resource  = null;//Todo
 		return getResourceStoreToWrite(targetResourceFolder).move(sourceResourceFolder, targetResourceFolder);
 	}
 
 	public boolean rename(ResourceFolder resourceFolder, String newName) {
 		//Not possible if read-only
+		Resource resource  = null;//Todo
 		return getResourceStoreToWrite(resourceFolder).rename(resourceFolder, newName);
 	}
 
@@ -316,5 +331,15 @@ public class ResourceStoreProxy implements ResourceStore {
 			return getResourceStoreToRead(resource).contentMatches(resource, data);
 		}
 		return false;
+	}
+
+	private void logChange( Resource resource, String changeType ) {
+		if( changeLogeStore != null ) {
+			try {
+				changeLogeStore.appendResource(CHANGE_LOG,(changeType + ":" + resource.toString()+"\n").getBytes());
+			} catch (Throwable ignored) {
+
+			}
+		}
 	}
 }

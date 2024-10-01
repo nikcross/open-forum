@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
@@ -7,8 +8,24 @@
         <option value="$PROJECT_DIR$/client/pom.xml" />
         <option value="$PROJECT_DIR$/server/pom.xml" />
         <option value="$PROJECT_DIR$/addons/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/email/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/jdbc/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/raspberrypi/pom.xml" />
+        <option value="$PROJECT_DIR$/addon/packager/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/image-processor/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/packager/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/RTSP-processor/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/certificate-check/certificate-check/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/certificate-check/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/rtsp/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/java-trail/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_9" default="false" project-jdk-name="9.0" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="jpab" />
+  </component>
 </project>

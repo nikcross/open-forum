@@ -19,7 +19,6 @@ import org.onestonesoup.openforum.DataHelper;
 import org.onestonesoup.openforum.KeyValueListPage;
 import org.onestonesoup.openforum.OpenForumException;
 import org.onestonesoup.openforum.OpenForumNameHelper;
-import org.onestonesoup.openforum.Renderer;
 import org.onestonesoup.openforum.Stream;
 import org.onestonesoup.openforum.TimeHelper;
 import org.onestonesoup.openforum.filemanager.FileManager;
@@ -33,7 +32,6 @@ import org.onestonesoup.openforum.logger.DefaultOpenForumLogger;
 import org.onestonesoup.openforum.logger.OpenForumLogger;
 import org.onestonesoup.openforum.messagequeue.MessageQueueManager;
 import org.onestonesoup.openforum.plugin.PluginManager;
-import org.onestonesoup.openforum.renderers.WikiLinkParser;
 import org.onestonesoup.openforum.router.Router;
 import org.onestonesoup.openforum.security.AuthenticationException;
 import org.onestonesoup.openforum.security.Authenticator;
@@ -92,7 +90,7 @@ public class OpenForumController implements OpenForumScripting,
 	private boolean initialised = false;
 	private Authenticator authenticator;
 	private Authorizer authorizer;
-	private boolean secure = true;
+	private boolean secure = false;
 
 	private OpenForumLogger logger;
 
@@ -407,15 +405,25 @@ public class OpenForumController implements OpenForumScripting,
 		buildPage(JOURNAL_PAGE_PATH, false);
 	}
 
-	public String renderWikiData(String name, String data) throws Exception,
+	public String renderWikiData(String pageName, String htmlContent) throws Exception,
 			AuthenticationException {
-		StringBuffer html = new StringBuffer("");
-		WikiLinkParser linkRenderer = new WikiLinkParser(name, EDIT_PAGE,
-				EDIT_LINK_DISPLAY_TEMPLATE, this);
 
-		Renderer.wikiToHtml(name, data, html, this, linkRenderer);
+		JavascriptEngine js = getJavascriptEngine(getSystemLogin());
+		js.mount("pageName", pageName);
+		js.mount("htmlContent", htmlContent);
 
-		return html.toString();
+		try
+		{
+			String script = getFileManager()
+				.getPageAttachmentAsString( "/OpenForum/Javascript/Renderer", "DefaultRenderer.sjs", getSystemLogin() );
+
+			script += "new DefaultRenderer().render(pageName, htmlContent);";
+
+			return js.runJavascript( "/OpenForum/Javascript/Renderer/DefaultRenderer.sjs", script );
+
+		} catch( Throwable t ) {
+			return "Error rendering: "+t;
+		}
 	}
 
 	private void buildMissingPages() throws Exception, AuthenticationException {
@@ -706,21 +714,6 @@ public class OpenForumController implements OpenForumScripting,
 				.getName());
 
 		pageName = OpenForumNameHelper.titleToWikiName(pageName);
-		boolean tagsChanged = false;
-		if (tags != null) {
-			String oldTags = "";
-
-			if (fileManager.pageAttachmentExists(pageName, TAGS_FILE, login)) {
-				oldTags = fileManager.getPageAttachmentAsString(pageName,
-						TAGS_FILE, login);
-			}
-
-			if (oldTags.equals(tags) == false) {
-				fileManager.saveStringAsAttachment(tags, pageName, TAGS_FILE,
-						login, true);
-				tagsChanged = true;
-			}
-		}
 
 		if (postParameters != null) {
 			EntityTree dataToFileMap = null;
@@ -752,21 +745,10 @@ public class OpenForumController implements OpenForumScripting,
 			}
 		}
 
-		if (fileManager.saveStringAsPageSource(source, pageName, login) == false
-				&& tagsChanged == false) {
+		if (fileManager.saveStringAsPageSource(source, pageName, login) == false) {
 			return;
-		} else {
-			String owner = fileManager.getPageAttachmentAsString(pageName,
-					OWNER_FILE, getSystemLogin());
-
-			if (owner == null) {
-				fileManager.saveStringAsAttachment(author, pageName,
-						OWNER_FILE, login, false);
-			} else if (author.equals("Admin") == false) {
-				fileManager.saveStringAsAttachment(author, pageName,
-						OWNER_FILE, login, false);
-			}
 		}
+
 		try {
 			if (fileManager.pageExists(pageName, login)) {
 				addJournalEntry("Page [" + pageName
@@ -808,10 +790,6 @@ public class OpenForumController implements OpenForumScripting,
 		String source = fileManager
 				.getPageSourceAsString(sourcePageName, login);
 		String tags = "";
-		if (fileManager.pageAttachmentExists(sourcePageName, TAGS_FILE, login)) {
-			tags = fileManager.getPageAttachmentAsString(sourcePageName,
-					TAGS_FILE, login);
-		}
 
 		savePage(newPageName, source, tags, null, login);
 		buildPage(newPageName);
@@ -835,24 +813,6 @@ public class OpenForumController implements OpenForumScripting,
 			}
 
 			addToListPage(listPageName, pageName, systemLogin);
-
-			if (requiresIndex) {
-				if (getFileManager().pageAttachmentExists(listPageName,
-						INDEX_FILE, login) == false) {
-					attachFile(listPageName, INDEX_FILE, "<index>1</index>",
-							false);
-				}
-
-				/*
-				 * EntityTree indexValue = JSONHelper.toTree(getFileManager()
-				 * .getPageAttachmentAsString(listPageName, INDEX_FILE, login));
-				 * index = Integer.parseInt(indexValue.getValue());
-				 * indexValue.setValue("" + (index + 1));
-				 * 
-				 * attachFile(listPageName, INDEX_FILE,
-				 * XmlHelper.toXml(indexValue), false);
-				 */
-			}
 		}
 
 		return index;
@@ -876,13 +836,9 @@ public class OpenForumController implements OpenForumScripting,
 		// links.txt includes a list of the page attachments that should be
 		// linked to rather than copied
 		String[] links = new String[0];
-		if (fileManager.pageAttachmentExists(sourcePageName, LINKS_FILE, login)) {
-			links = fileManager.getPageAttachmentAsString(sourcePageName,
-					LINKS_FILE, login).split(" ");
-		}
 
 		for (String fileName : keys) {
-			if (fileName.equals(PAGE_FILE) || fileName.equals(LINKS_FILE)) {
+			if (fileName.equals(PAGE_FILE)) {
 				continue;
 			}
 
@@ -1035,10 +991,7 @@ public class OpenForumController implements OpenForumScripting,
 			timeStamp = fileManager.getTimestampForPage(pageName, systemLogin);
 		}
 		if (author == null) {
-			author = fileManager.getAuthorForPage(pageName, systemLogin);
-			if (author == null) {
-				author = "-not defined-";
-			}
+			author = "-not defined-";
 		}
 		if (title == null) {
 			title = OpenForumNameHelper.wikiNameToTitle(pageName);
@@ -1224,11 +1177,6 @@ public class OpenForumController implements OpenForumScripting,
 			}
 
 			initialised = true;
-
-			//TODO This does not seem to do anything
-			/*logger.info("Building Wiki Page List");
-			buildPagesList();
-			logger.info("Built Wiki Page List");*/
 
 			logger.info("Running Wiki Startup Triggers");
 			StartUpTrigger startUpTrigger = new StartUpTrigger(this);

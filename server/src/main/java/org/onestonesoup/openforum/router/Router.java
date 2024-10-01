@@ -30,8 +30,9 @@ import org.onestonesoup.openforum.filemanager.OpenForumFileServer;
 import org.onestonesoup.openforum.security.AuthenticationException;
 import org.onestonesoup.openforum.security.Authorizer;
 import org.onestonesoup.openforum.security.Login;
-import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
-import org.onestonesoup.openforum.servlet.HttpHeader;
+import org.onestonesoup.openforum.server.ClientConnection;
+import org.onestonesoup.openforum.server.ClientConnectionInterface;
+import org.onestonesoup.openforum.server.HttpHeader;
 import org.onestonesoup.openforum.transaction.GetTransaction;
 import org.onestonesoup.openforum.transaction.HttpPostInputStreamBuffer;
 import org.onestonesoup.openforum.transaction.HttpRequestHelper;
@@ -240,11 +241,10 @@ public class Router {
 
 		if(httpHeader.getChild("secure").getValue().equals("false") && controller.isSecure()) {
 			HttpResponseHeader responseHeader = new HttpResponseHeader(
-						httpHeader, "text/html", 301, connection);
-				responseHeader.addParameter("location", "https://"+httpHeader.getChild("host").getValue() + "/" + request); // Rediect to https page
+						httpHeader, "text/html", ClientConnection.MOVED_PERMANENTLY, connection);
+				responseHeader.addParameter("location", "https://"+httpHeader.getChild("host").getValue() + request); // Rediect to https page
 
-				connection.getOutputStream().flush();
-				connection.close();
+				connection.sendEmpty();
 
 				return true;
 		}
@@ -254,11 +254,10 @@ public class Router {
 			if( request.equals(redirectPageName) ) {
 
 				HttpResponseHeader responseHeader = new HttpResponseHeader(
-						httpHeader, "text/html", 302, connection);
+						httpHeader, "text/html", ClientConnection.REDIRECT, connection);
 				responseHeader.addParameter("location", pageRedirect.getValue()); // Rediect to page eg. editor
 
-				connection.getOutputStream().flush();
-				connection.close();
+				connection.sendEmpty();
 
 				return true;
 			}
@@ -269,11 +268,10 @@ public class Router {
 			if( httpHeader.getChild("parameters").getChild(parameterName)!=null && httpHeader.getChild("parameters").getChild(parameterName).getValue().equals("") ) {
 	
 				HttpResponseHeader responseHeader = new HttpResponseHeader(
-						httpHeader, "text/html", 302, connection);
+						httpHeader, "text/html", ClientConnection.REDIRECT, connection);
 				responseHeader.addParameter("location", redirectParameter.getValue() + "?pageName="+request); // Rediect to page eg. editor
 	
-				connection.getOutputStream().flush();
-				connection.close();
+				connection.sendEmpty();
 	
 				return true;
 			}
@@ -319,9 +317,9 @@ public class Router {
 
 			// Display a 500 error if authentication fails
 			HttpResponseHeader header = new HttpResponseHeader(httpHeader,
-					"txt", 500, connection);
-			connection.getOutputStream().write(exception.getBytes());
-			connection.getOutputStream().flush();
+					"txt", ClientConnection.ERROR, connection);
+			connection.send(exception);
+			connection.sendEmpty();
 			return true;
 		}
 
@@ -429,9 +427,9 @@ public class Router {
 				t2.printStackTrace();
 
 				HttpResponseHeader header = new HttpResponseHeader(httpHeader,
-						"txt", 500, connection);
-				connection.getOutputStream().write(exception.getBytes());
-				connection.getOutputStream().flush();
+						"txt", ClientConnection.ERROR, connection);
+				connection.send(exception);
+				connection.sendEmpty();
 			}
 
 			t.printStackTrace();
@@ -665,7 +663,7 @@ public class Router {
 				// Send a 304 not modified response
 				if (fileTime <= testTime) {
 					responseHeader = new HttpResponseHeader(httpHeader,
-							fileServer.getMimeTypeFor(request), 304, connection);
+							fileServer.getMimeTypeFor(request), ClientConnection.NOT_MODIFIED, connection);
 
 					responseHeader.addParameter("last-modified",
 							HttpRequestHelper.getHttpDate(modified));

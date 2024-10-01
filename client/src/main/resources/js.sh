@@ -1,0 +1,1 @@
+java -jar lib/javascript-0.0.2-jar-with-dependencies.jar

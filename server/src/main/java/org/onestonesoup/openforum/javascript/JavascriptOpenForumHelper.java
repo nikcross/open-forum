@@ -18,7 +18,7 @@ import org.onestonesoup.openforum.security.AuthenticationException;
 import org.onestonesoup.openforum.security.Authorizer;
 import org.onestonesoup.openforum.security.Login;
 import org.onestonesoup.openforum.security.cookie.SessionCookieAuthenticator;
-import org.onestonesoup.openforum.servlet.HttpHeader;
+import org.onestonesoup.openforum.server.HttpHeader;
 import org.onestonesoup.openforum.transaction.Transaction;
 
 public class JavascriptOpenForumHelper {
@@ -279,7 +279,7 @@ public class JavascriptOpenForumHelper {
 		}
 		try {
 			Properties props = new Properties();
-			props.load(this.getClass().getResourceAsStream("/META-INF/maven/onestonesoup.open-forum.server/open-forum.server/pom.properties"));
+			props.load(this.getClass().getResourceAsStream("/META-INF/maven/org.onestonesoup/open-forum.server/pom.properties"));
 			version = props.getProperty("version");
 			
 		} catch (Exception exception) {

@@ -2,7 +2,7 @@ package org.onestonesoup.openforum.filemanager;
 
 import java.io.IOException;
 
-import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
+import org.onestonesoup.openforum.server.ClientConnectionInterface;
 
 public interface FileServer {
 

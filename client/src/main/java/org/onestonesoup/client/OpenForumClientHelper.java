@@ -9,12 +9,12 @@ import org.onestonesoup.javascript.engine.JSON;
 public class OpenForumClientHelper {
 
 
-	public OpenForumClient getClient(String host,String userId,String password) throws Exception {
-		return new OpenForumClient(host,userId,password);
+	public OpenForumClient getClient(String host,String userId,String password, boolean hashedPassword) throws Exception {
+		return new OpenForumClient(host,userId,password,hashedPassword);
 	}
 
-	public OpenForumMessageQueueClient getMessageQueueClient(String host,String userId,String password,String queue) throws Exception {
-		return new OpenForumMessageQueueClient(host,userId,password,queue);
+	public OpenForumMessageQueueClient getMessageQueueClient(String host,String userId,String password,boolean hashedPassword,String queue) throws Exception {
+		return new OpenForumMessageQueueClient(host,userId,password,hashedPassword,queue);
 	}
 
 	public MessageQueueListener getJavascriptListener(JavascriptCommandLineInterface.JSInterface js, String functionName) {

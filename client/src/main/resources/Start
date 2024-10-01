@@ -1,0 +1,3 @@
+cd ~/os-git/local-of-client
+nohup ./local-of-client.sh
+exit

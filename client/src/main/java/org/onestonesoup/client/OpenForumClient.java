@@ -28,8 +28,10 @@ public class OpenForumClient  {
 	private final String userId;
 	private final String password;
 
+	private boolean hashedPassword = false;
+
 	public static void main( String[] args ) throws Exception {
-        OpenForumClient client = new OpenForumClient( "https://open-forum.onestonesoup.org",args[0],args[1] );
+        OpenForumClient client = new OpenForumClient( "https://open-forum.onestonesoup.org",args[0],args[1],false );
         String result = client.uploadFile("/TheLab/Uploads","test.file.txt",
 				"/Users/nicholas.cross/os-git/open-forum/client/src/main/java/org/onestonesoup/client/OpenForumClient.java");
         System.out.println(result);
@@ -38,12 +40,13 @@ public class OpenForumClient  {
     private String host;
 	private String sessionCookie;
 
-    public OpenForumClient(String host, String userId,String password) throws Exception {
+    public OpenForumClient(String host, String userId,String password, boolean hashedPassword) throws Exception {
     	this.host = host;
     	this.userId = userId;
     	this.password = password;
+		this.hashedPassword = hashedPassword;
 
-    	signIn(userId,password);
+    	signIn(userId,password,hashedPassword);
 	}
 
 	public String getUserId() {
@@ -52,16 +55,19 @@ public class OpenForumClient  {
 
 	public void reSignIn() {
 		try {
-			signIn(userId,password);
+			signIn(userId,password,hashedPassword);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	private void signIn(String userId, String password) throws IOException, NoSuchAlgorithmException {
+	private void signIn(String userId, String password, boolean hashed) throws IOException, NoSuchAlgorithmException {
 
-		String hash = getPasswordHash();
-		String hashedPassword = toMD5(password+hash);
+		String hashedPassword = password;
+		if(hashed) {
+			String hash = getPasswordHash();
+			hashedPassword = toMD5(password+hash);
+		}
 
 		URLConnection connection = new URL(host + "/OpenForum/Access/SignIn/Process").openConnection();
 

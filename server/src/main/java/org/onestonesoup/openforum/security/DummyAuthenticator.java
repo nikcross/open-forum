@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileServer;
-import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
-import org.onestonesoup.openforum.servlet.HttpHeader;
+import org.onestonesoup.openforum.server.ClientConnectionInterface;
+import org.onestonesoup.openforum.server.HttpHeader;
 
 public class DummyAuthenticator implements Authenticator {
 

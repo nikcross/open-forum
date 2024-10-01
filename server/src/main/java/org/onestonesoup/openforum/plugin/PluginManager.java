@@ -199,25 +199,26 @@ public class PluginManager{
 			loop++;
 		}
 		urlClassLoader = URLClassLoader.newInstance( urls,getClass().getClassLoader() );
-		
+
+		Map newApis = new HashMap<String,Object>();
 		for(String pageName: apis.keySet())
 		{
 			String className = getClassNameForApi(pageName);
 			
 			try{
-				apis.put( className,getInstance(pageName,className) );
+				newApis.put( className,getInstance(pageName,className) );
 
 				controller.getLogger().info( "Created instance of "+className );
 			}
 			catch(Exception e)
 			{
-				apis.remove(className);
 				e.printStackTrace();
 				StringBuffer trace = new StringBuffer();
 				trace.append(StringHelper.arrayToString(ExceptionHelper.getTrace(e),"\n"));
 				controller.getLogger().info( "Failed to create instance of "+classPath+" "+trace.toString() );
 			}
 		}
+		apis = newApis;
 	}
 	
 	private void initialiseAPI(String pageName) throws Throwable

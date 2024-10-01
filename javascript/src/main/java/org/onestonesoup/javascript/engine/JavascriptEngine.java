@@ -91,7 +91,7 @@ public class JavascriptEngine {
 	}
 
 	private JsContextFactory jsContextFactory = new JsContextFactory();
-	private JsContext jsContext;
+	private Context jsContext;
 	private Scriptable jsScope;
 
 	public class JavascriptProcessThread implements Runnable {
@@ -185,7 +185,8 @@ public class JavascriptEngine {
 	}
 
 	public JavascriptEngine() {
-		jsContext = jsContextFactory.createContext();
+		jsContext = Context.enter(); //jsContextFactory.createContext();
+
 		jsScope = jsContext.initStandardObjects();
 
 		try {
@@ -241,25 +242,32 @@ public class JavascriptEngine {
 		return runJavascript(fileName, script, null, null, null);
 	}
 
-	public String runJavascript(String fileName, String script,
-			Integer maximumInstruactions, Integer maximumTime, JsContext context) throws Throwable {
+	public String runJavascript(
+			String fileName,
+			String script,
+			final Integer maximumInstruactions,
+			final Integer maximumTime,
+			JsContext context
+	) throws Throwable {
 		try {
 			if(context==null) {
 				jsContext = jsContextFactory.createContext();
+				JavascriptEngine.JsContext jContext = (JavascriptEngine.JsContext)jsContext;
+				if (maximumTime == null) {
+					jContext.resetStartTime();
+					jContext.setMaximumScriptTime(-1);
+				} else {
+					jContext.setMaximumScriptTime(maximumTime);
+				}
+				if (maximumInstruactions == null) {
+					jContext.resetStartTime();
+					jContext.setMaximumScriptInstructions(-1);
+				} else {
+					jContext.setMaximumScriptInstructions(maximumInstruactions);
+				}
+
 			} else {
 				jsContext = context;
-			}
-			if (maximumTime == null) {
-				jsContext.resetStartTime();
-				jsContext.setMaximumScriptTime(-1);
-			} else {
-				jsContext.setMaximumScriptTime(maximumTime);
-			}
-			if (maximumInstruactions == null) {
-				jsContext.resetStartTime();
-				jsContext.setMaximumScriptInstructions(-1);
-			} else {
-				jsContext.setMaximumScriptInstructions(maximumInstruactions);
 			}
 
 			jsContextFactory.enterContext(jsContext);
@@ -269,21 +277,21 @@ public class JavascriptEngine {
 			String trace = StringHelper.arrayToString(
 					ExceptionHelper.getTrace(we.getWrappedException()), "\n");
 
-			String message = fileName + " Javascipt Error [at "
+			String message = fileName + " Javascript Error [at "
 					+ we.lineNumber() + ": " + we.columnNumber() + "]:" + trace;
 			System.err.println(message);
 
 			throw new Exception(message, we.getWrappedException());
 		} catch (EvaluatorException ev) {
-			System.err.println(fileName + " Javascipt Error [at "
+			System.err.println(fileName + " Javascript Error [at "
 					+ ev.lineNumber() + ": " + ev.columnNumber() + "]:"
 					+ ev.details());
 
-			throw new Exception(fileName + " Javascipt Error [at "
+			throw new Exception(fileName + " Javascript Error [at "
 					+ ev.lineNumber() + ": " + ev.columnNumber() + "]:"
 					+ ev.details());
 		} catch (EcmaError ee) {
-			System.err.println(fileName + " Javascipt Error [at "
+			System.err.println(fileName + " Javascript Error [at "
 					+ ee.lineNumber() + ": " + ee.columnNumber() + "]:"
 					+ ee.getErrorMessage());
 
@@ -291,7 +299,7 @@ public class JavascriptEngine {
 			String pageName = fileName.substring(0,
 					fileName.length() - file.length());*/
 
-			throw new Exception("Javascipt Error [at " + ee.lineNumber() + ": "
+			throw new Exception("Javascript Error [at " + ee.lineNumber() + ": "
 					+ ee.columnNumber() + "]:" + ee.getErrorMessage() + " in "
 					+ fileName);
 		} catch (Exception e) {
@@ -303,9 +311,9 @@ public class JavascriptEngine {
 	public Object evaluateJavascript(String fileName, String script)
 			throws Throwable {
 		try {
-			jsContext = jsContextFactory.createContext();
-			jsContext.resetStartTime();
-			jsContext.setMaximumScriptTime(-1);
+			jsContext = Context.enter(); //jsContextFactory.createContext();
+			//jsContext.resetStartTime();
+			//jsContext.setMaximumScriptTime(-1);
 			jsContextFactory.enterContext(jsContext);
 			return jsContext.evaluateString(jsScope, script,
 					"Javascript Engine", 1, null);

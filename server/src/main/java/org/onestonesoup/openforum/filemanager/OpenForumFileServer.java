@@ -9,9 +9,8 @@ import java.util.Map;
 import java.util.zip.GZIPOutputStream;
 
 import org.onestonesoup.core.FileHelper;
-import org.onestonesoup.openforum.controller.OpenForumConstants;
 import org.onestonesoup.openforum.controller.OpenForumController;
-import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
+import org.onestonesoup.openforum.server.ClientConnectionInterface;
 
 public class OpenForumFileServer implements FileServer {
 
@@ -100,6 +99,9 @@ public class OpenForumFileServer implements FileServer {
 				resource = resourceStore.getResource(PAGE_404_PATH+PAGE_FILE);
 			}
 		}
+
+		connection.setContentLength(resource.getSize());
+		connection.sendHeader();
 
 		long size = -1;
 		if (compress == true) {

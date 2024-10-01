@@ -25,14 +25,15 @@ public class OpenForumMessageQueueClient implements Runnable {
 				"https://open-forum.onestonesoup.org",
 				args[0],
 				args[1],
+				false,
 				args[2]
 				);
 		client.start();
 	}
 
-	public OpenForumMessageQueueClient(String host, String userId, String password, String queue) throws Exception {
+	public OpenForumMessageQueueClient(String host, String userId, String password, boolean hashedPassword, String queue) throws Exception {
 		this.queue = queue;
-		client = new OpenForumClient(host, userId, password);
+		client = new OpenForumClient(host, userId, password, hashedPassword);
 		javascript = new JavascriptEngine();
 		listeners = new ArrayList<MessageQueueListener>();
 	}

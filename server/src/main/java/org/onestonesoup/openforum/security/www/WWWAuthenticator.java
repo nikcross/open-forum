@@ -10,8 +10,8 @@ import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileServer;
 import org.onestonesoup.openforum.security.Authenticator;
 import org.onestonesoup.openforum.security.Login;
-import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
-import org.onestonesoup.openforum.servlet.HttpHeader;
+import org.onestonesoup.openforum.server.ClientConnectionInterface;
+import org.onestonesoup.openforum.server.HttpHeader;
 import org.onestonesoup.openforum.transaction.HttpRequestHelper;
 import org.onestonesoup.openforum.transaction.HttpResponseHeader;
 

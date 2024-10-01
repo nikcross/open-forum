@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/addons/email" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/addons/jdbc" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/addons/open-forum-migration" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/certificate-check/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/certificate-check/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/email/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/email/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/image-processor/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/image-processor/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/java-trail/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/java-trail/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/packager/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/packager/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/raspberrypi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/raspberrypi/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/rtsp/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/rtsp/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/addons/sql-database/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/client/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/javascript" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javascript/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/javascript/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/server/addon/java-debug/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/server/addon/java-debug/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/server/src/main/resources" charset="UTF-8" />
   </component>
 </project>

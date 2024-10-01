@@ -1,136 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/HttpResponseHeader.java" line="23" />
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3557c3be-9bd8-417c-a27b-8e4842d6a6a3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/pom.xml" afterPath="$PROJECT_DIR$/server/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" />
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/java-debug/untitled/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/java-trail/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/JavaTrail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/SimpleDebugVM.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/raspberrypi/src/main/java/org/onestonesoup/openforum/pi/ADS1115.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/rtsp/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/rtsp/src/main/java/org/onestonesoup/openforum/rtsp/RtspGrabber.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/sql-database/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/sql-database/jdbc-api.jardesc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/sql-database/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/sql-database/src/main/java/org/onestonesoup/openforum/jdbc/DatabaseAPI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/sql-database/src/main/java/org/onestonesoup/openforum/jdbc/JDBCDriverWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/sql-database/src/main/java/org/onestonesoup/openforum/jdbc/JSONHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/sql-database/src/main/open-forum/initialise.sjs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/Start" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/js.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/local-of-client.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/main/resources/local-of-client.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/update-jar.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/src/test/java/org/onestonesoup/javascript/cli/JavascriptCommandLineInterfaceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/javascript/src/test/resources/test.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/ClientConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/OpenForumRequestException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/OpenForumServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/RequestProcessor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/org/onestonesoup/openforum/DataHelperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/java/org/onestonesoup/openforum/javascript/JavascriptHelperTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/resources/domains.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ant_ant_1_6_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_twelvemonkeys_common_common_image_3_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_twelvemonkeys_common_common_io_3_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_twelvemonkeys_common_common_lang_3_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_twelvemonkeys_imageio_imageio_core_3_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_twelvemonkeys_imageio_imageio_jpeg_3_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_twelvemonkeys_imageio_imageio_metadata_3_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_twelvemonkeys_imageio_imageio_tiff_3_0_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_10.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_3_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_3_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_3_4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jdt_core_3_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_all_1_9_5.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jsp_2_1_6_1_14.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jsp_api_2_1_6_1_14.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_servlet_api_2_5_6_1_14.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mozilla_rhino_1_7R4.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_onestonesoup_core_0_1_2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__rhino_js_1_7R2.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/email/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/email/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/email/src/main/java/org/onestonesoup/openforum/email/Mailer.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/email/src/main/java/org/onestonesoup/openforum/email/Mailer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/image-processor/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/image-processor/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/jdbc/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/jdbc/jdbc-api.jardesc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/jdbc/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/jdbc/src/main/java/org/onestonesoup/openforum/jdbc/DatabaseAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/jdbc/src/main/java/org/onestonesoup/openforum/jdbc/JDBCDriverWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/jdbc/src/main/java/org/onestonesoup/openforum/jdbc/JSONHelper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/jdbc/src/main/open-forum/initialise.sjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClientHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClientHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumMessageQueueClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumMessageQueueClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Authentication/authentication.hash" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Authentication/authentication.hash.a" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Authentication/authentication.hash.b" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Authentication/login.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Authentication/login.sjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Configuration/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Configuration/page.content" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Users/Author/page.content" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Users/Author/page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Users/Author/page.html.fragment" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Users/Author/password.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/openforum/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/openforum/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/openforum/entrypoint.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/openforum/entrypoint.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/engine/JavascriptEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/engine/JavascriptEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javascript/src/main/resources/init.js" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/src/main/resources/init.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/DataHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/DataHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/Renderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/FileServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/FileServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/LocalDriveResourceStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/LocalDriveResourceStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/OpenForumFileServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/OpenForumFileServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/Resource.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/Resource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/ResourceStoreProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/ResourceStoreProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/javascript/JavascriptHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/javascript/JavascriptHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/javascript/JavascriptOpenForumHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/javascript/JavascriptOpenForumHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/plugin/PluginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/plugin/PluginManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/renderers/WikiBulletRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/renderers/WikiBulletTag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/renderers/WikiExtensionRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/renderers/WikiImageRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/renderers/WikiLink.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/renderers/WikiLinkParser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/renderers/WikiLinkRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/renderers/WikiPageInsertRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/renderers/WikiTableRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/renderers/WikiTag.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/renderers/WikiTagRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/renderers/WikiTimeRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/security/Authenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/security/Authenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/security/DummyAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/security/DummyAuthenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/security/cookie/SessionCookieAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/security/cookie/SessionCookieAuthenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/security/www/WWWAuthenticator.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/security/www/WWWAuthenticator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/servlet/ClientConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/servlet/ClientConnectionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/ClientConnectionInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/servlet/HttpHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/HttpHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/servlet/OpenForumServlet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/servlet/OpenForumServletContextListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/GetTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/GetTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/HttpResponseHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/HttpResponseHeader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/PostTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/PostTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/Transaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/Transaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/org/onestonesoup/openforum/router/RouterTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/org/onestonesoup/openforum/router/RouterTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/java/org/onestonesoup/openforum/router/TestClientConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/org/onestonesoup/openforum/router/TestClientConnection.java" afterDir="false" />
     </list>
-    <ignored path="$PROJECT_DIR$/javascript/target/" />
-    <ignored path="$PROJECT_DIR$/client/target/" />
-    <ignored path="$PROJECT_DIR$/server/target/" />
-    <ignored path="$PROJECT_DIR$/addons/email/target/" />
-    <ignored path="$PROJECT_DIR$/addons/open-forum-migration/target/" />
-    <ignored path="$PROJECT_DIR$/addons/target/" />
-    <ignored path="$PROJECT_DIR$/addons/jdbc/target/" />
-    <ignored path="$PROJECT_DIR$/addons/image-processor/target/" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
-    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PostTransaction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/PostTransaction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="34" column="32" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EntityTree.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/onestonesoup/core/0.1.2/core-0.1.2.jar!/org/onestonesoup/core/data/EntityTree.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="104" column="18" lean-forward="false" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OpenForumController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="1095" column="39" lean-forward="false" selection-start-line="1095" selection-start-column="32" selection-end-line="1095" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ListPage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/ListPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KeyValueListPage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/KeyValueListPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding>
-                <element signature="e#685#699#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OpenForumConstants.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="43" column="4" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Router.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="266" column="62" lean-forward="false" selection-start-line="266" selection-start-column="62" selection-end-line="266" selection-end-column="62" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LinkListPage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/LinkListPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+  <component name="CompilerWorkspaceConfiguration">
+    <option name="MAKE_PROJECT_ON_SAVE" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -139,204 +154,102 @@
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>getTopCall</find>
-      <find>processMessage</find>
-      <find>redirect</find>
-      <find>parameterRedirectList</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/HttpResponseHeader.java" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/addons/os-street-view/pom.xml" />
-        <option value="$PROJECT_DIR$/addons/jdbc/src/main/java/org/onestonesoup/openforum/jdbc/DatabaseAPI.java" />
-        <option value="$PROJECT_DIR$/addons/image-processor/src/main/java/org/onestonesoup/openforum/image/ImageProcessorAPI.java" />
-        <option value="$PROJECT_DIR$/addons/pom.xml" />
-        <option value="$PROJECT_DIR$/client/pom.xml" />
-        <option value="$PROJECT_DIR$/javascript/pom.xml" />
-        <option value="$PROJECT_DIR$/addons/jdbc/pom.xml" />
-        <option value="$PROJECT_DIR$/addons/image-processor/pom.xml" />
-        <option value="$PROJECT_DIR$/addons/open-forum-migration/pom.xml" />
-        <option value="$PROJECT_DIR$/addons/email/pom.xml" />
-        <option value="$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/cli/JavascriptCommandLineInterface.java" />
-        <option value="$MAVEN_REPOSITORY$/onestonesoup/open-forum/javascript/0.0.2/javascript-0.0.2.jar!/org/onestonesoup/javascript/cli/JavascriptCommandLineInterface.class" />
-        <option value="$MAVEN_REPOSITORY$/onestonesoup/open-forum/javascript/0.0.2/javascript-0.0.2.jar!/org/onestonesoup/javascript/engine/JSON.class" />
-        <option value="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClientHelper.java" />
-        <option value="$PROJECT_DIR$/../local-of-client/local-of-client.js" />
-        <option value="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" />
-        <option value="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumMessageQueueClient.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/messagequeue/MessageQueue.java" />
-        <option value="$PROJECT_DIR$/addons/queue-stream/pom.xml" />
-        <option value="$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueAStreamer.java" />
-        <option value="$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamServer.java" />
-        <option value="$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamer.java" />
-        <option value="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/streamer/MessageQueueStreamerClient.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" />
-        <option value="$PROJECT_DIR$/server/pom.xml" />
-      </list>
-    </option>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/docker/target/Dockerfile" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
-  <component name="JsGulpfileManager">
-    <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="1Y1orlbDYDTjKSzdxIECWj1E3W4" />
+  <component name="ProjectViewState">
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
-  <component name="MavenProjectNavigator">
-    <treeState>
-      <expand>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="javascript" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-        <path>
-          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
-          <item name="open-forum.server" type="9519ce18:MavenProjectsStructure$ProjectNode" />
-        </path>
-      </expand>
-      <select />
-    </treeState>
-  </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="877" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="open-forum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-forum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-forum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-forum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-forum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="open-forum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-              <item name="OpenForumController" type="1a9f42e2:ClassTreeNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-    </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.OpenForumServer.executor": "Debug",
+    "Application.TestMailer.executor": "Run",
+    "JUnit.KeyValueListPageTest.executor": "Run",
+    "Maven.certificate-check [clean,install].executor": "Run",
+    "Maven.email [clean,compile,install].executor": "Run",
+    "Maven.email [clean,install].executor": "Run",
+    "Maven.email [clean].executor": "Run",
+    "Maven.email [install].executor": "Run",
+    "Maven.image-processor [clean].executor": "Run",
+    "Maven.javascript [clean,install].executor": "Run",
+    "Maven.open-forum.server [clean,compile,install].executor": "Run",
+    "Maven.open-forum.server [clean,install].executor": "Run",
+    "Maven.packager [clean,install].executor": "Run",
+    "Remote JVM Debug.Open Forum Server (Docker).executor": "Debug",
+    "Remote JVM Debug.Open Forum Server.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "11 (2)",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/nik/os-git/open-forum/server/src/test/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "Debugger_Data_Views_Java",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JAVA"
+    ]
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src/test/resources" />
+      <recent name="$PROJECT_DIR$/client/src/main/resources" />
+      <recent name="$PROJECT_DIR$/docker" />
       <recent name="$PROJECT_DIR$/addons/queue-stream" />
       <recent name="$PROJECT_DIR$/addons/image-processor" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src/test/resources" />
+      <recent name="$PROJECT_DIR$/addons" />
+      <recent name="$PROJECT_DIR$/addons/certificate-check" />
+      <recent name="$PROJECT_DIR$/addons/raspberrypi/src/main/java" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="org.onestonesoup.openforum.server" />
+      <recent name="org.onestonesoup.openforum" />
+      <recent name="" />
+    </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="Application.OpenForumClient">
-    <configuration name="OpenForumClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="org.onestonesoup.client.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.client.OpenForumClient" />
-      <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="Admin wintersun" />
-      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="client" />
-      <envs />
-    </configuration>
+  <component name="RunManager" selected="Application.OpenForumServer">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -344,89 +257,228 @@
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <module />
     </configuration>
-    <configuration default="true" type="Application" factoryName="Application">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="" />
-      <envs />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
       </option>
-      <envs />
-      <patterns />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
       <option name="PROGRAM_PARAMETERS" />
-      <predefined_log_file id="idea.log" enabled="true" />
+      <predefined_log_file enabled="true" id="idea.log" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
-    <configuration default="true" type="Remote" factoryName="Remote">
+    <configuration name="OpenForumServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.openforum.server.OpenForumServer" />
+      <module name="open-forum.server" />
+      <option name="PROGRAM_PARAMETERS" value="$PROJECT_DIR$/server/src/test/resources/domains.xml $PROJECT_DIR$/server/src/test/resources/testkey.jks" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.onestonesoup.openforum.server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="Application" factoryName="Application">
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="KeyValueListPageTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="open-forum.server" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.onestonesoup.openforum.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.onestonesoup.openforum" />
+      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.openforum.KeyValueListPageTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="email [clean,install]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/addons/email" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="open-forum.server [clean,compile,install]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="compile" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/server" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="open-forum.server [clean,install]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/server" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="Open Forum Server (Docker)" type="Remote">
+      <module name="open-forum.server" />
       <option name="USE_SOCKET_TRANSPORT" value="true" />
       <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" value="javadebug" />
+      <option name="SHMEM_ADDRESS" />
       <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
+      <option name="PORT" value="1066" />
+      <option name="AUTO_RESTART" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="1066" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2" />
     </configuration>
-    <configuration default="true" type="TestNG" factoryName="TestNG">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="GROUP_NAME" />
+    <configuration name="Open Forum Server" type="Remote">
+      <module name="open-forum.server" />
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="8889" />
+      <option name="AUTO_RESTART" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="8889" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.OpenForumServer" />
+      <item itemvalue="JUnit.KeyValueListPageTest" />
+      <item itemvalue="Maven.open-forum.server [clean,compile,install]" />
+      <item itemvalue="Maven.open-forum.server [clean,install]" />
+      <item itemvalue="Maven.email [clean,install]" />
+      <item itemvalue="Remote JVM Debug.Open Forum Server" />
+      <item itemvalue="Remote JVM Debug.Open Forum Server (Docker)" />
+    </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.OpenForumClient" />
+      <list>
+        <item itemvalue="Application.OpenForumServer" />
+        <item itemvalue="JUnit.KeyValueListPageTest" />
+        <item itemvalue="Maven.open-forum.server [clean,install]" />
+        <item itemvalue="Maven.open-forum.server [clean,compile,install]" />
+        <item itemvalue="Maven.email [clean,install]" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.22855.74" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.22855.74" />
+      </set>
+    </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -461,524 +513,422 @@
       <workItem from="1520589114876" duration="1495000" />
       <workItem from="1521543052313" duration="1932000" />
       <workItem from="1523009157315" duration="5719000" />
+      <workItem from="1582119663938" duration="259000" />
+      <workItem from="1582538031634" duration="64000" />
+      <workItem from="1586255476128" duration="322000" />
+      <workItem from="1586257342623" duration="247000" />
+      <workItem from="1587812510961" duration="1875000" />
+      <workItem from="1588282091686" duration="3226000" />
+      <workItem from="1589803443173" duration="4000" />
+      <workItem from="1591513772143" duration="4910000" />
+      <workItem from="1592325739183" duration="3758000" />
+      <workItem from="1593159296404" duration="8094000" />
+      <workItem from="1593616214568" duration="2397000" />
+      <workItem from="1598429263731" duration="315000" />
+      <workItem from="1599303179865" duration="249000" />
+      <workItem from="1600932193882" duration="2000" />
+      <workItem from="1601817471586" duration="2765000" />
+      <workItem from="1601992154927" duration="1333000" />
+      <workItem from="1602747545430" duration="798000" />
+      <workItem from="1605562184109" duration="1415000" />
+      <workItem from="1605871748047" duration="1825000" />
+      <workItem from="1606120224661" duration="139000" />
+      <workItem from="1606209594837" duration="657000" />
+      <workItem from="1606237384394" duration="7707000" />
+      <workItem from="1606732791126" duration="3115000" />
+      <workItem from="1606910890874" duration="1832000" />
+      <workItem from="1606984550318" duration="5848000" />
+      <workItem from="1607105459259" duration="5934000" />
+      <workItem from="1607249206027" duration="7796000" />
+      <workItem from="1607351109897" duration="6732000" />
+      <workItem from="1607416059789" duration="150000" />
+      <workItem from="1608316922965" duration="1765000" />
+      <workItem from="1608382971586" duration="5769000" />
+      <workItem from="1609757098426" duration="105000" />
+      <workItem from="1609788661631" duration="88000" />
+      <workItem from="1609788844137" duration="1392000" />
+      <workItem from="1610008813406" duration="765000" />
+      <workItem from="1610107452527" duration="5427000" />
+      <workItem from="1610528037338" duration="1144000" />
+      <workItem from="1610913317866" duration="7001000" />
+      <workItem from="1611229784417" duration="4937000" />
+      <workItem from="1611562307416" duration="21000" />
+      <workItem from="1611595102587" duration="2098000" />
+      <workItem from="1612091827145" duration="9274000" />
+      <workItem from="1612167939923" duration="5140000" />
+      <workItem from="1612173992312" duration="7040000" />
+      <workItem from="1612253835098" duration="754000" />
+      <workItem from="1612524241130" duration="2964000" />
+      <workItem from="1612879985518" duration="4361000" />
+      <workItem from="1613147113902" duration="1545000" />
+      <workItem from="1613566597832" duration="2979000" />
+      <workItem from="1613688096448" duration="4912000" />
+      <workItem from="1614354596866" duration="956000" />
+      <workItem from="1615411678527" duration="944000" />
+      <workItem from="1615478782136" duration="16419000" />
+      <workItem from="1615796470192" duration="27000" />
+      <workItem from="1616488385140" duration="734000" />
+      <workItem from="1616590033831" duration="2718000" />
+      <workItem from="1617042069860" duration="1142000" />
+      <workItem from="1619615733647" duration="779000" />
+      <workItem from="1620631054277" duration="601000" />
+      <workItem from="1620717802959" duration="1334000" />
+      <workItem from="1621242863193" duration="5000" />
+      <workItem from="1621855613593" duration="180000" />
+      <workItem from="1624178876993" duration="1144000" />
+      <workItem from="1626767370070" duration="819000" />
+      <workItem from="1629998692698" duration="1965000" />
+      <workItem from="1632151779948" duration="1710000" />
+      <workItem from="1632643368827" duration="599000" />
+      <workItem from="1632931485456" duration="714000" />
+      <workItem from="1639088056430" duration="993000" />
+      <workItem from="1642758317069" duration="756000" />
+      <workItem from="1644484380080" duration="2534000" />
+      <workItem from="1644749472943" duration="2090000" />
+      <workItem from="1647446798483" duration="2307000" />
+      <workItem from="1647886032829" duration="22072000" />
+      <workItem from="1650478568369" duration="3226000" />
+      <workItem from="1651151117436" duration="662000" />
+      <workItem from="1655309964315" duration="17089000" />
+      <workItem from="1656345846992" duration="22971000" />
+      <workItem from="1658135519563" duration="1366000" />
+      <workItem from="1658334645912" duration="3809000" />
+      <workItem from="1658996461585" duration="2179000" />
+      <workItem from="1660669973586" duration="2923000" />
+      <workItem from="1662541674749" duration="1692000" />
+      <workItem from="1663701560648" duration="10373000" />
+      <workItem from="1668697938997" duration="2446000" />
+      <workItem from="1670507051708" duration="29000" />
+      <workItem from="1670595665402" duration="836000" />
+      <workItem from="1670596515382" duration="3344000" />
+      <workItem from="1670610100210" duration="2671000" />
+      <workItem from="1670847124236" duration="711000" />
+      <workItem from="1670872093286" duration="659000" />
+      <workItem from="1671183642365" duration="1560000" />
+      <workItem from="1672179377374" duration="1607000" />
+      <workItem from="1672248754884" duration="36000" />
+      <workItem from="1672248982830" duration="22000" />
+      <workItem from="1672263889907" duration="31560000" />
+      <workItem from="1672752219155" duration="7795000" />
+      <workItem from="1673290134713" duration="2076000" />
+      <workItem from="1674493008385" duration="14816000" />
+      <workItem from="1674641050025" duration="3743000" />
+      <workItem from="1675630292782" duration="1319000" />
+      <workItem from="1675772652891" duration="2735000" />
+      <workItem from="1675779020643" duration="3733000" />
+      <workItem from="1676020759852" duration="990000" />
+      <workItem from="1676285516811" duration="89000" />
+      <workItem from="1676397530856" duration="3351000" />
+      <workItem from="1676485675392" duration="4376000" />
+      <workItem from="1676567204451" duration="7959000" />
+      <workItem from="1677011764173" duration="662000" />
+      <workItem from="1677061148060" duration="29000" />
+      <workItem from="1677773837972" duration="1256000" />
+      <workItem from="1680716820839" duration="1210000" />
+      <workItem from="1682606576119" duration="1269000" />
+      <workItem from="1682699070884" duration="619000" />
+      <workItem from="1684941774342" duration="4167000" />
+      <workItem from="1685692785723" duration="2193000" />
+      <workItem from="1686209370790" duration="330000" />
+      <workItem from="1687279247932" duration="155000" />
+      <workItem from="1687285677202" duration="611000" />
+      <workItem from="1688130767946" duration="905000" />
+      <workItem from="1688242776522" duration="4206000" />
+      <workItem from="1692698319796" duration="93000" />
+      <workItem from="1694951113547" duration="2928000" />
+      <workItem from="1695392333923" duration="89000" />
+      <workItem from="1695731708940" duration="108000" />
+      <workItem from="1698165814339" duration="3386000" />
+      <workItem from="1700915525888" duration="1880000" />
+      <workItem from="1701273047004" duration="3719000" />
+      <workItem from="1702994828687" duration="1052000" />
+      <workItem from="1705064714240" duration="304000" />
+      <workItem from="1706276153414" duration="1333000" />
+      <workItem from="1706386946075" duration="15000" />
+      <workItem from="1706518150124" duration="19000" />
+      <workItem from="1709063060285" duration="1672000" />
+      <workItem from="1710228399768" duration="1213000" />
+      <workItem from="1710414937075" duration="818000" />
+      <workItem from="1710836474937" duration="1246000" />
+      <workItem from="1711125416094" duration="3547000" />
+      <workItem from="1712301897821" duration="1482000" />
+      <workItem from="1712690730637" duration="1544000" />
+      <workItem from="1713089508289" duration="1478000" />
+      <workItem from="1713645047373" duration="6847000" />
+      <workItem from="1718612661900" duration="1322000" />
+      <workItem from="1718627758485" duration="8897000" />
+      <workItem from="1719252196698" duration="7121000" />
+      <workItem from="1719821731927" duration="28968000" />
+      <workItem from="1720779273821" duration="13135000" />
+      <workItem from="1723103721847" duration="601000" />
+      <workItem from="1723191585489" duration="363000" />
+      <workItem from="1723753174604" duration="73000" />
+      <workItem from="1723795127366" duration="4264000" />
+      <workItem from="1725127615442" duration="7284000" />
+      <workItem from="1727110561407" duration="1511000" />
+      <workItem from="1727166392911" duration="6006000" />
+      <workItem from="1727173878862" duration="1109000" />
+      <workItem from="1727198171050" duration="2778000" />
+      <workItem from="1727355021241" duration="293000" />
+      <workItem from="1727355359261" duration="12363000" />
+      <workItem from="1727427249872" duration="31000" />
+      <workItem from="1727544216410" duration="34419000" />
     </task>
     <servers />
   </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64943000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
-    <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20314735" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952183" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.41560102" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39484978" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3991684" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3478261" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-    </layout>
-  </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.sjs" />
   </component>
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/home/nik/os-git/open-forum/content" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java</url>
-          <line>30</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java</url>
-          <line>136</line>
-          <properties />
+          <line>142</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/packager/src/main/java/org/onestonesoup/openforum/packager/PackagerAPI.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/packager/src/main/java/org/onestonesoup/openforum/packager/PackagerAPI.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/packager/src/main/java/org/onestonesoup/openforum/packager/PackagerAPI.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/javax/servlet/javax.servlet-api/4.0.1/javax.servlet-api-4.0.1.jar!/javax/servlet/http/HttpServletRequestWrapper.class</url>
+          <line>37</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/test/java/org/onestonesoup/openforum/DataHelperTest.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/test/java/org/onestonesoup/openforum/DataHelperTest.java</url>
+          <line>37</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/rtsp/src/main/java/org/onestonesoup/openforum/rtsp/RtspGrabber.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/rtsp/src/main/java/org/onestonesoup/openforum/rtsp/RtspGrabber.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="53" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/rtsp/src/main/java/org/onestonesoup/openforum/rtsp/RtspGrabber.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/rtsp/src/main/java/org/onestonesoup/openforum/rtsp/RtspGrabber.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/rtsp/src/main/java/org/onestonesoup/openforum/rtsp/RtspGrabber.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/rtsp/src/main/java/org/onestonesoup/openforum/rtsp/RtspGrabber.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/SimpleDebugVM.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumMessageQueueClient.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/plugin/PluginManager.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="82" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/javascript/JavascriptOpenForumHelper.java</url>
+          <line>71</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/email/src/main/java/org/onestonesoup/openforum/email/Mailer.java</url>
+          <line>121</line>
+          <option name="timeStamp" value="104" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/sun/mail/jakarta.mail/2.0.1/jakarta.mail-2.0.1.jar!/jakarta/mail/Transport.class</url>
+          <line>73</line>
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/sun/mail/jakarta.mail/2.0.1/jakarta.mail-2.0.1.jar!/jakarta/mail/Transport.class</url>
+          <line>75</line>
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/sun/mail/jakarta.mail/2.0.1/jakarta.mail-2.0.1.jar!/jakarta/mail/Transport.class</url>
+          <line>167</line>
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/sun/mail/jakarta.mail/2.0.1/jakarta.mail-2.0.1.jar!/jakarta/mail/Session.class</url>
+          <line>191</line>
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/sun/mail/jakarta.mail/2.0.1/jakarta.mail-2.0.1.jar!/jakarta/mail/Session.class</url>
+          <line>243</line>
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/sun/mail/jakarta.mail/2.0.1/jakarta.mail-2.0.1.jar!/jakarta/mail/Session.class</url>
+          <line>250</line>
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/sun/mail/jakarta.mail/2.0.1/jakarta.mail-2.0.1.jar!/jakarta/mail/Session.class</url>
+          <line>245</line>
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/com/sun/mail/jakarta.mail/2.0.1/jakarta.mail-2.0.1.jar!/jakarta/mail/Session.class</url>
+          <line>271</line>
+          <option name="timeStamp" value="125" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/OpenForumServer.java</url>
+          <line>154</line>
+          <option name="timeStamp" value="127" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/OpenForumServer.java</url>
+          <line>163</line>
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/RequestProcessor.java</url>
+          <line>143</line>
+          <option name="timeStamp" value="135" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/RequestProcessor.java</url>
+          <line>145</line>
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java</url>
+          <line>318</line>
+          <option name="timeStamp" value="139" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java</url>
+          <line>426</line>
+          <option name="timeStamp" value="140" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java</url>
+          <line>285</line>
+          <option name="timeStamp" value="141" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java</url>
+          <line>424</line>
+          <option name="timeStamp" value="142" />
+        </line-breakpoint>
+        <breakpoint type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="25" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.util.ConcurrentModificationException" package="java.util" />
+          <option name="timeStamp" value="30" />
+        </breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>jrt:///usr/lib/jvm/java-1.11.0-openjdk-amd64!/java.base/java/util/zip/ZipException.class</url>
+          <line>12</line>
+          <properties class="java.util.zip.ZipException" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
     </breakpoint-manager>
-    <watches-manager />
   </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/addons/open-forum-migration/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="36" lean-forward="false" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/email/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="21" lean-forward="false" selection-start-line="24" selection-start-column="21" selection-end-line="24" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/docker-manager/update.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/rhino/js/1.7R2/js-1.7R2.jar!/org/mozilla/javascript/ScriptRuntime.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/rhino/js/1.7R2/js-1.7R2-sources.jar!/org/mozilla/javascript/ScriptRuntime.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="3042" column="39" lean-forward="false" selection-start-line="3042" selection-start-column="29" selection-end-line="3042" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/io/BufferedReader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1290">
-          <caret line="114" column="11" lean-forward="false" selection-start-line="114" selection-start-column="11" selection-end-line="114" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/javascript/JavascriptFileHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/onestonesoup/core/0.1.2/core-0.1.2.jar!/org/onestonesoup/core/FileHelper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="35" column="46" lean-forward="false" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/ScriptStreamer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/FileChooser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="8" column="22" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/io/File.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1725">
-          <caret line="147" column="13" lean-forward="false" selection-start-line="147" selection-start-column="13" selection-end-line="147" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/Tray.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="49" column="50" lean-forward="false" selection-start-line="49" selection-start-column="50" selection-end-line="49" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/Popup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/docker-manager/src/open-forum/Docker/page.content">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="2" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/docker-manager/src/open-forum/Docker/page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="24" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/JSWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/Computer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="148" column="25" lean-forward="false" selection-start-line="148" selection-start-column="25" selection-end-line="148" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/FileCrawler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="30" lean-forward="false" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/cli/JavascriptCommandLineInterface.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1770">
-          <caret line="154" column="45" lean-forward="false" selection-start-line="154" selection-start-column="32" selection-end-line="154" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/engine/JavascriptEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3825">
-          <caret line="283" column="26" lean-forward="false" selection-start-line="283" selection-start-column="26" selection-end-line="283" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/docker-manager/src/open-forum/Docker/get.sjs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="3" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="25" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/onestonesoup/open-forum/javascript/0.0.2/javascript-0.0.2.jar!/org/onestonesoup/javascript/cli/JavascriptCommandLineInterface.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4170">
-          <caret line="319" column="22" lean-forward="false" selection-start-line="319" selection-start-column="22" selection-end-line="319" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/onestonesoup/open-forum/javascript/0.0.2/javascript-0.0.2.jar!/org/onestonesoup/javascript/engine/JSON.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../local-of-client/local-of-client.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="414" column="20" lean-forward="false" selection-start-line="414" selection-start-column="0" selection-end-line="414" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/PostHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1725">
-          <caret line="124" column="37" lean-forward="false" selection-start-line="124" selection-start-column="22" selection-end-line="124" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/RemoteWebServiceAccess.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="70" column="40" lean-forward="false" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClientHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="24" column="56" lean-forward="false" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/MessageQueueListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="16" lean-forward="false" selection-start-line="7" selection-start-column="16" selection-end-line="7" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1830">
-          <caret line="142" column="16" lean-forward="false" selection-start-line="142" selection-start-column="16" selection-end-line="142" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/messagequeue/MessageQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="19" lean-forward="false" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/os-street-view/src/main/open-forum/Maps/ordinance-survey-map.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/queue-stream/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="16" lean-forward="false" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/jdbc/src/main/java/org/onestonesoup/openforum/jdbc/DatabaseAPI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="21" column="24" lean-forward="false" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/net/ServerSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3000">
-          <caret line="234" column="11" lean-forward="false" selection-start-line="234" selection-start-column="11" selection-end-line="234" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/addons/queue-stream/src/main/java/org/onestonesoup/openforum/messagequeue/stream/MessageQueueStreamer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="25" lean-forward="false" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumMessageQueueClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1005">
-          <caret line="81" column="67" lean-forward="false" selection-start-line="81" selection-start-column="67" selection-end-line="81" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/streamer/MessageQueueStreamerClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="76" column="16" lean-forward="false" selection-start-line="76" selection-start-column="16" selection-end-line="76" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/PostTransaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="34" column="32" lean-forward="false" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/onestonesoup/core/0.1.2/core-0.1.2.jar!/org/onestonesoup/core/data/EntityTree.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="104" column="18" lean-forward="false" selection-start-line="104" selection-start-column="18" selection-end-line="104" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/LinkListPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/KeyValueListPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="e#685#699#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="43" column="4" lean-forward="false" selection-start-line="43" selection-start-column="4" selection-end-line="43" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="266" column="62" lean-forward="false" selection-start-line="266" selection-start-column="62" selection-end-line="266" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="19" lean-forward="false" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/ListPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="25" column="19" lean-forward="false" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="1095" column="39" lean-forward="false" selection-start-line="1095" selection-start-column="32" selection-end-line="1095" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>No facets are configured</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.7</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>queue-stream</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-                <option value="0.6" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: ant:ant:1.6.5</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

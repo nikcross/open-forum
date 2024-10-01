@@ -1,0 +1,8 @@
+<domains>
+
+	<domain>
+		<name>Default</name>
+		<host>default</host>
+		<root>/web/content/default</root>
+	</domain>
+</domains>

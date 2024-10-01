@@ -10,7 +10,8 @@ import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileServer;
 import org.onestonesoup.openforum.security.AuthenticationException;
 import org.onestonesoup.openforum.security.Login;
-import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
+import org.onestonesoup.openforum.server.ClientConnection;
+import org.onestonesoup.openforum.server.ClientConnectionInterface;
 
 public abstract class Transaction {
 
@@ -76,16 +77,16 @@ public abstract class Transaction {
 
 	public void redirect(String pageName) throws IOException {
 		HttpResponseHeader responseHeader = new HttpResponseHeader(httpHeader,
-				fileServer.getMimeTypeForFileExtension("html"), 302, connection);
+				fileServer.getMimeTypeForFileExtension("html"), ClientConnection.REDIRECT, connection);
 		responseHeader.addParameter("location", pageName);
 
-		connection.getOutputStream().flush();
+		connection.sendEmpty();
 	}
 
 	public void redirect(String pageName, Map<String, String> params)
 			throws IOException {
 		HttpResponseHeader responseHeader = new HttpResponseHeader(httpHeader,
-				fileServer.getMimeTypeForFileExtension("html"), 302, connection);
+				fileServer.getMimeTypeForFileExtension("html"), ClientConnection.REDIRECT, connection);
 		responseHeader.addParameter("location", pageName);
 
 		if (params != null) {
@@ -95,7 +96,7 @@ public abstract class Transaction {
 			}
 		}
 
-		connection.getOutputStream().flush();
+		connection.sendEmpty();
 	}
 
 	public void goToPage(String pageName) throws IOException {
@@ -109,12 +110,11 @@ public abstract class Transaction {
 
 	public void sendResponseHeader() throws IOException {
 		HttpResponseHeader header = new HttpResponseHeader(httpHeader,
-				fileServer.getMimeTypeForFileExtension("html"), 200, connection);
+				fileServer.getMimeTypeForFileExtension("html"), ClientConnection.OK, connection);
 	}
 
 	public void sendString(String data) throws IOException {
-		connection.getOutputStream().write(data.getBytes());
-		connection.getOutputStream().flush();
+		connection.send(data);
 	}
 
 	public void sendJSON(String data) throws IOException {
@@ -134,8 +134,7 @@ public abstract class Transaction {
 		//System.out.println("Data: "+data.replaceAll(",", ",\n")+" LENGTH:"+data.length());
 		
 		HttpResponseHeader responseHeader = new HttpResponseHeader(httpHeader,
-				type+"; charset=utf-8", 200, connection);
-		responseHeader.addParameter("content-length", "" + data.getBytes().length);
+				type+"; charset=utf-8", ClientConnection.OK, connection);
 		long modified = System.currentTimeMillis();
 		responseHeader.addParameter("last-modified",
 				HttpRequestHelper.getHttpDate(modified));
@@ -153,15 +152,14 @@ public abstract class Transaction {
 			}
 		}
 
-		connection.getOutputStream().write(data.getBytes());
-		connection.getOutputStream().flush();
+		connection.send(data);
 	}
 
 	public void sendFile(String data, String fileName) throws IOException {
 		String type = FileHelper.getExtension(fileName);
 
 		HttpResponseHeader responseHeader = new HttpResponseHeader(httpHeader,
-				fileServer.getMimeTypeForFileExtension(type), 200, connection);
+				fileServer.getMimeTypeForFileExtension(type), ClientConnection.OK, connection);
 		responseHeader.addParameter("content-length", "" + data.length());
 		responseHeader.addParameter("content-disposition",
 				"attachment; filename=" + fileName);
@@ -173,8 +171,7 @@ public abstract class Transaction {
 		responseHeader.addParameter("cache-control",
 				" max-age=1, must-revalidate ");
 
-		connection.getOutputStream().write(data.getBytes());
-		connection.getOutputStream().flush();
+		connection.send(data);
 	}
 
 	public void sendFileResponseHeader(String fileName, int length)
@@ -182,7 +179,7 @@ public abstract class Transaction {
 		String type = FileHelper.getExtension(fileName);
 
 		HttpResponseHeader responseHeader = new HttpResponseHeader(httpHeader,
-				fileServer.getMimeTypeForFileExtension(type), 200, connection);
+				fileServer.getMimeTypeForFileExtension(type), ClientConnection.OK, connection);
 		responseHeader.addParameter("content-length", "" + length);
 		responseHeader.addParameter("content-disposition",
 				"attachment; filename=" + fileName);
@@ -194,7 +191,7 @@ public abstract class Transaction {
 		responseHeader.addParameter("cache-control",
 				" max-age=1, must-revalidate ");
 
-		connection.getOutputStream().flush();
+		connection.sendEmpty();
 	}
 
 	/*

@@ -2,22 +2,26 @@ package org.onestonesoup.openforum.email;
 
 import java.io.IOException;
 import java.util.Properties;
-import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
 
-import org.onestonesoup.openforum.plugin.SystemAPI;
+import com.sun.mail.smtp.SMTPTransport;
+import jakarta.activation.DataContentHandlerFactory;
+import jakarta.activation.DataHandler;
+import jakarta.activation.DataSource;
+import jakarta.mail.*;
+import jakarta.mail.internet.*;
+import jakarta.mail.util.ByteArrayDataSource;
 
-public class Mailer extends SystemAPI {
+//import org.onestonesoup.openforum.plugin.SystemAPI;
 
-    public static final String VERSION="OpenForum Mailer 4.0.3";
+public class Mailer /*extends SystemAPI*/ {
+
+    public String version="OpenForum Mailer v?";
     
-	private static final String SMTP_PORT = "465";
+	private static final String INSECURE_SMTP_PORT = "25";
+	private static final String SECURE_SMTP_PORT = "465";
 	private static final String SSL_FACTORY = "javax.net.ssl.SSLSocketFactory";
-    
+
+	private boolean secure = true;
 	private String smtpHostName = "smtp.gmail.com";
 	private String userName;
 	private String password;
@@ -30,7 +34,22 @@ public class Mailer extends SystemAPI {
 	}
 
 	public String getVersion() {
-		return VERSION;
+		if (version != null) {
+			return version;
+		}
+		try {
+			Properties props = new Properties();
+			props.load(this.getClass().getResourceAsStream("/META-INF/maven/org.onestonesoup/email/pom.properties"));
+			version = props.getProperty("version");
+
+		} catch (Exception exception) {
+			version = "Unknown";
+		}
+		return version;
+	}
+
+	public void setSecure(boolean state) {
+		secure = state;
 	}
 
 	public void setUserNameAndPassword(String userName, String password) {
@@ -52,13 +71,19 @@ public class Mailer extends SystemAPI {
 			props.put("mail.smtp.host", smtpHostName);
 			props.put("mail.smtp.auth", "true");
 			props.put("mail.debug", "false");
-			props.put("mail.smtp.port", SMTP_PORT);
-			props.put("mail.smtp.socketFactory.port", SMTP_PORT);
-			props.put("mail.smtp.socketFactory.class", SSL_FACTORY);
-			props.put("mail.smtp.socketFactory.fallback", "false");
-			
-			Session session = Session.getDefaultInstance(props,
-			new javax.mail.Authenticator() {
+			if(secure)
+			{
+				props.put( "mail.smtp.port", SECURE_SMTP_PORT );
+				props.put("mail.smtp.starttls.enable", "true");
+				props.put( "mail.smtp.socketFactory.port", SECURE_SMTP_PORT );
+				props.put("mail.smtp.socketFactory.class", SSL_FACTORY);
+				props.put("mail.smtp.socketFactory.fallback", "false");
+			} else {
+				props.put( "mail.smtp.port", INSECURE_SMTP_PORT );
+			}
+
+			Session session = Session.getInstance(props,
+			new jakarta.mail.Authenticator() {
 					protected PasswordAuthentication getPasswordAuthentication() {
 						return new PasswordAuthentication(userName,password);
 					}
@@ -66,8 +91,8 @@ public class Mailer extends SystemAPI {
 			);
 			
 			session.setDebug(false);
-			
-			Message msg = new MimeMessage(session);
+
+			MimeMessage msg = new MimeMessage(session);
 
 			InternetAddress addressFrom = new InternetAddress(fromEmail);
 			msg.setFrom(addressFrom);
@@ -80,12 +105,17 @@ public class Mailer extends SystemAPI {
 		
 			// Setting the Subject and Content Type
 			msg.setSubject(subject);
+
 			if(htmlContent) {
-				msg.setContent(message, "text/html; charset=utf-8");
+				DataSource dataSource = new ByteArrayDataSource(message, "text/html");
+				msg.setDataHandler(new DataHandler(dataSource));
+				//msg.setContent(message, "text/html; charset=utf-8");
 			} else {
-				msg.setContent(message, "text/plain");
+				DataSource dataSource = new ByteArrayDataSource(message, "text/plain");
+				msg.setDataHandler(new DataHandler(dataSource));
+				//msg.setContent(message, "text/plain");
 			}
-			Transport.send(msg);		
+			Transport.send(msg);
 		}
 		catch(Exception e)
 		{

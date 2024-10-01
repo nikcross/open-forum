@@ -1,23 +1,20 @@
 package org.onestonesoup.openforum.transaction;
 
 import org.onestonesoup.core.data.EntityTree;
-import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
+import org.onestonesoup.openforum.server.ClientConnectionInterface;
 
 import java.util.Base64;
 
 public class HttpResponseHeader {
 
 	private ClientConnectionInterface connection;
-	private int code;
 	
-	public HttpResponseHeader(EntityTree httpRequest,String contentType,int code,ClientConnectionInterface connection)
-	{
-		this.code = code;
+	public HttpResponseHeader(EntityTree httpRequest,String contentType,int code,ClientConnectionInterface connection) {
 		this.connection = connection;
-		
-		connection.setResponseStatus(code);
+
 		connection.setResponseContentType(contentType);
 		connection.setResponseDateHeader("Date", System.currentTimeMillis());
+		connection.setResponseStatus(code);
 		
 		String pebble = httpRequest.getAttribute("session");
 		if(pebble!=null) {
@@ -28,5 +25,13 @@ public class HttpResponseHeader {
 	public void addParameter(String name, String value)
 	{
 		connection.addResponseHeader(name, value);
+	}
+
+	public void setContentLength(long contentLength) {
+		connection.setContentLength(contentLength);
+	}
+
+	public void sendHeader() {
+		connection.sendHeader();
 	}
 }

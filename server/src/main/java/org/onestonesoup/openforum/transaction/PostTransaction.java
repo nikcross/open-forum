@@ -9,7 +9,7 @@ import org.onestonesoup.openforum.router.Router;
 import org.onestonesoup.openforum.router.Router.WikiAttachmentHandler;
 import org.onestonesoup.openforum.security.AuthenticationException;
 import org.onestonesoup.openforum.security.Login;
-import org.onestonesoup.openforum.servlet.ClientConnectionInterface;
+import org.onestonesoup.openforum.server.ClientConnectionInterface;
 
 public class PostTransaction extends Transaction {
 

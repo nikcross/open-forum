@@ -3,7 +3,6 @@ package org.onestonesoup.openforum.filemanager;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.CONTENT_FILE;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.DELETED_PAGES;
 import static org.onestonesoup.openforum.controller.OpenForumConstants.JOURNAL_PAGE_PATH;
-import static org.onestonesoup.openforum.controller.OpenForumConstants.OWNER_FILE;
 
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -232,41 +231,6 @@ public class FileManager {
 		} else {
 			return true;
 		}
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * org.onestonesoup.wiki.file.manager.FileManager#getAuthorForPage(java.
-	 * lang.String, org.onestonesoup.authentication.server.Login)
-	 */
-	public String getAuthorForPage(String pageName, Login login) {
-		try {
-			Resource file = getFile(pageName, OWNER_FILE,
-					login);
-			if (file == null) {
-				return "unknown";
-			}
-			String author = readFile(file);
-
-			return author;
-		} catch (Exception e) {
-			e.printStackTrace();
-			return "unknown";
-		}
-	}
-
-	public Login getLoginForPageAuthor(String pageName, Login login) {
-		String author = getAuthorForPage(pageName, login);
-		if (author.equals("unknown")) {
-			author = "Admin";
-		}
-		User owner = new User(author);
-		Login ownerLogin = new Login();
-		ownerLogin.setUser(owner);
-
-		return ownerLogin;
 	}
 
 	/*

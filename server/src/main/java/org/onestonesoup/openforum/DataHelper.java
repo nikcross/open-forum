@@ -1,9 +1,6 @@
 package org.onestonesoup.openforum;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.onestonesoup.core.data.KeyValuePair;
 
@@ -14,23 +11,22 @@ public class DataHelper {
 		source = source.replace('\\','\n');
 		String[] fields = source.split("\n");
 		Map<String,String> fieldsTable = new HashMap<String,String>();
-		for(int loop=0;loop<fields.length;loop++)
-		{
-			fields[loop] = fields[loop].trim();
-			if(fields[loop].length()==0 || fields[loop].charAt(0)!='|')
-			{
-				continue;
-			}
-			
-			fields[loop]=fields[loop].substring(1);
-			       
-			KeyValuePair value = KeyValuePair.parseKeyAndValue(fields[loop],"\\|");
-			fieldsTable.put( value.getKey().trim(),value.getValue().trim() );
-		}
-		
+
+		Arrays.stream(fields).map(String::trim)
+				.filter(s -> !s.isBlank())
+				.map(s -> s.substring(1))
+				.forEach(s -> {
+					String[] parts = s.split("\\|");
+					if(parts.length>=2) {
+						fieldsTable.put(parts[0].trim(), parts[1].trim());
+					} else {
+						fieldsTable.put(parts[0].trim(),"");
+					}
+				});
+
 		return fieldsTable;
 	}
-	
+
 	public static Map<String,String> getPageAsTable(String source)
 	{
 		if(source==null) {
@@ -39,7 +35,22 @@ public class DataHelper {
 		source = source.replace('\\','\n');
 		String[] fields = source.split("\n");
 		Map<String,String> fieldsTable = new HashMap<String,String>();
-		for(int loop=0;loop<fields.length;loop++)
+
+		Arrays.stream(fields).map(String::trim)
+				.filter(s -> s.contains("="))
+				.map(s -> {
+					if (s.startsWith("*")) s = s.substring(1);
+					return s;
+				}).forEach(s -> {
+					String[] parts = s.split("=");
+					if(parts.length>=2) {
+						fieldsTable.put(parts[0].trim(), parts[1].trim());
+					} else {
+						fieldsTable.put(parts[0].trim(),"");
+					}
+				});
+
+		/*for(int loop=0;loop<fields.length;loop++)
 		{
 			fields[loop] = fields[loop].trim();
 			if(fields[loop].startsWith("*")) {
@@ -51,17 +62,24 @@ public class DataHelper {
 			}
 			KeyValuePair value = KeyValuePair.parseKeyAndValue(fields[loop],"=");
 			fieldsTable.put( value.getKey().trim(),value.getValue().trim() );
-		}
-		
+		}*/
+
 		return fieldsTable;
 	}
-	
+
 	public static ArrayList<KeyValuePair> getPageAsKeyValuePairList(String source)
 	{
 		source = source.replace('\\','\n');
 		String[] fields = source.split("\n");
 		ArrayList<KeyValuePair> fieldsTable = new ArrayList<KeyValuePair>();
-		for(int loop=0;loop<fields.length;loop++)
+
+		Arrays.stream(fields).filter(s->!s.contains("=")).forEach(s -> {
+			KeyValuePair value = KeyValuePair.parseKeyAndValue(s,"=");
+			fieldsTable.add( new KeyValuePair(value.getKey().trim(),value.getValue().trim()) );
+				}
+
+		);
+		/*for(int loop=0;loop<fields.length;loop++)
 		{
 			fields[loop] = fields[loop].trim();
 			if(fields[loop].indexOf('=')==-1)
@@ -70,11 +88,11 @@ public class DataHelper {
 			}
 			KeyValuePair value = KeyValuePair.parseKeyAndValue(fields[loop],"=");
 			fieldsTable.add( new KeyValuePair(value.getKey().trim(),value.getValue().trim()) );
-		}
-		
+		}*/
+
 		return fieldsTable;
-	}	
-	
+	}
+
 	public static String[][] getPageAsList(String source)
 	{
 		source = source.replace('\\','\n');
@@ -100,39 +118,39 @@ public class DataHelper {
 				keyList.add( fields[loop].substring(1).trim() );
 				valueList.add( fields[loop].substring(1).trim() );
 				continue;
-			}			
-			
+			}
+
 			KeyValuePair value = KeyValuePair.parseKeyAndValue(fields[loop],"\\|");
 			keyList.add( value.getKey().trim() );
 			valueList.add( value.getValue().trim() );
 		}
-		
+
 		String[][] list = new String[keyList.size()][2];
 		for(int loop=0;loop<keyList.size();loop++)
 		{
 			list[loop][0] = (String)keyList.get(loop);
 			list[loop][1] = (String)valueList.get(loop);
 		}
-		
+
 		return list;
 	}
-	
+
 	public static String prepareTextForEditing(String data)
 	{
 		return data.replace("&","&amp;").replace("<","&lt;").replace(">","&gt;");
 	}
-	
+
 	public static String getFileSizeDisplayString(long size)
 	{
 		String displayString = ""+size;
-		
+
 		if(displayString.length()<4)
 		{
 			return displayString+" Bytes";
 		}
-		
+
 		String suffix = null;
-		
+
 		if(size>1000000000)
 		{
 			suffix = "."+(size%1000000000/10000000)+" GB";
@@ -149,9 +167,9 @@ public class DataHelper {
 			size = size/1000;
 		}
 		displayString = ""+size;
-		
+
 		String newDisplayString = "";
-		
+
 		if(displayString.length()<4)
 		{
 			newDisplayString = displayString;
@@ -175,7 +193,7 @@ public class DataHelper {
 				newDisplayString = displayString.substring(0,loop)+","+newDisplayString;
 			}
 		}
-		
+
 		return newDisplayString+suffix;
 	}
 }

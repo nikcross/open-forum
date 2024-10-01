@@ -62,6 +62,7 @@ public class LocalDriveResourceStore implements ResourceStore {
 			oStream.write(data);
 			oStream.flush();
 			oStream.close();
+			resource.setSize(data.length);
 		}
 
 		return resource;
@@ -82,7 +83,9 @@ public class LocalDriveResourceStore implements ResourceStore {
 		File file = getResourceAsFile(resource);
 		FileOutputStream oStream = new FileOutputStream(file, false);
 
-		FileHelper.copyInputStreamToOutputStream(stream, oStream, closeStream);
+		int fileSize = FileHelper.copyInputStreamToOutputStream(stream, oStream, closeStream);
+
+		resource.setSize( (long)fileSize );
 
 		return resource;
 	}
@@ -100,6 +103,7 @@ public class LocalDriveResourceStore implements ResourceStore {
 		
 		try {
 			FileHelper.copyFileToFile(sourceFile, targetFile);
+			target.setSize( sourceResource.getSize() );
 		} catch (IOException e) {
 			e.printStackTrace();
 			return false;
@@ -189,6 +193,7 @@ public class LocalDriveResourceStore implements ResourceStore {
 
 		if (getResourceAsFile(resource).exists()
 				&& getResourceAsFile(resource).isDirectory() == false) {
+			resource.setSize( getResourceAsFile(resource).length() );
 			return resource;
 		} else {
 			return null;
@@ -294,6 +299,7 @@ public class LocalDriveResourceStore implements ResourceStore {
 		if (copy(sourceResource, targetResourceFolder, name) == false) {
 			return false;
 		} else {
+			resource.setSize( sourceResource.getSize() );
 			return delete(sourceResource);
 		}
 	}
@@ -404,17 +410,14 @@ public class LocalDriveResourceStore implements ResourceStore {
 		return readOnly;
 	}
 
-	@Override
 	public boolean resourceExists(Resource resource) {
 		return getResourceAsFile(resource).exists();
 	}
 
-	@Override
 	public boolean resourceFolderExists(ResourceFolder resourceFolder) {
 		return getResourceFolderAsFile(resourceFolder).exists();
 	}
 
-	@Override
 	public boolean contentMatches(Resource resource, byte[] data) {
 		File file = getResourceAsFile(resource);
 		try {

@@ -4,13 +4,13 @@
 	<groupId>org.onestonesoup.open-forum</groupId>
 
   <artifactId>client</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.5</version>
   <packaging>jar</packaging>
 
   <name>client</name>
 
   <properties>
-    <java.version>9.0</java.version>
+    <java.version>11.0</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
@@ -24,8 +24,13 @@
     <dependency>
     	<groupId>org.onestonesoup</groupId>
     	<artifactId>javascript</artifactId>
-    	<version>0.0.2</version>
+    	<version>1.0.12</version>
     </dependency>
+      <dependency>
+          <groupId>org.apache.druid.extensions</groupId>
+          <artifactId>simple-client-sslcontext</artifactId>
+          <version>0.23.0</version>
+      </dependency>
   </dependencies>
   <build>
     <plugins>
