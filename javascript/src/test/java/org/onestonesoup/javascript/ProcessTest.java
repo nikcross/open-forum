@@ -4,7 +4,7 @@ import org.onestonesoup.javascript.helper.Process;
 
 public class ProcessTest {
 
-	public static void main(String[] args) throws Exception {
+	public static void main(String[] args) throws Throwable {
 		//ProcessWatch p = new ProcessWatch();
 		//p.executeInDirectory("/home/nik/git/eventsapi", "/home/nik/git/eventsapi/run-integration.sh");
 		//p.execute("/home/nik/git/eventsapi/run-integration.sh");
