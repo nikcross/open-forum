@@ -1,0 +1,18 @@
+{
+  "domains": [
+      {
+        "name": "Open Forum",
+        "host": "open-forum\\.test",
+        "root": "/web/content/default"
+      },
+    {
+      "name": "Old Open Forum",
+      "host": "old\\.open-forum\\.test",
+      "redirect": "open-forum.test"
+    }
+    ],
+  "noMatchDomain": "wet-wired.com",
+  "ports": {
+    "http": 1234
+  }
+}

@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.ThreadPoolExecutor;
+
 import org.onestonesoup.core.ExceptionHelper;
 import org.onestonesoup.core.StringHelper;
 import org.onestonesoup.core.data.EntityTree;
@@ -39,6 +41,7 @@ import org.onestonesoup.openforum.security.Authorizer;
 import org.onestonesoup.openforum.security.DummyAuthenticator;
 import org.onestonesoup.openforum.security.DummyAuthorizer;
 import org.onestonesoup.openforum.security.Login;
+import org.onestonesoup.openforum.server.OpenForumServer;
 import org.onestonesoup.openforum.store.Store;
 import org.onestonesoup.openforum.trigger.PageChangeTrigger;
 import org.onestonesoup.openforum.trigger.RebuildTrigger;
@@ -70,7 +73,7 @@ public class OpenForumController implements OpenForumScripting,
 	private String domainName;
 	private FileManager fileManager;
 	private PluginManager pluginManager;
-	private Login systemLogin = new Login("System", "");
+	private Login systemLogin = new Login(Login.SYSTEM, "");
 
 	private RebuildTrigger rebuildTrigger;
 	@SuppressWarnings("unused")
@@ -94,66 +97,113 @@ public class OpenForumController implements OpenForumScripting,
 
 	private OpenForumLogger logger;
 
+	private OpenForumServer openForumServer;
+
+	public void setOpenForumServer( OpenForumServer openForumServer ) {
+		this.openForumServer = openForumServer;
+	}
+
+	public EntityTree getHttpServerStats() {
+		ThreadPoolExecutor executor = (ThreadPoolExecutor) openForumServer.getHttpServer().getExecutor();
+		EntityTree httpSrv = new EntityTree("httpServer");
+		getExecutorStats( executor, httpSrv );
+		return httpSrv;
+	}
+
+	public EntityTree getHttpsServerStats() {
+		ThreadPoolExecutor executor = (ThreadPoolExecutor) openForumServer.getHttpsServer().getExecutor();
+		EntityTree httpsSrv = new EntityTree("httpsServer");
+		getExecutorStats( executor, httpsSrv );
+		return httpsSrv;
+	}
+
+	private void getExecutorStats(ThreadPoolExecutor executor , EntityTree tree) {
+		tree.addChild("activeCount").setValue( ""+executor.getActiveCount() );
+		tree.addChild("corePoolSize").setValue( ""+executor.getCorePoolSize() );
+		tree.addChild("completedTaskCount").setValue( ""+executor.getCompletedTaskCount() );
+		tree.addChild("poolSize").setValue( ""+executor.getPoolSize() );
+		tree.addChild("largestPoolSize").setValue( ""+executor.getLargestPoolSize() );
+		tree.addChild("maximumPoolSize").setValue( ""+executor.getMaximumPoolSize() );
+		tree.addChild("taskCount").setValue( ""+executor.getTaskCount() );
+	}
+
+	private void addResourceStores(ResourceStoreProxy resourceStore, KeyValueListPage keyValueListPage ) throws Exception {
+		boolean hasMoreResourceStores = true;
+		int resourceStoreIndex = 0;
+
+		while (hasMoreResourceStores) {
+			String storeEntry = keyValueListPage.getValue("resourceStore"
+					+ resourceStoreIndex);
+			if (storeEntry == null) {
+				hasMoreResourceStores = false;
+				continue;
+			}
+
+			if (storeEntry.startsWith("read-only:")) {
+				if (resourceStore == null) {
+					resourceStore = new ResourceStoreProxy(
+							new LocalDriveResourceStore(
+									storeEntry.substring(10), true));
+				} else {
+					resourceStore
+							.addResourceStore(new LocalDriveResourceStore(
+									storeEntry.substring(10), true));
+				}
+			} else {
+				if (resourceStore == null) {
+					resourceStore = new ResourceStoreProxy(
+							new LocalDriveResourceStore(storeEntry, false));
+				} else {
+					resourceStore
+							.addResourceStore(new LocalDriveResourceStore(
+									storeEntry, false));
+				}
+			}
+			resourceStoreIndex++;
+		}
+	}
 	private FileManager initialiseFileManager(String rootFolderName)
 			throws Exception {
 
-		try {
+		try{
 			FileManager newFileManager = new FileManager(domainName,
 					pageChangeTrigger, this);
-			newFileManager.setResourceStore(new LocalDriveResourceStore(
+			ResourceStoreProxy resourceStoreProxy = new ResourceStoreProxy();
+			newFileManager.setResourceStore( resourceStoreProxy );
+
+			//Add root entries first. They will take precedence
+			FileManager rootFileManager = new FileManager(domainName,
+					pageChangeTrigger, this);
+			rootFileManager.setResourceStore(new LocalDriveResourceStore(
 					rootFolderName, false));
 
-			if (newFileManager.pageExists("/OpenForum/Configuration",
+			if (rootFileManager.pageExists(OPEN_FORUM_PAGE_CONFIGURATION,
 					getSystemLogin())) {
 
 				KeyValueListPage keyValueListPage = new KeyValueListPage(
-						newFileManager, "/OpenForum/Configuration");
+						rootFileManager, OPEN_FORUM_PAGE_CONFIGURATION);
 
-				if(keyValueListPage.getValue("secure")!=null) {
-					secure = keyValueListPage.getValue("secure").equals("true");
-				}
+				addResourceStores( resourceStoreProxy, keyValueListPage );
+			}
 
-				ResourceStoreProxy resourceStore = null;
-				boolean hasMoreResourceStores = true;
-				int resourceStoreIndex = 0;
+			//Add fall back entries second.
+			FileManager fallBackFileManager = new FileManager(domainName,
+					pageChangeTrigger, this);
+			fallBackFileManager.setResourceStore(new LocalDriveResourceStore(
+					WEB_SOURCE, true));
 
-				while (hasMoreResourceStores) {
-					String storeEntry = keyValueListPage.getValue("resourceStore"
-							+ resourceStoreIndex);
-					if (storeEntry == null) {
-						hasMoreResourceStores = false;
-						continue;
-					}
 
-					if (storeEntry.startsWith("read-only:")) {
-						if (resourceStore == null) {
-							resourceStore = new ResourceStoreProxy(
-									new LocalDriveResourceStore(
-											storeEntry.substring(10), true));
-						} else {
-							resourceStore
-									.addResourceStore(new LocalDriveResourceStore(
-											storeEntry.substring(10), true));
-						}
-					} else {
-						if (resourceStore == null) {
-							resourceStore = new ResourceStoreProxy(
-									new LocalDriveResourceStore(storeEntry, false));
-						} else {
-							resourceStore
-									.addResourceStore(new LocalDriveResourceStore(
-											storeEntry, false));
-						}
-					}
-					resourceStoreIndex++;
-				}
+			if (fallBackFileManager.pageExists(OPEN_FORUM_PAGE_CONFIGURATION,
+					getSystemLogin())) {
 
-				if (resourceStore != null) {
-					newFileManager.setResourceStore(resourceStore);
-				}
+				KeyValueListPage keyValueListPage = new KeyValueListPage(
+						fallBackFileManager, OPEN_FORUM_PAGE_CONFIGURATION);
+
+				addResourceStores( resourceStoreProxy, keyValueListPage );
 			}
 
 			return newFileManager;
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			throw new OpenForumException("Failed to initialise file manager with Root Folder Name "+rootFolderName);
@@ -210,7 +260,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#addListener(
 	 * org.onestonesoup.wiki.builder.WikiBuilderListener)
@@ -221,7 +271,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#addExternalLink
 	 * (java.lang.String)
@@ -232,7 +282,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#addMissingPage
 	 * (java.lang.String, java.lang.String)
@@ -260,7 +310,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.onestonesoup.wiki.controller.WikiControllerInterface#doBuild()
 	 */
 	public boolean doBuild() throws Throwable {
@@ -454,7 +504,7 @@ public class OpenForumController implements OpenForumScripting,
 		}
 
 		fileManager.saveFile(MISSING_PAGES_PATH, CONTENT_FILE, data.toString(), systemLogin, false);
-		
+
 		queueManager
 				.getQueue("/OpenForum")
 				.postMessage(
@@ -508,7 +558,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#buildPage(java
 	 * .lang.String)
@@ -520,7 +570,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#buildPage(java
 	 * .lang.String, boolean)
@@ -532,7 +582,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#buildPage(java
 	 * .lang.String, boolean)
@@ -547,10 +597,10 @@ public class OpenForumController implements OpenForumScripting,
 		if( data == null && fileManager.pageAttachmentExists(name, CONTENT_FILE, systemLogin)==false ) {
 			return null;
 		}
-		
+
 		String pageBuildScript = fileManager.getPageInheritedFileAsString(name,
 				PAGE_BUILD_JS, OPEN_FORUM_DEFAULT_PAGE_PATH, systemLogin);
-		
+
 		//No build script
 		if (  pageBuildScript == null) return null;
 
@@ -616,7 +666,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#getPageTimeStamp
 	 * (java.lang.String)
@@ -628,7 +678,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#attachFile(java
 	 * .lang.String, java.lang.String, java.lang.String, boolean)
@@ -645,7 +695,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#addJournalEntry
 	 * (java.lang.String)
@@ -655,14 +705,14 @@ public class OpenForumController implements OpenForumScripting,
 		if(user==systemLogin) {
 			return;
 		}
-		
+
 		entry = "* " + TimeHelper.getDisplayTimestamp(new Date()) + ":" + entry + "<br/>\n";
 		fileManager.appendStringToFile(entry, JOURNAL_PAGE_PATH, CONTENT_FILE, false, false, systemLogin);
 	}
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#delete(java.
 	 * lang.String, org.onestonesoup.authentication.server.Login)
@@ -681,7 +731,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#delete(java.
 	 * lang.String, java.lang.String,
@@ -700,7 +750,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#savePage(java
 	 * .lang.String, java.lang.String, java.lang.String,
@@ -773,7 +823,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#copyPage(java
 	 * .lang.String, java.lang.String, java.lang.String,
@@ -820,7 +870,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#copyAttachments
 	 * (java.lang.String, java.lang.String,
@@ -886,7 +936,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#createLinkFile
 	 * (java.lang.String, java.lang.String, java.lang.String,
@@ -903,7 +953,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#saveAsAttachment
 	 * (java.lang.String, java.lang.String, org.onestonesoup.wiki.WikiStream,
@@ -919,7 +969,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#saveAsAttachment
 	 * (java.lang.String, java.lang.String, byte[],
@@ -933,7 +983,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#addToListPage
 	 * (java.lang.String, java.lang.String)
@@ -962,7 +1012,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#getFileManager()
 	 */
@@ -976,7 +1026,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.onestonesoup.wiki.controller.WikiControllerInterface#
 	 * getStandardTemplateData(java.lang.String, java.lang.String,
 	 * java.lang.String, java.lang.String)
@@ -1012,7 +1062,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.controller.WikiControllerInterface#getQueueManager
 	 * ()
@@ -1113,7 +1163,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see org.onestonesoup.wiki.file.manager.FileManager#updatePluginManager()
 	 */
 	public void updatePluginManager() throws Throwable {
@@ -1123,7 +1173,7 @@ public class OpenForumController implements OpenForumScripting,
 
 	/*
 	 * (non-Javadoc)
-	 * 
+	 *
 	 * @see
 	 * org.onestonesoup.wiki.file.manager.FileManager#getApi(java.lang.String)
 	 */

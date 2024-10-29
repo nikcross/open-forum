@@ -30,7 +30,11 @@ public class ResourceStoreProxy implements ResourceStore {
 	private List<ResourceStore> resourceStores = new ArrayList<ResourceStore>();
 
 	private ResourceStore changeLogeStore;
-	
+
+	public ResourceStoreProxy()
+	{
+	}
+
 	public ResourceStoreProxy(ResourceStore resourceStore)
 	{
 		resourceStores.add(resourceStore);

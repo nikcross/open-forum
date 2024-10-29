@@ -7,6 +7,7 @@
 
     import java.io.*;
     import java.net.URLDecoder;
+    import java.util.List;
 
     /*
        public static class CoreHandler implements HttpHandler {
@@ -81,14 +82,9 @@
     public class RequestProcessor implements HttpHandler {
         public void handle(HttpExchange httpsExchange) throws IOException {
 
-            String host = httpsExchange.getRequestURI().getHost();
+            String host = httpsExchange.getRequestHeaders().getFirst("Host");
             if(host != null && host.indexOf(":")!=-1) {
                 host = host.substring(0, host.indexOf(":"));
-            }
-
-            OpenForumController controller = OpenForumServer.getController(host);
-            if(controller==null) {
-                throw new OpenForumRequestException("No controller found for host "+host);
             }
 
             String requestURI = httpsExchange.getRequestURI().getPath();
@@ -101,12 +97,39 @@
             httpHeader.addChild("host").setValue(httpsExchange.getRequestURI().getHost());
 
             httpHeader.addChild("secure").setValue("true");
-            //httpHeader.addChild("content-type").setValue(httpsExchange.getRequestHeaders().get("Content-type").get(0));
-            //httpHeader.addChild("content-length").setValue(httpsExchange.getRequestHeaders().get("Content-length").get(0));
+            httpHeader.addChild("content-type").setValue(httpsExchange.getRequestHeaders().getFirst("Content-type"));
+            httpHeader.addChild("content-length").setValue(httpsExchange.getRequestHeaders().getFirst("Content-length"));
             /*if(request.getHeaders("authorization").hasMoreElements()) {
                 httpHeader.addChild("authorization").setValue(""+request.getHeaders("authorization").nextElement());
             }*/
-            //httpHeader.addChild("authorization").setValue(httpsExchange.getRequestHeaders().get("Authorization").get(0));
+            httpHeader.addChild("authorization").setValue(httpsExchange.getRequestHeaders().getFirst("Authorization"));
+
+            OpenForumRedirector redirector = OpenForumServer.getRedirector(host);
+            if(redirector != null) {
+                ClientConnectionInterface connection = new ClientConnection(
+                        httpsExchange.getRemoteAddress().toString(),
+                        httpsExchange.getRequestBody(),
+                        httpsExchange
+                );
+
+                redirector.redirect( connection , httpHeader );
+                return;
+            }
+
+            OpenForumController controller = OpenForumServer.getController(host);
+            if(controller == null) {
+                redirector = OpenForumServer.getRedirector( "default" );
+                if( redirector != null ) {
+                    ClientConnectionInterface connection = new ClientConnection(
+                            httpsExchange.getRemoteAddress().toString(),
+                            httpsExchange.getRequestBody(),
+                            httpsExchange
+                    );
+                    redirector.redirect( connection , httpHeader );
+                    return;
+                }
+                throw new OpenForumRequestException("No controller found for host "+host);
+            }
 
             EntityTree.TreeEntity params = httpHeader.addChild("parameters");
             String query = httpsExchange.getRequestURI().getQuery();
@@ -114,16 +137,47 @@
                 String[] pairs = query.split("&");
                 for (String pair : pairs) {
                     int idx = pair.indexOf("=");
+                    if(idx==-1) {
+                        params.addChild(URLDecoder.decode(pair, "UTF-8")).setValue("");
+                        continue;
+                    }
                     params.addChild(URLDecoder.decode(pair.substring(0, idx), "UTF-8")).
                             setValue(URLDecoder.decode(pair.substring(idx + 1), "UTF-8"));
                 }
             }
+            if( (httpsExchange.getRequestHeaders().getFirst("Content-Type")==null ||
+                    httpsExchange.getRequestHeaders().getFirst("Content-Type").contains("multipart/form-data") == false
+                ) &&
+                    httpsExchange.getRequestMethod().equals("POST") ) {
+                String data = new String( httpsExchange.getRequestBody().readAllBytes() );
+                String[] pairs = data.split("&");
+                for(String pair : pairs) {
+                    int idx = pair.indexOf("=");
+                    if(idx==-1) {
+                        params.addChild(URLDecoder.decode(pair, "UTF-8")).setValue("");
+                        continue;
+                    }
+                    params.addChild(URLDecoder.decode(pair.substring(0, idx).trim(), "UTF-8")).
+                            setValue(URLDecoder.decode(pair.substring(idx + 1).trim(), "UTF-8"));
+                }
+            }
 
             EntityTree.TreeEntity cookies = params.addChild("$cookie");
-            for(String cookie: httpsExchange.getRequestHeaders().get("Cookie")) {
-                String[] pair=cookie.split("=");
-                    cookies.addChild(pair[0]).setValue(pair[1]);
-             }
+            List<String> cookieList = httpsExchange.getRequestHeaders().get("Cookie");
+            if(cookieList!=null) {
+                for (String cookie : cookieList) {
+                    String[] pairs = cookie.split(";");
+                    for (String pair : pairs) {
+                        int idx = pair.indexOf("=");
+                        if (idx == -1) {
+                            params.addChild(URLDecoder.decode(pair, "UTF-8")).setValue("");
+                            continue;
+                        }
+                        cookies.addChild(URLDecoder.decode(pair.substring(0, idx).trim(), "UTF-8")).
+                                setValue(URLDecoder.decode(pair.substring(idx + 1).trim(), "UTF-8"));
+                    }
+                }
+            }
 
             ClientConnectionInterface connection = new ClientConnection(
                     httpsExchange.getRemoteAddress().toString(),

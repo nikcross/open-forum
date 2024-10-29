@@ -576,10 +576,10 @@ public class Router {
 			// Check the logged in user can access the requested file
 			// and throw an AuthenticationException if not
 			try {
-				if (controller
-						.getAuthorizer()
-						.isAuthorized(login ,request, Authorizer.ACTION_READ
-								) == false) {
+				if (!controller
+                        .getAuthorizer()
+                        .isAuthorized(login, request, Authorizer.ACTION_READ
+                        )) {
 					throw new AuthenticationException("No read rights");
 				}
 			} catch (Exception e) {
@@ -596,9 +596,9 @@ public class Router {
 				request = request + "/" + PAGE_FILE;
 				cacheTime = 1;
 			} else if (request.length() > 1
-					&& fileServer.fileExists(request) == false
+					&& !fileServer.fileExists(request)
 					&& (FileHelper.getExtension(request).equals("html") || FileHelper
-							.getExtension(request).length() == 0)) {
+                    .getExtension(request).isEmpty())) {
 				// If the requested file does not exist and the file extension
 				// is .html
 				// or the request does not have an extension ( a page name )
@@ -621,7 +621,7 @@ public class Router {
 
 			// If the requested file does not exist
 			// Sent the 404 page
-			if (fileServer.fileExists(request) == false) {
+			if (!fileServer.fileExists(request)) {
 				responseHeader = new HttpResponseHeader(httpHeader,
 						fileServer.getMimeTypeForFileExtension("html"), 404,
 						connection);

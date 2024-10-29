@@ -141,4 +141,8 @@ public class JavascriptFileHelper  {
 			throws Exception {
 		fileManager.appendStringToFile(data, pageName, fileName, false, false, login);
 	}
+
+	public String getMimeTypeForExtension(String extension) {
+		return controller.getMimeTypes().get( extension );
+	}
 }

@@ -97,8 +97,8 @@ public class Process {
 			return exec;
 		}
 
-		public void stop() {
-			processWatch.stop();
+		public void stop() throws InterruptedException {
+			processWatch.kill();
 		}
 
 		public String run(boolean synchronous) throws Exception {

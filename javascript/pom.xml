@@ -19,7 +19,7 @@
 		<dependency>
 			<groupId>org.mozilla</groupId>
 			<artifactId>rhino</artifactId>
-			<version>1.7.13</version>
+			<version>1.7.15</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
@@ -75,9 +75,6 @@
 							<mainClass>org.onestonesoup.javascript.cli.JavascriptCommandLineInterface</mainClass>
 						</manifest>
 					</archive>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
 				</configuration>
 			</plugin>
 			<plugin>

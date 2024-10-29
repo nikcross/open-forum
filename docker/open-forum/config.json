@@ -1,0 +1,12 @@
+{
+  "domains": [
+      {
+        "name": "Default",
+        "host": "default",
+        "root": "/web/content/default"
+      }
+    ],
+  "ports": {
+    "http": 8001
+  }
+}

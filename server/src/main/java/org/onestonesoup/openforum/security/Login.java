@@ -1,7 +1,11 @@
 package org.onestonesoup.openforum.security;
 
 public class Login {
-	private static Login GUEST_LOGIN = new Login("Guest", "");
+	public static String GUEST = "Guest";
+	public static String SYSTEM = "System";
+	public static String ADMIN = "Admin";
+
+	private static Login GUEST_LOGIN = new Login(Login.GUEST, "");
 	private String password;
 	private String sessionId;
 	private User user;

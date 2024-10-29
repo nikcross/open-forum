@@ -288,6 +288,14 @@ public class JavascriptOpenForumHelper {
 		return version;
 	}
 
+	public EntityTree getHttpServerStats() {
+		return controller.getHttpServerStats();
+	}
+
+	public EntityTree getHttpsServerStats() {
+		return controller.getHttpsServerStats();
+	}
+
 	public String validateWikiTitle(String title) {
 		return OpenForumNameHelper.validateWikiTitle(title);
 	}

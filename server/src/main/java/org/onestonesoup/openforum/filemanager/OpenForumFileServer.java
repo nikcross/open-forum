@@ -93,10 +93,15 @@ public class OpenForumFileServer implements FileServer {
 		Resource resource = null;
 		if (request == null) {
 			resource = resourceStore.getResource(PAGE_404_PATH+PAGE_FILE);
+			connection.addResponseHeader("Content-Type", "text/html; charset=utf-8");
 		} else {
 			resource = resourceStore.getResource(request);
 			if (resource == null) {
 				resource = resourceStore.getResource(PAGE_404_PATH+PAGE_FILE);
+				connection.addResponseHeader("Content-Type", "text/html; charset=utf-8");
+			} else {
+				String mimeType = getMimeTypeFor( request );
+				connection.addResponseHeader( "Content-Type", mimeType );
 			}
 		}
 
@@ -115,7 +120,7 @@ public class OpenForumFileServer implements FileServer {
 			OutputStream outputStream = connection.getOutputStream();
 			size = FileHelper.copyInputStreamToOutputStream(
 					resourceStore.getInputStream(resource), outputStream);
-			outputStream.flush();
+			//outputStream.flush();
 		}
 
 		return size;
