@@ -14,6 +14,7 @@ import org.onestonesoup.openforum.server.ClientConnectionInterface;
 import org.onestonesoup.openforum.server.HttpHeader;
 import org.onestonesoup.openforum.transaction.HttpRequestHelper;
 import org.onestonesoup.openforum.transaction.HttpResponseHeader;
+import org.onestonesoup.openforum.transaction.PostHelper;
 
 public class SessionCookieAuthenticator implements Authenticator {
 	private static final String AUTHENTICATION_PAGE = "/OpenForum/Authentication";
@@ -106,6 +107,8 @@ public class SessionCookieAuthenticator implements Authenticator {
 	}
 
 	public boolean signIn(HttpHeader httpHeader, ClientConnectionInterface connection) throws IOException {
+		PostHelper.parseHttpPostData(httpHeader, connection.getInputStream());
+
 		String flavour = httpHeader.getChild("parameters").getChild("flavour").getValue();
 		String userId = httpHeader.getChild("parameters").getChild("userId").getValue();
 		String password = httpHeader.getChild("parameters").getChild("password").getValue();

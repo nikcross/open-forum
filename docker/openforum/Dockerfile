@@ -8,7 +8,7 @@ ENV JAVA_HOME="/usr/lib/jvm/default-jvm/"
 ENV PATH=$PATH:${JAVA_HOME}/bin
 
 COPY ./source /web/source
-COPY ./jetty /web/jetty
+COPY ./open-forum /web/open-forum
 
 ADD entrypoint.sh /opt/entrypoint.sh
 RUN chmod +x /opt/entrypoint.sh

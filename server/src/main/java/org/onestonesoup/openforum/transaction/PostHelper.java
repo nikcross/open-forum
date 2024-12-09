@@ -3,6 +3,7 @@ package org.onestonesoup.openforum.transaction;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.URLDecoder;
 
 import org.onestonesoup.core.StringHelper;
 import org.onestonesoup.core.data.EntityTree;
@@ -14,7 +15,22 @@ import org.onestonesoup.openforum.security.AuthenticationException;
 public class PostHelper {
 
 	private static int ID_COUNTER = 0;
-	
+
+	public static void parseHttpPostData(EntityTree header,InputStream inputStream) throws IOException {
+		EntityTree.TreeEntity params = header.getChild("parameters");
+		String data = new String( inputStream.readAllBytes() );
+		String[] pairs = data.split("&");
+		for(String pair : pairs) {
+			int idx = pair.indexOf("=");
+			if(idx==-1) {
+				params.addChild(URLDecoder.decode(pair, "UTF-8")).setValue("");
+				continue;
+			}
+			params.addChild(URLDecoder.decode(pair.substring(0, idx).trim(), "UTF-8")).
+					setValue(URLDecoder.decode(pair.substring(idx + 1).trim(), "UTF-8"));
+		}
+	}
+
 	public static EntityTree.TreeEntity parseHttpPostFileData(OpenForumController controller,EntityTree header,InputStream inputStream,WikiAttachmentHandler streamHandler,String fileName) throws IOException,AuthenticationException
 	{
 		HttpPostInputStreamBuffer iStream = new HttpPostInputStreamBuffer(inputStream);

@@ -155,6 +155,10 @@ public abstract class Transaction {
 		connection.send(data);
 	}
 
+	public void sendFile(String fileName) throws IOException {
+		this.fileServer.sendFile(this.connection, fileName);
+	}
+
 	public void sendFile(String data, String fileName) throws IOException {
 		String type = FileHelper.getExtension(fileName);
 

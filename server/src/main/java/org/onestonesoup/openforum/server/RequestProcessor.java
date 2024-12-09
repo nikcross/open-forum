@@ -2,64 +2,13 @@
 
     import com.sun.net.httpserver.HttpExchange;
     import com.sun.net.httpserver.HttpHandler;
+    import com.sun.net.httpserver.HttpsExchange;
     import org.onestonesoup.core.data.EntityTree;
     import org.onestonesoup.openforum.controller.OpenForumController;
 
     import java.io.*;
     import java.net.URLDecoder;
-
-    /*
-       public static class CoreHandler implements HttpHandler {
-            @Override
-            public void handle(HttpExchange httpsExchange) throws IOException {
-                String response = "This is the response";
-
-                response += " URI " + httpsExchange.getRequestURI() + "\n";
-                response += " MTHD " + httpsExchange.getRequestMethod() + "\n";
-                Iterator<String> i = httpsExchange.getRequestHeaders().keySet().iterator();
-                while(i.hasNext()) {
-                    String key = i.next();
-                    response += " : " + key + " = " + httpsExchange.getRequestHeaders().get( key ) + "\n";
-                }
-
-                if( httpsExchange.getRequestMethod().equals("POST") ) {
-                    String data = new String( httpsExchange.getRequestBody().readAllBytes() );
-                    response += " POSTDATA " + data + "\n";
-                }
-
-                httpsExchange.getResponseHeaders().add("Access-Control-Allow-Origin", "*");
-
-                if( httpsExchange.getRequestURI().getPath().equals( "/file" ) ) {
-
-                    File file = new File( "/home/nik/Documents/backups/the-green-london-way-20231001T153529Z-001.zip" );
-                    httpsExchange.sendResponseHeaders(200, file.length());
-                    //OutputStream os = httpsExchange.getResponseBody();
-                    //FileInputStream fileInputStream = new FileInputStream(file);
-                    //os.write(response.getBytes());
-                    //os.close();
-
-    OutputStream os = httpsExchange.getResponseBody();
-    BufferedOutputStream bos = new BufferedOutputStream( os );
-    FileInputStream fis = new FileInputStream(file);
-    BufferedInputStream bis = new BufferedInputStream(fis);
-    byte[] buffer = new byte[1024*1024*10];
-    int n = -1;
-                    while((n = bis.read(buffer))!=-1) {
-            bos.write(buffer,0,n);
-                    }
-                            bos.flush();
-                    os.close();
-
-                } else {
-                        httpsExchange.sendResponseHeaders(200, response.getBytes().length);
-    OutputStream os = httpsExchange.getResponseBody();
-                    os.write(response.getBytes());
-            os.close();
-                }
-                        }
-                        }
-     */
-
+    import java.util.List;
 
      //: Accept-encoding = [gzip, deflate, br, zstd]
     // : Cookie = [draenog=ubB7vzGDrk29nKBEGsdtdDTrsXThdu3P0nrv2_hywX24; m=; JSESSIONID=cn0TKq_rM8H_GS_0jXgMy6Q7hkESlR7g3RsmW35W; visited=yes; openForumSession=34008dccd2d2968066220dc76a9656e4]
@@ -79,71 +28,137 @@
     //        : Cache-control = [max-age=0]
 
     public class RequestProcessor implements HttpHandler {
-        public void handle(HttpExchange httpsExchange) throws IOException {
+        public void handle(HttpExchange httpExchange) throws IOException {
 
-            String host = httpsExchange.getRequestURI().getHost();
-            if(host != null && host.indexOf(":")!=-1) {
-                host = host.substring(0, host.indexOf(":"));
-            }
+            try {
+                String host = httpExchange.getRequestHeaders().getFirst("Host");
+                if (host != null && host.indexOf(":") != -1) {
+                    host = host.substring(0, host.indexOf(":"));
+                }
 
-            OpenForumController controller = OpenForumServer.getController(host);
-            if(controller==null) {
-                throw new OpenForumRequestException("No controller found for host "+host);
-            }
+                String requestURI = httpExchange.getRequestURI().getPath();
+                //requestURI = requestURI.substring(request.getContextPath().length());
+                requestURI = URLDecoder.decode(requestURI);
 
-            String requestURI = httpsExchange.getRequestURI().getPath();
-            //requestURI = requestURI.substring(request.getContextPath().length());
-            requestURI = URLDecoder.decode(requestURI);
+                HttpHeader httpHeader = new HttpHeader();
+                httpHeader.addChild("method").setValue(httpExchange.getRequestMethod().toLowerCase());
+                httpHeader.addChild("request").setValue(requestURI);
+                httpHeader.addChild("host").setValue(httpExchange.getRequestURI().getHost());
 
-            HttpHeader httpHeader = new HttpHeader();
-            httpHeader.addChild("method").setValue(httpsExchange.getRequestMethod().toLowerCase());
-            httpHeader.addChild("request").setValue(requestURI);
-            httpHeader.addChild("host").setValue(httpsExchange.getRequestURI().getHost());
-
-            httpHeader.addChild("secure").setValue("true");
-            //httpHeader.addChild("content-type").setValue(httpsExchange.getRequestHeaders().get("Content-type").get(0));
-            //httpHeader.addChild("content-length").setValue(httpsExchange.getRequestHeaders().get("Content-length").get(0));
+                if (httpExchange instanceof HttpsExchange) {
+                    httpHeader.addChild("secure").setValue("true");
+                } else {
+                    httpHeader.addChild("secure").setValue("false");
+                }
+                httpHeader.addChild("content-type").setValue(httpExchange.getRequestHeaders().getFirst("Content-type"));
+                httpHeader.addChild("content-length").setValue(httpExchange.getRequestHeaders().getFirst("Content-length"));
             /*if(request.getHeaders("authorization").hasMoreElements()) {
                 httpHeader.addChild("authorization").setValue(""+request.getHeaders("authorization").nextElement());
             }*/
-            //httpHeader.addChild("authorization").setValue(httpsExchange.getRequestHeaders().get("Authorization").get(0));
+                httpHeader.addChild("authorization").setValue(httpExchange.getRequestHeaders().getFirst("Authorization"));
 
-            EntityTree.TreeEntity params = httpHeader.addChild("parameters");
-            String query = httpsExchange.getRequestURI().getQuery();
-            if(query!=null) {
-                String[] pairs = query.split("&");
-                for (String pair : pairs) {
-                    int idx = pair.indexOf("=");
-                    params.addChild(URLDecoder.decode(pair.substring(0, idx), "UTF-8")).
-                            setValue(URLDecoder.decode(pair.substring(idx + 1), "UTF-8"));
+                OpenForumRedirector redirector = OpenForumServer.getRedirector(host);
+                if (redirector != null) {
+                    ClientConnectionInterface connection = new ClientConnection(
+                            httpExchange.getRemoteAddress().toString(),
+                            httpExchange.getRequestBody(),
+                            httpExchange
+                    );
+
+                    redirector.redirect(connection, httpHeader);
+                    return;
                 }
-            }
 
-            EntityTree.TreeEntity cookies = params.addChild("$cookie");
-            for(String cookie: httpsExchange.getRequestHeaders().get("Cookie")) {
-                String[] pair=cookie.split("=");
-                    cookies.addChild(pair[0]).setValue(pair[1]);
-             }
+                OpenForumController controller = OpenForumServer.getController(host);
+                if (controller == null) {
+                    redirector = OpenForumServer.getRedirector("default");
+                    if (redirector != null) {
+                        ClientConnectionInterface connection = new ClientConnection(
+                                httpExchange.getRemoteAddress().toString(),
+                                httpExchange.getRequestBody(),
+                                httpExchange
+                        );
+                        redirector.redirect(connection, httpHeader);
+                        return;
+                    }
+                    throw new OpenForumRequestException("No controller found for host " + host);
+                }
 
-            ClientConnectionInterface connection = new ClientConnection(
-                    httpsExchange.getRemoteAddress().toString(),
-                    httpsExchange.getRequestBody(),
-                    httpsExchange
-            );
+                EntityTree.TreeEntity params = httpHeader.addChild("parameters");
+                String query = httpExchange.getRequestURI().getQuery();
+                if (query != null) {
+                    String[] pairs = query.split("&");
+                    for (String pair : pairs) {
+                        int idx = pair.indexOf("=");
+                        if (idx == -1) {
+                            params.addChild(URLDecoder.decode(pair, "UTF-8")).setValue("");
+                            continue;
+                        }
+                        params.addChild(URLDecoder.decode(pair.substring(0, idx), "UTF-8")).
+                                setValue(URLDecoder.decode(pair.substring(idx + 1), "UTF-8"));
+                    }
+                }
+                if ((httpExchange.getRequestHeaders().getFirst("Content-Type") == null ||
+                        httpExchange.getRequestHeaders().getFirst("Content-Type").contains("multipart/form-data") == false
+                ) &&
+                        httpExchange.getRequestMethod().equals("POST")) {
+                    String data = new String(httpExchange.getRequestBody().readAllBytes());
+                    String[] pairs = data.split("&");
+                    for (String pair : pairs) {
+                        int idx = pair.indexOf("=");
+                        if (idx == -1) {
+                            params.addChild(URLDecoder.decode(pair, "UTF-8")).setValue("");
+                            continue;
+                        }
+                        params.addChild(URLDecoder.decode(pair.substring(0, idx).trim(), "UTF-8")).
+                                setValue(URLDecoder.decode(pair.substring(idx + 1).trim(), "UTF-8"));
+                    }
+                }
 
-            /*
-            Enumeration<String> en = request.getAttributeNames();
-            while(en.hasMoreElements()) {
-                String key = en.nextElement();
-                controller.getLogger().info("A:"+key+"="+request.getAttribute(key));
-            }*/
+                EntityTree.TreeEntity cookies = params.addChild("$cookie");
+                List<String> cookieList = httpExchange.getRequestHeaders().get("Cookie");
+                if (cookieList != null) {
+                    for (String cookie : cookieList) {
+                        String[] pairs = cookie.split(";");
+                        for (String pair : pairs) {
+                            int idx = pair.indexOf("=");
+                            if (idx == -1) {
+                                params.addChild(URLDecoder.decode(pair, "UTF-8")).setValue("");
+                                continue;
+                            }
+                            cookies.addChild(URLDecoder.decode(pair.substring(0, idx).trim(), "UTF-8")).
+                                    setValue(URLDecoder.decode(pair.substring(idx + 1).trim(), "UTF-8"));
+                        }
+                    }
+                }
 
-            try {
-                controller.getRouter().route(connection, httpHeader);
+                ClientConnectionInterface connection = new ClientConnection(
+                        httpExchange.getRemoteAddress().toString(),
+                        httpExchange.getRequestBody(),
+                        httpExchange
+                );
+
+                try {
+                    boolean close = controller.getRouter().route(connection, httpHeader);
+                    if (close) {
+                        connection.close();
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    try {
+                        httpExchange.close();
+                    } catch (Exception ex) {}
+                } catch (Throwable e) {
+                    e.printStackTrace();
+                    try {
+                        httpExchange.close();
+                    } catch (Exception ex) {}
+                }
             } catch (Exception e) {
                 e.printStackTrace();
-            } catch (Throwable e) {
-                e.printStackTrace();
+                try {
+                    httpExchange.close();
+                } catch (Exception ex) {}
             }
         }
     }

@@ -1,4 +1,4 @@
 #! /bin/bash
 
-cd ./jetty
-java -jar start.jar
+cd ./open-forum
+java -jar open-forum.jar

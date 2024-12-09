@@ -7,6 +7,8 @@ import org.onestonesoup.openforum.controller.OpenForumController;
 public interface Authorizer {
 	String ACTION_CREATE = "create";
 	String ACTION_READ = "read";
+	String ACTION_GET = "get";
+	String ACTION_POST = "post";
 	String ACTION_UPDATE = "update";
 	String ACTION_DELETE = "delete";
 

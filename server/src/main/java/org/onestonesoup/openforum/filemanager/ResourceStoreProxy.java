@@ -27,17 +27,44 @@ public class ResourceStoreProxy implements ResourceStore {
 
 	private static final Resource CHANGE_LOG = new Resource( new ResourceFolder("/OpenForum","ChangeLog"), "change_log.txt" );
 
-	private List<ResourceStore> resourceStores = new ArrayList<ResourceStore>();
+	private class NamedResourceStore {
+		public NamedResourceStore(String name, ResourceStore store) {
+			this.name = name;
+			this.store = store;
+		}
+		public String name;
+		public ResourceStore store;
+	}
+
+	private List<NamedResourceStore> resourceStores = new ArrayList<>();
 
 	private ResourceStore changeLogeStore;
-	
-	public ResourceStoreProxy(ResourceStore resourceStore)
-	{
-		resourceStores.add(resourceStore);
+
+	public ResourceStoreProxy(){}
+
+	public ResourceStoreProxy(ResourceStore resourceStore, String name) {
+		resourceStores.add( new NamedResourceStore( name, resourceStore ) );
 	}
-	
-	public void addResourceStore(ResourceStore resourceStore) {
-		resourceStores.add(resourceStore);
+
+	public ResourceStore getResourceStore(String name) {
+		for(NamedResourceStore rs : resourceStores) {
+			if(rs.name.equals(name)) {
+				return rs.store;
+			}
+		}
+		return null;
+	}
+
+	public List<String> getStoreNames() {
+		List<String> storeNames = new ArrayList<>();
+		for(NamedResourceStore rs : resourceStores) {
+			storeNames.add(rs.name);
+		}
+		return storeNames;
+	}
+
+	public void addResourceStore(ResourceStore resourceStore, String name) {
+		resourceStores.add( new NamedResourceStore( name, resourceStore ) );
 		if( resourceStore.isReadOnly()==false && resourceStore.resourceExists( CHANGE_LOG ) ) {
 			changeLogeStore = resourceStore;
 		}
@@ -126,8 +153,8 @@ public class ResourceStoreProxy implements ResourceStore {
 	}
 
 	public Resource getResource(String folderName) {
-		for(ResourceStore resourceStore: resourceStores) {
-			Resource resource = resourceStore.getResource(folderName);
+		for(NamedResourceStore resourceStore: resourceStores) {
+			Resource resource = resourceStore.store.getResource(folderName);
 			if(resource!=null ){
 				return resource;
 			}
@@ -136,11 +163,11 @@ public class ResourceStoreProxy implements ResourceStore {
 	}
 
 	public ResourceFolder getResourceFolder(String folderName, boolean mkdirs) {
-		for(ResourceStore resourceStore: resourceStores) {
-			if(mkdirs==true && resourceStore.isReadOnly()) {
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(mkdirs==true && resourceStore.store.isReadOnly()) {
 				continue;
 			}
-			ResourceFolder resourceFolder = resourceStore.getResourceFolder(folderName,mkdirs);
+			ResourceFolder resourceFolder = resourceStore.store.getResourceFolder(folderName,mkdirs);
 			if(resourceFolder!=null ){
 				return resourceFolder;
 			}
@@ -149,8 +176,8 @@ public class ResourceStoreProxy implements ResourceStore {
 	}
 
 	public boolean isResource(String name) {
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.isResource(name)) {
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(resourceStore.store.isResource(name)) {
 				return true;
 			}
 		}
@@ -158,8 +185,8 @@ public class ResourceStoreProxy implements ResourceStore {
 	}
 
 	public boolean isResourceFolder(String name) {
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.isResourceFolder(name)) {
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(resourceStore.store.isResourceFolder(name)) {
 				return true;
 			}
 		}
@@ -168,10 +195,10 @@ public class ResourceStoreProxy implements ResourceStore {
 
 	public long lastModified(Resource resource) {
 		long lastModified = 0;
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.resourceExists(resource)) {
-				if(lastModified==0 || resourceStore.lastModified(resource)>lastModified) {
-					lastModified =  resourceStore.lastModified(resource);
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(resourceStore.store.resourceExists(resource)) {
+				if(lastModified==0 || resourceStore.store.lastModified(resource)>lastModified) {
+					lastModified =  resourceStore.store.lastModified(resource);
 				}
 			}
 		}
@@ -180,10 +207,10 @@ public class ResourceStoreProxy implements ResourceStore {
 	
 	public long lastModified(ResourceFolder resource) {
 		long lastModified = 0;
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.resourceFolderExists(resource)) {
-				if(lastModified==0 || resourceStore.lastModified(resource)<lastModified) {
-					lastModified =  resourceStore.lastModified(resource);
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(resourceStore.store.resourceFolderExists(resource)) {
+				if(lastModified==0 || resourceStore.store.lastModified(resource)<lastModified) {
+					lastModified =  resourceStore.store.lastModified(resource);
 				}
 			}
 		}
@@ -193,9 +220,9 @@ public class ResourceStoreProxy implements ResourceStore {
 	public ResourceFolder[] listResourceFolders(ResourceFolder folder) {
 		Map<String,ResourceFolder> folders = new HashMap<String,ResourceFolder>();
 		
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.resourceFolderExists(folder)) {
-				ResourceFolder[] resourceFolderList = resourceStore.listResourceFolders(folder);
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(resourceStore.store.resourceFolderExists(folder)) {
+				ResourceFolder[] resourceFolderList = resourceStore.store.listResourceFolders(folder);
 				for(ResourceFolder resourceFolder: resourceFolderList) {
 					folders.put(resourceFolder.toString(), resourceFolder);
 				}
@@ -208,9 +235,9 @@ public class ResourceStoreProxy implements ResourceStore {
 	public Resource[] listResources(ResourceFolder folder) {
 		Map<String,Resource> resources = new HashMap<String,Resource>();
 		
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.resourceFolderExists(folder)) {
-				Resource[] resourceList = resourceStore.listResources(folder);
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(resourceStore.store.resourceFolderExists(folder)) {
+				Resource[] resourceList = resourceStore.store.listResources(folder);
 				for(Resource resource: resourceList) {
 					resources.put(resource.toString(), resource);
 				}
@@ -256,8 +283,8 @@ public class ResourceStoreProxy implements ResourceStore {
 
 	@Override
 	public boolean isReadOnly() {
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.isReadOnly()==false) {
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(resourceStore.store.isReadOnly()==false) {
 				return false;
 			}
 		}
@@ -265,36 +292,36 @@ public class ResourceStoreProxy implements ResourceStore {
 	}
 	
 	private ResourceStore getResourceStoreToRead(Resource resource) {
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.resourceExists(resource) ){
-				return resourceStore;
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(resourceStore.store.resourceExists(resource) ){
+				return resourceStore.store;
 			}
 		}
 		return null;
 	}
 	
 	private ResourceStore getResourceStoreToWrite(Resource resource) {
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.isReadOnly()==false ){
-				return resourceStore;
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(resourceStore.store.isReadOnly()==false ){
+				return resourceStore.store;
 			}
 		}
 		return null;
 	}
 	
 	private ResourceStore getResourceStoreToRead(ResourceFolder folder) {
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.resourceFolderExists(folder) ){
-				return resourceStore;
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(resourceStore.store.resourceFolderExists(folder) ){
+				return resourceStore.store;
 			}
 		}
 		return null;
 	}
 	
 	private ResourceStore getResourceStoreToWrite(ResourceFolder folder) {
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.isReadOnly()==false ){
-				return resourceStore;
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(resourceStore.store.isReadOnly()==false ){
+				return resourceStore.store;
 			}
 		}
 		return null;
@@ -302,8 +329,8 @@ public class ResourceStoreProxy implements ResourceStore {
 
 	@Override
 	public boolean resourceExists(Resource resource) {
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.resourceExists(resource)) {
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(resourceStore.store.resourceExists(resource)) {
 				return true;
 			}
 		}
@@ -312,8 +339,8 @@ public class ResourceStoreProxy implements ResourceStore {
 
 	@Override
 	public boolean resourceFolderExists(ResourceFolder resourceFolder) {
-		for(ResourceStore resourceStore: resourceStores) {
-			if(resourceStore.resourceFolderExists(resourceFolder)) {
+		for(NamedResourceStore resourceStore: resourceStores) {
+			if(resourceStore.store.resourceFolderExists(resourceFolder)) {
 				return true;
 			}
 		}

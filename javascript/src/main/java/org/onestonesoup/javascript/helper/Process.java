@@ -1,8 +1,9 @@
 package org.onestonesoup.javascript.helper;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
 import org.onestonesoup.core.process.ProcessWatch;
 import org.onestonesoup.core.process.ProcessWatcher;
 import org.onestonesoup.javascript.engine.JSON;
@@ -12,13 +13,12 @@ public class Process {
 
 	private JavascriptEngine javascriptEngine;
 	private JSON json;
+	private List<ProcessBuilder> processes = new ArrayList<ProcessBuilder>();
 	
 	public void setJavascriptEngine(JavascriptEngine javascriptEngine) {
 		this.javascriptEngine = javascriptEngine;
 		this.json = new JSON(javascriptEngine);
 	}
-
-	private Map<String,ProcessBuilder> processes = new HashMap<String,ProcessBuilder>();
 	
 	public class MatchAction implements ProcessWatcher {
 
@@ -65,10 +65,16 @@ public class Process {
 		private Map<String,MatchAction> matchers = new HashMap<String,MatchAction>();
 		private StringBuffer buffer;
 		private boolean ended = false;
+		private long startTimeStamp;
 		
 		private ProcessBuilder(String exec) {
 			this.exec = exec;
+			startTimeStamp = System.currentTimeMillis();
 			processWatch = new ProcessWatch();
+		}
+
+		public long getStartTimeStamp() {
+			return startTimeStamp;
 		}
 		
 		public ProcessBuilder onMatch(String matcher,String function) {
@@ -86,12 +92,22 @@ public class Process {
 			
 			return this;
 		}
-		
+
+		public String getExec() {
+			return exec;
+		}
+
+		public void stop() throws InterruptedException {
+			processWatch.kill();
+		}
+
 		public String run(boolean synchronous) throws Exception {
 			if(synchronous) {
 				buffer = new StringBuffer();
 				ended = false;
 				processWatch.addMatcher(".*", this);
+			} else {
+				processWatch.addMatcher("#NO MATCHES#", this);
 			}
 			
 			processWatch.execute(exec);
@@ -106,22 +122,29 @@ public class Process {
 			}
 		}
 		
-		public String runInDirectory(String directory,boolean synchronous) throws Exception {
-			if(synchronous) {
-				buffer = new StringBuffer();
-				ended = false;
-				processWatch.addMatcher(".*", this);
-			}
-			
-			processWatch.executeInDirectory(directory,exec);
-			
-			if(synchronous) {
-				while(ended==false) {
-					Thread.sleep(100);
+		public String runInDirectory(String directory,boolean synchronous) throws Throwable {
+			try {
+				if (synchronous) {
+					buffer = new StringBuffer();
+					ended = false;
+					processWatch.addMatcher(".*", this);
+				} else {
+					processWatch.addMatcher("#NO MATCHES#", this);
 				}
-				return buffer.toString();
-			} else {
-				return null;
+
+				processWatch.executeInDirectory(directory, exec);
+
+				if (synchronous) {
+					while (ended == false) {
+						Thread.sleep(100);
+					}
+					return buffer.toString();
+				} else {
+					return null;
+				}
+			} catch(Throwable t) {
+				processes.remove(this);
+				throw t;
 			}
 		}
 
@@ -132,6 +155,7 @@ public class Process {
 
 		@Override
 		public void processEnd(int exitValue) {
+			processes.remove(this);
 			ended = true;
 		}
 	}
@@ -139,16 +163,30 @@ public class Process {
 	public ProcessBuilder createProcess(String exec) {
 		
 		ProcessBuilder processBuilder = new ProcessBuilder(exec);
-		processes.put(exec,processBuilder);
+		processes.add(processBuilder);
 		return processBuilder;
 	}
-	
+
+	public List<String> getRunningProcesses() {
+		List<String> list = new ArrayList();
+		for(ProcessBuilder processBuilder: processes) {
+			list.add(processBuilder.getExec()+":"+processBuilder.getStartTimeStamp());
+		}
+		return list;
+	}
+
 	public ProcessBuilder getProcess(String exec) {
-		
-		ProcessBuilder processBuilder = processes.get(exec);
+
+		ProcessBuilder processBuilder = null;
+		for(ProcessBuilder testProcessBuilder: processes) {
+			if((testProcessBuilder.getExec()+":"+testProcessBuilder.getStartTimeStamp()).equals(exec)) {
+				processBuilder = testProcessBuilder;
+				break;
+			}
+		}
 		if(processBuilder==null) {
 				processBuilder = new ProcessBuilder(exec);
-				processes.put(exec,processBuilder);
+				processes.add(processBuilder);
 		}
 		
 		return processBuilder;

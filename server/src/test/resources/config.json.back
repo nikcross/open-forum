@@ -1,0 +1,20 @@
+{
+  "domains": [
+      {
+        "name": "Open Forum",
+        "host": "open-forum\\.test",
+        "root": "/web/content/default"
+      },
+      {
+        "name": "Default",
+        "host": "default",
+        "root": "/web/content/default"
+      }
+    ],
+  "keyStore": "/home/nik/os-git/open-forum/server/src/test/resources/testkey.jks",
+  "keyStorePassword": "password",
+  "ports": {
+    "http": 8001,
+    "https": 8000
+  }
+}

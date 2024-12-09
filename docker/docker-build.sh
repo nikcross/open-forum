@@ -1,4 +1,7 @@
 #! /bin/bash
 
 cd target
-docker build -t nikcross/openforum:latest .
+
+pwd
+
+docker build -t nikcross/openforum:5.0.2 .

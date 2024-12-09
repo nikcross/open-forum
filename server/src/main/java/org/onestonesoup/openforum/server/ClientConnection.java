@@ -47,7 +47,7 @@ public class ClientConnection implements ClientConnectionInterface {
 
 	@Override
 	public void send(String data) throws IOException{
-		setContentLength(data.length());
+		setContentLength(data.getBytes().length);
 		sendHeader();
 		exchange.getResponseBody().write(data.getBytes());
 		close();
@@ -63,7 +63,7 @@ public class ClientConnection implements ClientConnectionInterface {
 		try{
 		inputStream.close();
 			exchange.getResponseBody().flush();
-			exchange.getResponseBody().close();
+			exchange.close();
 		} catch(IOException ioe) {
 			ioe.printStackTrace();
 		}
