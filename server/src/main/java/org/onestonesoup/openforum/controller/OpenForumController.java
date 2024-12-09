@@ -25,6 +25,7 @@ import org.onestonesoup.openforum.Stream;
 import org.onestonesoup.openforum.TimeHelper;
 import org.onestonesoup.openforum.filemanager.FileManager;
 import org.onestonesoup.openforum.filemanager.LocalDriveResourceStore;
+import org.onestonesoup.openforum.filemanager.ResourceStore;
 import org.onestonesoup.openforum.filemanager.ResourceStoreProxy;
 import org.onestonesoup.openforum.javascript.JavascriptExternalResourceHelper;
 import org.onestonesoup.openforum.javascript.JavascriptFileHelper;
@@ -99,117 +100,6 @@ public class OpenForumController implements OpenForumScripting,
 
 	private OpenForumServer openForumServer;
 
-	public void setOpenForumServer( OpenForumServer openForumServer ) {
-		this.openForumServer = openForumServer;
-	}
-
-	public EntityTree getHttpServerStats() {
-		ThreadPoolExecutor executor = (ThreadPoolExecutor) openForumServer.getHttpServer().getExecutor();
-		EntityTree httpSrv = new EntityTree("httpServer");
-		getExecutorStats( executor, httpSrv );
-		return httpSrv;
-	}
-
-	public EntityTree getHttpsServerStats() {
-		ThreadPoolExecutor executor = (ThreadPoolExecutor) openForumServer.getHttpsServer().getExecutor();
-		EntityTree httpsSrv = new EntityTree("httpsServer");
-		getExecutorStats( executor, httpsSrv );
-		return httpsSrv;
-	}
-
-	private void getExecutorStats(ThreadPoolExecutor executor , EntityTree tree) {
-		tree.addChild("activeCount").setValue( ""+executor.getActiveCount() );
-		tree.addChild("corePoolSize").setValue( ""+executor.getCorePoolSize() );
-		tree.addChild("completedTaskCount").setValue( ""+executor.getCompletedTaskCount() );
-		tree.addChild("poolSize").setValue( ""+executor.getPoolSize() );
-		tree.addChild("largestPoolSize").setValue( ""+executor.getLargestPoolSize() );
-		tree.addChild("maximumPoolSize").setValue( ""+executor.getMaximumPoolSize() );
-		tree.addChild("taskCount").setValue( ""+executor.getTaskCount() );
-	}
-
-	private void addResourceStores(ResourceStoreProxy resourceStore, KeyValueListPage keyValueListPage ) throws Exception {
-		boolean hasMoreResourceStores = true;
-		int resourceStoreIndex = 0;
-
-		while (hasMoreResourceStores) {
-			String storeEntry = keyValueListPage.getValue("resourceStore"
-					+ resourceStoreIndex);
-			if (storeEntry == null) {
-				hasMoreResourceStores = false;
-				continue;
-			}
-
-			if (storeEntry.startsWith("read-only:")) {
-				if (resourceStore == null) {
-					resourceStore = new ResourceStoreProxy(
-							new LocalDriveResourceStore(
-									storeEntry.substring(10), true));
-				} else {
-					resourceStore
-							.addResourceStore(new LocalDriveResourceStore(
-									storeEntry.substring(10), true));
-				}
-			} else {
-				if (resourceStore == null) {
-					resourceStore = new ResourceStoreProxy(
-							new LocalDriveResourceStore(storeEntry, false));
-				} else {
-					resourceStore
-							.addResourceStore(new LocalDriveResourceStore(
-									storeEntry, false));
-				}
-			}
-			resourceStoreIndex++;
-		}
-	}
-	private FileManager initialiseFileManager(String rootFolderName)
-			throws Exception {
-
-		try{
-			FileManager newFileManager = new FileManager(domainName,
-					pageChangeTrigger, this);
-			ResourceStoreProxy resourceStoreProxy = new ResourceStoreProxy();
-			newFileManager.setResourceStore( resourceStoreProxy );
-
-			//Add root entries first. They will take precedence
-			FileManager rootFileManager = new FileManager(domainName,
-					pageChangeTrigger, this);
-			rootFileManager.setResourceStore(new LocalDriveResourceStore(
-					rootFolderName, false));
-
-			if (rootFileManager.pageExists(OPEN_FORUM_PAGE_CONFIGURATION,
-					getSystemLogin())) {
-
-				KeyValueListPage keyValueListPage = new KeyValueListPage(
-						rootFileManager, OPEN_FORUM_PAGE_CONFIGURATION);
-
-				addResourceStores( resourceStoreProxy, keyValueListPage );
-			}
-
-			//Add fall back entries second.
-			FileManager fallBackFileManager = new FileManager(domainName,
-					pageChangeTrigger, this);
-			fallBackFileManager.setResourceStore(new LocalDriveResourceStore(
-					WEB_SOURCE, true));
-
-
-			if (fallBackFileManager.pageExists(OPEN_FORUM_PAGE_CONFIGURATION,
-					getSystemLogin())) {
-
-				KeyValueListPage keyValueListPage = new KeyValueListPage(
-						fallBackFileManager, OPEN_FORUM_PAGE_CONFIGURATION);
-
-				addResourceStores( resourceStoreProxy, keyValueListPage );
-			}
-
-			return newFileManager;
-
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new OpenForumException("Failed to initialise file manager with Root Folder Name "+rootFolderName);
-		}
-	}
-
 	public OpenForumController(String rootFolderName, String domainName)
 			throws Exception, AuthenticationException {
 		queueManager = new MessageQueueManager();
@@ -239,6 +129,144 @@ public class OpenForumController implements OpenForumScripting,
 
 		aliasList = new KeyValueListPage(fileManager, OPEN_FORUM_ALIASES);
 		this.domainName = domainName;
+	}
+
+	public List<String> getResourceStoreNames() {
+		ResourceStore resourceStore = fileManager.getResourceStore(systemLogin);
+		if( resourceStore instanceof ResourceStoreProxy ) {
+			return ((ResourceStoreProxy)resourceStore).getStoreNames();
+		}
+		return new ArrayList<>();
+	}
+
+	public EntityTree getResourceStoreStats() {
+		EntityTree resourceStoreStats = new EntityTree("resourceStores");
+		ResourceStore resourceStore = fileManager.getResourceStore(systemLogin);
+		ResourceStoreProxy resourceStoreProxy;
+		if( resourceStore instanceof ResourceStoreProxy ) {
+			resourceStoreProxy = ((ResourceStoreProxy)resourceStore);
+		} else {
+			return resourceStoreStats;
+		}
+		List<String> resourceStoreNames = resourceStoreProxy.getStoreNames();
+		for(String resourceStoreName : resourceStoreNames) {
+			ResourceStore store = resourceStoreProxy.getResourceStore(resourceStoreName);
+			EntityTree.TreeEntity storeStats = resourceStoreStats.addChild(resourceStoreName);
+			if(store instanceof LocalDriveResourceStore) {
+				storeStats.addChild( "totalSpace" )
+						.setValue( ""+((LocalDriveResourceStore) store).getTotalSpace() );
+				storeStats.addChild( "freeSpace" )
+						.setValue( ""+((LocalDriveResourceStore) store).getFreeSpace() );
+			}
+		}
+
+		return resourceStoreStats;
+	}
+
+	public void setOpenForumServer( OpenForumServer openForumServer ) {
+		this.openForumServer = openForumServer;
+	}
+
+	public EntityTree getHttpServerStats() {
+		ThreadPoolExecutor executor = (ThreadPoolExecutor) openForumServer.getHttpServer().getExecutor();
+		EntityTree httpSrv = new EntityTree("httpServer");
+		getExecutorStats( executor, httpSrv );
+		return httpSrv;
+	}
+
+	public EntityTree getHttpsServerStats() {
+		ThreadPoolExecutor executor = (ThreadPoolExecutor) openForumServer.getHttpsServer().getExecutor();
+		EntityTree httpsSrv = new EntityTree("httpsServer");
+		getExecutorStats( executor, httpsSrv );
+		return httpsSrv;
+	}
+
+	private void getExecutorStats(ThreadPoolExecutor executor , EntityTree tree) {
+		tree.addChild("activeCount").setValue( ""+executor.getActiveCount() );
+		tree.addChild("corePoolSize").setValue( ""+executor.getCorePoolSize() );
+		tree.addChild("completedTaskCount").setValue( ""+executor.getCompletedTaskCount() );
+		tree.addChild("poolSize").setValue( ""+executor.getPoolSize() );
+		tree.addChild("largestPoolSize").setValue( ""+executor.getLargestPoolSize() );
+		tree.addChild("maximumPoolSize").setValue( ""+executor.getMaximumPoolSize() );
+		tree.addChild("taskCount").setValue( ""+executor.getTaskCount() );
+	}
+
+	private FileManager initialiseFileManager(String rootFolderName)
+			throws Exception {
+
+		try{
+			FileManager newFileManager = new FileManager(domainName,
+					pageChangeTrigger, this);
+			ResourceStoreProxy resourceStoreProxy = new ResourceStoreProxy();
+			newFileManager.setResourceStore( resourceStoreProxy );
+
+			//Add root entries first. They will take precedence
+			FileManager rootFileManager = new FileManager(domainName,
+					pageChangeTrigger, this);
+			rootFileManager.setResourceStore(new LocalDriveResourceStore(
+					rootFolderName, false));
+
+			if (rootFileManager.pageExists(OPEN_FORUM_PAGE_CONFIGURATION,
+					getSystemLogin())) {
+
+				KeyValueListPage keyValueListPage = new KeyValueListPage(
+						rootFileManager, OPEN_FORUM_PAGE_CONFIGURATION);
+
+				addResourceStores( resourceStoreProxy, keyValueListPage, "root" );
+			}
+
+			//Add fall back entries second.
+			FileManager fallBackFileManager = new FileManager(domainName,
+					pageChangeTrigger, this);
+			fallBackFileManager.setResourceStore(new LocalDriveResourceStore(
+					WEB_SOURCE, true));
+
+
+			if (fallBackFileManager.pageExists(OPEN_FORUM_PAGE_CONFIGURATION,
+					getSystemLogin())) {
+
+				KeyValueListPage keyValueListPage = new KeyValueListPage(
+						fallBackFileManager, OPEN_FORUM_PAGE_CONFIGURATION);
+
+				addResourceStores( resourceStoreProxy, keyValueListPage, "fallback" );
+			}
+
+			return newFileManager;
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw new OpenForumException("Failed to initialise file manager with Root Folder Name "+rootFolderName);
+		}
+	}
+
+	private void addResourceStores(ResourceStoreProxy resourceStore, KeyValueListPage keyValueListPage, String prefix ) throws Exception {
+		boolean hasMoreResourceStores = true;
+		int resourceStoreIndex = 0;
+
+		while (hasMoreResourceStores) {
+			String key = "resourceStore" + resourceStoreIndex;
+			String storeEntry = keyValueListPage.getValue( key );
+			if (storeEntry == null) {
+				hasMoreResourceStores = false;
+				continue;
+			}
+
+			if (storeEntry.startsWith("read-only:")) {
+				String path = storeEntry.substring(10);
+				resourceStore
+							.addResourceStore(new LocalDriveResourceStore(
+									path, true),
+									prefix + ":read-only:" + key + ":path:" + path
+							);
+			} else {
+				resourceStore
+							.addResourceStore(new LocalDriveResourceStore(
+									storeEntry, false),
+									prefix + ":read-write:" + key + ":path:" + storeEntry
+							);
+			}
+			resourceStoreIndex++;
+		}
 	}
 
 	public void setFileManager(FileManager fileManager) {

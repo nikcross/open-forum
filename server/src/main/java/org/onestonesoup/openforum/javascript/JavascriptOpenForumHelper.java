@@ -153,6 +153,26 @@ public class JavascriptOpenForumHelper {
 		return controller.rebuild();
 	}
 
+	public boolean userCanRead(String pageName) throws IOException {
+		return controller.getAuthorizer().isAuthorized(login, pageName, Authorizer.ACTION_READ);
+	}
+
+	public boolean userCanUpdate(String pageName) throws IOException {
+		return controller.getAuthorizer().isAuthorized(login, pageName, Authorizer.ACTION_UPDATE);
+	}
+
+	public boolean userCanDelete(String pageName) throws IOException {
+		return controller.getAuthorizer().isAuthorized(login, pageName, Authorizer.ACTION_DELETE);
+	}
+
+	public boolean userCanGet(String pageName) throws IOException {
+		return controller.getAuthorizer().isAuthorized(login, pageName, Authorizer.ACTION_GET);
+	}
+
+	public boolean userCanPost(String pageName) throws IOException {
+		return controller.getAuthorizer().isAuthorized(login, pageName, Authorizer.ACTION_POST);
+	}
+
 	public void postMessageToQueue(String queueName, String message) throws AuthenticationException, IOException {
 		if(!controller.getAuthorizer().isAuthorized(login, queueName, Authorizer.ACTION_UPDATE)) {
 			throw new AuthenticationException("No update rights");
@@ -294,6 +314,10 @@ public class JavascriptOpenForumHelper {
 
 	public EntityTree getHttpsServerStats() {
 		return controller.getHttpsServerStats();
+	}
+
+	public EntityTree getResourceStoreStats() {
+		return controller.getResourceStoreStats();
 	}
 
 	public String validateWikiTitle(String title) {

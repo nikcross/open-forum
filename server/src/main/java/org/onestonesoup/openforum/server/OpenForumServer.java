@@ -3,7 +3,6 @@ package org.onestonesoup.openforum.server;
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.lang.*;
-import java.net.URL;
 import com.sun.net.httpserver.HttpsServer;
 import java.security.KeyStore;
 import javax.net.ssl.KeyManagerFactory;
@@ -12,37 +11,20 @@ import com.sun.net.httpserver.*;
 import javax.net.ssl.SSLEngine;
 import javax.net.ssl.SSLParameters;
 
-import java.io.InputStreamReader;
-import java.io.Reader;
-import java.net.URLConnection;
 
-import javax.net.ssl.HostnameVerifier;
-import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;
-import javax.net.ssl.SSLSession;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-import java.security.cert.X509Certificate;
-
-import java.net.InetAddress;
 import java.util.*;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import com.sun.net.httpserver.HttpExchange;
-import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
-import com.sun.net.httpserver.HttpsExchange;
 import org.mozilla.javascript.NativeArray;
 import org.mozilla.javascript.NativeObject;
 import org.onestonesoup.core.FileHelper;
-import org.onestonesoup.core.data.EntityTree;
-import org.onestonesoup.core.data.XmlHelper;
 import org.onestonesoup.javascript.engine.JSON;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.controller.OpenForumController;
-import org.onestonesoup.openforum.security.AuthenticationException;
 
 //See: https://stackoverflow.com/questions/2308479/simple-java-https-server
 

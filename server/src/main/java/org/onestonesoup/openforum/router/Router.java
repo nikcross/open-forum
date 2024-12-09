@@ -239,6 +239,7 @@ public class Router {
 		String request = httpHeader.getChild("request").getValue();
 		String method = httpHeader.getChild("method").getValue();
 
+		//Redirect http requests to https if server config says secure
 		if(httpHeader.getChild("secure").getValue().equals("false") && controller.isSecure()) {
 			HttpResponseHeader responseHeader = new HttpResponseHeader(
 						httpHeader, "text/html", ClientConnection.MOVED_PERMANENTLY, connection);
@@ -249,6 +250,7 @@ public class Router {
 				return true;
 		}
 
+		//Check if server has redirect set for page
 		for(KeyValuePair pageRedirect: controller.getPageRedirectList()) {
 			String redirectPageName = pageRedirect.getKey();
 			if( request.equals(redirectPageName) ) {
@@ -263,6 +265,7 @@ public class Router {
 			}
 		}
 
+		//Check if server has redirect set for parameter eg. ?edit
 		for(KeyValuePair redirectParameter: controller.getParameterRedirectList()) {
 			String parameterName = redirectParameter.getKey();
 			if( httpHeader.getChild("parameters").getChild(parameterName)!=null && httpHeader.getChild("parameters").getChild(parameterName).getValue().equals("") ) {
@@ -295,6 +298,7 @@ public class Router {
 				// login using authenticator
 				login = controller.getAuthenticator()
 						.authenticate(httpHeader);
+				//Authenticate users at the sign in process page
 				if(login.isLoggedIn()==false || pageName.equals("OpenForum/Access/SignIn/Process")) {
 					controller.getAuthenticator().obtainAuthentication(httpHeader, connection);
 					return true;
@@ -367,7 +371,7 @@ public class Router {
 								pageName, "get.sjs", login)) {
 					if (doGet(httpHeader, connection, pageName, login) == false) {
 						return true;
-					}
+					} // else go on the return the page
 				} else if (method.equals("post")
 				// If the request is a post request and the page has a post.sjs
 				// then call doGet to fulfill the request
@@ -382,7 +386,7 @@ public class Router {
 							controller.getHomePage());
 				}
 
-				// The request must be for a file
+				// The request must be for a file or a page
 				// Serve the requested file
 				return sendFile(connection, httpHeader, login);
 			}
@@ -480,13 +484,11 @@ public class Router {
 		pageName = transaction.getParameter("pageName");
 		js.mount("pageName", pageName);
 
+		//Process the get request
 		js.runJavascript(jsFile, script);
 
-		// If the transaction result is set to show the page, return false
-		if (transaction.getResult().equals(Transaction.SHOW_PAGE) == false) {
-			return false;
-		}
-		return true;
+		// If the transaction result is set to show the page, return true: more is required
+		return transaction.getResult().equals(Transaction.SHOW_PAGE);
 	}
 
 	public void doPost(EntityTree httpHeader,
@@ -514,7 +516,10 @@ public class Router {
 		PostTransaction transaction = new PostTransaction(this, httpHeader,
 				connection, fileServer, controller, login);
 		js.mount("transaction", transaction);
+		pageName = transaction.getParameter("pageName");
+		js.mount("pageName", pageName);
 
+		//Process the post action
 		js.runJavascript(jsFile, script);
 	}
 
@@ -588,7 +593,7 @@ public class Router {
 
 			// If the request is for a wiki page ( the request + page.html
 			// exists )
-			// then apend .html to the request
+			// then apend page.html to the request
 			if (request.length() > 1
 					&& fileServer.fileExists(OpenForumNameHelper
 							.titleToWikiName(request) + "/" + PAGE_FILE)) {

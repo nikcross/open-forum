@@ -17,7 +17,16 @@ public class OpenForumRedirector {
 
         HttpResponseHeader responseHeader = new HttpResponseHeader(
                 httpHeader, "text/html", ClientConnection.MOVED_PERMANENTLY, connection);
-        responseHeader.addParameter("location", domain + request); // Rediect to https page
+
+        String location = domain;
+        if( domain.endsWith("/") ) {
+            if( request.startsWith("/") ) {
+                request = request.substring(1);
+            }
+            location = domain + request;
+        }
+
+        responseHeader.addParameter("location", location); // Rediect to https page
 
         connection.sendEmpty();
 

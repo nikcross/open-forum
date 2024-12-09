@@ -27,6 +27,14 @@ public class LocalDriveResourceStore implements ResourceStore {
 		System.out.println("LocalDriveResourceStore root:"+rootFile+" readOnly:"+readOnly);
 	}
 
+	public long getTotalSpace() {
+		return rootFile.getTotalSpace();
+	}
+
+	public long getFreeSpace() {
+		return rootFile.getFreeSpace();
+	}
+
 	public void setPathOffset(String path) {
 		while (path.length() > 0 && path.charAt(0) == '/') {
 			path = path.substring(1);
