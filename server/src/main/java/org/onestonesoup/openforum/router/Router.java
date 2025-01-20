@@ -577,19 +577,8 @@ public class Router {
 		// Only serve a file for a get request
 		if (method.equals("get")) {
 			HttpResponseHeader responseHeader = null;
-
-			// Check the logged in user can access the requested file
-			// and throw an AuthenticationException if not
-			try {
-				if (!controller
-                        .getAuthorizer()
-                        .isAuthorized(login, request, Authorizer.ACTION_READ
-                        )) {
-					throw new AuthenticationException("No read rights");
-				}
-			} catch (Exception e) {
-				throw new IOException("Failed in route to get method." + e);
-			}
+			String pageName = request;
+			String fileName = null;
 
 			// If the request is for a wiki page ( the request + page.html
 			// exists )
@@ -599,6 +588,7 @@ public class Router {
 							.titleToWikiName(request) + "/" + PAGE_FILE)) {
 				request = OpenForumNameHelper.titleToWikiName(request);
 				request = request + "/" + PAGE_FILE;
+				fileName = PAGE_FILE;
 				cacheTime = 1;
 			} else if (request.length() > 1
 					&& !fileServer.fileExists(request)
@@ -616,12 +606,31 @@ public class Router {
 				if (FileHelper.getExtension(request).equals("html")) {
 					request = request.substring(0, request.length() - 5)
 							+ "/" + PAGE_FILE;
+
+					fileName = PAGE_FILE;
 				} else {
 					// else append the request with page.html
 					request = request.substring(0, request.length())
 							+ "/" + PAGE_FILE;
 				}
 				cacheTime = 1;
+				fileName = PAGE_FILE;
+			} else {
+				pageName = request.substring( 0, request.lastIndexOf("/"));
+				fileName = request.substring( request.lastIndexOf("/")+1);
+			}
+
+			// Check the logged in user can access the requested file
+			// and throw an AuthenticationException if not
+			try {
+				if (!controller
+						.getAuthorizer()
+						.isAuthorized(login, pageName, fileName, Authorizer.ACTION_READ
+						)) {
+					throw new AuthenticationException("No read rights");
+				}
+			} catch (Exception e) {
+				throw new IOException("Failed in route to get method." + e);
 			}
 
 			// If the requested file does not exist

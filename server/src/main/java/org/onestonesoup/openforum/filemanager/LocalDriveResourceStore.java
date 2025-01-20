@@ -1,17 +1,15 @@
 package org.onestonesoup.openforum.filemanager;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.ByteBuffer;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
+import com.sun.mail.iap.ByteArray;
 import org.onestonesoup.core.FileHelper;
 import org.onestonesoup.core.StringHelper;
 
@@ -20,6 +18,8 @@ public class LocalDriveResourceStore implements ResourceStore {
 	private boolean readOnly = false;
 	private File rootFile;
 	private int pathOffset = 0;
+
+	private FrequentFileCache frequentFileCache = new FrequentFileCache();
 
 	public LocalDriveResourceStore(String root,boolean readOnly) {
 		this.rootFile = new File(root).getAbsoluteFile();
@@ -159,8 +159,22 @@ public class LocalDriveResourceStore implements ResourceStore {
 		return true;
 	}
 
+	public FrequentFileCache getFrequentFileCache() {
+		return frequentFileCache;
+	}
+
 	public InputStream getInputStream(Resource resource) throws IOException {
-		return new FileInputStream(getResourceAsFile(resource));
+		File file = getResourceAsFile(resource);
+
+		if(frequentFileCache!=null) {
+			if (frequentFileCache.isCached(file)) {
+				return frequentFileCache.getCachedInputStream(file);
+			} else {
+				frequentFileCache.checkToCache(file);
+			}
+		}
+
+		return new FileInputStream( file );
 	}
 
 	public int getLength(Resource resource) {
@@ -339,14 +353,6 @@ public class LocalDriveResourceStore implements ResourceStore {
 				getResourceFolderAsFile(newFolder));
 	}
 
-	public InputStream retrieve(Resource resource) throws IOException {
-		return new FileInputStream(getResourceAsFile(resource));
-	}
-
-	public InputStream store(Resource resource) throws IOException {
-		return retrieve(resource);
-	}
-
 	public String getMD5(Resource resource) throws IOException {
 		String path = getResourceAsFile(resource).getAbsolutePath();
 		String md5Path = path + ".md5";
@@ -387,8 +393,9 @@ public class LocalDriveResourceStore implements ResourceStore {
 		while (path.length() > 0 && path.charAt(path.length() - 1) == '/') {
 			path = path.substring(0, path.length() - 1);
 		}
-		return new File(rootFile.getAbsolutePath() + "/" + path + "/"
-				+ resource.getName());
+		String pathName = rootFile.getAbsolutePath() + "/" + path + "/"
+				+ resource.getName();
+		return new File( pathName);
 	}
 
 	private File getResourceFolderAsFile(ResourceFolder resourceFolder) {

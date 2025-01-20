@@ -265,14 +265,6 @@ public class ResourceStoreProxy implements ResourceStore {
 		return getResourceStoreToWrite(resourceFolder).rename(resourceFolder, newName);
 	}
 
-	public InputStream retrieve(Resource resource) throws IOException {
-		return getResourceStoreToRead(resource).retrieve(resource);
-	}
-
-	public InputStream store(Resource resource) throws IOException {
-		return getResourceStoreToRead(resource).store(resource);
-	}
-
 	public String getMD5(Resource resource) throws IOException {
 		return getResourceStoreToRead(resource).getMD5(resource);
 	}

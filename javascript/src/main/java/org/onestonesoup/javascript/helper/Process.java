@@ -114,7 +114,13 @@ public class Process {
 			
 			if(synchronous) {
 				while(ended==false) {
-					Thread.sleep(100);
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						if(ended==false) {
+							throw e;
+						}
+					}
 				}
 				return buffer.toString();
 			} else {

@@ -992,8 +992,8 @@ public class FileManager {
 		}
 
 		if (!(login==controller.getSystemLogin()) && controller.getAuthorizer().isAuthorized(login, pageName,
-				Authorizer.ACTION_READ) == false) {
-			throw new AuthenticationException("No Access to " + pageName);
+				fileName, Authorizer.ACTION_READ) == false) {
+			throw new AuthenticationException("No Access to " + pageName + " / " + fileName);
 		}
 
 		String extension = FileHelper.getExtension(request);
@@ -1001,7 +1001,7 @@ public class FileManager {
 		Resource requestFile = resourceStore.getResource(request);
 		if (resolveLinks == true && extension.equals("link")) {
 			request = FileHelper.loadFileAsString(resourceStore
-					.retrieve(requestFile));
+					.getInputStream(requestFile));
 			request = request.trim();
 			if (request == null) {
 				return null;
@@ -1032,13 +1032,13 @@ public class FileManager {
 	 * org.onestonesoup.wiki.file.manager.FileManager#readFile(java.lang.String)
 	 */
 	private String readFile(Resource file) throws Exception {
-		return FileHelper.loadFileAsString(resourceStore.retrieve(file));
+		return FileHelper.loadFileAsString(resourceStore.getInputStream(file));
 	}
 
 	public void saveFile(String pageName, String fileName, String data,
 			Login login, boolean backup) throws Exception,
 			AuthenticationException {
-		if (controller.getAuthorizer().isAuthorized(login, pageName,
+		if (controller.getAuthorizer().isAuthorized(login, pageName, fileName,
 				Authorizer.ACTION_UPDATE) == true) {
 			Resource file = resourceStore
 					.getResource(pageName + "/" + fileName);
@@ -1058,7 +1058,7 @@ public class FileManager {
 	private void saveFile(String pageName, String fileName, byte[] data,
 			Login login, boolean backup) throws Exception,
 			AuthenticationException {
-		if (controller.getAuthorizer().isAuthorized(login, pageName,
+		if (controller.getAuthorizer().isAuthorized(login, pageName, fileName,
 				Authorizer.ACTION_UPDATE) == true) {
 			
 			Resource resource = resourceStore.getResource(pageName+"/"+fileName);

@@ -8,7 +8,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ThreadPoolExecutor;
 
 import org.onestonesoup.core.ExceptionHelper;
 import org.onestonesoup.core.StringHelper;
@@ -23,10 +22,7 @@ import org.onestonesoup.openforum.OpenForumException;
 import org.onestonesoup.openforum.OpenForumNameHelper;
 import org.onestonesoup.openforum.Stream;
 import org.onestonesoup.openforum.TimeHelper;
-import org.onestonesoup.openforum.filemanager.FileManager;
-import org.onestonesoup.openforum.filemanager.LocalDriveResourceStore;
-import org.onestonesoup.openforum.filemanager.ResourceStore;
-import org.onestonesoup.openforum.filemanager.ResourceStoreProxy;
+import org.onestonesoup.openforum.filemanager.*;
 import org.onestonesoup.openforum.javascript.JavascriptExternalResourceHelper;
 import org.onestonesoup.openforum.javascript.JavascriptFileHelper;
 import org.onestonesoup.openforum.javascript.JavascriptHelper;
@@ -43,6 +39,7 @@ import org.onestonesoup.openforum.security.DummyAuthenticator;
 import org.onestonesoup.openforum.security.DummyAuthorizer;
 import org.onestonesoup.openforum.security.Login;
 import org.onestonesoup.openforum.server.OpenForumServer;
+import org.onestonesoup.openforum.server.ServerRequestExecuter;
 import org.onestonesoup.openforum.store.Store;
 import org.onestonesoup.openforum.trigger.PageChangeTrigger;
 import org.onestonesoup.openforum.trigger.RebuildTrigger;
@@ -157,6 +154,13 @@ public class OpenForumController implements OpenForumScripting,
 						.setValue( ""+((LocalDriveResourceStore) store).getTotalSpace() );
 				storeStats.addChild( "freeSpace" )
 						.setValue( ""+((LocalDriveResourceStore) store).getFreeSpace() );
+
+				FrequentFileCache frequentFileCache = ((LocalDriveResourceStore) store).getFrequentFileCache();
+
+				storeStats.addChild( "cacheSize" )
+						.setValue( ""+frequentFileCache.getCacheSize() );
+				storeStats.addChild( "cacheFileCount" )
+						.setValue( ""+frequentFileCache.getCachedFileCount() );
 			}
 		}
 
@@ -168,27 +172,29 @@ public class OpenForumController implements OpenForumScripting,
 	}
 
 	public EntityTree getHttpServerStats() {
-		ThreadPoolExecutor executor = (ThreadPoolExecutor) openForumServer.getHttpServer().getExecutor();
+		ServerRequestExecuter executor = (ServerRequestExecuter) openForumServer.getHttpServer().getExecutor();
 		EntityTree httpSrv = new EntityTree("httpServer");
 		getExecutorStats( executor, httpSrv );
 		return httpSrv;
 	}
 
 	public EntityTree getHttpsServerStats() {
-		ThreadPoolExecutor executor = (ThreadPoolExecutor) openForumServer.getHttpsServer().getExecutor();
 		EntityTree httpsSrv = new EntityTree("httpsServer");
-		getExecutorStats( executor, httpsSrv );
+		if( openForumServer.getHttpsServer()!=null ) {
+			ServerRequestExecuter executor = (ServerRequestExecuter) openForumServer.getHttpsServer().getExecutor();
+			getExecutorStats(executor, httpsSrv);
+		}
 		return httpsSrv;
 	}
 
-	private void getExecutorStats(ThreadPoolExecutor executor , EntityTree tree) {
-		tree.addChild("activeCount").setValue( ""+executor.getActiveCount() );
-		tree.addChild("corePoolSize").setValue( ""+executor.getCorePoolSize() );
+	private void getExecutorStats(ServerRequestExecuter executor , EntityTree tree) {
+		tree.addChild("activeThreadCount").setValue( ""+executor.getActiveThreads() );
+		tree.addChild("maxThreadCount").setValue( ""+executor.getMaxThreads() );
 		tree.addChild("completedTaskCount").setValue( ""+executor.getCompletedTaskCount() );
-		tree.addChild("poolSize").setValue( ""+executor.getPoolSize() );
-		tree.addChild("largestPoolSize").setValue( ""+executor.getLargestPoolSize() );
-		tree.addChild("maximumPoolSize").setValue( ""+executor.getMaximumPoolSize() );
-		tree.addChild("taskCount").setValue( ""+executor.getTaskCount() );
+		tree.addChild("timeoutTaskCount").setValue( ""+executor.getTimeoutTaskCount() );
+		tree.addChild("overflowTaskCount").setValue( ""+executor.getOverflowTaskCount() );
+		tree.addChild("maxResponseTime").setValue( ""+executor.getMaxResponseTime() );
+		tree.addChild("isMonitoring").setValue( ""+executor.isMonitoring() );
 	}
 
 	private FileManager initialiseFileManager(String rootFolderName)

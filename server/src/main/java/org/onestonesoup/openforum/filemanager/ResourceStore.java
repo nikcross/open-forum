@@ -21,8 +21,6 @@ public interface ResourceStore {
 	public abstract Resource buildResource(ResourceFolder folder,String name,InputStream iStream,long size,boolean closeIStream) throws IOException;
 	public abstract void appendResource(Resource resource,byte[] data) throws IOException;
 	
-	public abstract InputStream retrieve(Resource resource) throws IOException;
-	public abstract InputStream store(Resource resource) throws IOException;
 	public abstract boolean delete(Resource resource);
 	public abstract boolean move(Resource sourceResource,ResourceFolder targetResourceFolder,String name);
 	public abstract boolean copy(Resource sourceResource,ResourceFolder targetResourceFolder,String name);

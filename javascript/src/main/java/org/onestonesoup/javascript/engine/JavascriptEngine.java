@@ -295,6 +295,13 @@ public class JavascriptEngine {
 
 			} else {
 				jsContext = context;
+				JavascriptEngine.JsContext jContext = (JavascriptEngine.JsContext)jsContext;
+				if (maximumTime != null) {
+					jContext.setMaximumScriptTime(maximumTime);
+				}
+				if (maximumInstruactions != null) {
+					jContext.setMaximumScriptInstructions(maximumInstruactions);
+				}
 			}
 
 			jsContextFactory.enterContext(jsContext);
