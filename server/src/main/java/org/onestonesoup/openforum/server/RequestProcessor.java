@@ -138,27 +138,15 @@
                         httpExchange
                 );
 
-                try {
-                    boolean close = controller.getRouter().route(connection, httpHeader);
-                    if (close) {
-                        connection.close();
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    try {
-                        httpExchange.close();
-                    } catch (Exception ex) {}
-                } catch (Throwable e) {
-                    e.printStackTrace();
-                    try {
-                        httpExchange.close();
-                    } catch (Exception ex) {}
+                boolean close = controller.getRouter().route(connection, httpHeader);
+                if (close) {
+                    connection.close();
                 }
-            } catch (Exception e) {
+            } catch (Throwable e) {
                 e.printStackTrace();
                 try {
                     httpExchange.close();
-                } catch (Exception ex) {}
+                } catch (Throwable ex) {}
             }
         }
     }

@@ -32,8 +32,13 @@ public class OpenForumClient  {
 
 	public static void main( String[] args ) throws Exception {
         OpenForumClient client = new OpenForumClient( "https://open-forum.onestonesoup.org",args[0],args[1],false );
-        String result = client.uploadFile("/TheLab/Uploads","test.file.txt",
-				"/Users/nicholas.cross/os-git/open-forum/client/src/main/java/org/onestonesoup/client/OpenForumClient.java");
+        //String result = client.uploadFile("/TheLab/Uploads","uploaded.jpg",
+		//		"/home/nik/Pictures/Background Images/P5060033.JPG");
+
+		String queue = "/TheLab/WebSiteProjects/RoboTRAX";
+		long since = System.currentTimeMillis()-10000;
+		String result = client.doGet("OpenForum/MessageQueue?action=pull&queue=" + queue + "&since=" + since);
+
         System.out.println(result);
     }
 

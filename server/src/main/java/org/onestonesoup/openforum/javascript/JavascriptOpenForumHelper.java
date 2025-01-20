@@ -219,7 +219,12 @@ public class JavascriptOpenForumHelper {
 			throw new AuthenticationException("No read rights");
 		}
 		
-		return controller.getStore().get(key).toString();
+		Object value = controller.getStore().get(key);
+		if( value!=null ) {
+			return value.toString();
+		} else {
+			return null;
+		}
 	}
 
 	public void storeObject(String key, Object object) throws AuthenticationException, IOException {

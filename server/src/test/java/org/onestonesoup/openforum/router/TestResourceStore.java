@@ -59,16 +59,6 @@ public class TestResourceStore implements ResourceStore {
 
 	}
 
-	public InputStream retrieve(Resource resource) throws IOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public InputStream store(Resource resource) throws IOException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public boolean delete(Resource resource) {
 		// TODO Auto-generated method stub
 		return false;

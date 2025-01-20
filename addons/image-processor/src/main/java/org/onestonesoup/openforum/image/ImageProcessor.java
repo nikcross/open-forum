@@ -11,7 +11,7 @@ import java.nio.ByteBuffer;
 
 public class ImageProcessor extends SystemAPI {
 
-	private static final String VERSION = "3.0.1 alpha";
+	private static final String VERSION = "3.0.2";
 
 	public String getVersion() {
 		return VERSION;
@@ -45,6 +45,10 @@ public class ImageProcessor extends SystemAPI {
     	grfx.drawString(text,x,y);
 
 	}
+
+    public BufferedImage createNewImage( int width, int height ) {
+        return new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+    }
 
     public Image clipImage(BufferedImage image,int x, int y, int w, int h) {
         return ImageHelper.clipImage(image,x,y,w,h);

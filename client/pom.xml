@@ -24,13 +24,19 @@
     <dependency>
     	<groupId>org.onestonesoup</groupId>
     	<artifactId>javascript</artifactId>
-    	<version>1.0.12</version>
+    	<version>1.0.13</version>
     </dependency>
       <dependency>
           <groupId>org.apache.druid.extensions</groupId>
           <artifactId>simple-client-sslcontext</artifactId>
           <version>0.23.0</version>
       </dependency>
+    <dependency>
+      <groupId>org.onestonesoup</groupId>
+      <artifactId>javascript</artifactId>
+      <version>1.0.13</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
   <build>
     <plugins>

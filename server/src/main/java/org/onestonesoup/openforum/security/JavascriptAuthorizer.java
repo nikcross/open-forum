@@ -13,6 +13,7 @@ public class JavascriptAuthorizer implements Authorizer {
 	private OpenForumController controller;
 	
 	public boolean isAuthorized(Login login, String pageName, String action) throws IOException {
+
 		return checkAccess(login, pageName, null, action).isAllowed();
 	}
 

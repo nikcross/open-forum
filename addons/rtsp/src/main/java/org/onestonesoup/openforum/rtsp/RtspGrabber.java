@@ -19,7 +19,7 @@ public class RtspGrabber {
     private String ipAddress = null;
 
     public static void main(String[] args) throws Exception {
-        new RtspGrabber().createGrabber("admin007", "01264738020", "192.168.1.25")
+        new RtspGrabber().createGrabber("admin007", "01264738020", "192.168.1.15")
                 .getImage(
                         "/home/nik/os-git/open-forum/addons/rtsp/output/",
                 "test-frame"

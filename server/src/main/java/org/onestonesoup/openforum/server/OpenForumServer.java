@@ -14,9 +14,6 @@ import javax.net.ssl.SSLParameters;
 
 import javax.net.ssl.SSLContext;
 import java.util.*;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 
 import com.sun.net.httpserver.HttpServer;
 import org.mozilla.javascript.NativeArray;
@@ -33,7 +30,11 @@ import org.onestonesoup.openforum.controller.OpenForumController;
 public class OpenForumServer {
 
     private static OpenForumServer server;
-    private static String VERSION = "5.0.1";
+    private static String VERSION = "5.0.6";
+
+
+    private Integer maxThreads = 1000;
+    private Integer maxThreadTime = 60000;
 
     private HttpServer httpServer;
     private HttpsServer httpsServer;
@@ -73,6 +74,18 @@ public class OpenForumServer {
         if( ((NativeObject) config).get("noMatchDomain") != null ) {
             String noMatchDomain = ((NativeObject) config).get("noMatchDomain").toString();
             redirectors.put("default", new OpenForumRedirector(noMatchDomain));
+        }
+
+        if( ((NativeObject) config).get("maxThreads") != null ) {
+            maxThreads = Integer.valueOf(
+                    ((NativeObject) config).get("maxThreads").toString(),
+                    10 );
+        }
+
+        if( ((NativeObject) config).get("maxThreadTime") != null ) {
+            maxThreadTime = Integer.valueOf(
+                    ((NativeObject) config).get("maxThreadTime").toString(),
+                    10 );
         }
 
         if( ports.get("https") != null ) {
@@ -193,9 +206,22 @@ public class OpenForumServer {
                 }
             });
             httpsServer.createContext("/", new RequestProcessor());
+
+            /*
             // https://docs.oracle.com/javase/8/docs/api/index.html?java/util/concurrent/ThreadPoolExecutor.html
             // https://engineering.zalando.com/posts/2019/04/how-to-set-an-ideal-thread-pool-size.html
-            httpsServer.setExecutor(new ThreadPoolExecutor(10, 22, 30, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(1000))); // creates a default executor
+            ThreadPoolExecutor httpsThreadPoolExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE, MAX_POOL_SIZE, KEEP_ALIVE_TIME, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(QUEUE_SIZE));
+            //https://medium.com/@raksmeykoung_19675/what-does-setqueuecapacity-do-what-happens-if-a-queue-runs-out-of-capacity-81e0c21416e5
+            httpsThreadPoolExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardOldestPolicy() );
+            httpsServer.setExecutor( httpsThreadPoolExecutor ); // creates a default executor
+             */
+            ServerRequestExecuter requestExecuter = new ServerRequestExecuter(
+                    "https request executer",
+                    maxThreadTime,
+                    maxThreads
+                    );
+            httpsServer.setExecutor(requestExecuter);
+
             httpsServer.start();
 
         } catch (Exception exception) {
@@ -215,7 +241,18 @@ public class OpenForumServer {
             httpServer = HttpServer.create(address, 0);
 
             httpServer.createContext("/", new RequestProcessor());
-            httpServer.setExecutor(new ThreadPoolExecutor(10, 22, 30, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(1000))); // creates a default executor
+            /*ThreadPoolExecutor httpThreadPoolExecutor = new ThreadPoolExecutor(CORE_POOL_SIZE, MAX_POOL_SIZE, KEEP_ALIVE_TIME, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(QUEUE_SIZE));
+            //https://medium.com/@raksmeykoung_19675/what-does-setqueuecapacity-do-what-happens-if-a-queue-runs-out-of-capacity-81e0c21416e5
+            httpThreadPoolExecutor.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardOldestPolicy() );
+            httpServer.setExecutor(httpThreadPoolExecutor); // creates a default executor
+             */
+
+            ServerRequestExecuter requestExecuter = new ServerRequestExecuter(
+                    "https request executer",
+                    maxThreadTime,
+                    maxThreads
+            );
+            httpServer.setExecutor(requestExecuter);
             httpServer.start();
 
         } catch (Exception exception) {
