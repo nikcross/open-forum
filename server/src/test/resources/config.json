@@ -1,18 +1,25 @@
 {
   "domains": [
-      {
-        "name": "Open Forum",
-        "host": "open-forum\\.test",
-        "root": "/web/content/default"
-      },
     {
-      "name": "Old Open Forum",
-      "host": "old\\.open-forum\\.test",
-      "redirect": "open-forum.test"
+      "name": "Local",
+      "host": "localhost",
+      "root": "/web/content/default"
+    },
+    {
+      "name": "Local IP",
+      "host": "127.0.0.1",
+      "root": "/web/content/default"
+    },
+    {
+      "name": "LAN IP",
+      "host": "192.168.3.11",
+      "root": "/web/content/default"
     }
-    ],
-  "noMatchDomain": "wet-wired.com",
+  ],
+  "noMatchDomain": "https://wet-wired.com/SignPosts",
+  "maxThreads": "1000",
+  "maxThreadTime": "0",
   "ports": {
-    "http": 1234
+    "http": 8888
   }
 }

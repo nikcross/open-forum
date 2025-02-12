@@ -99,7 +99,7 @@
                     }
                 }
                 if ((httpExchange.getRequestHeaders().getFirst("Content-Type") == null ||
-                        httpExchange.getRequestHeaders().getFirst("Content-Type").contains("multipart/form-data") == false
+                        httpExchange.getRequestHeaders().getFirst("Content-Type").contains("application/x-www-form-urlencoded")
                 ) &&
                         httpExchange.getRequestMethod().equals("POST")) {
                     String data = new String(httpExchange.getRequestBody().readAllBytes());
