@@ -5,30 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3557c3be-9bd8-417c-a27b-8e4842d6a6a3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/FrequentFileCache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/image-processor/src/main/java/org/onestonesoup/openforum/image/ImageProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/image-processor/src/main/java/org/onestonesoup/openforum/image/ImageProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/rtsp/output/test-frame.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/addons/rtsp/output/test-frame.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/rtsp/src/main/java/org/onestonesoup/openforum/rtsp/RtspGrabber.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/rtsp/src/main/java/org/onestonesoup/openforum/rtsp/RtspGrabber.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/docker-build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-build.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker/publish-to-docker-hub.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/publish-to-docker-hub.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascript/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/engine/JavascriptEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/engine/JavascriptEngine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/Process.java" beforeDir="false" afterPath="$PROJECT_DIR$/javascript/src/main/java/org/onestonesoup/javascript/helper/Process.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/LocalDriveResourceStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/LocalDriveResourceStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/ResourceStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/ResourceStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/ResourceStoreProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/ResourceStoreProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/javascript/JavascriptOpenForumHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/javascript/JavascriptOpenForumHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/security/JavascriptAuthorizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/security/JavascriptAuthorizer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/OpenForumServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/OpenForumServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/ClientConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/ClientConnection.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/RequestProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/RequestProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/test/java/org/onestonesoup/openforum/router/TestResourceStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/java/org/onestonesoup/openforum/router/TestResourceStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/resources/config.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/test/resources/config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/test/resources/config.json.back" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +102,7 @@
     "git-widget-placeholder": "Development",
     "jdk.selected.JAVA_MODULE": "11 (2)",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/nik/os-git/open-forum/server/src/test/resources",
+    "last_opened_file_path": "/home/nik/os-git/onestonesoup",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -162,7 +146,7 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="Java Scratch.Scratch">
+  <component name="RunManager" selected="Shell Script.publish-to-docker-hub.sh">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -371,19 +355,19 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Java Scratch.Scratch" />
-        <item itemvalue="Application.TestBoolean" />
         <item itemvalue="Shell Script.publish-to-docker-hub.sh" />
         <item itemvalue="Shell Script.docker-build.sh" />
         <item itemvalue="Shell Script.update.sh" />
+        <item itemvalue="Java Scratch.Scratch" />
+        <item itemvalue="Application.TestBoolean" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-fdfe4dae3a2d-intellij.indexing.shared.core-IU-243.22562.218" />
-        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-IU-243.22562.218" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.153" />
+        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.153" />
       </set>
     </attachedChunks>
   </component>
@@ -605,7 +589,10 @@
       <workItem from="1734602676247" duration="49086000" />
       <workItem from="1736156341735" duration="2938000" />
       <workItem from="1736354962631" duration="2952000" />
-      <workItem from="1737043923172" duration="622000" />
+      <workItem from="1737043923172" duration="13837000" />
+      <workItem from="1737541601577" duration="1028000" />
+      <workItem from="1737724179134" duration="14055000" />
+      <workItem from="1739048720218" duration="37000" />
     </task>
     <servers />
   </component>
@@ -890,6 +877,46 @@
           <line>609</line>
           <option name="timeStamp" value="264" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/javascript/JavascriptExternalResourceHelper.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="265" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java</url>
+          <line>506</line>
+          <option name="timeStamp" value="266" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/Transaction.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="268" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/ClientConnection.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="270" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jrt:///usr/lib/jvm/java-17-openjdk-amd64!/jdk.httpserver/sun/net/httpserver/LeftOverInputStream.class</url>
+          <line>51</line>
+          <option name="timeStamp" value="274" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java</url>
+          <line>379</line>
+          <option name="timeStamp" value="275" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/RequestProcessor.java</url>
+          <line>105</line>
+          <option name="timeStamp" value="278" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/javascript/JavascriptExternalResourceHelper.java</url>
+          <line>101</line>
+          <option name="timeStamp" value="279" />
+        </line-breakpoint>
         <breakpoint type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="25" />
@@ -922,13 +949,6 @@
           <option name="timeStamp" value="199" />
         </line-breakpoint>
       </breakpoints>
-      <default-breakpoints>
-        <breakpoint type="python-exception">
-          <properties notifyOnTerminate="true" exception="BaseException">
-            <option name="notifyOnTerminate" value="true" />
-          </properties>
-        </breakpoint>
-      </default-breakpoints>
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

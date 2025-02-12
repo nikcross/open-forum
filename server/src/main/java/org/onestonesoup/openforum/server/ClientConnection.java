@@ -21,6 +21,7 @@ public class ClientConnection implements ClientConnectionInterface {
 	private String remoteAddress;
 	private HttpExchange exchange;
 	private long contentLength = 0;
+	private boolean closed = false;
 
 	public ClientConnection(String remoteAddress, InputStream inputStream, HttpExchange exchange) {
 
@@ -61,7 +62,8 @@ public class ClientConnection implements ClientConnectionInterface {
 	@Override
 	public void close() {
 		try{
-		inputStream.close();
+			closed = true;
+			inputStream.close();
 			exchange.getResponseBody().flush();
 			exchange.close();
 		} catch(IOException ioe) {
