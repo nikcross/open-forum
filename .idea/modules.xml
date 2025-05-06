@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/content/content.iml" filepath="$PROJECT_DIR$/content/content.iml" />
       <module fileurl="file://$PROJECT_DIR$/docker/docker.iml" filepath="$PROJECT_DIR$/docker/docker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/tools/product-db-importer/product-db-importer/product-db-importer.iml" filepath="$PROJECT_DIR$/tools/product-db-importer/product-db-importer/product-db-importer.iml" />
     </modules>
   </component>
 </project>

@@ -19,6 +19,9 @@
         <option value="$PROJECT_DIR$/addons/certificate-check/pom.xml" />
         <option value="$PROJECT_DIR$/addons/rtsp/pom.xml" />
         <option value="$PROJECT_DIR$/addons/java-trail/pom.xml" />
+        <option value="$PROJECT_DIR$/tools/product-db-importer/pom.xml" />
+        <option value="$PROJECT_DIR$/tools/product-db-importer/product-db-importer/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/sql-database/pom.xml" />
       </list>
     </option>
   </component>

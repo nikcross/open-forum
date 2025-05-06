@@ -6,7 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="product-db-importer" />
         <module name="raspberrypi" />
+        <module name="sql-database" />
         <module name="certificate-check" />
         <module name="open-forum.server" />
         <module name="client" />
@@ -21,7 +23,6 @@
     <bytecodeTargetLevel>
       <module name="java-debug" target="11" />
       <module name="jdbc" target="1.8" />
-      <module name="sql-database" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

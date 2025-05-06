@@ -24,7 +24,7 @@
     <dependency>
     	<groupId>org.onestonesoup</groupId>
     	<artifactId>javascript</artifactId>
-    	<version>1.0.13</version>
+    	<version>1.0.14</version>
     </dependency>
       <dependency>
           <groupId>org.apache.druid.extensions</groupId>
@@ -34,7 +34,7 @@
     <dependency>
       <groupId>org.onestonesoup</groupId>
       <artifactId>javascript</artifactId>
-      <version>1.0.13</version>
+      <version>1.0.14</version>
       <scope>compile</scope>
     </dependency>
   </dependencies>

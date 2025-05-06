@@ -203,14 +203,15 @@ public class OpenForumController implements OpenForumScripting,
 		try{
 			FileManager newFileManager = new FileManager(domainName,
 					pageChangeTrigger, this);
-			ResourceStoreProxy resourceStoreProxy = new ResourceStoreProxy();
-			newFileManager.setResourceStore( resourceStoreProxy );
 
 			//Add root entries first. They will take precedence
 			FileManager rootFileManager = new FileManager(domainName,
 					pageChangeTrigger, this);
 			rootFileManager.setResourceStore(new LocalDriveResourceStore(
 					rootFolderName, false));
+
+			ResourceStoreProxy resourceStoreProxy = new ResourceStoreProxy();
+			resourceStoreProxy.addResourceStore( new LocalDriveResourceStore(rootFolderName, false ),"root" );
 
 			if (rootFileManager.pageExists(OPEN_FORUM_PAGE_CONFIGURATION,
 					getSystemLogin())) {
@@ -220,6 +221,8 @@ public class OpenForumController implements OpenForumScripting,
 
 				addResourceStores( resourceStoreProxy, keyValueListPage, "root" );
 			}
+
+			newFileManager.setResourceStore( resourceStoreProxy );
 
 			//Add fall back entries second.
 			FileManager fallBackFileManager = new FileManager(domainName,

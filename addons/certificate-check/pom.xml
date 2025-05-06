@@ -24,7 +24,7 @@
         <dependency>
             <groupId>org.onestonesoup</groupId>
             <artifactId>javascript</artifactId>
-            <version>1.0.12</version>
+            <version>1.0.14</version>
         </dependency>
     </dependencies>
     <build>

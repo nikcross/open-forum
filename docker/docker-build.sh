@@ -4,4 +4,4 @@ cd target
 
 pwd
 
-docker build -t nikcross/openforum:5.0.7 .
+docker build -t nikcross/openforum:5.0.9 .
