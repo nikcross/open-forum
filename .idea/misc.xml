@@ -22,7 +22,20 @@
         <option value="$PROJECT_DIR$/tools/product-db-importer/pom.xml" />
         <option value="$PROJECT_DIR$/tools/product-db-importer/product-db-importer/pom.xml" />
         <option value="$PROJECT_DIR$/addons/sql-database/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/raspberrypi/automaton/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/Automaton/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/InterQueue/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/Claude.AI/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/java-debug/untitled/Java Flow Tracer/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/flow-tracer/pom.xml" />
       </list>
+    </option>
+    <option name="ignoredFiles">
+      <set>
+        <option value="$PROJECT_DIR$/addons/java-trail/Claude.AI/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/raspberrypi/automaton/pom.xml" />
+        <option value="$PROJECT_DIR$/tools/product-db-importer/product-db-importer/pom.xml" />
+      </set>
     </option>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">

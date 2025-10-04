@@ -5,37 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3557c3be-9bd8-417c-a27b-8e4842d6a6a3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/addons/email/src/main/java/org/onestonesoup/openforum/email/GmailMailer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addons/email/src/main/java/org/onestonesoup/openforum/email/SMTPMailer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addons/email/src/test/java/org/onestonesoup/openforum/email/TestGmailMailer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/product-db-importer/product-db-importer/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tools/product-db-importer/product-db-importer/src/main/java/org/example/ProductImporter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/Automaton.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/AutomatonServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/CommandRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/Connection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/DeviceFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/StandardDevice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/devices/AutomatonConnector.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/devices/AutomatonDevice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/devices/BaseUnit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/devices/DriveMotorController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/devices/DummyBaseUnit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/devices/MoistureSensor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/devices/MultiServoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/devices/Switch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Claude.AI/build-and-export-jar.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Claude.AI/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Claude.AI/src/main/java/org/onestonesoup/ai/claude/ClaudeMCPServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Claude.AI/src/main/java/org/onestonesoup/ai/claude/ClaudeOpenForumProxy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Claude.AI/src/test/java/org/onestonesoup/ai/claude/ClaudeOpenForumProxyTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Claude.AI/test-claude-mcp-server.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/Claude.AI/test-claude-proxy.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/InterQueue/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/InterQueue/src/main/java/org/onestonesoup/openforum/interqueue/InterQueue.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/InterQueue/src/main/java/org/onestonesoup/openforum/interqueue/InterQueueMessage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/InterQueue/src/main/java/org/onestonesoup/openforum/interqueue/InterQueueSession.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/addons/flow-tracer/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/certificate-check/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/certificate-check/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/email/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/email/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/email/src/main/java/org/onestonesoup/openforum/email/Mailer.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/email/src/main/java/org/onestonesoup/openforum/email/Mailer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/email/src/main/java/org/onestonesoup/openforum/email/TestMailer.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/email/src/test/java/org/onestonesoup/openforum/email/TestSMTPMailer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/image-processor/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/image-processor/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/java-debug/untitled/pom.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/addons/java-trail/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/packager/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/packager/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/raspberrypi/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/raspberrypi/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/rtsp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/rtsp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/sql-database/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/sql-database/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/client/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/docker-build.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/docker-build.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/publish-to-docker-hub.sh" beforeDir="false" afterPath="$PROJECT_DIR$/docker/publish-to-docker-hub.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,23 +89,31 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Application.Automaton.executor&quot;: &quot;Debug&quot;,
     &quot;Application.CertificateCheck.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ClaudeOpenForumProxyTest.executor&quot;: &quot;Run&quot;,
     &quot;Application.JavascriptCommandLineInterface.executor&quot;: &quot;Run&quot;,
     &quot;Application.JavascriptExternalResourceHelper.executor&quot;: &quot;Run&quot;,
     &quot;Application.Open Forum Client.executor&quot;: &quot;Run&quot;,
     &quot;Application.OpenForumServer.executor&quot;: &quot;Debug&quot;,
     &quot;Application.ProductImporter.executor&quot;: &quot;Run&quot;,
     &quot;Application.RtspGrabber.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestApp.executor&quot;: &quot;Debug&quot;,
     &quot;Application.TestBoolean.executor&quot;: &quot;Run&quot;,
     &quot;Application.TestGmailMailer.executor&quot;: &quot;Run&quot;,
     &quot;Application.TestMailer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FlowTracerTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.KeyValueListPageTest.executor&quot;: &quot;Run&quot;,
     &quot;Java Scratch.Scratch.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Claude.AI [clean,compile,install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.certificate-check [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.client [clean,compile,install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.email [clean,compile,install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.email [clean,install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.email [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.email [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.flow-tracer [clean,compile,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.flow-tracer-server [clean,compile...].executor&quot;: &quot;Run&quot;,
     &quot;Maven.image-processor [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.javascript [clean,compile,install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.javascript [clean,install].executor&quot;: &quot;Run&quot;,
@@ -114,6 +126,7 @@
     &quot;Maven.packager [clean,install].executor&quot;: &quot;Run&quot;,
     &quot;Maven.product-db-importer [clean,compile...].executor&quot;: &quot;Run&quot;,
     &quot;Maven.sql-database [clean,compile,install].executor&quot;: &quot;Run&quot;,
+    &quot;Remote JVM Debug.Open Forum Automaton.executor&quot;: &quot;Debug&quot;,
     &quot;Remote JVM Debug.Open Forum Server (Docker Remote).executor&quot;: &quot;Debug&quot;,
     &quot;Remote JVM Debug.Open Forum Server (Docker).executor&quot;: &quot;Debug&quot;,
     &quot;Remote JVM Debug.Open Forum Server.executor&quot;: &quot;Debug&quot;,
@@ -123,14 +136,18 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;Shell Script.docker-build.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.export-jar.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.flow-tracer.sh.executor&quot;: &quot;Run&quot;,
     &quot;Shell Script.publish-to-docker-hub.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.test-claude-mcp-server.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.test-claude-proxy.sh.executor&quot;: &quot;Run&quot;,
     &quot;Shell Script.update-jar.sh.executor&quot;: &quot;Run&quot;,
     &quot;Shell Script.update.sh.executor&quot;: &quot;Run&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11 (2)&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/nik/os-git/open-forum/addons/email/src/test/resources&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/nik/os-git/open-forum/addons/flow-tracer&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -151,18 +168,18 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/addons/Claude.AI" />
       <recent name="$PROJECT_DIR$/addons/email/src/test/resources" />
       <recent name="$PROJECT_DIR$/tools/product-db-importer" />
       <recent name="$PROJECT_DIR$/server/src/test/resources" />
       <recent name="$PROJECT_DIR$/docker/open-forum" />
-      <recent name="$PROJECT_DIR$/client/src/main/resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/addons/email/src/main/resources" />
-      <recent name="$PROJECT_DIR$/addons/email/src/main" />
-      <recent name="$PROJECT_DIR$/server/src/test/resources" />
+      <recent name="$PROJECT_DIR$/addons/flow-tracer/src/test/java/org/onestonesoup/openforum/testapp" />
+      <recent name="$PROJECT_DIR$/addons/flow-tracer/src/test/java/org/onestonesoup/openforum/flowtracer" />
+      <recent name="$PROJECT_DIR$/addons/flow-tracer/src/main/java/org/onestonesoup/openforum/flowtracer" />
+      <recent name="$PROJECT_DIR$/addons/flow-tracer" />
       <recent name="$PROJECT_DIR$/addons" />
-      <recent name="$PROJECT_DIR$/addons/certificate-check" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="org.onestonesoup.openforum.email" />
@@ -179,7 +196,7 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="Shell Script.docker-build.sh">
+  <component name="RunManager" selected="Application.OpenForumServer">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -207,6 +224,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ClaudeOpenForumProxyTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.ai.claude.ClaudeOpenForumProxyTest" />
+      <module name="Claude.AI" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.onestonesoup.ai.claude.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Open Forum Client" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.onestonesoup.client.OpenForumClient" />
       <module name="client" />
@@ -229,20 +260,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ProductImporter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ProductImporter" />
-      <module name="product-db-importer" />
+    <configuration name="TestApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.openforum.testapp.TestApp" />
+      <module name="flow-tracer" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestGmailMailer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.openforum.email.TestGmailMailer" />
-      <module name="email" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.onestonesoup.openforum.email.*" />
+          <option name="PATTERN" value="org.onestonesoup.openforum.testapp.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -256,12 +280,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FlowTracerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="flow-tracer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.onestonesoup.openforum.flowtracer.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.onestonesoup.openforum.flowtracer" />
+      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.openforum.flowtracer.FlowTracerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="Open Forum Automaton" type="Remote">
+      <module name="Automaton" />
+      <option name="USE_SOCKET_TRANSPORT" value="true" />
+      <option name="SERVER_MODE" value="false" />
+      <option name="SHMEM_ADDRESS" />
+      <option name="HOST" value="localhost" />
+      <option name="PORT" value="8889" />
+      <option name="AUTO_RESTART" value="false" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="8889" />
+        <option name="LOCAL" value="false" />
+      </RunnerSettings>
+      <method v="2" />
     </configuration>
     <configuration name="Open Forum Server (Docker Remote)" type="Remote">
       <module name="open-forum.server" />
@@ -319,13 +373,13 @@
       </RunnerSettings>
       <method v="2" />
     </configuration>
-    <configuration name="docker-build.sh" type="ShConfigurationType" temporary="true">
+    <configuration name="export-jar.sh" type="ShConfigurationType" temporary="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/docker/docker-build.sh" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/addons/Claude.AI/build-and-export-jar.sh" />
       <option name="SCRIPT_OPTIONS" value="" />
       <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/docker" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/addons/Claude.AI" />
       <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
       <option name="INTERPRETER_PATH" value="/bin/bash" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -334,28 +388,13 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="publish-to-docker-hub.sh" type="ShConfigurationType" temporary="true">
+    <configuration name="flow-tracer.sh" type="ShConfigurationType" temporary="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/docker/publish-to-docker-hub.sh" />
+      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/addons/flow-tracer/flow-tracer.sh" />
       <option name="SCRIPT_OPTIONS" value="" />
       <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/docker" />
-      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
-      <option name="INTERPRETER_PATH" value="/bin/bash" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="EXECUTE_IN_TERMINAL" value="true" />
-      <option name="EXECUTE_SCRIPT_FILE" value="true" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="update.sh" type="ShConfigurationType" temporary="true">
-      <option name="SCRIPT_TEXT" value="" />
-      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/docker/update.sh" />
-      <option name="SCRIPT_OPTIONS" value="" />
-      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/docker" />
+      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/addons/flow-tracer" />
       <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
       <option name="INTERPRETER_PATH" value="/bin/bash" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -376,23 +415,24 @@
     <list>
       <item itemvalue="Application.Open Forum Client" />
       <item itemvalue="Application.OpenForumServer" />
-      <item itemvalue="Application.TestGmailMailer" />
-      <item itemvalue="Application.ProductImporter" />
+      <item itemvalue="Application.ClaudeOpenForumProxyTest" />
+      <item itemvalue="Application.TestApp" />
+      <item itemvalue="JUnit.FlowTracerTest" />
       <item itemvalue="Remote JVM Debug.Thirtie" />
       <item itemvalue="Remote JVM Debug.Open Forum Server (Docker Remote)" />
       <item itemvalue="Remote JVM Debug.Open Forum Server (Docker)" />
       <item itemvalue="Remote JVM Debug.Open Forum Server" />
-      <item itemvalue="Shell Script.docker-build.sh" />
-      <item itemvalue="Shell Script.publish-to-docker-hub.sh" />
-      <item itemvalue="Shell Script.update.sh" />
+      <item itemvalue="Remote JVM Debug.Open Forum Automaton" />
+      <item itemvalue="Shell Script.export-jar.sh" />
+      <item itemvalue="Shell Script.flow-tracer.sh" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Shell Script.docker-build.sh" />
-        <item itemvalue="Shell Script.publish-to-docker-hub.sh" />
-        <item itemvalue="Shell Script.update.sh" />
-        <item itemvalue="Application.TestGmailMailer" />
-        <item itemvalue="Application.ProductImporter" />
+        <item itemvalue="Application.TestApp" />
+        <item itemvalue="Shell Script.export-jar.sh" />
+        <item itemvalue="Shell Script.flow-tracer.sh" />
+        <item itemvalue="JUnit.FlowTracerTest" />
+        <item itemvalue="Application.ClaudeOpenForumProxyTest" />
       </list>
     </recent_temporary>
   </component>
@@ -638,6 +678,22 @@
       <workItem from="1745580773823" duration="16000" />
       <workItem from="1745912302615" duration="5662000" />
       <workItem from="1746524885324" duration="21000" />
+      <workItem from="1746799421859" duration="19000" />
+      <workItem from="1747166082445" duration="642000" />
+      <workItem from="1751463148072" duration="1125000" />
+      <workItem from="1754044554275" duration="721000" />
+      <workItem from="1754655234604" duration="973000" />
+      <workItem from="1756039165586" duration="3822000" />
+      <workItem from="1756121289116" duration="17521000" />
+      <workItem from="1756456276487" duration="3907000" />
+      <workItem from="1756631897971" duration="19934000" />
+      <workItem from="1756992499464" duration="1568000" />
+      <workItem from="1757007839798" duration="56663000" />
+      <workItem from="1757589569131" duration="16000" />
+      <workItem from="1757596457984" duration="16884000" />
+      <workItem from="1758560206724" duration="5030000" />
+      <workItem from="1758619745470" duration="1605000" />
+      <workItem from="1758621477959" duration="466000" />
     </task>
     <servers />
   </component>
@@ -704,7 +760,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java</url>
-          <line>147</line>
+          <line>152</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -859,22 +915,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java</url>
-          <line>70</line>
-          <option name="timeStamp" value="207" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="208" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="213" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java</url>
-          <line>160</line>
+          <line>165</line>
           <option name="timeStamp" value="218" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -988,19 +1029,9 @@
           <option name="timeStamp" value="308" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/FileManager.java</url>
-          <line>1117</line>
-          <option name="timeStamp" value="312" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/OpenForumRedirector.java</url>
           <line>14</line>
           <option name="timeStamp" value="315" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/OpenForumServer.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="318" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/router/Router.java</url>
@@ -1013,25 +1044,69 @@
           <option name="timeStamp" value="324" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/FileManager.java</url>
-          <line>1119</line>
-          <option name="timeStamp" value="327" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <condition expression="folderName.contains(&quot;test.txt&quot;)" language="JAVA" />
           <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/filemanager/ResourceStoreProxy.java</url>
           <line>155</line>
           <option name="timeStamp" value="330" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/RequestProcessor.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="331" />
+          <url>file://$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/Automaton.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="335" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java</url>
-          <line>108</line>
-          <option name="timeStamp" value="334" />
+          <url>file://$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/AutomatonServer.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="336" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/Automaton.java</url>
+          <line>56</line>
+          <option name="timeStamp" value="337" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/Automaton.java</url>
+          <line>63</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="338" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/Automaton.java</url>
+          <line>126</line>
+          <option name="timeStamp" value="341" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/CommandRequest.java</url>
+          <line>42</line>
+          <option name="timeStamp" value="342" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/Automaton/src/main/java/org/onestonesoup/openforum/automaton/CommandRequest.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="343" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/addons/Claude.AI/src/main/java/org/onestonesoup/ai/claude/ClaudeOpenForumProxy.java</url>
+          <line>144</line>
+          <option name="timeStamp" value="369" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/transaction/PostTransaction.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="370" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <condition expression="requestURI.equals(&quot;/HomeLab/Claude/Direct&quot;)" language="JAVA" />
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/RequestProcessor.java</url>
+          <line>140</line>
+          <option name="timeStamp" value="376" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/server/src/main/java/org/onestonesoup/openforum/server/ClientConnection.java</url>
+          <line>27</line>
+          <option name="timeStamp" value="378" />
         </line-breakpoint>
         <breakpoint type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />

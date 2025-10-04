@@ -6,23 +6,30 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="product-db-importer" />
+        <module name="Claude.AI" />
+        <module name="Automaton" />
         <module name="raspberrypi" />
+        <module name="rtsp" />
+        <module name="packager" />
+        <module name="javascript" />
+        <module name="image-processor" />
+        <module name="java-flow-tracer" />
         <module name="sql-database" />
         <module name="certificate-check" />
         <module name="open-forum.server" />
         <module name="client" />
-        <module name="rtsp" />
         <module name="java-trail" />
-        <module name="packager" />
+        <module name="flow-tracer" />
         <module name="email" />
-        <module name="javascript" />
-        <module name="image-processor" />
+        <module name="InterQueue" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="automaton" target="17" />
       <module name="java-debug" target="11" />
+      <module name="java-flow-tracer" target="17" />
       <module name="jdbc" target="1.8" />
+      <module name="product-db-importer" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

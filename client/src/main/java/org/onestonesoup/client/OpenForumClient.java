@@ -124,24 +124,29 @@ public class OpenForumClient  {
 		connection.setDoOutput(true);
 		connection.setRequestProperty("Cookie",sessionCookie);
 
-		String urlParameters = "";
+		String parameters = "";
 		for(String name: postData.keySet()) {
-			if(urlParameters.length()>0) urlParameters += "&";
-			urlParameters += name + "=" + postData.get(name);
+			if(parameters.length()>0) parameters += "&";
+			parameters += name + "=" + postData.get(name).replaceAll("&","%26");
 		}
 
-		DataOutputStream oStream = new DataOutputStream(connection.getOutputStream());
-		oStream.writeBytes(urlParameters);
-		oStream.flush();
-		oStream.close();
+		connection.setDoOutput(true);
 
-		BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-		String inputLine;
-		String data = "";
-		while ((inputLine = in.readLine()) != null)
-			data += inputLine + "\n";
+		OutputStreamWriter out = new OutputStreamWriter(
+				connection.getOutputStream());
+		out.write(parameters);
+		out.close();
+
+		BufferedReader in = new BufferedReader(
+				new InputStreamReader(
+						connection.getInputStream()));
+		String decodedString;
+		String result = "";
+		while ((decodedString = in.readLine()) != null) {
+			result += decodedString;
+		}
 		in.close();
-		return data;
+		return result;
 	}
 
 	public String getFile(String pageName, String fileName) throws IOException {
