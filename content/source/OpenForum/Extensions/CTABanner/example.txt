@@ -1,0 +1,1 @@
+[{CTABanner imageURL="/OpenForum/Images/open-forum-dog-small.png" title="Call To Action" text="A description of the CTA" ctaText="Click Me" ctaURL="http://www.bbc.co.uk"}]

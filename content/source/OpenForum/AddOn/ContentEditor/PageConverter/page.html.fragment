@@ -1,0 +1,31 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+  <h3>PageConverter</h3>
+
+  <div class="panel columns large-12">
+    Page <!--Extension InputFileName id="convertPageName" --><script>
+  var convertPageNamePages = <a href="/OpenForum/AddOn/ContentEditor/PageConverter/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var convertPageNameWaitToUpdateTree = false;
+  var convertPageNameupdatePageList = function(element) {
+    if(convertPageNameWaitToUpdateTree) clearTimeout(convertPageNameWaitToUpdateTree);
+    convertPageNameWaitToUpdateTree = setTimeout( function() {
+      OFX.get("/OpenForum/Javascript/Tree").withAction("getSubPages").withData({pageName: element.value}).onSuccess( function(newList) {
+        convertPageNamePages = newList;
+      }).go();
+    }, 500);
+  }
+</script>
+<input list="convertPageNamePagesList" of-id="convertPageName" onKeyUp="convertPageNameupdatePageList(this);" ondblclick="this.value=OpenForum.BLANK;" title="Double Click to clear"/>
+<datalist id="convertPageNamePagesList">
+  <option of-repeatFor="pageName in convertPageNamePages" value="{{pageName}}">{{pageName}}</option>
+</datalist><!--End Extension InputFileName id="convertPageName" --><br/>
+    <a class="button tiny radius" href="#" onclick="convertMarkup(); return false;">Convert for Content Editor (Markup)</a>
+    <a class="button tiny radius" href="#" onClick="convertHTML(); return false;">Convert for Content Editor (HTML)</a>
+  </div>
+</div>
+<div class="row">
+<iframe id="viewFrame" src="/" style="width: 90%;
+    border: solid 2px black;
+    height: 100%;
+    min-height: 400px;"/>
+</div>

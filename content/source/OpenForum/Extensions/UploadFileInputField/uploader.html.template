@@ -1,0 +1,22 @@
+<form id="{{name}}"><table>
+  <tr>
+    <td>
+      <input type="file" name="file" title="Drop file here" 
+             style="background-color: black;
+                    margin: 10px;
+                    color: white;
+                    font-size: 3em;
+                    border: solid 5px black;
+                    border-radius: 20px;">
+    </td>
+    <td>
+      <a 
+         style="background-color: black;
+                margin: 10px;
+                color: white;
+                font-size: 3em;
+                border: solid 20px black;
+                border-radius: 20px;" onclick="OpenForum.uploadFile('{{name}}',{{targetPageName}},function() { {{then}} } ); return false;">{{text}}</a>
+    </td>
+  </tr>
+</table></form>

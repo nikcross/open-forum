@@ -3,6 +3,19 @@
 var attachments = [];
 var attachmentsReady = false;
 
+function setAsScrapAttachment() {
+  newAttachmentName = "scrap.";
+  //OpenForum.scan();
+}
+
+function setAsAttachment(fileName) {
+  newAttachmentName = fileName;
+  createAttachment(true);
+  attachment = findAttachment("script.build.json");
+  openAttachment(attachment.id);
+  OpenForum.scan();
+}
+
 function setAttachments(response) {
   pageSize = response.size;
   var lastModified = new Date();
@@ -10,36 +23,49 @@ function setAttachments(response) {
   pageLastModified = lastModified.getDisplayString();
 
 
-  attachments = response.attachments;
-  for(var ai = 0; ai< attachments.length; ai++) {
-    var attachment = attachments[ai];
+  var newAttachments = response.attachments;
+  for(var ai = 0; ai< newAttachments.length; ai++) {
+    var attachment = newAttachments[ai];
+
+
+    for(var aj = 0; aj< attachments.length; aj++) {
+      if(attachments[aj].editor) {
+        if(attachments[aj].fileName == attachment.fileName && attachments[aj].pageName == attachment.pageName) {
+          attachment.editor = attachments[aj].editor;
+        }
+      }
+    }
+
     attachment.id = ai;
     attachment.extension = attachment.fileName.substring(attachment.fileName.lastIndexOf("."));
     attachment.action = "openAttachment";
     attachment.action = "openAttachment";
     attachment.actionName = "Edit";
-    attachment.actionIcon = "page_edit";
-    attachment.icon = "tag_blue";
+    attachment.actionIcon = "/OpenForum/Images/icons/png/page_edit.png";
+    attachment.icon = "/OpenForum/Images/icons/png/tag_blue.png";
     attachment.extraActions = "";
 
     if(attachment.extension==".zip") {
       attachment.action = "unzipAttachment";
       attachment.actionName = "Unzip";
-      attachment.actionIcon = "zip";
+      attachment.actionIcon = "/OpenForum/Images/icons/png/compress.png";
     } else if(attachment.extension==".link") {
       attachment.extraActions = "<a class=\"button tiny\" onClick=\"forkAttachment('"+attachment.id+"'); return false;\">Fork</a>";
-    } else if(attachment.extension==".png" || attachment.extension==".jpg" || attachment.extension==".gif") {
-      attachment.action = "";
-      attachment.actionName = "";
-      attachment.actionIcon = "";
+    } else if(attachment.extension.toLowerCase()==".png" || attachment.extension.toLowerCase()==".jpg" || attachment.extension.toLowerCase()==".gif") {
+      attachment.action = "viewAttachment";
+      attachment.actionName = "View";
+      attachment.actionIcon = "/OpenForum/Images/icons/png/eye.png";
     }
-    
+
     var aLastModified = new Date();
     aLastModified.setTime(attachment.lastModified);
     attachment.lastModified = aLastModified.getDisplayString();
   }
+  attachments = newAttachments;
 
   OpenForum.scan(document.body);
+  
+  updateAttachmentsFilter();
   attachmentsReady = true;
 }
 
@@ -49,6 +75,13 @@ function openFile(openFilePageName,openFileName) {
   openAttachment(newAttachment.id);
 }
 
+function deleteFile(attachmentPageToDelete,attachmentToDelete) {
+  var result = OpenForum.deleteFile(attachmentPageToDelete,attachmentToDelete);
+  loadUpdatedFilesList();
+  if(result===false) {
+    alert("The file " + attachmentPageToDelete + "/" + attachmentToDelete + " was not deleted (it may be read only).<br/>It has been marked for deletion in a future release.");
+  }
+}
 
 function loadUpdatedFilesList() {
   //  document.getElementById("filesList").innerHTML="Loading...";
@@ -59,10 +92,15 @@ function loadUpdatedFilesList() {
 	attachments = result.attachments;
 }*/
 
+function viewAttachment(attachmentId) {
+  var sourceAttachment = attachments[attachmentId];
+  window.open(sourceAttachment.pageName+"/"+sourceAttachment.fileName,"viewtab");
+}
+
 function unzipAttachment(attachmentId) {
   var sourceAttachment = attachments[attachmentId];
   var result = JSON.parse( OpenForum.loadFile("/OpenForum/Actions/Zip?action=unzip&pageName="+sourceAttachment.pageName+"&fileName="+sourceAttachment.fileName ));
-  
+
   updateOverview();
 }
 
@@ -93,9 +131,10 @@ function saveAttachments() {
 
 function saveAttachment(attachmentIndex) {
   if(attachments[attachmentIndex].fileName.startsWith("scrap.")) {
+    alert("Scrap files are not saved");
     return;
   }
-  
+
   var fileToSave = attachments[attachmentIndex].pageName + "/" + attachments[attachmentIndex].fileName;
   var data = attachments[attachmentIndex].editor.editor.getValue();
   var result = OpenForum.saveFile(fileToSave,data);
@@ -115,9 +154,12 @@ function createAttachment(createBlankFile) {
   attachments[ai].pageName = pageName;
   attachments[ai].action = "openAttachment";
   attachments[ai].actionName = "Open Editor";
-  attachments[ai].icon = "tag_blue";
+  attachments[ai].icon = "/OpenForum/Images/icons/png/tag_blue.png";
+  attachments[ai].extension = "";
+  attachments[ai].lastModified = "";
+  attachments[ai].extraActions = "";
 
-  if(OpenForum.file.attachmentExists(pageName,attachments[ai].fileName)==="false") {
+  if(OpenForum.file.attachmentExists(attachments[ai].pageName,attachments[ai].fileName)==="false") {
     var fileToSave = pageName + "/" + attachments[ai].fileName;
     var data = "";
     if(createBlankFile) {
@@ -131,23 +173,39 @@ function createAttachment(createBlankFile) {
     } else {
       openAttachment(ai);
       if(attachments[ai].fileName.startsWith("scrap.")) {
-      	attachments[ai].editor.changed=" ";
+        attachments[ai].editor.changed=" ";
       } else {
-      	attachments[ai].editor.changed="*";
+        attachments[ai].editor.changed="*";
       }
     }
   }
+  return attachments[ai];
 }
 
-function saveFile(pageName,fileName) {
-  var attachment = findAttachment(fileName);
+function saveFile(aPageName,fileName) {
+  var attachment = findAttachment(aPageName,fileName);
+  if(attachment == null) {
+    newAttachmentName = fileName;
+    attachment = createAttachment(false);
+    if(aPageName != pageName) {
+      attachment.pageName = aPageName;
+    }
+    attachment = findAttachment(aPageName,fileName);
+  }
   saveAttachment(attachment.id);
 }
 
-function findAttachment(fileName) {
+function findAttachment(aPageName,fileName) {
+  var usePageName = true;
+  if(!fileName) {
+    fileName = aPageName;
+    usePageName = false;
+  }
   for(var ai in attachments) {
     if(attachments[ai].fileName==fileName) {
-      return attachments[ai];
+      if(!usePageName || attachments[ai].pageName==aPageName) {
+        return attachments[ai];
+      }
     }
   }
   return null;
@@ -200,26 +258,26 @@ function openAttachments(fileNames) {
 
     }
   }
-      new Process().
-      waitFor( 
-        function(id) {
-          return function() { 
-            if(document.getElementById(id)!==null && document.getElementById(id).clientHeight<10) {
-              document.getElementById(id).style.display = "block";
-            }                
-            return (document.getElementById(id)!==null && document.getElementById(id).clientHeight>=10);
-          };
-        }("editor"+editorToWaitFor)
-      ).
-      then( 
-        function(id) {
-          return function() {                  
-            showStatus("ready");
-            showTab(0);
-          };
-        }()
-      ).
-      run();
+  new Process().
+  waitFor( 
+    function(id) {
+      return function() { 
+        if(document.getElementById(id)!==null && document.getElementById(id).clientHeight<10) {
+          document.getElementById(id).style.display = "block";
+        }                
+        return (document.getElementById(id)!==null && document.getElementById(id).clientHeight>=10);
+      };
+    }("editor"+editorToWaitFor)
+  ).
+  then( 
+    function(id) {
+      return function() {                  
+        showStatus("ready");
+        showTab(0);
+      };
+    }()
+  ).
+  run();
 }
 
 function findAttachmentEditor(pageName,fileName) {
@@ -232,38 +290,51 @@ function findAttachmentEditor(pageName,fileName) {
   return null;
 }
 
+function getFlavour( fileName ) {
+  var flavour = "text";
+  if(fileName.indexOf(".link")==fileName.length-5) {
+    flavour = "link";
+  } else if(fileName.indexOf(".js")==fileName.length-3) {
+    flavour = "javascript";
+  } else if(fileName.indexOf(".sjs")==fileName.length-4) {
+    flavour = "javascript";
+  } else if(fileName.indexOf(".json")==fileName.length-5) {
+    flavour = "javascript";
+  } else if(fileName.indexOf(".css")==fileName.length-4) {
+    flavour = "css";
+  } else if(fileName.indexOf(".sql")==fileName.length-4) {
+    flavour = "sql";
+  } else if(fileName.indexOf(".py")==fileName.length-3) {
+    flavour = "python";
+  } else if(fileName.indexOf(".wiki")==fileName.length-5) {
+    flavour = "html";
+  } else if(fileName.indexOf(".wiki.fragment")==fileName.length-14) {
+    flavour = "html";
+  } else if(fileName.indexOf(".wiki.template")==fileName.length-14) {
+    flavour = "html";
+  } else if(fileName.indexOf(".content")==fileName.length-8) {
+    flavour = "html";
+  } else if(fileName.indexOf(".html")==fileName.length-5) {
+    flavour = "html";
+  } else if(fileName.indexOf(".html.template")==fileName.length-14) {
+    flavour = "html";
+  } else if(fileName.indexOf(".html.fragment")==fileName.length-14) {
+    flavour = "html";
+  } else if(fileName.indexOf(".xml")==fileName.length-4) {
+    flavour = "xml";
+  }
+  return flavour;
+}
+
 function openAttachment(attachmentId) {
   var fileName = attachments[attachmentId].fileName;
   var pageName = attachments[attachmentId].pageName;
 
   showStatus("Opening "+pageName+"/"+fileName);
-  
+
   var editor = findAttachmentEditor(pageName,fileName);
   if(editor===null) {
-    var flavour = "text";
-    if(fileName.indexOf(".link")==fileName.length-5) {
-      flavour = "link";
-    } else if(fileName.indexOf(".js")==fileName.length-3) {
-      flavour = "javascript";
-    } else if(fileName.indexOf(".sjs")==fileName.length-4) {
-      flavour = "javascript";
-    } else if(fileName.indexOf(".json")==fileName.length-5) {
-      flavour = "javascript";
-    } else if(fileName.indexOf(".css")==fileName.length-4) {
-      flavour = "css";
-    } else if(fileName.indexOf(".wiki")==fileName.length-5) {
-      flavour = "html";
-    } else if(fileName.indexOf(".content")==fileName.length-8) {
-      flavour = "html";
-    } else if(fileName.indexOf(".html")==fileName.length-5) {
-      flavour = "html";
-    } else if(fileName.indexOf(".html.template")==fileName.length-14) {
-      flavour = "html";
-    } else if(fileName.indexOf(".html.fragment")==fileName.length-14) {
-      flavour = "html";
-    } else if(fileName.indexOf(".xml")==fileName.length-4) {
-      flavour = "xml";
-    }
+    var flavour = getFlavour( fileName );
     editor = addEditor(pageName,fileName,flavour);
   }
   showTab(editor.id);
@@ -271,9 +342,16 @@ function openAttachment(attachmentId) {
   editor.attachment = attachments[attachmentId];
   attachments[attachmentId].action = "saveAttachment";
   attachments[attachmentId].actionName = "Save";
-  attachments[attachmentId].actionIcon = "page_save";
+  attachments[attachmentId].actionIcon = "/OpenForum/Images/icons/png/page_save.png";
   attachments[attachmentId].editor = editor;
 
   //addTreeLeaf(attachments,attachmentId);
 }
 
+function updateAttachmentsFilter() {
+  if(typeof fileNameFilter == "undefined") return;
+  if(typeof attachments == "undefined") return;
+
+  OpenForum.scan();
+  OpenForum.Table.applyRowFilter("attachments",attachments,"fileName",fileNameFilter);
+}

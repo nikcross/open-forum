@@ -1,0 +1,178 @@
+{
+    "version": "1.0.9",
+    "libraries": [
+        {
+            "name": "DataLogger",
+            "fileName": "DataLogger.sjs",
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "action",
+            "type": "string",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "actions": [
+        {
+            "name": "logData",
+            "action": "logData",
+            "libraries": [],
+            "parameters": [
+                {
+                    "name": "record",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "serviceId",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "deviceId",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "deviceType",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "time",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "data",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "call": "result = DataLogger.logData(data,serviceId,deviceId,deviceType,time,record,transaction);",
+            "resultTemplate": "",
+            "method": "get",
+            "example": {
+                "response": "",
+                "errorResponse": "",
+                "request": ""
+            },
+            "description": ""
+        },
+        {
+            "name": "getValue",
+            "action": "getValue",
+            "libraries": [],
+            "parameters": [
+                {
+                    "name": "serviceId",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "deviceId",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "key",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "call": "result = DataLogger.getLatestValue(serviceId,deviceId,key);",
+            "resultTemplate": "",
+            "method": "get",
+            "example": {
+                "response": "",
+                "errorResponse": "",
+                "request": ""
+            },
+            "description": ""
+        },
+        {
+            "name": "getData",
+            "action": "getData",
+            "libraries": [],
+            "parameters": [
+                {
+                    "name": "serviceId",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "deviceId",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "key",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "startTime",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "endTime",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "groupBy",
+                    "type": "string",
+                    "required": false,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "call": "result = DataLogger.getData( serviceId,deviceId,key,startTime,endTime,groupBy );",
+            "resultTemplate": "",
+            "method": "get",
+            "example": {
+                "response": "",
+                "errorResponse": "",
+                "request": ""
+            },
+            "description": ""
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/AddOn/DataLogger",
+    "configFile": "get-service-definition-config.json"
+}

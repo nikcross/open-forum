@@ -1,0 +1,55 @@
+!!/OpenForum/Actions/User Sevice API Version 0.0.5
+
+----
+!!Get Actions
+
+  <div class="panel callout radius">
+!!Action getCurrentUser
+(())
+
+!!Parameters
+|Name|Description
+|currentPage (''required=false'')|{{parameter.description}}
+|user (''required=true'')|{{parameter.description}}
+|referrer (''required=false'')|{{parameter.description}}
+|userAgent (''required=false'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/Actions/User?action=getCurrentUser+++</textarea>
+  
+[/OpenForum/Actions/User?action=getCurrentUser++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action getCurrentUserProfile
+(({{action.description}}))
+
+!!Parameters
+|Name|Description
+|user (''required=true'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/Actions/User?action=getCurrentUserProfile{{action.example.request}}+++</textarea>
+  
+[/OpenForum/Actions/User?action=getCurrentUserProfile+++{{action.example.request}}+++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+
+----
+!!Post Actions

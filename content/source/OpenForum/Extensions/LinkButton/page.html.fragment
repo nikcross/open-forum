@@ -1,0 +1,8 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3>LinkButton v0.0.1</h3>
+<xmp class="panel" of-exclude="true"> <!--Extension LinkButton href="https://www.bbc.co.uk" target="externalTab" text="BBC" --><a href="https://www.bbc.co.uk" target="externalTab" class="button small">BBC</a><!--End Extension LinkButton href="https://www.bbc.co.uk" target="externalTab" text="BBC" --> </xmp>
+<!--Extension LinkButton href="https://www.bbc.co.uk" target="externalTab" text="BBC" --><a href="https://www.bbc.co.uk" target="externalTab" class="button small">BBC</a><!--End Extension LinkButton href="https://www.bbc.co.uk" target="externalTab" text="BBC" -->
+<br/><br/>
+<!--Extension ActionButton text="Add LinkButton Block type to Content Editor" action="addToContentEditor" --><a  class='button radius tiny' href='#' onclick='addToContentEditor(); return false;'>Add LinkButton Block type to Content Editor</a> <!--End Extension ActionButton text="Add LinkButton Block type to Content Editor" action="addToContentEditor" -->
+</div>

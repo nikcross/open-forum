@@ -1,0 +1,142 @@
+{
+    "version": "1.0.4",
+    "libraries": [
+        {
+            "name": "TriggerTester",
+            "fileName": "TriggerTester.sjs",
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "TaskScheduler",
+            "fileName": "TaskScheduler.sjs",
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "parameters": [],
+    "actions": [
+        {
+            "name": "getSchedule",
+            "action": "getSchedule",
+            "libraries": [],
+            "parameters": [
+                {
+                    "name": "tag",
+                    "required": "false",
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "call": "TaskScheduler.getSchedule(tag);",
+            "method": "get",
+            "example": {
+                "response": "",
+                "errorResponse": "",
+                "request": ""
+            },
+            "description": ""
+        },
+        {
+            "name": "addTask",
+            "action": "addTask",
+            "libraries": [],
+            "parameters": [
+                {
+                    "name": "name",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "enabled",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "debug",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "pagename",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "scriptfile",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "lastrun",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "scheduledtime",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "call": "TaskScheduler.addTask(name,pagename,scriptfile,lastrun,scheduledtime,enabled,debug);",
+            "method": "get",
+            "example": {
+                "response": "",
+                "errorResponse": "",
+                "request": ""
+            },
+            "description": ""
+        },
+        {
+            "name": "deleteTask",
+            "action": "deleteTask",
+            "libraries": [],
+            "parameters": [
+                {
+                    "name": "taskName",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "call": "TaskScheduler.deleteTask(taskName);",
+            "method": "get",
+            "example": {
+                "response": "",
+                "errorResponse": ""
+            }
+        },
+        {
+            "name": "runTrigger",
+            "action": "runTrigger",
+            "libraries": [],
+            "parameters": [
+                {
+                    "name": "pageName",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "triggerFile",
+                    "type": "string",
+                    "required": true
+                }
+            ],
+            "call": "TriggerTester.runTrigger(pageName,triggerFile);",
+            "method": "get",
+            "example": {
+                "response": "",
+                "errorResponse": ""
+            }
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/Triggers/TimerTrigger/TaskScheduler",
+    "configFile": "get-service-definition-config.json"
+}

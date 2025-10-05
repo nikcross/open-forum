@@ -1,0 +1,24 @@
+!!&title;
+----
+!!Popup
+{{{[{Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup"}]}}}
+[{Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup"}]
+
+{{{[{Popup id="test2" content="some content"]}}}
+[{Popup id="test2" content="some content"}]
+
+----
+!!Popup button
+{{{[{Popup id="test1" title="Pop me up"}]}}}
+[{Popup id="test1" title="Pop me up"}]
+
+{{{[{Popup id="test2" title="Pop me up"}]}}}
+[{Popup id="test2" title="Pop me up"}]
+----
+!!Popup script
+{{{$('#test1').foundation('reveal', 'open');}}}
+{{{$('#test2').foundation('reveal', 'open');}}}
+----
+
+!!Source
+[{InsertSourceFile pageName="OpenForum/Extensions/Popup" fileName="renderer.sjs"}]

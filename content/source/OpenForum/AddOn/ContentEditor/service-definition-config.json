@@ -1,0 +1,5 @@
+{
+    "version": "0.1.4",
+    "pageName": "/OpenForum/AddOn/ContentEditor",
+    "getConfig": "get-service-definition-config.json"
+}

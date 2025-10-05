@@ -1,3 +1,7 @@
+/*
+* Author: 
+* Description: 
+*/
 var action = transaction.getParameter("action");
 if(action===null) {
     transaction.setResult(transaction.SHOW_PAGE);
@@ -14,7 +18,15 @@ if(action==="myAction") {
 }
 --->8---*/
 } catch(e) {
-  transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber+" of "+e.sourceName}));
+  var message = "Error:"+e;
+  if( typeof e.lineNumber != "undefined" ) {
+    message += " on line "+e.lineNumber;
+  }
+  if( typeof e.sourceName != "undefined" ) {
+    message += " in "+e.sourceName;
+  }
+  
+  transaction.sendJSON( JSON.stringify({result: "error",message: message}));
   return;
 }
   

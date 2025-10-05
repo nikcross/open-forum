@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/Move",
-    "title": " Move"
+    "pageName": "/OpenForum/Actions/Move",
+    "title": "Move",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

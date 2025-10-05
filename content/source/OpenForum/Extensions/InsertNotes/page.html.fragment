@@ -1,0 +1,39 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+Inserts a files contents into the page
+<hr/>
+<h3>Parameters</h3>
+<ul><li> pageName - The page where the file is attached (optional. default = current page name)</li>
+<li> fileName - The file to insert</li>
+</ul>
+<hr/>
+<h3>Usage:</h3>
+<xmp class="panel" of-exclude="true">
+<!--Extension InsertNotes pageName="/OpenForum/Extensions/InsertNotes" fileName="notes.txt" --><a href="/TheLab/Tools/Notes?pageName=/OpenForum/Extensions/InsertNotes&fileName=notes.txt" title="Edit" target="notepad">/OpenForum/Extensions/InsertNotes/notes.txt<img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">Notes on this page
+
+Here are some notes</xmp><!--End Extension InsertNotes pageName="/OpenForum/Extensions/InsertNotes" fileName="notes.txt" -->
+</xmp>
+<!--Extension InsertNotes pageName="/OpenForum/Extensions/InsertNotes" fileName="notes.txt" --><a href="/TheLab/Tools/Notes?pageName=/OpenForum/Extensions/InsertNotes&fileName=notes.txt" title="Edit" target="notepad">/OpenForum/Extensions/InsertNotes/notes.txt<img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">Notes on this page
+
+Here are some notes</xmp><!--End Extension InsertNotes pageName="/OpenForum/Extensions/InsertNotes" fileName="notes.txt" -->
+
+<hr/>
+
+<!--Extension InsertSourceFile fileName="renderer.sjs" --><a href="//OpenForum/Extensions/InsertNotes/renderer.sjs">//OpenForum/Extensions/InsertNotes/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertNotes&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var sourcePageName = extension.getAttribute("pageName");
+if(sourcePageName==null) {
+  sourcePageName = pageName;
+}
+
+var fileName = extension.getAttribute("fileName");
+if(fileName==null) {
+  fileName = "notes.txt";
+}
+
+var data = ""+file.getAttachment( sourcePageName,fileName );
+data = data.replace(/(xmp)/g,"<p>xmp</p>");
+var editLink = "/TheLab/Tools/Notes?pageName="+sourcePageName+"&fileName="+fileName;
+
+pageData = "<a href=<br/>""+editLink+"<br/>" title=<br/>"Edit<br/>" target=<br/>"notepad<br/>">"+sourcePageName+"/"+fileName+"<img src=<br/>"/OpenForum/Images/icons/gif/pencil.gif<br/>" border=<br/>"0<br/>"></a><(xmp) class=<br/>"panel<br/>">$contents$</(xmp)>";
+pageData = js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,pageData);
+pageData = pageData.replace("$contents$",data);
+
+return pageData;</xmp><!--End Extension InsertSourceFile fileName="renderer.sjs" -->

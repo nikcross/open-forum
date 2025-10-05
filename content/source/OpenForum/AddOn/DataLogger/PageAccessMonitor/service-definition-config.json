@@ -1,0 +1,6 @@
+{
+    "version": "0.0.5",
+    "pageName": "/OpenForum/AddOn/DataLogger/PageAccessMonitor",
+    "postConfig": "post-service-definition-config.json",
+    "getConfig": "get-service-definition-config.json"
+}

@@ -1,0 +1,20 @@
+.ctaBanner {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: darkgreen;
+  color: white;
+  padding: 3em;
+}
+.ctaButton {
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 1em;
+  margin: 2em;
+  color: white;
+  font-weight: bold;
+  transition: background-color 500ms, color 500ms;
+}
+.ctaButton:hover {
+  color: #2ba6cb !important;
+  background-color: white;
+}

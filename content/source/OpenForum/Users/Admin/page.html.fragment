@@ -1,5 +1,13 @@
-<div class="row">
 <h2>User Account for &title;</h2>
 
 Password: &insert:/OpenForum/Users/Admin/password.txt;
-</div><!--Content built using default-->
+</div>
+<hr/>
+<!-- V 2.1 -->&insert:/OpenForum/AddOn/Mailer/mailer-config.wiki.fragment;
+
+
+<hr/>
+&insert:/OpenForum/AddOn/SQL/sql-config.wiki.fragment;
+
+
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

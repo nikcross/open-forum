@@ -1,46 +1,93 @@
-<div id="openModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
-  <h2 id="modalTitle">Open File</h2>
-  <div>Create new file <input type="text" id="newFileName" onKeyPress="&editor;.createNew(this.value,event);" /></div>
-  <div id="fileTree"></div>
+<div id="&elementId;openModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">{{&editor;.fileChoiceActionTitle}}</h2>
+  <div>{{&editor;.fileChoiceAction}} 
+    Page <input list="editorPagesList" of-id="&editor;.newPageName" onKeyUp="&editor;.updateTreeView(this.value);" ondblclick="this.value=OpenForum.BLANK;" title="Double Click to clear"/>
+    <a class="button" onClick="&editor;.newPageName='~'; &editor;.updateTreeView(&editor;.newPageName); return false;">Jump to Your Page</a>
+    <a class="button" onClick="&editor;.newPageName='browser://'; &editor;.updateTreeView(&editor;.newPageName); return false;">Jump to In Browser Storage</a>
+    <div class="row">
+      <div class="columns large-8">
+    File Name <input of-id="&editor;.newFileName" onKeyPress="&editor;.setFile(event);" ondblclick="this.value=OpenForum.BLANK;" title="Double Click to clear"/>
+      </div>
+      <div class="columns large-4">
+        <a class="button" onClick="&editor;.setFile(); return false;">{{&editor;.fileChoiceActionButton}}</a>
+      </div>
+    </div>
+  </div>
+  <datalist id="&editor;.editorPagesList">
+    <option of-repeatFor="pageName in &editor;.pagesList" value="{{pageName}}">{{pageName}}</option>
+  </datalist>
+  <div>{{&editor;.getEditingPageName()}}</div>
+  <div id="&editorId;.fileTree"></div>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
-<div id="confirmRetrieveModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+<div id="&elementId;confirmRetrieveModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">The file {{&editor;.getEditingPageName()}}/{{&editor;.getEditingFileName()}} has changed on the server.</h2>
   <div id="row"><a class="button" href="#" onclick="&editor;.retrieveChanges(true);return false;">Use Local Version</a></div>
   <div id="row"><a class="button" href="#" onclick="&editor;.openFile();return false;">Load Server Version</a></div>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 
-<div class="row">
-  <div class="large-12 columns">
-    <span class='success label'>{{&editor;.getStatus()}}</span>
-  </div>
-</div>
-<div class="row" id="editorButtons">
-  <div class="large-4 columns" id="standalone-buttons">
-    <a class="button round tiny" onClick="&editor;.openFileSelect(); return false;">Open</a>
-    <a class="button round tiny" onClick="&editor;.save(); return false;">Save</a>
-  </div>
-  <div class="large-4 columns">
-    <a class="button round tiny" onClick="upload(); return false;" title="Upload an HTML document to your browser.">Upload</a>
-    <a class="button round tiny" onClick="download(); return false;" title="Download the current HTML document">Download {{&editor;.getEditingFileName()}}</a>
-  </div>
-  <div class="large-4 columns">
+<div style="background: #000; padding: 10px" class="row">
+  <div class="columns large-12">
     <div class="row">
-      <div class="large-8 columns">
-        <p>Autosave</p>
-      </div><div class="large-4 columns">
-      <div class="switch round small">
-        <input id="autoSaveSwitch" type="checkbox"  of-id="autoSave">
-        <label for="autoSaveSwitch">
-        </label>
-      </div>
-      </div>
+      <nav class="top-bar" data-topbar role="navigation">
+        <ul class="title-area">
+          <li class="name">
+            <h1><a href="#" title="{{&editor;.getStatus()}}">{{&editor;.getStatus()}}</a></h1>
+          </li>
+        </ul>
+        <section class="top-bar-section">
+          <!-- Right Nav Section -->
+          <ul class="right">
+            <li class="has-dropdown">
+              <a href="#">File</a>
+              <ul class="dropdown">
+                <li>
+                  <a href="#" onClick="&editor;.openFileSelect(); return false;">Open File</a>
+                </li>
+                <li>
+                  <a href="#" onClick="&editor;.openFileCreateNew(); return false;">Create New</a>
+                </li>
+                <li>
+                  <a href="#" onClick="&editor;.openFileSaveAs(); return false;">Save As</a>
+                </li>
+                <li>
+                  <a href="#" onClick="&editor;.save(); return false;">Save</a>
+                </li>
+                <li>
+                  <a href="#" onclick="&editor;.autoSave = !&editor;.autoSave; return false;">Autosave {{&editor;.autoSave}}</a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <a href="#">Desktop</a>
+              <ul class="dropdown">
+                <li>
+                  <a href="#" onClick="&editor;.uploadFromComputer(); return false;" title="Upload the document from your computer.">Upload</a>
+                </li>
+                <li>
+                  <a href="#" onClick="&editor;.downloadToComputer(); return false;" title="Download the current document">Download {{&editor;.getEditingFileName()}}</a>
+                </li>
+                <li>
+                  <a href="#" onClick="&editor;.copyToClipboard(); return false;" title="Copy the current document to the clipboard">Copy to Clipboard</a>
+                </li>
+              </ul>
+            </li>
+            <li class="has-dropdown">
+              <a href="#">Actions</a>
+              <ul class="dropdown" id="editor&editorId;Buttons">
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div class="row">
+      <div id="editor&editorId;">Editor Loading...</div>
     </div>
   </div>
 </div>
 
-<div class="large-12 columns">
-  <div id="editor0">Editor Loading...</div>
-</div>
+

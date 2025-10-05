@@ -1,0 +1,98 @@
+!!/OpenForum/AddOn/Publisher Sevice API Version 1.1.1
+
+----
+!!Get Actions
+
+  <div class="panel callout radius">
+!!Action publish
+(())
+
+!!Parameters
+|Name|Description
+|pageName (''required=true'')|{{parameter.description}}
+|practice (''required=true'')|{{parameter.description}}
+|debug (''required=false'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/Publisher?action=publish+++</textarea>
+  
+[/OpenForum/AddOn/Publisher?action=publish++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action getNeedsPublishing
+(())
+
+!!Parameters
+|Name|Description
+|pageName (''required=false'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/Publisher?action=getNeedsPublishing+++</textarea>
+  
+[/OpenForum/AddOn/Publisher?action=getNeedsPublishing++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action getPublishedPageDifferences
+(())
+
+!!Parameters
+|Name|Description
+|pageName (''required=true'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/Publisher?action=getPublishedPageDifferences+++</textarea>
+  
+[/OpenForum/AddOn/Publisher?action=getPublishedPageDifferences++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action reversePublish
+(())
+
+!!Parameters
+|Name|Description
+|pageName (''required=true'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/Publisher?action=reversePublish+++</textarea>
+  
+[/OpenForum/AddOn/Publisher?action=reversePublish++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+
+----
+!!Post Actions

@@ -1,0 +1,21 @@
+{
+    "editors": [
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/CKEditor",
+            "fileName": "page.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/CKEditor",
+            "fileName": "page.content"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/CKEditor",
+            "fileName": "editor.js"
+        }
+    ],
+    "pageName": "/OpenForum/Editor/Editors/CKEditor",
+    "fileName": "editor-config.json"
+}

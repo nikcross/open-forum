@@ -1,6 +1,11 @@
-<ul><li> authorizer = org.onestonesoup.openforum.security.JavascriptAuthorizer</li>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release--><ul><li> authorizer = org.onestonesoup.openforum.security.JavascriptAuthorizer</li>
 <li> authenticator = org.onestonesoup.openforum.security.cookie.SessionCookieAuthenticator</li>
+<li> secure = false</li>
 <li> resourceStore1 = read-only:/web/source</li>
-<li> resourceStore0 = /web/content/open-forum</li>
+<li> resourceStore0 = /home/nik/Documents/powis-hughes/chat-gpt-attempt</li>
+<li> serverName = Powis-Hughes</li>
+<li> database = test</li>
+<li> adminEmail = test@example.com</li>
+<li> webAddress = http://powis-hughes.com:8888</li>
 </ul>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+

@@ -1,0 +1,1 @@
+OpenForum.loadScript("/OpenForum/AddOn/SQL/page.js");

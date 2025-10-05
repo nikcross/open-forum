@@ -1,17 +1,98 @@
-<div id="formBuilder" style="height: 100%;">
-<div class="large-3 columns">
-  <h3>Fields</h3>
-  <textarea of-id="formBuilder.formFields" rows="10" onkeyup="formBuilder.buildForm()" onchange="formBuilder.buildForm()"></textarea>
-</div>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div id="formBuilder" style="height: 100vh;background-color: #203d64; color: #eef7ee;">
+  <div class="row" style="padding: 10px;">
+    <b>Form Builder</b>
+  </div>
+  <div style="background-color: #203d64; color: #eef7ee; display: flex;">
+    <div class="large-3 columns">
+      <b>Definition</b>
 
-<div class="large-3 columns">
-  <h3>Form</h3>
-  <div class="panel">{{formBuilder.exampleFormHtml}}</div>
-</div>
+      <div id="defaultEditor"><textarea id="editor{{editorIndex}}Src" style="height: 100%;">Loading...</textarea></div>
+      
+      <a class='button tiny round' onClick="if( isUndefined(displayContentTab) ) { $('#formBuilderInstructions').foundation('reveal', 'open'); } else { displayContentTab('/OpenForum/Editor/Plugins/FormBuilder','instructions.html.fragment','Form Builder Instructions') } return false;">Instructions</a>
+    </div>
 
-<div class="large-6 columns">
-  <h3>Form Html</h3>
-  <xmp id="html"></xmp>
+    <div class="large-3 columns">
+      <b>Form</b>
+      <div class="panel" id="theForm"></div>
+    </div>
+
+    <div class="large-6 columns">
+      <b>Form Html</b>
+
+      <!--Extension ScriptClip script="" id="formBuilder.exampleFormHtml" --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' of-id='formBuilder.exampleFormHtml' id='formBuilder.exampleFormHtml' rows='2' ></textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("formBuilder.exampleFormHtml"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('formBuilder.exampleFormHtml').setAttribute('readonly', 'readonly');</script><!--End Extension ScriptClip script="" id="formBuilder.exampleFormHtml" -->
+
+      <hr/>
+
+      <b>Form Script</b>
+
+      <!--Extension ScriptClip script="" id="formBuilder.exampleFormScript" --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' of-id='formBuilder.exampleFormScript' id='formBuilder.exampleFormScript' rows='2' ></textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("formBuilder.exampleFormScript"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('formBuilder.exampleFormScript').setAttribute('readonly', 'readonly');</script><!--End Extension ScriptClip script="" id="formBuilder.exampleFormScript" -->
+
+    </div>
+  </div>
 </div>
-</div>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Extension Popup id="formBuilderInstructions" sourceFileName="instructions.wiki.fragment" sourcePageName="/OpenForum/Editor/Plugins/FormBuilder" --><div id="formBuilderInstructions" class="reveal-modal" data-reveal aria-labelledby="formBuilderInstructionsModalTitle" aria-hidden="true" role="dialog"><h3>Instructions</h3>
+<p>
+Form Builder helps you build quick and simple forms that are integrated with Open Forum. This means form fields are automatically made available as Javascript variables
+and are automatically updated on the page when changed in a script.
+</p>
+<p>
+Each row in the form definition on the right relates to a single input field. In its simplest form, the first words in the row are the fields label, with the last field being its variable name.
+A blank row will start a new row in the form.
+Each row has its own type. The default type in a text input field, but other types are available by starting the row with a type name followed by a colon.
+</p>
+<hr/>
+<h3>Example</h3>
+
+<!--Extension ScriptClip fileName="example.txt" --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;'  id='6DC8E88F' rows='7' >Width width
+Height height
+
+Calculation: area = width * height
+
+View: Area area</textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("6DC8E88F"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('6DC8E88F').setAttribute('readonly', 'readonly');</script><!--End Extension ScriptClip fileName="example.txt" -->
+
+<hr/>
+<h3>Types</h3>
+
+<b>Input:</b>
+<p>This is the default type. You do not need to prefix the row with Input:</p>
+
+<b>Text:</b>
+<p>This will provide a text box for multiline input</p>
+
+<b>Wysiwyg:</b>
+<p>This will provide a text box for styled text</p>
+
+<b>Checkbox:</b>
+<p>This will provide a checkbox that will have a value of true or false depending on whether it is checked</p>
+
+<b>List:</b>
+<p>Provides a list of values that can be used in a select input</p>
+
+<b>Select:</b>
+<p>This will provide a select box that can be populated with options from a List</p>
+
+<b>Table:</b>
+<p>This will include an edtiable table with defined column names</p>
+
+<b>View:</b>
+<p>This will display a variables value in the form</p>
+
+<b>Note:</b>
+<p>This is for adding a comment in the form definition. It does not appear in the produced form</p>
+
+<b>Form Name:</b>
+<p>This sets the name of the form for use in code. It should only be set once.</p>
+
+<b>Message:</b>
+<p>This will display the given message text in the form</p>
+
+<b>Title:</b>
+<p>This will display the given title in the form</p>
+
+<b>Calculation:</b>
+<p>In Form Builder we have added the ability to perform in page calculations so small applications can be preformed with any need to create code elsewhere</p>
+
+<b>Action:</b>
+<p>Adds a button that calls a function</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="formBuilderInstructions" sourceFileName="instructions.wiki.fragment" sourcePageName="/OpenForum/Editor/Plugins/FormBuilder" -->

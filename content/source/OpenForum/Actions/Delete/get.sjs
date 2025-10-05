@@ -4,8 +4,9 @@ if(typeof(pageName)=="undefined")
   return;
 }
 
-transaction.userCanPerformAction(pageName,"delete",true); 
-fileName = transaction.getParameter("fileName");
+try {
+  transaction.userCanPerformAction(pageName,"delete",true); 
+  fileName = transaction.getParameter("fileName");
 
   var json = false;
   var returnType = transaction.getParameter("returnType");
@@ -14,30 +15,59 @@ fileName = transaction.getParameter("fileName");
     json = true;
   }
 
-if( fileName===null ) {
-  openForum.deletePage(pageName);
+  if( fileName===null ) {
+    try{
+      openForum.deletePage(pageName);
+    } catch(e) {
+    }
 
-  //TODO Handle pages deleted from /OpenForum/DeletedPages
-  data = file.getAttachment("/OpenForum/DeletedPages","page.content");
-  data = data + "\n*[Undelete "+pageName+"|/OpenForum/Actions/Move?pageName=/OpenForum/DeletedPages/"+pageName+"&newPageName="+pageName+"]";
-  file.saveAttachment("/OpenForum/DeletedPages","page.content",data);
-  openForum.refreshPage("/OpenForum/DeletedPages");
+    var deleted = !(file.pageExists( pageName ));
 
-  pageName = "/OpenForum/DeletedPages";
+    if(deleted) {
+      //TODO Handle pages deleted from /OpenForum/DeletedPages
+      data = file.getAttachment("/OpenForum/DeletedPages","page.content");
+      data = data + "\n*[Undelete "+pageName+"|/OpenForum/Actions/Move?pageName=/OpenForum/DeletedPages/"+pageName+"&newPageName="+pageName+"]";
+      file.saveAttachment("/OpenForum/DeletedPages","page.content",data);
+      openForum.refreshPage("/OpenForum/DeletedPages");
 
-  openForum.buildPage(pageName,true);
-  if(json) {
-      transaction.sendJSON(JSON.stringify({result: "ok", message: "Deleted "+pageName,deleted: true}));
-  }  else  {
-    transaction.goToPage(pageName);
+      pageName = "/OpenForum/DeletedPages";
+
+      openForum.buildPage(pageName,true);
+    } else {
+      file.appendStringToFile("/OpenForum/PublishingJournal","page.content","* Read Only Page "+pageName+" marked for deletion\n");
+      openForum.buildPage("/OpenForum/PublishingJournal");
+      pageName = "/OpenForum/PublishingJournal";
+    }
+
+    if(json) {
+      transaction.sendJSON(JSON.stringify({result: "ok", message: "Deleted "+pageName,deleted: deleted}));
+    }  else  {
+      transaction.goToPage(pageName);
+    }
+  } else {
+    try{
+      openForum.deleteAttachment(pageName,fileName);
+    } catch(e) {
+    }
+
+    var deleted = !(file.attachmentExists(pageName,fileName));
+    if(deleted) {
+      openForum.buildPage(pageName,true);
+    } else {
+      file.appendStringToFile("/OpenForum/PublishingJournal","page.content","* Read Only File "+pageName+"/"+fileName+ " marked for deletion\n");
+      openForum.buildPage("/OpenForum/PublishingJournal");
+      pageName = "/OpenForum/PublishingJournal";
+    }
+
+    if(json) {
+      transaction.sendJSON(JSON.stringify({result: "ok", message: "Deleted "+pageName+"/"+fileName,deleted: deleted}));
+    }  else  {
+      transaction.goToPage(pageName);
+    }
   }
-} else {
-  openForum.deleteAttachment(pageName,fileName);
-  openForum.buildPage(pageName,true);
 
-  if(json) {
-      transaction.sendJSON(JSON.stringify({result: "ok", message: "Deleted "+pageName+"/"+fileName,deleted: true}));
-  }  else  {
-    transaction.goToPage(pageName);
-  }
+
+} catch(e) {
+  transaction.sendJSON( JSON.stringify({result: "error",message: "Error: "+e}));
+  return;
 }

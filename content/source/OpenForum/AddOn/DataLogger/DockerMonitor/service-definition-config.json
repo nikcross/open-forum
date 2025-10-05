@@ -1,0 +1,5 @@
+{
+    "version": "0.0.3",
+    "pageName": "/OpenForum/AddOn/DataLogger/DockerMonitor",
+    "getConfig": "get-service-definition-config.json"
+}

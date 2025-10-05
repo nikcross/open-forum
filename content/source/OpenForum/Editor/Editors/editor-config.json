@@ -1,0 +1,26 @@
+{
+    "editors": [
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors",
+            "fileName": "page.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors",
+            "fileName": "page.content"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors",
+            "fileName": "StandaloneEditor.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors",
+            "fileName": "Autocomplete.js"
+        }
+    ],
+    "pageName": "/OpenForum/Editor/Editors",
+    "fileName": "editor-config.json"
+}

@@ -1,3 +1,4 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 Inserts a form input field.
 <hr/>
 <h3>Parameters</h3>
@@ -5,19 +6,19 @@ name - the field name
 value - optional value
 <hr/>
 <h3>Usage:</h3>
-<xmp class="panel">[{InputField name="myField"}]</xmp>
-[<input type='text' name='myField' of-id=myField id='myField' value=' ' onChange='undefined(); return false;' />
+<xmp class="panel" of-exclude="true"><!--Extension InputField name="myField" --><input type='text' name='myField' id='myFieldField' of-id='myField' value='{{myField}}'  /><!--End Extension InputField name="myField" --></xmp>
+<a href="/OpenForum/Extensions/InputField/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a><!--Extension InputField name="myField" --><input type='text' name='myField' id='myFieldField' of-id='myField' value='{{myField}}'  /><!--End Extension InputField name="myField" -->
 
 <hr/>
 
-<a href="//OpenForum/Extensions/InputField/renderer.sjs">//OpenForum/Extensions/InputField/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InputField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">name = extension.getAttribute("name");
+<!--Extension InsertSourceFile fileName="renderer.sjs" --><a href="//OpenForum/Extensions/InputField/renderer.sjs">//OpenForum/Extensions/InputField/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InputField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">name = extension.getAttribute("name");
 value = extension.getAttribute("value");
 type = extension.getAttribute("type");
 action = extension.getAttribute("action");
 
 if(value==null)
 {
-  value=" ";
+  value="{{"+name+"}}";
 }
 
 if(type==null)
@@ -26,9 +27,9 @@ if(type==null)
 }
 
 var onChange = "";
-if(action!==null) {
+if(action!=null) {
   onChange = "onChange='"+action+"(); return false;'";
 }
 
-return "<input type='"+type+"' name='"+name+"' of-id="+name+" id='"+name+"' value='"+value+"' "+onChange+" />";</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+return "<input type='"+type+"' name='"+name+"' id='"+name+"Field' of-id='"+name+"' value='"+value+"' "+onChange+" />";
+</xmp><!--End Extension InsertSourceFile fileName="renderer.sjs" -->

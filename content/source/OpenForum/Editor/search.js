@@ -2,8 +2,22 @@
 * Author: 
 * Description: 
 */
+OpenForum.searchTimer = null;
+OpenForum.prepareSearch = function() {
+  clearTimeout(OpenForum.searchTimer);
+  setTimeout( function() {
+  	OpenForum.search(newSearchTerm);
+  	OpenForum.showSearchMatches();
+  }, 500);
+  
+  return false;
+};
 
 OpenForum.focusOnSearch = function() { 
+  if(!currentEditor.editor) return;
+  
+  document.getElementById("OpenForumSearch").style.display = "block";
+  
   var input = $("#primarySearchField")[0];
   input.selectionStart = input.selectionEnd = input.value.length;
   input.focus();
@@ -16,6 +30,15 @@ OpenForum.focusOnSearch = function() {
 };
 
 OpenForum.search = function(query) {
+  clearTimeout(OpenForum.searchTimer);
+  if(!currentEditor.editor) return;
+  
+  if(query=="") {
+    document.getElementById("OpenForumSearchReplace").style.display = "none";
+    setTimeout( function() { OpenForum.clearSearch(); }, 500 );
+    return;
+  }
+  
   if(query.startsWith("#")) {
     OpenForum.gotoLine( parseInt(query.substring(1)) );
     return;
@@ -27,14 +50,20 @@ OpenForum.search = function(query) {
   var cursor = cm.getSearchCursor(query);
 
   OpenForum.currentSearch = {cm: cm, cursor: cursor, query: query};
+  
+  document.getElementById("OpenForumSearchReplace").style.display = "block";
 };
 
 OpenForum.gotoLine = function(lineNo) {
+  if(!currentEditor.editor) return;
+  
   currentEditor.editor.getCodeMirror().setCursor(lineNo,0);
   OpenForum.scrollToLine(lineNo);
 };
 
 OpenForum.repeatSearch = function() {
+  if(!currentEditor.editor) return;
+  
   if(OpenForum.currentSearch===null) return;
 
   var cm = currentEditor.editor.getCodeMirror();
@@ -46,12 +75,14 @@ OpenForum.repeatSearch = function() {
 OpenForum.currentSearch = null;
 
 OpenForum.setReplaceText = function(replaceText) {
+  if(!currentEditor.editor) return;
   if(OpenForum.currentSearch === null) return;
 
   OpenForum.currentSearch.replaceText = replaceText;
 };
 
 OpenForum.showSearchMatches = function() {
+  if(!currentEditor.editor) return;
   if(OpenForum.currentSearch === null) return;
 
   OpenForum.clearSearch();
@@ -68,6 +99,7 @@ OpenForum.showSearchMatches = function() {
 };
 
 OpenForum.showNextSearchMatch = function() {
+  if(!currentEditor.editor) return;
   if(OpenForum.currentSearch === null) return;
 
   OpenForum.clearSearch();
@@ -82,6 +114,7 @@ OpenForum.showNextSearchMatch = function() {
 };
 
 OpenForum.replaceLastMatch = function() {
+  if(!currentEditor.editor) return;
   if(OpenForum.currentSearch === null) return;
   if(OpenForum.currentSearch.replaceText === null) return;
 
@@ -90,6 +123,7 @@ OpenForum.replaceLastMatch = function() {
 };
 
 OpenForum.replaceAllMatches = function() {
+  if(!currentEditor.editor) return;
   if(OpenForum.currentSearch === null) return;
   if(OpenForum.currentSearch.replaceText === null) return;
 
@@ -115,6 +149,7 @@ OpenForum.clearSearch = function() {
 };
 
 OpenForum.scrollToLine = function(lineNumber) {
+  if(!currentEditor.editor) return;
   var top = document.getElementById(currentEditor.tabId).offsetTop;
   var height = document.getElementById(currentEditor.tabId).offsetHeight;
   var lines = currentEditor.editor.getCodeMirror().lastLine();

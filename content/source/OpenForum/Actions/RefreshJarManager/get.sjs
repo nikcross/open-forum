@@ -4,7 +4,7 @@ if(typeof(pageName)=="undefined")
 }
 else
 {
-  js.refreshJarManager();
+  js.refreshPluginManager();
 
   transaction.sendPage("OK");
 }

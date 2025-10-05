@@ -1,0 +1,7 @@
+<div class="row">
+!!ContrastBlock v0.0.1
+{{{ [{ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false"}] }}}
+[{ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false"}]
+\\
+[{ActionButton text="Add ContrastBlock Block type to Content Editor" action="addToContentEditor"}]
+</div>

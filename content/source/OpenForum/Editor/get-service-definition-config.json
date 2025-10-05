@@ -1,0 +1,45 @@
+{
+    "version": "0.0.0",
+    "method": "get",
+    "pageName": "/OpenForum/Editor",
+    "libraries": [
+        {
+            "name": "Attachments",
+            "fileName": "Attachments.sjs",
+            "pageName": "/OpenForum/Actions/Attachments"
+        },
+        {
+            "fileName": "Data.js",
+            "pageName": "/OpenForum/Javascript/Page"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "pageName",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "action",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "lastCheckTime",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "editor",
+            "type": "string",
+            "required": true
+        },
+        {
+            "name": "overrideEditor",
+            "type": "string",
+            "required": true
+        }
+    ],
+    "actions": [],
+    "configFile": "get-service-definition-config.json"
+}

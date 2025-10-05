@@ -1,0 +1,99 @@
+!!/OpenForum/AddOn/DataLogger/PageAccessMonitor Sevice API Version 0.0.5
+
+----
+!!Get Actions
+
+  <div class="panel callout radius">
+!!Action getPageAccessData
+(({{action.description}}))
+
+!!Parameters
+|Name|Description
+|site (''required=false'')|{{parameter.description}}
+|pageName (''required=false'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/DataLogger/PageAccessMonitor?action=getPageAccessData{{action.example.request}}+++</textarea>
+  
+[/OpenForum/AddOn/DataLogger/PageAccessMonitor?action=getPageAccessData+++{{action.example.request}}+++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action getSiteAccesData
+(({{action.description}}))
+
+!!Parameters
+|Name|Description
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/DataLogger/PageAccessMonitor?action=getSiteAccesData{{action.example.request}}+++</textarea>
+  
+[/OpenForum/AddOn/DataLogger/PageAccessMonitor?action=getSiteAccesData+++{{action.example.request}}+++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+
+----
+!!Post Actions
+
+  <div class="panel callout radius">
+!!Action logPageAccess
+(({{action.description}}))
+
+!!Parameters
+|Name|Description
+|site (''required=true'')|{{parameter.description}}
+|pages (''required=true'')|{{parameter.description}}
+
+       
+!!Example Post Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/DataLogger/PageAccessMonitor?action=logPageAccess+++</textarea>
+  
+[/OpenForum/AddOn/DataLogger/PageAccessMonitor?action=logPageAccess++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action logUserJourney
+(())
+
+!!Parameters
+|Name|Description
+|currentPage (''required=false'')|{{parameter.description}}
+|referrer (''required=false'')|{{parameter.description}}
+|userAgent (''required=false'')|{{parameter.description}}
+
+       
+!!Example Post Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/DataLogger/PageAccessMonitor?action=logUserJourney+++</textarea>
+  
+[/OpenForum/AddOn/DataLogger/PageAccessMonitor?action=logUserJourney++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>

@@ -17,11 +17,11 @@
       var time = "1463495469000";
       var currentUser = "";
       var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
-      JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+      JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response.data;  } ).go();
       JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
         function (response) {
-          if(response.profile.avatar) {
-            avatar = "<img src='" + response.profile.avatar + "' style='width: 24px; height: 24px;' />";
+          if(response.data.avatar) {
+            avatar = "<img src='" + response.data.avatar + "' style='width: 24px; height: 24px;' />";
           }
         }
       ).go();

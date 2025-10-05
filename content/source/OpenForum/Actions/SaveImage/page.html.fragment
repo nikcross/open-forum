@@ -1,4 +1,5 @@
-<a href="//OpenForum/Actions/SaveImage/save-canvas.js">//OpenForum/Actions/SaveImage/save-canvas.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/SaveImage&fileName=save-canvas.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">function saveCanvas(pageName,fileName,canvas) {
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Extension InsertSourceFile fileName="save-canvas.js" --><a href="//OpenForum/Actions/SaveImage/save-canvas.js">//OpenForum/Actions/SaveImage/save-canvas.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/SaveImage&fileName=save-canvas.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">function saveCanvas(pageName,fileName,canvas) {
 	var data = canvas.toDataURL();
       data = data.substring(22);
 
@@ -8,9 +9,9 @@
       post.addItem("pageName",pageName);
   
       JSON.post("/OpenForum/Actions/SaveImage","save",post.getData()).go();
-}</xmp>
+}</xmp><!--End Extension InsertSourceFile fileName="save-canvas.js" -->
 
-<a href="//OpenForum/Actions/SaveImage/post.sjs">//OpenForum/Actions/SaveImage/post.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/SaveImage&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Take base64 image and convert to image file
+<!--Extension InsertSourceFile fileName="post.sjs" --><a href="//OpenForum/Actions/SaveImage/post.sjs">//OpenForum/Actions/SaveImage/post.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/SaveImage&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Take base64 image and convert to image file
 
 dec = Packages.javax.xml.bind.DatatypeConverter;
 
@@ -25,5 +26,4 @@ outStream.close();
 
 var result = {result: "ok", message: "Saved "+pageName+"/"+fileName};
 
-transaction.sendPage( JSON.stringify(result) );</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+transaction.sendPage( JSON.stringify(result) );</xmp><!--End Extension InsertSourceFile fileName="post.sjs" -->

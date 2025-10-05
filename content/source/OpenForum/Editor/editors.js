@@ -27,17 +27,6 @@ function findEditor(editorName) {
   return;
 }
 
-/*
-function findEditorIndex(editorName) {
-  for(var ei in editorList) {
-    if(editorList[ei].name===editorName) {
-      return ei;
-    }
-  }
-  return -1;
-}
-*/
-
 function closeEditor(editorId) {
   var editor = findEditorById(editorId);
 
@@ -46,12 +35,17 @@ function closeEditor(editorId) {
   var tab = document.getElementById("editor-tab-"+editor.id);
   tab.parentNode.removeChild(tab);
 
-  var attachmentId = editor.attachment.id;
-  attachments[attachmentId].action = "openAttachment";
-  attachments[attachmentId].actionName = "Edit";
-  attachments[attachmentId].actionIcon = "page_edit";
-  attachments[attachmentId].icon = "tag_blue";
-  attachments[attachmentId].editor = null;
+  if(editor.attachment) {
+    var attachmentId = editor.attachment.id;
+    attachments[attachmentId].action = "openAttachment";
+    attachments[attachmentId].actionName = "Edit";
+    attachments[attachmentId].actionIcon = "page_edit";
+    attachments[attachmentId].icon = "tag_blue";
+    attachments[attachmentId].editor = null;
+  }
+  if(editor.plugin && editor.plugin.close) {
+    editor.plugin.close();
+  }
   
   for(var ei in editorList) {
     if(editorList[ei]===editor) {
@@ -63,7 +57,22 @@ function closeEditor(editorId) {
   showTab(0);
 }
 
-function addEditor(pageName,fileName,flavour) { 
+function displayContentTab(newPageName,fileName,title) {
+  var editor = addEditor(newPageName,fileName,"content",title);
+  showTab( editor.id );
+}
+
+function addEditor(newPageName,fileName,flavour,tabName) { 
+  
+  if(!fileName) {
+    fileName = newPageName.substring( newPageName.lastIndexOf("/")+1 );
+    newPageName = newPageName.substring( 0, newPageName.lastIndexOf("/") );
+  }
+  
+  if(!flavour) {
+    flavour = getFlavour( fileName );
+  }
+  
   editorIndex++;
   var tabId = "editor"+editorIndex;
   var editorDiv = document.createElement("div");
@@ -74,27 +83,40 @@ function addEditor(pageName,fileName,flavour) {
   var isScrap = fileName.startsWith("scrap.");
   var editorObj = null;
   if(flavour=="javascript") {
-    editorObj = new JavascriptEditor(editorIndex,pageName,fileName,isScrap);
+    editorObj = new JavascriptEditor(editorIndex,newPageName,fileName,!isScrap);
   } else if(flavour=="css") {
-    editorObj = new CSSEditor(editorIndex,pageName,fileName);
+    editorObj = new CSSEditor(editorIndex,newPageName,fileName,!isScrap);
   } else if(flavour=="xml") {
-    editorObj = new XMLEditor(editorIndex,pageName,fileName);
-  }else if(flavour=="html") {
-    editorObj = new HTMLEditor(editorIndex,pageName,fileName);
+    editorObj = new XMLEditor(editorIndex,newPageName,fileName,!isScrap);
+  } else if(flavour=="html") {
+    editorObj = new HTMLEditor(editorIndex,newPageName,fileName,!isScrap);
+  } else if(flavour=="sql") {
+    editorObj = new SQLEditor(editorIndex,newPageName,fileName,!isScrap);
+  } else if(flavour=="python") {
+    editorObj = new PythonEditor(editorIndex,newPageName,fileName,!isScrap);
+  } else if(flavour=="content") {
+    editorObj = new ContentView(editorIndex,newPageName,fileName,!isScrap);
   } else {
-    editorObj = new DefaultEditor(editorIndex,pageName,fileName);
+    editorObj = new DefaultEditor(editorIndex,newPageName,fileName,!isScrap);
   }
 
+  var newName = fileName;
+  if( isUndefined(tabName) == false ) {
+    newName = tabName;
+  } else if(newPageName != pageName) {
+    newName = newPageName + "/" + fileName;
+  }
+  
   OpenForum.addTab(tabId);
   var fileCount = 0;
   for(var e in editorList) {
-    if(editorList[e].name === fileName) {
+    if(editorList[e].name === newName) {
       fileCount++;
     }
   }
-  var name = fileName;
+  
   if(fileCount>0) {
-    name = fileName + "[" + fileCount + "]";
+    newName = newName + "[" + fileCount + "]";
   }
 
   var options = "";
@@ -102,7 +124,7 @@ function addEditor(pageName,fileName,flavour) {
     options = editorObj.renderOptions();
   }
 
-  var editor = {id: editorIndex, tabId: tabId, editor: editorObj, pageName: pageName, fileName: fileName, name: name, title: pageName+"/"+fileName, flavour: flavour, changed: " ", options: options };
+  var editor = {id: editorIndex, tabId: tabId, editor: editorObj, pageName: newPageName, fileName: fileName, name: newName, title: pageName+"/"+fileName, flavour: flavour, changed: " ", options: options };
   editorList.push( editor );
 
   return editor;

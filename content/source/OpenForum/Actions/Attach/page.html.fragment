@@ -1,16 +1,21 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> 
 
 <hr/>
 <h3>Server Side Javascript for POST method</h3>
-<a href="//OpenForum/Actions/Attach/post.sjs">//OpenForum/Actions/Attach/post.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Attach&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">xmlHeader = transaction.getPostFileData();
-fileName = transaction.getPostParameter("fileName");
-pageName = transaction.getParameter("page");
+<!--Extension InsertSourceFile fileName="post.sjs" --><a href="//OpenForum/Actions/Attach/post.sjs">//OpenForum/Actions/Attach/post.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Attach&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">try{
+  xmlHeader = transaction.getPostFileData();
+  fileName = transaction.getPostParameter("fileName");
+  pageName = transaction.getParameter("page");
 
-transaction.userCanPerformAction(pageName,"update",true); 
-transaction.confirmPostAttachment(xmlHeader);
+  transaction.userCanPerformAction(pageName,"update",true); 
+  transaction.confirmPostAttachment(xmlHeader);
 
-user = transaction.getUser();		
-wiki.addJournalEntry("File ["+pageName+"/"+fileName+"] added to Page ["+pageName+"] by "+user);
-page = wiki.buildPage(pageName);
-transaction.goToPage(pageName);</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+  user = transaction.getUser();		
+  wiki.addJournalEntry("File <a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Attach/"+pageName+"/"+fileName+""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/Attach/"+pageName+"/"+fileName+" does not exist. Click to create it.">"+pageName+"/"+fileName+"</a> added to Page <a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Attach/"+pageName+""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/Attach/"+pageName+" does not exist. Click to create it.">"+pageName+"</a> by "+user);
+  page = wiki.buildPage(pageName);
+  //transaction.goToPage(pageName);
+  transaction.sendJSON( JSON.stringify({result: "ok",message: "Uploaded: "+fileName}));
+} catch(e) {
+    transaction.sendJSON( JSON.stringify({result: "error",message: "Error: "+e}));
+}</xmp><!--End Extension InsertSourceFile fileName="post.sjs" -->

@@ -1,4 +1,6 @@
 {
-    "pageName": "//OpenForum/Editor/Editors/XMLEditor",
-    "title": " XMLEditor"
+    "pageName": "/OpenForum/Editor/Editors/XMLEditor",
+    "title": "XMLEditor",
+    "pageParent": "https://open-forum.onestonesoup.org",
+    "editorConfig": "/OpenForum/Editor/Editors/XMLEditor/editor-config.json"
 }

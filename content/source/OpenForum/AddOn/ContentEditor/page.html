@@ -1,0 +1,138 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ContentEditor</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+    <script type="text/javascript" src="/OpenForum/AddOn/ContentEditor/page.js"></script>
+
+    <script>
+      var pageName = "/OpenForum/AddOn/ContentEditor";
+      var author = "unknown";
+      var time = "1759488691720";
+      var currentUser = "";
+      JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response.data;  } ).go();
+    </script>
+
+  </head>
+  <body>
+    <div class="off-canvas-wrap docs-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+          </section>
+
+          <section class="right tab-bar-section">
+            <h1 class="title">Content Editor</h1>
+          </section>
+
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label>Currently ediiting {{pageData.title}}</label></li>
+            <li><!--Extension ActionButton action="save" text="Save" --><a  class='button radius tiny' href='#' onclick='save(); return false;'>Save</a> <!--End Extension ActionButton action="save" text="Save" --></li>
+            <li><!--Extension ActionButton action="publishPage" text="Publish" --><a  class='button radius tiny' href='#' onclick='publishPage(); return false;'>Publish</a> <!--End Extension ActionButton action="publishPage" text="Publish" --></li>
+            <li><!--Extension ActionButton action="preview" text="Preivew" --><a  class='button radius tiny' href='#' onclick='preview(); return false;'>Preivew</a> <!--End Extension ActionButton action="preview" text="Preivew" --></li>
+            <li><!--Extension ActionButton action="showPageTree" text="Page Structure" --><a  class='button radius tiny' href='#' onclick='showPageTree(); return false;'>Page Structure</a> <!--End Extension ActionButton action="showPageTree" text="Page Structure" --></li>
+            <li><label>Pages</label></li>
+            <li><ul>
+              <li of-repeatFor="page in pagesList"> <a href="#" onClick="editPage('{{page.pageName}}'); return false;" title="Edit page">{{page.title}}</a> </li>
+            </ul></li>
+            <li><!--Extension ActionButton action="createNewPage" text="Create A New Page" --><a  class='button radius tiny' href='#' onclick='createNewPage(); return false;'>Create A New Page</a> <!--End Extension ActionButton action="createNewPage" text="Create A New Page" --></li>
+            <li><label>Images</label></li>
+            <li><!--Extension ActionButton action="selectImage" text="Select Image" --><a  class='button radius tiny' href='#' onclick='selectImage(); return false;'>Select Image</a> <!--End Extension ActionButton action="selectImage" text="Select Image" --></li>
+            <li><label>Advanced</label></li>
+			<li><a class="button tiny radius" href="/OpenForum/AddOn/ContentEditor/PageConverter" target="converer">Convert Pages to Content Pages</a><li/>
+            <li><!--Extension ActionButton action="openAdvancedEditor" text="Open Advanced Editor" --><a  class='button radius tiny' href='#' onclick='openAdvancedEditor(); return false;'>Open Advanced Editor</a> <!--End Extension ActionButton action="openAdvancedEditor" text="Open Advanced Editor" --></li>
+          </ul>
+        </aside>
+
+      <section class="main-section">
+        <div id="applicationView" style="overflow: scroll;">
+          <!--PageContent Start-->
+
+<div style="border: solid 1px; height: 100%; background-color: #000000; padding: 20px !important;">
+  <br/>
+  <div id="pageEditor">
+  </div>
+  <br/>
+  <br/>
+  <br/>
+</div>
+
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Page Content End-->
+        </div>
+      </section>
+
+      <a class="exit-off-canvas"></a>
+
+    </div>
+    </div>
+
+  <div id="ImageSelectModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+    <div class="panel">
+      <h3>Images</h3>
+      <div style="width: 240px;">
+        <label>Category</label> <!--Extension ListField name="imageCategory" list="imageCategories" action="updateImages" --><input type='text' list='dataList_imageCategories0472669517039880361759488692597' name='imageCategoryInput' id='imageCategoryField'  of-id='imageCategory' value='' onChange='updateImages(); return false;' ondblclick='imageCategory=OpenForum.BLANK;' title='Double click to clear'/><datalist id='dataList_imageCategories0472669517039880361759488692597'>
+<option of-repeatFor='optionValue in imageCategories'>{{optionValue}}</option>
+</datalist><!--End Extension ListField name="imageCategory" list="imageCategories" action="updateImages" -->
+      </div>
+      <div style="width: 240px; height: 500px; overflow: scroll; direction: rtl;">
+        <div of-repeatFor="image in images">
+          <img style="width: 200px; height: auto; border: solid 2px black; margin: 2px;" src="{{image.url}}" title="{{image.title}}: {{image.description}}" alt="{{image.title}}"/><br/>
+        </div>
+      </div>
+      <a href="/OpenForum/AddOn/ImageProcessor" class="button tiny radius" target="imageProcessor">Categorise Images</a>
+    </div>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+    
+      <div id="PageTreeModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+    <div class="panel">
+      <div id="pageTree"></div>
+    </div>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+
+  <div id="BlockSelectModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+    <h2>Select a block type</h2>
+    <table>
+      <tr of-repeatFor="blockEditor in blockEditors">
+        <td><a class="button radius tiny" style="width: 100%" href="#" onClick="completeAddBlock( '{{blockEditor.className}}' );">Add {{blockEditor.name}}</a></td><td>{{blockEditor.description}}</td>
+      </tr>
+    </table>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+
+  <div id="NewPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+    <h2>Enter the new page title</h2>
+    <div>
+      Page Title: <input of-id="newPageTitle" value="{{newPageTitle}}"/>
+    </div>
+    <div style="width: 240px;">
+      <label>Category</label> <!--Extension ListField name="newPageCategory" list="pageCategories" action="updatePageCategories" --><input type='text' list='dataList_pageCategories028664920686415211759488692597' name='newPageCategoryInput' id='newPageCategoryField'  of-id='newPageCategory' value='' onChange='updatePageCategories(); return false;' ondblclick='newPageCategory=OpenForum.BLANK;' title='Double click to clear'/><datalist id='dataList_pageCategories028664920686415211759488692597'>
+<option of-repeatFor='optionValue in pageCategories'>{{optionValue}}</option>
+</datalist><!--End Extension ListField name="newPageCategory" list="pageCategories" action="updatePageCategories" -->
+    </div>
+    <div>
+      Page File Name: {{newPageFileName}}
+    </div>
+    <div>
+      <!--Extension ActionButton text="Create New Page" action="completeCreateNewPage" --><a  class='button radius tiny' href='#' onclick='completeCreateNewPage(); return false;'>Create New Page</a> <!--End Extension ActionButton text="Create New Page" action="completeCreateNewPage" -->
+    </div>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+
+  <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+  <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+  </body>
+</html>

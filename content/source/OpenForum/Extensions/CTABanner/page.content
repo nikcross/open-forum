@@ -1,0 +1,7 @@
+<div class="row">
+!!CTABanner v0.0.3
+{{{ [{CTABanner imageURL="/OpenForum/Images/open-forum-dog-small.png" title="Call To Action" text="A description of the CTA" ctaText="Click Me" ctaURL="http://www.bbc.co.uk"}] }}}
+[{CTABanner imageURL="/OpenForum/Images/open-forum-dog-small.png" title="Call To Action" text="A description of the CTA" ctaText="Click Me" ctaURL="http://www.bbc.co.uk"}]
+\\
+[{ActionButton text="Add CTABanner Block type to Content Editor" action="addToContentEditor"}]
+</div>

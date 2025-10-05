@@ -1,11 +1,12 @@
-<h3>&title;</h3>
-<xmp class="panel">
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>DisplayCard</h3>
+<xmp class="panel" of-exclude="true">
 Add this line to page javascript:
 OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
 </xmp>
 
 <div class="row">
-  <div class="medium-6 columns end">
+  <!--Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" --><div class="medium-6 columns end">
   <div class="card">
     <div class="content">
       <span class="title">Title</span>
@@ -15,8 +16,8 @@ OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
       <a href='#'>Link</a>
     </div>
   </div>
-</div>&nbsp;&nbsp;
-  <div class="medium-6 columns end">
+</div><!--End Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" -->&nbsp;&nbsp;
+  <!--Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" --><div class="medium-6 columns end">
   <div class="card">
     <div class="content">
       <span class="title">Title</span>
@@ -26,8 +27,8 @@ OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
       <a href='#'>Link</a>
     </div>
   </div>
-</div>&nbsp;&nbsp;
-  <div class="medium-6 columns end">
+</div><!--End Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" -->&nbsp;&nbsp;
+  <!--Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" --><div class="medium-6 columns end">
   <div class="card">
     <div class="content">
       <span class="title">Title</span>
@@ -37,18 +38,28 @@ OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
       <a href='#'>Link</a>
     </div>
   </div>
-</div>
+</div><!--End Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" -->
 </div>
 <div class="row">
-  <xmp class="panel">
-  [{DisplayCard linkURL="#" linkText="Link" title="Title" description="Description"}]
+  <xmp class="panel" of-exclude="true">
+  <!--Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" --><div class="medium-6 columns end">
+  <div class="card">
+    <div class="content">
+      <span class="title">Title</span>
+      <p>Description</p>
+    </div>
+    <div class="action">
+      <a href='#'>Link</a>
+    </div>
+  </div>
+</div><!--End Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" -->
   </xmp>
 </div>
 
 <hr/>
 
 <div class="row">
-  <div class="medium-4 columns">
+  <!--Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg" --><div class="medium-4 columns">
   <div class="card">
     <div class="image">
       <img src="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg">
@@ -61,8 +72,8 @@ OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
       <a href='#'>Link</a>
     </div>
   </div>
-</div>
-  <div class="medium-4 columns">
+</div><!--End Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg" -->
+  <!--Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg" --><div class="medium-4 columns">
   <div class="card">
     <div class="image">
       <img src="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg">
@@ -75,8 +86,8 @@ OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
       <a href='#'>Link</a>
     </div>
   </div>
-</div>
-  <div class="medium-4 columns">
+</div><!--End Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg" -->
+  <!--Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg" --><div class="medium-4 columns">
   <div class="card">
     <div class="image">
       <img src="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg">
@@ -89,12 +100,22 @@ OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
       <a href='#'>Link</a>
     </div>
   </div>
-</div>
+</div><!--End Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg" -->
 </div>
 <div class="row">
-  <xmp class="panel">
-  [{DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" 
-  imageURL="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg"}]
+  <xmp class="panel" of-exclude="true">
+  <!--Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" 
+  imageURL="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg" --><div class="medium-6 columns end">
+  <div class="card">
+    <div class="content">
+      <span class="title">Title</span>
+      <p>Description</p>
+    </div>
+    <div class="action">
+      <a href='#'>Link</a>
+    </div>
+  </div>
+</div><!--End Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" 
+  imageURL="http://static.pexels.com/wp-content/uploads/2014/07/alone-clouds-hills-1909-527x350.jpg" -->
   </xmp>
 </div>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

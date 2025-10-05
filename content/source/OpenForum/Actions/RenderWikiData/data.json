@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/RenderWikiData",
-    "title": " Render Wiki Data"
+    "pageName": "/OpenForum/Actions/RenderWikiData",
+    "title": "RenderWikiData",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

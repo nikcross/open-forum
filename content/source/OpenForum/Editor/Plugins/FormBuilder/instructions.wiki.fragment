@@ -1,0 +1,59 @@
+!!Instructions
+((
+Form Builder helps you build quick and simple forms that are integrated with Open Forum. This means form fields are automatically made available as Javascript variables
+and are automatically updated on the page when changed in a script.
+))
+((
+Each row in the form definition on the right relates to a single input field. In its simplest form, the first words in the row are the fields label, with the last field being its variable name.
+A blank row will start a new row in the form.
+Each row has its own type. The default type in a text input field, but other types are available by starting the row with a type name followed by a colon.
+))
+----
+!!Example
+
+[{ScriptClip fileName="example.txt"}]
+
+----
+!!Types
+
+__Input:__
+((This is the default type. You do not need to prefix the row with Input:))
+
+__Text:__
+((This will provide a text box for multiline input))
+
+__Wysiwyg:__
+((This will provide a text box for styled text))
+
+__Checkbox:__
+((This will provide a checkbox that will have a value of true or false depending on whether it is checked))
+
+__List:__
+((Provides a list of values that can be used in a select input))
+
+__Select:__
+((This will provide a select box that can be populated with options from a List))
+
+__Table:__
+((This will include an edtiable table with defined column names))
+
+__View:__
+((This will display a variables value in the form))
+
+__Note:__
+((This is for adding a comment in the form definition. It does not appear in the produced form))
+
+__Form Name:__
+((This sets the name of the form for use in code. It should only be set once.))
+
+__Message:__
+((This will display the given message text in the form))
+
+__Title:__
+((This will display the given title in the form))
+
+__Calculation:__
+((In Form Builder we have added the ability to perform in page calculations so small applications can be preformed with any need to create code elsewhere))
+
+__Action:__
+((Adds a button that calls a function))

@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/ViewFolder",
-    "title": " View Folder"
+    "pageName": "/OpenForum/Actions/ViewFolder",
+    "title": "ViewFolder",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

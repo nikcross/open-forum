@@ -1,0 +1,238 @@
+Publishing /Development/OpenForum/AddOn/ContentEditor on Mon Aug 30 2021 10:03:29 GMT-0000 (GMT) practice:false
+Using Publisher version 1.018
+
+Loaded publish config /Development/OpenForum/AddOn/ContentEditor/publish-config.json.
+
+Copying page /Development/OpenForum/AddOn/ContentEditor to page /OpenForum/AddOn/ContentEditor
+Copy Log:
+ /Development/OpenForum/AddOn/ContentEditor/WYSIWYG.block-definition.json->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/page.content->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/pageTitle-block-editor.js->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/data.json->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/get-service-definition-config.json->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/text-block-editor.js->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/ContentEditorClient.js->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/get.sjs->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/page.js->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/twoColumn-block-editor.js->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/page.html.template->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/install.sjs->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/page.html.fragment->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/page-block-editor.js->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/page.html->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/pages-list.json->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/WYSIWYG-block-editor.js->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/publish-config.json->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/page-block-list.json->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/twoColumn.block-definition.json->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/service-definition-config.json->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/release-notes.html.fragment->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/ContentEditor.sjs->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/page.block-definition.json->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/pageTitle.block-definition.json->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/text.block-definition.json->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/access.json->/OpenForum/AddOn/ContentEditor(OK)
+/Development/OpenForum/AddOn/ContentEditor/process-deletions.sjs->/OpenForum/AddOn/ContentEditor(OK)undefined
+/Development/OpenForum/AddOn/ContentEditor/PageConverter/page.js->/OpenForum/AddOn/ContentEditor/PageConverter(OK)
+/Development/OpenForum/AddOn/ContentEditor/PageConverter/page.content->/OpenForum/AddOn/ContentEditor/PageConverter(OK)
+/Development/OpenForum/AddOn/ContentEditor/PageConverter/page.html.fragment->/OpenForum/AddOn/ContentEditor/PageConverter(OK)
+/Development/OpenForum/AddOn/ContentEditor/PageConverter/data.json->/OpenForum/AddOn/ContentEditor/PageConverter(OK)
+/Development/OpenForum/AddOn/ContentEditor/PageConverter/page.html->/OpenForum/AddOn/ContentEditor/PageConverter(OK)
+
+Copied page /Development/OpenForum/AddOn/ContentEditor to page /OpenForum/AddOn/ContentEditor
+Page template defined in page and not changed
+=== Check Attachments ===
+Move and check /Development/OpenForum/AddOn/ContentEditor/WYSIWYG.block-definition.json
+Move and check /Development/OpenForum/AddOn/ContentEditor/page.content
+Move and check /Development/OpenForum/AddOn/ContentEditor/pageTitle-block-editor.js
+Move and check /Development/OpenForum/AddOn/ContentEditor/data.json
+Move and check /Development/OpenForum/AddOn/ContentEditor/get-service-definition-config.json
+Move and check /Development/OpenForum/AddOn/ContentEditor/text-block-editor.js
+Move and check /Development/OpenForum/AddOn/ContentEditor/ContentEditorClient.js
+Move and check /Development/OpenForum/AddOn/ContentEditor/get.sjs
+Move and check /Development/OpenForum/AddOn/ContentEditor/page.js
+Move and check /Development/OpenForum/AddOn/ContentEditor/twoColumn-block-editor.js
+Move and check /Development/OpenForum/AddOn/ContentEditor/page.html.template
+Move and check /Development/OpenForum/AddOn/ContentEditor/install.sjs
+Move /Development/OpenForum/AddOn/ContentEditor/page.html.fragment
+Move and check /Development/OpenForum/AddOn/ContentEditor/page-block-editor.js
+Move /Development/OpenForum/AddOn/ContentEditor/page.html
+Move /Development/OpenForum/AddOn/ContentEditor/pages-list.json
+Move and check /Development/OpenForum/AddOn/ContentEditor/WYSIWYG-block-editor.js
+Move /Development/OpenForum/AddOn/ContentEditor/publish-config.json
+Move and check /Development/OpenForum/AddOn/ContentEditor/page-block-list.json
+Move and check /Development/OpenForum/AddOn/ContentEditor/twoColumn.block-definition.json
+Move and check /Development/OpenForum/AddOn/ContentEditor/service-definition-config.json
+Move /Development/OpenForum/AddOn/ContentEditor/release-notes.html.fragment
+Move and check /Development/OpenForum/AddOn/ContentEditor/ContentEditor.sjs
+Move and check /Development/OpenForum/AddOn/ContentEditor/page.block-definition.json
+Move and check /Development/OpenForum/AddOn/ContentEditor/pageTitle.block-definition.json
+Move and check /Development/OpenForum/AddOn/ContentEditor/text.block-definition.json
+Move and check /Development/OpenForum/AddOn/ContentEditor/access.json
+Move and check /Development/OpenForum/AddOn/ContentEditor/process-deletions.sjs
+
+
+
+==== Deletions Check ====
+Deletion. page.html.fragment no longer required. It has been added to the deletetion script /Development/OpenForum/AddOn/ContentEditor/process-deletions.sjs
+Deletion. ContentEditor.wiki.zip no longer required. It has been added to the deletetion script /Development/OpenForum/AddOn/ContentEditor/process-deletions.sjs
+Deletion. page.html no longer required. It has been added to the deletetion script /Development/OpenForum/AddOn/ContentEditor/process-deletions.sjs
+Deletion. pages-list.json no longer required. It has been added to the deletetion script /Development/OpenForum/AddOn/ContentEditor/process-deletions.sjs
+Deletion. publish-config.json no longer required. It has been added to the deletetion script /Development/OpenForum/AddOn/ContentEditor/process-deletions.sjs
+Deletion. release-notes.html.fragment no longer required. It has been added to the deletetion script /Development/OpenForum/AddOn/ContentEditor/process-deletions.sjs
+Deletion. release-info.json no longer required. It has been added to the deletetion script /Development/OpenForum/AddOn/ContentEditor/process-deletions.sjs
+
+==== Publishing Actions ====
+Looking for transform script for /OpenForum/AddOn/ContentEditorRemoved Development/ references in /OpenForum/AddOn/ContentEditor/WYSIWYG.block-definition.json
+	Line 6
+	    "pageName": "/Development/OpenForum/AddOn/ContentEditor", 
+Looking for transform script for /OpenForum/AddOn/ContentEditorLooking for transform script for /OpenForum/AddOn/ContentEditorLooking for transform script for /OpenForum/AddOn/ContentEditorLooking for transform script for /OpenForum/AddOn/ContentEditorLooking for transform script for /OpenForum/AddOn/ContentEditorRemoved Development/ references in /OpenForum/AddOn/ContentEditor/get-service-definition-config.json
+	Line 8
+	            "pageName": "/Development/OpenForum/AddOn/ContentEditor"
+	Line 63
+	    "pageName": "/Development/OpenForum/AddOn/ContentEditor"
+Looking for transform script for /OpenForum/AddOn/ContentEditorRemoved Development/ references in /OpenForum/AddOn/ContentEditor/ContentEditorClient.js
+	Line 4
+	* Built to pageName:/Development/OpenForum/AddOn/ContentEditor fileName:ContentEditorClient.js
+	Line 5
+	* Example include script: OpenForum.includeScript("/Development/OpenForum/AddOn/ContentEditor/ContentEditorClient.js");
+	Line 15
+	      OFX.get( host+'/Development/OpenForum/AddOn/ContentEditor' )
+	Line 23
+	      OFX.get( host+'/Development/OpenForum/AddOn/ContentEditor' )
+	Line 31
+	      OFX.get( host+'/Development/OpenForum/AddOn/ContentEditor' )
+	Line 39
+	      OFX.get( host+'/Development/OpenForum/AddOn/ContentEditor' )
+Looking for transform script for /OpenForum/AddOn/ContentEditorRemoved Development/ references in /OpenForum/AddOn/ContentEditor/get.sjs
+	Line 4
+	* Built to pageName:/Development/OpenForum/AddOn/ContentEditor fileName:get.sjs
+	Line 21
+	    var ContentEditor = js.getObject("/Development/OpenForum/AddOn/ContentEditor","ContentEditor.sjs");
+Looking for transform script for /OpenForum/AddOn/ContentEditorRemoved Development/ references in /OpenForum/AddOn/ContentEditor/page.js
+	Line 4
+	OpenForum.includeScript("/Development/OpenForum/AddOn/ContentEditor/ContentEditorClient.js");
+	Line 106
+	  OpenForum.loadJSON( "/Development/OpenForum/AddOn/ContentEditor/"+name+".block-definition.json",
+	Line 243
+	  saveData.editor = "/Development/OpenForum/AddOn/ContentEditor";
+Looking for transform script for /OpenForum/AddOn/ContentEditorLooking for transform script for /OpenForum/AddOn/ContentEditorRemoved Development/ references in /OpenForum/AddOn/ContentEditor/page.html.template
+	Line 9
+	    <script type="text/javascript" src="/Development/OpenForum/AddOn/ContentEditor/page.js?ts=&time;"></script>
+Excluding page.html.fragment as is in excluded file list.
+Looking for transform script for /OpenForum/AddOn/ContentEditorLooking for transform script for /OpenForum/AddOn/ContentEditorRemoved Development/ references in /OpenForum/AddOn/ContentEditor/install.sjs
+	Line 0
+	if( file.attachmentExists( "/Development/OpenForum/AddOn/ContentEditor", "pages-list.json" ) == false ) {
+	Line 1
+	  file.saveAttachment( "/Development/OpenForum/AddOn/ContentEditor", "pages-list.json" );
+Looking for transform script for /OpenForum/AddOn/ContentEditorExcluding page.html as is in excluded file list.
+Excluding pages-list.json as is in excluded file list.
+Looking for transform script for /OpenForum/AddOn/ContentEditorLooking for transform script for /OpenForum/AddOn/ContentEditorExcluding publish-config.json as is in excluded file list.
+Looking for transform script for /OpenForum/AddOn/ContentEditorLooking for transform script for /OpenForum/AddOn/ContentEditorRemoved Development/ references in /OpenForum/AddOn/ContentEditor/service-definition-config.json
+	Line 2
+	    "pageName": "/Development/OpenForum/AddOn/ContentEditor",
+Excluding release-notes.html.fragment as is in excluded file list.
+Looking for transform script for /OpenForum/AddOn/ContentEditorLooking for transform script for /OpenForum/AddOn/ContentEditorRemoved Development/ references in /OpenForum/AddOn/ContentEditor/ContentEditor.sjs
+	Line 3
+	* Built to pageName:/Development/OpenForum/AddOn/ContentEditor fileName:ContentEditor.sjs
+	Line 4
+	* Example include script: var ContentEditor = js.getObject("/Development/OpenForum/AddOn/ContentEditor","ContentEditor.sjs");
+	Line 19
+	    file.saveAttachment( "/Development/OpenForum/AddOn/ContentEditor","pages-list.json", JSON.stringify(pagesList,null,4) );
+	Line 22
+	  /* Used in service /Development/OpenForum/AddOn/ContentEditor getPages */
+	Line 25
+	    var result = JSON.parse( "" + file.getAttachment("/Development/OpenForum/AddOn/ContentEditor","pages-list.json") );
+	Line 29
+	  /* Used in service /Development/OpenForum/AddOn/ContentEditor getBlockEditors */
+	Line 32
+	    var result = JSON.parse( "" + file.getAttachment("/Development/OpenForum/AddOn/ContentEditor","page-block-list.json") );
+	Line 36
+	  /* Used in service /Development/OpenForum/AddOn/ContentEditor convertPage */
+	Line 55
+	    data.editor = "/Development/OpenForum/AddOn/ContentEditor";
+	Line 62
+	/* Used in service /Development/OpenForum/AddOn/ContentEditor convertHTMLPage */
+	Line 82
+	    data.editor = "/Development/OpenForum/AddOn/ContentEditor";
+Looking for transform script for /OpenForum/AddOn/ContentEditorRemoved Development/ references in /OpenForum/AddOn/ContentEditor/page.block-definition.json
+	Line 8
+	    "pageName": "/Development/OpenForum/AddOn/ContentEditor", 
+Looking for transform script for /OpenForum/AddOn/ContentEditorRemoved Development/ references in /OpenForum/AddOn/ContentEditor/pageTitle.block-definition.json
+	Line 6
+	    "pageName": "/Development/OpenForum/AddOn/ContentEditor", 
+Looking for transform script for /OpenForum/AddOn/ContentEditorRemoved Development/ references in /OpenForum/AddOn/ContentEditor/text.block-definition.json
+	Line 6
+	    "pageName": "/Development/OpenForum/AddOn/ContentEditor", 
+Looking for transform script for /OpenForum/AddOn/ContentEditorLooking for transform script for /OpenForum/AddOn/ContentEditor
+
+
+==== Services Check ====
+Service call(s) in /Development/OpenForum/AddOn/ContentEditor/WYSIWYG.block-definition.json
+Service call(s) in /Development/OpenForum/AddOn/ContentEditor/get-service-definition-config.json
+Service call(s) in /Development/OpenForum/AddOn/ContentEditor/ContentEditorClient.js
+Service call(s) in /Development/OpenForum/AddOn/ContentEditor/get.sjs
+Service call(s) in /Development/OpenForum/AddOn/ContentEditor/page.js
+Service call(s) in /Development/OpenForum/AddOn/ContentEditor/page.html.template
+Service call(s) in /Development/OpenForum/AddOn/ContentEditor/install.sjs
+Service call(s) in /Development/OpenForum/AddOn/ContentEditor/service-definition-config.json
+Service call(s) in /Development/OpenForum/AddOn/ContentEditor/ContentEditor.sjs
+Service call(s) in /Development/OpenForum/AddOn/ContentEditor/page.block-definition.json
+Service call(s) in /Development/OpenForum/AddOn/ContentEditor/pageTitle.block-definition.json
+Service call(s) in /Development/OpenForum/AddOn/ContentEditor/text.block-definition.json
+No Service Dependencys Found
+
+
+=== Check For ToDo Comments ===
+
+
+
+
+Publishing sub page /Development/OpenForum/AddOn/ContentEditor/PageConverter
+Publishing /Development/OpenForum/AddOn/ContentEditor/PageConverter on Mon Aug 30 2021 10:03:30 GMT-0000 (GMT) practice:false
+Using Publisher version 1.018
+
+No publish config /Development/OpenForum/AddOn/ContentEditor/PageConverter/publish-config.json found for page.
+
+Copying page /Development/OpenForum/AddOn/ContentEditor/PageConverter to page /OpenForum/AddOn/ContentEditor/PageConverter
+Copy Log:
+ /Development/OpenForum/AddOn/ContentEditor/PageConverter/page.js->/OpenForum/AddOn/ContentEditor/PageConverter(OK)
+/Development/OpenForum/AddOn/ContentEditor/PageConverter/page.content->/OpenForum/AddOn/ContentEditor/PageConverter(OK)
+/Development/OpenForum/AddOn/ContentEditor/PageConverter/page.html.fragment->/OpenForum/AddOn/ContentEditor/PageConverter(OK)
+/Development/OpenForum/AddOn/ContentEditor/PageConverter/data.json->/OpenForum/AddOn/ContentEditor/PageConverter(OK)
+/Development/OpenForum/AddOn/ContentEditor/PageConverter/page.html->/OpenForum/AddOn/ContentEditor/PageConverter(OK)
+
+Copied page /Development/OpenForum/AddOn/ContentEditor/PageConverter to page /OpenForum/AddOn/ContentEditor/PageConverter
+Page template defined in page and not changed
+=== Check Attachments ===
+Move and check /Development/OpenForum/AddOn/ContentEditor/PageConverter/page.js
+Move and check /Development/OpenForum/AddOn/ContentEditor/PageConverter/page.content
+Move /Development/OpenForum/AddOn/ContentEditor/PageConverter/page.html.fragment
+Move and check /Development/OpenForum/AddOn/ContentEditor/PageConverter/data.json
+Move /Development/OpenForum/AddOn/ContentEditor/PageConverter/page.html
+
+
+
+==== Deletions Check ====
+Deletion. page.html.fragment no longer required. It has been added to the deletetion script /Development/OpenForum/AddOn/ContentEditor/process-deletions.sjs
+Deletion. page.html no longer required. It has been added to the deletetion script /Development/OpenForum/AddOn/ContentEditor/process-deletions.sjs
+
+==== Publishing Actions ====
+Looking for transform script for /OpenForum/AddOn/ContentEditor/PageConverterRemoved Development/ references in /OpenForum/AddOn/ContentEditor/PageConverter/page.js
+	Line 5
+	var convertPageName = "/Development/";
+Looking for transform script for /OpenForum/AddOn/ContentEditor/PageConverterLooking for transform script for /OpenForum/AddOn/ContentEditor/PageConverterExcluding page.html.fragment as is in excluded file list.
+Looking for transform script for /OpenForum/AddOn/ContentEditor/PageConverterExcluding page.html as is in excluded file list.
+
+
+
+==== Services Check ====
+Service call(s) in /Development/OpenForum/AddOn/ContentEditor/PageConverter/page.js
+No Service Dependencys Found
+
+
+=== Check For ToDo Comments ===
+
+
+
+

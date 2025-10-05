@@ -1,0 +1,274 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title> SQL</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+	<script type="text/javascript" src="/OpenForum/AddOn/SQL/page.js"></script>
+
+    <link href="http://open-forum.onestonesoup.org/OpenForum/PageTemplates/EditorApp/icon-192x192.png" rel="icon" sizes="192x192" />
+    <link href="http://open-forum.onestonesoup.org/OpenForum/PageTemplates/EditorApp/icon-128x128.png" rel="icon" sizes="128x128" />
+
+    <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
+      var pageName = "/OpenForum/AddOn/SQL";
+      var author = "unknown";
+      var time = "1759493012467";
+      var currentUser = "";
+      var user = {};
+      var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
+      JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName).onSuccess( function (response) {  currentUser = response.data;  } ).go();
+      JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
+        function (response) {
+          user.profile = response.data;
+          if(response.data.avatar) {
+            avatar = "<img src='" + response.data.avatar + "' style='width: 24px; height: 24px;' />";
+          }
+        }
+      ).go();
+      
+      window.onerror = function(errorMsg, url, lineNumber) {
+        OpenForum.error = errorMsg+" url:"+url+" line number:"+lineNumber;
+        OpenForum.errorMessage = "Woops";
+        $('#ofErrorMessage').foundation('reveal', 'open');
+      };
+      
+      window.alert = function(message,title) {
+        if(!title) {
+          title = "Open Forum";
+        }
+        OpenForum.alert = { message: message, title: title};
+        $('#ofAlertMessage').foundation('reveal', 'open');
+      };
+    </script><!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) end -->
+    
+  </head>
+  <body>
+          <nav class="top-bar" data-topbar>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+              <img src="/OpenForum/Images/open-forum-dog-small.png" />
+            </h1>
+          </li>
+        </ul>
+        <ul class="title-area">
+          <li class="name">
+            <h1>
+            <a href="#" title=" SQL">&shortTitle;</a>
+            </h1>
+          </li>
+        </ul>
+            <!-- insert (/OpenForum/PageTemplates/EditorApp/top-menu.content) start --><section class="top-bar-section">
+  <ul class="left"> 
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Actions</a>
+      <ul class="dropdown">
+        <li of-repeatFor="fileAction in fileActions"><a href="#" onClick="{{fileAction.fn}}();return false;" title="{{fileAction.description}}"><img src="/OpenForum/Images/icons/png/{{fileAction.icon}}.png">  {{fileAction.name}}</a></li>
+      </ul>
+    </li>
+  </ul>
+  <ul class="right">
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="#">Favourite Pages</a>
+      <ul class="dropdown">
+        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="/{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
+      </ul>
+    </li>
+
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="undefined">Signed in as {{currentUser}} {{avatar}}</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+        <li><a href="undefined" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+        <script>
+          var accessLoading = false;
+          function doSignIn() {
+
+            if(!OpenForum.Access) {
+              if(!accessLoading) {
+                OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+                accessLoading=true;
+              }
+              setTimeout(doSignIn,1000);
+              return;
+            }
+
+            OpenForum.Access.showPopup();
+          };
+        </script>
+      </ul>
+    </li>
+  </ul>
+</section>
+<!-- insert (/OpenForum/PageTemplates/EditorApp/top-menu.content) end -->
+      </nav>
+    
+    <!--PageContent Start-->
+<div style="background-color: #203d64; color: #eef7ee; height: inherit;">
+  <h3><a href="/OpenForum/AddOn/SQL/QuickReference">Code Quick Reference</a></h3>
+  <h3><a href="/OpenForum/AddOn/SQL/Generator">SQL and Javascript Generator</a></h3>
+  <br/>
+  <div class="row">
+    <select of-id="SQLEditorController.dbAlias">
+      <option of-repeatFor="alias in SQLEditorController.dbAliases" selected>{{alias.name}}</option>
+    </select>
+    <div id="sqlEditor"><textarea id="editor{{editorIndex}}Src" style="height: 100%;">Loading...</textarea></div>
+    <a  class='button radius tiny' href='#' onclick='SQLEditorController.runSQLScript(); return false;'>Run</a> 
+    <a  class='button radius tiny' href='#' onclick='SQLEditorController.generateSQLCode(); return false;'>Generate Code</a> 
+    <a  class='button radius tiny' href='#' onclick='SQLEditorController.showHistoryView(); return false;'>View Query History</a> 
+    <a  class='button radius tiny' href='#' onclick='SQLEditorController.showInspectionView(); return false;'>View DB Instector</a> 
+  </div>
+
+  <div class="row">
+    <xmp style="width: 100%;">{{SQLEditorController.dbAlias}}</xmp>
+    <span id="resultTable" style="width: 100%;"></span>
+  </div>
+</div>
+
+<div id="inspectionView" class="reveal-modal" data-reveal aria-labelledby="historyViewTitle" aria-hidden="true" role="dialog" style="max-height:80%; overflow: auto;">
+  <h2 id="inspectionViewTitle">Database Inspection</h2>
+  <div class="row">
+    <div class="column large-4">
+      <table>
+        <caption>Tables</caption>
+        <thead>
+          <tr>
+            <td>Name</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr of-repeatFor="table in SQLEditorController.tables">
+            <td><a onClick="SQLEditorController.showTable( '{{table.tablename}}' ); return false;">{{table.tablename}}</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="column large-8">
+      <h3>Table {{SQLEditorController.tableView.schema}}.{{SQLEditorController.tableView.name}}</h3>
+      <i>Current Rows: {{SQLEditorController.tableView.rows}}</i><br/>
+      <a  class='button radius tiny' href='#' onclick='SQLEditorController.createSelect(); return false;'>Create Select</a> 
+      <a  class='button radius tiny' href='#' onclick='SQLEditorController.createInsert(); return false;'>Create Insert</a> 
+      <a  class='button radius tiny' href='#' onclick='SQLEditorController.createTable(); return false;'>Create Table</a> 
+      <table>
+        <thead>
+          <tr>
+            <td> Column Name </td>
+            <td> Data Type </td>
+            <td> Can Be Null </td>
+            <td> Default Value </td>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr of-repeatFor='column in SQLEditorController.tableView.columns'>
+            <td> {{column.column_name}} </td>
+            <td> {{column.data_type}} </td>
+            <td> {{column.is_nullable}} </td>
+            <td> {{column.column_default}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <table>
+      <caption>Indexes</caption>
+      <thead>
+        <tr>
+          <td>Index Name</td>
+          <td>Table Name</td>
+          <td>Index Definition</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr of-repeatFor="index in SQLEditorController.indexes">
+          <td>{{index.indexname}}</td>
+          <td><a onClick="SQLEditorController.showTable( '{{index.tablename}}' ); return false;">{{index.tablename}}</a></td>
+          <td>{{index.indexdef}}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    
+    <table>
+      <caption>Sequences</caption>
+      <thead>
+        <tr>
+          <td>Sequence Name</td>
+          <td>Start Value</td>
+          <td>Last Value</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr of-repeatFor="sequence in SQLEditorController.sequences">
+          <td>{{sequence.sequencename}}</td>
+          <td>{{sequence.start_value}}</td>
+          <td>{{sequence.last_value}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="historyView" class="reveal-modal" data-reveal aria-labelledby="historyViewTitle" aria-hidden="true" role="dialog">
+  <h2 id="historyViewTitle">Query History.</h2>
+  <p>
+    <input list="historyList" of-id="SQLEditorController.historicQuery">
+    <a  class='button radius tiny' href='#' onclick='SQLEditorController.appendHistoricQuery(); return false;'>Append To SQL</a> 
+    <datalist id="historyList">
+      <option of-repeatFor="sql in SQLEditorController.sqlHistory" value="{{sql.query}}" />
+    </datalist>
+  </p>
+
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Page Content End-->
+      
+    <!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) start -->      <footer class="row">
+        <div class="large-12 columns">
+          		<hr/>
+              <ul class="inline-list right">
+                <li><a href="undefined">About</a></li>
+                <li><a href="undefined">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="undefined">Documentation</a></li>
+                <li><a href="undefined">Developers</a></li>
+                <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+              </ul>
+            </div>
+      </footer><!-- insert (/OpenForum/PageTemplates/PublishedPage/Footer/page.content) end -->
+    
+    <!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
+  <p>{{OpenForum.errorMessage}}</p>
+  <p><a href="#" data-reveal-id="ofErrorDetails" class="secondary button">See technical details</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="ofErrorDetails" class="reveal-modal" data-reveal aria-labelledby="ofErrorModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorModalTitle">Error details.</h2>
+  <p>{{OpenForum.error}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div><!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) end -->
+    <!-- insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) start --><div id="ofAlertMessage" class="reveal-modal" data-reveal aria-labelledby="ofAlertMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofAlertMessageModalTitle" class="alert-box success round">{{OpenForum.alert.title}}</h2>
+  <p>{{OpenForum.alert.message}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<!-- insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) end -->
+    
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

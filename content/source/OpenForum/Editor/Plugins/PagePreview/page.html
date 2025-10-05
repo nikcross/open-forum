@@ -1,0 +1,40 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <title>PagePreview</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1630323357000"></script>
+	<script type="text/javascript" src="/OpenForum/Editor/Plugins/PagePreview/page.js?ts=1630323357000"></script>
+
+	<script>
+		var pageName = "/OpenForum/Editor/Plugins/PagePreview";
+		var author = "unknown";
+		var time = "1630323357000";
+	    var currentUser = "";
+	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response.data;  } ).go();
+	</script>
+    
+  </head>
+  <body>
+    <!--PageContent Start-->
+<div id="preview-overlay" class="panel callout radius" style="position: absolute; bottom: 10px; right: 10px;">
+  <div id="preview-status" style="display: none">
+  Loading...
+  </div>
+  <a class="button tiny round" onclick="pagePreview.toggleShowStatus(); return false;" id="preview-status-toggle">Show Status</a>
+</div>
+<div class="previewContainer" style="width: inherit; height: inherit;">
+<iframe style="width: 100%; height: 100%; min-height: -webkit-fill-available;" id="preview" src="/OpenForum/Editor/Plugins/PagePreview/loading.html"></iframe>
+</div>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Page Content End-->
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

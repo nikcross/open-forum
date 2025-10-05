@@ -1,8 +1,11 @@
 <div class="row">
-!!Example using local source
+--8<--
+
+((Renders [mark down|https://raw.githubusercontent.com/wiki/adam-p/markdown-here/Markdown-Here-Cheatsheet.md] formatted text in a page.))
 {{{
 [{MarkDown pageName="/OpenForum/Extensions/MarkDown" fileName="example.md"}]
 }}}
+-->8--
 [{MarkDown pageName="/OpenForum/Extensions/MarkDown" fileName="example.md"}]
 
 !!Example using remote source

@@ -1,0 +1,32 @@
+<div class="row">
+  <form>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>Name</label> {{currentTask.name}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-6 columns'>
+        <label>PageName</label> {{currentTask.pagename}}
+      </div>
+      <div class='large-6 columns'>
+        <label>Script File</label> {{currentTask.scriptfile}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>Scheduled Time</label> {{currentTask.scheduledtime}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-6 columns'>
+        <select of-id="currentTask.tag" id="currentTask.tagField">
+          <option of-repeatFor="tag in tags">{{tag}}</option>
+        </select>
+      </div>
+      <div class='large-6 columns'>
+        <a href="#" class="button" onclick="tagTask(); return false;">Tag Task</a>
+      </div>
+    </div>
+  </form>
+</div>

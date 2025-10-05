@@ -1,37 +1,34 @@
-<div id="dataTransform" style="height: 100%;">
+!!!Not in use. See /OpenForum/AddOn/DataTransformer
 
-  <div  style="height: 50%">
-    <div class="large-6 columns" style="height: 80%">
+<div id="dataTransform" style="background-color: #9ab9a2; color: #3a483a; height: inherit;">
+
+  <div  style="min-height: 10em;">
+    <div class="large-5 columns">
       !!input
       <textarea id="dataTransform.input"></textarea>
     </div>
-
-    <div class="large-6 columns" style="height: 80%">
+    <div class="large-1 columns">
+      \\
+	[{Icon name="arrow_right"}]\\
+	[{Icon name="arrow_right"}]\\
+	[{Icon name="arrow_right"}]\\
+      \\
+    </div>
+    <div class="large-6 columns">
       !!output
       <textarea id="dataTransform.output"></textarea>
     </div>
 
   </div>
-  <div  style="height: 50%">
-
-    <div class="large-4 columns" style="height: inherit">
-      !!Transform Process
-      [[
-      <span id="dataTransformInstructions">
-* dataTransform.imp("tab name"); - Import the data from a tab into the input box
-* output = dataTransform.run("tab name",input); - apply the script in the tab to the input and return the output
-* dataTransform.exp("tab name",output); - Export the data from output into a tab
-
-      </span>
-      ]]
-    </div>
-
-    <div class="large-8 columns" style="height: inherit">
+  <div  style="min-height: 20em;">
+    <div class="large-12 columns" style="height: inherit">
       <a class="button tiny" onClick="dataTransform.applyTransform(); return false;">Apply Transform</a>
       <a class="button tiny" onClick="dataTransform.openFileSelect(); return false;">Open Transform Script</a>
-      <a class="button tiny" onClick="dataTransform.saveFile(); return false;">Save Script</a>
-      {{dataTransform.transformFileName}}<br/>
+      <a class="button tiny" onClick="dataTransform.saveGlobalTransformFile(); return false;">Save As Global Script</a>
+      <a class="button tiny" onClick="dataTransform.saveLocalTransformFile(); return false;">Save Script {{dataTransform.transformFileName}}</a>
+      <br/>
       <textarea id="dataTransform.process"></textarea><br/>
+      <a class='button tiny round' onClick="$('#dataTransformInstructions').foundation('reveal', 'open');return false;">Instructions</a>
     </div>
 
   </div>
@@ -43,7 +40,10 @@
       <div class="large-4 columns"><a class="button tiny" onClick="dataTransform.createNew(newFileName.value,event); return false;">Create</a></div>
     </div>
     <div id="transformFileTree"></div>
+    <div id="transformLocalFileTree"></div>
     <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   </div>
 
 </div>
+
+[{Popup id="dataTransformInstructions" sourceFileName="instructions.wiki" sourcePageName="/OpenForum/Editor/Plugins/DataTransform"}]

@@ -1,0 +1,58 @@
+{
+    "version": "0.0.1",
+    "configFile": "extension-config.json",
+    "pageName": "/OpenForum/Extensions/ContrastBlock",
+    "template": {
+        "pageName": "/OpenForum/Extensions/ContrastBlock",
+        "fileName": "contrast-block.html.template"
+    },
+    "buildReferencePage": true,
+    "buildBlockEditor": true,
+    "parameters": [
+        {
+            "name": "text",
+            "exampleValue": "Some text in here",
+            "defaultValue": "Some text in here",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "backgroundColor",
+            "exampleValue": "blueviolet",
+            "defaultValue": "blueviolet",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "textColor",
+            "exampleValue": "white",
+            "defaultValue": "white",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "imageURL",
+            "exampleValue": "/OpenForum/Images/open-forum-dog.png",
+            "defaultValue": "/OpenForum/Images/open-forum-dog.png",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "imageRight",
+            "exampleValue": "false",
+            "defaultValue": "false",
+            "required": true,
+            "view": "display: none;",
+            "edit": "display: block;"
+        }
+    ],
+    "blockEditor": {
+        "name": "Contrast Block",
+        "icon": "application_tile_horizontal"
+    },
+    "buildRenderer": false
+}

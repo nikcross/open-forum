@@ -1,0 +1,13 @@
+{
+    "version": "0.0.18",
+    "requires": [
+        {
+            "pageName": "/OpenForum/AddOn/SQL",
+            "version": "0.0.1"
+        }
+    ],
+    "extra": {
+        "notes": "Fixed broken delete task"
+    },
+    "installedDate": 1759495395099
+}

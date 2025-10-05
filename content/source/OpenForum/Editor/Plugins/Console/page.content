@@ -1,22 +1,24 @@
-<div class="large-12 columns">
-__run:{tab name} - run the data from a tab as a script__
-Special console functions
-*  console.loadFromTab(tabName); - load the data from a tab into a variable
-*  console.saveToTab(tabName,data); - save data to a tab
-*  console.runTab(tabName); - run (eval) the code in a tab
-  
+<div style="background-color: #584b58; color: #eeeef7; height: inherit;">
+  <div class="large-12 columns">
+    __run:{tab name} - run the data from a tab as a script__
+    Special Console functions
+    *  localConsole.loadFromTab(tabName); - load the data from a tab into a variable
+    *  localConsole.saveToTab(tabName,data); - save data to a tab
+    *  localConsole.runTab(tabName); - run (eval) the code in a tab
+
     <ul>
-      <li of-repeatFor="editor in editorList" style="display: {{if(!editor.editor){"none";}else{"block";};}}"><a onclick="console.cliText='run:{{editor.name}}';">run:{{editor.name}}</a></li>
+      <li of-repeatFor="editor in localConsole.getEditorList()"><a onclick="localConsole.cliText.setValue('// run:{{editor.name}}');">run tab {{editor.name}}</a></li>
     </ul>
-    </div>
-      <div class="large-7 columns">
-        <textarea type="text" placeholder=">js" of-id="console.cliText" size="120" onkeydown="if (event.keyCode == 13) console.runCli(); if (event.keyCode == 38) console.historyCli(-1); if (event.keyCode == 40) console.historyCli(+1);"></textarea>
-</div>
-<div class="large-5 columns">
-<a class="button tiny" onClick="console.runCli(); return false;" title="Run">[{Icon name="server go"}] Run</a>
-<a class="button tiny" onClick="console.clear(); return false" title="Clear">[{Icon name="cross"}] Clear Log</a>
-</div>
+  </div>
+  <div class="large-7 columns">
+    <textarea type="text" placeholder=">js" id="localConsole.cliText" size="120"></textarea>
+  </div>
+  <div class="large-5 columns">
+    <a class="button tiny" onClick="localConsole.runCli(); return false;" title="Run">[{Icon name="server go"}] Run</a>
+    <a class="button tiny" onClick="localConsole.clear(); return false" title="Clear">[{Icon name="cross"}] Clear Log</a>
+  </div>
 
   <div class="large-12 columns">
-[[ {{console.text}} ]]
+    [[ {{localConsole.text}} ]]
+  </div>
 </div>

@@ -1,0 +1,26 @@
+Form Name: theForm
+Title: Pet Owner Form
+
+Checkbox: Has a dog hasDog
+Checkbox: Has a cat hasCat
+
+List: title Mr,Mrs,Master
+Select: Title title*
+
+Surname surname*
+
+Name name*
+
+Note: Add parts of the name together
+Calculation: fullName = " " + name + " " + surname
+
+Note: Calculate the length of the full name excluding the space
+Calculation: nameLength = surname.length + name.length
+
+Message: Information about the form data
+
+View: Full Name fullName
+View: Length nameLength
+
+Note: Does nothing. Just for illustration
+Action: Take Action doSomething

@@ -1,0 +1,46 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+Inserts a form input field.
+<hr/>
+<h3>Parameters</h3>
+name - the field name
+list - the list name
+value - optional value
+<hr/>
+<h3>Usage:</h3>
+<xmp class="panel" of-exclude="true"> <!--Extension ListField name="beetle" list="names" --><input type='text' list='dataList_names072464749071337131730250721070' name='beetleInput' id='beetleField'  of-id='beetle' value=''  ondblclick='beetle=OpenForum.BLANK;' title='Double click to clear'/><datalist id='dataList_names072464749071337131730250721070'>
+<option of-repeatFor='optionValue in names'>{{optionValue}}</option>
+</datalist><!--End Extension ListField name="beetle" list="names" --> </xmp>
+<!--Extension ListField name="beetle" list="names" --><input type='text' list='dataList_names0105564879917193991730250721065' name='beetleInput' id='beetleField'  of-id='beetle' value=<i></i> ondblclick='beetle=OpenForum.BLANK;' title='Double click to clear'/><datalist id='dataList_names0105564879917193991730250721065'>
+<option of-repeatFor='optionValue in names'>{{optionValue}}</option>
+</datalist><!--End Extension ListField name="beetle" list="names" -->
+
+<h3>Your Beetle is {{beetle}}</h3>
+<hr/>
+
+<!--Extension InsertSourceFile fileName="renderer.sjs" --><a href="//OpenForum/Extensions/ListField/renderer.sjs">//OpenForum/Extensions/ListField/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ListField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">name = extension.getAttribute("name");
+value = extension.getAttribute("value");
+action = extension.getAttribute("action");
+list = extension.getAttribute("list");
+listField = extension.getAttribute("listField");
+
+if(value==null)
+{
+  value="";
+}
+
+if(listField==null) {
+  listField = "optionValue";
+} else {
+  listField = "optionValue."+listField;
+}
+
+var onChange = "";
+if(action!=null) {
+  onChange = "onChange='"+action+"(); return false;'";
+}
+
+var uid = ( ""+Math.random() + new Date().getTime() ).replace(".","");
+
+return "<input type='text' list='dataList_"+list+uid+"' name='"+name+"Input' id='"+name+"Field'  of-id='"+name+"' value='"+value+"' "+onChange+" ondblclick='"+ name + "=OpenForum.BLANK;' title='Double click to clear'/>" +
+  "<datalist id='dataList_"+list+uid+"'><br/>n<option of-repeatFor='optionValue in "+list+"'>{{" + listField + "}}</option><br/>n</datalist>";
+</xmp><!--End Extension InsertSourceFile fileName="renderer.sjs" -->

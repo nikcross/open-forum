@@ -1,0 +1,81 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div id="tableBuilder" style="height: 100vh;background-color: #203d64; color: #eef7ee;">
+    <div class="row" style="padding: 10px;">
+    <b>Table Builder v0.0.1 Easter Rabbit Build</b>
+  </div>
+  <div> 
+    <div class="large-3 columns">
+<form>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <label style="color: #eef7ee;"><b>Table Name</b></label> <input type='text' id='tableBuilder.tableNameField' of-id='tableBuilder.tableName' placeholder=' ' />
+    </div>
+  </div>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <label style="color: #eef7ee;"><b>Columns</b></label> <div id="defaultEditor"><textarea id="editor{{editorIndex}}Src" style="height: 100%;">Loading...</textarea></div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <p><b>Row Actions</b></p>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='large-4 columns'>
+      <label style="color: #eef7ee;"><b>Edit</b></label> <input type='checkbox' id='tableBuilder.actions.editField' of-id='tableBuilder.actions.edit' placeholder=' ' />
+    </div>
+    <div class='large-4 columns'>
+      <label style="color: #eef7ee;"><b>Remove</b></label> <input type='checkbox' id='tableBuilder.actions.removeField' of-id='tableBuilder.actions.remove' placeholder=' ' />
+    </div>
+    <div class='large-4 columns'>
+      <label style="color: #eef7ee;"><b>Move</b></label> <input type='checkbox' id='tableBuilder.actions.moveField' of-id='tableBuilder.actions.move' placeholder=' ' />
+    </div>
+  </div>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <p><b>Table Actions</b></p>
+    </div>
+  </div>
+  <div class='row'>
+        <div class='large-3 columns'>
+      <label style="color: #eef7ee;"><b>Add row</b></label> <input type='checkbox' id='tableBuilder.actions.addField' of-id='tableBuilder.actions.add' placeholder=' ' />
+    </div>
+    <div class='large-3 columns'>
+      <label style="color: #eef7ee;"><b>Save data</b></label> <input type='checkbox' id='tableBuilder.actions.saveField' of-id='tableBuilder.actions.save' placeholder=' ' />
+    </div>
+    <div class='large-3 columns'>
+      <label style="color: #eef7ee;"><b>Search</b></label> <input type='checkbox' id='tableBuilder.actions.searchField' of-id='tableBuilder.actions.search' placeholder=' ' />
+    </div>
+    <div class='large-3 columns'>
+      <label style="color: #eef7ee;"><b>Sort</b></label> <input type='checkbox' id='tableBuilder.actions.sortField' of-id='tableBuilder.actions.sort' placeholder=' ' />
+    </div>
+  </div>
+        <a class='button tiny round' onClick="if( isUndefined(displayContentTab) ) { $('#tableBuilderInstructions').foundation('reveal', 'open'); } else { displayContentTab('/OpenForum/Editor/Plugins/TableBuilder','instructions.html.fragment','Table Builder Instructions') } return false;">Instructions</a>
+</form>
+
+    </div>
+
+    <div class="large-3 columns">
+      <b>Table</b>
+      <div class="panel" id="theTable"></div>
+    </div>
+
+    <div class="large-6 columns">
+      <b>Table Html</b>
+
+      <!--Extension ScriptClip script="" id="tableBuilder.exampleTableHtml" --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' of-id='tableBuilder.exampleTableHtml' id='tableBuilder.exampleTableHtml' rows='2' ></textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("tableBuilder.exampleTableHtml"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('tableBuilder.exampleTableHtml').setAttribute('readonly', 'readonly');</script><!--End Extension ScriptClip script="" id="tableBuilder.exampleTableHtml" -->
+
+      <hr/>
+
+      <b>Table Script</b>
+
+      <!--Extension ScriptClip script="" id="tableBuilder.exampleTableScript" --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' of-id='tableBuilder.exampleTableScript' id='tableBuilder.exampleTableScript' rows='2' ></textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("tableBuilder.exampleTableScript"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('tableBuilder.exampleTableScript').setAttribute('readonly', 'readonly');</script><!--End Extension ScriptClip script="" id="tableBuilder.exampleTableScript" -->
+
+    </div>
+  </div>
+</div>
+
+<!--Extension Popup id="tableBuilderInstructions" sourceFileName="instructions.wiki.fragment" sourcePageName="/OpenForum/Editor/Plugins/TableBuilder" --><div id="tableBuilderInstructions" class="reveal-modal" data-reveal aria-labelledby="tableBuilderInstructionsModalTitle" aria-hidden="true" role="dialog"><p>Enter a table name in the Table name field. The last word will be the data name for the table. The rows behind that will be the tables display name.</p>
+<p>Enter column names, one per row, in the Columns text area. The last word in each row will be the column cells data name, the rows behind that will be the columns display name.</p>
+<p>You can see a preview of the table in the Table panel and the html to build it in the far right hand column.</p>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="tableBuilderInstructions" sourceFileName="instructions.wiki.fragment" sourcePageName="/OpenForum/Editor/Plugins/TableBuilder" -->

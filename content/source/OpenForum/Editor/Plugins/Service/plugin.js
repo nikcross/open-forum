@@ -1,5 +1,8 @@
 var service = {
-  open: false
+  open: false,
+  close: function() {
+    service.open = false;
+  }
 };
 
 addPlugin( {
@@ -10,6 +13,8 @@ addPlugin( {
       }
       service.open=true;
       editorIndex++;
+      this.editorIndex = editorIndex;
+    
       var editor = document.createElement("div");
       editor.setAttribute("id","editor"+editorIndex);
       editor.setAttribute("style","display:block;");
@@ -28,7 +33,7 @@ addPlugin( {
           ).loadDependencies();
 
             OpenForum.addTab("editor"+editorIndex);
-            editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Service", changed: "", options: []};
+            editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Service", changed: "", options: [], plugin: service};
             showTab(editorIndex);
             return editorList[editorIndex];
           }

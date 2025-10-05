@@ -1,0 +1,95 @@
+{
+    "version": "0.1.9",
+    "libraries": [
+        {
+            "name": "Updater",
+            "fileName": "Updater.sjs",
+            "view": "display: block;",
+            "edit": "display: none;",
+            "index": "0",
+            "pageName": "/OpenForum/AddOn/Update"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "action",
+            "type": "string",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;",
+            "index": "0"
+        }
+    ],
+    "actions": [
+        {
+            "name": "getUpdate",
+            "action": "getUpdate",
+            "libraries": {},
+            "parameters": [
+                {
+                    "name": "pageName",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: none;",
+                    "edit": "display: block;",
+                    "index": "0"
+                },
+                {
+                    "name": "ignoreChanges",
+                    "required": "false",
+                    "type": "boolean",
+                    "index": "1",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "call": "Updater.getUpdate(pageName,ignoreChanges);",
+            "method": "get",
+            "example": {
+                "response": "",
+                "errorResponse": "",
+                "request": ""
+            },
+            "description": ""
+        },
+        {
+            "name": "getUpdateInfo",
+            "action": "getUpdateInfo",
+            "libraries": {},
+            "parameters": [
+                {
+                    "name": "pageName",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "call": "Updater.getUpdateInfo(pageName);",
+            "method": "get",
+            "example": {
+                "response": "",
+                "errorResponse": "",
+                "request": ""
+            },
+            "description": ""
+        },
+        {
+            "name": "getReleases",
+            "action": "getReleases",
+            "libraries": {},
+            "parameters": {},
+            "call": "Updater.getReleases(pageName);",
+            "method": "get",
+            "example": {
+                "response": "",
+                "errorResponse": "",
+                "request": ""
+            },
+            "description": ""
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/AddOn/Update",
+    "configFile": "get-service-definition-config.json"
+}

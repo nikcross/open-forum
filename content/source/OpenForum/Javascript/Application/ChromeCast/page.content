@@ -1,0 +1,17 @@
+!!&title;
+
+((
+* Register a Chrome App with Google
+* Add {{{ var chromecastReceiverApplicationId = "your app id"; // in page.js }}} 
+* Add page-header.html
+* Add page-footer.html
+* Done
+))
+
+----
+!!Child Pages
+[{ChildPagesList pageName="&pageName;"}]
+
+----
+!!Attachments
+[{AttachmentsList pageName="&pageName;" matching=".*"}]

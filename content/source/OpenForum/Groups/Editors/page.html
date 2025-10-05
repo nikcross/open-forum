@@ -14,7 +14,7 @@
 		var author = "unknown";
 		var time = "1445267835000";
 	    var currentUser = "";
-	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response.data;  } ).go();
 	</script>
     
   </head>

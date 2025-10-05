@@ -1,0 +1,65 @@
+{
+    "version": "0.1.4",
+    "libraries": [
+        {
+            "name": "ContentEditor",
+            "fileName": "ContentEditor.sjs",
+            "view": "display: block;",
+            "edit": "display: none;",
+            "pageName": "/OpenForum/AddOn/ContentEditor"
+        }
+    ],
+    "parameters": [],
+    "actions": [
+        {
+            "name": "getPages",
+            "call": "ContentEditor.getPages();",
+            "parameters": [],
+            "libraries": [],
+            "method": "get",
+            "action": "getPages"
+        },
+        {
+            "name": "getBlockEditors",
+            "call": "ContentEditor.getBlockEditors();",
+            "parameters": [],
+            "libraries": [],
+            "method": "get",
+            "action": "getBlockEditors"
+        },
+        {
+            "name": "convertPage",
+            "call": "ContentEditor.convertPage(targetPageName);",
+            "parameters": [
+                {
+                    "name": "targetPageName",
+                    "required": true,
+                    "type": "string",
+                    "view": "display: none;",
+                    "edit": "display: block;"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "action": "convertPage"
+        },
+        {
+            "name": "convertHTMLPage",
+            "call": "ContentEditor.convertHTMLPage(targetPageName);",
+            "parameters": [
+                {
+                    "name": "targetPageName",
+                    "required": true,
+                    "type": "string",
+                    "view": "display: none;",
+                    "edit": "display: block;"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "action": "convertHTMLPage"
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/AddOn/ContentEditor"
+}

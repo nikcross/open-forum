@@ -1,3 +1,3 @@
-<ul><li> <a href="/OpenForum/Actions/User?action=getCurrentUser">/OpenForum/Actions/User?action=getCurrentUser</a></li>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release--><ul><li> <a href="/OpenForum/Actions/User?action=getCurrentUser">/OpenForum/Actions/User?action=getCurrentUser</a></li>
 <li> <a href="/OpenForum/Actions/User?action=getCurrentUserProfile">/OpenForum/Actions/User?action=getCurrentUserProfile</a></li>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>
+</ul>

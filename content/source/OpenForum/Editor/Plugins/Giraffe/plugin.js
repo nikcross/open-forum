@@ -50,6 +50,9 @@ var giraffe = {
       this.cliHistoryCursor=0;
     }
     this.cliText = this.cliHistory[this.cliHistoryCursor];
+  },
+  close: function() {
+    giraffe.open = false;
   }
 };
 
@@ -61,6 +64,7 @@ addPlugin( {
       }
       giraffe.open=true;
       editorIndex++;
+      this.editorIndex = editorIndex;
       var editor = document.createElement("div");
       editor.setAttribute("id","editor"+editorIndex);
       editor.setAttribute("style","display:block;");
@@ -86,7 +90,7 @@ addPlugin( {
           ).loadDependencies();
 
             OpenForum.addTab("editor"+editorIndex);
-            editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Giraffe", changed: ""};
+            editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Giraffe", changed: "", plugin: giraffe};
             showTab(editorIndex);
             console.log("giraffe Ready");
             return editorList[editorIndex];

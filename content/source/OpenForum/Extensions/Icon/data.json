@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Extensions/Icon",
-    "title": " Icon"
+    "pageName": "/OpenForum/Extensions/Icon",
+    "title": "Icon",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

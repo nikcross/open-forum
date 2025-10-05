@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Extensions/InputField",
-    "title": " Input Field"
+    "pageName": "/OpenForum/Extensions/InputField",
+    "title": "InputField",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

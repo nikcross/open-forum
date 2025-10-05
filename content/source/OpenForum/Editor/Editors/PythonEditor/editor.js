@@ -1,13 +1,18 @@
 function PythonEditor(editorIndex,pageName,fileName,markChanged) {
   var self = this;
   var cm = null;
+  self.ready = false;
 
+  self.requestFullscreen = function() {
+    document.getElementById( "editor"+editorIndex ).requestFullscreen();
+  };
+  
   self.init = function() {
     var content = OpenForum.loadFile("/OpenForum/Editor/Editors/PythonEditor/page.html.fragment");
     content = content.replace(/\{\{editorIndex\}\}/g,editorIndex);
     OpenForum.setElement("editor"+editorIndex,content);
 
-    //var autocomplete = new Autocomplete( "python" );
+    var autocomplete = new Autocomplete( "python" );
     /*autocomplete.addCompleter(
       function (params) {
         var list = [];
@@ -50,7 +55,7 @@ function PythonEditor(editorIndex,pageName,fileName,markChanged) {
     //load source if exists
 
     if(OpenForum.file.attachmentExists(pageName,fileName)==="true") {
-      source = OpenForum.loadFile(pageName+"/"+fileName);
+      source = OpenForum.loadFile(pageName+"/"+fileName,null,true);
     } else if(OpenForum.file.attachmentExists("/OpenForum/FileTemplates/py",fileName+".default")==="true") {
       source = OpenForum.loadFile("/OpenForum/FileTemplates/py/"+fileName+".default");
     } else {
@@ -67,6 +72,7 @@ function PythonEditor(editorIndex,pageName,fileName,markChanged) {
         editorList[editorIndex].changed="*";
       }
     });
+    self.ready = true;
   };
 
   self.getCodeMirror = function() {
@@ -90,8 +96,11 @@ function PythonEditor(editorIndex,pageName,fileName,markChanged) {
     var data = "";
 
     data += renderTabOption("Close","Close editor","closeEditor( "+editorIndex+" )");
+    data += renderTabOption("Full Screen","Full Screen "+pageName+"/"+fileName,"editorList["+editorIndex+"].editor.requestFullscreen()");
     data += renderTabOption("Save","Save "+pageName+"/"+fileName,"saveFile( '"+pageName+"' , '"+fileName+"' )");
     data += renderTabOption("Run","Run "+pageName+"/"+fileName,"editorList["+editorIndex+"].editor.run()");
+    data += renderTabOption("Download to desktop","Download "+pageName+"/"+fileName,"OpenForum.Browser.download( '"+fileName+"',editorList["+editorIndex+"].editor.getValue() )");
+    data += renderTabOption("Copy","Copy to clipboard","OpenForum.copyData( editorList["+editorIndex+"].editor.getValue() )");
 
     return data;
   };
@@ -145,7 +154,7 @@ function PythonEditor(editorIndex,pageName,fileName,markChanged) {
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/edit/matchbrackets.js")
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/comment/continuecomment.js")
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/comment/comment.js")
-    //.addDependency("/OpenForum/Editor/Editors/HTMLEditor/Autocomplete.js")
+    .addDependency("/OpenForum/Editor/Editors/Autocomplete.js")
 
     .setOnLoadTrigger( function() {
     var o = self;

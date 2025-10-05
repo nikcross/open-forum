@@ -1,0 +1,8 @@
+----
+!!Page Categories
+
+[{/OpenForum/Javascript/Application/TableEditor tableName="categories" fileName="/OpenForum/AddOn/ContentEditor/page-categories.json" rowTemplateFileName="/OpenForum/AddOn/ContentEditor/CategoryEditor/category-row-template.json"}]
+
+----
+!!Pages
+[{/OpenForum/Javascript/Application/TableEditor tableName="pages" fileName="/OpenForum/AddOn/ContentEditor/pages-list.json" rowTemplateFileName="/OpenForum/AddOn/ContentEditor/CategoryEditor/page-row-template.json"}]

@@ -1,0 +1,220 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ServiceLayer</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1680721038000"></script>
+    <script type="text/javascript" src="/OpenForum/AddOn/Developer/ServiceLayer/page.js?ts=1680721038000"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1680721038000" />
+    <!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) start --><link rel="icon" href="/OpenForum/Images/open-forum-dog-small.png" /><!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) end --> 
+
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start --><script>
+  var pageName = "/OpenForum/AddOn/Developer/ServiceLayer";
+  var author = "unknown";
+  var time = "1680721038000";
+  var currentUser = "";
+  var user = {};
+  var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
+  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data.data;  } ).go();
+  JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
+    function (response) {
+      user.profile = response.data;
+      if(response.data.avatar) {
+        avatar = "<img src='" + response.data.avatar + "' style='width: 24px; height: 24px;' />";
+      }
+      if(response.data.privateProfile && response.data.privateProfile.extraOptions) {
+        currentUserExtraOptions = response.data.privateProfile.extraOptions
+      }
+    }
+  ).go();
+
+  window.onerror = function(errorMsg, url, lineNumber) {
+    OpenForum.error = errorMsg+" url:"+url+" line number:"+lineNumber;
+    OpenForum.errorMessage = "Woops";
+    $('#ofErrorMessage').foundation('reveal', 'open');
+
+    OFX.post( 'https://open-forum.onestonesoup.org/OpenForum/AddOn/DataLogger/BrowserErrorLogger' )
+      .withAction( 'logError' )
+      .withData( {origin: window.location.origin, page: pageName, error: errorMsg+" lineNumber:"+lineNumber, userAgent: navigator.userAgent}).go();
+  };
+
+  window.alert = function(message,title) {
+    if(!title) {
+      title = "Open Forum";
+    }
+    OpenForum.alert = { message: message, title: title};
+    $('#ofAlertMessage').foundation('reveal', 'open');
+  };
+</script><!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) end -->
+
+  </head>
+  <body>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <!--OF insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) start --><a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" style="max-width: 50px; max-height: 50px;"/></a><!--OF insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) end -->
+          </h1>
+        </li>
+      </ul>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <a href="#" title="ServiceLayer"> Service Layer</a>
+          </h1>
+        </li>
+      </ul>
+      <!--OF insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) start --><section class="top-bar-section">
+  <ul class="right">
+
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="#">Access</a>
+      <ul class="dropdown">
+        <li of-repeatFor="reader in pageAccess.readers"><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onClick="return false;">{{reader}}</a></li>
+      </ul>
+      <script>
+        var pageAccess = {};
+        JSON.get("/OpenForum/Actions/Access","getAccess","pageName=/OpenForum/AddOn/Developer/ServiceLayer").onSuccess( function(response) {
+          pageAccess = response;
+        }).go();
+      </script>
+    </li>
+    
+    <li class="has-dropdown">
+      <a href="#">Favourite Pages</a>
+      <ul class="dropdown">
+        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
+      </ul>
+    </li>
+
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="<!--Extension Hash -->undefined<!--End Extension Hash -->">Signed in as {{currentUser}} {{avatar}}</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+        <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+        <script>
+          var accessLoading = false;
+          function doSignIn() {
+
+            if(!OpenForum.Access) {
+              if(!accessLoading) {
+                OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+                accessLoading=true;
+              }
+              setTimeout(doSignIn,1000);
+              return;
+            }
+
+            OpenForum.Access.showPopup();
+          };
+        </script>
+        {{currentUserExtraOptions}}
+      </ul>
+    </li>
+  </ul>
+</section><!--OF insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) end -->
+    </nav>
+    <!--Extension CrumbTrail --><nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/AddOn">AddOn</a></li><li role="menuitem"><a href="/OpenForum/AddOn/Developer">Developer</a></li><li role="menuitem" class="current"><a href="/OpenForum/AddOn/Developer">ServiceLayer</a></li></nav><!--End Extension CrumbTrail -->
+
+    <div style="padding-bottom: 100px;">
+    <!--PageContent Start-->
+<div class="row">
+  <center>
+  <!--Extension ActionButton action="refresh" parameters="ALL" text="Refresh All Service Objects" --><a  class='button radius tiny' href='#' onclick='refresh("ALL"); return false;'>Refresh All Service Objects</a> <!--End Extension ActionButton action="refresh" parameters="ALL" text="Refresh All Service Objects" -->
+  <!--Extension ActionButton action="refresh" parameters="DEV" text="Refresh Development Service Objects" --><a  class='button radius tiny' href='#' onclick='refresh("DEV"); return false;'>Refresh Development Service Objects</a> <!--End Extension ActionButton action="refresh" parameters="DEV" text="Refresh Development Service Objects" -->
+  <!--Extension ActionButton action="refresh" parameters="PROD" text="Refresh Production Service Objects" --><a  class='button radius tiny' href='#' onclick='refresh("PROD"); return false;'>Refresh Production Service Objects</a> <!--End Extension ActionButton action="refresh" parameters="PROD" text="Refresh Production Service Objects" -->
+  </center>
+  {{messages}}
+</div>
+
+<hr/>
+
+<div class="">
+  <div class="column large-6">
+    <h3>Object List</h3>
+    <table>
+      <thead>
+        <tr>
+          <td>Page Name</td>
+          <td>Object Name</td>
+          <td>Status</td>
+          <td>&nbsp;</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr of-repeatFor='row in serviceObjects'>
+          <td><span style='{{row.view}}'>{{row.pageName}}</span><span style='{{row.edit}}'><input type='text' value='{{row.pageName}}' onChange='OpenForum.Table.setCell(serviceObjects,{{row.index}},"pageName",this.value);'/></span></td>
+          <td><span style='{{row.view}}'>{{row.objectName}}</span><span style='{{row.edit}}'><input type='text' value='{{row.objectName}}' onChange='OpenForum.Table.setCell(serviceObjects,{{row.index}},"objectName",this.value);'/></span></td>
+          <td>{{row.status}}</td>
+          <td><a class='button tiny' onClick='OpenForum.Table.editRow(serviceObjects,{{row.index}}); return false;'>Edit</a>
+            <a class='button tiny' onClick='OpenForum.Table.removeRow(serviceObjects,{{row.index}}); return false;'>Remove</a></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="4"><a href="#" onClick="OpenForum.Table.addRow(serviceObjects,rowTemplate); return false;" class="button tiny round">Add Row</a>
+          <a href="#" onClick="OpenForum.Table.closeTable(serviceObjects); OpenForum.saveJSON('/Development/ServiceLayer/services-list.json',serviceObjects); return false;" class="button tiny round">Save Changes</a>
+          </td></tr></tfoot>
+    </table>
+  </div>
+  <div class="column large-6">
+    <h3>Service Pages</h3>
+    <!--Extension ChildrenContentsPage --><div class="row">
+
+</div><!--End Extension ChildrenContentsPage -->
+
+  </div>
+</div>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Page Content End-->
+    </div>
+
+    <!--OF insert (/OpenForum/PageTemplates/Footer/page.content) start --><!-- Generated by Page Block Editor v 0.0.1 -->
+<footer style="background-color: black; padding-left: 50px;">
+  <div>
+    <div>
+    <ul class="inline-list">
+      <li><a href="https://open-forum.onestonesoup.org/OpenForum" style="color:white">About</a></li>
+      <li>|</li>
+      <li><a href="https://open-forum.onestonesoup.org" style="color:white">Open Forum @ OneStoneSoup.org</a></li>
+      <li>|</li>
+      <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/Introduction" style="color:white">Developers</a></li>
+      <li class="right"><a href="https://open-forum.onestonesoup.org" style="color:white"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+    </ul>
+    </div>
+  </div>
+</footer>
+<!--OF insert (/OpenForum/PageTemplates/Footer/page.content) end -->
+    
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
+  <p>{{OpenForum.errorMessage}}</p>
+  <p><a href="#" data-reveal-id="ofErrorDetails" class="secondary button">See technical details</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="ofErrorDetails" class="reveal-modal" data-reveal aria-labelledby="ofErrorModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorModalTitle">Error details.</h2>
+  <p>{{OpenForum.error}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div><!--OF insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) end -->
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) start --><div id="ofAlertMessage" class="reveal-modal" data-reveal aria-labelledby="ofAlertMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofAlertMessageModalTitle" class="alert-box success round">{{OpenForum.alert.title}}</h2>
+  <p>{{OpenForum.alert.message}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<!--OF insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) end -->
+
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

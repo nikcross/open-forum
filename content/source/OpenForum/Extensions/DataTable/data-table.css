@@ -1,0 +1,75 @@
+/*
+* Author: https://stackoverflow.com/questions/17067294/html-table-with-100-width-with-vertical-scroll-inside-tbody
+* Example: /OpenForum/AddOn/Alert
+*/
+.dataTable div {
+  max-height: 30em;
+  overflow-y: scroll;
+  outline: 1px solid dimgrey;
+  outline-offset: -1px;
+  width: max-content;
+}
+/* DEFAULT TABLE */
+.dataTable table {
+  border-collapse: collapse;
+}
+
+.dataTable th,.dataTable td {
+  font-family: sans-serif;
+  background-color: gainsboro;
+  padding: 1em;
+  border: 1px solid white;
+  min-width: 100px;
+}
+
+.dataTable th {
+  text-align: left;
+  color: white;
+  background-color: dimgrey;
+}
+
+.dataTable thead:after {
+  content: "-";
+  display: block;
+  line-height: 2em;
+  color: transparent;
+}
+/* DEFAULT TABLE END */
+
+/* CUSTOM TABLE */
+.dataTable {
+  position: relative;
+  overflow: hidden;
+}
+
+.dataTable th {
+  white-space: nowrap;
+}
+
+  border-left: none;
+}
+  
+.dataTable th:first-child div {
+  border-left: none;
+}
+
+.dataTable th div {
+  position: absolute;
+  z-index: 2;
+  font-weight: bold;
+  width: 100%;
+  color: white;
+  background-color: dimgrey;
+  padding: 1rem;
+  border-left: 1px solid white;
+  margin-left: calc(-1rem - 1px);
+}
+
+.dataTable thead div {
+  top: 0;
+}
+
+.dataTable tfoot div {
+  bottom: 0;
+}
+/* CUSTOM TABLE END */

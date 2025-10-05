@@ -1,0 +1,16 @@
+A button that checks you are not a robot
+----
+!!Parameters
+* action = Button javascript function name
+* text = Button text
+
+----
+!!Usage:
+{{{
+[{RecaptchaButton action="alertMe" text="Am I A Robot ?"}]
+}}}
+[{RecaptchaButton action="alertMe" text="Am I A Robot ?"}]
+
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

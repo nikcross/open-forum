@@ -1,0 +1,7 @@
+<div class="row">
+!!CountDown v0.0.1
+{{{ [{CountDown counter="Alerts" action="doAction" period="10"}] }}}
+[{CountDown counter="Alerts" action="doAction" period="10"}]
+\\
+[{ActionButton text="Add CountDown Block type to Content Editor" action="addToContentEditor"}]
+</div>

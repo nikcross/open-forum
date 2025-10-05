@@ -1,0 +1,119 @@
+<div style="background-color: #203d64; color: #eef7ee; height: inherit;">
+  !![Code Quick Reference|/OpenForum/AddOn/SQL/QuickReference]
+  !![SQL and Javascript Generator|/OpenForum/AddOn/SQL/Generator]
+  <br/>
+  <div class="row">
+    <select of-id="SQLEditorController.dbAlias">
+      <option of-repeatFor="alias in SQLEditorController.dbAliases" selected>{{alias.name}}</option>
+    </select>
+    <div id="sqlEditor"><textarea id="editor{{editorIndex}}Src" style="height: 100%;">Loading...</textarea></div>
+    [{ActionButton action="SQLEditorController.runSQLScript" text="Run"}]
+    [{ActionButton action="SQLEditorController.generateSQLCode" text="Generate Code"}]
+    [{ActionButton action="SQLEditorController.showHistoryView" text="View Query History"}]
+    [{ActionButton action="SQLEditorController.showInspectionView" text="View DB Instector"}]
+  </div>
+
+  <div class="row">
+    <xmp style="width: 100%;">{{SQLEditorController.dbAlias}}</xmp>
+    <span id="resultTable" style="width: 100%;"></span>
+  </div>
+</div>
+
+<div id="inspectionView" class="reveal-modal" data-reveal aria-labelledby="historyViewTitle" aria-hidden="true" role="dialog" style="max-height:80%; overflow: auto;">
+  <h2 id="inspectionViewTitle">Database Inspection</h2>
+  <div class="row">
+    <div class="column large-4">
+      <table>
+        <caption>Tables</caption>
+        <thead>
+          <tr>
+            <td>Name</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr of-repeatFor="table in SQLEditorController.tables">
+            <td><a onClick="SQLEditorController.showTable( '{{table.tablename}}' ); return false;">{{table.tablename}}</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="column large-8">
+      !!Table {{SQLEditorController.tableView.schema}}.{{SQLEditorController.tableView.name}}
+      ''Current Rows: {{SQLEditorController.tableView.rows}}''<br/>
+      [{ActionButton action="SQLEditorController.createSelect" text="Create Select"}]
+      [{ActionButton action="SQLEditorController.createInsert" text="Create Insert"}]
+      [{ActionButton action="SQLEditorController.createTable" text="Create Table"}]
+      <table>
+        <thead>
+          <tr>
+            <td> Column Name </td>
+            <td> Data Type </td>
+            <td> Can Be Null </td>
+            <td> Default Value </td>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr of-repeatFor='column in SQLEditorController.tableView.columns'>
+            <td> {{column.column_name}} </td>
+            <td> {{column.data_type}} </td>
+            <td> {{column.is_nullable}} </td>
+            <td> {{column.column_default}} </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="row">
+    <table>
+      <caption>Indexes</caption>
+      <thead>
+        <tr>
+          <td>Index Name</td>
+          <td>Table Name</td>
+          <td>Index Definition</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr of-repeatFor="index in SQLEditorController.indexes">
+          <td>{{index.indexname}}</td>
+          <td><a onClick="SQLEditorController.showTable( '{{index.tablename}}' ); return false;">{{index.tablename}}</a></td>
+          <td>{{index.indexdef}}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    
+    <table>
+      <caption>Sequences</caption>
+      <thead>
+        <tr>
+          <td>Sequence Name</td>
+          <td>Start Value</td>
+          <td>Last Value</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr of-repeatFor="sequence in SQLEditorController.sequences">
+          <td>{{sequence.sequencename}}</td>
+          <td>{{sequence.start_value}}</td>
+          <td>{{sequence.last_value}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="historyView" class="reveal-modal" data-reveal aria-labelledby="historyViewTitle" aria-hidden="true" role="dialog">
+  <h2 id="historyViewTitle">Query History.</h2>
+  <p>
+    <input list="historyList" of-id="SQLEditorController.historicQuery">
+    [{ActionButton action="SQLEditorController.appendHistoricQuery" text="Append To SQL"}]
+    <datalist id="historyList">
+      <option of-repeatFor="sql in SQLEditorController.sqlHistory" value="{{sql.query}}" />
+    </datalist>
+  </p>
+
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

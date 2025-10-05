@@ -1,0 +1,27 @@
+!!&title;
+
+{{{
+[{Table name="myTable" actions="add,edit,move" data="
+Site site
+Link url link
+"}]
+
+[{DataTable name="myTable" data="
+Site site
+Open openLink action
+"}]
+}}}
+
+[{Table name="myTable" actions="add,edit,move" data="
+Site site
+Link url link
+"}]
+
+<div class="row">
+[{DataTable name="myTable" data="
+Site site
+Open openLink action
+"}]
+</div>
+
+[{ScriptClip fileName="page.js"}]

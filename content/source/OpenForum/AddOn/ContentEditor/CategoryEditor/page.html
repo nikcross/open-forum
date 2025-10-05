@@ -1,0 +1,146 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <title>CategoryEditor</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+	<script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1633371820000"></script>
+	<script type="text/javascript" src="/OpenForum/AddOn/ContentEditor/CategoryEditor/page.js?ts=1633371820000"></script>
+
+	<script>
+		var pageName = "/OpenForum/AddOn/ContentEditor/CategoryEditor";
+		var author = "unknown";
+		var time = "1633371820000";
+	    var currentUser = "";
+	    JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response.data;  } ).go();
+	</script>
+    
+  </head>
+  <body>
+    <!--PageContent Start-->
+<hr/>
+<h3>Page Categories</h3>
+
+<!--Extension /OpenForum/Javascript/Application/TableEditor tableName="categories" fileName="/OpenForum/AddOn/ContentEditor/page-categories.json" rowTemplateFileName="/OpenForum/AddOn/ContentEditor/CategoryEditor/category-row-template.json" --><table>
+<thead>
+    <tr>
+        
+<td>Name</td>
+-->8--
+<td>Path</td>
+-->8--
+        <td>&nbsp;</td>
+   </tr>
+</thead>
+<tbody>
+    <tr of-repeatFor='row in categories'>
+        
+<td>
+	<span style='{{row.view}}'>
+      {{row.name}}
+	</span>
+	<span style='{{row.edit}}'>
+      <input type='text' value='{{row.name}}' onChange='OpenForum.Table.setCell(categories,{{row.index}},"name",this.value);'/>
+	</span>
+</td>
+-->8--
+
+<td>
+	<span style='{{row.view}}'>
+      {{row.path}}
+	</span>
+	<span style='{{row.edit}}'>
+      <input type='text' value='{{row.path}}' onChange='OpenForum.Table.setCell(categories,{{row.index}},"path",this.value);'/>
+	</span>
+</td>
+-->8--
+
+        <td><a class='button tiny' onClick='OpenForum.Table.editRow(categories,{{row.index}}); return false;'>Edit</a>
+        <a class='button tiny' onClick='OpenForum.Table.moveRowUp(categories,{{row.index}}); return false;'>Move Up</a>
+        <a class='button tiny' onClick='OpenForum.Table.moveRowDown(categories,{{row.index}}); return false;'>Move Down</a>
+        <a class='button tiny' onClick='OpenForum.Table.removeRow(categories,{{row.index}}); return false;'>Remove</a></td>
+    </tr>
+</tbody>
+<tfoot>
+<tr><td><a href="#" onClick="OpenForum.Table.addRow(categories,categories_rowTemplate); return false;" class="button tiny round">Add Row</a>
+<a href="#" onClick="OpenForum.Table.closeTable(categories); OpenForum.saveJSON('/OpenForum/AddOn/ContentEditor/page-categories.json',categories); return false;" class="button tiny round">Save Changes</a>
+</td></tr></tfoot>
+</table>
+
+
+<script>
+var categories = OpenForum.loadJSON( '/OpenForum/AddOn/ContentEditor/page-categories.json' );
+var categories_rowTemplate = OpenForum.loadJSON( '/OpenForum/AddOn/ContentEditor/CategoryEditor/category-row-template.json' );
+OpenForum.addInitialiser( function() { OpenForum.Table.closeTable(categories); } );
+</script>
+-->8--
+<!--End Extension /OpenForum/Javascript/Application/TableEditor tableName="categories" fileName="/OpenForum/AddOn/ContentEditor/page-categories.json" rowTemplateFileName="/OpenForum/AddOn/ContentEditor/CategoryEditor/category-row-template.json" -->
+
+<hr/>
+<h3>Pages</h3>
+<!--Extension /OpenForum/Javascript/Application/TableEditor tableName="pages" fileName="/OpenForum/AddOn/ContentEditor/pages-list.json" rowTemplateFileName="/OpenForum/AddOn/ContentEditor/CategoryEditor/page-row-template.json" --><table>
+<thead>
+    <tr>
+        
+<td>PageName</td>
+-->8--
+<td>Title</td>
+-->8--
+        <td>&nbsp;</td>
+   </tr>
+</thead>
+<tbody>
+    <tr of-repeatFor='row in pages'>
+        
+<td>
+	<span style='{{row.view}}'>
+      {{row.pageName}}
+	</span>
+	<span style='{{row.edit}}'>
+      <input type='text' value='{{row.pageName}}' onChange='OpenForum.Table.setCell(pages,{{row.index}},"pageName",this.value);'/>
+	</span>
+</td>
+-->8--
+
+<td>
+	<span style='{{row.view}}'>
+      {{row.title}}
+	</span>
+	<span style='{{row.edit}}'>
+      <input type='text' value='{{row.title}}' onChange='OpenForum.Table.setCell(pages,{{row.index}},"title",this.value);'/>
+	</span>
+</td>
+-->8--
+
+        <td><a class='button tiny' onClick='OpenForum.Table.editRow(pages,{{row.index}}); return false;'>Edit</a>
+        <a class='button tiny' onClick='OpenForum.Table.moveRowUp(pages,{{row.index}}); return false;'>Move Up</a>
+        <a class='button tiny' onClick='OpenForum.Table.moveRowDown(pages,{{row.index}}); return false;'>Move Down</a>
+        <a class='button tiny' onClick='OpenForum.Table.removeRow(pages,{{row.index}}); return false;'>Remove</a></td>
+    </tr>
+</tbody>
+<tfoot>
+<tr><td><a href="#" onClick="OpenForum.Table.addRow(pages,pages_rowTemplate); return false;" class="button tiny round">Add Row</a>
+<a href="#" onClick="OpenForum.Table.closeTable(pages); OpenForum.saveJSON('/OpenForum/AddOn/ContentEditor/pages-list.json',pages); return false;" class="button tiny round">Save Changes</a>
+</td></tr></tfoot>
+</table>
+
+
+<script>
+var pages = OpenForum.loadJSON( '/OpenForum/AddOn/ContentEditor/pages-list.json' );
+var pages_rowTemplate = OpenForum.loadJSON( '/OpenForum/AddOn/ContentEditor/CategoryEditor/page-row-template.json' );
+OpenForum.addInitialiser( function() { OpenForum.Table.closeTable(pages); } );
+</script>
+-->8--
+<!--End Extension /OpenForum/Javascript/Application/TableEditor tableName="pages" fileName="/OpenForum/AddOn/ContentEditor/pages-list.json" rowTemplateFileName="/OpenForum/AddOn/ContentEditor/CategoryEditor/page-row-template.json" -->
+
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Page Content End-->
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

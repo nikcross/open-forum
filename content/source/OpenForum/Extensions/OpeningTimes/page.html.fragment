@@ -1,0 +1,32 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3>OpeningTimes v0.1.34</h3>
+<xmp class="panel" of-exclude="true"> <!--Extension OpeningTimes mondayOpen="mondayOpen" mondayClose="mondayClose" tuesdayOpen="tuesdayOpen" tuesdayClose="tuesdayClose" wednesdayOpen="wednesdayOpen" wednesdayClose="wednesdayClose" thursdayOpen="thursdayOpen" thursdayClose="thursdayClose" fridayOpen="fridayOpen" fridayClose="fridayClose" saturdayOpen="saturdayOpen" saturdayClose="saturdayClose" sundayOpen="sundayOpen" sundayClose="sundayClose" -->    <div class="eventBox">
+      <h3>Opening Times</h3>
+      <br/>
+      <center><table>
+        <tr><td>Monday</td><td class="eventTime">mondayOpen - mondayClose</td></tr>
+        <tr><td>Tuesday</td><td class="eventTime">tuesdayOpen - tuesdayClose</td></tr>
+        <tr><td>Wednesday</td><td class="eventTime">wednesdayOpen - wednesdayClose</td></tr>
+        <tr><td>Thursday</td><td class="eventTime">thursdayOpen - thursdayClose</td></tr>
+        <tr><td>Friday</td><td class="eventTime">fridayOpen - fridayClose</td></tr>
+        <tr><td>Saturday</td><td class="eventTime">saturdayOpen - saturdayClose</td></tr>
+        <tr><td>Sunday</td><td class="eventTime">sundayOpen - sundayClose</td></tr>
+        </table></center>
+    </div><!--End Extension OpeningTimes mondayOpen="mondayOpen" mondayClose="mondayClose" tuesdayOpen="tuesdayOpen" tuesdayClose="tuesdayClose" wednesdayOpen="wednesdayOpen" wednesdayClose="wednesdayClose" thursdayOpen="thursdayOpen" thursdayClose="thursdayClose" fridayOpen="fridayOpen" fridayClose="fridayClose" saturdayOpen="saturdayOpen" saturdayClose="saturdayClose" sundayOpen="sundayOpen" sundayClose="sundayClose" --> </xmp>
+<!--Extension OpeningTimes mondayOpen="mondayOpen" mondayClose="mondayClose" tuesdayOpen="tuesdayOpen" tuesdayClose="tuesdayClose" wednesdayOpen="wednesdayOpen" wednesdayClose="wednesdayClose" thursdayOpen="thursdayOpen" thursdayClose="thursdayClose" fridayOpen="fridayOpen" fridayClose="fridayClose" saturdayOpen="saturdayOpen" saturdayClose="saturdayClose" sundayOpen="sundayOpen" sundayClose="sundayClose" -->    <div class="eventBox">
+      <h3>Opening Times</h3>
+      <br/>
+      <center><table>
+        <tr><td>Monday</td><td class="eventTime">mondayOpen - mondayClose</td></tr>
+        <tr><td>Tuesday</td><td class="eventTime">tuesdayOpen - tuesdayClose</td></tr>
+        <tr><td>Wednesday</td><td class="eventTime">wednesdayOpen - wednesdayClose</td></tr>
+        <tr><td>Thursday</td><td class="eventTime">thursdayOpen - thursdayClose</td></tr>
+        <tr><td>Friday</td><td class="eventTime">fridayOpen - fridayClose</td></tr>
+        <tr><td>Saturday</td><td class="eventTime">saturdayOpen - saturdayClose</td></tr>
+        <tr><td>Sunday</td><td class="eventTime">sundayOpen - sundayClose</td></tr>
+        </table></center>
+    </div><!--End Extension OpeningTimes mondayOpen="mondayOpen" mondayClose="mondayClose" tuesdayOpen="tuesdayOpen" tuesdayClose="tuesdayClose" wednesdayOpen="wednesdayOpen" wednesdayClose="wednesdayClose" thursdayOpen="thursdayOpen" thursdayClose="thursdayClose" fridayOpen="fridayOpen" fridayClose="fridayClose" saturdayOpen="saturdayOpen" saturdayClose="saturdayClose" sundayOpen="sundayOpen" sundayClose="sundayClose" -->
+<br/><br/>
+<!--Extension ActionButton text="Add OpeningTimes Block type to Content Editor" action="addToContentEditor" --><a  class='button radius tiny' href='#' onclick='addToContentEditor(); return false;'>Add OpeningTimes Block type to Content Editor</a> <!--End Extension ActionButton text="Add OpeningTimes Block type to Content Editor" action="addToContentEditor" -->
+</div>

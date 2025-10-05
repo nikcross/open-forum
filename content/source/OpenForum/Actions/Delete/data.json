@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/Delete",
-    "title": " Delete"
+    "pageName": "/OpenForum/Actions/Delete",
+    "title": "Delete",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

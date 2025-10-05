@@ -1,0 +1,32 @@
+!!&title;
+
+<div class="row">
+  !!Task Scheduler took {{taskScheduler.timeTaken}}ms to complete {{taskScheduler.scheduleLength}} scheduled tasks
+
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Time Taken</td>
+        <td>&nbsp;</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr of-repeatFor='row in schedule'>
+        <td><span>{{row.name}}</span></td>
+        <td><span>{{row.timeTaken}}ms</span></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr><td colspan="3"></td></tr></tfoot>
+  </table>
+
+</div>
+
+<div class="row">
+  !!Todays Log
+  <div id="logView"/>
+</div>
+
+!!Attachments
+[{AttachmentsList pageName="&pageName;" matching=".*-task-log.txt"}]

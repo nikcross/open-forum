@@ -1,4 +1,4 @@
-var dataView = "Loading...";
+var data = [{key: "Loading...", value: ""}];
 
 OpenForum.init = function() {
   setInterval(updateView(),5000);
@@ -11,8 +11,8 @@ function updateView() {
 
 function displayData(response) {
   if(response.result==="ok") {
-    dataView = JSON.stringify(response.data,null,4);
+    data = response.data;
   } else {
-    dataView = "Error: "+response.message;
+    data = [{key: "Error", value: response.message}];
   }
 }

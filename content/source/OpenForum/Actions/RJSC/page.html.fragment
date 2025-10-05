@@ -1,17 +1,18 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Remote Javascript Call
 <hr/>
 <h3>Parameters</h3>
 <ul><li>code</li>
 <hr/>
 <h3>Usage:</h3>
-<xmp class="panel">
-[/OpenForum/Actions/RJSC?code=transaction.getParameter("code");]
+<xmp class="panel" of-exclude="true">
+<a href="/OpenForum/Actions/RJSC?code=transaction.getParameter("code");">/OpenForum/Actions/RJSC?code=transaction.getParameter("code");</a>
 </xmp>
-<a href="/OpenForum/Editor?pageName=/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp(); does not exist. Click to create it.">/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();</a>
+<a href="/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();">/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();</a>
 
 <hr/>
 <h3>Server Side Javascript for GET method</h3>
-<a href="//OpenForum/Actions/RJSC/get.sjs">//OpenForum/Actions/RJSC/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/RJSC&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">code = transaction.getParameter("code");
+<!--Extension InsertSourceFile fileName="get.sjs" --><a href="//OpenForum/Actions/RJSC/get.sjs">//OpenForum/Actions/RJSC/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/RJSC&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">code = transaction.getParameter("code");
 queueName = transaction.getParameter("queueName");
 if( code===null )
 {
@@ -23,7 +24,13 @@ try{
  function println(message) {
    openForum.postMessageToQueue(queueName,message);
  }
-
+  
+ console = {
+   log: function(message) {
+     println(message);
+   }
+ };
+  
   println("Running");
 
   code = ""+code;
@@ -39,13 +46,10 @@ try{
   println("Complete");
   
   transaction.sendJSON( JSON.stringify( {result: result} ) );
-}
-catch(e)
-{
+} catch(e) {
   try{
    println(e);
   }
   catch(e2){}
-  transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber+" of "+e.sourceName, saved: false}));
-}</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>
+  transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber}));
+}</xmp><!--End Extension InsertSourceFile fileName="get.sjs" --></ul>

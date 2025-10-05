@@ -1,0 +1,168 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>Form</h3>
+
+<xmp class="panel" of-exclude="true">
+<!--Extension Form name="myForm" data="
+Name name
+Age age
+
+Checkbox: Has Pet hasPet
+
+Table: todo Task task, Description description
+" --><form>
+  <div class='row'>
+    <div class='large-6 columns'>
+      <label>Name</label> <input type='text' id='myForm.nameField' of-id='myForm.name' placeholder=' ' />
+    </div>
+    <div class='large-6 columns'>
+      <label>Age</label> <input type='text' id='myForm.ageField' of-id='myForm.age' placeholder=' ' />
+    </div>
+  </div>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <label>Has Pet</label> <input type='checkbox' id='myForm.hasPetField' of-id='myForm.hasPet' placeholder=' ' />
+    </div>
+  </div>
+<div class='row'><table>
+<thead>
+    <tr>
+        <td>Task</td>
+        <td>&nbsp;</td>
+   </tr>
+</thead>
+<tbody>
+    <tr of-repeatFor='row in myForm.todo'>
+        <td><span style='{{row.view}}'>{{row.task}}</span><span style='{{row.edit}}'><input type='text' value='{{row.task}}' onChange='OpenForum.Table.setCell(myForm.todo,{{row.index}},"task",this.value);'/></span></td>
+<td>        <a class='button tiny' onClick='OpenForum.Table.editRow(myForm.todo,{{row.index}}); return false;'>Edit</a>
+        <a class='button tiny' onClick='OpenForum.Table.removeRow(myForm.todo,{{row.index}}); return false;'>Remove</a>
+</td>    </tr>
+</tbody>
+<tfoot>
+<tr><td colspan="5"><a href="#" onClick="OpenForum.Table.addRow(myForm.todo,myForm.todo_rowTemplate); return false;" class="button tiny round">Add Row</a>
+</td></tr></tfoot>
+</table></div></form>
+<script>myForm = {};myForm.todo=[];
+myForm.todo_rowTemplate = {"task":""};
+</script><!--End Extension Form name="myForm" data="
+Name name
+Age age
+
+Checkbox: Has Pet hasPet
+
+Table: todo Task task, Description description
+" -->
+</xmp>
+
+<!--Extension Form name="myForm" data="
+Name name
+Age age
+
+Checkbox: Has Pet hasPet
+
+Table: todo Task task, Description description
+" --><form>
+  <div class='row'>
+    <div class='large-6 columns'>
+      <label>Name</label> <input type='text' id='myForm.nameField' of-id='myForm.name' placeholder=' ' />
+    </div>
+    <div class='large-6 columns'>
+      <label>Age</label> <input type='text' id='myForm.ageField' of-id='myForm.age' placeholder=' ' />
+    </div>
+  </div>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <label>Has Pet</label> <input type='checkbox' id='myForm.hasPetField' of-id='myForm.hasPet' placeholder=' ' />
+    </div>
+  </div>
+<div class='row'><table>
+<thead>
+    <tr>
+        <td>Task</td>
+        <td>&nbsp;</td>
+   </tr>
+</thead>
+<tbody>
+    <tr of-repeatFor='row in myForm.todo'>
+        <td><span style='{{row.view}}'>{{row.task}}</span><span style='{{row.edit}}'><input type='text' value='{{row.task}}' onChange='OpenForum.Table.setCell(myForm.todo,{{row.index}},"task",this.value);'/></span></td>
+<td>        <a class='button tiny' onClick='OpenForum.Table.editRow(myForm.todo,{{row.index}}); return false;'>Edit</a>
+        <a class='button tiny' onClick='OpenForum.Table.removeRow(myForm.todo,{{row.index}}); return false;'>Remove</a>
+</td>    </tr>
+</tbody>
+<tfoot>
+<tr><td colspan="5"><a href="#" onClick="OpenForum.Table.addRow(myForm.todo,myForm.todo_rowTemplate); return false;" class="button tiny round">Add Row</a>
+</td></tr></tfoot>
+</table></div></form>
+<script>myForm = {};myForm.todo=<a href="/OpenForum/Extensions/Form/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+myForm.todo_rowTemplate = {"task":""};
+</script><!--End Extension Form name="myForm" data="
+Name name
+Age age
+
+Checkbox: Has Pet hasPet
+
+Table: todo Task task, Description description
+" -->
+<a href="/OpenForum/Editor/Plugins/FormBuilder" target="newTab">Form Builder<img src='/OpenForum/Images/icons/png/link_go.png' /></a> <br/><br/>
+<!--Extension Popup id="formBuilderInstructions" title="Form Definition Instructions" --><a class='button small round' onClick="$('#formBuilderInstructions').foundation('reveal', 'open');;return false;">Form Definition Instructions</a><!--End Extension Popup id="formBuilderInstructions" title="Form Definition Instructions" -->
+<!--Extension Popup id="formBuilderInstructions" sourceFileName="instructions.wiki.fragment" sourcePageName="/OpenForum/Editor/Plugins/FormBuilder" --><div id="formBuilderInstructions" class="reveal-modal" data-reveal aria-labelledby="formBuilderInstructionsModalTitle" aria-hidden="true" role="dialog"><h3>Instructions</h3>
+<p>
+Form Builder helps you build quick and simple forms that are integrated with Open Forum. This means form fields are automatically made available as Javascript variables
+and are automatically updated on the page when changed in a script.
+</p>
+<p>
+Each row in the form definition on the right relates to a single input field. In its simplest form, the first words in the row are the fields label, with the last field being its variable name.
+A blank row will start a new row in the form.
+Each row has its own type. The default type in a text input field, but other types are available by starting the row with a type name followed by a colon.
+</p>
+<hr/>
+<h3>Example</h3>
+
+<!--Extension ScriptClip fileName="example.txt" --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;'  id='6DC8E88F' rows='7' >Width width
+Height height
+
+Calculation: area = width * height
+
+View: Area area</textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("6DC8E88F"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('6DC8E88F').setAttribute('readonly', 'readonly');</script><!--End Extension ScriptClip fileName="example.txt" -->
+
+<hr/>
+<h3>Types</h3>
+
+<b>Input:</b>
+<p>This is the default type. You do not need to prefix the row with Input:</p>
+
+<b>Text:</b>
+<p>This will provide a text box for multiline input</p>
+
+<b>Checkbox:</b>
+<p>This will provide a checkbox that will have a value of true or false depending on whether it is checked</p>
+
+<b>List:</b>
+<p>Provides a list of values that can be used in a select input</p>
+
+<b>Select:</b>
+<p>This will provide a select box that can be populated with options from a List</p>
+
+<b>Table:</b>
+<p>This will include an edtiable table with defined column names</p>
+
+<b>View:</b>
+<p>This will display a variables value in the form</p>
+
+<b>Note:</b>
+<p>This is for adding a comment in the form definition. It does not appear in the produced form</p>
+
+<b>Form Name:</b>
+<p>This sets the name of the form for use in code. It should only be set once.</p>
+
+<b>Message:</b>
+<p>This will display the given message text in the form</p>
+
+<b>Title:</b>
+<p>This will display the given title in the form</p>
+
+<b>Calculation:</b>
+<p>In Form Builder we have added the ability to perform in page calculations so small applications can be preformed with any need to create code elsewhere</p>
+
+<b>Action:</b>
+<p>Adds a button that calls a function</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="formBuilderInstructions" sourceFileName="instructions.wiki.fragment" sourcePageName="/OpenForum/Editor/Plugins/FormBuilder" -->

@@ -1,0 +1,730 @@
+[
+    {
+        "key": "One Stone Soup (OpenForum)\t/Calculator\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:24",
+        "firstTime": 1703971151684,
+        "lastTime": 1707588589766,
+        "heat": 28.533498390765995,
+        "occured": 330
+    },
+    {
+        "key": "Bourne Valley PYO\t/Cafe\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:36",
+        "firstTime": 1703978699155,
+        "lastTime": 1707416384944,
+        "heat": 4.128666390270205,
+        "occured": 38
+    },
+    {
+        "key": "Bourne Valley PYO\t/HomePage\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:34",
+        "firstTime": 1703979985591,
+        "lastTime": 1707576459223,
+        "heat": 73.94724944929374,
+        "occured": 824
+    },
+    {
+        "key": "One Stone Soup (OpenForum)\t/HomePage\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:24",
+        "firstTime": 1704017904785,
+        "lastTime": 1707481051374,
+        "heat": 1.8725567842240962,
+        "occured": 34
+    },
+    {
+        "key": "One Stone Soup (OpenForum)\t/OpenForum/Access/SignIn\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:24",
+        "firstTime": 1704018219201,
+        "lastTime": 1707295570914,
+        "heat": 0.5561022438395251,
+        "occured": 52
+    },
+    {
+        "key": "Bourne Valley PYO\t/HomePage\tTypeError: undefined is not an object (evaluating 'response.profile.avatar') lineNumber:34",
+        "firstTime": 1704042903332,
+        "lastTime": 1707592784412,
+        "heat": 12.646806782895071,
+        "occured": 101
+    },
+    {
+        "key": "null\t/Calculators/KWH-to-CO2\tScript error. lineNumber:0",
+        "firstTime": 1704096523138,
+        "lastTime": 1707321586128,
+        "heat": 1.147585487984148,
+        "occured": 89
+    },
+    {
+        "key": "Bourne Valley PYO\t/AboutUs\tTypeError: undefined is not an object (evaluating 'response.profile.avatar') lineNumber:35",
+        "firstTime": 1704111913409,
+        "lastTime": 1707576051745,
+        "heat": 3.5019132610216883,
+        "occured": 21
+    },
+    {
+        "key": "Bourne Valley PYO\t/AboutUs\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1704123176479,
+        "lastTime": 1707365060915,
+        "heat": 2.3113923149717137,
+        "occured": 26
+    },
+    {
+        "key": "Bourne Valley PYO\t/TheShop\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:36",
+        "firstTime": 1704123181025,
+        "lastTime": 1707345885725,
+        "heat": 2.261738598267016,
+        "occured": 27
+    },
+    {
+        "key": "Bourne Valley PYO\t/FindUs\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:36",
+        "firstTime": 1704123184517,
+        "lastTime": 1707592571178,
+        "heat": 2.361492851513878,
+        "occured": 21
+    },
+    {
+        "key": "null\t/Calculators/KWH-to-CO2\tUncaught SyntaxError: Unexpected identifier 'iniUserExtraOptions' lineNumber:2890",
+        "firstTime": 1704177379008,
+        "lastTime": 1706841639102,
+        "heat": 0.43344850206648766,
+        "occured": 37
+    },
+    {
+        "key": "Bourne Valley PYO\t/TheShop\tTypeError: undefined is not an object (evaluating 'response.profile.avatar') lineNumber:36",
+        "firstTime": 1704293850177,
+        "lastTime": 1707434465898,
+        "heat": 1.7951734183095716,
+        "occured": 21
+    },
+    {
+        "key": "Bourne Valley PYO\t/FindUs\tTypeError: undefined is not an object (evaluating 'response.profile.avatar') lineNumber:36",
+        "firstTime": 1704368530909,
+        "lastTime": 1707047358167,
+        "heat": 0.365705194166302,
+        "occured": 13
+    },
+    {
+        "key": "Bourne Valley PYO\t/PickYourOwn\tTypeError: undefined is not an object (evaluating 'response.profile.avatar') lineNumber:36",
+        "firstTime": 1704390681919,
+        "lastTime": 1707176868159,
+        "heat": 0.3963884751729859,
+        "occured": 18
+    },
+    {
+        "key": "Bourne Valley PYO\t/Cafe\tTypeError: undefined is not an object (evaluating 'response.profile.avatar') lineNumber:36",
+        "firstTime": 1704449832366,
+        "lastTime": 1707434405172,
+        "heat": 0.732740516273996,
+        "occured": 13
+    },
+    {
+        "key": "Bourne Valley PYO\t/Events/DriveInFireworks\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1704450688983,
+        "lastTime": 1707499557503,
+        "heat": 2.346181302371712,
+        "occured": 22
+    },
+    {
+        "key": "Bourne Valley PYO\t/Events\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:36",
+        "firstTime": 1704551293132,
+        "lastTime": 1707219860006,
+        "heat": 1.2362914906924878,
+        "occured": 21
+    },
+    {
+        "key": "Bourne Valley PYO\t/PickYourOwn\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:36",
+        "firstTime": 1704755129846,
+        "lastTime": 1707392695145,
+        "heat": 2.866008260643785,
+        "occured": 24
+    },
+    {
+        "key": "Bourne Valley PYO\t/ChristmasTrees\tUncaught TypeError: Cannot read properties of undefined (reading 'total') lineNumber:162",
+        "firstTime": 1704843301844,
+        "lastTime": 1707368411713,
+        "heat": 1.1667870451941795,
+        "occured": 11
+    },
+    {
+        "key": "Bourne Valley PYO\t/CropUpdate\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:36",
+        "firstTime": 1705446190799,
+        "lastTime": 1707461919221,
+        "heat": 1.5027292659590072,
+        "occured": 10
+    },
+    {
+        "key": "Bourne Valley PYO\t/ChristmasTrees\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:32",
+        "firstTime": 1705711609301,
+        "lastTime": 1707368408549,
+        "heat": 1.1655046194007355,
+        "occured": 8
+    },
+    {
+        "key": "Bourne Valley PYO\t/HomePage\tUncaught TypeError: Cannot read property 'avatar' of undefined lineNumber:34",
+        "firstTime": 1705721791806,
+        "lastTime": 1707505211230,
+        "heat": 1.8858751204736564,
+        "occured": 11
+    },
+    {
+        "key": "null\t/DummyService\tUncaught ReferenceError: DummyServiceClient is not defined lineNumber:42",
+        "firstTime": 1706356061416,
+        "lastTime": 1706362181336,
+        "heat": 1.8352486453950405,
+        "occured": 103
+    },
+    {
+        "key": "One Stone Soup (OpenForum)\t/Development/Calculators\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:24",
+        "firstTime": 1706377158897,
+        "lastTime": 1707377223412,
+        "heat": 1.2921032644808292,
+        "occured": 6
+    },
+    {
+        "key": "null\t/UKGenerationForecast\tReferenceError: Canvas is not defined lineNumber:95",
+        "firstTime": 1706483449665,
+        "lastTime": 1707503923760,
+        "heat": 5.044902250170708,
+        "occured": 20
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Access/SignIn\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1706529856140,
+        "lastTime": 1707591324184,
+        "heat": 3.2161360383033752,
+        "occured": 7
+    },
+    {
+        "key": "Bourne Valley PYO\t/Contact\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1706576769295,
+        "lastTime": 1707502317539,
+        "heat": 2.248206853866577,
+        "occured": 7
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/User\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1706582168445,
+        "lastTime": 1707505018897,
+        "heat": 2.142738103866577,
+        "occured": 7
+    },
+    {
+        "key": "Bourne Valley PYO\t/WhatWeGrow/Strawberries\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1706802032531,
+        "lastTime": 1707299404822,
+        "heat": 0.5970726013183594,
+        "occured": 3
+    },
+    {
+        "key": "One Stone Soup (OpenForum)\t//OpenForum/ErrorPages/500\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:24",
+        "firstTime": 1706813746608,
+        "lastTime": 1707397418195,
+        "heat": 0.8748893737792969,
+        "occured": 3
+    },
+    {
+        "key": "null\t/SustainabilityCalculator/AnalysisMatrix\tUncaught TypeError: Cannot read properties of undefined (reading 'replaceAll') lineNumber:30",
+        "firstTime": 1706901070864,
+        "lastTime": 1706901118325,
+        "heat": 0.3003387451171875,
+        "occured": 3
+    },
+    {
+        "key": "Bourne Valley PYO\t/CropUpdate\tTypeError: undefined is not an object (evaluating 'response.profile.avatar') lineNumber:36",
+        "firstTime": 1706926795442,
+        "lastTime": 1707434426501,
+        "heat": 1.3919677734375,
+        "occured": 4
+    },
+    {
+        "key": "Bourne Valley PYO\t/Events\tTypeError: undefined is not an object (evaluating 'response.profile.avatar') lineNumber:36",
+        "firstTime": 1706975201817,
+        "lastTime": 1707434333702,
+        "heat": 0.87396240234375,
+        "occured": 3
+    },
+    {
+        "key": "null\t/ShopAdmin/Bookings\tUncaught TypeError: Cannot read properties of undefined (reading 'availability') lineNumber:403",
+        "firstTime": 1706977347463,
+        "lastTime": 1706977397076,
+        "heat": 0.40045166015625,
+        "occured": 3
+    },
+    {
+        "key": "null\t/Information/NOABLModel\tScript error. lineNumber:0",
+        "firstTime": 1707032112394,
+        "lastTime": 1707032171974,
+        "heat": 0.35595703125,
+        "occured": 2
+    },
+    {
+        "key": "One Stone Soup (OpenForum)\t/Development\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:24",
+        "firstTime": 1707081067159,
+        "lastTime": 1707439979650,
+        "heat": 2.09033203125,
+        "occured": 5
+    },
+    {
+        "key": "null\t/OpenForum/AddOn/MenuEditor/QuickReference\tUncaught TypeError: Cannot set properties of null (setting 'innerHTML') lineNumber:1413",
+        "firstTime": 1707204889377,
+        "lastTime": 1707204889377,
+        "heat": 0.31640625,
+        "occured": 1
+    },
+    {
+        "key": "null\t/Information/RenSMARTWindModel\tScript error. lineNumber:0",
+        "firstTime": 1707226095193,
+        "lastTime": 1707226095193,
+        "heat": 0.31640625,
+        "occured": 1
+    },
+    {
+        "key": "null\t/Development/InBrowserEditors/DataTransformer\tUncaught TypeError: Cannot read properties of undefined (reading 'before') lineNumber:65",
+        "firstTime": 1707232276076,
+        "lastTime": 1707232322388,
+        "heat": 1.265625,
+        "occured": 4
+    },
+    {
+        "key": "null\t/OpenForum/Editor\tUncaught ReferenceError: attachments is not defined lineNumber:624",
+        "firstTime": 1707250785006,
+        "lastTime": 1707250785006,
+        "heat": 0.31640625,
+        "occured": 1
+    },
+    {
+        "key": "null\t/OpenForum/Javascript/Renderer\tUncaught SyntaxError: Unexpected token ')' lineNumber:2921",
+        "firstTime": 1707267691621,
+        "lastTime": 1707267691621,
+        "heat": 0.421875,
+        "occured": 1
+    },
+    {
+        "key": "One Stone Soup (OpenForum)\t/Development/Administration\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:24",
+        "firstTime": 1707269046912,
+        "lastTime": 1707438634724,
+        "heat": 2.71875,
+        "occured": 5
+    },
+    {
+        "key": "One Stone Soup (OpenForum)\t/OpenForum/Actions/GetInheritedFilePath\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:24",
+        "firstTime": 1707287561834,
+        "lastTime": 1707287561834,
+        "heat": 0.421875,
+        "occured": 1
+    },
+    {
+        "key": "null\t/OpenForum/Actions/User\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:25",
+        "firstTime": 1707304714847,
+        "lastTime": 1707304714847,
+        "heat": 0.421875,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/WhatWeGrow\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707305248210,
+        "lastTime": 1707305248210,
+        "heat": 0.421875,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707306512512,
+        "lastTime": 1707306512512,
+        "heat": 0.421875,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Access/SignOut\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707309213911,
+        "lastTime": 1707309213911,
+        "heat": 0.421875,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Images\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707313520614,
+        "lastTime": 1707313520614,
+        "heat": 0.421875,
+        "occured": 1
+    },
+    {
+        "key": "null\t/Planner\tTypeError: null is not an object (evaluating 'a[i]') lineNumber:3064",
+        "firstTime": 1707317039097,
+        "lastTime": 1707317039103,
+        "heat": 0.84375,
+        "occured": 2
+    },
+    {
+        "key": "null\t/OpenForum/Actions\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:25",
+        "firstTime": 1707317720165,
+        "lastTime": 1707317720165,
+        "heat": 0.421875,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/About\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707320683352,
+        "lastTime": 1707320683352,
+        "heat": 0.421875,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/JarManager\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707321854747,
+        "lastTime": 1707321854747,
+        "heat": 0.421875,
+        "occured": 1
+    },
+    {
+        "key": "null\t/OpenForum/Actions/RefreshJarManager\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:25",
+        "firstTime": 1707324073961,
+        "lastTime": 1707324073961,
+        "heat": 0.421875,
+        "occured": 1
+    },
+    {
+        "key": "null\t/OpenForum/Actions/SystemTime\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:25",
+        "firstTime": 1707331319182,
+        "lastTime": 1707352306099,
+        "heat": 0.984375,
+        "occured": 2
+    },
+    {
+        "key": "Bourne Valley PYO\t/Events/PumpkinFestival\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707344944026,
+        "lastTime": 1707372860604,
+        "heat": 0.984375,
+        "occured": 2
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/About/ReleaseNotes\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707347055547,
+        "lastTime": 1707347055547,
+        "heat": 0.421875,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Javascript\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362120921,
+        "lastTime": 1707585326480,
+        "heat": 1.5625,
+        "occured": 2
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/GetUser\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362122597,
+        "lastTime": 1707362122597,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362125397,
+        "lastTime": 1707431199248,
+        "heat": 1.6875,
+        "occured": 3
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/PageTemplates/Default\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362133730,
+        "lastTime": 1707362133730,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/About/License\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362135494,
+        "lastTime": 1707362135494,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/RefreshJarManager\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362138169,
+        "lastTime": 1707452384476,
+        "heat": 1.3125,
+        "occured": 2
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Triggers\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362139119,
+        "lastTime": 1707591443419,
+        "heat": 1.5625,
+        "occured": 2
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/UpdateJarManager\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362139938,
+        "lastTime": 1707362139938,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/Access\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362148092,
+        "lastTime": 1707368198087,
+        "heat": 1.125,
+        "occured": 2
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/Copy\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362174492,
+        "lastTime": 1707413011847,
+        "heat": 1.125,
+        "occured": 2
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/PageTemplates\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362180464,
+        "lastTime": 1707590245218,
+        "heat": 1.5625,
+        "occured": 2
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/ValidatePageName\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362209290,
+        "lastTime": 1707563533786,
+        "heat": 1.5625,
+        "occured": 2
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/AttachmentExists\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362209648,
+        "lastTime": 1707385231586,
+        "heat": 1.125,
+        "occured": 2
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/Move\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362210347,
+        "lastTime": 1707403472057,
+        "heat": 1.125,
+        "occured": 2
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/Zip\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362222953,
+        "lastTime": 1707362222953,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/ForkLink\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362223347,
+        "lastTime": 1707362223347,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/SystemTime\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362224073,
+        "lastTime": 1707362224073,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/GetAttachments\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362224810,
+        "lastTime": 1707422555241,
+        "heat": 1.125,
+        "occured": 2
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Actions/TestExample\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707362408769,
+        "lastTime": 1707362408769,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "One Stone Soup (OpenForum)\t/Development/DeveloperCalculator\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:24",
+        "firstTime": 1707367534518,
+        "lastTime": 1707548987110,
+        "heat": 1.5625,
+        "occured": 2
+    },
+    {
+        "key": "One Stone Soup (OpenForum)\t/Development/UK\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:24",
+        "firstTime": 1707381931099,
+        "lastTime": 1707387278379,
+        "heat": 1.125,
+        "occured": 2
+    },
+    {
+        "key": "null\t/OpenForum/AddOn/Audio/AudioRecorder\tUncaught Microphone access denied lineNumber:260",
+        "firstTime": 1707382001864,
+        "lastTime": 1707382001864,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "One Stone Soup (OpenForum)\t/Development/UK/Geolocation\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:24",
+        "firstTime": 1707389792257,
+        "lastTime": 1707389792257,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "null\t/InBrowserEditors/DataTransformer\tUncaught TypeError: Cannot read properties of undefined (reading 'before') lineNumber:65",
+        "firstTime": 1707393221637,
+        "lastTime": 1707399181717,
+        "heat": 3.375,
+        "occured": 6
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Extensions\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707399696840,
+        "lastTime": 1707399696840,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "null\t/Development/OpenForum/AddOn/DataTransformer\tUncaught TypeError: Cannot read properties of undefined (reading 'before') lineNumber:65",
+        "firstTime": 1707408193395,
+        "lastTime": 1707408193395,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "null\t/Planner\tUncaught TypeError: Cannot read properties of null (reading '0') lineNumber:3064",
+        "firstTime": 1707408299110,
+        "lastTime": 1707497762763,
+        "heat": 1.3125,
+        "occured": 2
+    },
+    {
+        "key": "null\t/Calculators/QuickSolarProject\tUncaught TypeError: Cannot read properties of undefined (reading 'finance') lineNumber:186",
+        "firstTime": 1707409846895,
+        "lastTime": 1707409846895,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "null\t/Calculators/QuickSolarProject\tUncaught TypeError: Cannot read properties of undefined (reading 'project') lineNumber:20",
+        "firstTime": 1707409847045,
+        "lastTime": 1707409847045,
+        "heat": 0.5625,
+        "occured": 1
+    },
+    {
+        "key": "One Stone Soup (OpenForum)\t/Development/Calculator\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:24",
+        "firstTime": 1707438628385,
+        "lastTime": 1707438628385,
+        "heat": 0.75,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Extensions/MarkDown\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707438938046,
+        "lastTime": 1707438938046,
+        "heat": 0.75,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Extensions/InsertFile\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707455079974,
+        "lastTime": 1707455079974,
+        "heat": 0.75,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Extensions/Clock\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707459221577,
+        "lastTime": 1707459221577,
+        "heat": 0.75,
+        "occured": 1
+    },
+    {
+        "key": "null\t/Calculators/KWH-to-CO2\tUncaught SyntaxError: Unexpected identifier 'iniUserExtraOptions' lineNumber:2924",
+        "firstTime": 1707467351949,
+        "lastTime": 1707467351949,
+        "heat": 0.75,
+        "occured": 1
+    },
+    {
+        "key": "null\t/Calculators/FeedInTariff\tUncaught SyntaxError: Unexpected token '<' lineNumber:2924",
+        "firstTime": 1707467443940,
+        "lastTime": 1707467443940,
+        "heat": 0.75,
+        "occured": 1
+    },
+    {
+        "key": "null\t/Information/WindSheer\tUncaught TypeError: onError is not a function lineNumber:1242",
+        "firstTime": 1707477187746,
+        "lastTime": 1707498255866,
+        "heat": 2.25,
+        "occured": 3
+    },
+    {
+        "key": "null\t/OpenForum/AddOn/NotePad\tUncaught NetworkError: Failed to execute 'send' on 'XMLHttpRequest': Failed to load 'https://www.electricllamacompany.com/OpenForum/Actions/SystemTime?action=getTime'. lineNumber:1319",
+        "firstTime": 1707505963806,
+        "lastTime": 1707505963806,
+        "heat": 0.75,
+        "occured": 1
+    },
+    {
+        "key": "null\t/OpenForum/Access/SignIn\tUncaught NetworkError: Failed to execute 'send' on 'XMLHttpRequest': Failed to load 'https://twistedsheep.co.uk/OpenForum/Access/SignIn/popup.html.fragment'. lineNumber:1319",
+        "firstTime": 1707516315250,
+        "lastTime": 1707516315250,
+        "heat": 0.75,
+        "occured": 1
+    },
+    {
+        "key": "null\t/OpenForum/Spider\tUncaught TypeError: Cannot read properties of null (reading 'setValue') lineNumber:9043",
+        "firstTime": 1707517014831,
+        "lastTime": 1707517014831,
+        "heat": 0.75,
+        "occured": 1
+    },
+    {
+        "key": "null\t/Calculators/KWH-to-CO2\tUncaught ReferenceError: consumerAction is not defined lineNumber:26",
+        "firstTime": 1707518535697,
+        "lastTime": 1707518535697,
+        "heat": 0.75,
+        "occured": 1
+    },
+    {
+        "key": "null\t/HomePage\tUncaught TypeError: Cannot read properties of undefined (reading 'total') lineNumber:22",
+        "firstTime": 1707534531372,
+        "lastTime": 1707534531372,
+        "heat": 1,
+        "occured": 1
+    },
+    {
+        "key": "null\t/UKGeneration\tUncaught TypeError: date.toTimeString is not a function lineNumber:283",
+        "firstTime": 1707536176328,
+        "lastTime": 1707536176328,
+        "heat": 1,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\tabout-us/\tTypeError: undefined is not an object (evaluating 'response.profile.avatar') lineNumber:35",
+        "firstTime": 1707572842827,
+        "lastTime": 1707572842827,
+        "heat": 1,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Extensions/UploadFileInputField\tUncaught TypeError: Cannot read properties of undefined (reading 'avatar') lineNumber:35",
+        "firstTime": 1707583451814,
+        "lastTime": 1707583451814,
+        "heat": 1,
+        "occured": 1
+    },
+    {
+        "key": "Bourne Valley PYO\t/OpenForum/Access/SignIn\tUncaught NetworkError: Failed to execute 'send' on 'XMLHttpRequest': Failed to load 'https://bournevalleypyo.co.uk/OpenForum/Access/SignIn/popup.html.fragment'. lineNumber:1308",
+        "firstTime": 1707591325187,
+        "lastTime": 1707591325187,
+        "heat": 1,
+        "occured": 1
+    },
+    {
+        "key": "null\t/UKGenerationForecast\tUncaught SyntaxError: Unexpected identifier 'https' lineNumber:1",
+        "firstTime": 1707594215662,
+        "lastTime": 1707594253793,
+        "heat": 2,
+        "occured": 2
+    }
+]    {
+        "key": "null\t/UKGenerationForecast\tUncaught TypeError: Cannot read properties of null (reading 'getAttribute') lineNumber:1",
+        "firstTime": 1707594253793,
+        "lastTime": 1707594253793,
+        "heat": 1,
+        "occured": 1
+    }
+]

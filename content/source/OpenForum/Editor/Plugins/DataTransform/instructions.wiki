@@ -1,0 +1,9 @@
+__Transform Process__
+
+* dataTransform.imp("tab name"); - Import the data from a tab into the input box
+* dataTransform.load("pageName","fileName"); - Load a file into the input box
+* dataTransform.load("fileName"); - Load a file from the current page into the input box
+* output = dataTransform.run("tab name",input); - apply the script in the tab to the input and return the output
+* dataTransform.exp("tab name",output); - Export the data from output into a tab
+* dataTransform.save("pageName","fileName"); - Save the output to a file
+* dataTransform.save("fileName"); - Save the output to a file in the current page

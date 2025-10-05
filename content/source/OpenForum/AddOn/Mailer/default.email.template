@@ -1,0 +1,20 @@
+#
+Test Email
+#
+html
+#
+/OpenForum/AddOn/Mailer/email.css
+#
+<div>
+  <div class="EmailPage">
+    <div class="EmailHeader">
+      <h2 class="EmailHeaderH2">OpenForum - {{subject}}</h2>
+    </div>
+    <div class="EmailBody">
+      <p>{{content}}</p>
+    </div>
+    <div class="EmailFooter">
+      <p class="EmailFooterH2"><a href="https://openforum.onestonesoup.org">openforum.onestonesoup.org</a></p>
+    </div>
+  </div>
+</div>

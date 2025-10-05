@@ -3,15 +3,16 @@ OpenForum.includeScript("/OpenForum/Editor/Editors/StandaloneEditor.js");
 var editor;
 
 OpenForum.init = function() {  
-  var editorConfig = {};
-  if(OpenForum.getParameter("pageName")) {
-    editorConfig = {
+  var editorConfig = {
       flavour: "WYSIWYG",
-      editingPageName: OpenForum.getParameter("pageName"),
       editingFileName: "page.content",
-      elementId: "wysiwygEditor",
-      autoSave: false
+      elementId: "InPageEditor",
+      autoSave: false,
+      fullScreen: true
     };
+  
+  if(OpenForum.getParameter("pageName")) {
+    editorConfig.editingPageName = OpenForum.getParameter("pageName");
   }
 
   editor = new StandaloneEditor( editorConfig );

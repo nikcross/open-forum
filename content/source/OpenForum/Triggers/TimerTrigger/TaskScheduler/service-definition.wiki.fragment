@@ -1,0 +1,103 @@
+!!/OpenForum/Triggers/TimerTrigger/TaskScheduler Sevice API Version 1.0.4
+
+----
+!!Get Actions
+
+  <div class="panel callout radius">
+!!Action getSchedule
+(())
+
+!!Parameters
+|Name|Description
+|tag (''required=false'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=getSchedule+++</textarea>
+  
+[/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=getSchedule++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action addTask
+(())
+
+!!Parameters
+|Name|Description
+|name (''required=true'')|{{parameter.description}}
+|enabled (''required=true'')|{{parameter.description}}
+|debug (''required=true'')|{{parameter.description}}
+|pagename (''required=true'')|{{parameter.description}}
+|scriptfile (''required=true'')|{{parameter.description}}
+|lastrun (''required=true'')|{{parameter.description}}
+|scheduledtime (''required=true'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=addTask+++</textarea>
+  
+[/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=addTask++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action deleteTask
+(({{action.description}}))
+
+!!Parameters
+|Name|Description
+|taskName (''required=true'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=deleteTask{{action.example.request}}+++</textarea>
+  
+[/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=deleteTask+++{{action.example.request}}+++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action runTrigger
+(({{action.description}}))
+
+!!Parameters
+|Name|Description
+|pageName (''required=true'')|{{parameter.description}}
+|triggerFile (''required=true'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=runTrigger{{action.example.request}}+++</textarea>
+  
+[/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=runTrigger+++{{action.example.request}}+++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+
+----
+!!Post Actions

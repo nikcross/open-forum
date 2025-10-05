@@ -1,0 +1,13 @@
+    <div class="eventBox">
+      <h3>Opening Times</h3>
+      <br/>
+      <center><table>
+        <tr><td>Monday</td><td class="eventTime">{{mondayOpen}} - {{mondayClose}}</td></tr>
+        <tr><td>Tuesday</td><td class="eventTime">{{tuesdayOpen}} - {{tuesdayClose}}</td></tr>
+        <tr><td>Wednesday</td><td class="eventTime">{{wednesdayOpen}} - {{wednesdayClose}}</td></tr>
+        <tr><td>Thursday</td><td class="eventTime">{{thursdayOpen}} - {{thursdayClose}}</td></tr>
+        <tr><td>Friday</td><td class="eventTime">{{fridayOpen}} - {{fridayClose}}</td></tr>
+        <tr><td>Saturday</td><td class="eventTime">{{saturdayOpen}} - {{saturdayClose}}</td></tr>
+        <tr><td>Sunday</td><td class="eventTime">{{sundayOpen}} - {{sundayClose}}</td></tr>
+        </table></center>
+    </div>

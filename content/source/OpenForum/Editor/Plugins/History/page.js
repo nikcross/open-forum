@@ -18,7 +18,7 @@ OpenForum.includeScript("/OpenForum/Javascript/CodeMirror/addon/jshint.js");
 OpenForum.includeScript("/OpenForum/Javascript/CodeMirror/addon/edit/matchbrackets.js");
 OpenForum.includeScript("/OpenForum/Javascript/CodeMirror/addon/comment/continuecomment.js");
 OpenForum.includeScript("/OpenForum/Javascript/CodeMirror/addon/comment/comment.js");
-OpenForum.loadScript("http://cdnjs.cloudflare.com/ajax/libs/diff_match_patch/20121119/diff_match_patch.js"); 
+OpenForum.loadScript("/OpenForum/Javascript/CodeMirror/addon/merge/diff_match_patch.js"); 
 
 var id=1;
 var pageName = "";

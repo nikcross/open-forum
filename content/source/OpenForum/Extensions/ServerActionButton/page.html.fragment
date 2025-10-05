@@ -1,3 +1,4 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
 -<hr/>
 <h3>Parameters</h3>
@@ -6,17 +7,16 @@ A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
 
 <hr/>
 <h3>Usage:</h3>
-<xmp class="panel">
-[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
+<xmp class="panel" of-exclude="true">
+<!--Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" --><a  class='button radius tiny' href='#' onclick='Rebuild("pageName=Home"); return false;'>Rebuild Wiki</a> <!--End Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" -->
 </xmp>
-[<a class='button' href='#' onclick='Rebuild("pageName=Home"); return false;'>Rebuild Wiki</a>
+<a href="/OpenForum/Extensions/ServerActionButton/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a><!--Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" --><a  class='button radius tiny' href='#' onclick='Rebuild("pageName=Home"); return false;'>Rebuild Wiki</a> <!--End Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" -->
 
 <hr/>
 
-<a href="//OpenForum/Extensions/ServerActionButton/renderer.sjs">//OpenForum/Extensions/ServerActionButton/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ServerActionButton&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">action = extension.getAttribute("action");
+<!--Extension InsertSourceFile fileName="renderer.sjs" --><a href="//OpenForum/Extensions/ServerActionButton/renderer.sjs">//OpenForum/Extensions/ServerActionButton/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ServerActionButton&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">action = extension.getAttribute("action");
 parameters = extension.getAttribute("parameters");
 text = extension.getAttribute("text");
 
-return "<a class=\"button\" href=\"#\" onclick=\"ajax.doGet('/OpenForum/Actions/"+action+"','"+parameters+"');return false;\">"+text+"</a>";
-</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>
+return "<a class=<br/>"button<br/>" href=<br/>"#<br/>" onclick=<br/>"ajax.doGet('/OpenForum/Actions/"+action+"','"+parameters+"');return false;<br/>">"+text+"</a>";
+</xmp><!--End Extension InsertSourceFile fileName="renderer.sjs" --></ul>

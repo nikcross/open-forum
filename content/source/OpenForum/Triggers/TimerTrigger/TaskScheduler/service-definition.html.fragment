@@ -1,0 +1,103 @@
+<h3>/OpenForum/Triggers/TimerTrigger/TaskScheduler Sevice API Version 1.0.4</h3>
+
+<hr/>
+<h3>Get Actions</h3>
+
+  <div class="panel callout radius">
+<h3>Action getSchedule</h3>
+<p></p>
+
+<h3>Parameters</h3>
+<table><tr><td>Name</td><td>Description</td></tr>
+<tr><td>tag (<i>required=false</i>)</td><td>{{parameter.description}}</td></tr>
+</table>
+       
+<h3>Example Get Request</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=getSchedule</textarea>
+  
+<a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=getSchedule">/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=getSchedule</a>
+
+<h3>Example Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'></textarea>
+    
+<h3>Example Error Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'></textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+<h3>Action addTask</h3>
+<p></p>
+
+<h3>Parameters</h3>
+<table><tr><td>Name</td><td>Description</td></tr>
+<tr><td>name (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<tr><td>enabled (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<tr><td>debug (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<tr><td>pagename (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<tr><td>scriptfile (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<tr><td>lastrun (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<tr><td>scheduledtime (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+</table>
+       
+<h3>Example Get Request</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=addTask</textarea>
+  
+<a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=addTask">/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=addTask</a>
+
+<h3>Example Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'></textarea>
+    
+<h3>Example Error Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'></textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+<h3>Action deleteTask</h3>
+<p>{{action.description}}</p>
+
+<h3>Parameters</h3>
+<table><tr><td>Name</td><td>Description</td></tr>
+<tr><td>taskName (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+</table>
+       
+<h3>Example Get Request</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=deleteTask{{action.example.request}}</textarea>
+  
+<a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=deleteTask{{action.example.request}}">/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=deleteTask{{action.example.request}}</a>
+
+<h3>Example Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'></textarea>
+    
+<h3>Example Error Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'></textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+<h3>Action runTrigger</h3>
+<p>{{action.description}}</p>
+
+<h3>Parameters</h3>
+<table><tr><td>Name</td><td>Description</td></tr>
+<tr><td>pageName (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<tr><td>triggerFile (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+</table>
+       
+<h3>Example Get Request</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=runTrigger{{action.example.request}}</textarea>
+  
+<a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=runTrigger{{action.example.request}}">/OpenForum/Triggers/TimerTrigger/TaskScheduler?action=runTrigger{{action.example.request}}</a>
+
+<h3>Example Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'></textarea>
+    
+<h3>Example Error Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'></textarea>
+    
+  </div>
+
+
+<hr/>
+<h3>Post Actions</h3>

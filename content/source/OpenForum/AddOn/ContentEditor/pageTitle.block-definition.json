@@ -1,0 +1,13 @@
+{
+  "name": "PageTitle",
+  "description": "Display the page title on the page",
+  "example": {},    
+  "blocks": [],
+  "edit": { 
+    "pageName": "/OpenForum/AddOn/ContentEditor", 
+    "fileName": "pageTitle-block-editor.content", 
+    "scriptName": "pageTitle-block-editor.js", 
+    "objectName": "PageTitleBlockEditor",
+    "renderer": "pageTitle-block-renderer.js" 
+  }
+}

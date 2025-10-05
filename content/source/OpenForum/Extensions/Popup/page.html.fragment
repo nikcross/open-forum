@@ -1,0 +1,62 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>Popup</h3>
+<hr/>
+<h3>Popup</h3>
+<xmp class="panel" of-exclude="true"><!--Extension Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" --><div id="test1" class="reveal-modal" data-reveal aria-labelledby="test1ModalTitle" aria-hidden="true" role="dialog"><h3>One Time Popup</h3>
+<p>This is a popup that can be supressed</p>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" --></xmp>
+<!--Extension Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" --><div id="test1" class="reveal-modal" data-reveal aria-labelledby="test1ModalTitle" aria-hidden="true" role="dialog"><h3>One Time Popup</h3>
+<p>This is a popup that can be supressed</p>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" -->
+
+<xmp class="panel" of-exclude="true"><!--Extension Popup id="test2" content="some content"]</xmp>
+<!--Extension Popup id="test2" content="some content" --><div id="test2" class="reveal-modal" data-reveal aria-labelledby="test2ModalTitle" aria-hidden="true" role="dialog">some content  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="test2" content="some content" -->
+
+<hr/>
+<h3>Popup button</h3>
+<xmp class="panel" of-exclude="true">[{Popup id="test1" title="Pop me up" --><div id="test2" class="reveal-modal" data-reveal aria-labelledby="test2ModalTitle" aria-hidden="true" role="dialog">some content  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="test2" content="some content"]</xmp>
+<!--Extension Popup id="test2" content="some content" --><div id="test2" class="reveal-modal" data-reveal aria-labelledby="test2ModalTitle" aria-hidden="true" role="dialog">some content  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="test2" content="some content" -->
+
+<hr/>
+<h3>Popup button</h3>
+<xmp class="panel" of-exclude="true">[{Popup id="test1" title="Pop me up" --></xmp>
+<!--Extension Popup id="test1" title="Pop me up" --><a class='button small round' onClick="$('#test1').foundation('reveal', 'open');;return false;">Pop me up</a><!--End Extension Popup id="test1" title="Pop me up" -->
+
+<xmp class="panel" of-exclude="true"><!--Extension Popup id="test2" title="Pop me up" --><a class='button small round' onClick="$('#test2').foundation('reveal', 'open');;return false;">Pop me up</a><!--End Extension Popup id="test2" title="Pop me up" --></xmp>
+<!--Extension Popup id="test2" title="Pop me up" --><a class='button small round' onClick="$('#test2').foundation('reveal', 'open');;return false;">Pop me up</a><!--End Extension Popup id="test2" title="Pop me up" -->
+<hr/>
+<h3>Popup script</h3>
+<xmp class="panel" of-exclude="true">$('#test1').foundation('reveal', 'open');</xmp>
+<xmp class="panel" of-exclude="true">$('#test2').foundation('reveal', 'open');</xmp>
+<hr/>
+
+<h3>Source</h3>
+<!--Extension InsertSourceFile pageName="OpenForum/Extensions/Popup" fileName="renderer.sjs" --><a href="/OpenForum/Extensions/Popup/renderer.sjs">/OpenForum/Extensions/Popup/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/Popup&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel"><!--<ul><li> Author: </li>
+<li> Description: </li>
+</ul>-->
+var id = extension.getAttribute("id");
+var sourceFile = extension.getAttribute("sourceFileName");
+var sourcePage = extension.getAttribute("sourcePageName");
+var content = extension.getAttribute("content");
+var title = extension.getAttribute("title");
+var action = extension.getAttribute("action");
+
+var html = "";
+
+if(sourceFile!=null || content!=null) {
+  if(content==null) {
+    var content = openForum.renderWikiData(sourcePage,file.getAttachment(sourcePage,sourceFile));
+  } 
+
+  html = "<div id=<br/>""+id+"<br/>" class=<br/>"reveal-modal<br/>" data-reveal aria-labelledby=<br/>""+id+"ModalTitle<br/>" aria-hidden=<br/>"true<br/>" role=<br/>"dialog<br/>">" + 
+    content+
+    "  <a class=<br/>"close-reveal-modal<br/>" aria-label=<br/>"Close<br/>">&#215;</a>" + 
+    "</div>";
+} if(content!=null) {
+} else {
+  if(action==null) {
+    action="";
+  }
+  
+  html = "<a class='button small round' onClick=<br/>"$('#"+id+"').foundation('reveal', 'open');"+action+";return false;<br/>">"+title+"</a>";
+}
+
+return html;</xmp><!--End Extension InsertSourceFile pageName="OpenForum/Extensions/Popup" fileName="renderer.sjs" -->

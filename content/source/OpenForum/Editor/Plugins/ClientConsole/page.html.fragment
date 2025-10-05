@@ -1,9 +1,9 @@
-<xmp class="panel">
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<xmp class="panel" of-exclude="true">
 run:<tab name> // run the data from a tab as a script
 clientConsole.setClient("<client name>"); // change the client to run against
 </xmp>
 {{clientConsole.clientAlias}} clijs><input type="text" of-id="clientConsole.cliText" size="120" onkeydown="if (event.keyCode == 13) clientConsole.runCli(); if (event.keyCode == 38) clientConsole.historyCli(-1); if (event.keyCode == 40) clientConsole.historyCli(+1);">
-<button class="actionButton" onClick="clientConsole.runCli();" title="Run"><img src="/OpenForum/Images/icons/png/server_go.png"> Run</button><br/>
-<button class="actionButton" onClick="clientConsole.clear();" title="Clear"><img src="/OpenForum/Images/icons/png/cross.png"> Clear Log</button><br/>
+<button class="actionButton" onClick="clientConsole.runCli();" title="Run"><!--Extension Icon name="server go" --><img src="/OpenForum/Images/icons/png/server_go.png"><!--End Extension Icon name="server go" --> Run</button><br/>
+<button class="actionButton" onClick="clientConsole.clear();" title="Clear"><!--Extension Icon name="cross" --><img src="/OpenForum/Images/icons/png/cross.png"><!--End Extension Icon name="cross" --> Clear Log</button><br/>
 {{clientConsole.text}}
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

@@ -1,0 +1,72 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>QuickReference</h3>
+
+<hr/>
+<h3>Making a tabbed application</h3>
+
+<ul><li> Include the tabs library in your page.js</li>
+<xmp class="panel" of-exclude="true">
+OpenForum.includeScript("/OpenForum/Javascript/Application/Tabs.js");
+</xmp>
+<li> Add a tabs list</li>
+<xmp class="panel" of-exclude="true">
+var tabList = <a href="
+  {title: "Overview"},
+  {title: "Tab1"},
+  {title: "Tab2"}
+" target="external_page">
+  {title: "Overview"},
+  {title: "Tab1"},
+  {title: "Tab2"}
+</a>;
+var pageTabs;
+</xmp>
+<li> Add a container for you tabs in your page.content</li>
+<xmp class="panel" of-exclude="true">
+<div id="splash" style="display: block;">
+  <center>
+  <h1>Loading My Tabbed Application</h1>
+  <h3>Please Wait.....</h3>
+  </center>
+</div>
+
+<div id="application" style="display: none; height: 80%;">
+  <div class="columns large-12" style="border: solid 1px; padding: 0px; height: 100%; overflow-y: scroll">
+    <div>
+      <nav class="top-bar" data-topbar role="navigation">
+        <section class="top-bar-section">
+          <ul class="left">
+            <li of-repeatFor="tab in tabList" id="{{tab.button}}" class="">
+              <a href="#" onclick="pageTabs.showTab('{{tab.id}}'); return false;">{{tab.title}}</a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div id="tabViews" style="padding 10px;">
+  Loading...
+    </div>
+  </div>
+</div>
+</xmp>
+<li> Initialise the tabs in the init function and show the application when the tabs are ready</li>
+<xmp class="panel" of-exclude="true">
+OpenForum.init = function() {
+  pageTabs = new Tabs( "tabViews",tabList,continueInit );
+};
+
+function continueInit() {
+  OpenForum.hideElement("splash");
+  OpenForum.showElement("application");
+  setTimeout(function() {pageTabs.showTab("overview");} , 100);
+}
+</xmp>
+<li> Create content for the tabs eg. Overview requires a content file overview.wiki.fragment</li>
+<xmp class="panel" of-exclude="true">
+<div class="row panel">
+  <h3>Overview</h3>
+</div>
+</xmp>
+
+</ul>

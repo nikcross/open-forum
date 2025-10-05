@@ -1,0 +1,43 @@
+<div class='row'>
+  !!&title;
+</div>
+
+<div class='row'>
+  <div class='column large-6'>
+    <table>
+      <thead>
+        <tr>
+          <td>Tag</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr of-repeatFor='tag in tags'>
+          <td><span>{{tag}}</span></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="2">
+          <a href="#" onClick="OpenForum.Table.closeTable(tags); saveNewTags(); return false;" class="button tiny round">Save New Tags</a>
+          </td></tr></tfoot>
+    </table>
+  </div>
+
+  <div class='column large-6'>
+    <form>
+      <div class='row'>
+        <div class='large-12 columns'>
+          <h1>New Tag</h1>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='large-6 columns'>
+          <label>Tag</label> <input type='text' id='newtag.tagField' of-id='newtag.tag' placeholder=' ' />
+        </div>
+        <div class='large-6 columns'>
+          <label>&nbsp;</label> <a href=' ' onClick='addTag(newtag.tag); return false;' class='button'>Add Tag</a>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>

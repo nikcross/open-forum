@@ -1,3 +1,4 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <div id="playArea" style="height: 100%">
   <div id="dog">
   	<a href="#" onClick="displayOverlay();return false;"><img src="/OpenForum/ELCStyle/ELC Logo-small.png" style="opacity:0.5;"/></a>
@@ -15,4 +16,3 @@
   <div id="status"></div>
   <div id="console"></div>
 </div>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

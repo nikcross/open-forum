@@ -1,0 +1,20 @@
+<div class="row">
+  !!Admin Email Account
+  <form>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>Token Path</label> <input type='text' id='tokenPathField' of-id='email.tokenPath' placeholder=' ' />
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>Admin Email</label> <input type='text' id='adminEmailField' of-id='email.adminEmail' placeholder=' ' />
+      </div>
+    </div>
+  </form>
+  <a href="#" onClick="OpenForum.saveJSON('/OpenForum/Users/Admin/mailer.config',email); return false;" class="button tiny round">Save Changes</a>
+</div>
+<script>
+  var email = {};
+  OpenForum.loadJSON('/OpenForum/Users/Admin/mailer.config',function(data) { email=data; });
+</script>

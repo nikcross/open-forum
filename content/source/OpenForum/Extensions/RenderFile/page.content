@@ -1,0 +1,17 @@
+<div class="row">
+  !!&title;
+
+  Example:
+  {{{
+  [{RenderFile pageName="/OpenForum/Extensions/RenderFile" fileName="example-list.fragment"}]
+
+  or 
+
+  [{RenderFile fileName="example-list.fragment"}] defaults to current page name
+
+  }}}
+
+  Example:
+  [{RenderFile pageName="/OpenForum/Extensions/RenderFile" fileName="example-list.fragment"}]
+
+</div>

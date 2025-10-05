@@ -1,0 +1,290 @@
+{
+    "pageName": "/OpenForum/AddOn/ContentEditor/TestPage",
+    "title": "Test Page",
+    "block": "page",
+    "content": [
+        {
+            "block": "pageTitle",
+            "elementId": "BK0_61643148013809551648976102863",
+            "editor": {},
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_61643148013809551648976102863_content' title='Page' onmouseover='highlight( \"BK0_61643148013809551648976102863_content\", true );' onmouseout='highlight( \"BK0_61643148013809551648976102863_content\", false );'><b>Page Title</b></a>",
+                "attributes": {
+                    "icon": "textfield"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        },
+        {
+            "block": "section",
+            "content": {
+                "column": [
+                    {
+                        "block": "WYSIWYG",
+                        "data": {
+                            "text": "<p>Some text in my section with some more</p>"
+                        },
+                        "elementId": "BK0_69584587734252581648976103086",
+                        "editor": {},
+                        "blockEditor": {},
+                        "treeNode": {
+                            "name": "<a href='#BK0_69584587734252581648976103086_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_69584587734252581648976103086_edit\", true );' onmouseout='highlight( \"BK0_69584587734252581648976103086_edit\", false );'><b>WYSIWYG Block</b></a>",
+                            "attributes": {
+                                "icon": "page_edit"
+                            },
+                            "leaves": []
+                        },
+                        "parentId": "BK0_48511753051209651648976102863"
+                    }
+                ]
+            },
+            "data": {
+                "title": "My Section",
+                "id": "mySection"
+            },
+            "elementId": "BK0_48511753051209651648976102863",
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_48511753051209651648976102863_content' title='Page' onmouseover='highlight( \"BK0_48511753051209651648976102863_content\", true );' onmouseout='highlight( \"BK0_48511753051209651648976102863_content\", false );'><b>Section Heading</b></a>",
+                "attributes": {
+                    "icon": "textfield"
+                },
+                "leaves": [
+                    {
+                        "name": "<a href='#BK0_69584587734252581648976103086_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_69584587734252581648976103086_edit\", true );' onmouseout='highlight( \"BK0_69584587734252581648976103086_edit\", false );'><b>WYSIWYG Block</b></a>",
+                        "attributes": {
+                            "icon": "page_edit"
+                        },
+                        "leaves": []
+                    }
+                ]
+            },
+            "parentId": "pageEditor"
+        },
+        {
+            "block": "text",
+            "data": {
+                "text": "Cheese"
+            },
+            "elementId": "BK0_62032133303692351648976102863",
+            "editor": {},
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_62032133303692351648976102863_content' title='Text Block' onmouseover='highlight( \"BK0_62032133303692351648976102863_content\", true );' onmouseout='highlight( \"BK0_62032133303692351648976102863_content\", false );'><b>Simple Text Block</b></a>",
+                "attributes": {
+                    "icon": "page_white_edit"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        },
+        {
+            "block": "WYSIWYG",
+            "data": {
+                "text": "<p>123</p>"
+            },
+            "elementId": "BK0_028844225045630891648976102863",
+            "editor": {},
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_028844225045630891648976102863_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_028844225045630891648976102863_edit\", true );' onmouseout='highlight( \"BK0_028844225045630891648976102863_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        },
+        {
+            "pageName": "",
+            "title": "",
+            "block": "twoColumn",
+            "content": {
+                "columnA": [
+                    {
+                        "block": "WYSIWYG",
+                        "data": {
+                            "text": "<p>abc<img src=\"https://ci3.googleusercontent.com/proxy/wv80EQHswko2cCdPM9gIA_TSKhi7nlz5na1839_7k1VgkbvxM4HN6jlKJaEu-B7G0XAzN-vnOEoPjx_ALiQSKWBynJwFc3y3MVPq5vYTHPO4m-xlxVWLkdK1=s0-d-e1-ft#https://avaazimages.avaaz.org/44546_44543_wallkidskabul_2_3_533x300.jpg\" alt=\"Take Action Now!\"></p>"
+                        },
+                        "elementId": "BK0_90605044500599521648976103143",
+                        "editor": {},
+                        "blockEditor": {},
+                        "treeNode": {
+                            "name": "<a href='#BK0_90605044500599521648976103143_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_90605044500599521648976103143_edit\", true );' onmouseout='highlight( \"BK0_90605044500599521648976103143_edit\", false );'><b>WYSIWYG Block</b></a>",
+                            "attributes": {
+                                "icon": "page_edit"
+                            },
+                            "leaves": []
+                        },
+                        "parentId": "BK0_38169359792995341648976102863"
+                    }
+                ],
+                "columnB": [
+                    {
+                        "block": "WYSIWYG",
+                        "data": {
+                            "text": "<p>def</p>"
+                        },
+                        "elementId": "BK0_16659790252398011648976103143",
+                        "editor": {},
+                        "blockEditor": {},
+                        "treeNode": {
+                            "name": "<a href='#BK0_16659790252398011648976103143_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_16659790252398011648976103143_edit\", true );' onmouseout='highlight( \"BK0_16659790252398011648976103143_edit\", false );'><b>WYSIWYG Block</b></a>",
+                            "attributes": {
+                                "icon": "page_edit"
+                            },
+                            "leaves": []
+                        },
+                        "parentId": "BK0_38169359792995341648976102863"
+                    }
+                ]
+            },
+            "elementId": "BK0_38169359792995341648976102863",
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_38169359792995341648976102863_content' title='Page' onmouseover='highlight( \"BK0_38169359792995341648976102863_content\", true );' onmouseout='highlight( \"BK0_38169359792995341648976102863_content\", false );'><b>Two Column</b></a>",
+                "attributes": {
+                    "icon": "text_columns"
+                },
+                "leaves": [
+                    {
+                        "name": "<a href='#BK0_90605044500599521648976103143_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_90605044500599521648976103143_edit\", true );' onmouseout='highlight( \"BK0_90605044500599521648976103143_edit\", false );'><b>WYSIWYG Block</b></a>",
+                        "attributes": {
+                            "icon": "page_edit"
+                        },
+                        "leaves": []
+                    },
+                    {
+                        "name": "<a href='#BK0_16659790252398011648976103143_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_16659790252398011648976103143_edit\", true );' onmouseout='highlight( \"BK0_16659790252398011648976103143_edit\", false );'><b>WYSIWYG Block</b></a>",
+                        "attributes": {
+                            "icon": "page_edit"
+                        },
+                        "leaves": []
+                    }
+                ]
+            },
+            "parentId": "pageEditor"
+        },
+        {
+            "block": "text",
+            "data": {
+                "text": "a block of text in here"
+            },
+            "elementId": "BK0_67975172811015371648976102863",
+            "editor": {},
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_67975172811015371648976102863_content' title='Text Block' onmouseover='highlight( \"BK0_67975172811015371648976102863_content\", true );' onmouseout='highlight( \"BK0_67975172811015371648976102863_content\", false );'><b>Simple Text Block</b></a>",
+                "attributes": {
+                    "icon": "page_white_edit"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        },
+        {
+            "block": "insertPage",
+            "data": {
+                "pageName": "/OpenForum/AddOn/AnonymousSession/QuickReference",
+                "section": "1"
+            },
+            "elementId": "BK0_34072406242791421648976102863",
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_34072406242791421648976102863_content' title='Page' onmouseover='highlight( \"BK0_34072406242791421648976102863_content\", true );' onmouseout='highlight( \"BK0_34072406242791421648976102863_content\", false );'><b>Page Insert</b></a>",
+                "attributes": {
+                    "icon": "page_white"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        }
+    ],
+    "blockEditor": {},
+    "treeNode": {
+        "name": "<a href='#pageEditor_content' title='Page' onmouseover='highlight( \"pageEditor_content\", true );' onmouseout='highlight( \"pageEditor_content\", false );'><b>Page</b></a>",
+        "attributes": {
+            "icon": "page"
+        },
+        "leaves": [
+            {
+                "name": "<a href='#BK0_61643148013809551648976102863_content' title='Page' onmouseover='highlight( \"BK0_61643148013809551648976102863_content\", true );' onmouseout='highlight( \"BK0_61643148013809551648976102863_content\", false );'><b>Page Title</b></a>",
+                "attributes": {
+                    "icon": "textfield"
+                },
+                "leaves": []
+            },
+            {
+                "name": "<a href='#BK0_62032133303692351648976102863_content' title='Text Block' onmouseover='highlight( \"BK0_62032133303692351648976102863_content\", true );' onmouseout='highlight( \"BK0_62032133303692351648976102863_content\", false );'><b>Simple Text Block</b></a>",
+                "attributes": {
+                    "icon": "page_white_edit"
+                },
+                "leaves": []
+            },
+            {
+                "name": "<a href='#BK0_48511753051209651648976102863_content' title='Page' onmouseover='highlight( \"BK0_48511753051209651648976102863_content\", true );' onmouseout='highlight( \"BK0_48511753051209651648976102863_content\", false );'><b>Section Heading</b></a>",
+                "attributes": {
+                    "icon": "textfield"
+                },
+                "leaves": [
+                    {
+                        "name": "<a href='#BK0_69584587734252581648976103086_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_69584587734252581648976103086_edit\", true );' onmouseout='highlight( \"BK0_69584587734252581648976103086_edit\", false );'><b>WYSIWYG Block</b></a>",
+                        "attributes": {
+                            "icon": "page_edit"
+                        },
+                        "leaves": []
+                    }
+                ]
+            },
+            {
+                "name": "<a href='#BK0_67975172811015371648976102863_content' title='Text Block' onmouseover='highlight( \"BK0_67975172811015371648976102863_content\", true );' onmouseout='highlight( \"BK0_67975172811015371648976102863_content\", false );'><b>Simple Text Block</b></a>",
+                "attributes": {
+                    "icon": "page_white_edit"
+                },
+                "leaves": []
+            },
+            {
+                "name": "<a href='#BK0_34072406242791421648976102863_content' title='Page' onmouseover='highlight( \"BK0_34072406242791421648976102863_content\", true );' onmouseout='highlight( \"BK0_34072406242791421648976102863_content\", false );'><b>Page Insert</b></a>",
+                "attributes": {
+                    "icon": "page_white"
+                },
+                "leaves": []
+            },
+            {
+                "name": "<a href='#BK0_38169359792995341648976102863_content' title='Page' onmouseover='highlight( \"BK0_38169359792995341648976102863_content\", true );' onmouseout='highlight( \"BK0_38169359792995341648976102863_content\", false );'><b>Two Column</b></a>",
+                "attributes": {
+                    "icon": "text_columns"
+                },
+                "leaves": [
+                    {
+                        "name": "<a href='#BK0_90605044500599521648976103143_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_90605044500599521648976103143_edit\", true );' onmouseout='highlight( \"BK0_90605044500599521648976103143_edit\", false );'><b>WYSIWYG Block</b></a>",
+                        "attributes": {
+                            "icon": "page_edit"
+                        },
+                        "leaves": []
+                    },
+                    {
+                        "name": "<a href='#BK0_16659790252398011648976103143_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_16659790252398011648976103143_edit\", true );' onmouseout='highlight( \"BK0_16659790252398011648976103143_edit\", false );'><b>WYSIWYG Block</b></a>",
+                        "attributes": {
+                            "icon": "page_edit"
+                        },
+                        "leaves": []
+                    }
+                ]
+            },
+            {
+                "name": "<a href='#BK0_028844225045630891648976102863_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_028844225045630891648976102863_edit\", true );' onmouseout='highlight( \"BK0_028844225045630891648976102863_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            }
+        ]
+    },
+    "elementId": "pageEditor",
+    "parentId": "pageEditor",
+    "editor": "/OpenForum/AddOn/ContentEditor",
+    "pageParent": "https://open-forum.onestonesoup.org"
+}

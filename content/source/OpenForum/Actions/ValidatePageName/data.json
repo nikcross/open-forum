@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/ValidatePageName",
-    "title": " Validate Page Name"
+    "pageName": "/OpenForum/Actions/ValidatePageName",
+    "title": "ValidatePageName",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

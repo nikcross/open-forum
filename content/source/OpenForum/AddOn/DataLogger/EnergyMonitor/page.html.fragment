@@ -1,0 +1,18 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>EnergyMonitor</h3>
+
+<hr/>
+<h3>Child Pages</h3>
+<!--Extension ChildPagesList pageName="/OpenForum/AddOn/DataLogger/EnergyMonitor" --><!--End Extension ChildPagesList pageName="/OpenForum/AddOn/DataLogger/EnergyMonitor" -->
+
+<hr/>
+<h3>Attachments</h3>
+<!--Extension AttachmentsList pageName="/OpenForum/AddOn/DataLogger/EnergyMonitor" matching=".*" --><ul><li> <a href="/OpenForum/AddOn/DataLogger/EnergyMonitor/battery-monitor-graphs.js">/OpenForum/AddOn/DataLogger/EnergyMonitor/battery-monitor-graphs.js</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/EnergyMonitor/energy-monitor-graphs.js">/OpenForum/AddOn/DataLogger/EnergyMonitor/energy-monitor-graphs.js</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/EnergyMonitor/page.js">/OpenForum/AddOn/DataLogger/EnergyMonitor/page.js</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/EnergyMonitor/page.content">/OpenForum/AddOn/DataLogger/EnergyMonitor/page.content</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/AddOn/DataLogger/EnergyMonitor/page.html.template.link"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/AddOn/DataLogger/EnergyMonitor/page.html.template.link does not exist. Click to create it.">/OpenForum/AddOn/DataLogger/EnergyMonitor/page.html.template.link</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/EnergyMonitor/page.html.fragment">/OpenForum/AddOn/DataLogger/EnergyMonitor/page.html.fragment</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/EnergyMonitor/data.json">/OpenForum/AddOn/DataLogger/EnergyMonitor/data.json</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/EnergyMonitor/page.html">/OpenForum/AddOn/DataLogger/EnergyMonitor/page.html</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/AddOn/DataLogger/EnergyMonitor" matching=".*" -->

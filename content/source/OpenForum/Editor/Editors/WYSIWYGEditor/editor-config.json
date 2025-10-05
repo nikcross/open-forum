@@ -1,0 +1,21 @@
+{
+    "editors": [
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/WYSIWYGEditor",
+            "fileName": "page.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/WYSIWYGEditor",
+            "fileName": "page.content"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/WYSIWYGEditor",
+            "fileName": "editor.js"
+        }
+    ],
+    "pageName": "/OpenForum/Editor/Editors/WYSIWYGEditor",
+    "fileName": "editor-config.json"
+}

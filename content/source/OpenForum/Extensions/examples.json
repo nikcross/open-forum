@@ -1,0 +1,15 @@
+[
+    "[{Date }]",
+    "[{ImageDisplayCard title=\"Open Forum\" description=\"Open Forum - The Future\" linkText=\"Open Forum\" linkURL=\"https://open-forum.onestonesoup.org/\" imageURL=\"/OpenForum/Images/open-forum-dog-small.png\"}]",
+    "[{TextDisplayCard title=\"Open Forum\" description=\"The future\" linkText=\"Open Forum\" linkURL=\"https://open-forum.onestonesoup.org/\"}]",
+    "[{InsertPage page=\"/OpenForum/PageTemplates/Example\" section=\"\"}]",
+    "[{CTABanner imageURL=\"/OpenForum/Images/open-forum-dog-small.png\" title=\"Call To Action\" text=\"A description of the CTA\" ctaText=\"Click Me\" ctaURL=\"http://www.bbc.co.uk\"}]",
+    "[{CountDown counter=\"Alerts\" action=\"doAction\" period=\"10\"}]",
+    "[{AttachmentsList targetPage=\"\" matching=\".txt\" actions=\"\"}]",
+    "[{UploadFileInputField name=\"upload\" targetPageName=\"/Sandbox\" text=\"Upload\" message=\"File Uploaded\"}]",
+    "[{LinkButton href=\"https://www.bbc.co.uk\" target=\"externalTab\" text=\"BBC\"}]",
+    "[{ContrastBlock text=\"Some text in here\" backgroundColor=\"blueviolet\" textColor=\"white\" imageURL=\"/OpenForum/Images/open-forum-dog.png\" imageRight=\"false\"}]",
+    "[{Clock }]",
+    "[{Banner imageURL=\"\" title=\"\" text=\"\"}]",
+    "[{ActionButton action=\"Rebuild\" parameters=\"pageName=Home\" text=\"Rebuild Wiki\"}]"
+]

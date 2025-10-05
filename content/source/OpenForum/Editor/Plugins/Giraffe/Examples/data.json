@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Editor/Plugins/Giraffe/Examples",
-    "title": " Examples"
+    "pageName": "/OpenForum/Editor/Plugins/Giraffe/Examples",
+    "title": "Examples",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

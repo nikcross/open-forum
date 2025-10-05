@@ -1,0 +1,52 @@
+{
+    "version": "0.0.5",
+    "libraries": [
+        {
+            "name": "PageAccessMonitor",
+            "fileName": "PageAccessMonitor.sjs",
+            "view": "display: block;",
+            "edit": "display: none;",
+            "pageName": "/OpenForum/AddOn/DataLogger/PageAccessMonitor"
+        }
+    ],
+    "parameters": [],
+    "actions": [
+        {
+            "name": "getPageAccessData",
+            "call": "PageAccessMonitor.getPageAccessData(site,pageName);",
+            "parameters": [
+                {
+                    "name": "site",
+                    "required": "false",
+                    "type": "string"
+                },
+                {
+                    "name": "pageName",
+                    "required": "false",
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "action": "getPageAccessData",
+            "example": {
+                "response": "",
+                "errorResponse": ""
+            }
+        },
+        {
+            "name": "getSiteAccesData",
+            "call": "PageAccessMonitor.getSiteAccesData();",
+            "parameters": [],
+            "libraries": [],
+            "method": "get",
+            "action": "getSiteAccesData",
+            "example": {
+                "response": "",
+                "errorResponse": ""
+            }
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/AddOn/DataLogger/PageAccessMonitor"
+}

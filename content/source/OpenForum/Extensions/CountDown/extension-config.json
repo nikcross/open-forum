@@ -1,0 +1,42 @@
+{
+    "version": "0.0.1",
+    "configFile": "extension-config.json",
+    "pageName": "/OpenForum/Extensions/CountDown",
+    "template": {
+        "pageName": "/OpenForum/Extensions/CountDown",
+        "fileName": "count-down.html.template"
+    },
+    "buildReferencePage": true,
+    "buildBlockEditor": false,
+    "parameters": [
+        {
+            "name": "counter",
+            "exampleValue": "Alerts",
+            "defaultValue": "",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "action",
+            "exampleValue": "doAction",
+            "defaultValue": "",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "period",
+            "exampleValue": "10",
+            "defaultValue": "10",
+            "required": true,
+            "view": "display: none;",
+            "edit": "display: block;"
+        }
+    ],
+    "blockEditor": {
+        "name": "",
+        "icon": ""
+    },
+    "buildRenderer": true
+}

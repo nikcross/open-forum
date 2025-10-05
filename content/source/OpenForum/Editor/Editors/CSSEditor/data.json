@@ -1,4 +1,6 @@
 {
-    "pageName": "//OpenForum/Editor/Editors/CSSEditor",
-    "title": " CSSEditor"
+    "pageName": "/OpenForum/Editor/Editors/CSSEditor",
+    "title": "CSSEditor",
+    "pageParent": "https://open-forum.onestonesoup.org",
+    "editorConfig": "/OpenForum/Editor/Editors/CSSEditor/editor-config.json"
 }

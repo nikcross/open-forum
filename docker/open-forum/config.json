@@ -1,12 +1,12 @@
 {
   "domains": [
       {
-        "name": "Default",
-        "host": "default",
-        "root": "/web/content/default"
+        "name": "My Server",
+        "host": ".*",
+        "root": "/web/content/my-server"
       }
     ],
   "ports": {
-    "http": 8001
+    "http": 1234
   }
 }

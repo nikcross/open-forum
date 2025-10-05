@@ -1,17 +1,18 @@
+
 try{
   transaction.getPostData();
   var json = false;
-  var returnType = transaction.getParameter("returnType");
+  var returnType = transaction.getParameter("returnType"); //If set as 'json', will return json response else will forward to pageName
 
   if(returnType!==null && (""+returnType)=="json") {
     json = true;
   }
 
-  pageName = transaction.getPostParameter("pageName");
+  pageName = transaction.getPostParameter("pageName"); //The name of the page to save the file to
   transaction.userCanPerformAction(pageName,"update",true);
 
-  fileName = transaction.getPostParameter("fileName");
-  data = transaction.getPostParameter("data");
+  fileName = transaction.getPostParameter("fileName"); //The name of the file to save
+  data = transaction.getPostParameter("data"); //The data to save in the file
   user = transaction.getUser();
 
   openForum.saveAsAttachment(pageName,fileName,data,user);

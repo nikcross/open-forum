@@ -1,0 +1,107 @@
+<div class="row">
+!!&title;
+
+----
+!!!Server Side
+((Include DB.sjs on your sjs file))
+{{{
+	var DB = js.getObject("/OpenForum/AddOn/SQL","DB.sjs");
+	DB.setAlias("your database name");
+    // Create a new DB object for each database you need access to
+}}}
+
+!!Create a Simple DB Select
+{{{
+	var sql = {
+		action: "select",
+		table: "my_table",
+		columns: [
+			"column_a", "column_b"
+		]
+	};
+	var rows = DB.execute( SQL );
+}}}
+
+!!Create a DB Select that returns all columns
+{{{
+	var sql = {
+		action: "select",
+		table: "my_table"
+	};
+	var rows = DB.execute( SQL );
+}}}
+
+!!Create a Simple DB Insert
+{{{
+	var sql = {
+		action: "insert",
+		table: "my_table",
+		data: {
+			column_a: "value a",
+			column_b: "value b"
+		}
+	};
+	DB.execute( SQL );
+}}}
+
+!!Create a Simple DB Insert that returns a column
+{{{
+	var sql = {
+		action: "insert",
+		table: "my_table",
+		data: {
+			column_a: "value a",
+			column_b: "value b"
+		},
+		returnColumn: "column_c"
+	};
+	var returnedColumn = DB.execute( SQL );
+	
+}}}
+
+!!Create a Simple DB Delete
+{{{
+	var sql = {
+		action: "delete",
+		table: "my_table",
+		where: {
+			column_a: "value a",
+			column_b: "value b"
+		}
+	};
+	DB.execute( SQL );
+}}}
+  
+!!Create a Simple DB Upsert
+{{{
+	var sql = {
+		action: "upsert",
+		table: "my_table",
+  		data: {
+			column_a: "value a",
+			column_b: "value b",
+			column_c: "value c",
+			column_d: "value d"
+		},
+		where: {
+			column_a: "value a",
+			column_b: "value b"
+		}
+	};
+	DB.execute( SQL );
+}}}
+  
+!!Create a Simple DB Query
+{{{
+	var sql = {
+		query: "select column_c, column_d from my_table where a = { {valueA} } and b = { {valueB} }
+		data: {
+			valueA: "value a",
+			valueB: "value b"
+		}
+	};
+	DB.execute( SQL );
+}}}
+
+
+</div>

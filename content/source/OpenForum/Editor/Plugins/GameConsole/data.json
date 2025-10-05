@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Editor/Plugins/GameConsole",
-    "title": " Game Console"
+    "pageName": "/OpenForum/Editor/Plugins/GameConsole",
+    "title": "GameConsole",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

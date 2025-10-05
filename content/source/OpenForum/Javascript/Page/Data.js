@@ -14,6 +14,10 @@ function Data(pageName) {
     return self.find("editor");
   };
   
+  self.getEditorConfig = function() {
+    return self.find("editorConfig");
+  };
+  
   self.load = function() {
 
     try{

@@ -1,0 +1,19 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>QuickReference</h3>
+
+
+
+<p>The task scheduler checks for tasks to run every 10 seconds. Tasks can be added to the list to run on regular schedules or on a particular date and time.</p>
+
+<hr/>
+<h3> Task Scehduler trigger.sjs Actions</h3>
+  
+<h3> run(task)</h3>
+<ul><li> If a task is disabled, logs to todays log and returns</li>
+<li> If the task has debug set to true, logs each step as the task is run</li>
+<li> Loads the task trigger script and runs it (eval), injecting the debug state</li>
+<li> Takes the result of the eval and if debug set, logs it</li>
+<li> Sets last run time for the task in the database</li>
+<li> If an exception occurrs, logs an error, logs a task message and sends an alert to the Alert service</li>
+  
+</ul>

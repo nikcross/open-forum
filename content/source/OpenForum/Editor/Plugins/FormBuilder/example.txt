@@ -1,0 +1,6 @@
+Width width
+Height height
+
+Calculation: area = width * height
+
+View: Area area

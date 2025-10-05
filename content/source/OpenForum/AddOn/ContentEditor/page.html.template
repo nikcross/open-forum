@@ -1,0 +1,122 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&title;</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
+    <script type="text/javascript" src="&pageName;/page.js"></script>
+
+    <script>
+      var pageName = "&pageName;";
+      var author = "&author;";
+      var time = "&time;";
+      var currentUser = "";
+      JSON.get("/OpenForum/Actions/User","getCurrentUser").onSuccess( function (response) {  currentUser = response;  } ).go();
+    </script>
+
+  </head>
+  <body>
+    <div class="off-canvas-wrap docs-wrap" data-offcanvas>
+      <div class="inner-wrap">
+        <nav class="tab-bar">
+          <section class="left-small">
+            <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+          </section>
+
+          <section class="right tab-bar-section">
+            <h1 class="title">Content Editor</h1>
+          </section>
+
+        </nav>
+
+        <aside class="left-off-canvas-menu">
+          <ul class="off-canvas-list">
+            <li><label>Currently ediiting {{pageData.title}}</label></li>
+            <li>[{ActionButton action="save" text="Save"}]</li>
+            <li>[{ActionButton action="publishPage" text="Publish"}]</li>
+            <li>[{ActionButton action="preview" text="Preivew"}]</li>
+            <li>[{ActionButton action="showPageTree" text="Page Structure"}]</li>
+            <li><label>Pages</label></li>
+            <li><ul>
+              <li of-repeatFor="page in pagesList"> <a href="#" onClick="editPage('{{page.pageName}}'); return false;" title="Edit page">{{page.title}}</a> </li>
+            </ul></li>
+            <li>[{ActionButton action="createNewPage" text="Create A New Page"}]</li>
+            <li><label>Images</label></li>
+            <li>[{ActionButton action="selectImage" text="Select Image"}]</li>
+            <li><label>Advanced</label></li>
+			<li><a class="button tiny radius" href="/OpenForum/AddOn/ContentEditor/PageConverter" target="converer">Convert Pages to Content Pages</a><li/>
+            <li>[{ActionButton action="openAdvancedEditor" text="Open Advanced Editor"}]</li>
+          </ul>
+        </aside>
+
+      <section class="main-section">
+        <div id="applicationView" style="overflow: scroll;">
+          <!--PageContent Start-->&content;<!--Page Content End-->
+        </div>
+      </section>
+
+      <a class="exit-off-canvas"></a>
+
+    </div>
+    </div>
+
+  <div id="ImageSelectModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+    <div class="panel">
+      <h3>Images</h3>
+      <div style="width: 240px;">
+        <label>Category</label> [{ListField name="imageCategory" list="imageCategories" action="updateImages"}]
+      </div>
+      <div style="width: 240px; height: 500px; overflow: scroll; direction: rtl;">
+        <div of-repeatFor="image in images">
+          <img style="width: 200px; height: auto; border: solid 2px black; margin: 2px;" src="{{image.url}}" title="{{image.title}}: {{image.description}}" alt="{{image.title}}"/><br/>
+        </div>
+      </div>
+      <a href="/OpenForum/AddOn/ImageProcessor" class="button tiny radius" target="imageProcessor">Categorise Images</a>
+    </div>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+    
+      <div id="PageTreeModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+    <div class="panel">
+      <div id="pageTree"></div>
+    </div>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+
+  <div id="BlockSelectModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+    <h2>Select a block type</h2>
+    <table>
+      <tr of-repeatFor="blockEditor in blockEditors">
+        <td><a class="button radius tiny" style="width: 100%" href="#" onClick="completeAddBlock( '{{blockEditor.className}}' );">Add {{blockEditor.name}}</a></td><td>{{blockEditor.description}}</td>
+      </tr>
+    </table>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+
+  <div id="NewPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+    <h2>Enter the new page title</h2>
+    <div>
+      Page Title: <input of-id="newPageTitle" value="{{newPageTitle}}"/>
+    </div>
+    <div style="width: 240px;">
+      <label>Category</label> [{ListField name="newPageCategory" list="pageCategories" action="updatePageCategories"}]
+    </div>
+    <div>
+      Page File Name: {{newPageFileName}}
+    </div>
+    <div>
+      [{ActionButton text="Create New Page" action="completeCreateNewPage"}]
+    </div>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  </div>
+
+  <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+  <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+  </body>
+</html>

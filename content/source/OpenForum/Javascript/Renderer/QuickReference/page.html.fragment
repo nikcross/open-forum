@@ -1,0 +1,6 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>QuickReference</h3>
+
+<p>The page renderer script has one main public function DefaultRenderer.render(pageName,text).<ul><li> pageName is the name of the page to render eg. /MyPage/MyChildPage. It is used when the page name is included in a rendered wiki element</li>
+<li> text is the wiki text which will be converted into html</li>
+</ul></p>

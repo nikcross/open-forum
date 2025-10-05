@@ -1,0 +1,481 @@
+Publishing /OpenForum/Actions/Copy on Tue Apr 19 2022 19:09:30 GMT-0000 (GMT) practice:false
+Using Publisher version 1.019
+
+No publish config /OpenForum/Actions/Copy/publish-config.json found for page.
+
+Copying page /OpenForum/Actions/Copy to page ctions/Copy
+Copy Log:
+ /OpenForum/Actions/Copy/data.xml->/ctions/Copy(OK)
+/OpenForum/Actions/Copy/notes.txt->/ctions/Copy(OK)
+/OpenForum/Actions/Copy/page.content->/ctions/Copy(OK)
+/OpenForum/Actions/Copy/post.sjs->/ctions/Copy(OK)
+/OpenForum/Actions/Copy/data-file-map.xml->/ctions/Copy(OK)
+/OpenForum/Actions/Copy/data.json->/ctions/Copy(OK)
+/OpenForum/Actions/Copy/get.sjs->/ctions/Copy(OK)
+/OpenForum/Actions/Copy/page.js->/ctions/Copy(OK)
+/OpenForum/Actions/Copy/data-file-map.xml.link->/ctions/Copy[LINK:/OpenForum/PageTemplates/PostActionPage/data-file-map.xml](OK)
+/OpenForum/Actions/Copy/update.wiki.template.link->/ctions/Copy[LINK:/OpenForum/PageTemplates/PostActionPage/update.wiki.template](OK)
+/OpenForum/Actions/Copy/page.html.fragment->/ctions/Copy(OK)
+/OpenForum/Actions/Copy/FileManager.sjs->/ctions/Copy(OK)
+/OpenForum/Actions/Copy/page.html->/ctions/Copy(OK)
+/OpenForum/Actions/Copy/data-file-map.json->/ctions/Copy(OK)
+/OpenForum/Actions/Copy/process-deletions.sjs->/ctions/Copy(OK)
+
+Copied page /OpenForum/Actions/Copy to page ctions/Copy
+Added link to /OpenForum/PageTemplates/Published/page.html.template
+=== Check Attachments ===
+Move and check /OpenForum/Actions/Copy/data.xml
+Move and check /OpenForum/Actions/Copy/notes.txt
+Move and check /OpenForum/Actions/Copy/page.content
+Move and check /OpenForum/Actions/Copy/post.sjs
+Move and check /OpenForum/Actions/Copy/data-file-map.xml
+Move and check /OpenForum/Actions/Copy/data.json
+Move and check /OpenForum/Actions/Copy/get.sjs
+Move and check /OpenForum/Actions/Copy/page.js
+Move and check /OpenForum/Actions/Copy/data-file-map.xml.link
+Move and check /OpenForum/Actions/Copy/update.wiki.template.link
+Move and check /OpenForum/Actions/Copy/FileManager.sjs
+Move and check /OpenForum/Actions/Copy/data-file-map.json
+Move and check /OpenForum/Actions/Copy/process-deletions.sjs
+
+
+
+==== Deletions Check ====
+Deletion. page.html.fragment no longer required. It has been added to the deletetion script /OpenForum/Actions/Copy/process-deletions.sjs
+Deletion. page.html no longer required. It has been added to the deletetion script /OpenForum/Actions/Copy/process-deletions.sjs
+
+==== Publishing Actions ====
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/notes.txt
+	Line 0
+	
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/data.xml
+	Line 0
+	<data>
+	Line 1
+		<pageName><![CDATA[OpenForum/Actions/Copy]]></pageName>
+	Line 2
+		<source><![CDATA[Copy one page to another
+	Line 3
+	----
+	Line 4
+	!!Get parameters
+	Line 5
+	* newPageName
+	Line 6
+	* sourcePageName
+	Line 7
+	* listPageName
+	Line 8
+	----
+	Line 9
+	!!Post parameters
+	Line 10
+	* newPageName
+	Line 11
+	* sourcePageName
+	Line 12
+	* listPageName
+	Line 13
+	----
+	Line 14
+	!!get.sjs
+	Line 15
+	<xmp class="example">[{InsertFile fileName="get.sjs"}]</xmp>]]></source>
+	Line 16
+		<post.sjs>&post.sjs;</post.sjs>
+	Line 17
+		<tags>Action Get Post</tags>
+	Line 18
+	</data>
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/post.sjs
+	Line 0
+	//DELETE ME
+	Line 1
+	transaction.getPostData();
+	Line 2
+	sourcePageName = transaction.getPostParameter("sourcePageName");
+	Line 3
+	newPageName = transaction.getPostParameter("newPageName");
+	Line 4
+	listPageName = transaction.getPostParameter("listPageName");
+	Line 5
+	
+	Line 6
+	transaction.userCanPerformAction(newPageName,"update",true);
+	Line 7
+	if(listPageName!=null)
+	Line 8
+	{
+	Line 9
+	  transaction.userCanPerformAction(listPageName,"update",true);
+	Line 10
+	}
+	Line 11
+	
+	Line 12
+	wiki.copyPage(sourcePageName,newPageName,listPageName);
+	Line 13
+		
+	Line 14
+	transaction.goToPage("/OpenForum/Editor?pageName="+newPageName);
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/page.content
+	Line 0
+	__[Post Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ Copy one page to another
+	Line 1
+	----
+	Line 2
+	!!Get parameters
+	Line 3
+	* newPageName
+	Line 4
+	* sourcePageName
+	Line 5
+	* listPageName
+	Line 6
+	----
+	Line 7
+	!!Post parameters
+	Line 8
+	* newPageName
+	Line 9
+	* sourcePageName
+	Line 10
+	* listPageName
+	Line 11
+	----
+	Line 12
+	!!get.sjs
+	Line 13
+	<xmp class="example">[{InsertFile fileName="get.sjs"}]</xmp>
+	Line 14
+	
+	Line 15
+	----
+	Line 16
+	!!Server Side Javascript for POST method
+	Line 17
+	{{{ transaction.getPostData();
+	Line 18
+	sourcePageName = transaction.getPostParameter("sourcePageName");
+	Line 19
+	newPageName = transaction.getPostParameter("newPageName");
+	Line 20
+	listPageName = transaction.getPostParameter("listPageName");
+	Line 21
+	
+	Line 22
+	transaction.userCanPerformAction(newPageName,"update",true);
+	Line 23
+	if(listPageName!=null)
+	Line 24
+	{
+	Line 25
+	  transaction.userCanPerformAction(listPageName,"update",true);
+	Line 26
+	}
+	Line 27
+	
+	Line 28
+	wiki.copyPage(sourcePageName,newPageName,listPageName);
+	Line 29
+		
+	Line 30
+	transaction.goToPage("/OpenForum/Actions/Edit?pageName="+newPageName); }}}
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/data-file-map.xml
+	Line 0
+	<map>
+	Line 1
+		<map from="post.sjs" to="post.sjs"/>
+	Line 2
+	</map>
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/data.json
+	Line 0
+	{
+	Line 1
+	    "pageName": "//OpenForum/Actions/Copy",
+	Line 2
+	    "title": " Copy"
+	Line 3
+	}
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/get.sjs
+	Line 0
+	if(typeof(pageName)=="undefined") {
+	Line 1
+	  transaction.setResult(transaction.SHOW_PAGE);
+	Line 2
+	  return;
+	Line 3
+	}
+	Line 4
+	try{
+	Line 5
+	  var json = false;
+	Line 6
+	  var returnType = transaction.getParameter("returnType");
+	Line 7
+	
+	Line 8
+	  if(returnType!==null && (""+returnType)=="json") {
+	Line 9
+	    json = true;
+	Line 10
+	  }
+	Line 11
+	
+	Line 12
+	  var newPageName = transaction.getParameter("newPageName");
+	Line 13
+	  var fileName = transaction.getParameter("fileName");
+	Line 14
+	  var newFileName = transaction.getParameter("newFileName");
+	Line 15
+	
+	Line 16
+	  if(newPageName===null) {
+	Line 17
+	    newPageName = pageName;
+	Line 18
+	  } else {
+	Line 19
+	    newPageName = ""+newPageName;
+	Line 20
+	  }
+	Line 21
+	
+	Line 22
+	  transaction.userCanPerformAction(newPageName,"update",true);
+	Line 23
+	
+	Line 24
+	  if(fileName!==null) {
+	Line 25
+	    fileName = ""+fileName;
+	Line 26
+	    if(newFileName===null) {
+	Line 27
+	      newFileName = fileName;
+	Line 28
+	    } else {
+	Line 29
+	      newFileName = ""+newFileName;
+	Line 30
+	    }
+	Line 31
+	
+	Line 32
+	    if(fileName===newFileName && pageName===newPageName) {
+	Line 33
+	      return;
+	Line 34
+	    }
+	Line 35
+	
+	Line 36
+	    file.copyAttachment(pageName,fileName,newPageName,newFileName);
+	Line 37
+	
+	Line 38
+	    if(json===false) {
+	Line 39
+	      transaction.goToPage("/OpenForum/Editor?pageName="+newPageName);
+	Line 40
+	    } else {
+	Line 41
+	      transaction.sendJSON(JSON.stringify({result: "ok", message: "Copied "+pageName+"/"+fileName+" to "+newPageName+"/"+newFileName,copied: true}));
+	Line 42
+	    }
+	Line 43
+	
+	Line 44
+	  } else {
+	Line 45
+	    //wiki.copyPage(pageName,newPageName,null);
+	Line 46
+	    var FileManager = js.getObject("/OpenForum/Actions/Copy","FileManager.sjs");
+	Line 47
+	    var log = FileManager.copyPage( pageName,newPageName );
+	Line 48
+	    
+	Line 49
+	    if(json===false) {
+	Line 50
+	      transaction.goToPage("/OpenForum/Editor?pageName="+newPageName);
+	Line 51
+	    } else {
+	Line 52
+	      transaction.sendJSON(JSON.stringify({result: "ok", message: "Copied "+pageName+" to "+newPageName,copied: true,log: log}));
+	Line 53
+	    }
+	Line 54
+	  }
+	Line 55
+	} catch(e) {
+	Line 56
+	  transaction.sendJSON(JSON.stringify({result: "error", message: "Error: "+e+" @ "+e.lineNumber}));
+	Line 57
+	}
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/page.js
+	Line 0
+	
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/page.html.template.link
+	Line 0
+	null
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/data-file-map.xml.link
+	Line 0
+	null
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/update.wiki.template.link
+	Line 0
+	null
+Excluding page.html.fragment as is in excluded file list.
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/FileManager.sjs
+	Line 0
+	/*
+	Line 1
+	* Author: 
+	Line 2
+	* Description: 
+	Line 3
+	*/
+	Line 4
+	
+	Line 5
+	function FileManager() {
+	Line 6
+	
+	Line 7
+	  this.copyPage = function(fromPage,toPage) {
+	Line 8
+	    if(fromPage.charAt(0)!='/') {
+	Line 9
+	      fromPage = "/"+fromPage;
+	Line 10
+	    }
+	Line 11
+	
+	Line 12
+	    if(toPage.charAt(0)!='/') {
+	Line 13
+	      toPage = "/"+toPage;
+	Line 14
+	    }
+	Line 15
+	
+	Line 16
+	    var log = "Copy Log: ";
+	Line 17
+	    return copy(fromPage,toPage,log);
+	Line 18
+	  };
+	Line 19
+	
+	Line 20
+	  var copy = function(fromPage,toPage,log) {
+	Line 21
+	    var list = file.getAttachmentsForPage( fromPage );
+	Line 22
+	
+	Line 23
+	    if(file.attachmentExists(toPage,"data.json")===false) {
+	Line 24
+	      file.saveAttachmentNoBackup(toPage,"data.json","/*Generated by FileManager*/\n{}");
+	Line 25
+	    }
+	Line 26
+	
+	Line 27
+	    var pagesList = [];
+	Line 28
+	    var iterator= list.keySet().iterator();
+	Line 29
+	    while(iterator.hasNext()) {
+	Line 30
+	      var key = ""+iterator.next();
+	Line 31
+	      if(key=="+history") {
+	Line 32
+	        continue;
+	Line 33
+	      } else if(key.charAt(0)==='+') {
+	Line 34
+	        var name = key.substring(1);
+	Line 35
+	        log += copy( fromPage+"/"+name,toPage+"/"+name );
+	Line 36
+	      } else {
+	Line 37
+	        log += "    "+fromPage+"/"+key+"->"+toPage;
+	Line 38
+	        try{
+	Line 39
+	          if(key.indexOf(".link")!==-1) {
+	Line 40
+	            var data = file.getAttachment(fromPage, key, false);
+	Line 41
+	            log += "[LINK:"+data+"]";
+	Line 42
+	            file.saveAttachment(toPage, key, data);
+	Line 43
+	          } else {
+	Line 44
+	          	file.copyAttachment( fromPage, key , toPage, key );
+	Line 45
+	          }
+	Line 46
+	          log += "(OK)";
+	Line 47
+	        } catch(e) {
+	Line 48
+	          log += "(ERROR "+e+")";
+	Line 49
+	        }
+	Line 50
+	      }
+	Line 51
+	    }
+	Line 52
+	
+	Line 53
+	    openForum.refreshPage(toPage);
+	Line 54
+	    
+	Line 55
+	    return log;
+	Line 56
+	  };
+	Line 57
+	
+	Line 58
+	}
+	Line 59
+	
+Excluding page.html as is in excluded file list.
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/data-file-map.json
+	Line 0
+	"map": { "map": { "from": "post.sjs", "to": "post.sjs"}}
+Looking for transform script for /ctions/CopyRemoved  references in /ctions/Copy/process-deletions.sjs
+	Line 0
+	/* Files To Delete */
+	Line 1
+	// Created Tue Apr 19 2022 19:09:30 GMT-0000 (GMT)
+	Line 2
+	
+	Line 3
+	
+
+
+
+==== Services Check ====
+Service call(s) in /OpenForum/Actions/Copy/data.xml
+Service call(s) in /OpenForum/Actions/Copy/page.content
+Service call(s) in /OpenForum/Actions/Copy/post.sjs
+Service call(s) in /OpenForum/Actions/Copy/data-file-map.xml
+Service call(s) in /OpenForum/Actions/Copy/data.json
+Service call(s) in /OpenForum/Actions/Copy/get.sjs
+Service call(s) in /OpenForum/Actions/Copy/FileManager.sjs
+Service call(s) in /OpenForum/Actions/Copy/process-deletions.sjs
+No Service Dependencys Found
+
+
+
+Error: TypeError: Cannot call method "toLowerCase" of null
+

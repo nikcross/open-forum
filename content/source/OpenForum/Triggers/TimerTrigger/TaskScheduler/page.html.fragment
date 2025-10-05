@@ -1,0 +1,168 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+  <h3>Scheduler {{VERSION}}</h3>
+  <i>Task Scheduler took {{taskScheduler.timeTaken}}ms to complete {{taskScheduler.scheduleLength}} scheduled tasks</i>
+  <a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler/LiveLog" target="liveLog">View Live Log</a>
+  <br/><br/>
+  <i>View updated at {{updateTime}} (Updating in <!--Extension /OpenForum/Extensions/CountDown counter="countDownTasks" action="loadSchedule" period="10" -->{{countDownTasks}}
+<script>
+var countDownTasks = 10;
+  loadSchedule();
+  setInterval(function() {
+    countDownTasks--;
+    if(countDownTasks==0) {
+     loadSchedule();
+    	countDownTasks = 10;
+    }
+  },1000);
+</script><!--End Extension /OpenForum/Extensions/CountDown counter="countDownTasks" action="loadSchedule" period="10" --> seconds)</i>
+  <br/><br/>
+  <i>{{message}}</i>
+</div>
+
+<form>
+  <div class='row'>
+    <div class='large-4 columns'>
+      <label>Search for: Name</label> <input type='text' id='nameFilterField' of-id='nameFilter' placeholder=' ' />
+    </div><div class='large-4 columns'>
+    <label>Page Name</label> <input type='text' id='pageNameFilterField' of-id='pageNameFilter' placeholder=' ' />
+    </div>
+    <div class='large-4 columns'>
+      <label>Schedule</label> <input type='text' list="scheduleTimes" id='scheduledTimeFilterField' of-id='scheduledTimeFilter' placeholder=' ' />
+    </div>
+  </div>
+  <div class='row'>
+    <div class='large-4 columns'>
+      <!--Extension InputBoolean id="enabledFilter" text="Enabled" --><label for='enabledFilterCheckBoxField'>Enabled</label><div class='switch'><input of-id='enabledFilter' id='enabledFilterCheckBoxField' type='checkbox'><label for='enabledFilterCheckBoxField'></label></div><!--End Extension InputBoolean id="enabledFilter" text="Enabled" -->
+    </div>
+    <div class='large-4 columns'>
+      <!--Extension InputBoolean id="debugFilter" text="Debug" --><label for='debugFilterCheckBoxField'>Debug</label><div class='switch'><input of-id='debugFilter' id='debugFilterCheckBoxField' type='checkbox'><label for='debugFilterCheckBoxField'></label></div><!--End Extension InputBoolean id="debugFilter" text="Debug" -->
+    </div>
+    <div class='large-4 columns'>
+      <label>Tag</label>   <select of-id="tagFilter" id="tagFilterField">
+      <option of-repeatFor="tag in tags">{{tag}}</option>
+      </select>
+    </div>
+  </div>
+</form>
+
+<div style="padding: 2em;">
+  <div class="dataTable">
+    <div>
+      <table id="schedule">
+        <thead>
+          <tr>
+            <th style="width: 200px;"><div><a onClick="sortAscending = !sortAscending; OpenForum.Table.sort(schedule,'name',sortAscending); updateRowFilter(); return false;">Name</a></div></th>
+            <th style="width: 200px;"><div>Page Name</div></th>
+            <th style="width: 200px;"><div>Script File</div></th>
+            <th style="width: 200px;"><div>Last Run</div></th>
+            <th style="width: 200px;"><div>Scheduled Time</div></th>
+            <th style="width: 200px;"><div>Enabled</div></th>
+            <th style="width: 200px;"><div>Debug</div></th>
+            <th style="width: 200px;"><div>Actions</div></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr of-repeatFor="task in schedule">
+            <td style="width: 200px;"><a href="/OpenForum/Editor?pageName={{task.pagename}}&fileName={{task.scriptfile}}" target="editor">{{task.name}}</a></td>
+            <td style="width: 200px;">{{task.pagename}}</td><td>{{task.scriptfile}}</td>
+            <td style="width: 200px;">{{task.lastrun}}</td><td>{{task.scheduledtime}}</td>
+            <td style="width: 200px;">{{task.enabled_VIEW}}</td>
+            <td style="width: 200px;">{{task.debug_VIEW}}</td>
+            <td style="width: 200px;">
+              <a href="#" class="button tiny round" onclick="runTask( '{{task.name}}' ); return false;">Run Now</a>
+              <a href="#" class="button tiny round" onclick="editTask( '{{task.name}}' ); return false;">Edit</a>
+              <a href="#" class="button tiny round" onclick="deleteTask( '{{task.name}}' ); return false;">Delete</a>
+              <a href="#" class="button tiny round" onclick="showTagTask( '{{task.name}}' ); return false;">Tag</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!--Extension Popup id="taskEdit" sourceFileName="task-edit.wiki" sourcePageName="/OpenForum/Triggers/TimerTrigger/TaskScheduler" --><div id="taskEdit" class="reveal-modal" data-reveal aria-labelledby="taskEditModalTitle" aria-hidden="true" role="dialog"><div class="row">
+  <form>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>Name<input type='text' of-id='currentTask.name' placeholder=' ' /></label>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-6 columns'>
+        <label>PageName<input type='text' of-id='currentTask.pagename' placeholder=' ' /></label>
+      </div>
+      <div class='large-6 columns'>
+        <label>Script File<input type='text' of-id='currentTask.scriptfile' placeholder=' ' /></label>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>ScheduledTime<input type='text' list="scheduleTimes" of-id='currentTask.scheduledtime' placeholder=' ' /></label>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-6 columns'>
+        <!--Extension InputBoolean id="enabledCheckBox" text="Enabled" --><label for='enabledCheckBoxCheckBoxField'>Enabled</label><div class='switch'><input of-id='enabledCheckBox' id='enabledCheckBoxCheckBoxField' type='checkbox'><label for='enabledCheckBoxCheckBoxField'></label></div><!--End Extension InputBoolean id="enabledCheckBox" text="Enabled" -->
+      </div>
+      <div class='large-6 columns'>
+        <!--Extension InputBoolean id="debugCheckBox" text="Debug" --><label for='debugCheckBoxCheckBoxField'>Debug</label><div class='switch'><input of-id='debugCheckBox' id='debugCheckBoxCheckBoxField' type='checkbox'><label for='debugCheckBoxCheckBoxField'></label></div><!--End Extension InputBoolean id="debugCheckBox" text="Debug" -->
+      </div>
+    </div>
+    <div class='row'>
+      <a href="#" class="button" onclick="addTask(); return false;">{{addTaskText}}</a>
+      <a href="#" class="button" onclick="createTask(); return false;">New Task</a>
+    </div>
+  </form>
+</div>
+
+<datalist id="scheduleTimes">
+  <option value="Every ten seconds"></option>
+  <option value="Every minute"></option>
+  <option value="Every ten minutes"></option>
+  <option value="Every half hour"></option>
+  <option value="Every hour"></option>
+  <option value="Every day at 08:00"></option>
+  <option value="On 01/01/1970 at 09:00"></option>
+  <option value="On 01/01/1970"></option>
+  <option value="script:{pageName: <i>, fileName: </i>}"></option>
+  <option value="Every week"></option>
+  <option value="Every week on Monday"></option>
+  <option value="Every month"></option>
+  <option value="Every year"></option>
+</datalist>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="taskEdit" sourceFileName="task-edit.wiki" sourcePageName="/OpenForum/Triggers/TimerTrigger/TaskScheduler" -->
+<!--Extension Popup id="tagTask" sourceFileName="task-tag.wiki" sourcePageName="/OpenForum/Triggers/TimerTrigger/TaskScheduler" --><div id="tagTask" class="reveal-modal" data-reveal aria-labelledby="tagTaskModalTitle" aria-hidden="true" role="dialog"><div class="row">
+  <form>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>Name</label> {{currentTask.name}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-6 columns'>
+        <label>PageName</label> {{currentTask.pagename}}
+      </div>
+      <div class='large-6 columns'>
+        <label>Script File</label> {{currentTask.scriptfile}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>Scheduled Time</label> {{currentTask.scheduledtime}}
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-6 columns'>
+        <select of-id="currentTask.tag" id="currentTask.tagField">
+          <option of-repeatFor="tag in tags">{{tag}}</option>
+        </select>
+      </div>
+      <div class='large-6 columns'>
+        <a href="#" class="button" onclick="tagTask(); return false;">Tag Task</a>
+      </div>
+    </div>
+  </form>
+</div>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="tagTask" sourceFileName="task-tag.wiki" sourcePageName="/OpenForum/Triggers/TimerTrigger/TaskScheduler" -->
+

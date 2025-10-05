@@ -1,0 +1,6 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>InputBoolean</h3>
+
+myValue: {{myValue}}
+
+<!--Extension InputBoolean id="myValue" text="My Value" --><label for='myValueCheckBoxField'>My Value</label><div class='switch'><input of-id='myValue' id='myValueCheckBoxField' type='checkbox'><label for='myValueCheckBoxField'></label></div><!--End Extension InputBoolean id="myValue" text="My Value" -->

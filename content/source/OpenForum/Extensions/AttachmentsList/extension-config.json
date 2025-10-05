@@ -1,0 +1,42 @@
+{
+    "version": "0.0.1",
+    "configFile": "extension-config.json",
+    "pageName": "/OpenForum/Extensions/AttachmentsList",
+    "template": {
+        "pageName": "/OpenForum/Extensions/AttachmentsList",
+        "fileName": ""
+    },
+    "buildReferencePage": true,
+    "buildBlockEditor": true,
+    "parameters": [
+        {
+            "name": "targetPage",
+            "exampleValue": "",
+            "defaultValue": "",
+            "required": false,
+            "view": "display: none;",
+            "edit": "display: block;"
+        },
+        {
+            "name": "matching",
+            "exampleValue": ".txt",
+            "defaultValue": "",
+            "required": false,
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "actions",
+            "exampleValue": "",
+            "defaultValue": "",
+            "required": false,
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "blockEditor": {
+        "name": "",
+        "icon": ""
+    },
+    "buildRenderer": false
+}

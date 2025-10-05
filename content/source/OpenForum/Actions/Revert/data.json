@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/Revert",
-    "title": " Revert"
+    "pageName": "/OpenForum/Actions/Revert",
+    "title": "Revert",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

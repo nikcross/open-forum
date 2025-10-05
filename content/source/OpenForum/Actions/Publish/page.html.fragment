@@ -1,17 +1,18 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Publishes a page to a remote site
 <hr/>
 <h3>Parameters</h3>
 <ul><li> pageName - the name of the page to publish</li>
 <hr/>
 <h3>Usage:</h3>
-<xmp class="panel">
+<xmp class="panel" of-exclude="true">
 /OpenForum/Actions/Publish?pageName=MyPage
 </xmp>
 
 
 <hr/>
 <h3>Server Side Javascript for GET method</h3>
-<a href="//OpenForum/Actions/Publish/get.sjs">//OpenForum/Actions/Publish/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Publish&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
+<!--Extension InsertSourceFile fileName="get.sjs" --><a href="//OpenForum/Actions/Publish/get.sjs">//OpenForum/Actions/Publish/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Publish&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
 }
@@ -42,7 +43,6 @@ external.getData(remoteSite+"/OpenForum/Actions/Unzip?pageName="+newPageName+"&f
 
 external.getData(remoteSite+"/OpenForum/Actions/RefreshPage?pageName="+newPageName);
 
-  htmlData = wiki.buildPage("/OpenForum/Actions/Publish","Published ["+remoteSite+"/"+newPageName+"]",true);
+  htmlData = wiki.buildPage("/OpenForum/Actions/Publish","Published <a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Publish/"+remoteSite+"/"+newPageName+""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/Publish/"+remoteSite+"/"+newPageName+" does not exist. Click to create it.">"+remoteSite+"/"+newPageName+"</a>",true);
   transaction.sendPage(htmlData);
-}</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>
+}</xmp><!--End Extension InsertSourceFile fileName="get.sjs" --></ul>

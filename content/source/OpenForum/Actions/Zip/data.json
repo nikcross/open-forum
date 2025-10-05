@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/Zip",
-    "title": " Zip"
+    "pageName": "/OpenForum/Actions/Zip",
+    "title": "Zip",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

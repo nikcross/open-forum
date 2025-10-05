@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Editor/Plugins/ServiceGenerator",
-    "title": " Service Generator"
+    "pageName": "/OpenForum/Editor/Plugins/ServiceGenerator",
+    "title": "ServiceGenerator",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

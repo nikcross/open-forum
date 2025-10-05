@@ -8,7 +8,8 @@ OpenForum.init = function() {
     flavour: "XML",
     editingPageName: "/TheLab/Sandbox",
     editingFileName: "sandbox.xml",
-    elementId: "xmlEditor"
+    elementId: "InPageEditor",
+    fullScreen: true
   };
   if(OpenForum.getParameter("pageName")) {
     editorConfig.editingPageName = OpenForum.getParameter("pageName");
@@ -17,4 +18,5 @@ OpenForum.init = function() {
   }
 
     editor = new StandaloneEditor( editorConfig );
+    editor.addMenuAction("Prettify","Prettify XML","getEditor().prettifyXml");
   };

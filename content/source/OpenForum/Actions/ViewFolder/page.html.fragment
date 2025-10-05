@@ -1,10 +1,11 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Creates a page view of a folder
 <hr/>
 <h3>Parameters</h3>
 <ul><li> pageName - Name of the page to view as a folder</li>
 <hr/>
 <h3>Usage:</h3>
-<xmp class="panel">
+<xmp class="panel" of-exclude="true">
 /OpenForum/Actions/ViewFolder?folderName=Folder to View
 </xmp>
 
@@ -12,13 +13,12 @@
 
 <hr/>
 <h3>Server Side Javascript for GET method</h3>
-<xmp class="panel"> if(typeof(pageName)=="undefined")
+<xmp class="panel" of-exclude="true"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
 }
 else
 {
-  page = wiki.buildPage(pageName,"!!Folder: "+pageName,true);
+  page = wiki.buildPage(pageName,"<h3>Folder: "+pageName,true);</h3>
   transaction.sendPage( page );
-} </xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>
+} </xmp></ul>

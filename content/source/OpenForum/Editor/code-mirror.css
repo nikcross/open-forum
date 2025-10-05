@@ -18,4 +18,5 @@
 }
 
 
-.styled-background { background-color: #00cc00; color: #ffffff; }
+.styled-background { background-color: #000000; border: solid 1px; }
+.styled-error-background { background-color: #000000; border: solid 1px red; }

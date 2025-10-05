@@ -1,0 +1,13 @@
+{
+  "name": "Text",
+  "description": "Simple Text Block",
+  "example": {},    
+  "blocks": [],
+  "edit": { 
+    "pageName": "/OpenForum/AddOn/ContentEditor", 
+    "fileName": "text-block-editor.content", 
+    "scriptName": "text-block-editor.js", 
+    "objectName": "TextBlockEditor",
+    "renderer": "text-block-renderer.js" 
+  }
+}

@@ -1,0 +1,15 @@
+!!&title;
+
+[{WysiwygInput name="myText" value="1234"}]
+
+----
+!!My Text
+{{myText}}
+
+----
+!!Child Pages
+[{ChildPagesList pageName="&pageName;"}]
+
+----
+!!Attachments
+[{AttachmentsList pageName="&pageName;" matching=".*"}]

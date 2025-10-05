@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Extensions/AttachmentsList",
-    "title": " Attachments List"
+    "pageName": "/OpenForum/Extensions/AttachmentsList",
+    "title": "AttachmentsList",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

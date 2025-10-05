@@ -1,0 +1,81 @@
+{
+    "version": "0.0.5",
+    "libraries": [
+        {
+            "name": "User",
+            "fileName": "User.sjs",
+            "view": "display: block;",
+            "edit": "display: none;",
+            "pageName": "/OpenForum/Actions/User",
+            "objectName": ""
+        }
+    ],
+    "parameters": [],
+    "actions": [
+        {
+            "name": "getCurrentUser",
+            "call": "User.getCurrentUser(currentPage,user,referrer,userAgent,transaction);",
+            "parameters": [
+                {
+                    "name": "currentPage",
+                    "required": "false",
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "user",
+                    "required": true,
+                    "type": "transaction",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "referrer",
+                    "required": "false",
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "userAgent",
+                    "type": "string",
+                    "required": "false",
+                    "view": "display: none;",
+                    "edit": "display: block;"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "action": "getCurrentUser",
+            "example": {
+                "response": "",
+                "errorResponse": "",
+                "request": ""
+            },
+            "description": ""
+        },
+        {
+            "name": "getCurrentUserProfile",
+            "call": "User.getCurrentUserProfile(user);",
+            "parameters": [
+                {
+                    "name": "user",
+                    "required": true,
+                    "type": "transaction",
+                    "view": "display: none;",
+                    "edit": "display: block;"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "action": "getCurrentUserProfile",
+            "example": {
+                "response": "",
+                "errorResponse": ""
+            }
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/Actions/User"
+}

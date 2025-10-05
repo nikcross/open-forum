@@ -1,0 +1,18 @@
+!!&title;
+
+--8<--
+
+((The task scheduler checks for tasks to run every 10 seconds. Tasks can be added to the list to run on regular schedules or on a particular date and time.))
+
+-->8--
+----
+!! Task Scehduler trigger.sjs Actions
+  
+!! run(task)
+* If a task is disabled, logs to todays log and returns
+* If the task has debug set to true, logs each step as the task is run
+* Loads the task trigger script and runs it (eval), injecting the debug state
+* Takes the result of the eval and if debug set, logs it
+* Sets last run time for the task in the database
+* If an exception occurrs, logs an error, logs a task message and sends an alert to the Alert service
+  

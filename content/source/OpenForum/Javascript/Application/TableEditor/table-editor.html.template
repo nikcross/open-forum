@@ -1,0 +1,42 @@
+<table>
+<thead>
+    <tr>
+        {{columnTitles}}
+        <td>&nbsp;</td>
+   </tr>
+</thead>
+<tbody>
+    <tr of-repeatFor='row in {{tableName}}'>
+        {{columnNames}}
+        <td><a class='button tiny' onClick='OpenForum.Table.editRow({{tableName}},{{row.index}}); return false;'>Edit</a>
+        <a class='button tiny' onClick='OpenForum.Table.moveRowUp({{tableName}},{{row.index}}); return false;'>Move Up</a>
+        <a class='button tiny' onClick='OpenForum.Table.moveRowDown({{tableName}},{{row.index}}); return false;'>Move Down</a>
+        <a class='button tiny' onClick='OpenForum.Table.removeRow({{tableName}},{{row.index}}); return false;'>Remove</a></td>
+    </tr>
+</tbody>
+<tfoot>
+<tr><td><a href="#" onClick="OpenForum.Table.addRow({{tableName}},{{tableName}}_rowTemplate); return false;" class="button tiny round">Add Row</a>
+<a href="#" onClick="OpenForum.Table.closeTable({{tableName}}); OpenForum.saveJSON('{{fileName}}',{{tableName}}); return false;" class="button tiny round">Save Changes</a>
+</td></tr></tfoot>
+</table>
+
+--8<--
+<script>
+var {{tableName}} = OpenForum.loadJSON( '{{fileName}}' );
+var {{tableName}}_rowTemplate = OpenForum.loadJSON( '{{rowTemplateFileName}}' );
+OpenForum.addInitialiser( function() { OpenForum.Table.closeTable({{tableName}}); } );
+</script>
+-->8--
+--8<--
+<td>
+	<span style='{{row.view}}'>
+      {{row.{{columnName}}}}
+	</span>
+	<span style='{{row.edit}}'>
+      <input type='text' value='{{row.{{columnName}}}}' onChange='OpenForum.Table.setCell({{tableName}},{{row.index}},"{{columnName}}",this.value);'/>
+	</span>
+</td>
+-->8--
+--8<--
+<td>{{columnTitle}}</td>
+-->8--

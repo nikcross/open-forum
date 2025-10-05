@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Editor/Plugins/ServerConsole",
-    "title": " Server Console"
+    "pageName": "/OpenForum/Editor/Plugins/ServerConsole",
+    "title": "ServerConsole",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

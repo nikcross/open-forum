@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/CreateQueue",
-    "title": " Create Queue"
+    "pageName": "/OpenForum/Actions/CreateQueue",
+    "title": "CreateQueue",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

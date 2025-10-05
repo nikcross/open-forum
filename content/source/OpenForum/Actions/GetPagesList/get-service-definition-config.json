@@ -1,0 +1,32 @@
+{
+    "version": "0.0.0",
+    "libraries": [
+        {
+            "name": "PagesList",
+            "fileName": "PagesList.sjs",
+            "view": "display: none;",
+            "edit": "display: block;",
+            "index": "0"
+        }
+    ],
+    "parameters": [],
+    "actions": [
+        {
+            "name": "getChildPages",
+            "call": "PagesList.getChildPages(pageName);",
+            "parameters": [
+                {
+                    "name": "pageName",
+                    "required": true,
+                    "type": "string",
+                    "index": "0"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "action": "getChildPages"
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/Actions/GetPagesList"
+}

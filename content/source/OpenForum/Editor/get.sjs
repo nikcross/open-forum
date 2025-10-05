@@ -25,8 +25,9 @@ if(action!==null && ""+action==="getUpdates") {
       changedFiles.push(entry);
     } catch(e) {}
   }
-
-  result = {user: user, pageName: ""+pageName, lastCheckTime: lastCheckTime, changedFiles: changedFiles};
+  var time = new Date().getTime();
+  
+  result = {user: user, pageName: ""+pageName, lastCheckTime: lastCheckTime, changedFiles: changedFiles, time: time};
 
   transaction.sendJSON( JSON.stringify(result) );
   return;
@@ -43,11 +44,17 @@ if(overrideEditor===null) {
   try{
     var data = js.getObject("/OpenForum/Javascript/Page","Data.js");
     data = data.setPageName(pageName);
+    
     if(data.getEditor() && ""+data.getEditor()!=="/OpenForum/Editor") {
-
       transaction.goToPage(data.getEditor()+"?pageName="+pageName+"&overrideEditor=true");
       return;
     }
+    
+    if(transaction.getParameter("config") == null && data.getEditorConfig()) {
+      transaction.goToPage("/OpenForum/Editor?pageName="+pageName+"&config=" + data.getEditorConfig());
+      return;
+    }
+    
   } catch(e) {
     transaction.sendJSON(JSON.stringify({result: "error", message: "Error: "+e+" @ "+e.lineNumber}));
     return;

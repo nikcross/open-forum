@@ -1,0 +1,13 @@
+{
+  "name": "WYSIWYG",
+  "description": "WYSIWYG Block",
+  "example": {},    
+  "blocks": [],
+  "edit": { 
+    "pageName": "/OpenForum/AddOn/ContentEditor", 
+    "fileName": "WYSIWYG-block-editor.content", 
+    "scriptName": "WYSIWYG-block-editor.js", 
+    "objectName": "WYSIWYGBlockEditor",
+    "renderer": "WYSIWYG-block-renderer.js" 
+  }
+}

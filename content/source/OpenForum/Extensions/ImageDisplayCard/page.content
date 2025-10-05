@@ -1,0 +1,7 @@
+<div class="row">
+!!ImageDisplayCard v0.0.3
+{{{ [{ImageDisplayCard title="Open Forum" description="Open Forum - The Future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" imageURL="/OpenForum/Images/open-forum-dog-small.png"}] }}}
+[{ImageDisplayCard title="Open Forum" description="Open Forum - The Future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" imageURL="/OpenForum/Images/open-forum-dog-small.png"}]
+\\
+[{ActionButton text="Add ImageDisplayCard Block type to Content Editor" action="addToContentEditor"}]
+</div>

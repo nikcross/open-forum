@@ -1,0 +1,1 @@
+<a href="{{href}}" target="{{target}}" class="button small">{{text}}</a>

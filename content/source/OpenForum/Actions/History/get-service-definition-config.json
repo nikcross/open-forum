@@ -1,0 +1,49 @@
+{
+    "version": "0.0.1",
+    "libraries": [
+        {
+            "name": "HistoryService",
+            "fileName": "HistoryService.sjs",
+            "view": "display: block;",
+            "edit": "display: none;",
+            "pageName": "/OpenForum/Actions/History",
+            "objectName": ""
+        }
+    ],
+    "parameters": [],
+    "actions": [
+        {
+            "name": "list",
+            "call": "HistoryService.getList(pageName,fileName);",
+            "parameters": [
+                {
+                    "name": "pageName",
+                    "required": true,
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;",
+                    "description": "The page to get a history of"
+                },
+                {
+                    "name": "fileName",
+                    "required": "false",
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;",
+                    "description": "The file to get a history of"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "action": "list",
+            "example": {
+                "response": "{\n    \"result\": \"ok\",\n    \"message\": \"Performed action list\",\n    \"data\": [\n        {\n            \"file\": \"HistoryClient.js\",\n            \"logFile\": \"HistoryClient.js.log\",\n            \"history\": [\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-32-56-0380\",\n                    \"file\": \"HistoryClient.js-2022-11-17-07-32-56-0380\"\n                },\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-29-21-0496\",\n                    \"file\": \"HistoryClient.js-2022-11-17-07-29-21-0496\"\n                }\n            ]\n        },\n        {\n            \"file\": \"get-service-definition-config.json\",\n            \"logFile\": \"get-service-definition-config.json.log\",\n            \"history\": [\n                {\n                    \"user\": \"Admin\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-32-56-0192\",\n                    \"file\": \"get-service-definition-config.json-2022-11-17-07-32-56-0192\"\n                },\n                {\n                    \"user\": \"Admin\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-29-20-0702\",\n                    \"file\": \"get-service-definition-config.json-2022-11-17-07-29-20-0702\"\n                }\n            ]\n        },\n        {\n            \"file\": \"get.sjs\",\n            \"logFile\": \"get.sjs.log\",\n            \"history\": [\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-32-56-0377\",\n                    \"file\": \"get.sjs-2022-11-17-07-32-56-0377\"\n                },\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-29-21-0442\",\n                    \"file\": \"get.sjs-2022-11-17-07-29-21-0442\"\n                }\n            ]\n        },\n        {\n            \"file\": \"page.content\",\n            \"logFile\": \"page.content.log\",\n            \"history\": [\n                {\n                    \"user\": \"Admin\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-29-50-0753\",\n                    \"file\": \"page.content-2022-11-17-07-29-50-0753\"\n                }\n            ]\n        },\n        {\n            \"file\": \"page.html.fragment\",\n            \"logFile\": \"page.html.fragment.log\",\n            \"history\": [\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-33-11-0997\",\n                    \"file\": \"page.html.fragment-2022-11-17-07-33-11-0997\"\n                },\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-29-50-0776\",\n                    \"file\": \"page.html.fragment-2022-11-17-07-29-50-0776\"\n                },\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-08-02-12-59-0936\",\n                    \"file\": \"page.html.fragment-2022-11-08-02-12-59-0936\"\n                }\n            ]\n        },\n        {\n            \"file\": \"page.html\",\n            \"logFile\": \"page.html.log\",\n            \"history\": [\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-33-12-0014\",\n                    \"file\": \"page.html-2022-11-17-07-33-12-0014\"\n                },\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-29-50-0845\",\n                    \"file\": \"page.html-2022-11-17-07-29-50-0845\"\n                },\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-08-02-13-00-0004\",\n                    \"file\": \"page.html-2022-11-08-02-13-00-0004\"\n                },\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-04-03-05-38-0649\",\n                    \"file\": \"page.html-2022-11-04-03-05-38-0649\"\n                },\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2021-10-20-11-35-01-0581\",\n                    \"file\": \"page.html-2021-10-20-11-35-01-0581\"\n                }\n            ]\n        },\n        {\n            \"file\": \"service-definition-config.json\",\n            \"logFile\": \"service-definition-config.json.log\",\n            \"history\": [\n                {\n                    \"user\": \"Admin\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-29-21-0309\",\n                    \"file\": \"service-definition-config.json-2022-11-17-07-29-21-0309\"\n                }\n            ]\n        },\n        {\n            \"file\": \"service-definition.html.fragment\",\n            \"logFile\": \"service-definition.html.fragment.log\",\n            \"history\": [\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-33-11-0989\",\n                    \"file\": \"service-definition.html.fragment-2022-11-17-07-33-11-0989\"\n                },\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-29-50-0766\",\n                    \"file\": \"service-definition.html.fragment-2022-11-17-07-29-50-0766\"\n                }\n            ]\n        },\n        {\n            \"file\": \"service-definition.wiki.fragment\",\n            \"logFile\": \"service-definition.wiki.fragment.log\",\n            \"history\": [\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-32-56-0406\",\n                    \"file\": \"service-definition.wiki.fragment-2022-11-17-07-32-56-0406\"\n                },\n                {\n                    \"user\": \"System\",\n                    \"action\": \"Saved\",\n                    \"time\": \"2022-11-17-07-29-21-0556\",\n                    \"file\": \"service-definition.wiki.fragment-2022-11-17-07-29-21-0556\"\n                }\n            ]\n        }\n    ]\n}",
+                "errorResponse": "",
+                "request": "&pageName=/OpenForum/Actions/History"
+            },
+            "description": "Get a list of all page file changes"
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/Actions/History"
+}

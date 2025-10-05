@@ -19,6 +19,8 @@ function FileManager() {
   };
 
   var copy = function(fromPage,toPage,log) {
+    if(fromPage == toPage) throw "Source page is same as target page.";
+    
     var list = file.getAttachmentsForPage( fromPage );
 
     if(file.attachmentExists(toPage,"data.json")===false) {
@@ -50,6 +52,14 @@ function FileManager() {
         }
       }
     }
+    
+    var jsonData = JSON.parse( file.getAttachment( toPage, "data.json" ) );
+    jsonData.pageName = ""+toPage;
+    if( jsonData.pageName.substring(0,2) == "//" ) {
+      jsonData.pageName = ""+jsonData.pageName.substring(1);
+    }
+    jsonData.title = ""+openForum.wikiToTitleName( jsonData.pageName ).trim();
+    file.saveAttachment( toPage, "data.json", JSON.stringify( jsonData, null, 4 ) );
 
     openForum.refreshPage(toPage);
     

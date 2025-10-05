@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Extensions/CrumbTrail",
-    "title": " Crumb Trail"
+    "pageName": "/OpenForum/Extensions/CrumbTrail",
+    "title": "CrumbTrail",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

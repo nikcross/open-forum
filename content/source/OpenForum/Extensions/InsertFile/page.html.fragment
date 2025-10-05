@@ -1,3 +1,4 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 Inserts a files contents into the page
 <hr/>
 <h3>Parameters</h3>
@@ -6,12 +7,11 @@ Inserts a files contents into the page
 
 <hr/>
 <h3>Usage:</h3>
-<xmp class="panel">
-[{InsertFile pageName="pageName" fileName="fileName"}]
+<xmp class="panel" of-exclude="true">
+<!--Extension InsertFile pageName="pageName" fileName="fileName" -->null<!--End Extension InsertFile pageName="pageName" fileName="fileName" -->
 </xmp>
 If pageName is not given then the current page name is assumed.
 
 <hr/>
 <h3>renderer.sjs</h3>
-undefined
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>
+<!--Extension InserSourceFile fileName="renderer.sjs" -->undefined<!--End Extension InserSourceFile fileName="renderer.sjs" --></ul>

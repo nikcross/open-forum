@@ -1,0 +1,965 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+Creates a content page for child pages
+<hr/>
+<h3>Parameters</h3>
+<ul><li>pageName - The page to list children of (optional. default = current page)</li>
+<hr/>
+<h3>Usage:</h3>
+<xmp class="panel" of-exclude="true">
+<!--Extension ChildrenContentsPage pageName="/OpenForum" --><div class="row">
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/About">About</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/About" section="1" --><!--End Extension InsertPage page="/OpenForum/About" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Access">Access</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Access" section="1" --><!--End Extension InsertPage page="/OpenForum/Access" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions">Actions</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/AddOn">AddOn</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/AddOn" section="1" --><!--End Extension InsertPage page="/OpenForum/AddOn" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Authentication">Authentication</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Authentication" section="1" --><!--End Extension InsertPage page="/OpenForum/Authentication" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Authorization">Authorization</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Authorization" section="1" --><!--End Extension InsertPage page="/OpenForum/Authorization" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Configuration">Configuration</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Configuration" section="1" --><!--End Extension InsertPage page="/OpenForum/Configuration" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/DeletedPages">DeletedPages</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/DeletedPages" section="1" --><!--End Extension InsertPage page="/OpenForum/DeletedPages" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor">Editor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/ErrorPages">ErrorPages</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/ErrorPages" section="1" --><!--End Extension InsertPage page="/OpenForum/ErrorPages" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Extensions">Extensions</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Extensions" section="1" --><!--End Extension InsertPage page="/OpenForum/Extensions" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/FileTemplates">FileTemplates</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/FileTemplates" section="1" --><!--End Extension InsertPage page="/OpenForum/FileTemplates" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Giraffe">Giraffe</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Giraffe/QuickReference" section="1" --><!--End Extension InsertPage page="/OpenForum/Giraffe/QuickReference" section="1" --><br />
+ <!--Extension Popup id="QR_Giraffe" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Giraffe/QuickReference" --><div id="QR_Giraffe" class="reveal-modal" data-reveal aria-labelledby="QR_GiraffeModalTitle" aria-hidden="true" role="dialog"><!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h2>Giraffe Graphics Objects - Quick Reference</h2>
+
+<hr/>
+<h3>Quick Start Example: (within OpenForum framework)</h3>
+<xmp class="panel" of-exclude="true">
+OpenForum.includeScript("/OpenForum/Giraffe/giraffe.js");
+
+var giraffeCanvas;
+
+OpenForum.init = function() {
+          giraffeCanvas = Giraffe.quickStart( "canvas" );
+  
+          //Add some graphics object to be drawn
+          giraffeCanvas.add(new Giraffe.Line(100,100,130,150));
+};
+</xmp>
+<hr/>
+<h3>Line</h3>
+<xmp class="panel" of-exclude="true">
+var line = new Giraffe.?(x,y,x2,y2);
+Example: var line = new Giraffe.Line(100,100,130,150);
+</xmp>
+
+<hr/>
+<h3>Rectangle</h3>
+<xmp class="panel" of-exclude="true">
+var rectangle = new Giraffe.Rectangle(x,y,width,height);
+Example: var rectangle = new Giraffe.Rectangle(100,100,50,90);
+</xmp>
+
+<hr/>
+<h3>RoundedRectangle</h3>
+<xmp class="panel" of-exclude="true">
+var rectangle = new Giraffe.RoundedRectangle(x,y,width,height,radius);
+Example: var rectangle = new Giraffe.RoundedRectangle(100,100,50,90,10);
+</xmp>
+
+<hr/>
+<h3>Circle</h3>
+<xmp class="panel" of-exclude="true">
+var circle = new Giraffe.Circle(x,y,radius);
+Example: var circle = new Giraffe.Circle(100,100,20);
+</xmp>
+
+<hr/>
+<h3>Arc </h3>
+<xmp class="panel" of-exclude="true">
+var arc = new Giraffe.Arc(x,y,startAngle,sweepAngle,radius);
+Example: var arc = new Giraffe.Arc(100,100,45,180,20);
+</xmp>
+
+<hr/>
+<h3>Picture</h3>
+<xmp class="panel" of-exclude="true">
+var picture = new Giraffe.Picture(x,y,src);
+Example: var picture = new Giraffe.Picture(100,100,"https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg");
+  var width = picture.img.width;
+  var height = picture.img.height;
+  picture.img.src = "https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg";
+</xmp>
+
+<hr/>
+<h3></h3>
+<xmp class="panel" of-exclude="true">
+var picture = new Giraffe.PixelCanvas(x,y,width,height);
+picture.setPixel(x,y,r,g,b,a);
+
+Example: var picture = new Giraffe.PixelCanvas(100,100,200,100);
+picture.setPixel(20,30,200,100,100,0.5);
+</xmp>
+<hr/>
+<h3>Polygon</h3>
+<xmp class="panel" of-exclude="true">
+var polygon = new Giraffe.Polygon(x,y);
+Example: var polygon = new Giraffe.Polygon(100,100);
+polygon.addPoint(0,0);
+polygon.addPoint(100,80);
+polygon.addPoint(-100,80);
+polygon.closed = true;
+polygon.smooth = false;
+</xmp>
+
+<hr/>
+<h3>Text</h3>
+<xmp class="panel" of-exclude="true">
+var text = new Giraffe.Text(x,y,text,textSize,font);
+Example: var text = new Giraffe.Text(100,100,"My Message",20,"Arial");
+</xmp>
+
+<hr/>
+<h3>Composite</h3>
+<xmp class="panel" of-exclude="true">
+var composite = new Giraffe.Composite(x,y,rotation);
+Example: var composite = new Giraffe.Composite(100,100,Math.PI);
+composite.add(circle);
+composite.add(rectangle);
+composite.remove(rectangle);
+composite.deconstruct();
+</xmp>
+
+<hr/>
+<h3>Shared by all Giraffe Graphics Objects</h3>
+<xmp class="panel" of-exclude="true">
+var graphicsObject = new Rectangle(100,100,50,90); 
+
+graphicsObject.setCSSClass(className);
+Example: graphicsObject.setCSSClass("myCSSClass"); //Takes color as giraffe color and backgroundColor as giraffe fillColor
+
+graphicsObject.setColor(color);
+Example: graphicsObject.setColor("red").setFillColor("green");
+Example: graphicsObject.setColor("rgba(200,100,50,0.5)");
+
+graphicsObject.setFillColor(color);
+Example: graphicsObject.setFillColor("red").setColor("blue");
+Example: graphicsObject.setFillColor("rgba(200,100,50,0.5)");
+
+Giraffe.RadialColor(canvas,color1,color2,x,y,radius)
+Example: graphicsObject.setFillColor( new Giraffe.RadialColor(giraffe.canvas,"red","green",120,150,50) );
+  
+GradientColor(canvas,color1,color2,x1,y1,x2,y2)
+Example: graphicsObject.setFillColor( new GradientColor(giraffe.canvas,"red","green",120,150,130,170) );
+  
+graphicsObject.setShadow( new Giraffe.Shadow() );
+Example: shadow = new Giraffe.Shadow();
+  shadow.color = '#999';
+  shadow.blur = 20;
+  shadow.offsetX = 15;
+  shadow.offsetY = 15;
+  graphicsObject.setShadow(shadow);
+
+graphicsObject.setLineStyle(new Giraffe.LineStyle() );
+Example: lineStyle = new Giraffe.LineStyle().setThickness(1.5).setEndCap("round"); //valid end caps: butt , round or square
+	graphicsObject.setLineStyle(lineStyle);
+
+graphicsObject.setRotation(rotation);
+Example: graphicsObject.setRotation(Math.PI/3);
+
+graphicsObject.isInside(x,y);
+Example: if( graphicsObject.isInside(100,100) ) { 
+  //x,y is inside the object
+  doStuff();
+  }
+  
+graphicsObject.visible = true;
+  
+graphicsObject.scaleX = 0.5;
+  
+graphicsObject.scaleY = 0.8;
+</xmp>
+<h3>Methods that can be overridden</h3>
+<xmp class="panel" of-exclude="true">
+
+graphicsObject.onClick = function(x,y){ <!-- Mouse had clicked. Do stuff. --> };
+
+graphicsObject.onMouseOver = function(x,y){ <!-- Mouse is over. Do stuff. -->};
+
+graphicsObject.onMouseOut = function(x,y){ <!-- Mouse is no longer over. Do stuff. --> };
+
+graphicsObject.onMousePressed = function(x,y){ <!-- Mouse is over and has been pressed. Do stuff. --> };
+
+graphicsObject.onMouseReleased = function(x,y) { <!-- Mouse is over and has been released. Do stuff. -->};
+
+graphicsObject.animate = function(frame){ <!-- Frame {frame} is rendering. Make changes now. -->};
+
+</xmp>
+  
+<hr/>
+<h3>Transitions - ToDo</h3>
+  
+</div>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="QR_Giraffe" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Giraffe/QuickReference" --><br />
+ <!--Extension Popup id="QR_Giraffe" title="Quick Reference" --><a class='button small round' onClick="$('#QR_Giraffe').foundation('reveal', 'open');;return false;">Quick Reference</a><!--End Extension Popup id="QR_Giraffe" title="Quick Reference" --> <b><a href="/OpenForum/Giraffe/QuickReference">Open in a new tab</a></b><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Groups">Groups</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Groups" section="1" --><!--End Extension InsertPage page="/OpenForum/Groups" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/HomePage">HomePage</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/HomePage" section="1" --><!--End Extension InsertPage page="/OpenForum/HomePage" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Images">Images</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Images" section="1" --><!--End Extension InsertPage page="/OpenForum/Images" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor?pageName=/OpenForum/Jaascript"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Jaascript does not exist. Click to create it.">Jaascript</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Jaascript" section="1" --><!--End Extension InsertPage page="/OpenForum/Jaascript" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/JarManager">JarManager</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/JarManager" section="1" --><!--End Extension InsertPage page="/OpenForum/JarManager" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Javascript">Javascript</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Javascript" section="1" --><!--End Extension InsertPage page="/OpenForum/Javascript" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Journal">Journal</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Journal" section="1" --><!--End Extension InsertPage page="/OpenForum/Journal" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Keyboard">Keyboard</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Keyboard" section="1" --><!--End Extension InsertPage page="/OpenForum/Keyboard" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/MessageQueue">MessageQueue</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/MessageQueue" section="1" --><!--End Extension InsertPage page="/OpenForum/MessageQueue" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/MissingPages">MissingPages</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/MissingPages" section="1" --><!--End Extension InsertPage page="/OpenForum/MissingPages" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates">PageTemplates</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Processor">Processor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Processor" section="1" --><!--End Extension InsertPage page="/OpenForum/Processor" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PublishingJournal">PublishingJournal</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PublishingJournal" section="1" --><!--End Extension InsertPage page="/OpenForum/PublishingJournal" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor?pageName=/OpenForum/ReleaseNotes"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/ReleaseNotes does not exist. Click to create it.">ReleaseNotes</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/ReleaseNotes" section="1" --><!--End Extension InsertPage page="/OpenForum/ReleaseNotes" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/ReleasedPackages">ReleasedPackages</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/ReleasedPackages" section="1" --><!--End Extension InsertPage page="/OpenForum/ReleasedPackages" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/SQL">SQL</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/SQL" section="1" --><!--End Extension InsertPage page="/OpenForum/SQL" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/SiteExplorer">SiteExplorer</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/SiteExplorer" section="1" --><!--End Extension InsertPage page="/OpenForum/SiteExplorer" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Sounds">Sounds</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Sounds" section="1" --><!--End Extension InsertPage page="/OpenForum/Sounds" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Spider">Spider</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Spider" section="1" --><!--End Extension InsertPage page="/OpenForum/Spider" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/SystemMonitor">SystemMonitor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/SystemMonitor" section="1" --><!--End Extension InsertPage page="/OpenForum/SystemMonitor" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor?pageName=/OpenForum/Temporary"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Temporary does not exist. Click to create it.">Temporary</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Temporary" section="1" --><!--End Extension InsertPage page="/OpenForum/Temporary" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor?pageName=/OpenForum/TheLab"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/TheLab does not exist. Click to create it.">TheLab</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/TheLab" section="1" --><!--End Extension InsertPage page="/OpenForum/TheLab" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Triggers">Triggers</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Triggers/QuickReference" section="1" --><!--End Extension InsertPage page="/OpenForum/Triggers/QuickReference" section="1" --><br />
+ <!--Extension Popup id="QR_Triggers" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Triggers/QuickReference" --><div id="QR_Triggers" class="reveal-modal" data-reveal aria-labelledby="QR_TriggersModalTitle" aria-hidden="true" role="dialog"><!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>QuickReference</h3>
+
+<p>
+Triggers cause scripts to be run when an event occurs on the server. There are four event trigger types in OpenForum<ul><li> <a href="/OpenForum/Triggers/StartTrigger">Server Start Triggers</a></li>
+<li> <a href="/OpenForum/Triggers/PageChangeTrigger">Page Change Triggers</a></li>
+<li> <a href="/OpenForum/Triggers/RebuildTrigger">Rebuild Triggers</a></li>
+<li> <a href="/OpenForum/Triggers/TimerTrigger">Time Triggers</a></li>
+</ul></p>
+<p>
+Each trigger has its own page. The page can contain a bullet list of pages where triggers can be found. The trigger script is expected to be found in a file called trigger.sjs
+</p>
+<p>
+The one exception is the TimerTrigger page which also has a <a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler">Task Scheduler App</a>. 
+This provides a user interface to add scripts that can be run at specific periods or at set dates and times.
+There is also an option to decide if a script should run based on a script.
+</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="QR_Triggers" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Triggers/QuickReference" --><br />
+ <!--Extension Popup id="QR_Triggers" title="Quick Reference" --><a class='button small round' onClick="$('#QR_Triggers').foundation('reveal', 'open');;return false;">Quick Reference</a><!--End Extension Popup id="QR_Triggers" title="Quick Reference" --> <b><a href="/OpenForum/Triggers/QuickReference">Open in a new tab</a></b><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Users">Users</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Users" section="1" --><!--End Extension InsertPage page="/OpenForum/Users" section="1" --><br />
+
+</div><!--End Extension ChildrenContentsPage pageName="/OpenForum" -->
+</xmp>
+<!--Extension ChildrenContentsPage pageName="/OpenForum" --><div class="row">
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/About">About</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/About" section="1" --><!--End Extension InsertPage page="/OpenForum/About" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Access">Access</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Access" section="1" --><!--End Extension InsertPage page="/OpenForum/Access" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions">Actions</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/AddOn">AddOn</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/AddOn" section="1" --><!--End Extension InsertPage page="/OpenForum/AddOn" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Authentication">Authentication</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Authentication" section="1" --><!--End Extension InsertPage page="/OpenForum/Authentication" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Authorization">Authorization</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Authorization" section="1" --><!--End Extension InsertPage page="/OpenForum/Authorization" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Configuration">Configuration</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Configuration" section="1" --><!--End Extension InsertPage page="/OpenForum/Configuration" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/DeletedPages">DeletedPages</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/DeletedPages" section="1" --><!--End Extension InsertPage page="/OpenForum/DeletedPages" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor">Editor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/ErrorPages">ErrorPages</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/ErrorPages" section="1" --><!--End Extension InsertPage page="/OpenForum/ErrorPages" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Extensions">Extensions</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Extensions" section="1" --><!--End Extension InsertPage page="/OpenForum/Extensions" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/FileTemplates">FileTemplates</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/FileTemplates" section="1" --><!--End Extension InsertPage page="/OpenForum/FileTemplates" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Giraffe">Giraffe</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Giraffe/QuickReference" section="1" --><!--End Extension InsertPage page="/OpenForum/Giraffe/QuickReference" section="1" --><br />
+ <!--Extension Popup id="QR_Giraffe" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Giraffe/QuickReference" --><div id="QR_Giraffe" class="reveal-modal" data-reveal aria-labelledby="QR_GiraffeModalTitle" aria-hidden="true" role="dialog"><!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h2>Giraffe Graphics Objects - Quick Reference</h2>
+
+<hr/>
+<h3>Quick Start Example: (within OpenForum framework)</h3>
+<xmp class="panel" of-exclude="true">
+OpenForum.includeScript("/OpenForum/Giraffe/giraffe.js");
+
+var giraffeCanvas;
+
+OpenForum.init = function() {
+          giraffeCanvas = Giraffe.quickStart( "canvas" );
+  
+          //Add some graphics object to be drawn
+          giraffeCanvas.add(new Giraffe.Line(100,100,130,150));
+};
+</xmp>
+<hr/>
+<h3>Line</h3>
+<xmp class="panel" of-exclude="true">
+var line = new Giraffe.?(x,y,x2,y2);
+Example: var line = new Giraffe.Line(100,100,130,150);
+</xmp>
+
+<hr/>
+<h3>Rectangle</h3>
+<xmp class="panel" of-exclude="true">
+var rectangle = new Giraffe.Rectangle(x,y,width,height);
+Example: var rectangle = new Giraffe.Rectangle(100,100,50,90);
+</xmp>
+
+<hr/>
+<h3>RoundedRectangle</h3>
+<xmp class="panel" of-exclude="true">
+var rectangle = new Giraffe.RoundedRectangle(x,y,width,height,radius);
+Example: var rectangle = new Giraffe.RoundedRectangle(100,100,50,90,10);
+</xmp>
+
+<hr/>
+<h3>Circle</h3>
+<xmp class="panel" of-exclude="true">
+var circle = new Giraffe.Circle(x,y,radius);
+Example: var circle = new Giraffe.Circle(100,100,20);
+</xmp>
+
+<hr/>
+<h3>Arc </h3>
+<xmp class="panel" of-exclude="true">
+var arc = new Giraffe.Arc(x,y,startAngle,sweepAngle,radius);
+Example: var arc = new Giraffe.Arc(100,100,45,180,20);
+</xmp>
+
+<hr/>
+<h3>Picture</h3>
+<xmp class="panel" of-exclude="true">
+var picture = new Giraffe.Picture(x,y,src);
+Example: var picture = new Giraffe.Picture(100,100,"https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg");
+  var width = picture.img.width;
+  var height = picture.img.height;
+  picture.img.src = "https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg";
+</xmp>
+
+<hr/>
+<h3></h3>
+<xmp class="panel" of-exclude="true">
+var picture = new Giraffe.PixelCanvas(x,y,width,height);
+picture.setPixel(x,y,r,g,b,a);
+
+Example: var picture = new Giraffe.PixelCanvas(100,100,200,100);
+picture.setPixel(20,30,200,100,100,0.5);
+</xmp>
+<hr/>
+<h3>Polygon</h3>
+<xmp class="panel" of-exclude="true">
+var polygon = new Giraffe.Polygon(x,y);
+Example: var polygon = new Giraffe.Polygon(100,100);
+polygon.addPoint(0,0);
+polygon.addPoint(100,80);
+polygon.addPoint(-100,80);
+polygon.closed = true;
+polygon.smooth = false;
+</xmp>
+
+<hr/>
+<h3>Text</h3>
+<xmp class="panel" of-exclude="true">
+var text = new Giraffe.Text(x,y,text,textSize,font);
+Example: var text = new Giraffe.Text(100,100,"My Message",20,"Arial");
+</xmp>
+
+<hr/>
+<h3>Composite</h3>
+<xmp class="panel" of-exclude="true">
+var composite = new Giraffe.Composite(x,y,rotation);
+Example: var composite = new Giraffe.Composite(100,100,Math.PI);
+composite.add(circle);
+composite.add(rectangle);
+composite.remove(rectangle);
+composite.deconstruct();
+</xmp>
+
+<hr/>
+<h3>Shared by all Giraffe Graphics Objects</h3>
+<xmp class="panel" of-exclude="true">
+var graphicsObject = new Rectangle(100,100,50,90); 
+
+graphicsObject.setCSSClass(className);
+Example: graphicsObject.setCSSClass("myCSSClass"); //Takes color as giraffe color and backgroundColor as giraffe fillColor
+
+graphicsObject.setColor(color);
+Example: graphicsObject.setColor("red").setFillColor("green");
+Example: graphicsObject.setColor("rgba(200,100,50,0.5)");
+
+graphicsObject.setFillColor(color);
+Example: graphicsObject.setFillColor("red").setColor("blue");
+Example: graphicsObject.setFillColor("rgba(200,100,50,0.5)");
+
+Giraffe.RadialColor(canvas,color1,color2,x,y,radius)
+Example: graphicsObject.setFillColor( new Giraffe.RadialColor(giraffe.canvas,"red","green",120,150,50) );
+  
+GradientColor(canvas,color1,color2,x1,y1,x2,y2)
+Example: graphicsObject.setFillColor( new GradientColor(giraffe.canvas,"red","green",120,150,130,170) );
+  
+graphicsObject.setShadow( new Giraffe.Shadow() );
+Example: shadow = new Giraffe.Shadow();
+  shadow.color = '#999';
+  shadow.blur = 20;
+  shadow.offsetX = 15;
+  shadow.offsetY = 15;
+  graphicsObject.setShadow(shadow);
+
+graphicsObject.setLineStyle(new Giraffe.LineStyle() );
+Example: lineStyle = new Giraffe.LineStyle().setThickness(1.5).setEndCap("round"); //valid end caps: butt , round or square
+	graphicsObject.setLineStyle(lineStyle);
+
+graphicsObject.setRotation(rotation);
+Example: graphicsObject.setRotation(Math.PI/3);
+
+graphicsObject.isInside(x,y);
+Example: if( graphicsObject.isInside(100,100) ) { 
+  //x,y is inside the object
+  doStuff();
+  }
+  
+graphicsObject.visible = true;
+  
+graphicsObject.scaleX = 0.5;
+  
+graphicsObject.scaleY = 0.8;
+</xmp>
+<h3>Methods that can be overridden</h3>
+<xmp class="panel" of-exclude="true">
+
+graphicsObject.onClick = function(x,y){ <!-- Mouse had clicked. Do stuff. --> };
+
+graphicsObject.onMouseOver = function(x,y){ <!-- Mouse is over. Do stuff. -->};
+
+graphicsObject.onMouseOut = function(x,y){ <!-- Mouse is no longer over. Do stuff. --> };
+
+graphicsObject.onMousePressed = function(x,y){ <!-- Mouse is over and has been pressed. Do stuff. --> };
+
+graphicsObject.onMouseReleased = function(x,y) { <!-- Mouse is over and has been released. Do stuff. -->};
+
+graphicsObject.animate = function(frame){ <!-- Frame {frame} is rendering. Make changes now. -->};
+
+</xmp>
+  
+<hr/>
+<h3>Transitions - ToDo</h3>
+  
+</div>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="QR_Giraffe" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Giraffe/QuickReference" --><br />
+ <!--Extension Popup id="QR_Giraffe" title="Quick Reference" --><a class='button small round' onClick="$('#QR_Giraffe').foundation('reveal', 'open');;return false;">Quick Reference</a><!--End Extension Popup id="QR_Giraffe" title="Quick Reference" --> <b><a href="/OpenForum/Giraffe/QuickReference">Open in a new tab</a></b><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Groups">Groups</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Groups" section="1" --><!--End Extension InsertPage page="/OpenForum/Groups" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/HomePage">HomePage</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/HomePage" section="1" --><!--End Extension InsertPage page="/OpenForum/HomePage" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Images">Images</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Images" section="1" --><!--End Extension InsertPage page="/OpenForum/Images" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor?pageName=/OpenForum/Jaascript"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Jaascript does not exist. Click to create it.">Jaascript</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Jaascript" section="1" --><!--End Extension InsertPage page="/OpenForum/Jaascript" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/JarManager">JarManager</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/JarManager" section="1" --><!--End Extension InsertPage page="/OpenForum/JarManager" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Javascript">Javascript</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Javascript" section="1" --><!--End Extension InsertPage page="/OpenForum/Javascript" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Journal">Journal</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Journal" section="1" --><!--End Extension InsertPage page="/OpenForum/Journal" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Keyboard">Keyboard</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Keyboard" section="1" --><!--End Extension InsertPage page="/OpenForum/Keyboard" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/MessageQueue">MessageQueue</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/MessageQueue" section="1" --><!--End Extension InsertPage page="/OpenForum/MessageQueue" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/MissingPages">MissingPages</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/MissingPages" section="1" --><!--End Extension InsertPage page="/OpenForum/MissingPages" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates">PageTemplates</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Processor">Processor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Processor" section="1" --><!--End Extension InsertPage page="/OpenForum/Processor" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PublishingJournal">PublishingJournal</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PublishingJournal" section="1" --><!--End Extension InsertPage page="/OpenForum/PublishingJournal" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor?pageName=/OpenForum/ReleaseNotes"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/ReleaseNotes does not exist. Click to create it.">ReleaseNotes</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/ReleaseNotes" section="1" --><!--End Extension InsertPage page="/OpenForum/ReleaseNotes" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/ReleasedPackages">ReleasedPackages</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/ReleasedPackages" section="1" --><!--End Extension InsertPage page="/OpenForum/ReleasedPackages" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/SQL">SQL</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/SQL" section="1" --><!--End Extension InsertPage page="/OpenForum/SQL" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/SiteExplorer">SiteExplorer</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/SiteExplorer" section="1" --><!--End Extension InsertPage page="/OpenForum/SiteExplorer" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Sounds">Sounds</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Sounds" section="1" --><!--End Extension InsertPage page="/OpenForum/Sounds" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Spider">Spider</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Spider" section="1" --><!--End Extension InsertPage page="/OpenForum/Spider" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/SystemMonitor">SystemMonitor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/SystemMonitor" section="1" --><!--End Extension InsertPage page="/OpenForum/SystemMonitor" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor?pageName=/OpenForum/Temporary"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Temporary does not exist. Click to create it.">Temporary</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Temporary" section="1" --><!--End Extension InsertPage page="/OpenForum/Temporary" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor?pageName=/OpenForum/TheLab"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/TheLab does not exist. Click to create it.">TheLab</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/TheLab" section="1" --><!--End Extension InsertPage page="/OpenForum/TheLab" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Triggers">Triggers</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Triggers/QuickReference" section="1" --><!--End Extension InsertPage page="/OpenForum/Triggers/QuickReference" section="1" --><br />
+ <!--Extension Popup id="QR_Triggers" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Triggers/QuickReference" --><div id="QR_Triggers" class="reveal-modal" data-reveal aria-labelledby="QR_TriggersModalTitle" aria-hidden="true" role="dialog"><!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>QuickReference</h3>
+
+<p>
+Triggers cause scripts to be run when an event occurs on the server. There are four event trigger types in OpenForum<ul><li> <a href="/OpenForum/Triggers/StartTrigger">Server Start Triggers</a></li>
+<li> <a href="/OpenForum/Triggers/PageChangeTrigger">Page Change Triggers</a></li>
+<li> <a href="/OpenForum/Triggers/RebuildTrigger">Rebuild Triggers</a></li>
+<li> <a href="/OpenForum/Triggers/TimerTrigger">Time Triggers</a></li>
+</ul></p>
+<p>
+Each trigger has its own page. The page can contain a bullet list of pages where triggers can be found. The trigger script is expected to be found in a file called trigger.sjs
+</p>
+<p>
+The one exception is the TimerTrigger page which also has a <a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler">Task Scheduler App</a>. 
+This provides a user interface to add scripts that can be run at specific periods or at set dates and times.
+There is also an option to decide if a script should run based on a script.
+</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="QR_Triggers" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Triggers/QuickReference" --><br />
+ <!--Extension Popup id="QR_Triggers" title="Quick Reference" --><a class='button small round' onClick="$('#QR_Triggers').foundation('reveal', 'open');;return false;">Quick Reference</a><!--End Extension Popup id="QR_Triggers" title="Quick Reference" --> <b><a href="/OpenForum/Triggers/QuickReference">Open in a new tab</a></b><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Users">Users</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Users" section="1" --><!--End Extension InsertPage page="/OpenForum/Users" section="1" --><br />
+
+</div><!--End Extension ChildrenContentsPage pageName="/OpenForum" -->
+
+<hr/>
+<h3>renderer.sjs</h3>
+<!--Extension InsertSourceFile fileName="renderer.sjs" --><a href="//OpenForum/Extensions/ChildrenContentsPage/renderer.sjs">//OpenForum/Extensions/ChildrenContentsPage/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildrenContentsPage&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var targetPage = extension.getAttribute("pageName");
+if(targetPage===null) {
+  targetPage = pageName;
+}
+targetPage = ""+targetPage;
+
+var content = "<div class=<br/>"row<br/>"><br/>n";
+var matching = ".*"; //Regex include all
+
+var list = file.getAttachmentsForPage( targetPage );
+
+var iterator= list.keySet().iterator();
+var keys = <a href="/OpenForum/Extensions/ChildrenContentsPage/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+while(iterator.hasNext()) {
+  keys.push( ""+iterator.next() );
+}
+keys.sort();
+
+for(var i in keys) {
+  var key = keys<a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildrenContentsPage/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/ChildrenContentsPage/i does not exist. Click to create it.">i</a>;
+  if(key.charAt(0)==='+') { // process sub pages
+    var addOnPageName = "" + key.substring(1);
+    if(addOnPageName=="history") continue;
+
+    var contentPageName = addOnPageName;
+    var hasQuickReference = false;
+    if( file.attachmentExists( targetPage + "/" + addOnPageName + "/QuickReference", "page.content" ) ) {
+      contentPageName = addOnPageName + "/QuickReference";
+      hasQuickReference = true;
+    }
+
+
+    content += "<br/>n<br/>n<hr/><br/>n<br/>n <h3> <a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildrenContentsPage/" + targetPage + "/" + addOnPageName + ""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/ChildrenContentsPage/" + targetPage + "/" + addOnPageName + " does not exist. Click to create it.">" + addOnPageName + "</a> <br/>n<br/>n";</h3>
+    content += " <!--Extension InsertPage page=\"" + targetPage + "/" + contentPageName + "\" section=\"1\" -->null<!--End Extension InsertPage page=\"" + targetPage + "/" + contentPageName + "\" section=\"1\" --><br /><br/>n";
+    if(hasQuickReference) {
+      content += " <!--Extension Popup id=\"QR_"+addOnPageName+"\" sourceFileName=\"page.html.fragment\" sourcePageName=\"" + targetPage + "/" + contentPageName + "\" --><a class='button small round' onClick="$('#true').foundation('reveal', 'open');;return false;">undefined</a><!--End Extension Popup id=\"QR_"+addOnPageName+"\" sourceFileName=\"page.html.fragment\" sourcePageName=\"" + targetPage + "/" + contentPageName + "\" --><br /><br/>n";
+      content += " <!--Extension Popup id=\"QR_"+addOnPageName+"\" title=\"Quick Reference\" --><a class='button small round' onClick="$('#true').foundation('reveal', 'open');;return false;">undefined</a><!--End Extension Popup id=\"QR_"+addOnPageName+"\" title=\"Quick Reference\" --> ";
+      content += "<b><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildrenContentsPage/" + targetPage + "/" + contentPageName + ""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/ChildrenContentsPage/" + targetPage + "/" + contentPageName + " does not exist. Click to create it.">Open in a new tab</a></b><br /><br/>n";
+    }
+  }
+}
+content += "<br/>n</div>";
+
+return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,content);
+</xmp><!--End Extension InsertSourceFile fileName="renderer.sjs" --></ul>

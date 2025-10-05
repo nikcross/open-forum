@@ -1,0 +1,41 @@
+{
+    "version": "0.0.4",
+    "libraries": [
+        {
+            "name": "Access",
+            "fileName": "Access.sjs",
+            "pageName": "/OpenForum/Actions/Access",
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "parameters": [],
+    "actions": [
+        {
+            "name": "getAccess",
+            "action": "getAccess",
+            "libraries": [],
+            "parameters": [
+                {
+                    "name": "pageName",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;",
+                    "description": "The page to get access information for"
+                }
+            ],
+            "call": "result = Access.getAccess(pageName);",
+            "resultTemplate": "",
+            "method": "get",
+            "description": "Get the access information for a page",
+            "example": {
+                "response": "",
+                "errorResponse": ""
+            }
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/Actions/Access",
+    "configFile": "get-service-definition-config.json"
+}

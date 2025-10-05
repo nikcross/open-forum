@@ -1,0 +1,16 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3> Javascript Builder</h3>
+
+<hr/>
+<h3>Child Pages</h3>
+<!--Extension ChildPagesList pageName="/OpenForum/Editor/Plugins/JavascriptBuilder" --><!--End Extension ChildPagesList pageName="/OpenForum/Editor/Plugins/JavascriptBuilder" -->
+
+<hr/>
+<h3>Attachments</h3>
+<!--Extension AttachmentsList pageName="/OpenForum/Editor/Plugins/JavascriptBuilder" matching=".*" --><ul><li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder/plugin.js">/OpenForum/Editor/Plugins/JavascriptBuilder/plugin.js</a></li>
+<li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder/page.js">/OpenForum/Editor/Plugins/JavascriptBuilder/page.js</a></li>
+<li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder/page.content">/OpenForum/Editor/Plugins/JavascriptBuilder/page.content</a></li>
+<li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder/page.html.fragment">/OpenForum/Editor/Plugins/JavascriptBuilder/page.html.fragment</a></li>
+<li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder/data.json">/OpenForum/Editor/Plugins/JavascriptBuilder/data.json</a></li>
+<li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder/page.html">/OpenForum/Editor/Plugins/JavascriptBuilder/page.html</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/Editor/Plugins/JavascriptBuilder" matching=".*" -->

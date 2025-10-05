@@ -1,0 +1,7 @@
+<div class="row">
+!!LinkButton v0.0.1
+{{{ [{LinkButton href="https://www.bbc.co.uk" target="externalTab" text="BBC"}] }}}
+[{LinkButton href="https://www.bbc.co.uk" target="externalTab" text="BBC"}]
+\\
+[{ActionButton text="Add LinkButton Block type to Content Editor" action="addToContentEditor"}]
+</div>

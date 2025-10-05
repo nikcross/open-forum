@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/GetPagesList",
-    "title": " Get Pages List"
+    "pageName": "/OpenForum/Actions/GetPagesList",
+    "title": "GetPagesList",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

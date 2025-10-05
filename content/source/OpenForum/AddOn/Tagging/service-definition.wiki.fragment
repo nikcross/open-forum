@@ -1,0 +1,101 @@
+!!/OpenForum/AddOn/Tagging Sevice API Version 0.0.1
+
+----
+!!Get Actions
+
+  <div class="panel callout radius">
+!!Action getTags
+(())
+
+!!Parameters
+|Name|Description
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/Tagging?action=getTags+++</textarea>
+  
+[/OpenForum/AddOn/Tagging?action=getTags++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action findMatches
+(())
+
+!!Parameters
+|Name|Description
+|type (''required=true'')|{{parameter.description}}
+|tag (''required=true'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/Tagging?action=findMatches+++</textarea>
+  
+[/OpenForum/AddOn/Tagging?action=findMatches++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+
+----
+!!Post Actions
+
+  <div class="panel callout radius">
+!!Action tag
+(())
+
+!!Parameters
+|Name|Description
+|tag (''required=true'')|{{parameter.description}}
+|type (''required=true'')|{{parameter.description}}
+|name (''required=true'')|{{parameter.description}}
+|wildCard (''required=false'')|{{parameter.description}}
+|caseSensitive (''required=false'')|{{parameter.description}}
+
+       
+!!Example Post Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/Tagging?action=tag+++</textarea>
+  
+[/OpenForum/AddOn/Tagging?action=tag++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action addTag
+(())
+
+!!Parameters
+|Name|Description
+|tag (''required=true'')|{{parameter.description}}
+
+       
+!!Example Post Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/Tagging?action=addTag+++</textarea>
+  
+[/OpenForum/AddOn/Tagging?action=addTag++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+

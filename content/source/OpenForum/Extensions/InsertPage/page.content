@@ -1,5 +1,15 @@
-!!Example
-{{{
-[{InsertPage page='/OpenForum/PageTemplates/Example'}]
-}}}
-[{InsertPage page='/OpenForum/PageTemplates/Example'}]
+--8<--
+<div class='row'>
+(( Inserts the contents of one page in another. ))
+__Parameters__
+* page - The page to insert content from.
+* section (optional) - The number of the section of the page to insert content from. See wiki markup
+</div>
+-->8--
+<div class="row">
+!!InsertPage v0.0.7
+{{{ [{InsertPage page="/OpenForum/PageTemplates/Example" section=""}] }}}
+[{InsertPage page="/OpenForum/PageTemplates/Example" section=""}]
+\\
+[{ActionButton text="Add InsertPage Block type to Content Editor" action="addToContentEditor"}]
+</div>

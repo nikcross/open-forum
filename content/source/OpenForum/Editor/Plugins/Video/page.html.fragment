@@ -1,8 +1,9 @@
-<button class="actionButton" onclick="OpenForum.toggleElement('information{{editorIndex}}');"><img src="/OpenForum/Images/icons/png/information.png"></button>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<button class="actionButton" onclick="OpenForum.toggleElement('information{{editorIndex}}');"><!--Extension Icon name="information" --><img src="/OpenForum/Images/icons/png/information.png"><!--End Extension Icon name="information" --></button>
 <div id="information{{editorIndex}}" style="display: none;" class="popup">
 <table style="border: 1px dashed;"><tr>
 <td style="min-width: 300px; vertical-align: top;">
-<xmp class="panel">
+<xmp class="panel" of-exclude="true">
   videoOut.processFrame = function(image) {
       for(var x=0;x<image.getWidth();x++) {
       for(var y=0;y<image.getHeight();y++) {
@@ -22,7 +23,7 @@
 </td><td style="min-width: 300px; vertical-align: top;">
 
 <br/><br/>
-<button class="actionButton" onclick="OpenForum.hideElement('information{{editorIndex}}');"><img src="/OpenForum/Images/icons/png/cross.png"></button>
+<button class="actionButton" onclick="OpenForum.hideElement('information{{editorIndex}}');"><!--Extension Icon name="cross" --><img src="/OpenForum/Images/icons/png/cross.png"><!--End Extension Icon name="cross" --></button>
 </td>
 </tr></table>
 </div>
@@ -32,4 +33,3 @@
 
 <textarea id="video.code"></textarea>
 <button class="actionButton" onClick="video.runScript();">Run</button>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

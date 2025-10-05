@@ -1,4 +1,6 @@
 {
-    "pageName": "//OpenForum/Editor/Editors/HTMLEditor",
-    "title": " HTMLEditor"
+    "pageName": "/OpenForum/Editor/Editors/HTMLEditor",
+    "title": "HTMLEditor",
+    "pageParent": "https://open-forum.onestonesoup.org",
+    "editorConfig": "/OpenForum/Editor/Editors/HTMLEditor/editor-config.json"
 }

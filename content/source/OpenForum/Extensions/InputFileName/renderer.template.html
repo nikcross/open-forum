@@ -1,0 +1,16 @@
+<script>
+  var &id;Pages = [];
+  var &id;WaitToUpdateTree = false;
+  var &id;updatePageList = function(element) {
+    if(&id;WaitToUpdateTree) clearTimeout(&id;WaitToUpdateTree);
+    &id;WaitToUpdateTree = setTimeout( function() {
+      OFX.get("/OpenForum/Javascript/Tree").withAction("getSubPages").withData({pageName: element.value}).onSuccess( function(newList) {
+        &id;Pages = newList;
+      }).go();
+    }, 500);
+  }
+</script>
+<input list="&id;PagesList" of-id="&id;" onKeyUp="&id;updatePageList(this);" ondblclick="this.value=OpenForum.BLANK;" title="Double Click to clear"/>
+<datalist id="&id;PagesList">
+  <option of-repeatFor="pageName in &id;Pages" value="{{pageName}}">{{pageName}}</option>
+</datalist>

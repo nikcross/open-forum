@@ -1,0 +1,6 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>OneTimePopup</h3>
+<hr/>
+
+<!--Extension OneTimePopup id="test" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" suppressText="Make this go away" --><div id="test" class="reveal-modal" data-reveal aria-labelledby="testModalTitle" aria-hidden="true" role="dialog"><h3>One Time Popup</h3>
+<p>This is a popup that can be supressed</p> <a class="button tiny round" onClick="document.cookie='testHide=true'; $('#test').foundation('reveal', 'close'); return false;">Make this go away</a>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><script>if(OpenForum.getCookie('testHide')==null) {window.addEventListener('load',function() {$('#test').foundation('reveal', 'open'); });}</script><!--End Extension OneTimePopup id="test" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" suppressText="Make this go away" -->

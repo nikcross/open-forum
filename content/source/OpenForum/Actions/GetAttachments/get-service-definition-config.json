@@ -1,0 +1,60 @@
+{
+    "version": "0.0.2",
+    "libraries": [
+        {
+            "name": "FileService",
+            "fileName": "FileService.sjs",
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "pageName",
+            "type": "",
+            "required": "false",
+            "view": "display: block;",
+            "edit": "display: none;",
+            "description": "The page name to get attachments for"
+        }
+    ],
+    "actions": [
+        {
+            "name": "getMatching",
+            "call": "FileService.getMatchingFiles(pageName,matching);",
+            "parameters": [
+                {
+                    "name": "matching",
+                    "type": "",
+                    "required": "",
+                    "view": "display: block;",
+                    "edit": "display: none;",
+                    "description": "A regex expression to match files to return"
+                }
+            ],
+            "libraries": {},
+            "method": "get",
+            "action": "getMatching",
+            "example": {
+                "response": "",
+                "errorResponse": ""
+            },
+            "description": "Get files matching the request"
+        },
+        {
+            "name": "getAll",
+            "call": "FileService.getAll(pageName);",
+            "parameters": {},
+            "libraries": {},
+            "method": "get",
+            "action": "getAll",
+            "example": {
+                "response": "",
+                "errorResponse": ""
+            },
+            "description": "Get all files"
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/Actions/GetAttachments"
+}

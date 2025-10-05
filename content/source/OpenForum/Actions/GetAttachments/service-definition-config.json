@@ -1,0 +1,5 @@
+{
+    "version": "0.0.2",
+    "pageName": "/OpenForum/Actions/GetAttachments",
+    "getConfig": "get-service-definition-config.json"
+}

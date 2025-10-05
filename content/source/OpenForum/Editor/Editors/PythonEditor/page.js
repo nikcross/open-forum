@@ -8,7 +8,9 @@ OpenForum.init = function() {
     flavour: "Python",
     editingPageName: "/TheLab/Sandbox",
     editingFileName: "sandbox-giraffe.py",
-    elementId: "pythonEditor"
+    fileExtension: "py",
+    elementId: "InPageEditor",
+    fullScreen: true
   };
   if(OpenForum.getParameter("pageName")) {
     editorConfig.editingPageName = OpenForum.getParameter("pageName");

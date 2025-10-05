@@ -1,0 +1,42 @@
+{
+    "version": "0.0.2",
+    "configFile": "extension-config.json",
+    "pageName": "/OpenForum/Javascript/Application/TableEditor",
+    "template": {
+        "pageName": "/OpenForum/Javascript/Application/TableEditor",
+        "fileName": "table-editor.html.template"
+    },
+    "buildReferencePage": true,
+    "buildBlockEditor": true,
+    "parameters": [
+        {
+            "name": "tableName",
+            "exampleValue": "myTable",
+            "defaultValue": "myTable",
+            "required": true,
+            "view": "display: none;",
+            "edit": "display: block;"
+        },
+        {
+            "name": "fileName",
+            "exampleValue": "/OpenForum/Javascript/Application/TableEditor/table-data.json",
+            "defaultValue": "/OpenForum/Javascript/Application/TableEditor/table-data.json",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "rowTemplateFileName",
+            "exampleValue": "/OpenForum/Javascript/Application/TableEditor/row-template.json",
+            "defaultValue": "/OpenForum/Javascript/Application/TableEditor/row-template.json",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "blockEditor": {
+        "name": "",
+        "icon": ""
+    },
+    "buildRenderer": false
+}

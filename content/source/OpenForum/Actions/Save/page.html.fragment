@@ -1,3 +1,4 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> Saves some text as an attachment
 <hr/>
 <h3>Post Parameters</h3>
@@ -7,7 +8,7 @@
 </ul>
 <hr/>
 <h3>Server Side Javascript for POST method</h3>
-<xmp class="panel"> transaction.getPostData();
+<xmp class="panel" of-exclude="true"> transaction.getPostData();
 
 pageName = transaction.getPostParameter("pageName");
 transaction.userCanPerformAction(pageName,"update",true);
@@ -20,4 +21,3 @@ wiki.saveAsAttachment(pageName,fileName,data,user);
 wiki.buildPage(pageName);
 
 transaction.goToPage(pageName); </xmp> 
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

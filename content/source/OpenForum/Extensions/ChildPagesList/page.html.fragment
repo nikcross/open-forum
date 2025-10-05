@@ -1,13 +1,11 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 Creates a bulleted list of child pages
-<hr/>
-<h3>Parameters</h3>
+
+<b>Parameters</b>
 <ul><li>pageName - The page to list (optional. default = current page)</li>
-<hr/>
-<h3>Usage:</h3>
-<xmp class="panel">
-[{ChildPagesList pageName="/OpenForum"}]
-</xmp>
-<li> <a href="/OpenForum/About">About</a></li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension ChildPagesList pageName="/OpenForum" --><ul><li> <a href="/OpenForum/About">About</a></li>
 <li> <a href="/OpenForum/Access">Access</a></li>
 <li> <a href="/OpenForum/Actions">Actions</a></li>
 <li> <a href="/OpenForum/AddOn">AddOn</a></li>
@@ -23,6 +21,8 @@ Creates a bulleted list of child pages
 <li> <a href="/OpenForum/Groups">Groups</a></li>
 <li> <a href="/OpenForum/HomePage">HomePage</a></li>
 <li> <a href="/OpenForum/Images">Images</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Jaascript"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Jaascript does not exist. Click to create it.">Jaascript</a></li>
+<li> <a href="/OpenForum/JarManager">JarManager</a></li>
 <li> <a href="/OpenForum/Javascript">Javascript</a></li>
 <li> <a href="/OpenForum/Journal">Journal</a></li>
 <li> <a href="/OpenForum/Keyboard">Keyboard</a></li>
@@ -32,28 +32,79 @@ Creates a bulleted list of child pages
 <li> <a href="/OpenForum/Processor">Processor</a></li>
 <li> <a href="/OpenForum/PublishingJournal">PublishingJournal</a></li>
 <li> <a href="/OpenForum/Editor?pageName=/OpenForum/ReleaseNotes"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/ReleaseNotes does not exist. Click to create it.">ReleaseNotes</a></li>
+<li> <a href="/OpenForum/ReleasedPackages">ReleasedPackages</a></li>
+<li> <a href="/OpenForum/SQL">SQL</a></li>
 <li> <a href="/OpenForum/SiteExplorer">SiteExplorer</a></li>
+<li> <a href="/OpenForum/Sounds">Sounds</a></li>
 <li> <a href="/OpenForum/Spider">Spider</a></li>
 <li> <a href="/OpenForum/SystemMonitor">SystemMonitor</a></li>
 <li> <a href="/OpenForum/Editor?pageName=/OpenForum/Temporary"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Temporary does not exist. Click to create it.">Temporary</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/TheLab"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/TheLab does not exist. Click to create it.">TheLab</a></li>
 <li> <a href="/OpenForum/Triggers">Triggers</a></li>
 <li> <a href="/OpenForum/Users">Users</a></li>
-</ul>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum" -->
+       or
+<!--Extension ChildPagesList --><!--End Extension ChildPagesList -->
+</xmp>
+<!--Extension ChildPagesList pageName="/OpenForum" --><ul><li> <a href="/OpenForum/About">About</a></li>
+<li> <a href="/OpenForum/Access">Access</a></li>
+<li> <a href="/OpenForum/Actions">Actions</a></li>
+<li> <a href="/OpenForum/AddOn">AddOn</a></li>
+<li> <a href="/OpenForum/Authentication">Authentication</a></li>
+<li> <a href="/OpenForum/Authorization">Authorization</a></li>
+<li> <a href="/OpenForum/Configuration">Configuration</a></li>
+<li> <a href="/OpenForum/DeletedPages">DeletedPages</a></li>
+<li> <a href="/OpenForum/Editor">Editor</a></li>
+<li> <a href="/OpenForum/ErrorPages">ErrorPages</a></li>
+<li> <a href="/OpenForum/Extensions">Extensions</a></li>
+<li> <a href="/OpenForum/FileTemplates">FileTemplates</a></li>
+<li> <a href="/OpenForum/Giraffe">Giraffe</a></li>
+<li> <a href="/OpenForum/Groups">Groups</a></li>
+<li> <a href="/OpenForum/HomePage">HomePage</a></li>
+<li> <a href="/OpenForum/Images">Images</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Jaascript"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Jaascript does not exist. Click to create it.">Jaascript</a></li>
+<li> <a href="/OpenForum/JarManager">JarManager</a></li>
+<li> <a href="/OpenForum/Javascript">Javascript</a></li>
+<li> <a href="/OpenForum/Journal">Journal</a></li>
+<li> <a href="/OpenForum/Keyboard">Keyboard</a></li>
+<li> <a href="/OpenForum/MessageQueue">MessageQueue</a></li>
+<li> <a href="/OpenForum/MissingPages">MissingPages</a></li>
+<li> <a href="/OpenForum/PageTemplates">PageTemplates</a></li>
+<li> <a href="/OpenForum/Processor">Processor</a></li>
+<li> <a href="/OpenForum/PublishingJournal">PublishingJournal</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/ReleaseNotes"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/ReleaseNotes does not exist. Click to create it.">ReleaseNotes</a></li>
+<li> <a href="/OpenForum/ReleasedPackages">ReleasedPackages</a></li>
+<li> <a href="/OpenForum/SQL">SQL</a></li>
+<li> <a href="/OpenForum/SiteExplorer">SiteExplorer</a></li>
+<li> <a href="/OpenForum/Sounds">Sounds</a></li>
+<li> <a href="/OpenForum/Spider">Spider</a></li>
+<li> <a href="/OpenForum/SystemMonitor">SystemMonitor</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Temporary"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Temporary does not exist. Click to create it.">Temporary</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/TheLab"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/TheLab does not exist. Click to create it.">TheLab</a></li>
+<li> <a href="/OpenForum/Triggers">Triggers</a></li>
+<li> <a href="/OpenForum/Users">Users</a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum" -->
 
 <hr/>
 <h3>renderer.sjs</h3>
-<a href="//OpenForum/Extensions/ChildPagesList/renderer.sjs">//OpenForum/Extensions/ChildPagesList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildPagesList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">targetPage = extension.getAttribute("pageName");
+<!--Extension InsertSourceFile fileName="renderer.sjs" --><a href="//OpenForum/Extensions/ChildPagesList/renderer.sjs">//OpenForum/Extensions/ChildPagesList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildPagesList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var targetPage = extension.getAttribute("pageName");
 if(targetPage===null) {
   targetPage = pageName;
 }
 targetPage = ""+targetPage;
+var newTab = extension.getAttribute("newTab");
+if(newTab=="true") {
+  newTab = true;
+} else {
+  newTab = false;
+}
 
 list = file.getAttachmentsForPage( targetPage );
 if(targetPage.charAt(0)!='/') {
   targetPage = "/"+targetPage;
 }
 
-var pagesList = [];
+var pagesList = <a href="/OpenForum/Extensions/ChildPagesList/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
 iterator= list.keySet().iterator();
 while(iterator.hasNext()) {
   var key = ""+iterator.next();
@@ -67,9 +118,12 @@ pagesList.sort();
 
 var data = "";
 for(var i in pagesList) {
-  var item = pagesList[i];
-  data+="* ["+item+"|"+targetPage+"/"+item+"]\n";
+  var item = pagesList<a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildPagesList/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/ChildPagesList/i does not exist. Click to create it.">i</a>;
+  if(newTab) {
+  	data+="* <a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildPagesList/"+targetPage+"/"+item+""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/ChildPagesList/"+targetPage+"/"+item+" does not exist. Click to create it." target="newTab">"+item+"<img src='/OpenForum/Images/icons/png/link_go.png' /></a><br/>n";
+  } else {
+  	data+="* <a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildPagesList/"+targetPage+"/"+item+""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/ChildPagesList/"+targetPage+"/"+item+" does not exist. Click to create it.">"+item+"</a><br/>n";
+  }
 }
 
-return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,data);</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,data);</xmp><!--End Extension InsertSourceFile fileName="renderer.sjs" -->

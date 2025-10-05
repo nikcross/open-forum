@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Extensions/InsertSourceFile",
-    "title": " Insert Source File"
+    "pageName": "/OpenForum/Extensions/InsertSourceFile",
+    "title": "InsertSourceFile",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

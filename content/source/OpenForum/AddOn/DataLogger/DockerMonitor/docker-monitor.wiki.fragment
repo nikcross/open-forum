@@ -1,0 +1,58 @@
+!!Docker Stats v1.0.0
+''View updated at {{DockerMonitor.updateTime}}''
+<table>
+  <thead>
+  <tr>
+    <td>Service</td>
+    <td>CPU load</td>
+    <td>Pids</td>
+    <td>Memory</td>
+    <td>Send</td>
+    <td>Receive</td>
+    <td>Read</td>
+    <td>Write</td>
+  </tr>
+  </thead>
+  <tr of-repeatFor="stat in DockerMonitor.stats">
+    <td>{{stat.service}}</td>
+    <td>
+       <div class="radius progress success" style="width: 200px;">
+        <span class="meter" style="width: {{stat.cpu_pc}}%"></span>
+         <span style="font-size: 0.75em; color: black; position: absolute;">{{stat.cpu}}</span>
+      </div>
+    </td>
+    <td>{{stat.pids}}</td>
+    <td>
+      <div class="radius progress success" style="width: 200px;">
+        <span class="meter" style="width: {{stat.memory_pc}}%"></span>
+        <span style="font-size: 0.75em; color: black; position: absolute;">{{stat.memory_VIEW}} of {{stat.totalMemory_VIEW}} {{stat.memory_pc}}%</span>
+      </div>
+    </td>
+    <td>
+      <div class="radius progress success" style="width: 200px;">
+        <span class="meter" style="width: {{stat.netIO.sent_pc}}%"></span>
+        <span style="font-size: 0.75em; color: black; position: absolute;">{{stat.netIO.sent_VIEW}}</span>
+      </div>
+    </td>
+    <td>
+      <div class="radius progress success" style="width: 200px;">
+        <span class="meter" style="width: {{stat.netIO.received_pc}}%"></span>
+        <span style="font-size: 0.75em; color: black; position: absolute;">{{stat.netIO.received_VIEW}}</span>
+      </div>
+    </td>
+    <td>
+      <div class="radius progress success" style="width: 200px;">
+        <span class="meter" style="width: {{stat.blockIO.read_pc}}%"></span>
+        <span style="font-size: 0.75em; color: black; position: absolute;">{{stat.blockIO.read_VIEW}}</span>
+      </div>
+    </td>
+    <td>
+      <div class="radius progress success" style="width: 200px;">
+        <span class="meter" style="width: {{stat.blockIO.write_pc}}%"></span>
+        <span style="font-size: 0.75em; color: black; position: absolute;">{{stat.blockIO.write_VIEW}}</span>
+      </div>
+    </td>
+  </tr>
+</table>
+
+* [Download docker-logger|/OpenForum/AddOn/DataLogger/DockerMonitor/docker-logger.zip]

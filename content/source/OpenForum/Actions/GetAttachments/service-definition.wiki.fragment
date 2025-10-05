@@ -1,0 +1,49 @@
+!!/OpenForum/Actions/GetAttachments Sevice API Version 0.0.2
+
+----
+!!Get Actions
+
+  <div class="panel callout radius">
+!!Action getMatching
+((Get files matching the request))
+
+!!Parameters
+|Name|Description
+|matching (''required='')|A regex expression to match files to return
+
+       
+!!Example Get Request
+<xmp>
+/OpenForum/Actions/GetAttachments?action=getMatching{{action.example.request}}
+</xmp>
+[/OpenForum/Actions/GetAttachments?action=getMatching{{action.example.request}}]
+
+!!Example Response
+[{ScriptClip script="" }]
+    
+!!Example Error Response
+[{ScriptClip script="" }]
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action getAll
+((Get all files))
+
+!!Parameters
+|Name|Description
+
+       
+!!Example Get Request
+<xmp>
+/OpenForum/Actions/GetAttachments?action=getAll{{action.example.request}}
+</xmp>
+[/OpenForum/Actions/GetAttachments?action=getAll{{action.example.request}}]
+
+!!Example Response
+[{ScriptClip script="" }]
+    
+!!Example Error Response
+[{ScriptClip script="" }]
+    
+  </div>

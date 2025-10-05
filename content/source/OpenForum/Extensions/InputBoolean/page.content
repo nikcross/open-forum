@@ -1,0 +1,5 @@
+!!&title;
+
+myValue: {{myValue}}
+
+[{InputBoolean id="myValue" text="My Value"}]

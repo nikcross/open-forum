@@ -1,0 +1,6 @@
+{
+    "version": "0.0.23",
+    "extra": {
+        "notes": "Use @schema=<name>; to set query schema\nFixed where clause parser\nAdded DB Inspector\nAdded Config UI in Admin"
+    }
+}

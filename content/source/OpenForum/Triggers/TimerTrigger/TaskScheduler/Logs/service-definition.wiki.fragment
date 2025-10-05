@@ -1,0 +1,50 @@
+!!/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs Sevice API Version 0.0.2
+
+----
+!!Get Actions
+
+  <div class="panel callout radius">
+!!Action getTaskSchedulerTime
+(())
+
+!!Parameters
+|Name|Description
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs?action=getTaskSchedulerTime+++</textarea>
+  
+[/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs?action=getTaskSchedulerTime++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action getScheduleView
+(())
+
+!!Parameters
+|Name|Description
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs?action=getScheduleView+++</textarea>
+  
+[/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs?action=getScheduleView++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+
+----
+!!Post Actions

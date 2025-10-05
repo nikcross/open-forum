@@ -33,6 +33,9 @@ var serverConsole = {
       this.cliHistoryCursor=0;
     }
     this.cliText = this.cliHistory[this.cliHistoryCursor];
+  },
+  close: function() {
+    serverConsole.open = false;
   }
 };
 
@@ -53,7 +56,7 @@ addPlugin( {
       OpenForum.setElement("editor"+editorIndex,content);
 
       OpenForum.addTab("editor"+editorIndex);
-      editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "ServerConsole", changed: ""};
+      editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "ServerConsole", changed: "", plugin: serverConsole};
       showTab(editorIndex);
       serverConsole.log("serverConsole Ready");
       return editorList[editorIndex];

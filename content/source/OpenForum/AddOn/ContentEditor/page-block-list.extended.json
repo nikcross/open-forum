@@ -1,0 +1,44 @@
+[
+    {
+        "name": "Banner Block",
+        "className": "Banner",
+        "description": "An image banner with text block",
+        "pageName": "/OpenForum/Extensions/Banner"
+    },
+    {
+        "name": "OpeningTimes Block",
+        "className": "OpeningTimes",
+        "description": "",
+        "pageName": "/OpenForum/Extensions/OpeningTimes"
+    },
+    {
+        "name": "InsertPage Block",
+        "className": "InsertPage",
+        "description": "",
+        "pageName": "/OpenForum/Extensions/InsertPage"
+    },
+    {
+        "name": "TextDisplayCard Block",
+        "className": "TextDisplayCard",
+        "description": "",
+        "pageName": "/OpenForum/Extensions/TextDisplayCard"
+    },
+    {
+        "name": "ImageDisplayCard Block",
+        "className": "ImageDisplayCard",
+        "description": "",
+        "pageName": "/OpenForum/Extensions/ImageDisplayCard"
+    },
+    {
+        "name": "CTABanner Block",
+        "className": "CTABanner",
+        "description": "",
+        "pageName": "/OpenForum/Extensions/CTABanner"
+    },
+    {
+        "name": "ContrastBlock Block",
+        "className": "ContrastBlock",
+        "description": "",
+        "pageName": "/OpenForum/Extensions/ContrastBlock"
+    }
+]

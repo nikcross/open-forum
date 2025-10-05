@@ -1,10 +1,12 @@
 var id=1;
 var pageName = "";
-var serverConsole={ text: " " };
+//var serverConsole={ text: " " };
 var editorIndex = -1;
 
+OpenForum.includeScript("/OpenForum/Editor/Plugins/ServerConsole/plugin.js");
+
 OpenForum.init = function() {
-  OpenForum.loadScript("/OpenForum/Editor/Plugins/ServerConsole/plugin.js");
+  //OpenForum.loadScript("/OpenForum/Editor/Plugins/ServerConsole/plugin.js");
 };
 
 var editorIndex = 0;

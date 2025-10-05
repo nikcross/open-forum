@@ -1,0 +1,15 @@
+{
+  "name": "Page",
+  "description": "Simple Page Editor",
+  "example": {},    
+  "blocks": [
+    "text"
+  ],
+  "edit": { 
+    "pageName": "/OpenForum/AddOn/ContentEditor", 
+    "fileName": "page-block-editor.content", 
+    "scriptName": "page-block-editor.js", 
+    "objectName": "PageBlockEditor",
+    "renderer": "page-block-renderer.js" 
+  }
+}

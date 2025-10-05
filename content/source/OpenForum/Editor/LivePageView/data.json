@@ -1,4 +1,5 @@
 {
-    "pageName": "//TheLab/Tools/AutoRefreshPage",
-    "title": " Auto Refresh Page"
+    "pageName": "/OpenForum/Editor/LivePageView",
+    "title": "LivePageView",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

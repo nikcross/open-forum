@@ -1,10 +1,34 @@
-<h3>&title;</h3>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>FileTemplates</h3>
 
 <hr/>
 <h3>Child Pages</h3>
-
+<!--Extension ChildPagesList pageName="/OpenForum/FileTemplates" --><ul><li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/css"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/css does not exist. Click to create it.">css</a></li>
+<li> <a href="/OpenForum/FileTemplates/default">default</a></li>
+<li> <a href="/OpenForum/FileTemplates/folder">folder</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/gif"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/gif does not exist. Click to create it.">gif</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/grfxml"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/grfxml does not exist. Click to create it.">grfxml</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/html"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/html does not exist. Click to create it.">html</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/jpg"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/jpg does not exist. Click to create it.">jpg</a></li>
+<li> <a href="/OpenForum/FileTemplates/js">js</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/link"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/link does not exist. Click to create it.">link</a></li>
+<li> <input type='radio' /></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/png"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/png does not exist. Click to create it.">png</a></li>
+<li> <a href="/OpenForum/FileTemplates/py">py</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/sjs"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/sjs does not exist. Click to create it.">sjs</a></li>
+<li> <a href="/OpenForum/FileTemplates/sql">sql</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/txt"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/txt does not exist. Click to create it.">txt</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/uninstall"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/uninstall does not exist. Click to create it.">uninstall</a></li>
+<li> <input type='checkbox' /></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/zip"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/zip does not exist. Click to create it.">zip</a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum/FileTemplates" -->
 
 <hr/>
 <h3>Attachments</h3>
-
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Extension AttachmentsList pageName="/OpenForum/FileTemplates" matching=".*" --><ul><li> <a href="/OpenForum/FileTemplates/page.content">/OpenForum/FileTemplates/page.content</a></li>
+<li> <a href="/OpenForum/FileTemplates/data.json">/OpenForum/FileTemplates/data.json</a></li>
+<li> <a href="/OpenForum/FileTemplates/page.js">/OpenForum/FileTemplates/page.js</a></li>
+<li> <a href="/OpenForum/FileTemplates/page.html.fragment">/OpenForum/FileTemplates/page.html.fragment</a></li>
+<li> <a href="/OpenForum/FileTemplates/page.html">/OpenForum/FileTemplates/page.html</a></li>
+<li> <a href="/OpenForum/FileTemplates/release-info.json">/OpenForum/FileTemplates/release-info.json</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/FileTemplates" matching=".*" -->

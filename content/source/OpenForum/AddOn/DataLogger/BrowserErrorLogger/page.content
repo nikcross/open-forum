@@ -1,0 +1,68 @@
+  <div style="margin: 3em">
+  !!&title;
+
+  ----
+  !!Common Platform Errors
+
+  <table>
+  <thead>
+      <tr>
+          <td>Error</td>
+          <td>Heat</td>
+     </tr>
+  </thead>
+  <tbody>
+      <tr of-repeatFor='row in platformList'>
+          <td><span>{{row.error}}</span></td>
+          <td><span>{{row.heat}}</span></td>
+      </tr>
+  </tbody>
+  </table>
+
+  ----
+  !!Common Site Errors
+
+  <table>
+  <thead>
+      <tr>
+          <td>Site</td>
+          <td>Error</td>
+          <td>Heat</td>
+     </tr>
+  </thead>
+  <tbody>
+      <tr of-repeatFor='row in siteList'>
+          <td><span>{{row.site}}</span></td>
+          <td><span>{{row.error}}</span></td>
+          <td><span>{{row.heat}}</span></td>
+      </tr>
+  </tbody>
+  </table>
+
+  ----
+  !!Page Errors
+
+  <table>
+  <thead>
+      <tr>
+          <td>Site</td>
+          <td>Page</td>
+          <td>Error</td>
+          <td>Last Occured</td>
+          <td>Heat</td>
+          <td>First Occured</td>
+     </tr>
+  </thead>
+  <tbody>
+      <tr of-repeatFor='row in errorHeatList'>
+          <td><span>{{row.site}}</span></td>
+          <td><span>{{row.page}}</span></td>
+          <td><span>{{row.error}}</span></td>
+          <td><span>{{row.lastOccured_VIEW}}</span></td>
+          <td><span>{{row.heat}}</span></td>
+          <td><span>{{row.firstOccured_VIEW}}</span></td>
+      </tr>
+  </tbody>
+  </table>
+
+  </div>

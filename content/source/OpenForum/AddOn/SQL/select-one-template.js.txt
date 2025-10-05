@@ -1,0 +1,10 @@
+    var result = DB.query("select * from &tableName; where ???");
+    
+    if(result.table.rows.row0) {
+        var row = result.table.rows.row0;
+      return {
+&fields;
+8<---        &fieldName;: row.cell&index;---8<
+8<---        &fieldName;: parseInt(row.cell&index;)---8<
+      };
+    }

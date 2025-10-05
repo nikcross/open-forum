@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Editor/Plugins/Service",
-    "title": " Service"
+    "pageName": "/OpenForum/Editor/Plugins/FormBuilder",
+    "title": "FormBuilder",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

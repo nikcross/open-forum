@@ -1,8 +1,14 @@
-targetPage = extension.getAttribute("pageName");
+var targetPage = extension.getAttribute("pageName");
 if(targetPage===null) {
   targetPage = pageName;
 }
 targetPage = ""+targetPage;
+var newTab = extension.getAttribute("newTab");
+if(newTab=="true") {
+  newTab = true;
+} else {
+  newTab = false;
+}
 
 list = file.getAttachmentsForPage( targetPage );
 if(targetPage.charAt(0)!='/') {
@@ -24,7 +30,11 @@ pagesList.sort();
 var data = "";
 for(var i in pagesList) {
   var item = pagesList[i];
-  data+="* ["+item+"|"+targetPage+"/"+item+"]\n";
+  if(newTab) {
+  	data+="* ["+item+"|"+targetPage+"/"+item+"=]\n";
+  } else {
+  	data+="* ["+item+"|"+targetPage+"/"+item+"]\n";
+  }
 }
 
 return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,data);

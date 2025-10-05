@@ -1,0 +1,24 @@
+!!&title;
+
+{{{
+[{Form name="myForm" data="
+Name name
+Age age
+
+Checkbox: Has Pet hasPet
+
+Table: todo Task task, Description description
+"}]
+}}}
+
+[{Form name="myForm" data="
+Name name
+Age age
+
+Checkbox: Has Pet hasPet
+
+Table: todo Task task, Description description
+"}]
+[Form Builder|/OpenForum/Editor/Plugins/FormBuilder=] \\
+[{Popup id="formBuilderInstructions" title="Form Definition Instructions"}]
+[{Popup id="formBuilderInstructions" sourceFileName="instructions.wiki.fragment" sourcePageName="/OpenForum/Editor/Plugins/FormBuilder"}]

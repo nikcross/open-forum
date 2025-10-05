@@ -1,0 +1,15 @@
+<div class="row">
+  !!&title;
+
+  <div class="panel columns large-12">
+    Page [{InputFileName id="convertPageName"}]<br/>
+    <a class="button tiny radius" href="#" onclick="convertMarkup(); return false;">Convert for Content Editor (Markup)</a>
+    <a class="button tiny radius" href="#" onClick="convertHTML(); return false;">Convert for Content Editor (HTML)</a>
+  </div>
+</div>
+<div class="row">
+<iframe id="viewFrame" src="/" style="width: 90%;
+    border: solid 2px black;
+    height: 100%;
+    min-height: 400px;"/>
+</div>

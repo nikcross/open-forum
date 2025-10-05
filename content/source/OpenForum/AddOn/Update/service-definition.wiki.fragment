@@ -1,0 +1,99 @@
+!!/OpenForum/AddOn/Update Sevice API Version 0.1.9
+
+----
+!!Get Actions
+
+  <div class="panel callout radius">
+!!Action getUpdate
+(())
+
+!!Parameters
+|Name|Description
+|pageName (''required=true'')|{{parameter.description}}
+|ignoreChanges (''required=false'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/Update?action=getUpdate+++</textarea>
+  
+[/OpenForum/AddOn/Update?action=getUpdate++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action getUpdateInfo
+(())
+
+!!Parameters
+|Name|Description
+|pageName (''required=true'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/Update?action=getUpdateInfo+++</textarea>
+  
+[/OpenForum/AddOn/Update?action=getUpdateInfo++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action getReleases
+(())
+
+!!Parameters
+|Name|Description
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/Update?action=getReleases+++</textarea>
+  
+[/OpenForum/AddOn/Update?action=getReleases++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+
+----
+!!Post Actions
+
+  <div class="panel callout radius">
+!!Action upsertToJSONList
+(())
+
+!!Parameters
+|Name|Description
+|row (''required=true'')|{{parameter.description}}
+|indexName (''required=true'')|{{parameter.description}}
+|pageName (''required=true'')|{{parameter.description}}
+|fileName (''required=true'')|{{parameter.description}}
+
+       
+!!Example Post Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/Update?action=upsertToJSONList+++</textarea>
+  
+[/OpenForum/AddOn/Update?action=upsertToJSONList++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>

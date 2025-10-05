@@ -1,12 +1,12 @@
 Places an icon on the page
-----
-!!Parameters
+--8<--
+
+__Parameters__
 * name - name of icon
 
-----
-!!Usage:
 {{{
 [{Icon name="chart pie"}]
 }}}
+-->8--
 Example:
 [{Icon name="chart pie"}]

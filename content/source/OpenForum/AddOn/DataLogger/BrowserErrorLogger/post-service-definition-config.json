@@ -1,0 +1,60 @@
+{
+    "version": "0.0.3",
+    "libraries": [
+        {
+            "name": "BrowserErrorLoger",
+            "fileName": "BrowserErrorLogger.sjs",
+            "view": "display: block;",
+            "edit": "display: none;",
+            "pageName": "/OpenForum/AddOn/DataLogger/BrowserErrorLogger"
+        }
+    ],
+    "parameters": [],
+    "actions": [
+        {
+            "name": "logError",
+            "call": "BrowserErrorLoger.logError(site,origin,page,error);",
+            "parameters": [
+                {
+                    "name": "site",
+                    "required": "false",
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "page",
+                    "required": true,
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "error",
+                    "required": true,
+                    "type": "string",
+                    "view": "display: none;",
+                    "edit": "display: block;"
+                },
+                {
+                    "name": "origin",
+                    "required": "false",
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "action": "logError",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "description": ""
+        }
+    ],
+    "method": "post",
+    "pageName": "/OpenForum/AddOn/DataLogger/BrowserErrorLogger"
+}

@@ -1,0 +1,8 @@
+[
+  {"name": "WYSIWYG Block", "className": "WYSIWYG","description": "A mixed type content block"},
+  {"name": "Text Block", "className": "Text","description": "A plain text block"},
+  {"name": "Page Title Block", "className": "PageTitle","description": "The page title"},
+  {"name": "Two Column Block", "className": "TwoColumn","description": "A two column layout block"},
+  {"name": "Section Marker", "className": "Section","description": "A marker for a page section"},
+  {"name": "Insert Page", "className": "InsertPage","description": "Insert a page or page section"}
+]

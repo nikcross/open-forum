@@ -1,5 +1,6 @@
 {
     "apiClass": "org.onestonesoup.openforum.messagequeue.MessageQueueView",
-    "pageName": "/OpenForum/QueueManager",
-    "title": "Queue Manager"
+    "pageName": "/OpenForum/SystemMonitor/QueueManager",
+    "title": "QueueManager",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

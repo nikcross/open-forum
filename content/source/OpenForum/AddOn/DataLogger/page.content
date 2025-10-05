@@ -1,0 +1,8 @@
+<a href="#" class="button" onClick="sendTestDataLog();return false;">Test Data Logger</a>
+<a href="#" class="button" onClick="sendTestDataStore();return false;">Test Data Storage</a>
+!!Data Logger Messages
+<xmp class="panel">
+{{messagesView}}
+</xmp>
+!!Sub Pages
+[{ChildPagesList pageName="&pageName;"}]

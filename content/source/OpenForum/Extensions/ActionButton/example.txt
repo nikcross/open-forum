@@ -1,0 +1,1 @@
+[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]

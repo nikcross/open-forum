@@ -1,16 +1,33 @@
-<div id="formBuilder" style="height: 100%;">
-<div class="large-3 columns">
-  !!Fields
-  <textarea of-id="formBuilder.formFields" rows="10" onkeyup="formBuilder.buildForm()" onchange="formBuilder.buildForm()"></textarea>
-</div>
+<div id="formBuilder" style="height: 100vh;background-color: #203d64; color: #eef7ee;">
+  <div class="row" style="padding: 10px;">
+    __Form Builder__
+  </div>
+  <div style="background-color: #203d64; color: #eef7ee; display: flex;">
+    <div class="large-3 columns">
+      __Definition__
 
-<div class="large-3 columns">
-  !!Form
-  <div class="panel">{{formBuilder.exampleFormHtml}}</div>
-</div>
+      <div id="defaultEditor"><textarea id="editor{{editorIndex}}Src" style="height: 100%;">Loading...</textarea></div>
+      
+      <a class='button tiny round' onClick="if( isUndefined(displayContentTab) ) { $('#formBuilderInstructions').foundation('reveal', 'open'); } else { displayContentTab('/OpenForum/Editor/Plugins/FormBuilder','instructions.html.fragment','Form Builder Instructions') } return false;">Instructions</a>
+    </div>
 
-<div class="large-6 columns">
-  !!Form Html
-  <xmp id="html"></xmp>
+    <div class="large-3 columns">
+      __Form__
+      <div class="panel" id="theForm"></div>
+    </div>
+
+    <div class="large-6 columns">
+      __Form Html__
+
+      [{ScriptClip script="" id="formBuilder.exampleFormHtml"}]
+
+      ----
+
+      __Form Script__
+
+      [{ScriptClip script="" id="formBuilder.exampleFormScript"}]
+
+    </div>
+  </div>
 </div>
-</div>
+[{Popup id="formBuilderInstructions" sourceFileName="instructions.wiki.fragment" sourcePageName="/OpenForum/Editor/Plugins/FormBuilder"}]

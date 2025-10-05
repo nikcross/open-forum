@@ -1,0 +1,30 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+
+<p>Adds a link to automatically bookmark a page</p>
+<b>Parameters</b>
+<ul><li> title = Bookmark title Name</li>
+<li> domain = external site domain</li>
+<li> script = Path to script</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Bookmarklet title="Bookmark" domain="https://open-forum.onestonesoup.org" script="/OpenForum/Extensions/Bookmarklet/append-link.js" text="Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:" -->Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:<a class='button tiny round success' href="javascript: window.open('https://open-forum.onestonesoup.org/OpenForum/Extensions/Bookmarklet?action=appendLink&pageName=/OpenForum/Extensions/Bookmarklet&url=' + encodeURIComponent(window.location.href),'_blank');">Bookmark</a><!--End Extension Bookmarklet title="Bookmark" domain="https://open-forum.onestonesoup.org" script="/OpenForum/Extensions/Bookmarklet/append-link.js" text="Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:" -->
+</xmp>
+
+<!--Extension Bookmarklet title="Bookmark" domain="https://open-forum.onestonesoup.org" script="/OpenForum/Extensions/Bookmarklet/append-link.js" text="Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:" -->Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:<a class='button tiny round success' href="javascript: window.open('https://open-forum.onestonesoup.org/OpenForum/Extensions/Bookmarklet?action=appendLink&pageName=/OpenForum/Extensions/Bookmarklet&url=' + encodeURIComponent(window.location.href),'_blank');">Bookmark</a><!--End Extension Bookmarklet title="Bookmark" domain="https://open-forum.onestonesoup.org" script="/OpenForum/Extensions/Bookmarklet/append-link.js" text="Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:" -->
+<hr/>
+
+<!--Extension InsertSourceFile fileName="renderer.sjs" --><a href="//OpenForum/Extensions/Bookmarklet/renderer.sjs">//OpenForum/Extensions/Bookmarklet/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/Bookmarklet&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">try{
+domain = extension.getAttribute("domain");
+title = extension.getAttribute("title");
+script = extension.getAttribute("script");
+text = extension.getAttribute("text");
+
+var script = file.getAttachment( "",script ).replaceAll("<br/>"","<br/><br/><br/><br/><br/>"");
+script = script.replaceAll("<br/><br/>{<br/><br/>{domain<br/><br/>}<br/><br/>}",domain);
+script = script.replaceAll("<br/><br/>{<br/><br/>{pageName<br/><br/>}<br/><br/>}",pageName);
+var bmHref = "javascript: " + script;
+
+return text + "<a class='button tiny round success' href=<br/>"" + bmHref + "<br/>">" + title + "</a>";
+} catch(e) {
+  return e;
+}</xmp><!--End Extension InsertSourceFile fileName="renderer.sjs" -->

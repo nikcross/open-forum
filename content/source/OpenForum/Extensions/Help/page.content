@@ -1,0 +1,14 @@
+!!&title;
+--8<--
+
+((Creates a popup help link))
+{{{
+[{Help id="test" sourceFileName="help-content.wiki" sourcePageName="/OpenForum/Extensions/Help"}]
+
+[{Help id="test" title="Pop me up"}]
+}}}       
+-->8--
+----
+[{Help id="test" sourceFileName="help-content.wiki" sourcePageName="/OpenForum/Extensions/Help"}]
+
+[{Help id="test" title="Pop me up"}]

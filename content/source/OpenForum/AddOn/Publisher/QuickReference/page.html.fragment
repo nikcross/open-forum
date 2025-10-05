@@ -1,0 +1,17 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>QuickReference</h3>
+
+
+       
+<p>The Publisher AddOn enables the publishing of packages from the developent area of a site into prodction.</p>
+<p>All text files in the package (page and sub pages) are translated before publishing. References to Development are removed so a path /MyPage becomes /MyPage</p>
+<p>Deletions are not processed immediately, but placed in a deletions script file to run later.</p>
+       
+  
+<h3>Special files</h3>
+<ul><li> development-translation.sjs - This is an optional script that will translate the contents of files. The script is passed the contents of each text file as the variable data and is expected to return the transformed version.</li>
+<li> publish-config.json - Can contain a list of files to exclude eg. <xmp class="panel" of-exclude="true"> { excludedFiles: <a href="/OpenForum/Editor?pageName=/OpenForum/AddOn/Publisher/QuickReference/'do-not-publish.me'"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/AddOn/Publisher/QuickReference/'do-not-publish.me' does not exist. Click to create it.">'do-not-publish.me'</a> } </xmp></li>
+<li> do-not-release.txt - Marks a page as not to be published. Should contain text stateing the reason</li>
+<li> process-deletions.sjs - A script that is generated with files to be deleted after publishing</li>
+<li> release-notes.html.fragment - Notes generated during the release are saved here</li>
+</ul>

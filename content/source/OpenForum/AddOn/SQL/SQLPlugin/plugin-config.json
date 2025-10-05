@@ -1,0 +1,14 @@
+{
+    "version": "0.0.6",
+    "configFile": "plugin-config.json",
+    "pageName": "/OpenForum/AddOn/SQL/SQLPlugin",
+    "pluginInstanceName": "SQLPlugin",
+    "pluginTitle": "SQL Plugin",
+    "contentPage": "/OpenForum/AddOn/SQL",
+    "scriptPage": "/OpenForum/AddOn/SQL",
+    "pluginPage": "/OpenForum/AddOn/SQL/SQLPlugin",
+    "contentFile": "page.content",
+    "scriptFile": "sql-editor.js",
+    "onLoad": "SQLEditorController.init(); SQLEditorController.initEditor();",
+    "pluginFile": "plugin.js"
+}

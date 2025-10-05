@@ -1,0 +1,12 @@
+# Auto Sequence Id
+CREATE SEQUENCE &tableName;_seq;
+SELECT setval('&tableName;_seq',1000);
+SELECT nextval('&tableName;_seq');
+
+alter table &tableName; alter column id SET NOT NULL;
+alter table &tableName; alter column id SET DEFAULT nextval('&tableName;_seq');
+ALTER SEQUENCE &tableName;_seq OWNED BY &tableName;.id;
+
+# Column Constraint
+ALTER TABLE &tableName; ADD CONSTRAINT unique_{{fieldName}} UNIQUE ({{fieldName}});
+

@@ -1,0 +1,6 @@
+{
+    "pageName": "/OpenForum/Editor/Editors/SQLEditor",
+    "title": "SQLEditor",
+    "pageParent": "https://open-forum.onestonesoup.org",
+    "editorConfig": "/OpenForum/Editor/Editors/SQLEditor/editor-config.json"
+}

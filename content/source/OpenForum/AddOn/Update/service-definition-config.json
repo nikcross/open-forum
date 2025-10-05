@@ -1,0 +1,6 @@
+{
+    "version": "0.1.9",
+    "pageName": "/OpenForum/AddOn/Update",
+    "postConfig": "post-service-definition-config.json",
+    "getConfig": "get-service-definition-config.json"
+}

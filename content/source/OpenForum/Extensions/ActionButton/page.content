@@ -6,10 +6,10 @@ A button that fires an [OpenForum GET action|/OpenForum/Actions]
 
 ----
 !!Usage:
-{{{
-[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
-}}}
-[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
+
+[{ScriptClip fileName="example.txt"}]
+
+&insert:example.txt;
 
 ----
 

@@ -1,0 +1,510 @@
+/*
+* Author: Nik Cross
+* Description: Published pages from one area to another.
+* Currently fixed to move pages starting /translated
+* Removes references to / in all non-binary files.
+*/
+var Publisher = function() {
+  var self = this;
+  var VERSION = "1.004";
+  var TRANSLATION_SCRIPT = "development-translation.sjs";
+  var PUBLISH_CONFIG = "publish-config.json";
+  var INCLUDE_LIST = [".js",".sjs",".content",".html",".txt",".fragment",".json",".link",".xml",".kml"];
+  var EXCLUDE_LIST = ["page.html","page.html.fragment",TRANSLATION_SCRIPT,PUBLISH_CONFIG];
+
+  js.getObject("/OpenForum/Javascript","Common.sjs").extendString(String);
+
+  //TODO This should be moved to common utils
+  var getAttachments = function(pageName) {
+    var attachments=[];
+    var matching = ".*"; //Regex include all
+
+    var list = file.getAttachmentsForPage( pageName );
+    if(pageName.charAt(0)!='/') {
+      pageName = "/"+pageName;
+    }
+
+    var iterator= list.keySet().iterator();
+    while(iterator.hasNext()) {
+      var key = ""+iterator.next();
+      var item;
+      if(key.charAt(0)==='+') { // ignore sub pages
+        continue;
+      } else if(matching!==null && key.search( ""+matching )==-1 ) {
+        continue;
+      } else {
+        item = key;
+      }
+      attachments.push( {pageName: pageName, fileName: item} );
+    }
+    return attachments;
+  };
+
+  var getPages = function(pageName,pages) {
+    var matching = ".*"; //Regex include all
+    if(pageName === "/ServiceLayer" || pageName === "/Development") {
+    } else {
+      pages.push(pageName);
+    }
+
+    var list = file.getAttachmentsForPage( pageName );
+    if(pageName.charAt(0)!='/') {
+      pageName = "/"+pageName;
+    }
+
+    var iterator= list.keySet().iterator();
+    while(iterator.hasNext()) {
+      var key = ""+iterator.next();
+      var item;
+      if(key==="+private" || key==="+history" || key==="+Administration" || key==="+Notes" || key==="+MessagingServices" || key==="+data") {
+        continue;
+      } else if( key.charAt(0)==='+') { // ignore sub pages
+        var newPageName = pageName + "/" + key.substring(1);
+        getPages(newPageName,pages);
+      } else {
+        continue;
+      }
+    }
+  };
+
+  var isTextFile = function(attachment) {
+    for(var j in INCLUDE_LIST) {
+      if(attachment.fileName.indexOf(INCLUDE_LIST[j]) != -1) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  var isExcludedFile = function(attachment) {
+    for(var j in EXCLUDE_LIST) {
+      if(attachment.fileName == EXCLUDE_LIST[j]) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  var getPublishConfig = function(pageName) {
+    if(pageName.indexOf("/Development")!==0) pageName = "/Development"+pageName;
+    if( file.attachmentExists(pageName,PUBLISH_CONFIG)==true ) {
+      var config = "" + file.getAttachment(pageName,PUBLISH_CONFIG);
+      config = JSON.parse(config);
+      
+      if(config.excludedFiles) {
+        for(var i in config.excludedFiles) {
+            EXCLUDE_LIST.push( config.excludedFiles[i] );
+        }
+      }
+      
+      return config;
+    }
+  };
+  
+  var hasTranslator = function(pageName) {
+    if(pageName.indexOf("/Development")!==0) pageName = "/Development"+pageName;
+    return file.attachmentExists(pageName,TRANSLATION_SCRIPT);
+  };
+
+  var translate = function(pageName,fileName,data,log) {
+    notes = "";
+    if(hasTranslator(pageName)==false) return {translated: data, notes: notes};
+
+    if(log) log.debug( "Applying transform script to " + pageName + "/" + fileName );
+    notes += "Applying transform script to " + pageName + "/" + fileName;
+    var script = file.getAttachment("/Development"+pageName,TRANSLATION_SCRIPT);
+    var jsonData = JSON.stringify(data);
+    var fn = "newData = function(data){"+script+"}("+jsonData+");";
+    var newData = eval(fn);
+
+    return {translated: newData, notes: notes};
+  };
+
+  var processDeletions = function(attachments,publishedAttachments,practice) {
+    var notes = "\n==== Deletions Check ====\n";
+
+    for(var i in publishedAttachments) {
+      var found = false;
+      var existingAttachment = publishedAttachments[i];
+      if(existingAttachment.fileName==="page.html.template.link") continue;
+      if(isExcludedFile(existingAttachment)) {
+        if(practice) {
+          notes += "Deletion. " + existingAttachment.pageName + "/" + existingAttachment.fileName + " in excluded list. It will be deleted\n";
+        } else {
+          file.deleteAttachmentNoBackup(existingAttachment.pageName,existingAttachment.fileName);
+          notes += "Deletion. " + existingAttachment.pageName + "/" + existingAttachment.fileName + " in excluded list. It has been deleted\n";
+        }
+        continue;
+      }
+      for(var j in attachments) {
+        var attachment = attachments[j];
+        if(attachment.fileName==existingAttachment.fileName) {
+          found = true;
+          break;
+        }
+      }
+      if(found===false) {
+        if(practice===true) {
+          notes += "Deletion. " + existingAttachment.pageName + "/" + existingAttachment.fileName + " no longer required. It will be deleted\n";
+        } else { 
+          file.deleteAttachmentNoBackup(existingAttachment.pageName,existingAttachment.fileName);
+          notes += "Deletion. " + existingAttachment.fileName + " no longer required. It has been deleted\n";
+        }
+      }
+    }
+    return notes;
+  };
+
+  var replaceDevelopmentPaths = function(attachments,practice,log) {
+    var notes = "\n==== Publishing Actions ====\n";
+
+    var i=0;
+    for(i in attachments) {
+      var attachment = attachments[i];
+      if(isTextFile(attachment)===false) {
+        notes += "Including " + attachment.fileName +" without changes as not text file.\n";
+        continue;
+      }
+      if(isExcludedFile(attachment)) {
+        notes += "Excluding " + attachment.fileName +" as is in excluded file list.\n";
+        continue;
+      }
+      if(attachment.fileName==="release-notes.html.fragment") {
+        notes += "Excluding " + attachment.fileName +"\n";
+        continue;
+      }
+
+      if(log) log.debug("Replacing development paths in " + attachment.pageName + "/" + attachment.fileName);
+
+      var data = "" + file.getAttachment(attachment.pageName,attachment.fileName);
+      var newData = "";
+
+      notes+="Looking for transform script for " + attachment.pageName;
+      if(data.indexOf("")!=-1 || hasTranslator(attachment.pageName)) {
+
+        if(!practice && attachment.pageName.indexOf("Development")==-1) {
+          notes += "Removed  references in " + attachment.pageName + "/" + attachment.fileName + "\n";
+        } else {
+          notes += "Remove  references in " + attachment.pageName + "/" + attachment.fileName + "\n";
+        }
+        var lines = data.split("\n");
+
+        if(log) log.debug("Found  in " + attachment.pageName + "/" + attachment.fileName + ". Processing " + lines.length + " lines.");
+
+        for(var l=0; l<lines.length; l++) {
+          var line = lines[l];
+          if(line.indexOf("")!=-1) {
+            notes += "\tLine " + l + "\n";
+            notes += "\t" + line + "\n";
+            line = line.replace( /\/Development\//g,"/" ).replace( /Development\//g,"" );
+          }
+          newData += line + "\n";
+        }
+
+        var translation = translate(attachment.pageName,attachment.fileName,newData, log);
+        newData = translation.translated;
+        notes += translation.notes;
+
+        if(log) log.debug("Processed development paths in " + attachment.pageName + "/" + attachment.fileName);
+
+        if(!practice && attachment.pageName.indexOf("")==-1) {
+          file.saveAttachment(attachment.pageName,attachment.fileName,newData);
+        }
+      }
+
+    }
+
+    notes += "\n\n";
+    return notes;
+  };
+
+  var checkServices = function(attachments) {
+    var notes = "\n==== Services Check ====\n";
+    var deployList = "";
+    var deplopDedupe = {};
+    for(var i in attachments) {
+      var attachment = attachments[i];
+      if(isTextFile(attachment)===false) continue;
+      if(isExcludedFile(attachment)) continue;
+      if(attachment.fileName==="release-notes.html.fragment") continue; 
+
+      var data = ""+file.getAttachment(attachment.pageName,attachment.fileName);
+      var hasDependencys = false;
+
+      if(data.indexOf("/")!=-1) {
+        notes += "Service call(s) in " + attachment.pageName + "/" + attachment.fileName + "\n";
+        var lines = data.split("\n");
+        for(var l=0; l<lines.length; l++) {
+          var line = lines[l];
+          if(line.match(/JSON(\.get|\.post)/) && line.indexOf("(") > line.indexOf("JSON") && line.indexOf("\"") > line.indexOf("(\"")) {
+            notes += "\tCall on line " + l + "\n";
+            notes += "\t" + line + "\n";
+            line = line.replace(/\(\s\"/g,"(");
+            var service  = line.between( "(\"","\"" );
+            if(service.indexOf("/")!=-1) {
+              service = service.after("/Development");
+            }
+            if(service.indexOf("?")!=-1) {
+              service = service.before("?");
+            }
+
+            if( file.attachmentExists( service , "get.sjs" ) ) {
+              if(attachment.pageName!="/Development"+service) { // Not self
+                hasDependencys = true;
+                notes += "\tService " + service + " exists\n\n";
+                if(!deplopDedupe[service]) {
+                  deployList += service + "\n";
+                  deplopDedupe[service] = "Added";
+                }
+              }
+            } else {
+              notes += "\tService " + service + " DOES NOT EXIST\n\n";
+              if(!deplopDedupe[service]) {
+                deployList += service + " (MISSING)\n";
+                deplopDedupe[service] = "Added";
+                hasDependencys = true;
+              }
+            }
+          }
+        }
+      }
+    }
+    if(hasDependencys===false) {
+      notes += "No Service Dependencys Found";
+    }
+    notes += "\n\n";
+
+    if(deployList.length>0) notes += "Deploy services:\n" + deployList + "\n\n";
+
+    return notes;
+  };
+
+  var checkForToDo = function(attachments) {
+    var notes = "\n=== Check For ToDo Comments ===\n";
+    for(var i in attachments) {
+      var attachment = attachments[i];
+      if(isTextFile(attachment)===false) continue;
+      if(attachment.fileName==="release-notes.html.fragment") continue; 
+
+      var data = file.getAttachment(attachment.pageName,attachment.fileName);
+
+      if(data.toLowerCase().indexOf("todo")!=-1) {
+        notes += "TODOs found in <a href='/OpenForum/Editor?pageName="+attachment.pageName+"&fileName="+attachment.pageName+"'>" + attachment.pageName + "/" + attachment.fileName + "</a>\n";
+        var lines = data.split("\n");
+        for(var l=0; l<lines.length; l++) {
+          var line = lines[l];
+          if(line.toLowerCase().indexOf("todo")!=-1) {
+            notes += "\tLine " + l + "\n";
+            notes += "\t" + line + "\n";
+          }
+        }
+      }
+    }
+    notes += "\n\n";
+    return notes;
+  };
+
+  var checkAttachments = function(attachments) {
+    var notes = "\n=== Check Attachments ===\n";
+
+    for(var i in attachments) {
+      var attachment = attachments[i];
+      if(isTextFile(attachment) && isExcludedFile(attachment)==false && attachment.fileName!=="release-notes.html.fragment") {
+        notes += "Move and check " + attachment.pageName + "/" + attachment.fileName + "\n";
+      } else {
+        notes += "Move " + attachment.pageName + "/" + attachment.fileName + "\n";
+      }
+    }
+
+    notes += "\n\n";
+    return notes;
+  };
+
+  /*
+   * The main method to publish a page.
+   */
+  self.publish = function(pageName,practice,debug,log) {
+    if(file.attachmentExists(pageName,"do-not-release.txt")==true) {
+      throw "The page " + pageName +  " has been marked as not for release. Read and then delete do-not-release.txt to remove the lock.";
+    }
+    if(pageName==="/Development") {
+      throw "You cannot publish every thing. Publish a bit at a time.";
+    }
+    if(pageName==="/ServiceLayer") {
+      throw "You cannot publish whole service layer. Publish service at a time.";
+    }
+    if(pageName==="/OpenForum") {
+      throw "You cannot publish whole OpenForum root. Publish a bit at a time.";
+    }
+    if(pageName==="/Administration") {
+      throw "Administration stays with development.";
+    }
+    if(pageName==="/MessagingServices") {
+      throw "Messaging Services stays with development.";
+    }
+    if(pageName==="/Notes") {
+      throw "Developer Notes stays in development.";
+    }
+    
+    if(!debug) log=false;
+
+    var publishedPageName;
+
+    if(log) log.debug("Publishing " + pageName + " Publisher version " + VERSION);
+
+    if(pageName.indexOf("/")===0) {
+      publishedPageName = pageName.substring(12);
+    } else {
+      throw "Page name must start with /";
+    }
+    var publishTime = new Date();
+
+    var notes = "Publishing " + pageName + " on " + publishTime + " practice:" + practice + "\nUsing Publisher version " + VERSION +"\n\n";
+    
+    var config = getPublishConfig(pageName);
+    if(config) {
+      notes += "Loaded publish config " + pageName + "/" + PUBLISH_CONFIG + ".\n";
+    } else {
+      notes += "No publish config " + pageName + "/" + PUBLISH_CONFIG + " found for page.\n";
+      config = {};
+    }
+
+    try{
+      if(practice===false) {
+        notes += "\nCopying page "+pageName+" to page "+publishedPageName;
+        var FileManager = js.getObject("/OpenForum/Actions/Copy","FileManager.sjs");
+        var logged = FileManager.copyPage( pageName,publishedPageName );
+        notes += "\n" + logged.replaceAll("    ","\n") + "\n";
+        notes += "\nCopied page "+pageName+" to page "+publishedPageName;
+        file.saveAttachment(publishedPageName,"page.html.template.link","/OpenForum/PageTemplates/Published/page.html.template");
+        notes += "\nAdded link to /OpenForum/PageTemplates/Published/page.html.template";
+      }
+
+      var attachments = getAttachments(pageName);
+      var publishedAttachments = attachments;
+      if(practice===false) publishedAttachments = getAttachments(publishedPageName);
+
+      if(log) log.debug("Found " + attachments.length + " attachments to publish");
+
+      notes += checkAttachments(attachments);
+      if(log) log.debug("Checked page attachments");
+
+      notes += processDeletions(attachments,publishedAttachments,practice);
+      if(log) log.debug("Processed page deletions");
+
+      notes += replaceDevelopmentPaths(publishedAttachments,practice,log);
+      if(log) log.debug("Replaced page development paths");
+
+      notes += checkServices(attachments);
+      if(log) log.debug("Checked page services");
+
+      notes += checkForToDo(attachments);
+
+      if(log) log.debug("Checked page for todos");
+
+      if( file.pageExists(pageName + "/private")===true) {
+
+        if(log) log.debug("Publishing private page");
+
+        var privatePageName = pageName + "/private";
+        var privatePublishedPageName = publishedPageName + "/private";
+        notes += "Publishing " + privatePageName + " on " + publishTime + " practice:" + practice + "\n";
+        if(practice===false) {
+          notes += "\nCopying page " + privatePublishedPageName + " to page "+publishedPageName;
+          var FileManager = js.getObject("/OpenForum/Actions/Copy","FileManager.sjs");
+          var logged = FileManager.copyPage( privatePageName,privatePublishedPageName );
+          notes += "\n" + logged.replaceAll("    ","\n") + "\n";
+          notes += "\nCopied page "+privatePageName+" to page "+privatePublishedPageName;
+          file.saveAttachment(privatePublishedPageName,"page.html.template.link","/OpenForum/PageTemplates/Published/page.html.template");
+          notes += "\nAdded link to /OpenForum/PageTemplates/Published/page.html.template";
+        }
+
+        var attachments = getAttachments(privatePageName);
+        var publishedAttachments = attachments;
+        if(practice===false) publishedAttachments = getAttachments(privatePublishedPageName);
+        notes += checkAttachments(attachments);
+        if(log) log.debug("Checked private page attachments");
+
+        notes += processDeletions(attachments,publishedAttachments,practice);
+        if(log) log.debug("Processing private page deletions");
+
+        notes += replaceDevelopmentPaths(publishedAttachments,practice);
+        if(log) log.debug("Replaced private page development paths");
+
+        notes += checkServices(attachments);
+        if(log) log.debug("Checked private page services");
+
+        notes += checkForToDo(attachments);
+        if(log) log.debug("Checked private page for todos");
+      }
+
+    } catch(e) {
+      notes += "\n\nError: "+e+"\n\n";
+      if(log) log.debug("Publishing error " + e);
+    }
+    if(!practice) {
+
+      if( file.pageExists(publishedPageName + "/private") ) { //Is a private service container page
+        var attachments = getAttachments(publishedPageName + "/private");
+        for(var i in attachments) { // Publish objects
+          if(attachments[i].fileName.indexOf(".sjs")!==-1 && isExcludedFile(attachments[i])===false) {
+
+            if(log) log.debug("Publishing object " + attachments[i].fileName);
+
+            var objectName = attachments[i].fileName;
+            objectName = objectName.substring(0,objectName.indexOf(".sjs"));
+            //openForum.storeObject( objectName,js.getObject( publishedPageName + "/private",attachments[i].fileName) );
+            notes += "\nPublished object " + objectName + " from " + publishedPageName + "/private" + "/" + attachments[i].fileName + "\n";
+
+
+            if(log) log.debug("Published object " + attachments[i].fileName);
+          }
+        }
+      }
+
+      file.saveAttachment(pageName,"release-notes.html.fragment",notes);
+      openForum.refreshPage(publishedPageName);
+    }
+
+    return {notes: notes,publishedPageName: publishedPageName};
+  };
+
+  self.getNeedsPublishing = function() {
+    var pages = [];
+    getPages("/Development",pages);
+
+    var oldPages = [];
+
+    for(var i=0;i<pages.length;i++) {
+      var needsPublishing = self.pageNeedsPublishing(pages[i]);
+
+      if(needsPublishing) {
+        oldPages.push( needsPublishing );
+      }
+    }
+
+    return oldPages;
+  };
+
+  self.pageNeedsPublishing = function(pageName) {
+    if(file.attachmentExists(pageName,"do-not-release.txt")==true) {
+      return false;
+    }
+    
+    var t = file.getAttachmentTimestamp(pageName,"page.html");
+    var livePage = pageName.substring(12);
+    var lt = file.getAttachmentTimestamp(livePage,"page.html");
+
+    if(t>lt) {
+      return {pageName: livePage, devTS: t, liveTS: lt, devDate: new Date(t).toString(), liveDate: new Date(lt).toString()};
+    }
+  };
+
+  self.getVersion = function() {
+    return VERSION;
+  };
+
+};
+
+
+

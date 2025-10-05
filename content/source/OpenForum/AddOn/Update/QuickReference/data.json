@@ -1,0 +1,44 @@
+{
+    "pageName": "/OpenForum/AddOn/Update/QuickReference",
+    "title": "QuickReference",
+    "block": "page",
+    "content": [
+        {
+            "block": "text",
+            "data": {
+                "text": "&insert:/OpenForum/AddOn/Update/service-definition.wiki.fragment;"
+            },
+            "elementId": "BK0_63264854533672051668634476279",
+            "editor": {},
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_63264854533672051668634476279_content' title='Text Block' onmouseover='highlight( \"BK0_63264854533672051668634476279_content\", true );' onmouseout='highlight( \"BK0_63264854533672051668634476279_content\", false );'><b>Simple Text Block</b></a>",
+                "attributes": {
+                    "icon": "page_white_edit"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        }
+    ],
+    "editor": "/OpenForum/AddOn/ContentEditor",
+    "blockEditor": {},
+    "treeNode": {
+        "name": "<a href='#pageEditor_content' title='Page' onmouseover='highlight( \"pageEditor_content\", true );' onmouseout='highlight( \"pageEditor_content\", false );'><b>Page</b></a>",
+        "attributes": {
+            "icon": "page"
+        },
+        "leaves": [
+            {
+                "name": "<a href='#BK0_63264854533672051668634476279_content' title='Text Block' onmouseover='highlight( \"BK0_63264854533672051668634476279_content\", true );' onmouseout='highlight( \"BK0_63264854533672051668634476279_content\", false );'><b>Simple Text Block</b></a>",
+                "attributes": {
+                    "icon": "page_white_edit"
+                },
+                "leaves": []
+            }
+        ]
+    },
+    "elementId": "pageEditor",
+    "parentId": "pageEditor",
+    "pageParent": "https://open-forum.onestonesoup.org"
+}

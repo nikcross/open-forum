@@ -3,59 +3,48 @@
     <li class="divider"></li>
     <li class="has-dropdown" style="width: 150px;">
       <a href="#">Actions</a>
-      <ul class="dropdown" style="overflow: auto; max-height:500px;">
+      <ul class="dropdown" style="overflow: auto;" onmouseover="this.style.maxHeight='500px';" onmouseout="this.style.maxHeight='10000px';">
         <li><a href="#" data-reveal-id="OpenForumCopyModal">[{Icon name="page_copy"}] Copy Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumMoveModal">[{Icon name="page_go"}] Move Page</a></li>
         <li><a href="#" onClick="OpenForum.action.zipPage(pageName);">[{Icon name="compress"}] Zip Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumDeleteModal">[{Icon name="bin"}] Delete Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumOpenModal">[{Icon name="page_go"}] Open Page</a></li>
-        <li><a href="#" data-reveal-id="OpenForumSearchModal" onClick="OpenForum.focusOnSearch(); return false;">[{Icon name="magnifier"}] Search</a></li>
-        <li of-repeatFor="extraAction in extraActions"><a href="#" onClick="{{extraAction.fn}}();return false;" title="{{extraAction.description}}">[{Icon name="{{extraAction.icon}}"}]  {{extraAction.name}}</a></li>
+        <li><a href="#" onClick="OpenForum.focusOnSearch(); return false;">[{Icon name="magnifier"}] Search</a></li>
+        <li of-repeatFor="extraAction in extraActions"><a href="#" onClick="{{extraAction.fn}}();return false;" title="{{extraAction.description}}"><img ofa-src="{{extraAction.icon}}">{{extraAction.name}}</a></li>
       </ul>
     </li>
     <li class="divider"></li>
     <li class="has-dropdown" style="width: 150px;">
       <a href="#">Sub Pages</a>
-      <ul class="dropdown" id="subPageDropdown" style="overflow: auto; max-height:500px;">
+      <ul class="dropdown" id="subPageDropdown" style="overflow: auto;" onmouseover="this.style.maxHeight='500px';" onmouseout="this.style.maxHeight='10000px';">
       </ul>
     </li>
     <li class="divider"></li>
     <li class="has-dropdown" style="width: 150px;">
       <a href="#">Attachments</a>
-      <ul class="dropdown" style="overflow: auto; max-height:500px;">
+      <ul class="dropdown" style="overflow: auto;" onmouseover="this.style.maxHeight='500px';" onmouseout="this.style.maxHeight='10000px';">
         <li><a href="#" data-reveal-id="CreateAttachmentModal" class="active">[{Icon name="add"}] Create Attachment</a></li>
         <li><a href="#" data-reveal-id="UploadAttachmentModal" class="active">[{Icon name="add"}] Upload Attachment</a></li>
         <li of-repeatFor="attachment in attachments"><a href="#" onClick="{{attachment.action}}({{attachment.id}});return false;" title="{{attachment.actionName}} {{attachment.pageName}}/{{attachment.fileName}}">
-          [{Icon name="{{attachment.icon}}"}] {{attachment.fileName}} [{Icon name="{{attachment.actionIcon}}"}]</a></li>
+          <img ofa-src="{{attachment.icon}}" /> {{attachment.fileName}} <img ofa-src="{{attachment.actionIcon}}" /></a></li>
       </ul>
     </li>
     <li class="divider"></li>
     <li class="has-dropdown" style="width: 250px;">
       <a href="#">Plugins</a>
-      <ul class="dropdown" style="overflow: auto; max-height:500px;">
-        <li><a onClick="loadPlugin('History');return false;">[{Icon name="plugin"}] Page History</a></li>
-        <li><a onClick="loadPlugin('Console');return false;">[{Icon name="plugin"}] Javascript Console</a></li>
-        <li><a onClick="loadPlugin('ServerConsole');return false;">[{Icon name="plugin"}] Server Side Javascript Console</a></li>
-        <li><a onClick="loadPlugin('DataTransform');return false;">[{Icon name="plugin"}] Data Transform Helper</a></li>
-        <li><a onClick="loadPlugin('FormBuilder');return false;">[{Icon name="plugin"}] Simple Form Builder</a></li>
-        <li><a onClick="loadPlugin('FileDiff');return false;">[{Icon name="plugin"}] Difference View</a></li>
-        <li><a onClick="loadPlugin('Service');return false;">[{Icon name="plugin"}] Web Service Wizard</a></li>
+      <ul class="dropdown" style="overflow: auto;" onmouseover="this.style.maxHeight='500px';" onmouseout="this.style.maxHeight='10000px';">
+        <li of-repeatFor="plugin in availablePlugins"><a onClick="loadPlugin('{{plugin.sourcePage}}');return false;">[{Icon name="{{plugin.icon}}"}] {{plugin.name}}</a></li>
       </ul>
     </li>
     <li class="divider"></li>
     <li class="has-dropdown" style="width: 150px;">
       <a href="#">Documentation</a>
-      <ul class="dropdown" style="overflow: auto; max-height:500px;">
+      <ul class="dropdown" style="overflow: auto;" onmouseover="this.style.maxHeight='500px';" onmouseout="this.style.maxHeight='10000px';">
         <li><a href="#" data-reveal-id="OpenForumDocumentationModal" onClick="OpenForum.showDocumentation('Editor'); return false;">The Editor</a></li>
         <li><a href="#" data-reveal-id="OpenForumDocumentationModal" onClick="OpenForum.showDocumentation('EditorKeys'); return false;">Editor Keys</a></li>
         <li of-repeatFor="doc in documentation"><a href="#" data-reveal-id="OpenForumDocumentationModal" onClick="OpenForum.showDocumentation('{{doc.pageName}}'); return false;">{{doc.title}}</a></li>
       </ul>
     </li>
-  </ul>
-</section>
-<section class="top-bar-section">
-  <ul class="center"> 
-    <li class="name"><a href="#" onClick="showStatus('ready'); return false;">Status: {{status}}</a></li>
   </ul>
 </section>
 <section class="top-bar-section">
@@ -123,7 +112,13 @@
   <script>
     editorOpenPage = function(edit) {
       if(edit) {
-        window.open( "/OpenForum/Editor?pageName="+openForumOpenPage );
+        if(openForumOpenPage.indexOf(".")==-1) { 
+          window.open( "/OpenForum/Editor?pageName="+openForumOpenPage );
+        } else {
+          var openForumOpenFile = openForumOpenPage.substring( openForumOpenPage.lastIndexOf("/")+1 );
+          var anOpenForumOpenPage = openForumOpenPage.substring( 0,openForumOpenPage.lastIndexOf("/") );
+          openFile( anOpenForumOpenPage, openForumOpenFile );
+        }
       } else {
         window.open( openForumOpenPage );
       }
@@ -150,7 +145,9 @@
 
 <div id="CreateAttachmentModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Create New Page Attachment</h2>
-  <p>File Name <input type="text" of-id="newAttachmentName"/></p>
+  <p>File Name <input type="text" of-id="newAttachmentName"/></p>  <div>
+  <a of-repeatFor="createFile in pageFileOptions" href="#" class="button tiny round" onClick="setAsAttachment('{{createFile.file}}'); return false;">{{createFile.title}}</a>&nbsp;
+  </div>
   <p><a href="#" onClick="createAttachment();return false;" class="secondary button">Create</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
@@ -161,13 +158,11 @@
   <h2>Upload Page Attachment</h2>
   <fieldset>
     <legend>Upload from Current Device</legend>
-    <form name="upload" id="upload" method="post" action="#" enctype="multipart/form-data" target="uploadResponse">
-      <input type="file" name="file"/> <a class="button tiny" onClick="OpenForum.uploadFile('upload',pageName); return false;">Upload</a><br/>
-    </form>
+     [{UploadFileInputField name="upload" targetPageName="pageName" text="Upload" message="File Uploaded"}] 
   </fieldset>
   <fieldset>
     <legend>Transfer from URL</legend>
-    From <input type="text" placeholder="File URL" of-id="uploadURL"/> to &pageName;<input type="text" placeholder="File Name" of-id="uploadURLFileName"> <a class="button tiny" onClick="uploadFromURL(); return false;">Upload from URL</a>
+    From <input type="text" placeholder="File URL" of-id="uploadURL"/> to {{pageName}}/{{uploadURLFileName}}<input type="text" placeholder="File Name" of-id="uploadURLFileName"> <a class="button tiny" onClick="uploadFromURL(); return false;">Upload from URL</a>
   </fieldset>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
@@ -195,15 +190,27 @@
 
 <!-- Search -->
 
-<div id="OpenForumSearchModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
-  <h2>Search in Current Editor</h2>
+<div id="OpenForumSearch" style="position: absolute;
+                                 top: 100px;
+                                 right: 20px;
+                                 display: none;
+                                 background: white;
+                                 padding: 10px;
+                                 border-radius: 5px;
+                                 border: solid black 2px;">
   <p>
-    <input type="text" of-id="newSearchTerm" id="primarySearchField"/>
+    <input type="text" of-id="newSearchTerm" id="primarySearchField" onkeydown="OpenForum.prepareSearch();"/>
     <a href="#" onClick="OpenForum.search(newSearchTerm); OpenForum.showSearchMatches(); return false;" class="secondary button">Search</a>
     <a href="#" onClick="OpenForum.showNextSearchMatch(); return false;" class="secondary button">Find Next</a>
-    <input type="text" of-id="newReplaceSearchText"/>
-    <a href="#" onClick="OpenForum.setReplaceText(newReplaceSearchText); OpenForum.replaceLastMatch(); return false;" class="secondary button">Replace</a>
-    <a href="#" onClick="OpenForum.setReplaceText(newReplaceSearchText); OpenForum.replaceAllMatches(); return false;" class="secondary button">Replace All</a>
+    <span id="OpenForumSearchReplace" style="display: none">
+      <input type="text" of-id="newReplaceSearchText"/>
+      <a href="#" onClick="OpenForum.setReplaceText(newReplaceSearchText); OpenForum.replaceLastMatch(); return false;" class="secondary button">Replace</a>
+      <a href="#" onClick="OpenForum.setReplaceText(newReplaceSearchText); OpenForum.replaceAllMatches(); return false;" class="secondary button">Replace All</a>
+    </span>
   </p>
-  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <a href="#" onClick="document.getElementById('OpenForumSearch').style.display='none'; return false;" class="secondary button">Close</a>
+</div>
+
+<div id="editorStatus" style="display:none">
+  <a href="#" onClick="showStatus('ready'); return false;">Status: {{status}}</a>
 </div>

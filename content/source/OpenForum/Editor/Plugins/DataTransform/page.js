@@ -1,3 +1,5 @@
+throw( "Not in use. See /OpenForum/AddOn/DataTransformer" );
+
 OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/lib/codemirror.css");
 OpenForum.loadCSS("/OpenForum/Editor/code-mirror.css");
 OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/theme/rubyblue.css");

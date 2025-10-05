@@ -1,16 +1,17 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Returns the authentication string for use by applets
 <hr/>
 <h3>Parameters</h3>
 <ul><li>pageName - dummy</li>
 <hr/>
 <h3>Usage:</h3>
-<xmp class="panel">
+<xmp class="panel" of-exclude="true">
 /OpenForum/Actions/GetAuthentication?pageName=dummy
 </xmp>
 
 <hr/>
 <h3>Server Side Javascript for GET method</h3>
-<a href="//OpenForum/Actions/GetAuthentication/get.sjs">//OpenForum/Actions/GetAuthentication/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/GetAuthentication&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
+<!--Extension InsertSourceFile fileName="get.sjs" --><a href="//OpenForum/Actions/GetAuthentication/get.sjs">//OpenForum/Actions/GetAuthentication/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/GetAuthentication&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
 }
@@ -27,5 +28,4 @@ else
   }
   transaction.sendPage( authentication );
 }
-</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>
+</xmp><!--End Extension InsertSourceFile fileName="get.sjs" --></ul>

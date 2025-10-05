@@ -1,0 +1,98 @@
+<h3>/OpenForum/AddOn/Publisher Sevice API Version 1.1.1</h3>
+
+<hr/>
+<h3>Get Actions</h3>
+
+  <div class="panel callout radius">
+<h3>Action publish</h3>
+<p></p>
+
+<h3>Parameters</h3>
+<table><tr><td>Name</td><td>Description</td></tr>
+<tr><td>pageName (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<tr><td>practice (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<tr><td>debug (<i>required=false</i>)</td><td>{{parameter.description}}</td></tr>
+</table>
+       
+<h3>Example Get Request</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>/OpenForum/AddOn/Publisher?action=publish</textarea>
+  
+<a href="/OpenForum/AddOn/Publisher?action=publish">/OpenForum/AddOn/Publisher?action=publish</a>
+
+<h3>Example Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'></textarea>
+    
+<h3>Example Error Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'></textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+<h3>Action getNeedsPublishing</h3>
+<p></p>
+
+<h3>Parameters</h3>
+<table><tr><td>Name</td><td>Description</td></tr>
+<tr><td>pageName (<i>required=false</i>)</td><td>{{parameter.description}}</td></tr>
+</table>
+       
+<h3>Example Get Request</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>/OpenForum/AddOn/Publisher?action=getNeedsPublishing</textarea>
+  
+<a href="/OpenForum/AddOn/Publisher?action=getNeedsPublishing">/OpenForum/AddOn/Publisher?action=getNeedsPublishing</a>
+
+<h3>Example Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'></textarea>
+    
+<h3>Example Error Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'></textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+<h3>Action getPublishedPageDifferences</h3>
+<p></p>
+
+<h3>Parameters</h3>
+<table><tr><td>Name</td><td>Description</td></tr>
+<tr><td>pageName (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+</table>
+       
+<h3>Example Get Request</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>/OpenForum/AddOn/Publisher?action=getPublishedPageDifferences</textarea>
+  
+<a href="/OpenForum/AddOn/Publisher?action=getPublishedPageDifferences">/OpenForum/AddOn/Publisher?action=getPublishedPageDifferences</a>
+
+<h3>Example Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'></textarea>
+    
+<h3>Example Error Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'></textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+<h3>Action reversePublish</h3>
+<p></p>
+
+<h3>Parameters</h3>
+<table><tr><td>Name</td><td>Description</td></tr>
+<tr><td>pageName (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+</table>
+       
+<h3>Example Get Request</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>/OpenForum/AddOn/Publisher?action=reversePublish</textarea>
+  
+<a href="/OpenForum/AddOn/Publisher?action=reversePublish">/OpenForum/AddOn/Publisher?action=reversePublish</a>
+
+<h3>Example Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'></textarea>
+    
+<h3>Example Error Response</h3>
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'></textarea>
+    
+  </div>
+
+
+<hr/>
+<h3>Post Actions</h3>

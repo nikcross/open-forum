@@ -1,1 +1,16 @@
-Page content missing. Errors: <ul><li>No content supplied by caller</li><li>No content found at OpenForum/FileTemplates/folder/page.content</li><li>No content found at OpenForum/FileTemplates/folder/page.wiki (deprecated)</li></ul> Content:<a href="/OpenForum/Editor?pageName=Null" title="/OpenForum/Editor?pageName=Null"><font color="red" face="Arial">#</font><img border="0" src="/OpenForum/Images/icons/gif/layout_edit.gif"/></a><!--Content built using default-->
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>folder</h3>
+
+<hr/>
+<h3>Child Pages</h3>
+<!--Extension ChildPagesList pageName="/OpenForum/FileTemplates/folder" --><!--End Extension ChildPagesList pageName="/OpenForum/FileTemplates/folder" -->
+
+<hr/>
+<h3>Attachments</h3>
+<!--Extension AttachmentsList pageName="/OpenForum/FileTemplates/folder" matching=".*" --><ul><li> <a href="/OpenForum/FileTemplates/folder/extras.html.fragment">/OpenForum/FileTemplates/folder/extras.html.fragment</a></li>
+<li> <a href="/OpenForum/FileTemplates/folder/page.js">/OpenForum/FileTemplates/folder/page.js</a></li>
+<li> <a href="/OpenForum/FileTemplates/folder/page.content">/OpenForum/FileTemplates/folder/page.content</a></li>
+<li> <a href="/OpenForum/FileTemplates/folder/page.html.fragment">/OpenForum/FileTemplates/folder/page.html.fragment</a></li>
+<li> <a href="/OpenForum/FileTemplates/folder/data.json">/OpenForum/FileTemplates/folder/data.json</a></li>
+<li> <a href="/OpenForum/FileTemplates/folder/page.html">/OpenForum/FileTemplates/folder/page.html</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/FileTemplates/folder" matching=".*" -->

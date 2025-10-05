@@ -1,3 +1,5 @@
+OpenForum.includeScript("/OpenForum/Actions/History/HistoryClient.js");
+
 var pageName = "/OpenForum/Actions/History";
 var fileTables="";
 
@@ -13,6 +15,7 @@ function getHistory(pageName) {
 }
 
 function displayHistory(result) {
+  result = result.data;
   fileTables="<ul>";
   for(var i=0; i<result.length; i++) {
     var file = result[i];

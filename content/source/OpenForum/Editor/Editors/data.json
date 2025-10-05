@@ -1,4 +1,6 @@
 {
-    "pageName": "//OpenForum/Editor/Editors",
-    "title": " Editors"
+    "pageName": "/OpenForum/Editor/Editors",
+    "title": "Editors",
+    "pageParent": "https://open-forum.onestonesoup.org",
+    "editorConfig": "/OpenForum/Editor/Editors/editor-config.json"
 }

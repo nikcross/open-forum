@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Editor/Plugins/Vision/Examples",
-    "title": " Examples"
+    "pageName": "/OpenForum/Editor/Plugins/Vision/Examples",
+    "title": "Examples",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

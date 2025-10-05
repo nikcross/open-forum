@@ -1,0 +1,6 @@
+{
+    "pageName": "/OpenForum/Editor/Editors/CKEditor",
+    "title": "CKEditor",
+    "pageParent": "https://open-forum.onestonesoup.org",
+    "editorConfig": "/OpenForum/Editor/Editors/CKEditor/editor-config.json"
+}

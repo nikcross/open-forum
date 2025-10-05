@@ -1,0 +1,44 @@
+{
+    "version": "0.0.2",
+    "libraries": [
+        {
+            "name": "TaskSchedulerWatch",
+            "fileName": "TaskSchedulerWatch.sjs",
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "parameters": [],
+    "actions": [
+        {
+            "name": "getTaskSchedulerTime",
+            "call": "TaskSchedulerWatch.getTaskSchedulerTime();",
+            "parameters": [],
+            "libraries": [],
+            "method": "get",
+            "description": "",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "getTaskSchedulerTime"
+        },
+        {
+            "name": "getScheduleView",
+            "call": "TaskSchedulerWatch.getScheduleView();",
+            "parameters": [],
+            "libraries": [],
+            "method": "get",
+            "description": "",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "getScheduleView"
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs"
+}

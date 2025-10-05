@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/RefreshPage",
-    "title": " Refresh Page"
+    "pageName": "/OpenForum/Actions/RefreshPage",
+    "title": "RefreshPage",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

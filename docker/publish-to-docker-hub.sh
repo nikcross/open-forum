@@ -2,5 +2,5 @@
 
 ./update.sh
 ./docker-build.sh
-docker login -u=nikcross -p=$1
-docker push nikcross/openforum:5.0.9
+docker login -u=nikcross -p=$2
+docker push nikcross/openforum:$1

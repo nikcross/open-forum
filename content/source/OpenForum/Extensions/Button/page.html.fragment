@@ -1,12 +1,17 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <h3>Deprecated - Use <a href="/OpenForum/Extensions/ActionButton">/OpenForum/Extensions/ActionButton</a></h3>
 
 <h3>Example</h3>
-<a class="button tiny" onClick="doAction(); return false;">Do Action</a>
+<!--Extension Button title="Do Action" function="doAction" --><a class="button tiny" onClick="doAction(); return false;">Do Action</a><!--End Extension Button title="Do Action" function="doAction" -->
 
 <br/>
 
-<a href="//OpenForum/Extensions/Button/renderer.sjs">//OpenForum/Extensions/Button/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/Button&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var title = ""+extension.getAttribute("title");
+<!--Extension InsertSourceFile fileName="renderer.sjs" --><a href="//OpenForum/Extensions/Button/renderer.sjs">//OpenForum/Extensions/Button/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/Button&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var title = ""+extension.getAttribute("title");
 var fn = ""+extension.getAttribute("function");
 
-return "<a class=\"button tiny\" onClick=\""+fn+"(); return false;\">"+title+"</a>";</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+var id = extension.getAttribute("id");
+if(id!=null) {
+	return "<a id=<br/>""+id+"<br/>" class=<br/>"button tiny<br/>" onClick=<br/>""+fn+"(); return false;<br/>">"+title+"</a>";
+} else {
+	return "<a class=<br/>"button tiny<br/>" onClick=<br/>""+fn+"(); return false;<br/>">"+title+"</a>";
+}</xmp><!--End Extension InsertSourceFile fileName="renderer.sjs" -->

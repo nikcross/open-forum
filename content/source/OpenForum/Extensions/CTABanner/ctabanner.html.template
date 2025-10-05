@@ -1,0 +1,12 @@
+<script>
+  var ctaCSSLoaded = false;
+  if(ctaCSSLoaded == false) {
+    ctaCSSLoaded= true;
+    OpenForum.loadCSS( "/OpenForum/Extensions/CTABanner/cta.css" );
+  }
+</script>
+<div class="ctaBanner" style="background-image: url({{imageURL}});">  
+	<h1 style="color: white !important;">{{title}}</h1>
+	<p style="width: 40%"><b>{{text}}</b></p>
+  <a href='{{ctaURL}}' class='ctaButton'>{{ctaText}}</a>
+</div>

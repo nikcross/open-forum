@@ -1,0 +1,19 @@
+{
+  "short_name": "MinimumPWA",
+  "name": "MinimumPWA",
+  "icons": [
+    {
+    "src":"/TheLab/Experiments/ProgresiveWebApp/flute-glass-holder-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+    }
+  ],
+  "scope": "/TheLab/Experiments/ProgresiveWebApp/",
+  "start_url": "/TheLab/Experiments/ProgresiveWebApp/page.html",
+  "background_color": "#e05a47",
+  "theme_color": "#e05a47",
+  "display": "standalone",
+  "permissions": [
+    "storage"
+  ]
+}

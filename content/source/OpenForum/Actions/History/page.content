@@ -1,3 +1,8 @@
 !!History for {{pageName}}
 
+!!Page History
 {{fileTables}}
+
+!!Api
+
+&insert:/OpenForum/Actions/History/service-definition.wiki.fragment;

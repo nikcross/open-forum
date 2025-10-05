@@ -1,4 +1,3 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 
-<div id="pythonEditor" style="height: 100%;"><textarea id="editor{{editorIndex}}Src" style="hight: 100%;">Loading...</textarea></div>
-
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<div id="InPageEditor" style="height: 100%;"><textarea id="editor{{editorIndex}}Src" style="hight: 100%;">Loading...</textarea></div>

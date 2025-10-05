@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Extensions/MarkPage",
-    "title": " Mark Page"
+    "pageName": "/OpenForum/Extensions/MarkPage",
+    "title": "MarkPage",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

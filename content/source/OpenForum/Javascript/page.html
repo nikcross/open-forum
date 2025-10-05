@@ -7,21 +7,20 @@
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/page.js"></script>
-    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css" />
 
     <!-- insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start -->    <script>
       var pageName = "/OpenForum/Javascript";
       var author = "unknown";
-      var time = "1480609592000";
+      var time = "1730279425000";
       var currentUser = "";
       var user = {};
       var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
-      JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName).onSuccess( function (response) {  currentUser = response;  } ).go();
+      JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName).onSuccess( function (response) {  currentUser = response.data;  } ).go();
       JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
         function (response) {
-          user.profile = response.profile;
-          if(response.profile.avatar) {
-            avatar = "<img src='" + response.profile.avatar + "' style='width: 24px; height: 24px;' />";
+          user.profile = response.data;
+          if(response.data.avatar) {
+            avatar = "<img src='" + response.data.avatar + "' style='width: 24px; height: 24px;' />";
           }
         }
       ).go();
@@ -47,20 +46,72 @@
       <ul class="title-area">
         <li class="name">
           <h1>
-            <!-- insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) start --><a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" /></a><!-- insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) end -->
+            <img src="/OpenForum/Images/open-forum-dog-small.png" />
           </h1>
         </li>
       </ul>
       <ul class="title-area">
         <li class="name">
           <h1>
-            <a href="#" title=" Javascript"> Javascript</a>
+            <a href="#" title=" Javascript">&shortTitle;</a>
           </h1>
         </li>
       </ul>
-      <!-- insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) start --><section class="top-bar-section">
+      <!-- insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) start --><section class="top-bar-section">
   <ul class="right">
-
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Actions</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript">Edit</a></li>
+        <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Javascript">Refresh Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewPageModal">Create New Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewChildPageModal">Create New Child Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
+        <li><a href="/Development?action=publish&pageName=/OpenForum/Javascript">Publish Page</a></li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Sub Pages</a>
+      <ul class="dropdown"><li>
+        <ul><li> <a href="/OpenForum/Javascript/Alloy">Alloy</a></li>
+<li> <a href="/OpenForum/Javascript/Application">Application</a></li>
+<li> <a href="/OpenForum/Javascript/Builder">Builder</a></li>
+<li> <a href="/OpenForum/Javascript/CodeMirror">CodeMirror</a></li>
+<li> <a href="/OpenForum/Javascript/Core">Core</a></li>
+<li> <a href="/OpenForum/Javascript/DocumenationGenerator">DocumenationGenerator</a></li>
+<li> <a href="/OpenForum/Javascript/DocumentationGenerator">DocumentationGenerator</a></li>
+<li> <a href="/OpenForum/Javascript/Help">Help</a></li>
+<li> <a href="/OpenForum/Javascript/JavaWrapper">JavaWrapper</a></li>
+<li> <a href="/OpenForum/Javascript/Keyboard">Keyboard</a></li>
+<li> <a href="/OpenForum/Javascript/OpenForumClient">OpenForumClient</a></li>
+<li> <a href="/OpenForum/Javascript/OpenForumServer">OpenForumServer</a></li>
+<li> <a href="/OpenForum/Javascript/Page">Page</a></li>
+<li> <a href="/OpenForum/Javascript/PageBuilder">PageBuilder</a></li>
+<li> <a href="/OpenForum/Javascript/QRCode">QRCode</a></li>
+<li> <a href="/OpenForum/Javascript/Renderer">Renderer</a></li>
+<li> <a href="/OpenForum/Javascript/Services">Services</a></li>
+<li> <a href="/OpenForum/Javascript/Sound">Sound</a></li>
+<li> <a href="/OpenForum/Javascript/SpeechRecognition">SpeechRecognition</a></li>
+<li> <a href="/OpenForum/Javascript/SpeechSynthesis">SpeechSynthesis</a></li>
+<li> <a href="/OpenForum/Javascript/Storage">Storage</a></li>
+<li> <a href="/OpenForum/Javascript/Tester">Tester</a></li>
+<li> <a href="/OpenForum/Javascript/Tree">Tree</a></li>
+<li> <a href="/OpenForum/Javascript/User">User</a></li>
+<li> <a href="/OpenForum/Javascript/VideoCapture">VideoCapture</a></li>
+<li> <a href="/OpenForum/Javascript/WebWorker">WebWorker</a></li>
+</ul>
+        </li></ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Attachments</a>
+      <ul class="dropdown"><li>
+        
+        </li></ul>
+    </li>
     <li class="divider"></li>
 
     <li class="has-dropdown">
@@ -96,7 +147,48 @@
       </ul>
     </li>
   </ul>
-</section><!-- insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) end -->
+</section>
+
+<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Page</h2>
+  <p>Copy this page to <input type="text" of-id="OpenForumCopyPage"/></p>
+  <p><a href="#" onClick="OpenForum.action.copyPage('/OpenForum/Javascript',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumCopyPage = "/OpenForum/Javascript";
+  </script>
+</div>
+
+<div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Move Page</h2>
+  <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
+  <p><a href="#" onClick="OpenForum.action.movePage('/OpenForum/Javascript',OpenForumCopyPage);return false;" class="secondary button">Move Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumMovePage = "/OpenForum/Javascript";
+  </script>
+</div>
+
+<div id="OpenForumNewPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Page</h2>
+  <p>New page to create <input type="text" of-id="OpenForumNewPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewPage = "/";
+  </script>
+</div>
+
+<div id="OpenForumNewChildPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Child Page</h2>
+  <p>New child page to create <input type="text" of-id="OpenForumNewChildPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewChildPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewChildPage = "/OpenForum/Javascript/";
+  </script>
+</div>
+<!-- insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) end -->
     </nav>
     <nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem" class="current"><a href="/OpenForum">Javascript</a></li></nav>
 
@@ -135,7 +227,15 @@
 
 <hr/>
 <h3>Attachments</h3>
-<ul><li><a href="/OpenForum/Javascript/Common.sjs" title="/OpenForum/Javascript/Common.sjs">/OpenForum/Javascript/Common.sjs</a></li><li><a href="/OpenForum/Javascript/page.content" title="/OpenForum/Javascript/page.content">/OpenForum/Javascript/page.content</a></li><li><a href="/OpenForum/Javascript/data.json" title="/OpenForum/Javascript/data.json">/OpenForum/Javascript/data.json</a></li><li><a href="/OpenForum/Javascript/page.js" title="/OpenForum/Javascript/page.js">/OpenForum/Javascript/page.js</a></li><li><a href="/OpenForum/Javascript/open-forum.js" title="/OpenForum/Javascript/open-forum.js">/OpenForum/Javascript/open-forum.js</a></li><li><a href="/OpenForum/Javascript/page.html.fragment" title="/OpenForum/Javascript/page.html.fragment">/OpenForum/Javascript/page.html.fragment</a></li><li><a href="/OpenForum/Javascript/page.html" title="/OpenForum/Javascript/page.html">/OpenForum/Javascript/page.html</a></li><li><a href="/OpenForum/Javascript/md5.js" title="/OpenForum/Javascript/md5.js">/OpenForum/Javascript/md5.js</a></li><li><a href="/OpenForum/Javascript/Javascript.wiki.zip" title="/OpenForum/Javascript/Javascript.wiki.zip">/OpenForum/Javascript/Javascript.wiki.zip</a></li></ul>
+<ul><li> <a href="/OpenForum/Javascript/Common.sjs">/OpenForum/Javascript/Common.sjs</a></li>
+<li> <a href="/OpenForum/Javascript/page.content">/OpenForum/Javascript/page.content</a></li>
+<li> <a href="/OpenForum/Javascript/data.json">/OpenForum/Javascript/data.json</a></li>
+<li> <a href="/OpenForum/Javascript/page.js">/OpenForum/Javascript/page.js</a></li>
+<li> <a href="/OpenForum/Javascript/open-forum.js">/OpenForum/Javascript/open-forum.js</a></li>
+<li> <a href="/OpenForum/Javascript/page.html.fragment">/OpenForum/Javascript/page.html.fragment</a></li>
+<li> <a href="/OpenForum/Javascript/page.html">/OpenForum/Javascript/page.html</a></li>
+<li> <a href="/OpenForum/Javascript/md5.js">/OpenForum/Javascript/md5.js</a></li>
+</ul>
 <!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
 <!--Page Content End-->
 
@@ -167,7 +267,7 @@
     </ul>
   </div>
 </footer><!-- insert (/OpenForum/PageTemplates/Branding/footer.page.content) end -->
-    
+
     <!-- insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
   <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
   <p>{{OpenForum.errorMessage}}</p>
@@ -186,7 +286,7 @@
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 <!-- insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) end -->
-
+    
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
     <script>

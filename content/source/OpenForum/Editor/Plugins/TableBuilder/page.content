@@ -1,0 +1,78 @@
+<div id="tableBuilder" style="height: 100vh;background-color: #203d64; color: #eef7ee;">
+    <div class="row" style="padding: 10px;">
+    __Table Builder v0.0.1 Easter Rabbit Build__
+  </div>
+  <div> 
+    <div class="large-3 columns">
+<form>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <label style="color: #eef7ee;">__Table Name__</label> <input type='text' id='tableBuilder.tableNameField' of-id='tableBuilder.tableName' placeholder=' ' />
+    </div>
+  </div>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <label style="color: #eef7ee;">__Columns__</label> <div id="defaultEditor"><textarea id="editor{{editorIndex}}Src" style="height: 100%;">Loading...</textarea></div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <p>__Row Actions__</p>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='large-4 columns'>
+      <label style="color: #eef7ee;">__Edit__</label> <input type='checkbox' id='tableBuilder.actions.editField' of-id='tableBuilder.actions.edit' placeholder=' ' />
+    </div>
+    <div class='large-4 columns'>
+      <label style="color: #eef7ee;">__Remove__</label> <input type='checkbox' id='tableBuilder.actions.removeField' of-id='tableBuilder.actions.remove' placeholder=' ' />
+    </div>
+    <div class='large-4 columns'>
+      <label style="color: #eef7ee;">__Move__</label> <input type='checkbox' id='tableBuilder.actions.moveField' of-id='tableBuilder.actions.move' placeholder=' ' />
+    </div>
+  </div>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <p>__Table Actions__</p>
+    </div>
+  </div>
+  <div class='row'>
+        <div class='large-3 columns'>
+      <label style="color: #eef7ee;">__Add row__</label> <input type='checkbox' id='tableBuilder.actions.addField' of-id='tableBuilder.actions.add' placeholder=' ' />
+    </div>
+    <div class='large-3 columns'>
+      <label style="color: #eef7ee;">__Save data__</label> <input type='checkbox' id='tableBuilder.actions.saveField' of-id='tableBuilder.actions.save' placeholder=' ' />
+    </div>
+    <div class='large-3 columns'>
+      <label style="color: #eef7ee;">__Search__</label> <input type='checkbox' id='tableBuilder.actions.searchField' of-id='tableBuilder.actions.search' placeholder=' ' />
+    </div>
+    <div class='large-3 columns'>
+      <label style="color: #eef7ee;">__Sort__</label> <input type='checkbox' id='tableBuilder.actions.sortField' of-id='tableBuilder.actions.sort' placeholder=' ' />
+    </div>
+  </div>
+        <a class='button tiny round' onClick="if( isUndefined(displayContentTab) ) { $('#tableBuilderInstructions').foundation('reveal', 'open'); } else { displayContentTab('/OpenForum/Editor/Plugins/TableBuilder','instructions.html.fragment','Table Builder Instructions') } return false;">Instructions</a>
+</form>
+
+    </div>
+
+    <div class="large-3 columns">
+      __Table__
+      <div class="panel" id="theTable"></div>
+    </div>
+
+    <div class="large-6 columns">
+      __Table Html__
+
+      [{ScriptClip script="" id="tableBuilder.exampleTableHtml"}]
+
+      ----
+
+      __Table Script__
+
+      [{ScriptClip script="" id="tableBuilder.exampleTableScript"}]
+
+    </div>
+  </div>
+</div>
+
+[{Popup id="tableBuilderInstructions" sourceFileName="instructions.wiki.fragment" sourcePageName="/OpenForum/Editor/Plugins/TableBuilder"}]

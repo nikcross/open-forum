@@ -1,0 +1,15 @@
+!!&title;
+
+((The Publisher add on adds the ability to have a development area in your OpenForum server where you can work on pages and services before they are published.))
+((On publishing a page from the development area, all references to Development are removed, and the pages contents are copied to the production area of your web site and the page rebuilt.))
+----
+!!Excluding a Page
+((Add a file do-not-release.txt to stop a page being published.))
+----
+!!Per Page Translation
+((During the publish process, a translation script can be supplied as a file called development-translation.sjs.
+This script will be passed each files data to apply the translation to.))
+----
+<div class="row">
+  &insert:/OpenForum/AddOn/Publisher/service-definition.wiki.fragment;
+</div>

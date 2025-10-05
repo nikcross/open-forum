@@ -1,15 +1,52 @@
-var formBuilder = {
-  open: false
-};
+if( typeof formBuilder === "undefined" ) {
+  formBuilder = {
+    open: false,
+    close: function() {
+      formBuilder.open = false;
+    }
+  };
 
-addPlugin( {
-  name: "formBuilder",
-  init: function() {
+  formBuilder.formFields = "";
+  formBuilder.exampleFormHtml = "<!-- html -->";
+  formBuilder.exampleFormScript = "";
+
+  formBuilder.buildForm = function() {
+    OpenForum.scan();
+
+    var form = OpenForum.FormBuilder.buildForm( formBuilder.formFields , "myForm" );
+    
+    formBuilder.exampleFormHtml = form.html;
+    formBuilder.exampleFormScript =  "<script>\n" + form.script + "\n</script>\n";
+      
+    try {
+    	OpenForum.evaluate( form.script );
+    } catch(e) { console.log(e); }
+    
+    var element = document.getElementById("theForm");
+    element.innerHTML = formBuilder.exampleFormHtml;
+    OpenForum.crawl( element );
+    
+    OpenForum.scan();
+  };
+
+  formBuilder.copyHtml = function() {
+    OpenForum.copyData(formBuilder.exampleFormHtml);
+    alert("Copied to clipboard");
+  };
+
+  try{
+    formBuilder.buildForm();
+  } catch(e) {}
+
+  addPlugin( {
+    name: "formBuilder",
+    init: function() {
       if(formBuilder.open===true) {
         return;
       }
       formBuilder.open=true;
       editorIndex++;
+      this.editorIndex = editorIndex;
       var editor = document.createElement("div");
       editor.setAttribute("id","editor"+editorIndex);
       editor.setAttribute("style","display:block;");
@@ -17,72 +54,44 @@ addPlugin( {
 
       var content = OpenForum.loadFile("/OpenForum/Editor/Plugins/FormBuilder/page.html.fragment");
       OpenForum.setElement("editor"+editorIndex,content);
-    
+
+      /**/
+      DependencyService.createNewDependency()
+        .addDependency("/OpenForum/Editor/Editors/StandaloneEditor.js")
+        .addDependency("/OpenForum/Editor/Plugins/FormBuilder/FormBuilder.js")
+        .setOnLoadTrigger( function() {
+
+        var editorConfig = {
+          flavour: "Default",
+          editingPageName: "/OpenForum/Editor/Plugins/FormBuilder",
+          editingFileName: "form-definition.txt",
+          elementId: "defaultEditor",
+          bind: "formBuilder.formFields",
+          retrieve: false,
+          inPlugin: true
+        };
+        var textEditor = new StandaloneEditor( editorConfig );
+
+      } ).loadDependencies();
+
+      /**/
+
       OpenForum.crawl(document.getElementById("editor"+editorIndex));
-    
-      
-            OpenForum.addTab("editor"+editorIndex);
-            editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "FormBuilder", changed: "", options: []};
-            showTab(editorIndex);
-            return editorList[editorIndex];
-          }
-      }
-) ;
 
+      OpenForum.addListener( "formBuilder.formFields", formBuilder.buildForm );
 
-formBuilder.formFields = "Name name";
-formBuilder.exampleFormHtml = "< html >";
-
-formBuilder.buildForm = function() {
-  var fields = formBuilder.formFields.split("\n");
-  formBuilder.exampleFormHtml = "<form>\n";
-  var currentGroup = [];
-  for(var i=0;i<fields.length;i++) {
-    if(fields[i].length===0) {
-      if(currentGroup.length>0) {
-        formBuilder.renderFormRow(currentGroup);
-        currentGroup=[];
-      }
-      continue;
+      OpenForum.addTab("editor"+editorIndex);
+      editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Form Builder", changed: "", options: [], plugin: formBuilder};
+      showTab(editorIndex);
+      return editorList[editorIndex];
     }
+  }) ;
 
-    var cell = fields[i].split(" ");
-    var type = "text";
-    var name = cell[0];
-    var id = name;
-    if(cell.length===2) {
-      id = cell[1];
+} else {
+  for(var i in editorList) {
+    if(editorList[i].name==="Form Builder") {
+      showTab( editorList[i].id );
+      break;
     }
-    currentGroup.push({name: name, id: id ,type: type});
   }
-  if(currentGroup.length>0) {
-    formBuilder.renderFormRow(currentGroup);
-    currentGroup=[];
-  }
-  formBuilder.exampleFormHtml += "</form>\n";
-
-  document.getElementById("html").innerHTML=formBuilder.exampleFormHtml;
-};
-
-formBuilder.renderFormRow = function(currentGroup) {
-
-  var columns = 12;
-  var columnPerField = Math.floor(columns/currentGroup.length);
-  if(columnPerField===0) {
-    columnPerField=1;
-  }
-  formBuilder.exampleFormHtml += "<div class='row'>\n";
-  var fieldColumns = columnPerField;
-  for(var f=0;f<currentGroup.length;f++) {
-    formBuilder.exampleFormHtml += "<div class='large-"+fieldColumns+" columns'>\n";
-    formBuilder.renderFormField(currentGroup[f]);
-    formBuilder.exampleFormHtml += "</div>\n";
-  }
-  formBuilder.exampleFormHtml += "</div>\n";
-};
-
-formBuilder.renderFormField = function(field) {
-  formBuilder.exampleFormHtml += "<label>"+field.name;
-  formBuilder.exampleFormHtml += "<input type='text' id='"+field.id+"' placeholder=' ' />";
-  formBuilder.exampleFormHtml += "</label>\n";
-};
+}

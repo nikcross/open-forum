@@ -1,0 +1,16 @@
+Inserts a files contents into the page
+----
+!!Parameters
+* pageName - The page where the file is attached (optional. default = current page name)
+* fileName - The file to insert
+
+----
+!!Usage:
+{{{
+[{InsertNotes pageName="/OpenForum/Extensions/InsertNotes" fileName="notes.txt"}]
+}}}
+[{InsertNotes pageName="/OpenForum/Extensions/InsertNotes" fileName="notes.txt"}]
+
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

@@ -1,0 +1,7 @@
+<div class="row">
+!!Banner v0.0.2
+{{{ [{Banner imageURL="" title="" text=""}] }}}
+[{Banner imageURL="" title="" text=""}]
+\\
+[{ActionButton text="Add Banner Block type to Content Editor" action="addToContentEditor"}]
+</div>

@@ -1,3 +1,4 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
 <hr/>
 <h3>Parameters</h3>
@@ -6,15 +7,14 @@ A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
 </ul>
 <hr/>
 <h3>Usage:</h3>
-<xmp class="panel">
-[{ActionInput action="alert" parameters="pageName=Home"}]
+<xmp class="panel" of-exclude="true">
+<!--Extension ActionInput action="alert" parameters="pageName=Home" --><input type="text" onKeyPress="(function(element,event) { if(event.charCode != 13) {return false;} else { alert( element.value ); } })(this,event);"><!--End Extension ActionInput action="alert" parameters="pageName=Home" -->
 </xmp>
-<input type="text" onKeyPress="(function(element,event) { if(event.charCode != 13) {return false;} else { alert( element.value ); } })(this,event);">
+<!--Extension ActionInput action="alert" parameters="pageName=Home" --><input type="text" onKeyPress="(function(element,event) { if(event.charCode != 13) {return false;} else { alert( element.value ); } })(this,event);"><!--End Extension ActionInput action="alert" parameters="pageName=Home" -->
 
 <hr/>
 
-<a href="//OpenForum/Extensions/ActionInput/renderer.sjs">//OpenForum/Extensions/ActionInput/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ActionInput&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">action = extension.getAttribute("action");
+<!--Extension InsertSourceFile fileName="renderer.sjs" --><a href="//OpenForum/Extensions/ActionInput/renderer.sjs">//OpenForum/Extensions/ActionInput/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ActionInput&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">action = extension.getAttribute("action");
 
-return "<input type=\"text\" onKeyPress=\"(function(element,event) { if(event.charCode != 13) {return false;} else { "+action+"( element.value ); } })(this,event);\">";
-</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+return "<input type=<br/>"text<br/>" onKeyPress=<br/>"(function(element,event) { if(event.charCode != 13) {return false;} else { "+action+"( element.value ); } })(this,event);<br/>">";
+</xmp><!--End Extension InsertSourceFile fileName="renderer.sjs" -->

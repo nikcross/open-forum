@@ -1,0 +1,7 @@
+<div class="row">
+!!/OpenForum/Javascript/Application/TableEditor v0.0.2
+{{{ [{/OpenForum/Javascript/Application/TableEditor tableName="myTable" fileName="/OpenForum/Javascript/Application/TableEditor/table-data.json" rowTemplateFileName="/OpenForum/Javascript/Application/TableEditor/row-template.json"}] }}}
+[{/OpenForum/Javascript/Application/TableEditor tableName="myTable" fileName="/OpenForum/Javascript/Application/TableEditor/table-data.json" rowTemplateFileName="/OpenForum/Javascript/Application/TableEditor/row-template.json"}]
+\\
+[{ActionButton text="Add /OpenForum/Javascript/Application/TableEditor Block type to Content Editor" action="addToContentEditor"}]
+</div>

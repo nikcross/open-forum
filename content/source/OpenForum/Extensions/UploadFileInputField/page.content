@@ -1,0 +1,7 @@
+<div class="row">
+!!UploadFileInputField v0.0.6
+{{{ [{UploadFileInputField name="upload" targetPageName="/Sandbox" text="Upload" message="File Uploaded"}] }}}
+[{UploadFileInputField name="upload" targetPageName="/Sandbox" text="Upload" message="File Uploaded"}]
+\\
+[{ActionButton text="Add UploadFileInputField Block type to Content Editor" action="addToContentEditor"}]
+</div>

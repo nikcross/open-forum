@@ -1,9 +1,14 @@
 function JavascriptEditor(editorIndex,pageName,fileName,markChanged) {
   var self = this;
   var cm = null;
+  self.ready = false;
 
+  self.requestFullscreen = function() {
+    document.getElementById( "editor"+editorIndex ).requestFullscreen();
+  };
+  
   self.init = function() {
-    var content = OpenForum.loadFile("/OpenForum/Editor/Editors/JavascriptEditor/page.html.fragment");
+    var content = OpenForum.loadFile("/OpenForum/Editor/Editors/JavascriptEditor/page.html.fragment",null,true);
     content = content.replace(/\{\{editorIndex\}\}/g,editorIndex);
     OpenForum.setElement("editor"+editorIndex,content);
 
@@ -40,8 +45,10 @@ function JavascriptEditor(editorIndex,pageName,fileName,markChanged) {
         viewportMargin: Infinity,
         mode: "javascript",
         styleActiveLine: true,
-        gutters: ["CodeMirror-lint-markers","CodeMirror-linenumbers"],
-        lint: true
+        gutters: ["comments","CodeMirror-lint-markers","CodeMirror-linenumbers"],
+        lint: {
+          "esversion": 6
+        }
       }
     );
     cm.setValue("Loading...");
@@ -50,23 +57,38 @@ function JavascriptEditor(editorIndex,pageName,fileName,markChanged) {
     //load source if exists
 
     if(OpenForum.file.attachmentExists(pageName,fileName)==="true") {
-      source = OpenForum.loadFile(pageName+"/"+fileName);
+      source = OpenForum.loadFile(pageName+"/"+fileName,null,true);
     } else if(OpenForum.file.attachmentExists("/OpenForum/FileTemplates/js",fileName+".default")==="true") {
       source = OpenForum.loadFile("/OpenForum/FileTemplates/js/"+fileName+".default");
+      source = source.replace("Author:","Author: " +user.profile.userName);
     } else {
-      source = OpenForum.loadFile("/OpenForum/FileTemplates/js/default.js");
+      if(fileName.indexOf(".json")!=-1) {
+        source = OpenForum.loadFile("/OpenForum/FileTemplates/js/default.json");
+    	source = source.replace("Author:","Author: " +user.profile.userName);
+      } else {
+        source = OpenForum.loadFile("/OpenForum/FileTemplates/js/default.js");
+    	source = source.replace("Author:","Author: " +user.profile.userName);
+      }
     }
     cm.setValue(source);
 
     cm.setSize(null,"100%");
 
     cm.refresh();
-
+    
     cm.on("change", function(cm, change) {
       if(markChanged) {
-        editorList[editorIndex].changed="*";
+        //Search because array size can change if tabs closed
+        //but editorIndex is a closure in this case
+        for(var i in editorList) {
+          if(editorList[i].id==editorIndex) {
+            editorList[i].changed="*";
+            return;
+          }
+        }
       }
     });
+    self.ready = true;
   };
 
   self.getCodeMirror = function() {
@@ -90,10 +112,45 @@ function JavascriptEditor(editorIndex,pageName,fileName,markChanged) {
     var data = "";
 
     data += renderTabOption("Close","Close editor","closeEditor( "+editorIndex+" )");
+      data += renderTabOption("Full Screen","Full Screen "+pageName+"/"+fileName,"editorList["+editorIndex+"].editor.requestFullscreen()");
     data += renderTabOption("Save","Save "+pageName+"/"+fileName,"saveFile( '"+pageName+"' , '"+fileName+"' )");
-    data += renderTabOption("Run","Run "+pageName+"/"+fileName,"editorList["+editorIndex+"].editor.run()");
+    if(fileName.indexOf(".json")!=-1) {
+      data += renderTabOption("Prettify","Prettify "+pageName+"/"+fileName,"editorList["+editorIndex+"].editor.prettifyJson()");
+    } else if(fileName.indexOf(".test.sjs")!=-1) {
+      data += renderTabOption("Run Test","Run Test "+pageName+"/"+fileName,"editorList["+editorIndex+"].editor.runAsTest()");
+    } else {
+      data += renderTabOption("Run","Run "+pageName+"/"+fileName,"editorList["+editorIndex+"].editor.run()");
+      data += renderTabOption("Generate Docs","Generate Documentation","window.open('/OpenForum/AddOn/ServiceBuilder/JavascriptDocumentationGenerator?fileName=" + pageName+"/"+fileName + "&autorun=true','')");
+    }
+    if(fileName.indexOf(".sjs")!=-1 && fileName.indexOf(".test.sjs")==-1) {
+      data += renderTabOption("Create Test","Create Test for "+pageName+"/"+fileName,"editorList["+editorIndex+"].editor.createTest()");
+    }
+    data += renderTabOption("Download to desktop","Download "+pageName+"/"+fileName,"OpenForum.Browser.download( '"+fileName+"',editorList["+editorIndex+"].editor.getValue() )");
+    data += renderTabOption("Copy","Copy to clipboard","OpenForum.copyData( editorList["+editorIndex+"].editor.getValue() )");
+
+    if( pageName.indexOf("/Development/") == 0 ) {
+      if( OpenForum.fileExists( pageName.substring(12) + "/" + fileName ) ) {
+        data += renderTabOption("Compare","Compare with Production","editorList["+editorIndex+"].editor.compareWithProduction();");
+      }
+    }
 
     return data;
+  };
+
+  self.compareWithProduction = function() {
+    if( pageName.indexOf("/Development/") != 0 ) return;
+
+    if( typeof fileDiff == "undefined" ) {
+      loadPlugin("FileDiff", self.compareWithProduction);
+      return;
+    }
+
+    fileDiff.openFile1(pageName,fileName);
+    fileDiff.openFile2(pageName.substring(12),fileName);
+  };
+
+  self.prettifyJson = function() {
+    self.setValue( JSON.stringify( JSON.parse(self.getValue()),null,4 ) );
   };
 
   self.run = function() {
@@ -109,7 +166,15 @@ function JavascriptEditor(editorIndex,pageName,fileName,markChanged) {
     }
               );
   };
-
+  
+  self.runAsTest = function() {
+    window.open( "/OpenForum/AddOn/Tester?pageName=" + pageName + "&testFileName=" + fileName + "&run=true", "tester" );
+  };
+  
+  self.createTest = function() {
+    window.open( "/OpenForum/AddOn/Tester/CreateTest?pageName=" + pageName + "&testFileName=" + fileName, "CreateTest" );
+  };
+  
   self.documentation = [
     {pageName: "StandardJavascript/Global", title:"Global JS"},
     {pageName: "StandardJavascript/Array", title:"JS Arrays"},
@@ -122,6 +187,7 @@ function JavascriptEditor(editorIndex,pageName,fileName,markChanged) {
   if(fileName.indexOf(".js")!=-1) {
     self.documentation.push( {pageName: "OpenForumJavascript/Overview", title:"OpenForum Javascript"} );
     self.documentation.push( {pageName: "DependencyService/Overview", title:"OpenForum DependencyService"} );
+    self.documentation.push( {pageName: "/OpenForum/Giraffe/QuickReference", title:"Giraffe Graphics Library"} );
   } else if(fileName==="get.sjs" || fileName==="post.sjs") {
     self.documentation.push( {pageName: "OpenForumServerSideJavascript/OpenForum", title: "SJS Transaction"} );
   }
@@ -134,18 +200,18 @@ function JavascriptEditor(editorIndex,pageName,fileName,markChanged) {
 
   DependencyService.createNewDependency()
     .addDependency("OpenForum/Javascript/CodeMirror/mode/javascript/javascript.js")
-    
+
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/hint/show-hint.js")
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/hint/javascript-hint.js")
-  
+
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/lint/lint.js")
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/lint/javascript-lint.js")
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/jshint.js")
-  
+
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/edit/matchbrackets.js")
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/comment/continuecomment.js")
     .addDependency("/OpenForum/Javascript/CodeMirror/addon/comment/comment.js")
-    .addDependency("/OpenForum/Editor/Editors/HTMLEditor/Autocomplete.js")
+    .addDependency("/OpenForum/Editor/Editors/Autocomplete.js")
 
     .setOnLoadTrigger( function() {
     var o = self;

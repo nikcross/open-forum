@@ -1,0 +1,11 @@
+!!&title;
+
+[/OpenForum/Actions/SystemTime?action=getTime]
+
+----
+!!Child Pages
+[{ChildPagesList pageName="&pageName;"}]
+
+----
+!!Attachments
+[{AttachmentsList pageName="&pageName;" matching=".*"}]

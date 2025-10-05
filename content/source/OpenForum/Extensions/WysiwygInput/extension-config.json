@@ -1,0 +1,34 @@
+{
+    "version": "0.0.1",
+    "configFile": "extension-config.json",
+    "pageName": "/OpenForum/Extensions/WysiwygInput",
+    "template": {
+        "pageName": "/OpenForum/Extensions/WysiwygInput",
+        "fileName": "wysiwyg-input.html.template"
+    },
+    "buildReferencePage": true,
+    "buildBlockEditor": false,
+    "parameters": [
+        {
+            "name": "name",
+            "exampleValue": "",
+            "defaultValue": "",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "value",
+            "exampleValue": "",
+            "defaultValue": "",
+            "required": true,
+            "view": "display: none;",
+            "edit": "display: block;"
+        }
+    ],
+    "blockEditor": {
+        "name": "",
+        "icon": ""
+    },
+    "buildRenderer": true
+}

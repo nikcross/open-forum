@@ -1,0 +1,40 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3>TextDisplayCard v0.0.1</h3>
+<xmp class="panel" of-exclude="true"> <!--Extension TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" --><script>
+if( typeof imageDisplayCSSLoaded == "undefined" ){ 
+  OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
+  imageDisplayCSSLoaded = true;
+}
+</script>
+<div class="medium-6 columns end">
+  <div class="card">
+    <div class="content">
+      <span class="title">Open Forum</span>
+      <p>The future</p>
+    </div>
+    <div class="action">
+      <a href='https://open-forum.onestonesoup.org/'>Open Forum</a>
+    </div>
+  </div>
+</div><!--End Extension TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" --> </xmp>
+<!--Extension TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" --><script>
+if( typeof imageDisplayCSSLoaded == "undefined" ){ 
+  OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
+  imageDisplayCSSLoaded = true;
+}
+</script>
+<div class="medium-6 columns end">
+  <div class="card">
+    <div class="content">
+      <span class="title">Open Forum</span>
+      <p>The future</p>
+    </div>
+    <div class="action">
+      <a href='https://open-forum.onestonesoup.org/'>Open Forum</a>
+    </div>
+  </div>
+</div><!--End Extension TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" -->
+<br/><br/>
+<!--Extension ActionButton text="Add TextDisplayCard Block type to Content Editor" action="addToContentEditor" --><a  class='button radius tiny' href='#' onclick='addToContentEditor(); return false;'>Add TextDisplayCard Block type to Content Editor</a> <!--End Extension ActionButton text="Add TextDisplayCard Block type to Content Editor" action="addToContentEditor" -->
+</div>

@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Editor/OverviewTemplate",
-    "title": " Overview Template"
+    "pageName": "/OpenForum/Editor/OverviewTemplate",
+    "title": "OverviewTemplate",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

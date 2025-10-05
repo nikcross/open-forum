@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Extensions/ChildPagesList",
-    "title": " Child Pages List"
+    "pageName": "/OpenForum/Extensions/ChildPagesList",
+    "title": "ChildPagesList",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

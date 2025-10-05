@@ -1,0 +1,1230 @@
+Task Log File For Thu Oct 02 2025 00:00:02 GMT-0000 (GMT)
+
+Thu Oct 02 2025 00:00:02 GMT-0000 (GMT) : 
+PROCESSING HOUR 0
+
+Thu Oct 02 2025 00:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 00:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 8) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 00:00:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 13) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 00:00:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 15) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 00:00:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 17) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 00:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 00:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 3) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 4) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 5) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 8) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 00:10:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 11) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 00:10:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 12) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 00:10:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 19) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 00:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 00:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 00:20:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 10) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 00:20:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 00:20:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 14) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 00:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 00:30:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 6) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 00:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:30:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 10) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 00:30:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 11) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 00:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 00:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 00:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:40:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 00:40:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 10) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 00:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 00:40:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 12) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 00:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 00:50:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 00:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 00:50:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 9) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 00:50:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 10) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 00:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 01:00:02 GMT-0000 (GMT) : 
+PROCESSING HOUR 1
+
+Thu Oct 02 2025 01:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 01:00:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 4) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 01:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:00:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 10) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 01:00:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 11) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 01:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 01:00:02 GMT-0000 (GMT) : Running script (Automatic Rebuild: 13) trigger.sjs on page /OpenForum/Triggers/TimerTrigger/AutomaticRebuild
+Thu Oct 02 2025 01:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 01:10:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 4) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 01:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 01:10:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 15) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 01:10:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 16) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 01:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 3) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 01:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 01:20:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 12) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 01:20:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 01:20:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 16) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 01:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 01:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 8) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 01:30:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 13) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 01:30:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 01:30:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 17) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 01:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 01:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 01:40:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 12) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 01:40:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 01:40:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 16) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 01:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 01:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 01:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 01:50:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 10) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 01:50:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 11) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 01:50:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 02:00:02 GMT-0000 (GMT) : 
+PROCESSING HOUR 2
+
+Thu Oct 02 2025 02:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 02:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 02:00:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 12) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 02:00:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 02:00:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 14) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 02:10:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 1) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 02:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 3) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 02:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 02:10:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 10) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 02:10:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 19) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 02:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 02:20:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 4) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 02:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 02:20:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 13) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 02:20:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 16) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 02:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 02:30:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 4) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 02:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 02:30:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 02:30:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 02:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 02:40:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 4) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 02:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 02:40:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 13) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 02:40:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 02:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 02:50:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 4) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 02:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 02:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 02:50:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 13) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 02:50:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 03:00:02 GMT-0000 (GMT) : 
+PROCESSING HOUR 3
+
+Thu Oct 02 2025 03:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 03:00:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 4) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 03:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 03:00:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 13) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 03:00:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 03:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 03:10:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 03:10:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 5) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 03:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 03:10:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 14) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 03:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 03:20:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 03:20:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 5) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 03:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 03:20:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 14) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 03:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 03:30:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 03:30:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 5) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 03:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 03:30:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 14) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 03:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 03:40:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 03:40:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 5) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 03:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 03:40:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 14) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 03:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 03:50:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 03:50:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 5) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 03:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 03:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 03:50:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 14) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 04:00:02 GMT-0000 (GMT) : 
+PROCESSING HOUR 4
+
+Thu Oct 02 2025 04:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 04:00:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 04:00:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 5) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 04:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 04:00:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 14) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 04:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 04:10:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 4) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 04:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 04:10:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 04:10:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 14) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 04:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 04:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 04:20:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 10) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 04:20:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 15) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 04:20:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 16) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 04:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 04:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 8) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 04:30:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 04:30:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 11) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 04:30:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 12) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 04:40:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 1) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 04:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 04:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:40:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 04:40:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 18) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 04:40:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 19) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 04:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 04:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 04:50:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 04:50:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 10) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 04:50:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 04:50:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 14) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 05:00:02 GMT-0000 (GMT) : 
+PROCESSING HOUR 5
+
+Thu Oct 02 2025 05:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 05:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:00:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 05:00:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 05:00:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 05:00:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 14) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 05:10:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 2) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 05:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 3) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 05:10:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 5) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 05:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:10:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 05:10:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 15) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 05:20:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 1) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 05:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 05:20:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 05:20:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 5) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 05:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:20:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 05:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 05:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:30:02 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 8) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 05:30:02 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 10) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 05:30:02 GMT-0000 (GMT) : Running script (Page Access Monitor: 11) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 05:30:02 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 05:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 1) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 05:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 05:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 05:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 18) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 05:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 19) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 05:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 05:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 3) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 05:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 05:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 8) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 9) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 10) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 05:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 11) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 05:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 06:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 6
+
+Thu Oct 02 2025 06:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 06:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 06:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 6) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 06:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 8) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 9) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 10) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 11) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 06:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 06:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 06:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 6) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 06:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 06:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 06:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 14) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 06:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 06:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 06:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 6) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 06:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 8) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 9) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 10) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 06:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 12) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 06:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 06:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 4) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 06:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 7) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 06:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 8) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 9) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 10) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 11) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 06:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 06:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 06:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 6) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 06:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 10) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 06:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 11) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 06:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 06:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 06:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 06:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 7) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 06:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 8) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 06:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 9) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 10) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 11) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 06:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 07:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 7
+
+Thu Oct 02 2025 07:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 07:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 4) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 07:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 10) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 07:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 11) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 07:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 07:00:03 GMT-0000 (GMT) : Running script (Send Server Status Email: 14) email-report-sender.sjs on page /Development/Administration/Opertations
+Thu Oct 02 2025 07:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 07:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 4) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 07:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 07:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 07:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 14) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 07:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 07:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 07:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 07:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 07:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 16) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 07:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 07:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 8) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 07:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 10) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 07:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 11) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 07:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 12) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 07:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 1) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 07:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 2) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 07:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 3) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 07:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 8) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 9) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 10) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 07:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 19) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 07:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 07:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 07:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 07:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 07:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 07:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 15) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 08:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 8
+
+Thu Oct 02 2025 08:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 3) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 08:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 6) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 08:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 08:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 08:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 08:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 08:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 4) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 08:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 8) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 08:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 08:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 08:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 1) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 08:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 08:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 7) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 08:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 8) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 08:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 9) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 10) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 11) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 08:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 08:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 08:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 10) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 08:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 11) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 08:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 08:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 08:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 08:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 08:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 08:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 14) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 08:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 3) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 08:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 08:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 08:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 13) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 08:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 08:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 15) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 09:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 9
+
+Thu Oct 02 2025 09:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 09:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 8) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 09:00:03 GMT-0000 (GMT) : Running script (SSL Certificate Checker: 9) certificate_check.sjs on page /OpenForum/AddOn/SSLCertificateChecker
+Thu Oct 02 2025 09:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 09:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 09:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 09:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Check Google Maps Version: 14) google-map-version-monitor.sjs on page /TheLab/NationalTrust/Places
+Thu Oct 02 2025 09:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 1) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 09:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 09:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 10) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 09:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 09:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 09:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 09:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 3) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 09:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 6) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 09:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 10) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 09:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 13) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 09:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 09:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 09:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 09:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 09:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 14) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 09:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 3) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 09:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 09:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 13) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 09:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 09:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 15) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 09:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 09:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 09:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 09:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 12) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 09:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 09:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 14) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 10:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 10
+
+Thu Oct 02 2025 10:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 10:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 3) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 4) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 5) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 10:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 10:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 10:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 10:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 1) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 10:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 10:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 10) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 10:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 10:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 19) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 10:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 10:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 8) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 10:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 10:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 10:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 18) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 10:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 10:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 8) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 10:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 10:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 10:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 10:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 10:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 8) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 10:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 10:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 10:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 10:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 10:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 10:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 8) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 10:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 10:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 10:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 11:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 11
+
+Thu Oct 02 2025 11:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 11:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 8) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 11:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 11:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 11:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 11:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 11:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 11:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 11:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 17) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 11:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 19) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 11:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 11:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 8) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 11:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 11:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 11:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 11:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 11:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 11:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 11:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 11:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 11:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 11:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 8) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 11:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 10) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 11:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 11:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 11:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 11:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 11:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 8) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 11:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 11:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 11:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 12:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 12
+
+Thu Oct 02 2025 12:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 12:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 7) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 12:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 12:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 12:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 12:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 1) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 12:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 12:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 8) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 12:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 12:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 19) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 12:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 12:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 7) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 12:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 12:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 12:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 19) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 12:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 12:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 12:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 12:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 12:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 12:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 12:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 12:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 12:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 12:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 12:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 12:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 12:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 12:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 12:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 12:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 13:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 13
+
+Thu Oct 02 2025 13:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 13:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 13:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 13:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 13:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 13:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 13:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 13:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 13:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 18) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 13:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 19) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 13:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 13:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 13:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 13:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 13:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 13:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 13:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 13:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 13:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 13:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 13:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 13:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 13:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 13:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 13:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 13:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 13:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 13:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 13:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 13:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 13:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 14:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 14
+
+Thu Oct 02 2025 14:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 14:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 14:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 14:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 14:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 14:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 14:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 14:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 14:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 18) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 14:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 19) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 14:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 14:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 14:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 14:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 14:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 14:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 14:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 14:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 9) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 14:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 10) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 14:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 13) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 14:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 14:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 4) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 14:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 10) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 14:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 14:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 14:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 14:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 14:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 14:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 14:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 14:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 15:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 15
+
+Thu Oct 02 2025 15:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 15:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 15:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 15:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 15:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 15:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 15:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 15:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 15:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 17) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 15:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 19) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 15:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 15:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 15:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 15:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 15:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 15:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 15:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 15:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 9) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 15:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 10) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 15:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 13) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 15:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 15:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 15:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 15:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 15:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 15:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 15:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 15:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 15:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 9) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 15:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 10) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 15:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 13) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 16:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 16
+
+Thu Oct 02 2025 16:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 16:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 16:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 16:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 16:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 16:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 16:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 16:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 16:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 16:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 17) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 16:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 16:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 16:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 16:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 16:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 16:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 16:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 16:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 9) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 16:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 11) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 16:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 13) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 16:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 16:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 16:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 16:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 16:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 16:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 16:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 16:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 16:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 9) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 16:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 10) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 16:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 13) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 17:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 17
+
+Thu Oct 02 2025 17:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 17:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 17:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 9) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 17:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 17:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 12) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 17:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 17:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 3) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 17:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 4) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 17:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 17:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 12) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 17:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 1) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 17:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 17:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 8) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 17:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 11) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 17:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 12) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 17:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 1) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 17:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 17:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 4) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 17:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 17:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 16) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 17:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 17:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 17:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 13) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 17:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 17) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 17:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 19) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 17:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 17:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 17:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 17:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 12) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 17:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 17:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 14) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 18:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 18
+
+Thu Oct 02 2025 18:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 18:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 3) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 4) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 5) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 18:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 10) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 18:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 11) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 18:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 12) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 18:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 1) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 18:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 18:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 7) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 18:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 18:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 10) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 18:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 1) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 18:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 18:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 18:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 15) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 18:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 16) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 18:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 1) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 18:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 18:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 18:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 18:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 12) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 18:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 1) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 18:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 18:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 18:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 13) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 18:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 18:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 18:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 5) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 18:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 18:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 18:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 16) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 18:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 19) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 19:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 19
+
+Thu Oct 02 2025 19:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 19:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 3) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 19:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 19:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 12) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 19:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 19:10:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 1) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 19:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 19:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:10:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 19:10:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 19:10:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 19) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 19:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 19:20:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 5) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 19:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:20:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 19:20:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 14) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 19:20:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 19) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 19:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 19:30:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 4) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 19:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:30:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 19:30:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 13) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 19:30:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 19:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 19:40:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 3) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 19:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:40:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 19:40:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 12) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 19:40:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 19:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 19:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 19:50:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 19:50:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 19:50:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 19:50:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 19) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 20:00:03 GMT-0000 (GMT) : 
+PROCESSING HOUR 20
+
+Thu Oct 02 2025 20:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 20:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:00:03 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 9) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 20:00:03 GMT-0000 (GMT) : Running script (Page Access Monitor: 10) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 20:00:03 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 20:00:03 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 20:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 20:10:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 20:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 20:10:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 20:10:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 17) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 20:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 20:20:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 4) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 20:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 20:20:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 20:20:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 20:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 20:30:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 6) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 20:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:30:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 10) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 20:30:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 11) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 20:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 13) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 20:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 3) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 20:40:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 6) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 20:40:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 7) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 20:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 8) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 9) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 10) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:40:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 11) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 20:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 13) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 20:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 20:50:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 3) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 20:50:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 20:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 20:50:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 10) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 20:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 13) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 21:00:04 GMT-0000 (GMT) : 
+PROCESSING HOUR 21
+
+Thu Oct 02 2025 21:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 21:00:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 5) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 21:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:00:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 9) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 21:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 21:00:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 21:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 21:10:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 6) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 21:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 21:10:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 14) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 21:10:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 17) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 21:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 3) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 21:20:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 6) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 21:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 21:20:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 12) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 21:20:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 13) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 21:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 21:30:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 4) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 21:30:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 5) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 21:30:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 6) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 21:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 7) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 8) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 9) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 21:40:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 1) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 21:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 21:40:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 21:40:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 5) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 21:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 21:50:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 1) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 21:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 21:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 21:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 21:50:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 16) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 21:50:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 19) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 22:00:04 GMT-0000 (GMT) : 
+PROCESSING HOUR 22
+
+Thu Oct 02 2025 22:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 22:00:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 3) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 22:00:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 22:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:00:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 9) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 22:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 22:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 22:10:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 22:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 22:10:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 11) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 22:10:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 12) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 22:20:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 1) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 22:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 22:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:20:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 9) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 22:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 22:20:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 12) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 22:30:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 1) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 22:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 22:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 4) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 5) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 6) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 22:30:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 11) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 22:30:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 19) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 22:40:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 1) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 22:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 22:40:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 4) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 22:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:40:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 8) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 22:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 10) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 22:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 22:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 22:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 22:50:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 12) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 22:50:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 13) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 22:50:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 19) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 23:00:04 GMT-0000 (GMT) : 
+PROCESSING HOUR 23
+
+Thu Oct 02 2025 23:00:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 1) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 23:00:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 2) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 23:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 3) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 23:00:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 5) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 23:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 6) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 7) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 8) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:00:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 12) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 23:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 23:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:10:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 8) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 23:10:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 9) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 23:10:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 23:10:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 12) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 23:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 23:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:20:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 23:20:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 10) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 23:20:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 11) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 23:20:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 19) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 23:30:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 1) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 23:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 23:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:30:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 9) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 23:30:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 23:30:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 12) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 23:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 1) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 23:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:40:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 9) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 23:40:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 10) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service
+Thu Oct 02 2025 23:40:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 16) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 23:40:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 19) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 23:50:04 GMT-0000 (GMT) : Running script (Page Access Monitor: 1) process-page-access.sjs on page /OpenForum/AddOn/DataLogger/PageAccessMonitor
+Thu Oct 02 2025 23:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Leaf Monitor: 2) trigger.sjs on page /TheLab/Experiments/NissanLeaf
+Thu Oct 02 2025 23:50:04 GMT-0000 (GMT) : Running script (Change Authentication Hash: 4) trigger.sjs on page /OpenForum/Authentication
+Thu Oct 02 2025 23:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Dyke Camera: 5) download-dyke-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon River Camera: 6) download-river-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Halcyon Front Camera: 7) download-front-cam-view.sjs on page /TheLab/WebSiteProjects/Halcyon/CameraView/Service
+Thu Oct 02 2025 23:50:04 GMT-0000 (GMT) : DISABLED: Not Running script (Auto Update: 11) auto-update.sjs on page /OpenForum/AddOn/Update
+Thu Oct 02 2025 23:50:04 GMT-0000 (GMT) : Running script (Breach Farm Cottages Camera: 12) trigger.sjs on page /TheLab/WebSiteProjects/BreachFarmCottages/CameraView/Service

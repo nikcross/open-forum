@@ -1,0 +1,9 @@
+/*
+* Author: 
+* Description: 
+*/
+try{
+  
+} catch(e) {
+  log.error(e + " in /my trigger");
+}

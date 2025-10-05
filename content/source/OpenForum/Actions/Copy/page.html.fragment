@@ -1,3 +1,4 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> Copy one page to another
 <hr/>
 <h3>Get parameters</h3>
@@ -11,7 +12,7 @@
 <li> listPageName</li>
 <hr/>
 <h3>get.sjs</h3>
-<xmp class="example">if(typeof(pageName)=="undefined") {
+<xmp class="example"><!--Extension InsertFile fileName="get.sjs" -->if(typeof(pageName)=="undefined") {
   transaction.setResult(transaction.SHOW_PAGE);
   return;
 }
@@ -68,11 +69,11 @@ try{
   }
 } catch(e) {
   transaction.sendJSON(JSON.stringify({result: "error", message: "Error: "+e+" @ "+e.lineNumber}));
-}</xmp>
+}<!--End Extension InsertFile fileName="get.sjs" --></xmp>
 
 <hr/>
 <h3>Server Side Javascript for POST method</h3>
-<xmp class="panel"> transaction.getPostData();
+<xmp class="panel" of-exclude="true"> transaction.getPostData();
 sourcePageName = transaction.getPostParameter("sourcePageName");
 newPageName = transaction.getPostParameter("newPageName");
 listPageName = transaction.getPostParameter("listPageName");
@@ -85,5 +86,4 @@ if(listPageName!=null)
 
 wiki.copyPage(sourcePageName,newPageName,listPageName);
 	
-transaction.goToPage("/OpenForum/Actions/Edit?pageName="+newPageName); </xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>
+transaction.goToPage("/OpenForum/Actions/Edit?pageName="+newPageName); </xmp></ul>

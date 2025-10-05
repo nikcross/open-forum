@@ -1,0 +1,17 @@
+--8<--
+
+((Adds a link to automatically bookmark a page))
+__Parameters__
+* title = Bookmark title Name
+* domain = external site domain
+* script = Path to script
+
+{{{
+[{Bookmarklet title="Bookmark" domain="https://open-forum.onestonesoup.org" script="/OpenForum/Extensions/Bookmarklet/append-link.js" text="Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:"}]
+}}}
+-->8--
+
+[{Bookmarklet title="Bookmark" domain="https://open-forum.onestonesoup.org" script="/OpenForum/Extensions/Bookmarklet/append-link.js" text="Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:"}]
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

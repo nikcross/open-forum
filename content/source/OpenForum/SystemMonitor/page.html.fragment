@@ -1,60 +1,121 @@
-      <div class="row">
-        <div class="large-6 columns">
-          <h3>Open Forum Server Version {{system.version}}</h3>
-          <h4>Open Forum Javascript Version {{OpenForum.getVersion()}}</h4>
-          
-          <fieldset>
-            <legend>Operating System</legend>
-            <table>
-              <tr><td>Name</td><td>{{system.operatingSystem.name}}</td></tr>
-              <tr><td>Version</td><td>{{system.operatingSystem.version}}</td></tr>
-            </table>
-          </fieldset>
-          
-          <fieldset>
-            <legend>System</legend>
-            <table>
-              <tr><td>System Time</td><td>{{state.systemTime}}</td></tr>
-              <tr><td>Up Since</td><td>{{state.startTime}}</td></tr>
-              <tr><td>Memory Total</td><td>{{state.memory.total}} M</td></tr>
-              <tr><td>Memory Free</td><td>{{state.memory.free}} M {{state.memory.pcFree}}%</td></tr>
-              <tr><td>Processor Name</td><td>{{system.processor.name}}</td></tr>
-              <tr><td>Number of Processors</td><td>{{system.processor.count}}</td></tr>
-              <tr><td>Processor Load</td><td>{{state.processor.load}}%</td></tr>
-              <tr><td>Disk Total</td><td>{{state.disk.total}} M</td></tr>
-              <tr><td>Disk Free</td><td>{{state.disk.free}} M {{state.disk.pcFree}}%</td></tr>
-            </table>
-          </fieldset> 
-          
-        </div>
-         <div class="large-6 columns">
-                  
-          <fieldset>
-            <legend>WiFi Network Adapter</legend>
-            <table>
-              <tr><td>Adapter</td><td>{{system.network.wifi.adapter}}</td></tr>
-              <tr><td>IP Address</td><td>{{system.network.wifi.ipAddress}}</td></tr>
-              <tr><td>MAC Address</td><td>{{system.network.wifi.macAddress}}</td></tr>
-            </table>
-          </fieldset>
-          
-           <fieldset>
-            <legend>Ethernet Network Adapter</legend>
-            <table>
-              <tr><td>Adapter</td><td>{{system.network.ethernet.adapter}}</td></tr>
-              <tr><td>IP Address</td><td>{{system.network.ethernet.ipAddress}}</td></tr>
-              <tr><td>MAC Address</td><td>{{system.network.ethernet.macAddress}}</td></tr>
-            </table>
-          </fieldset>
-        </div>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+  <div class="large-6 columns">
+    <h3>Open Forum Java Version {{system.javaVersion}}</h3>
+    <h3>Open Forum Server Version {{system.version}}</h3>
+    <h4>Open Forum Javascript Version {{OpenForum.getVersion()}}</h4>
+    <h4>Pages Served {{server.pageViews}}</h4>
+    <h4>Files Served {{server.fileViews}}</h4>
+
+    <fieldset>
+      <legend>Operating System</legend>
+      <table>
+        <tr><td>Name</td><td>{{system.operatingSystem.name}}</td></tr>
+        <tr><td>Version</td><td>{{system.operatingSystem.version}}</td></tr>
+      </table>
+    </fieldset>
+
+    <fieldset>
+      <legend>System</legend>
+      <table>
+        <tr><td>System Time</td><td>{{state.systemTime}}</td></tr>
+        <tr><td>Up Since</td><td>{{state.startTime}}</td></tr>
+        <tr><td>Memory Total</td><td>{{state.memory.total}} M</td></tr>
+        <tr><td>Memory Free</td><td>{{state.memory.free}} M {{state.memory.pcFree}}%</td></tr>
+        <tr><td>Processor Name</td><td>{{system.processor.name}}</td></tr>
+        <tr><td>Number of Processors</td><td>{{system.processor.count}}</td></tr>
+        <tr><td>Processor Load</td><td>{{state.processor.load}}%</td></tr>
+        <tr><td>Disk Total</td><td>{{state.disk.total}} M</td></tr>
+        <tr><td>Disk Free</td><td>{{state.disk.free}} M {{state.disk.pcFree}}%</td></tr>
+      </table>
+    </fieldset> 
+
+    <fieldset>
+      <legend>Http Server Stats</legend>   
+      <table>
+        <tr><td>Thread Monitor Running</td><td>{{state.httpServer.isMonitoring}}</td></tr>
+        <tr><td>Active Thread Count</td><td>{{state.httpServer.activeThreadCount}}</td></tr>
+        <tr><td>Max Thread Count</td><td>{{state.httpServer.maxThreadCount}}</td></tr>
+        <tr><td>Max Response Time</td><td>{{state.httpServer.maxResponseTime}}</td></tr>
+        <tr><td>Completed Task Count</td><td>{{state.httpServer.completedTaskCount}}</td></tr>
+        <tr><td>Timeout Task Count</td><td>{{state.httpServer.timeoutTaskCount}}</td></tr>
+        <tr><td>Overflow Task Count</td><td>{{state.httpServer.overflowTaskCount}}</td></tr>
+      </table>          
+    </fieldset>
+
+  </div>
+  <div class="large-6 columns">
+
+    <fieldset>
+      <legend>WiFi Network Adapter</legend>
+      <table>
+        <tr><td>Adapter</td><td>{{system.network.wifi.adapter}}</td></tr>
+        <tr><td>IP Address</td><td>{{system.network.wifi.ipAddress}}</td></tr>
+        <tr><td>MAC Address</td><td>{{system.network.wifi.macAddress}}</td></tr>
+      </table>
+    </fieldset>
+
+    <fieldset>
+      <legend>Ethernet Network Adapter</legend>
+      <table>
+        <tr><td>Adapter</td><td>{{system.network.ethernet.adapter}}</td></tr>
+        <tr><td>IP Address</td><td>{{system.network.ethernet.ipAddress}}</td></tr>
+        <tr><td>MAC Address</td><td>{{system.network.ethernet.macAddress}}</td></tr>
+      </table>
+    </fieldset>
+
+    <fieldset>
+      <legend>Performance Graph</legend>          
+      <div><canvas style="height: 300px;" width="500" height="300" id="performanceGraph">Loading...</canvas></div>
+
+    </fieldset>
+
+    <fieldset>
+      <legend>Https Server Stats</legend>   
+      <table>
+        <tr><td>Thread Monitor Running</td><td>{{state.httpsServer.isMonitoring}}</td></tr>
+        <tr><td>Active Thread Count</td><td>{{state.httpsServer.activeThreadCount}}</td></tr>
+        <tr><td>Max Thread Count</td><td>{{state.httpsServer.maxThreadCount}}</td></tr>
+        <tr><td>Max Response Time</td><td>{{state.httpsServer.maxResponseTime}}</td></tr>
+        <tr><td>Completed Task Count</td><td>{{state.httpsServer.completedTaskCount}}</td></tr>
+        <tr><td>Timeout Task Count</td><td>{{state.httpsServer.timeoutTaskCount}}</td></tr>
+        <tr><td>Overflow Task Count</td><td>{{state.httpsServer.overflowTaskCount}}</td></tr>
+      </table>          
+    </fieldset>
+
+
+    <fieldset>
+      <legend>Storage Stats</legend>   
+      <table>
+        <thead>
+          <tr>
+            <td>Store Space</td>
+            <td>Free Space</td>
+            <td>Total Space</td>
+            <td>Cache Size</td>
+            <td>Cache File Count</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr of-repeatFor="store in state.stores">
+            <td>{{store.name}}</td>
+            <td>{{store.freeSpace}}</td>
+            <td>{{store.totalSpace}}</td>
+            <td>{{store.cacheSize}}</td>
+            <td>{{store.cacheFileCount}}</td>
+          </tr>
+        </tbody>
+      </table>          
+    </fieldset>
+
+  </div>
 </div>
 
-      <div class="row">
-        <ul><li> <a href="/OpenForum/SystemMonitor/JavascriptMonitor">JavascriptMonitor</a></li>
+<div class="row">
+  <!--Extension ChildPagesList --><ul><li> <a href="/OpenForum/SystemMonitor/JavascriptMonitor">JavascriptMonitor</a></li>
 <li> <a href="/OpenForum/SystemMonitor/QueueManager">QueueManager</a></li>
 <li> <a href="/OpenForum/SystemMonitor/SessionStoreMonitor">SessionStoreMonitor</a></li>
 <li> <a href="/OpenForum/SystemMonitor/SystemLogs">SystemLogs</a></li>
 <li> <a href="/OpenForum/SystemMonitor/SystemStoreMonitor">SystemStoreMonitor</a></li>
-</ul>
+</ul><!--End Extension ChildPagesList -->
 </div>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

@@ -1,0 +1,43 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3>Page Publisher v{{VERSION}}</h3>
+<ul><li><a href="/OpenForum/AddOn/Publisher/QuickReference">Quick Reference</a></li>
+<li><a href="/OpenForum/AddOn/Publisher/Documentation">Documentation</a></li>
+<form>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <label>PageName</label><!--Extension InputFileName id="targetPageName" --><script>
+  var targetPageNamePages = <a href="/OpenForum/AddOn/Publisher/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var targetPageNameWaitToUpdateTree = false;
+  var targetPageNameupdatePageList = function(element) {
+    if(targetPageNameWaitToUpdateTree) clearTimeout(targetPageNameWaitToUpdateTree);
+    targetPageNameWaitToUpdateTree = setTimeout( function() {
+      OFX.get("/OpenForum/Javascript/Tree").withAction("getSubPages").withData({pageName: element.value}).onSuccess( function(newList) {
+        targetPageNamePages = newList;
+      }).go();
+    }, 500);
+  }
+</script>
+<input list="targetPageNamePagesList" of-id="targetPageName" onKeyUp="targetPageNameupdatePageList(this);" ondblclick="this.value=OpenForum.BLANK;" title="Double Click to clear"/>
+<datalist id="targetPageNamePagesList">
+  <option of-repeatFor="pageName in targetPageNamePages" value="{{pageName}}">{{pageName}}</option>
+</datalist><!--End Extension InputFileName id="targetPageName" -->
+    </div>
+  </div>
+  <div class='row'>
+        <div class='large-3 columns'>
+      <label>&nbsp;</label><a class="button success" id='release' onClick='getDifferences(); return false;'>Check for Page Differences</a>
+    </div>        
+    <div class='large-3 columns'>
+      <label>&nbsp;</label><a class="button warning" id='release' onClick='reversePublish(); return false;'>Reverse Publish (live to develop)</a>
+    </div>
+    <div class='large-3 columns'>
+      <label>&nbsp;</label><a class="button" id='release' onClick='publishPage(true); return false;'>Publish Page (practice)</a>
+    </div>
+        <div class='large-3 columns'>
+      <label>&nbsp;</label><a class="button" id='release' onClick='publishPage(false); return false;'>Publish Page (for real)</a>
+    </div>
+  </div>
+</form>
+<div class="row">{{message}}</div>
+</div></ul>

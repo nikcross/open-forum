@@ -1,0 +1,17 @@
+<script>
+if( typeof imageDisplayCSSLoaded == "undefined" ){ 
+  OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
+  imageDisplayCSSLoaded = true;
+}
+</script>
+<div class="medium-6 columns end">
+  <div class="card">
+    <div class="content">
+      <span class="title">{{title}}</span>
+      <p>{{description}}</p>
+    </div>
+    <div class="action">
+      <a href='{{linkURL}}'>{{linkText}}</a>
+    </div>
+  </div>
+</div>

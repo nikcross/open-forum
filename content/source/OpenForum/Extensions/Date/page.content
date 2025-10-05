@@ -1,0 +1,7 @@
+<div class="row">
+!!Date v0.0.0
+{{{ [{Date }] }}}
+[{Date }]
+\\
+[{ActionButton text="Add Date Block type to Content Editor" action="addToContentEditor"}]
+</div>

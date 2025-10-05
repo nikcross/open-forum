@@ -1,5 +1,9 @@
 * authorizer = org.onestonesoup.openforum.security.JavascriptAuthorizer
 * authenticator = org.onestonesoup.openforum.security.cookie.SessionCookieAuthenticator
-* secure = false
-* resourceStore0 = read-only:/web/source
-
+* resourceStore1 = read-only:/web/source
+* resourceStore0 = /web/content/my-server
+* serverName = My Server
+* database = open-forum-db
+* adminEmail = test@example.com
+* webAddress = https://my-server.com
+* alertHost = https://my-server

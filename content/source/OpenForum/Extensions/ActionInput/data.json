@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Extensions/ActionButton",
-    "title": " Action Button"
+    "pageName": "/OpenForum/Extensions/ActionInput",
+    "title": "ActionInput",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

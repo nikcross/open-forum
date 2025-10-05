@@ -1,0 +1,5 @@
+
+        var sql = "insert into &tableName; values(&fields;)";
+8<---'"+&tableName;.&fieldName;: row.cell&index;+"'---8<
+8<---"+&tableName;.&fieldName;: row.cell&index;+"---8<
+        DB.execute(sql);

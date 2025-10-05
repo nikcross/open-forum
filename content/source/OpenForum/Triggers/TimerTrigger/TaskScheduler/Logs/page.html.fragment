@@ -1,0 +1,41 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3> Logs</h3>
+
+<div class="row">
+  <h3>Task Scheduler took {{taskScheduler.timeTaken}}ms to complete {{taskScheduler.scheduleLength}} scheduled tasks</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Time Taken</td>
+        <td>&nbsp;</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr of-repeatFor='row in schedule'>
+        <td><span>{{row.name}}</span></td>
+        <td><span>{{row.timeTaken}}ms</span></td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr><td colspan="3"></td></tr></tfoot>
+  </table>
+
+</div>
+
+<div class="row">
+  <h3>Todays Log</h3>
+  <div id="logView"/>
+</div>
+
+<h3>Attachments</h3>
+<!--Extension AttachmentsList pageName="/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs" matching=".*-task-log.txt" --><ul><li> <a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-28-task-log.txt">/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-28-task-log.txt</a></li>
+<li> <a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-29-task-log.txt">/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-29-task-log.txt</a></li>
+<li> <a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-25-task-log.txt">/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-25-task-log.txt</a></li>
+<li> <a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-27-task-log.txt">/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-27-task-log.txt</a></li>
+<li> <a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-26-task-log.txt">/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-26-task-log.txt</a></li>
+<li> <a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-24-task-log.txt">/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-24-task-log.txt</a></li>
+<li> <a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-30-task-log.txt">/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-30-task-log.txt</a></li>
+<li> <a href="/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-23-task-log.txt">/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs/2024-10-23-task-log.txt</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/Triggers/TimerTrigger/TaskScheduler/Logs" matching=".*-task-log.txt" -->

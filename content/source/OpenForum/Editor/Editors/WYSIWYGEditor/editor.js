@@ -5,6 +5,10 @@ function WYSIWYGEditor(editorIndex,pageName,fileName) {
   var source = "";
   var changeListener;
 
+  self.requestFullscreen = function() {
+    document.getElementById( "editor"+editorIndex ).requestFullscreen();
+  };
+  
   self.init = function() {
     var content = OpenForum.loadFile("/OpenForum/Editor/Editors/WYSIWYGEditor/page.html.fragment");
     content = content.replace(/\{\{editorIndex\}\}/g,editorIndex);
@@ -12,7 +16,7 @@ function WYSIWYGEditor(editorIndex,pageName,fileName) {
 
     //load source if exists
     if(OpenForum.file.attachmentExists(pageName,fileName)==="true") {
-      source = OpenForum.loadFile(pageName+"/"+fileName);
+      source = OpenForum.loadFile(pageName+"/"+fileName,null,true);
     } else if(OpenForum.file.attachmentExists("/OpenForum/FileTemplates/html",fileName+".default")==="true") {
       source = OpenForum.loadFile("/OpenForum/FileTemplates/html/"+fileName+".default");
     } else {
@@ -105,7 +109,11 @@ function WYSIWYGEditor(editorIndex,pageName,fileName) {
     var data = "";
 
     data += renderTabOption("Close","Close editor","closeEditor( "+editorIndex+" )");
+    data += renderTabOption("Full Screen","Full Screen "+pageName+"/"+fileName,"editorList["+editorIndex+"].editor.requestFullscreen()");
     data += renderTabOption("Save","Save "+pageName+"/"+fileName,"saveFile( '"+pageName+"' , '"+fileName+"' )");
+    data += renderTabOption("Download to desktop","Download "+pageName+"/"+fileName,"OpenForum.Browser.download( '"+fileName+"',editorList["+editorIndex+"].editor.getValue() )");
+    data += renderTabOption("Copy","Copy to clipboard","OpenForum.copyData( editorList["+editorIndex+"].editor.getValue() )");
+
     return data;
   };
 

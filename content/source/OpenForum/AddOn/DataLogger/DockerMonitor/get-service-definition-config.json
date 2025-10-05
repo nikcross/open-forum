@@ -1,0 +1,41 @@
+{
+    "version": "0.0.3",
+    "libraries": [
+        {
+            "name": "DockerMonitor",
+            "fileName": "DockerMonitor.sjs",
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "parameters": {},
+    "actions": [
+        {
+            "name": "getDockerStats",
+            "action": "getDockerStats",
+            "libraries": {},
+            "parameters": {},
+            "call": "DockerMonitor.getDockerStats();",
+            "method": "get"
+        },
+        {
+            "name": "getDockerServiceStats",
+            "call": "DockerMonitor.getDockerServiceStats(service);",
+            "parameters": [
+                {
+                    "name": "service",
+                    "type": "",
+                    "required": "",
+                    "view": "display: none;",
+                    "edit": "display: block;"
+                }
+            ],
+            "libraries": {},
+            "method": "get",
+            "action": "getDockerServiceStats"
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/AddOn/DataLogger/DockerMonitor",
+    "configFile": "get-service-definition-config.json"
+}

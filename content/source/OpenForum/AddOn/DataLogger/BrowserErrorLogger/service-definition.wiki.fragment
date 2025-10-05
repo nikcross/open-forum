@@ -1,0 +1,33 @@
+!!/OpenForum/AddOn/DataLogger/BrowserErrorLogger Sevice API Version 0.0.3
+
+----
+!!Get Actions
+
+
+----
+!!Post Actions
+
+  <div class="panel callout radius">
+!!Action logError
+(())
+
+!!Parameters
+|Name|Description
+|site (''required=false'')|{{parameter.description}}
+|page (''required=true'')|{{parameter.description}}
+|error (''required=true'')|{{parameter.description}}
+|origin (''required=false'')|{{parameter.description}}
+
+       
+!!Example Post Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/DataLogger/BrowserErrorLogger?action=logError+++</textarea>
+  
+[/OpenForum/AddOn/DataLogger/BrowserErrorLogger?action=logError++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>

@@ -1,0 +1,22 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3>Clock v0.0.0</h3>
+<xmp class="panel" of-exclude="true"> <!--Extension Clock  --><script>
+  currentTime = new Date().toLocaleTimeString();
+  setInterval(
+    function() { currentTime = new Date().toLocaleTimeString(); }
+    ,500
+  );
+</script>
+<span class="label tiny success round">{{currentTime}}</span><!--End Extension Clock  --> </xmp>
+<!--Extension Clock  --><script>
+  currentTime = new Date().toLocaleTimeString();
+  setInterval(
+    function() { currentTime = new Date().toLocaleTimeString(); }
+    ,500
+  );
+</script>
+<span class="label tiny success round">{{currentTime}}</span><!--End Extension Clock  -->
+<br/><br/>
+<!--Extension ActionButton text="Add Clock Block type to Content Editor" action="addToContentEditor" --><a  class='button radius tiny' href='#' onclick='addToContentEditor(); return false;'>Add Clock Block type to Content Editor</a> <!--End Extension ActionButton text="Add Clock Block type to Content Editor" action="addToContentEditor" -->
+</div>

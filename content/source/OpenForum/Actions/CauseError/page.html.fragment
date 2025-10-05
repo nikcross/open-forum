@@ -1,7 +1,7 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 Throws a Server Side Javascript Error to test error reporting.
 <hr/>
 
 
 <h3>post.sjs</h3>
-<xmp class="panel">doesNotExist += cheese</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<xmp class="panel" of-exclude="true">doesNotExist += cheese</xmp>

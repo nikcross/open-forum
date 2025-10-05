@@ -1,0 +1,66 @@
+!!&title;
+
+----
+!!Making a tabbed application
+
+* Include the tabs library in your page.js
+{{{
+OpenForum.includeScript("/OpenForum/Javascript/Application/Tabs.js");
+}}}
+* Add a tabs list
+{{{
+var tabList = [
+  {title: "Overview"},
+  {title: "Tab1"},
+  {title: "Tab2"}
+];
+var pageTabs;
+}}}
+* Add a container for you tabs in your page.content
+{{{
+<div id="splash" style="display: block;">
+  <center>
+  !!!!Loading My Tabbed Application
+  !!Please Wait.....
+  </center>
+</div>
+
+<div id="application" style="display: none; height: 80%;">
+  <div class="columns large-12" style="border: solid 1px; padding: 0px; height: 100%; overflow-y: scroll">
+    <div>
+      <nav class="top-bar" data-topbar role="navigation">
+        <section class="top-bar-section">
+          <ul class="left">
+            <li of-repeatFor="tab in tabList" id="{{tab.button}}" class="">
+              <a href="#" onclick="pageTabs.showTab('{{tab.id}}'); return false;">{{tab.title}}</a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div id="tabViews" style="padding 10px;">
+  Loading...
+    </div>
+  </div>
+</div>
+}}}
+* Initialise the tabs in the init function and show the application when the tabs are ready
+{{{
+OpenForum.init = function() {
+  pageTabs = new Tabs( "tabViews",tabList,continueInit );
+};
+
+function continueInit() {
+  OpenForum.hideElement("splash");
+  OpenForum.showElement("application");
+  setTimeout(function() {pageTabs.showTab("overview");} , 100);
+}
+}}}
+* Create content for the tabs eg. Overview requires a content file overview.wiki.fragment
+{{{
+<div class="row panel">
+  !!Overview
+</div>
+}}}
+

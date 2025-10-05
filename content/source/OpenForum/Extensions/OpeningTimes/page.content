@@ -1,0 +1,7 @@
+<div class="row">
+!!OpeningTimes v0.1.34
+{{{ [{OpeningTimes mondayOpen="mondayOpen" mondayClose="mondayClose" tuesdayOpen="tuesdayOpen" tuesdayClose="tuesdayClose" wednesdayOpen="wednesdayOpen" wednesdayClose="wednesdayClose" thursdayOpen="thursdayOpen" thursdayClose="thursdayClose" fridayOpen="fridayOpen" fridayClose="fridayClose" saturdayOpen="saturdayOpen" saturdayClose="saturdayClose" sundayOpen="sundayOpen" sundayClose="sundayClose"}] }}}
+[{OpeningTimes mondayOpen="mondayOpen" mondayClose="mondayClose" tuesdayOpen="tuesdayOpen" tuesdayClose="tuesdayClose" wednesdayOpen="wednesdayOpen" wednesdayClose="wednesdayClose" thursdayOpen="thursdayOpen" thursdayClose="thursdayClose" fridayOpen="fridayOpen" fridayClose="fridayClose" saturdayOpen="saturdayOpen" saturdayClose="saturdayClose" sundayOpen="sundayOpen" sundayClose="sundayClose"}]
+\\
+[{ActionButton text="Add OpeningTimes Block type to Content Editor" action="addToContentEditor"}]
+</div>

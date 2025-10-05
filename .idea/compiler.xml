@@ -6,8 +6,6 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Claude.AI" />
-        <module name="Automaton" />
         <module name="raspberrypi" />
         <module name="rtsp" />
         <module name="packager" />
@@ -19,13 +17,15 @@
         <module name="open-forum.server" />
         <module name="client" />
         <module name="java-trail" />
-        <module name="flow-tracer" />
         <module name="email" />
-        <module name="InterQueue" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Automaton" target="17" />
       <module name="automaton" target="17" />
+      <module name="Claude.AI" target="1.8" />
+      <module name="flow-tracer" target="11" />
+      <module name="InterQueue" target="17" />
       <module name="java-debug" target="11" />
       <module name="java-flow-tracer" target="17" />
       <module name="jdbc" target="1.8" />

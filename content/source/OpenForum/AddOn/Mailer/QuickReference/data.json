@@ -1,0 +1,63 @@
+{
+    "pageName": "/OpenForum/AddOn/Mailer/QuickReference",
+    "title": "Mailer Quick Reference",
+    "block": "page",
+    "content": [
+        {
+            "block": "pageTitle",
+            "elementId": "BK0_56925203345917891672265819834",
+            "editor": {},
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_56925203345917891672265819834_content' title='Page' onmouseover='highlight( \"BK0_56925203345917891672265819834_content\", true );' onmouseout='highlight( \"BK0_56925203345917891672265819834_content\", false );'><b>Page Title</b></a>",
+                "attributes": {
+                    "icon": "textfield"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        },
+        {
+            "block": "WYSIWYG",
+            "data": {
+                "text": "<h2>Notes</h2><ul><li><a href=\"https://support.google.com/a/answer/176600?hl=en\">https://support.google.com/a/answer/176600?hl=en</a></li><li><a href=\"https://support.google.com/a/answer/2956491\">https://support.google.com/a/answer/2956491</a></li></ul>"
+            },
+            "elementId": "BK0_40742634282170331672265819834",
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_40742634282170331672265819834_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_40742634282170331672265819834_edit\", true );' onmouseout='highlight( \"BK0_40742634282170331672265819834_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        }
+    ],
+    "editor": "/OpenForum/AddOn/ContentEditor",
+    "blockEditor": {},
+    "treeNode": {
+        "name": "<a href='#pageEditor_content' title='Page' onmouseover='highlight( \"pageEditor_content\", true );' onmouseout='highlight( \"pageEditor_content\", false );'><b>Page</b></a>",
+        "attributes": {
+            "icon": "page"
+        },
+        "leaves": [
+            {
+                "name": "<a href='#BK0_40742634282170331672265819834_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_40742634282170331672265819834_edit\", true );' onmouseout='highlight( \"BK0_40742634282170331672265819834_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            },
+            {
+                "name": "<a href='#BK0_56925203345917891672265819834_content' title='Page' onmouseover='highlight( \"BK0_56925203345917891672265819834_content\", true );' onmouseout='highlight( \"BK0_56925203345917891672265819834_content\", false );'><b>Page Title</b></a>",
+                "attributes": {
+                    "icon": "textfield"
+                },
+                "leaves": []
+            }
+        ]
+    },
+    "elementId": "pageEditor",
+    "parentId": "pageEditor"
+}

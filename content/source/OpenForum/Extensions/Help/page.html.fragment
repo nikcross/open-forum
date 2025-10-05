@@ -1,0 +1,16 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>Help</h3>
+
+
+<p>Creates a popup help link</p>
+<xmp class="panel" of-exclude="true">
+<!--Extension Help id="test" sourceFileName="help-content.wiki" sourcePageName="/OpenForum/Extensions/Help" --><div id="test" class="reveal-modal" data-reveal aria-labelledby="testModalTitle" aria-hidden="true" role="dialog"><h3>Help Content</h3>
+<p>You need to know this.</p>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Help id="test" sourceFileName="help-content.wiki" sourcePageName="/OpenForum/Extensions/Help" -->
+
+<!--Extension Help id="test" title="Pop me up" --><a onClick="$('#test').foundation('reveal', 'open');return false;" title="Pop me up"><img src="/OpenForum/Images/icons/png/help.png" /></a><!--End Extension Help id="test" title="Pop me up" -->
+</xmp>       
+<hr/>
+<!--Extension Help id="test" sourceFileName="help-content.wiki" sourcePageName="/OpenForum/Extensions/Help" --><div id="test" class="reveal-modal" data-reveal aria-labelledby="testModalTitle" aria-hidden="true" role="dialog"><h3>Help Content</h3>
+<p>You need to know this.</p>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Help id="test" sourceFileName="help-content.wiki" sourcePageName="/OpenForum/Extensions/Help" -->
+
+<!--Extension Help id="test" title="Pop me up" --><a onClick="$('#test').foundation('reveal', 'open');return false;" title="Pop me up"><img src="/OpenForum/Images/icons/png/help.png" /></a><!--End Extension Help id="test" title="Pop me up" -->

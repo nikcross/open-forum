@@ -1,5 +1,8 @@
+try{
+  
 targetPage = extension.getAttribute("pageName");
 matching = extension.getAttribute("matching");
+actions = extension.getAttribute("actions");
 includePage = true;
 if(targetPage===null)
 {
@@ -8,11 +11,12 @@ if(targetPage===null)
 }
 targetPage = ""+targetPage;
 
-list = file.getAttachmentsForPage( targetPage );
 if(targetPage.charAt(0)!='/')
 {
   targetPage = "/"+targetPage;
 }
+
+list = file.getAttachmentsForPage( targetPage );
 
 data="";
 iterator= list.keySet().iterator();
@@ -32,15 +36,24 @@ while(iterator.hasNext())
     item = key;
   }
 
+  var actionsText = "";
+  if(actions!=null) {
+    var link = targetPage+"/"+item;
+    actionsText = actions.replace("{{pageName}}",targetPage).replace("{{fileName}}",item);
+  }
+  
   if(includePage===true)
   {
-    data+="* ["+targetPage+"/"+item+"]\n";
+    data+="* ["+targetPage+"/"+item+"]"+actionsText+"\n";
   }
   else
   {
-    data+="* ["+item+"]\n";
+    data+="* ["+item+"]"+actionsText+"\n";
   }
 
 }
 
 return wiki.renderWikiData(pageName,data);
+} catch(e) {
+  return ""+e;
+}

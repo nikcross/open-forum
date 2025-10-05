@@ -1,3 +1,4 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <button class="actionButton" onClick="pageManager.copyPage();">Copy Page</button><button class="actionButton" onClick="pageManager.movePage();">Move Page</button>
 <h3>From <input of-id="sourcePageName" list="pagesList"></h3>
 <h3>To <input of-id="targetPageName" list="pagesList"></h3>
@@ -11,4 +12,3 @@
 <h3><button class="actionButton" onClick="pageManager.createPage();">CreatePage</button>  <input of-id="createPageName" list="pagesList"></h3>
 
 <dataList id="pagesList"></dataList><dataList id="filesList"></dataList>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

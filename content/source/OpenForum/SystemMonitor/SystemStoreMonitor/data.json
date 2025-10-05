@@ -1,4 +1,5 @@
 {
     "pageName": "/OpenForum/SystemMonitor/SystemStoreMonitor",
-    "title": " System Store Monitor"
+    "title": "SystemStoreMonitor",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

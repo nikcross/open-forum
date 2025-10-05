@@ -1,0 +1,6 @@
+Fri Nov 29 2019 16:29:51 GMT+0000 (Greenwich Mean Time)
+Redeveloped search UI. No longer a modal and auto updates
+
+Sun Jan 15 2023 09:29:46 GMT+0000 (Greenwich Mean Time)
+Changed styled background in code-mirror.css to black with a border.
+

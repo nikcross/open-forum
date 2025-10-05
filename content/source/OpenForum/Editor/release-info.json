@@ -1,0 +1,7 @@
+{
+    "version": "0.0.41",
+    "extra": {
+        "notes": "Now with browser storage and json search\nImproved FormBuilder\nFixed missing extras bug\nFixed elementPX name in Standalone Editor\nFixed access.json overview error\nAdded simplified table builder output\nAdded fullscreen option\nFixed fullscreen scrolling"
+    },
+    "installedDate": 1759492769221
+}

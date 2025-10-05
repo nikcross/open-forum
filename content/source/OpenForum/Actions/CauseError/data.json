@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/CauseError",
-    "title": " Cause Error"
+    "pageName": "/OpenForum/Actions/CauseError",
+    "title": "CauseError",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

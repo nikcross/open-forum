@@ -1,0 +1,41 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>Nodes</h3>
+<i>View updated at {{updateTime}}</i>
+<table>
+  <thead>
+  <tr>
+    <td>Name</td>
+    <td>Processor load</td>
+    <td>Disk total size</td>
+    <td>Disk free</td>
+    <td>Memory total size</td>
+    <td>Memory free</td>
+    <td>System start time</td>
+    <td>System time</td>
+    <td>Last contact time</td>
+  </tr>
+  </thead>
+  <tr of-repeatFor="node in nodes">
+    <td title="{{node.externalIpAddress}}">{{node.name}}</td>
+    <td>
+       <div class="radius progress success" style="width: 200px;">
+        <span class="meter" style="width: {{node.processor_load}}%">&nbsp; <span style="font-size: 0.75em; color: black;">{{node.processor_load}}%</span></span>
+      </div>
+    </td>
+    <td>{{node.disk_total}}</td>
+    <td>
+      <div class="radius progress success" style="width: 200px;">
+        <span class="meter" style="width: {{node.disk_free_pc}}%">&nbsp; <span style="font-size: 0.75em; color: black;">{{node.disk_free}} {{node.disk_free_pc}}%</span></span>
+      </div>
+    </td>
+    <td>{{node.memory_total}}</td>
+    <td>
+      <div class="radius progress success" style="width: 200px;">
+        <span class="meter" style="width: {{node.memory_free_pc}}%">&nbsp; <span style="font-size: 0.75em; color: black;">{{node.memory_free}} {{node.memory_free_pc}}%</span></span>
+      </div>
+    </td>
+    <td>{{node.system_startTime}}</td>
+    <td>{{node.system_time}}</td>
+    <td>{{node.system_time_ts}}</td>
+  </tr>
+</table>

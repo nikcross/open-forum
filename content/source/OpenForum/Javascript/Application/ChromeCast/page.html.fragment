@@ -1,0 +1,26 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>ChromeCast</h3>
+
+<p><ul><li> Register a Chrome App with Google</li>
+<li> Add <xmp class="panel" of-exclude="true"> var chromecastReceiverApplicationId = "your app id"; // in page.js </xmp> </li>
+<li> Add page-header.html</li>
+<li> Add page-footer.html</li>
+<li> Done</li>
+</ul></p>
+
+<hr/>
+<h3>Child Pages</h3>
+<!--Extension ChildPagesList pageName="/OpenForum/Javascript/Application/ChromeCast" --><!--End Extension ChildPagesList pageName="/OpenForum/Javascript/Application/ChromeCast" -->
+
+<hr/>
+<h3>Attachments</h3>
+<!--Extension AttachmentsList pageName="/OpenForum/Javascript/Application/ChromeCast" matching=".*" --><ul><li> <a href="/OpenForum/Javascript/Application/ChromeCast/chrome-cast.js">/OpenForum/Javascript/Application/ChromeCast/chrome-cast.js</a></li>
+<li> <a href="/OpenForum/Javascript/Application/ChromeCast/page.js">/OpenForum/Javascript/Application/ChromeCast/page.js</a></li>
+<li> <a href="/OpenForum/Javascript/Application/ChromeCast/page.content">/OpenForum/Javascript/Application/ChromeCast/page.content</a></li>
+<li> <a href="/OpenForum/Javascript/Application/ChromeCast/page-header.html">/OpenForum/Javascript/Application/ChromeCast/page-header.html</a></li>
+<li> <a href="/OpenForum/Javascript/Application/ChromeCast/page.html.fragment">/OpenForum/Javascript/Application/ChromeCast/page.html.fragment</a></li>
+<li> <a href="/OpenForum/Javascript/Application/ChromeCast/chrome-cast.css">/OpenForum/Javascript/Application/ChromeCast/chrome-cast.css</a></li>
+<li> <a href="/OpenForum/Javascript/Application/ChromeCast/page-body.html">/OpenForum/Javascript/Application/ChromeCast/page-body.html</a></li>
+<li> <a href="/OpenForum/Javascript/Application/ChromeCast/data.json">/OpenForum/Javascript/Application/ChromeCast/data.json</a></li>
+<li> <a href="/OpenForum/Javascript/Application/ChromeCast/page.html">/OpenForum/Javascript/Application/ChromeCast/page.html</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/Javascript/Application/ChromeCast" matching=".*" -->

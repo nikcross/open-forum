@@ -1,0 +1,19 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>SystemTime</h3>
+
+<a href="/OpenForum/Actions/SystemTime?action=getTime">/OpenForum/Actions/SystemTime?action=getTime</a>
+
+<hr/>
+<h3>Child Pages</h3>
+<!--Extension ChildPagesList pageName="/OpenForum/Actions/SystemTime" --><!--End Extension ChildPagesList pageName="/OpenForum/Actions/SystemTime" -->
+
+<hr/>
+<h3>Attachments</h3>
+<!--Extension AttachmentsList pageName="/OpenForum/Actions/SystemTime" matching=".*" --><ul><li> <a href="/OpenForum/Actions/SystemTime/get.sjs">/OpenForum/Actions/SystemTime/get.sjs</a></li>
+<li> <a href="/OpenForum/Actions/SystemTime/page.js">/OpenForum/Actions/SystemTime/page.js</a></li>
+<li> <a href="/OpenForum/Actions/SystemTime/page.content">/OpenForum/Actions/SystemTime/page.content</a></li>
+<li> <a href="/OpenForum/Actions/SystemTime/release-info.json">/OpenForum/Actions/SystemTime/release-info.json</a></li>
+<li> <a href="/OpenForum/Actions/SystemTime/page.html.fragment">/OpenForum/Actions/SystemTime/page.html.fragment</a></li>
+<li> <a href="/OpenForum/Actions/SystemTime/data.json">/OpenForum/Actions/SystemTime/data.json</a></li>
+<li> <a href="/OpenForum/Actions/SystemTime/page.html">/OpenForum/Actions/SystemTime/page.html</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/Actions/SystemTime" matching=".*" -->

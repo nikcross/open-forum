@@ -1,0 +1,71 @@
+{
+    "version": "0.1.9",
+    "libraries": [
+        {
+            "name": "Updater",
+            "fileName": "Updater.sjs",
+            "view": "display: block;",
+            "edit": "display: none;",
+            "index": "0",
+            "pageName": "/OpenForum/AddOn/Update"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "action",
+            "type": "string",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;",
+            "index": "0"
+        }
+    ],
+    "actions": [
+        {
+            "name": "upsertToJSONList",
+            "call": "Updater.upsertToJSONList(pageName, fileName,row,indexName);",
+            "parameters": [
+                {
+                    "name": "row",
+                    "required": true,
+                    "type": "json",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "indexName",
+                    "required": true,
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "pageName",
+                    "type": "string",
+                    "required": "true",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "fileName",
+                    "type": "string",
+                    "required": "true",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "action": "upsertToJSONList",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "description": ""
+        }
+    ],
+    "method": "post",
+    "pageName": "/OpenForum/AddOn/Update",
+    "configFile": "get-service-definition-config.json"
+}

@@ -1,0 +1,5 @@
+{
+    "version": "1.0.4",
+    "pageName": "/OpenForum/Triggers/TimerTrigger/TaskScheduler",
+    "getConfig": "get-service-definition-config.json"
+}

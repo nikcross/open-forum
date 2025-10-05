@@ -1,0 +1,15 @@
+{
+  "name": "Two Column Block",
+  "description": "A Block With Two Columns",
+  "example": {},    
+  "blocks": [
+    "text"
+  ],
+  "edit": { 
+    "pageName": "/TheLab/Experiments/ContentEditor", 
+    "fileName": "twoColumn-block-editor.content", 
+    "scriptName": "twoColumn-block-editor.js", 
+    "objectName": "TwoColumnBlockEditor",
+    "renderer": "twoColumn-block-renderer.js" 
+  }
+}

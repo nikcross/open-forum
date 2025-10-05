@@ -4,7 +4,20 @@
       height: 800px;
     }
   </style>
-  Merge {{fileDiff.file1}} with old version {{fileDiff.file2}} 
-  [{Button title="Save Merged Result" function="fileDiff.saveFile1"}]
+  <div class="row">
+    <div class="columns large-6">
+      File 1 <input of-id="fileDiff.file1" value="File1.txt">
+      [{ActionButton text="Download to Computer" action="fileDiff.downloadFile1"}]
+      [{ActionButton text="Upload from Computer" action="fileDiff.uploadFile1"}]
+    </div>
+    <div class="columns large-6">
+      File 2 <input of-id="fileDiff.file2" value="File2.txt">
+      [{ActionButton text="Download to Computer" action="fileDiff.downloadFile2"}]
+      [{ActionButton text="Upload from Computer" action="fileDiff.uploadFile2"}]
+    </div>
+  </div>
+  <div class="row">  
+    You can also drag and drop files into the editors.
+  </div>
   <div id="editor"></div>
 </div>

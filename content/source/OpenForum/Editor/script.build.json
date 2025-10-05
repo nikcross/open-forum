@@ -1,0 +1,138 @@
+{
+    "version": "2.1.11",
+    "targetFile": "/OpenForum/Editor/open-forum-editor.js",
+    "versionFile": "/OpenForum/Editor/open-forum-editor.js",
+    "steps": [
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/attachments.js",
+            "index": "0"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/editors.js",
+            "index": "1"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/plugins.js",
+            "index": "2"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/tabs.js",
+            "index": "3"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/drag-and-drop.js",
+            "index": "4"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/search.js",
+            "index": "5"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/JavaWrapper/File/File.js",
+            "index": "6"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/CodeMirror/lib/codemirror.js",
+            "index": "7"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/CodeMirror/addon/search/searchcursor.js",
+            "index": "8"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.js",
+            "index": "9"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/CodeMirror/addon/selection/active-line.js",
+            "index": "10"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/CodeMirror/addon/selection/mark-selection.js",
+            "index": "11"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/Editors/JavascriptEditor/editor.js",
+            "index": "12"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/Editors/HTMLEditor/editor.js",
+            "index": "13"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/Editors/DefaultEditor/editor.js",
+            "index": "14"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/Editors/CSSEditor/editor.js",
+            "index": "15"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/Editors/XMLEditor/editor.js",
+            "index": "16"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/Editors/SQLEditor/editor.js",
+            "index": "17"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/Editors/DefaultEditor/editor.js",
+            "index": "18",
+            "searchFor": "",
+            "replaceWith": "",
+            "data": ""
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/Editors/ContentView/editor.js",
+            "index": "19",
+            "searchFor": "",
+            "replaceWith": "",
+            "data": ""
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/Editors/PythonEditor/editor.js",
+            "index": "20"
+        },
+        {
+            "action": "append",
+            "file": "/OpenForum/Editor/editor-config.js",
+            "index": "21",
+            "searchFor": "",
+            "replaceWith": "",
+            "data": ""
+        },
+        {
+            "action": "replace",
+            "searchFor": "&version;",
+            "replaceWith": "$version",
+            "index": "22"
+        },
+        {
+            "action": "replace",
+            "searchFor": "&date;",
+            "replaceWith": "$date",
+            "index": "23"
+        }
+    ]
+}

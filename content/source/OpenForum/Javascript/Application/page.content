@@ -1,9 +1,26 @@
-!!&title;
+<div id="splash" style="display: block;">
+  <center>
+  !!!!Loading My Tabbed Application
+  !!Please Wait.....
+  </center>
+</div>
 
-----
-!!Child Pages
-[{ChildPagesList pageName="&pageName;"}]
+<div id="application" style="display: none; height: 80%;">
+  <div class="columns large-12" style="border: solid 1px; padding: 0px; height: 100%; overflow-y: scroll">
+    <div>
+      <nav class="top-bar" data-topbar role="navigation">
+        <section class="top-bar-section">
+          <ul class="left">
+            <li of-repeatFor="tab in tabList" id="{{tab.button}}" class="">
+              <a href="#" onclick="pageTabs.showTab('{{tab.id}}'); return false;">{{tab.title}}</a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
 
-----
-!!Attachments
-[{AttachmentsList pageName="&pageName;" matching=".*"}]
+    <div id="tabViews" style="padding 10px;">
+  Loading...
+    </div>
+  </div>
+</div>

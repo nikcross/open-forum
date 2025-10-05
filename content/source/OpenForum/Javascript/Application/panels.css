@@ -1,0 +1,33 @@
+body {
+  overflow: hidden;
+}
+
+.resizableLeft {
+  position: absolute;
+  left: 0;
+  padding-bottom: 100px;
+  overflow-y: scroll;
+  height: 85%;
+  border: solid 1px;
+}
+
+.resizableRight {
+  position: absolute;
+  padding: 0 0 100px 4px !important;
+  right: 0;
+  background-color: #ffffff;
+  overflow-y: scroll;
+  border: solid 1px;
+}
+
+.resizableRight:after {
+  content: " ";
+  background-color: #ccc;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding-bottom: 100px;
+  width: 4px;
+  height: 100%;
+  cursor: w-resize;
+}

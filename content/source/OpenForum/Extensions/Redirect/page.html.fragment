@@ -1,3 +1,4 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 Transfers a page to another page 
 <hr/>
 <h3>Parameters</h3>
@@ -5,6 +6,5 @@ Transfers a page to another page
 
 <hr/>
 <h3>Usage</h3>
-<xmp class="panel">[{Redirect page="new page name"}]</xmp>
-The example of the page <a href="/OpenForum/Extensions/Redirect/Example">/OpenForum/Extensions/Redirect/Example</a> will redirect back to here.
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>
+<xmp class="panel" of-exclude="true"><!--Extension Redirect page="new page name" --><script>window.location='new page name';</script><a href='new page name'>Redirecting to new page name. Click here if you are not redirected automatically.</a><!--End Extension Redirect page="new page name" --></xmp>
+The example of the page <a href="/OpenForum/Extensions/Redirect/Example">/OpenForum/Extensions/Redirect/Example</a> will redirect back to here.</ul>

@@ -1,4 +1,5 @@
-<a href="//OpenForum/Actions/Attachments/get.sjs">//OpenForum/Actions/Attachments/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Attachments&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var targetPage = transaction.getParameter("pageName");
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Extension InsertSourceFile fileName="get.sjs" --><a href="//OpenForum/Actions/Attachments/get.sjs">//OpenForum/Actions/Attachments/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Attachments&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var targetPage = transaction.getParameter("pageName");
 var matching = transaction.getParameter("matching");
 
 if(targetPage===null) {
@@ -15,12 +16,12 @@ var metaData = transaction.getParameter("metaData");
 var attachments = js.getObject("/OpenForum/Actions/Attachments","Attachments.sjs");
 var items = attachments.getList(targetPage,matching);
 
-var data = {attachments: [], length: items.length, pageName: targetPage};
+var data = {attachments: <a href="/OpenForum/Actions/Attachments/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>, length: items.length, pageName: targetPage};
 var totalSize = 0;
 var lastModified = 0;
 
 for(var index in items) {
-  var fileName = items[index];
+  var fileName = items<a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Attachments/index"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/Attachments/index does not exist. Click to create it.">index</a>;
   var entry = {pageName: targetPage, fileName: fileName};
 
   if(metaData!==null) {
@@ -45,5 +46,4 @@ for(var index in items) {
       data.size = totalSize;
   }
 
-transaction.sendPage(JSON.stringify(data));</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+transaction.sendPage(JSON.stringify(data));</xmp><!--End Extension InsertSourceFile fileName="get.sjs" -->

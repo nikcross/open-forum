@@ -1,0 +1,46 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3>ImageDisplayCard v0.0.3</h3>
+<xmp class="panel" of-exclude="true"> <!--Extension ImageDisplayCard title="Open Forum" description="Open Forum - The Future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" imageURL="/OpenForum/Images/open-forum-dog-small.png" --><script>
+if( typeof imageDisplayCSSLoaded == "undefined" ){ 
+  OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
+  imageDisplayCSSLoaded = true;
+}
+</script>
+<div class="medium-4 columns">
+  <div class="card">
+    <div class="image">
+      <img src="/OpenForum/Images/open-forum-dog-small.png">
+      <span class="title">Open Forum</span>
+    </div>
+    <div class="content">
+      <p>Open Forum - The Future</p>
+    </div>
+    <div class="action">
+      <a href='https://open-forum.onestonesoup.org/'>Open Forum</a>
+    </div>
+  </div>
+</div><!--End Extension ImageDisplayCard title="Open Forum" description="Open Forum - The Future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" imageURL="/OpenForum/Images/open-forum-dog-small.png" --> </xmp>
+<!--Extension ImageDisplayCard title="Open Forum" description="Open Forum - The Future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" imageURL="/OpenForum/Images/open-forum-dog-small.png" --><script>
+if( typeof imageDisplayCSSLoaded == "undefined" ){ 
+  OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
+  imageDisplayCSSLoaded = true;
+}
+</script>
+<div class="medium-4 columns">
+  <div class="card">
+    <div class="image">
+      <img src="/OpenForum/Images/open-forum-dog-small.png">
+      <span class="title">Open Forum</span>
+    </div>
+    <div class="content">
+      <p>Open Forum - The Future</p>
+    </div>
+    <div class="action">
+      <a href='https://open-forum.onestonesoup.org/'>Open Forum</a>
+    </div>
+  </div>
+</div><!--End Extension ImageDisplayCard title="Open Forum" description="Open Forum - The Future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" imageURL="/OpenForum/Images/open-forum-dog-small.png" -->
+<br/><br/>
+<!--Extension ActionButton text="Add ImageDisplayCard Block type to Content Editor" action="addToContentEditor" --><a  class='button radius tiny' href='#' onclick='addToContentEditor(); return false;'>Add ImageDisplayCard Block type to Content Editor</a> <!--End Extension ActionButton text="Add ImageDisplayCard Block type to Content Editor" action="addToContentEditor" -->
+</div>

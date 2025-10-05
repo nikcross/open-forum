@@ -1,60 +1,12 @@
-Creates a bulleted list of attachments on a pages
-<hr/>
-<h3>Parameters</h3>
-<ul><li>pageName - The page to list (optional. default = current page)</li>
-<hr/>
-<h3>Usage:</h3>
-<xmp class="panel">
-[{AttachmentsList matching=".txt"}]
-</xmp>
-[<ul><li><a href="/OpenForum/Extensions/AttachmentsList/notes.txt" title="/OpenForum/Extensions/AttachmentsList/notes.txt">/OpenForum/Extensions/AttachmentsList/notes.txt</a></li></ul>
-
-<hr/>
-
-<a href="//OpenForum/Extensions/AttachmentsList/renderer.sjs">//OpenForum/Extensions/AttachmentsList/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/AttachmentsList&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">targetPage = extension.getAttribute("pageName");
-matching = extension.getAttribute("matching");
-includePage = true;
-if(targetPage===null)
-{
-  targetPage = pageName;
-  includePage = false;
-}
-targetPage = ""+targetPage;
-
-list = file.getAttachmentsForPage( targetPage );
-if(targetPage.charAt(0)!='/')
-{
-  targetPage = "/"+targetPage;
-}
-
-data="";
-iterator= list.keySet().iterator();
-while(iterator.hasNext())
-{
-  key = ""+iterator.next();
-  if(key.charAt(0)=='+')
-  {
-    continue;
-  }
-  else if(matching!==null && key.search( ""+matching )==-1 )
-  {
-    continue;
-  }
-  else
-  {
-    item = key;
-  }
-
-  if(includePage===true)
-  {
-    data+="* ["+targetPage+"/"+item+"]\n";
-  }
-  else
-  {
-    data+="* ["+item+"]\n";
-  }
-
-}
-
-return wiki.renderWikiData(pageName,data);</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3>AttachmentsList v0.0.1</h3>
+<xmp class="panel" of-exclude="true"> <!--Extension AttachmentsList targetPage="" matching=".txt" actions="" --><ul><li> <a href="/OpenForum/Extensions/AttachmentsList/notes.txt">/OpenForum/Extensions/AttachmentsList/notes.txt</a></li>
+<li> <a href="/OpenForum/Extensions/AttachmentsList/example.txt">/OpenForum/Extensions/AttachmentsList/example.txt</a></li>
+</ul><!--End Extension AttachmentsList targetPage="" matching=".txt" actions="" --> </xmp>
+<!--Extension AttachmentsList targetPage="" matching=".txt" actions="" --><ul><li> <a href="/OpenForum/Extensions/AttachmentsList/notes.txt">/OpenForum/Extensions/AttachmentsList/notes.txt</a></li>
+<li> <a href="/OpenForum/Extensions/AttachmentsList/example.txt">/OpenForum/Extensions/AttachmentsList/example.txt</a></li>
+</ul><!--End Extension AttachmentsList targetPage="" matching=".txt" actions="" -->
+<br/><br/>
+<!--Extension ActionButton text="Add AttachmentsList Block type to Content Editor" action="addToContentEditor" --><a  class='button radius tiny' href='#' onclick='addToContentEditor(); return false;'>Add AttachmentsList Block type to Content Editor</a> <!--End Extension ActionButton text="Add AttachmentsList Block type to Content Editor" action="addToContentEditor" -->
+</div>

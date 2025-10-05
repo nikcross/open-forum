@@ -1,0 +1,24 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3>Banner v0.0.2</h3>
+<xmp class="panel" of-exclude="true"> <!--Extension Banner imageURL="" title="" text="" --><div style="background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url();
+  background-color: darkgreen;
+  color: white;
+  padding: 1em;">  
+	<h1 style="color: white !important;"></h1>
+	<p style="width: 40%"><b></b></p>
+</div><!--End Extension Banner imageURL="" title="" text="" --> </xmp>
+<!--Extension Banner imageURL="" title="" text="" --><div style="background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url();
+  background-color: darkgreen;
+  color: white;
+  padding: 1em;">  
+	<h1 style="color: white !important;"></h1>
+	<p style="width: 40%"><b></b></p>
+</div><!--End Extension Banner imageURL="" title="" text="" -->
+<br/><br/>
+<!--Extension ActionButton text="Add Banner Block type to Content Editor" action="addToContentEditor" --><a  class='button radius tiny' href='#' onclick='addToContentEditor(); return false;'>Add Banner Block type to Content Editor</a> <!--End Extension ActionButton text="Add Banner Block type to Content Editor" action="addToContentEditor" -->
+</div>

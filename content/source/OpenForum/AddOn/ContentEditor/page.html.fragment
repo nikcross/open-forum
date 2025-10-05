@@ -1,0 +1,10 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+
+<div style="border: solid 1px; height: 100%; background-color: #000000; padding: 20px !important;">
+  <br/>
+  <div id="pageEditor">
+  </div>
+  <br/>
+  <br/>
+  <br/>
+</div>

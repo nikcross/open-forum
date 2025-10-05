@@ -15,12 +15,12 @@
       var currentUser = "";
       var user = {};
       var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
-      JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName).onSuccess( function (response) {  currentUser = response;  } ).go();
+      JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName).onSuccess( function (response) {  currentUser = response.data;  } ).go();
       JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
         function (response) {
-          user.profile = response.profile;
-          if(response.profile.avatar) {
-            avatar = "<img src='" + response.profile.avatar + "' style='width: 24px; height: 24px;' />";
+          user.profile = response.data;
+          if(response.data.avatar) {
+            avatar = "<img src='" + response.data.avatar + "' style='width: 24px; height: 24px;' />";
           }
         }
       ).go();

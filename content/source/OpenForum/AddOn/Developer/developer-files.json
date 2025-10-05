@@ -1,0 +1,73 @@
+[
+    {
+        "targetPage": "/Development/ServiceLayer",
+        "storePage": "/OpenForum/AddOn/Developer/ServiceLayer",
+        "fileName": "RefreshService.sjs",
+        "view": "display: block;",
+        "edit": "display: none;",
+        "index": "0"
+    },
+    {
+        "targetPage": "/Development/ServiceLayer",
+        "storePage": "/OpenForum/AddOn/Developer/ServiceLayer",
+        "fileName": "page.content",
+        "view": "display: block;",
+        "edit": "display: none;",
+        "index": "1"
+    },
+    {
+        "targetPage": "/Development/ServiceLayer",
+        "storePage": "/OpenForum/AddOn/Developer/ServiceLayer",
+        "fileName": "page.js",
+        "view": "display: block;",
+        "edit": "display: none;",
+        "index": "2"
+    },
+    {
+        "targetPage": "/Development/ServiceLayer",
+        "storePage": "/OpenForum/AddOn/Developer/ServiceLayer",
+        "fileName": "get.sjs",
+        "view": "display: block;",
+        "edit": "display: none;",
+        "index": "3"
+    },
+    {
+        "targetPage": "/Development/ServiceLayer",
+        "storePage": "/OpenForum/AddOn/Developer/ServiceLayer",
+        "fileName": "ServiceLayerClient.js",
+        "view": "display: block;",
+        "edit": "display: none;",
+        "index": "4"
+    },
+    {
+        "targetPage": "/Development/ServiceLayer",
+        "storePage": "/OpenForum/AddOn/Developer/ServiceLayer",
+        "fileName": "live-trigger.sjs",
+        "view": "display: block;",
+        "edit": "display: none;",
+        "index": "5"
+    },
+    {
+        "targetPage": "/Development/ServiceLayer",
+        "storePage": "/OpenForum/AddOn/Developer/ServiceLayer",
+        "fileName": "dev-trigger.sjs",
+        "view": "display: block;",
+        "edit": "display: none;",
+        "index": "6"
+    },
+    {
+        "targetPage": "/Development/ServiceLayer",
+        "storePage": "/OpenForum/AddOn/Developer/ServiceLayer",
+        "fileName": "trigger.sjs",
+        "view": "display: block;",
+        "edit": "display: none;",
+        "index": "7"
+    },
+    {
+        "targetPage": "/Development",
+        "storePage": "/OpenForum/AddOn/Developer/Development",
+        "fileName": "page.js",
+        "view": "display: block;",
+        "edit": "display: none;"
+    }
+]

@@ -1,0 +1,30 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3>CountDown v0.0.1</h3>
+<xmp class="panel" of-exclude="true"> <!--Extension CountDown counter="Alerts" action="doAction" period="10" -->{{Alerts}}
+<script>
+var Alerts = 10;
+  doAction();
+  setInterval(function() {
+    Alerts--;
+    if(Alerts==0) {
+     doAction();
+    	Alerts = 10;
+    }
+  },1000);
+</script><!--End Extension CountDown counter="Alerts" action="doAction" period="10" --> </xmp>
+<!--Extension CountDown counter="Alerts" action="doAction" period="10" -->{{Alerts}}
+<script>
+var Alerts = 10;
+  doAction();
+  setInterval(function() {
+    Alerts--;
+    if(Alerts==0) {
+     doAction();
+    	Alerts = 10;
+    }
+  },1000);
+</script><!--End Extension CountDown counter="Alerts" action="doAction" period="10" -->
+<br/><br/>
+<!--Extension ActionButton text="Add CountDown Block type to Content Editor" action="addToContentEditor" --><a  class='button radius tiny' href='#' onclick='addToContentEditor(); return false;'>Add CountDown Block type to Content Editor</a> <!--End Extension ActionButton text="Add CountDown Block type to Content Editor" action="addToContentEditor" -->
+</div>

@@ -1,0 +1,47 @@
+<div class="row">
+  <h3>Updater {{VERSION}}</h3>
+
+  <div class="row">
+    <label>Parent Host </label><div class="columns large-8">{{host}}</div>
+  </div>
+  <div class="row">
+    <label>Page Name </label><div class="columns large-8"><input type="text" of-id="targetPageName" /></div>
+  </div>
+  <div class="row">
+    <a class="button tiny" onClick="getUpdateInfo(); return false;">Get Update Info</a>
+    <a class="button tiny" onClick="getUpdate(); return false;">Get Update</a>
+  </div>
+  <div class="row"><ul><li> Page Name: {{release.pagename}}</li>
+<li> Version: {{release.version}}</li>
+<li> Released: {{release.releaseTime}}</li>
+<li> Size: {{release.zipfilesize_VIEW}}</li>
+</ul>
+    <b>Notes:</b> <div class="panel callout radius"> {{release.extra.extra.notes}} </div> <br/><br/>
+    <b>Requires:</b>
+    <div class="panel callout radius"> 
+    <ul>
+      <li of-repeatFor="required in release.extra.requires">{{required.pageName}} version {{required.version}}</li>
+    </ul>
+   </div> <br/><br/>
+  </div>
+  <hr/>
+  <div class="row">
+    Search For <input of-id="rowFilter" type="text"/>
+  </div>
+  <div class="row">
+    <table id="releases">
+      <tr of-repeatFor="release in releases">
+        <td><a href="#" onClick="targetPageName='{{release.pagename}}'; getUpdateInfo(); return false;">{{release.pagename}}</a></td>
+        <td>{{release.version_VIEW}}</td>
+        <td>{{release.releaseTime}}</td>
+        <td>{{release.zipfilesize_VIEW}}</td>
+        <td>{{release.autoUpdate}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+  <div class="row">
+    <a href="/OpenForum/AddOn/Update/">API Reference</a>
+  </div>
+<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

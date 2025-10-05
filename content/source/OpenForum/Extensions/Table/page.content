@@ -1,0 +1,29 @@
+!!&title;
+
+{{{
+[{Table name="myTable" actions="add,edit,move,remove" data="
+Site site
+Link url link
+"}]
+
+[{Table name="myTable" data="
+Site site
+Open openLink action
+"}]
+}}}
+
+[{Table name="myTable" actions="add,edit,move,remove" data="
+Site site
+Link url link
+"}]
+
+[{Table name="myTable" data="
+Site site
+Open openLink action
+"}]
+
+[{ScriptClip fileName="page.js"}]
+
+[Table Builder|/OpenForum/Editor/Plugins/TableBuilder=] \\
+[{Popup id="tableBuilderInstructions" title="Table Definition Instructions"}]
+[{Popup id="tableBuilderInstructions" sourceFileName="instructions.wiki.fragment" sourcePageName="/OpenForum/Editor/Plugins/TableBuilder"}]

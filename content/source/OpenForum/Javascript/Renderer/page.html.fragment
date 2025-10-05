@@ -1,21 +1,27 @@
-<a href="//OpenForum/Javascript/Renderer/DefaultRenderer.sjs">//OpenForum/Javascript/Renderer/DefaultRenderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer&fileName=DefaultRenderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">/**
-
-**/
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3><a href="/OpenForum/Javascript/Renderer/QuickReference">Quick Reference</a></h3>
+<div class="row">
+<h3>Renderer</h3>
+<!--Extension InsertSourceFile page="/OpenForum/Javascript/Renderer" fileName="DefaultRenderer.sjs" --><a href="//OpenForum/Javascript/Renderer/DefaultRenderer.sjs">//OpenForum/Javascript/Renderer/DefaultRenderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer&fileName=DefaultRenderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel"><!--<ul><li></li>
+</ul>
+<ul><li></li></ul>-->
 function DefaultRenderer() {
   var self = this;
-  var EOL = "\n";
+  var EOL = "<br/>n";
+  var WHITE_SPACE = "<br/><br/>s{0,}?";
+  var REG_EX = "RX:";
 
-  var aliases = [];
-  
+  var aliases = <a href="/OpenForum/Javascript/Renderer/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+
   self.setAliases = function(newAliases) {
     aliases = newAliases;
   };
-  
+
   self.getVersion = function() {
-    return "DefaultRenderer v1.03 Clean and smooth";
+    return "DefaultRenderer v1.08 2021 Covid release";
   };
 
-  /*===================================*/
+  <!--===================================-->
   var MarkUp = function(config) {
     var self = this;
     var type = config.type;
@@ -74,7 +80,54 @@ function DefaultRenderer() {
     };
   };
 
-  /*===================================*/
+  <!--===================================-->
+  var regexIndexOf = function(string, match) {
+    if(match.indexOf("RX:")==0) {
+      return string.search( match.substring(3) );
+    }
+    return string.indexOf( match );
+  };
+
+  var indexAfter = function(string, match) {
+    if(match.indexOf("RX:")==0) {
+      var index = regexIndexOf( string,match );
+      if(index==-1) {
+        return -1;
+      } else {
+        return index + string.match( match.substring(3) )<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/0 does not exist. Click to create it.">0</a>.length;
+      }
+    }
+    return string.indexOf( match )+match.length;
+  };
+
+  <!--===================================-->
+  var renderCheckbox = function (pageName,content) {
+    if( content.indexOf(":")==0 ) {
+      return "<input type='checkbox' id='"+content.substring(1)+"' of-id='"+content.substring(1)+"' />";
+    } else {
+      return "<input type='checkbox' />";
+    }
+  };
+
+  var renderRadioButton = function (pageName,content) {
+    if( content.indexOf(":")==0 ) {
+      var parts = content.substring(1).split("=");
+      var id = "radio";
+      var name = "radio";
+      var value = "";
+      if(parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/0 does not exist. Click to create it.">0</a>) {
+        id = parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/0 does not exist. Click to create it.">0</a>;
+      }
+      if(parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/1"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/1 does not exist. Click to create it.">1</a>) {
+        value = parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/1"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/1 does not exist. Click to create it.">1</a>;
+      }
+      return "<input type='radio' id='"+value+"' value='"+value+"' of-id='"+id+"' name='"+id+"' />";
+    } else {
+      return "<input type='radio' />";
+    }
+  };
+
+  <!--===================================-->
   var renderLink = function (pageName,content) {
     var output = "";
 
@@ -84,12 +137,22 @@ function DefaultRenderer() {
     var title = "";
     var target = "";
     if(parts.length===1) {
-      link = parts[0];
-      title = parts[0];
+      link = parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/0 does not exist. Click to create it.">0</a>;
+      title = parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/0 does not exist. Click to create it.">0</a>;
+      if(title.lastIndexOf("=")==title.length-1) {
+        title = title.substring(0,title.length-1);
+      }
     } else {
-      link = parts[1];
-      title = parts[0];
+      link = parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/1"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/1 does not exist. Click to create it.">1</a>;
+      title = parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/0 does not exist. Click to create it.">0</a>;
     }
+
+    var newTab = false;
+    if(link.lastIndexOf("=")==link.length-1) {
+      link = link.substring(0,link.length-1);
+      newTab = true;
+    }
+
     //check if external
     //console.log("rendering link "+link);
     if(link.indexOf(":")!=-1) {
@@ -100,22 +163,23 @@ function DefaultRenderer() {
       if(prefix!==null) {
         link = prefix+link.substring(link.indexOf(":")+1);
       }
-      target = " target=\"external_page\"";
+      target = " target=<br/>"external_page<br/>"";
     } else {
       if(link.charAt(0)!=="/") {
         link = pageName+"/"+link;
       }
+
       var targetPageName = link;
       var targetFileName = "page.content";
+
+      if(targetPageName.indexOf("?")!=-1) {
+        targetPageName = targetPageName.substring(0,targetPageName.indexOf("?"));
+        //log.debug("TargetPageName now "+targetPageName);        
+      }
 
       if(targetPageName.indexOf(".")!==-1) {
         targetFileName = targetPageName.substring(targetPageName.lastIndexOf("/")+1);
         targetPageName = targetPageName.substring(0,targetPageName.lastIndexOf("/"));
-      }
-
-      if(targetPageName.indexOf("?")!=-1) {
-        targetPageName = targetPageName.substring(0,targetPageName.indexOf("?"));
-//log.debug("TargetPageName now "+targetPageName);        
       }
 
       if(targetPageName.indexOf("#")!=-1) {
@@ -124,7 +188,7 @@ function DefaultRenderer() {
 
       if (file.attachmentExists(targetPageName,targetFileName)===false) {
         link = "/OpenForum/Editor?pageName="+link;
-        target = "target=\"editor\" style=\"color: red\" title=\"The page "+link+" does not exist. Click to create it.\"";
+        target = "target=<br/>"editor<br/>" style=<br/>"color: red<br/>" title=<br/>"The page "+link+" does not exist. Click to create it.<br/>"";
       }
     }
 
@@ -132,51 +196,68 @@ function DefaultRenderer() {
     if(link.indexOf(".png")!=-1) {
       var alt = "";
       if(title!==link) {
-        alt = " alt=\""+title+"\" title=\""+title+"\"";
+        alt = " alt=<br/>""+title+"<br/>" title=<br/>""+title+"<br/>"";
       }
-      output = "<img src=\""+link+"\""+alt+"/>";
+      output = "<img src=<br/>""+link+"<br/>""+alt+"/>";
     } else {
       //create link
-      output = "<a href=\""+link+"\""+target+">"+title+"</a>";
+      if(newTab) {
+        output = "<a href=<br/>""+link+"<br/>""+target+" target=<br/>"newTab<br/>">"+title+"<img src='/OpenForum/Images/icons/png/link_go.png' /></a>";
+      } else {
+        output = "<a href=<br/>""+link+"<br/>""+target+">"+title+"</a>";
+      }
     }
 
     return output;
   };
 
-  /*===================================*/
+  <!--===================================-->
   var renderExtension = function(pageName,content) {
     var extensionName = content;
-    var attributes = [];
+    var attributes = <a href="/OpenForum/Javascript/Renderer/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
     if(content.indexOf(" ")!=-1) {
       extensionName=content.substring(0,content.indexOf(" "));
       attributes=parseAttributes(content.substring(content.indexOf(" ")));
     }
 
     //load extension render.sjs
-    var renderScript = file.getAttachment("/OpenForum/Extensions/"+extensionName,"renderer.sjs");
-
+    var renderScript;
+    var scriptFile = "renderer.sjs";
+    if(extensionName.indexOf(".sjs")==extensionName.length-4) {
+      scriptFile = extensionName.substring( extensionName.lastIndexOf("/")+1 );
+      extensionName = extensionName.substring( 0, extensionName.lastIndexOf("/") );
+    }
+    if(extensionName.charAt(0)=='/') {
+      renderScript = file.getAttachment(extensionName,scriptFile);
+    } else {
+      renderScript = file.getAttachment("/OpenForum/Extensions/"+extensionName,scriptFile);
+    }
     var renderFunction = eval("function(extension) {"+renderScript+"};");
     //console.log("renderScript: "+renderScript);
 
     var extension = new function() {
-      var attributes = [];
+      var attributes = <a href="/OpenForum/Javascript/Renderer/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
       this.getAttribute = function(field) {
-        return attributes[field];
+        return attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/field"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/field does not exist. Click to create it.">field</a>;
       };
       this.setAttribute = function(field,value) {
-        attributes[field] = value;
+        attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/field"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/field does not exist. Click to create it.">field</a> = value;
       };
     };
     extension.setAttribute( "pageName",pageName );
     for(var i=0;i<attributes.length;i++) {
-      extension.setAttribute(attributes[i].key,attributes[i].value);
+      extension.setAttribute(attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i does not exist. Click to create it.">i</a>.key,attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i does not exist. Click to create it.">i</a>.value);
     }
 
     //run for content
-    return renderFunction(extension);
+    var extensionContent = renderFunction(extension);
+    
+    extensionContent = "<!--Extension " + content + " -->" + extensionContent + "<!--End Extension " + content + " -->";
+    
+    return extensionContent;
   };
 
-  /*===================================*/
+  <!--===================================-->
   var renderTableRow = function(pageName,content) {
     //split columns
     var output = "";
@@ -184,44 +265,44 @@ function DefaultRenderer() {
     //render columns
     //console.log("parseing "+content+" i:"+cells.length);  
     for(var i=0;i<cells.length;i++) {
-      output += "<td>"+cells[i]+"</td>";
+      output += "<td>"+cells<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i does not exist. Click to create it.">i</a>+"</td>";
     }
 
     //console.log("parsed as "+output);  
     return output;
   };
 
-  /*===================================*/
+  <!--===================================-->
   var getPrefix = function(alias) {
     //console.log("getting prefix for "+alias+" in "+aliases.length+" aliases");
     for(var i=0;i<aliases.length;i++) {
-      if(aliases[i].alias===alias) {
-        return aliases[i].prefix;
+      if(aliases<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i does not exist. Click to create it.">i</a>.alias===alias) {
+        return aliases<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i does not exist. Click to create it.">i</a>.prefix;
       }
-      //console.log("("+aliases[i].alias+")!=("+alias+")");
+      //console.log("("+aliases<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i does not exist. Click to create it.">i</a>.alias+")!=("+alias+")");
     }
     //console.log("No match for "+alias);
     return null;
   };
 
-  /*===================================*/
+  <!--===================================-->
   var findFirstMatch = function(source,matchers) {
     var lowestIndex = source.length;
     var rendererMatch = null;
     for(var i=0; i<matchers.length; i++) {
-      var renderer = matchers[i];
-      var point  = source.indexOf(renderer.getStart());
+      var renderer = matchers<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Renderer/i does not exist. Click to create it.">i</a>;
+      var point  = regexIndexOf(source,renderer.getStart());
       if (point >= 0 && point < lowestIndex) {
-        lowestIndex = source.indexOf(renderer.getStart());
+        lowestIndex = regexIndexOf(source,renderer.getStart());
         rendererMatch = renderer;
       }
     }
     return rendererMatch;
   };
 
-  /*===================================*/
+  <!--===================================-->
   var parseAttributes = function(data) {
-    var attributes = [];
+    var attributes = <a href="/OpenForum/Javascript/Renderer/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
     while(data.length>0 && data.indexOf("=")!=-1) {
       while(data.length>0 && data.charAt(0)===" ") {
         data=data.substring(1);
@@ -232,7 +313,7 @@ function DefaultRenderer() {
       var value = "";
 
       //console.log("data ("+data+")");
-      if(data.length===0 || (data.charAt(0)!=="\"" && data.charAt(0)!=="'")) {
+      if(data.length===0 || (data.charAt(0)!=="<br/>"" && data.charAt(0)!=="'")) {
         value = "true";
         attributes.push( {key: key, value: value} );
         //console.log("added: key:"+key+" value:"+value);
@@ -241,17 +322,17 @@ function DefaultRenderer() {
       data = data.substring(1);
       var escaped = false;
       for(var i=0;i<data.length;i++) {
-        if(data.charAt(i)==="\\" && data.charAt(i+1)==="\"") {
-          value+="\\\"";
+        if(data.charAt(i)==="<br/><br/>" && data.charAt(i+1)==="<br/>"") {
+          value+="<br/><br/><br/>"";
           i++;
           continue;
         }
-        if(data.charAt(i)==="\\" && data.charAt(i+1)==="'") {
-          value+="\\\"";
+        if(data.charAt(i)==="<br/><br/>" && data.charAt(i+1)==="'") {
+          value+="<br/><br/><br/>"";
           i++;
           continue;
         }
-        if(data.charAt(i)==="\"" || data.charAt(i)==="'") {
+        if(data.charAt(i)==="<br/>"" || data.charAt(i)==="'") {
           attributes.push( {key: key, value: value} );
           data = data.substring(i+1);
           //console.log("added: key:"+key+" value:"+value);
@@ -264,108 +345,126 @@ function DefaultRenderer() {
     return attributes;
   };
 
-  /*===================================*/
-  var markUp = [
-    new MarkUp( { type: "list", match: {start: EOL+"*",end: EOL}, start: "<li>", end: "</li>", open: "<ul>", close: "</ul>" } ),
-    new MarkUp( { type: "numbered list", match: {start: EOL+"#",end: EOL}, start: "<li>", end: "</li>", open: "<ol>", close: "</ol>" } ),
-    new MarkUp( { type: "bold", match: {start: "__",end: "__"}, start: "<b>", end: "</b>" } ),
-    new MarkUp( { type: "strike", match: {start: "~~",end: "~~"}, start: "<strike>", end: "</strike>" } ),
-    new MarkUp( { type: "super script", match: {start: "^^",end: "^^"}, start: "<sup>", end: "</sup>" } ),
-    new MarkUp( { type: "comment", match: {start: "/*",end: "*/"}, start: "<!--", end: "-->" } ),
-    new MarkUp( { type: "italic", match: {start: "''",end: "''"}, start: "<i>", end: "</i>" } ),
-    new MarkUp( { type: "line break", match: {start: "\\",end: EOL}, start: "<br/>", end: "" } ),
-    new MarkUp( { type: "code", match: {start: "{{{",end: "}}}"}, start: "<(xmp) class=\"panel\">", end: "</(xmp)>", stackable: false } ),
-    new MarkUp( { type: "paragraph", match: {start: "((",end: "))"}, start: "<p>", end: "</p>" } ),
-    new MarkUp( { type: "box", match: {start: "[[",end: "]]"}, start: "<div class=\"panel callout radius\">", end: "</div>" } ),
-    new MarkUp( { type: "h1", match: {start: "!!!!",end: EOL}, start: "<h1>", end: "</h1>" } ),
-    new MarkUp( { type: "h2", match: {start: "!!!",end: EOL}, start: "<h2>", end: "</h2>" } ),
-    new MarkUp( { type: "h3", match: {start: "!!",end: EOL}, start: "<h3>", end: "</h3>" } ),
-    new MarkUp( { type: "center", match: {start: "=-=",end: "=-="}, start: "<center>", end: "</center>" } ),
-    new MarkUp( { type: "section", match: {start: EOL+"--8<!--",end: EOL+"-->8--"}, start: "<hr/>", end: "" } ),
-    new MarkUp( { type: "rule", match: {start: "----",end: EOL}, start: "<hr/>", end: "" } ),
-    new MarkUp( { type: "extension", match: {start: "[{",end: "}]"}, start: "", end: "", render: renderExtension, stackable: false } ),
-    new MarkUp( { type: "link", match: {start: "[",end: "]"}, start: "", end: "", render: renderLink } ),
-    new MarkUp( { type: "table", match: {start: EOL+"|",end: EOL}, start: "<tr>", end: "</tr>", open: "<table>", close: "</table>", render: renderTableRow } )
+  <!--===================================-->
+  var markUp = <a href="
+    new MarkUp( { type: "list", match: {start: REG_EX+EOL+WHITE_SPACE+"<br/><br/><ul><li>",end: EOL}, start: "<li>", end: "</li>", open: "<ul>", close: "</ul>" } ),</li></ul>
+    new MarkUp( { type: "numbered list", match: {start: REG_EX+EOL+WHITE_SPACE+"<br/><br/><ol><li>",end: EOL}, start: "<li>", end: "</li>", open: "<ol>", close: "</ol>" } ),</li></ol>
+    new MarkUp( { type: "bold", match: {start: "<b>",end: "</b>"}, start: "<b>", end: "</b>" } ),
+    new MarkUp( { type: "strike", match: {start: "<strike>",end: "</strike>"}, start: "<strike>", end: "</strike>" } ),
+    new MarkUp( { type: "version", match: {start: "<!--DefaultRenderer v1.08 2021 Covid release",end: EOL}, start: "<!--" + self.getVersion(), end: "-->" } ),-->
+    new MarkUp( { type: "super script", match: {start: "<sup>",end: "</sup>"}, start: "<sup>", end: "</sup>" } ),
+    new MarkUp( { type: "comment", match: {start: "<!--",end: "-->"}, start: "<!--", end: "-->" } ),
+    new MarkUp( { type: "italic", match: {start: "<i>",end: "</i>"}, start: "<i>", end: "</i>" } ),
+    new MarkUp( { type: "line break", match: {start: "<br/><br/>",end: EOL}, start: "<br/>", end: "" } ),
+    new MarkUp( { type: "code", match: {start: "<xmp class="panel" of-exclude="true">",end: "</xmp>"}, start: "<(xmp) class=<br/>"panel<br/>" of-exclude=<br/>"true<br/>">", end: "</(xmp)>", stackable: false } ),
+    new MarkUp( { type: "notMarkup", match: {start: "",end: ""}, start: "", end: "", stackable: false } ),
+    new MarkUp( { type: "paragraph", match: {start: "<p>",end: "</p>"}, start: "<p>", end: "</p>" } ),
+    new MarkUp( { type: "box", match: {start: "<div class="row">",end: "</div>"}, start: "<div class=<br/>"row<br/>">", end: "</div>" } ),
+    new MarkUp( { type: "box", match: {start: "<div class="panel callout radius"></div>,end: "" target="external_page">
+    new MarkUp( { type: "list", match: {start: REG_EX+EOL+WHITE_SPACE+"<br/><br/><ul><li>",end: EOL}, start: "<li>", end: "</li>", open: "<ul>", close: "</ul>" } ),</li></ul>
+    new MarkUp( { type: "numbered list", match: {start: REG_EX+EOL+WHITE_SPACE+"<br/><br/><ol><li>",end: EOL}, start: "<li>", end: "</li>", open: "<ol>", close: "</ol>" } ),</li></ol>
+    new MarkUp( { type: "bold", match: {start: "<b>",end: "</b>"}, start: "<b>", end: "</b>" } ),
+    new MarkUp( { type: "strike", match: {start: "<strike>",end: "</strike>"}, start: "<strike>", end: "</strike>" } ),
+    new MarkUp( { type: "version", match: {start: "<!--DefaultRenderer v1.08 2021 Covid release",end: EOL}, start: "<!--" + self.getVersion(), end: "-->" } ),-->
+    new MarkUp( { type: "super script", match: {start: "<sup>",end: "</sup>"}, start: "<sup>", end: "</sup>" } ),
+    new MarkUp( { type: "comment", match: {start: "<!--",end: "-->"}, start: "<!--", end: "-->" } ),
+    new MarkUp( { type: "italic", match: {start: "<i>",end: "</i>"}, start: "<i>", end: "</i>" } ),
+    new MarkUp( { type: "line break", match: {start: "<br/><br/>",end: EOL}, start: "<br/>", end: "" } ),
+    new MarkUp( { type: "code", match: {start: "<xmp class="panel" of-exclude="true">",end: "</xmp>"}, start: "<(xmp) class=<br/>"panel<br/>" of-exclude=<br/>"true<br/>">", end: "</(xmp)>", stackable: false } ),
+    new MarkUp( { type: "notMarkup", match: {start: "",end: ""}, start: "", end: "", stackable: false } ),
+    new MarkUp( { type: "paragraph", match: {start: "<p>",end: "</p>"}, start: "<p>", end: "</p>" } ),
+    new MarkUp( { type: "box", match: {start: "<div class="row">",end: "</div>"}, start: "<div class=<br/>"row<br/>">", end: "</div>" } ),
+    new MarkUp( { type: "box", match: {start: "<div class="panel callout radius"></div>,end: "</a>]"}, start: "<div class=<br/>"panel callout radius<br/>">", end: "</div>" } ),
+    new MarkUp( { type: "h1", match: {start: "<h1>",end: EOL}, start: "<h1>", end: "</h1>" } ),</h1>
+    new MarkUp( { type: "h2", match: {start: "<h2>",end: EOL}, start: "<h2>", end: "</h2>" } ),</h2>
+    new MarkUp( { type: "h3", match: {start: "<h3>",end: EOL}, start: "<h3>", end: "</h3>" } ),</h3>
+    new MarkUp( { type: "center", match: {start: "<center>",end: "</center>"}, start: "<center>", end: "</center>" } ),
+    new MarkUp( { type: "section", match: {start: EOL+"--8<--",end: EOL+"-->8--"}, start: "", end: "" } ),
+    new MarkUp( { type: "rule", match: {start: "<hr/>",end: EOL}, start: "<hr/>", end: "" } ),
+    new MarkUp( { type: "checkbox", match: {start: "<input type='checkbox' />"}, start: "", end: "", render: renderCheckbox } ),
+    new MarkUp( { type: "radioButton", match: {start: "<input type='radio' />"}, start: "", end: "", render: renderRadioButton } ),
+    new MarkUp( { type: "extension", match: {start: "<!--Extension ",end: " -->undefined<!--End Extension ",end: " -->"}, start: "", end: "", render: renderExtension, stackable: false } ),
+    new MarkUp( { type: "link", match: {start: "<a href="",end: "" target="external_page">",end: "</a>"}, start: "", end: "", render: renderLink } ),
+    new MarkUp( { type: "table", match: {start: REG_EX+EOL+WHITE_SPACE+"<br/><br/><table><tr><td>",end: EOL}, start: "<tr>", end: "</tr>", open: "<table>", close: "</table>", render: renderTableRow } )</td></tr></table>
   ];
 
-  /*===================================*/
-  /*  Converts OpenForum Markup to HTML
-   * 
-   *  pageName - Name of page to render for
-   *  input - raw text to render to html 
-   * 
-   */
+  <!--===================================-->
+  <!--  Converts OpenForum Markup to HTML<ul><li> </li>
+<li>  pageName - Name of page to render for</li>
+<li>  input - raw text to render to html </li>
+<li> </li>
+   </ul>-->
   self.render = function(pageName,text) {
     try{
-    var input = EOL+text+EOL;
-    var rendererStack = [];
-    var output = "";
-      
-    //While there is input text left to render
-    while(input.length>0) {
-      //Find the next instance of marked up text
-      //and return the required renderer
-      var renderer = findFirstMatch( input,markUp );
-      
-      //If no renderer found in remaining text, add text to output and end
-      if(renderer===null) {
-        output+=input;
-        break;
-      } else {
-        //Record the start and cut start as the start of the markup
-        var startPoint = input.indexOf(renderer.getStart());
-        var startCutPoint = startPoint;
-        //If the first character of the cut is new line and markup is not a title, move cut point past it
-        if(input.substring(startCutPoint,1)===EOL && renderer.getStart().charAt(0)!=="!") {
-          startCutPoint++;
-        }
-        
-        //Record the string before the markup start
-        var before = input.substring(0,startCutPoint);
-        
-        //Record the string after the markup start
-        var after = input.substring(startPoint+renderer.getStart().length);
-        //Record the index of the start of the end markup
-        var endPoint = after.indexOf(renderer.getEnd());
-        //Record the string within the markup
-        var content = after.substring( 0,endPoint );
+      var input = EOL+text+EOL;
+      var rendererStack = <a href="/OpenForum/Javascript/Renderer/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+      var output = "";
 
-        //If the markup does not end at the line end
-        if(renderer.getEnd()!==EOL) {
-          //Record the end of the markup as after the end markup
-          endPoint += renderer.getEnd().length;
-        }
+      //While there is input text left to render
+      while(input.length>0) {
+        //Find the next instance of marked up text
+        //and return the required renderer
+        var renderer = findFirstMatch( input,markUp );
 
-        //Fix to render links in lists
-        if(renderer.canBeStacked()===true) {
-          content = self.render(pageName,content);
-        }
+        //If no renderer found in remaining text, add text to output and end
+        if(renderer===null) {
+          output+=input;
+          break;
+        } else {
+          //Record the start and cut start as the start of the markup
+          var startPoint = regexIndexOf(input,renderer.getStart());
+          var startCutPoint = startPoint;
+          //If the first character of the cut is new line and markup is not a title, move cut point past it
+          if(input.substring(startCutPoint,1)===EOL && renderer.getStart().charAt(0)!=="!") {
+            startCutPoint++;
+          }
 
-        //Record the string after the markup end
-        after = after.substring( endPoint );
-        //Add the string before the markup to the output
-        output += before;
-        //Add the rendered markup to the output
-        output += renderer.render(pageName,content);
-        //Set the input as the string after the markup
-        input = after;
-        
-        if(input.substring(0,2)==="\n\n") {
-          output += "\n"+renderer.renderClose();
-          input = input.substring(1);
-        } else {        
-          rendererStack.push(renderer);
+          //Record the string before the markup start
+          var before = input.substring(0,startCutPoint);
+
+          //Record the string after the markup start
+          var after = input.substring( indexAfter(input,renderer.getStart()) );
+          //Record the index of the start of the end markup
+          var endPoint = regexIndexOf(after,renderer.getEnd());
+          //Record the string within the markup
+          var content = after.substring( 0,endPoint );
+
+          //If the markup does not end at the line end
+          if(renderer.getEnd()!==EOL) {
+            //Record the end of the markup as after the end markup
+            endPoint += renderer.getEnd().length;
+          }
+
+          //Fix to render links in lists
+          if(renderer.canBeStacked()===true) {
+            content = self.render(pageName,content);
+          }
+
+          //Record the string after the markup end
+          after = after.substring( endPoint );
+          //Add the string before the markup to the output
+          output += before;
+          //Add the rendered markup to the output
+          output += renderer.render(pageName,content);
+          //Set the input as the string after the markup
+          input = after;
+
+          if(input.substring(0,2)==="<br/>n<br/>n") {
+            output += "<br/>n"+renderer.renderClose();
+            input = input.substring(1);
+          } else {        
+            rendererStack.push(renderer);
+          }
         }
       }
-    }
-    output = output.substring(1,output.length-1);
+      output = output.substring(1,output.length-1);
 
-    while(rendererStack.length>0) {
-      var poppedRenderer = rendererStack.pop();
-      output = output + poppedRenderer.renderClose();
-    }
+      while(rendererStack.length>0) {
+        var poppedRenderer = rendererStack.pop();
+        output = output + poppedRenderer.renderClose();
+      }
 
-    return output;
+      return output;
     } catch(e){
       if(log) {
         log.error("Error in /OpenForum/Javascript/Renderer/DefaultRenderer. Excpetion "+e+" on line "+e.lineNumber);
@@ -373,6 +472,5 @@ function DefaultRenderer() {
     }
   };
 }
-</xmp>
-
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+</xmp><!--End Extension InsertSourceFile page="/OpenForum/Javascript/Renderer" fileName="DefaultRenderer.sjs" --> 
+</div>

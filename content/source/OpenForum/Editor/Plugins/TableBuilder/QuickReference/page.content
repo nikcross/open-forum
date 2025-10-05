@@ -1,0 +1,10 @@
+!!&title;
+
+--8<--
+((The Table Builder enables the quick building of table html for use with OpenForum.))
+-->8--
+--8<--
+((Enter a table name in the Table name field. The last word will be the data name for the table. The rows behind that will be the tables display name.))
+((Enter column names, one per row, in the Columns text area. The last word in each row will be the column cells data name, the rows behind that will be the columns display name.))
+((You can see a preview of the table in the Table panel and the html to build it in the far right hand column.))
+-->8--

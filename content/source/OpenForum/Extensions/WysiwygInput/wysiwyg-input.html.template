@@ -1,0 +1,35 @@
+<textarea id="{{name}}_content">
+</textarea>
+<script>
+  {{name}} = "{{value}}";
+  
+  if(typeof ClassicEditor == "undefined" && typeof ClassicEditorLoading == "undefined") { 
+    OpenForum.loadScript("/OpenForum/Javascript/CKEditor/ck-classic-editor.js");
+    ClassicEditorLoading = true;
+  }
+
+  new Process().waitFor(
+    function() { return (typeof ClassicEditor != "undefined"); }
+  ).then( function() {
+    ClassicEditor
+      .create( document.getElementById( "{{name}}_content" ), 
+              {
+      toolbar: ["heading", "|", "bold", "italic", "link", "bulletedList", "numberedList", "|", "outdent", "indent", "|", "blockQuote", "insertTable", "mediaEmbed", "undo", "redo" ]
+    } )
+      .then( newEditor => {
+      {{name}}_editor = newEditor;
+      {{name}}_editor.setData( {{name}} );
+      {{name}}_editor.model.document.on('change:data', (evt, data) => {
+        //OpenForum.getObject("{{name}}").setValue({{name}}_editor.getData());
+        {{name}} = {{name}}_editor.getData();
+        OpenForum.getObject("{{name}}").setValueQuietly({{name}}_editor.getData());
+      });
+  		OpenForum.addListener("{{name}}", function() {
+          {{name}}_editor.setData( {{name}} );
+		})
+    } )
+      .catch( error => {
+      console.error( error );
+    } );
+  }).run();
+</script>

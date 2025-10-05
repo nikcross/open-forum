@@ -2,6 +2,7 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
+    
     <title>Page Editor</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/lib/codemirror.css"/>
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/lint/lint.css"/>
     <link rel="stylesheet" href="/OpenForum/Editor/code-mirror.css"/>
     <link rel="stylesheet" href="/OpenForum/Javascript/CodeMirror/addon/display/fullscreen.css"/>
+    <link rel="stylesheet" href="/OpenForum/Extensions/DataTable/data-table.css"/>
 
     <script type="text/javascript" src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
     <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
@@ -21,7 +23,7 @@
     <div id="loading-splash">
       <center><h1 style="font-size: 100px;">Loading ...</h1></center>
     </div>
-    <div id="page" style="display: none;">
+    <div id="page" style="display: none; height: inherit;">
       <div class="fixed">
         <nav class="top-bar" data-topbar="true">
           <ul class="title-area">
@@ -46,7 +48,7 @@
             <!-- Left Nav Section -->
             <ul class="left">
               <li  of-repeatFor="editor in editorList" id="editor-tab-{{editor.id}}" class="has-dropdown {{editor.tabButtonStyle}}">
-                <a href="#" onclick="showTab('{{editor.id}}'); return false;">{{editor.name}}{{editor.changed}}</a>
+                <a href="#{{editor.id}}" onclick="showTab('{{editor.id}}');">{{editor.name}}{{editor.changed}}</a>
                 <ul class="dropdown">
                   {{editor.options}}
                 </ul>
@@ -60,9 +62,18 @@
         <h2 id="modalTitle">{{popupStatus}}</h2>
         <a class="close-reveal-modal" aria-label="Close">&#215;</a>
       </div>
+      
+      <div id="noteModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+        <h2 id="modalTitle">Page Note</h2>
+        <div class="row">
+          <textarea of-id="pageNote" cols="120" rows="5"></textarea><br/>
+          <a class="button round" href="#" onClick="saveNote(); return false;">Add</a>
+        </div>
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+      </div>
 
-      <section role="main" class="scroll-container" style="height: 100%">
-        <div id="editors" style="height: 100%"></div>
+      <section role="main" class="scroll-container" style="height: inherit;">
+        <div id="editors" style="height: inherit;"></div>
       </section>
 
       &insert:/OpenForum/PageTemplates/CommonElements/error-alert.common.html;

@@ -1,41 +1,261 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <div class="row"><div class="large-12 columns">
-<h3>Wiki Actions</h3>
-<ul><li> <a href="/OpenForum/Actions/Attach">Attach</a></li>
-<li> <a href="/OpenForum/Actions/AttachmentExists">AttachmentExists</a></li>
-<li> <a href="/OpenForum/Actions/Attachments">Attachments</a></li>
-<li> <a href="/OpenForum/Actions/CauseError">CauseError</a></li>
-<li> <a href="/OpenForum/Actions/Copy">Copy</a></li>
-<li> <a href="/OpenForum/Actions/CreateQueue">CreateQueue</a></li>
-<li> <a href="/OpenForum/Actions/Delete">Delete</a></li>
-<li> <a href="/OpenForum/Actions/ForkLink">ForkLink</a></li>
-<li> <a href="/OpenForum/Actions/GetAttachments">GetAttachments</a></li>
-<li> <a href="/OpenForum/Actions/GetAuthentication">GetAuthentication</a></li>
-<li> <a href="/OpenForum/Actions/GetInheritedFilePath">GetInheritedFilePath</a></li>
-<li> <a href="/OpenForum/Actions/GetPageAsList">GetPageAsList</a></li>
-<li> <a href="/OpenForum/Actions/GetPagesList">GetPagesList</a></li>
-<li> <a href="/OpenForum/Actions/GetUser">GetUser</a></li>
-<li> <a href="/OpenForum/Actions/History">History</a></li>
-<li> <a href="/OpenForum/Actions/Move">Move</a></li>
-<li> <a href="/OpenForum/Actions/PageExists">PageExists</a></li>
-<li> <a href="/OpenForum/Actions/Pages">Pages</a></li>
-<li> <a href="/OpenForum/Actions/Publish">Publish</a></li>
-<li> <a href="/OpenForum/Actions/RJSC">RJSC</a></li>
-<li> <a href="/OpenForum/Actions/Rebuild">Rebuild</a></li>
-<li> <a href="/OpenForum/Actions/RefreshJarManager">RefreshJarManager</a></li>
-<li> <a href="/OpenForum/Actions/RefreshPage">RefreshPage</a></li>
-<li> <a href="/OpenForum/Actions/RenderWikiData">RenderWikiData</a></li>
-<li> <a href="/OpenForum/Actions/Revert">Revert</a></li>
-<li> <a href="/OpenForum/Actions/Save">Save</a></li>
-<li> <a href="/OpenForum/Actions/SaveImage">SaveImage</a></li>
-<li> <a href="/OpenForum/Actions/TestExample">TestExample</a></li>
-<li> <a href="/OpenForum/Actions/Update">Update</a></li>
-<li> <a href="/OpenForum/Actions/UpdateJarManager">UpdateJarManager</a></li>
-<li> <a href="/OpenForum/Actions/User">User</a></li>
-<li> <a href="/OpenForum/Actions/ValidatePageName">ValidatePageName</a></li>
-<li> <a href="/OpenForum/Actions/ViewFolder">ViewFolder</a></li>
-<li> <a href="/OpenForum/Actions/Zip">Zip</a></li>
-</ul>
+<h3>Open Forum Actions</h3>
+
+<!--Extension ChildrenContentsPage --><div class="row">
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/Access">Access</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/Access" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Access" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/Attach">Attach</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/Attach" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Attach" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/AttachmentExists">AttachmentExists</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/AttachmentExists" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/AttachmentExists" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/Attachments">Attachments</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/Attachments" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Attachments" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/CauseError">CauseError</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/CauseError" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/CauseError" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/Copy">Copy</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/Copy" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Copy" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/CreateQueue">CreateQueue</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/CreateQueue" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/CreateQueue" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/Delete">Delete</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/Delete" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Delete" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/ForkLink">ForkLink</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/ForkLink" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/ForkLink" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/GetAttachments">GetAttachments</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/GetAttachments" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/GetAttachments" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/GetAuthentication">GetAuthentication</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/GetAuthentication" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/GetAuthentication" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/GetInheritedFilePath">GetInheritedFilePath</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/GetInheritedFilePath" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/GetInheritedFilePath" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/GetPageAsList">GetPageAsList</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/GetPageAsList" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/GetPageAsList" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/GetPagesList">GetPagesList</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/GetPagesList" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/GetPagesList" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/GetUser">GetUser</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/GetUser" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/GetUser" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/History">History</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/History" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/History" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/Move">Move</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/Move" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Move" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/PageExists">PageExists</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/PageExists" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/PageExists" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/Pages">Pages</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/Pages" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Pages" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/Publish">Publish</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/Publish" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Publish" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/RJSC">RJSC</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/RJSC" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/RJSC" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/Rebuild">Rebuild</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/Rebuild" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Rebuild" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/RefreshJarManager">RefreshJarManager</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/RefreshJarManager" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/RefreshJarManager" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/RefreshPage">RefreshPage</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/RefreshPage" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/RefreshPage" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/RenderWikiData">RenderWikiData</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/RenderWikiData" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/RenderWikiData" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/Revert">Revert</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/Revert" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Revert" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/Save">Save</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/Save" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Save" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/SaveImage">SaveImage</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/SaveImage" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/SaveImage" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/SystemTime">SystemTime</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/SystemTime" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/SystemTime" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/TestExample">TestExample</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/TestExample" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/TestExample" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/Update">Update</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/Update" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Update" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/UpdateJarManager">UpdateJarManager</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/UpdateJarManager" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/UpdateJarManager" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/User">User</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/User" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/User" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/ValidatePageName">ValidatePageName</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/ValidatePageName" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/ValidatePageName" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/ViewFolder">ViewFolder</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/ViewFolder" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/ViewFolder" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Actions/Zip">Zip</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Actions/Zip" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Zip" section="1" --><br />
+
+</div><!--End Extension ChildrenContentsPage -->
 </div></div>
 
-
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

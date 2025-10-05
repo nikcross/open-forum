@@ -9,6 +9,9 @@ var video = {
   runScript: function() {
     canvas = video.canvas;
     eval(video.code.getValue());
+  },
+  close: function() {
+    video.open = false;
   }
 };
 
@@ -20,6 +23,7 @@ addPlugin( {
       }
       video.open=true;
       editorIndex++;
+      this.editorIndex = editorIndex;
       var editor = document.createElement("div");
       editor.setAttribute("id","editor"+editorIndex);
       editor.setAttribute("style","display:block;");
@@ -57,7 +61,7 @@ addPlugin( {
           ).loadDependencies();
 
             OpenForum.addTab("editor"+editorIndex);
-            editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Video", changed: ""};
+            editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Video", changed: "", plugin: video};
             showTab(editorIndex);
             console.log("Video Ready");
             return editorList[editorIndex];

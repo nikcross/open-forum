@@ -1,0 +1,91 @@
+<div id="&elementId;openModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">{{&editor;.fileChoiceActionTitle}}</h2>
+  <div>{{&editor;.fileChoiceAction}} 
+    Page <input list="editorPagesList" of-id="&editor;.newPageName" onKeyUp="&editor;.updateTreeView(this.value);" ondblclick="this.value=OpenForum.BLANK;" title="Double Click to clear"/>
+    <a class="button" onClick="&editor;.newPageName='~'; &editor;.updateTreeView(&editor;.newPageName); return false;">Jump to Your Page</a>
+    <a class="button" onClick="&editor;.newPageName='browser://'; &editor;.updateTreeView(&editor;.newPageName); return false;">Jump to In Browser Storage</a>
+    <div class="row">
+      <div class="columns large-8">
+        File Name <input of-id="&editor;.newFileName" onKeyPress="&editor;.setFile(event);" ondblclick="this.value=OpenForum.BLANK;" title="Double Click to clear"/>
+      </div>
+      <div class="columns large-4">
+        <a class="button" onClick="&editor;.setFile(); return false;">{{&editor;.fileChoiceActionButton}}</a>
+      </div>
+    </div>
+  </div>
+  <datalist id="&editor;.editorPagesList">
+    <option of-repeatFor="pageName in &editor;.pagesList" value="{{pageName}}">{{pageName}}</option>
+  </datalist>
+  <div>{{&editor;.getEditingPageName()}}</div>
+  <div id="&editorId;.fileTree"></div>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="&elementId;confirmRetrieveModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">The file {{&editor;.getEditingPageName()}}/{{&editor;.getEditingFileName()}} has changed on the server.</h2>
+  <div id="row"><a class="button" href="#" onclick="&editor;.retrieveChanges(true);return false;">Use Local Version</a></div>
+  <div id="row"><a class="button" href="#" onclick="&editor;.openFile();return false;">Load Server Version</a></div>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div style="background: #000; padding: 10px, height: 100vw">
+  <div>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#" title="{{&editor;.getStatus()}}">{{&editor;.getStatus()}}</a></h1>
+        </li>
+      </ul>
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="has-dropdown">
+            <a href="#">File</a>
+            <ul class="dropdown">
+              <li>
+                <a href="#" onClick="&editor;.openFileSelect(); return false;">Open File</a>
+              </li>
+              <li>
+                <a href="#" onClick="&editor;.openFileCreateNew(); return false;">Create New</a>
+              </li>
+              <li>
+                <a href="#" onClick="&editor;.openFileSaveAs(); return false;">Save As</a>
+              </li>
+              <li>
+                <a href="#" onClick="&editor;.save(); return false;">Save</a>
+              </li>
+              <li>
+                <a href="#" onclick="&editor;.autoSave = !&editor;.autoSave; return false;">Autosave {{&editor;.autoSave}}</a>
+              </li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">Desktop</a>
+            <ul class="dropdown">
+              <li>
+                <a href="#" onClick="&editor;.uploadFromComputer(); return false;" title="Upload the document from your computer.">Upload</a>
+              </li>
+              <li>
+                <a href="#" onClick="&editor;.downloadToComputer(); return false;" title="Download the current document">Download {{&editor;.getEditingFileName()}}</a>
+              </li>
+              <li>
+                <a href="#" onClick="&editor;.copyToClipboard(); return false;" title="Copy the current document to the clipboard">Copy to Clipboard</a>
+              </li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#">Actions</a>
+            <ul class="dropdown" id="editor&editorId;Buttons">
+            </ul>
+          </li>
+        </ul>
+      </section>
+    </nav>
+  </div>
+
+  <div style="height: 100vw">
+    <div id="editor&editorId;">Editor Loading...</div>
+  </div>
+</div>
+
+

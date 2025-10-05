@@ -1,0 +1,15 @@
+    var result = DB.query("select * from &tableName;");
+    var list = [];
+
+    for(var i in result.table.rows) {
+      var row = result.table.rows[i];
+      var entry = {
+&fields;
+8<---        &fieldName;: row.cell&index;---8<
+8<---        &fieldName;: parseInt(row.cell&index;)---8<
+      };
+      
+      list.push(entry);
+    }
+
+    return list;

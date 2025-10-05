@@ -1,0 +1,6 @@
+{
+    "apiClass": "org.onestonesoup.openforum.email.GmailMailer",
+    "pageName": "/OpenForum/AddOn/Mailer",
+    "title": "Mailer",
+    "pageParent": "https://open-forum.onestonesoup.org"
+}

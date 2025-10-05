@@ -1,0 +1,5 @@
+{
+    "version": "0.0.5",
+    "pageName": "/OpenForum/Actions/User",
+    "getConfig": "get-service-definition-config.json"
+}

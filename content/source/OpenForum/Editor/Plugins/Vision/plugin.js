@@ -9,6 +9,9 @@ var vision = {
   runScript: function() {
     canvas = vision.canvas;
     eval(vision.code.getValue());
+  },
+  close: function() {
+    vision.open = false;
   }
 };
 
@@ -20,6 +23,7 @@ addPlugin( {
       }
       vision.open=true;
       editorIndex++;
+      this.editorIndex = editorIndex;
       var editor = document.createElement("div");
       editor.setAttribute("id","editor"+editorIndex);
       editor.setAttribute("style","display:block;");
@@ -57,7 +61,7 @@ addPlugin( {
           ).loadDependencies();
 
             OpenForum.addTab("editor"+editorIndex);
-            editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "vision", changed: ""};
+            editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "vision", changed: "", plugin: vision};
             showTab(editorIndex);
             console.log("Vision Ready");
             return editorList[editorIndex];

@@ -1,0 +1,22 @@
+{
+    "userAccess": {
+        "read": {
+            "Admin": true
+        },
+        "call": {
+            "Admin": true
+        },
+        "update": {
+            "Admin": true
+        },
+        "delete": {
+            "Admin": true
+        }
+    },
+    "groupAccess": {
+        "read": {},
+        "call": {},
+        "update": {},
+        "delete": {}
+    }
+}

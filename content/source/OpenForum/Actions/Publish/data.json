@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/Publish",
-    "title": " Publish"
+    "pageName": "/OpenForum/Actions/Publish",
+    "title": "Publish",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

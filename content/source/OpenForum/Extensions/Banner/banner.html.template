@@ -1,0 +1,9 @@
+<div style="background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url({{imageURL}});
+  background-color: darkgreen;
+  color: white;
+  padding: 1em;">  
+	<h1 style="color: white !important;">{{title}}</h1>
+	<p style="width: 40%"><b>{{text}}</b></p>
+</div>

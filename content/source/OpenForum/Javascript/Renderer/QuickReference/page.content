@@ -1,0 +1,6 @@
+!!&title;
+
+((The page renderer script has one main public function DefaultRenderer.render(pageName,text).
+* pageName is the name of the page to render eg. /MyPage/MyChildPage. It is used when the page name is included in a rendered wiki element
+* text is the wiki text which will be converted into html
+))

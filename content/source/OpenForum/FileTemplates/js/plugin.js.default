@@ -1,0 +1,58 @@
+if( typeof &pluginInstanceName; === "undefined" ) {
+  
+var &pluginInstanceName; = {
+  open: false,
+  close: function() {
+    &pluginInstanceName;.open = false;
+  }
+};
+
+addPlugin( {
+  name: "&pluginTitle;",
+  editorIndex: 0,
+  init: function() {
+    if(&pluginInstanceName;.open===true) {
+      return;
+    }
+    &pluginInstanceName;.open=true;
+    editorIndex++;
+    this.editorIndex = editorIndex;
+    var editor = document.createElement("div");
+    editor.setAttribute("id","editor"+editorIndex);
+    editor.setAttribute("style","display:block;");
+    document.getElementById("editors").appendChild(editor);
+
+    OpenForum.crawl(document.getElementById("editor"+editorIndex));
+
+    var content = OpenForum.loadFile("/OpenForum/Actions/RenderWikiData?pageName=" + pageName + "&sourcePageName=&contentPage;&fileName=&contentFile;");
+    OpenForum.setElement("editor"+editorIndex,content);    
+
+    OpenForum.crawl(document.getElementById("editor"+editorIndex));
+    
+    &pluginInstanceName;.editor = editor;
+    
+    DependencyService.createNewDependency()
+    .addDependency("&scriptPage;/&scriptFile;")
+    .setOnLoadTrigger( function() {
+      &onLoad;
+    } ).loadDependencies();
+
+    OpenForum.addTab("editor"+editorIndex);
+    editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "&pluginTitle;", changed: "", plugin: &pluginInstanceName;};
+    showTab(editorIndex);
+    return editorList[editorIndex];
+
+  },
+  run: function(tabName) {
+    
+  }
+});
+
+} else {
+  for(var i in editorList) {
+    if(editorList[i].name==="&pluginTitle;") {
+      showTab( editorList[i].id );
+      break;
+    }
+  }
+}

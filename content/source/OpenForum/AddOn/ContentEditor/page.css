@@ -1,0 +1,19 @@
+body {
+  background-color: #476e7a;
+}
+
+h3 {
+  color: #ffffff;
+}
+
+legend {
+  color: #ffffff;
+  border: solid 2px black;
+  background-color: #476e7a;
+  border-radius: 5px;
+  padding: 1em !important;
+}
+
+fieldset {
+  background-color: white;
+}

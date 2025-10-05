@@ -4,15 +4,17 @@
 function DefaultRenderer() {
   var self = this;
   var EOL = "\n";
+  var WHITE_SPACE = "\\s{0,}?";
+  var REG_EX = "RX:";
 
   var aliases = [];
-  
+
   self.setAliases = function(newAliases) {
     aliases = newAliases;
   };
-  
+
   self.getVersion = function() {
-    return "DefaultRenderer v1.03 Clean and smooth";
+    return "DefaultRenderer v1.08 2021 Covid release";
   };
 
   /*===================================*/
@@ -75,6 +77,53 @@ function DefaultRenderer() {
   };
 
   /*===================================*/
+  var regexIndexOf = function(string, match) {
+    if(match.indexOf("RX:")==0) {
+      return string.search( match.substring(3) );
+    }
+    return string.indexOf( match );
+  };
+
+  var indexAfter = function(string, match) {
+    if(match.indexOf("RX:")==0) {
+      var index = regexIndexOf( string,match );
+      if(index==-1) {
+        return -1;
+      } else {
+        return index + string.match( match.substring(3) )[0].length;
+      }
+    }
+    return string.indexOf( match )+match.length;
+  };
+
+  /*===================================*/
+  var renderCheckbox = function (pageName,content) {
+    if( content.indexOf(":")==0 ) {
+      return "<input type='checkbox' id='"+content.substring(1)+"' of-id='"+content.substring(1)+"' />";
+    } else {
+      return "<input type='checkbox' />";
+    }
+  };
+
+  var renderRadioButton = function (pageName,content) {
+    if( content.indexOf(":")==0 ) {
+      var parts = content.substring(1).split("=");
+      var id = "radio";
+      var name = "radio";
+      var value = "";
+      if(parts[0]) {
+        id = parts[0];
+      }
+      if(parts[1]) {
+        value = parts[1];
+      }
+      return "<input type='radio' id='"+value+"' value='"+value+"' of-id='"+id+"' name='"+id+"' />";
+    } else {
+      return "<input type='radio' />";
+    }
+  };
+
+  /*===================================*/
   var renderLink = function (pageName,content) {
     var output = "";
 
@@ -86,10 +135,20 @@ function DefaultRenderer() {
     if(parts.length===1) {
       link = parts[0];
       title = parts[0];
+      if(title.lastIndexOf("=")==title.length-1) {
+        title = title.substring(0,title.length-1);
+      }
     } else {
       link = parts[1];
       title = parts[0];
     }
+
+    var newTab = false;
+    if(link.lastIndexOf("=")==link.length-1) {
+      link = link.substring(0,link.length-1);
+      newTab = true;
+    }
+
     //check if external
     //console.log("rendering link "+link);
     if(link.indexOf(":")!=-1) {
@@ -105,17 +164,18 @@ function DefaultRenderer() {
       if(link.charAt(0)!=="/") {
         link = pageName+"/"+link;
       }
+
       var targetPageName = link;
       var targetFileName = "page.content";
+
+      if(targetPageName.indexOf("?")!=-1) {
+        targetPageName = targetPageName.substring(0,targetPageName.indexOf("?"));
+        //log.debug("TargetPageName now "+targetPageName);        
+      }
 
       if(targetPageName.indexOf(".")!==-1) {
         targetFileName = targetPageName.substring(targetPageName.lastIndexOf("/")+1);
         targetPageName = targetPageName.substring(0,targetPageName.lastIndexOf("/"));
-      }
-
-      if(targetPageName.indexOf("?")!=-1) {
-        targetPageName = targetPageName.substring(0,targetPageName.indexOf("?"));
-//log.debug("TargetPageName now "+targetPageName);        
       }
 
       if(targetPageName.indexOf("#")!=-1) {
@@ -137,7 +197,11 @@ function DefaultRenderer() {
       output = "<img src=\""+link+"\""+alt+"/>";
     } else {
       //create link
-      output = "<a href=\""+link+"\""+target+">"+title+"</a>";
+      if(newTab) {
+        output = "<a href=\""+link+"\""+target+" target=\"newTab\">"+title+"<img src='/OpenForum/Images/icons/png/link_go.png' /></a>";
+      } else {
+        output = "<a href=\""+link+"\""+target+">"+title+"</a>";
+      }
     }
 
     return output;
@@ -153,8 +217,17 @@ function DefaultRenderer() {
     }
 
     //load extension render.sjs
-    var renderScript = file.getAttachment("/OpenForum/Extensions/"+extensionName,"renderer.sjs");
-
+    var renderScript;
+    var scriptFile = "renderer.sjs";
+    if(extensionName.indexOf(".sjs")==extensionName.length-4) {
+      scriptFile = extensionName.substring( extensionName.lastIndexOf("/")+1 );
+      extensionName = extensionName.substring( 0, extensionName.lastIndexOf("/") );
+    }
+    if(extensionName.charAt(0)=='/') {
+      renderScript = file.getAttachment(extensionName,scriptFile);
+    } else {
+      renderScript = file.getAttachment("/OpenForum/Extensions/"+extensionName,scriptFile);
+    }
     var renderFunction = eval("function(extension) {"+renderScript+"};");
     //console.log("renderScript: "+renderScript);
 
@@ -173,7 +246,11 @@ function DefaultRenderer() {
     }
 
     //run for content
-    return renderFunction(extension);
+    var extensionContent = renderFunction(extension);
+    
+    extensionContent = "<!--Extension " + content + " -->" + extensionContent + "<!--End Extension " + content + " -->";
+    
+    return extensionContent;
   };
 
   /*===================================*/
@@ -210,9 +287,9 @@ function DefaultRenderer() {
     var rendererMatch = null;
     for(var i=0; i<matchers.length; i++) {
       var renderer = matchers[i];
-      var point  = source.indexOf(renderer.getStart());
+      var point  = regexIndexOf(source,renderer.getStart());
       if (point >= 0 && point < lowestIndex) {
-        lowestIndex = source.indexOf(renderer.getStart());
+        lowestIndex = regexIndexOf(source,renderer.getStart());
         rendererMatch = renderer;
       }
     }
@@ -266,26 +343,31 @@ function DefaultRenderer() {
 
   /*===================================*/
   var markUp = [
-    new MarkUp( { type: "list", match: {start: EOL+"*",end: EOL}, start: "<li>", end: "</li>", open: "<ul>", close: "</ul>" } ),
-    new MarkUp( { type: "numbered list", match: {start: EOL+"#",end: EOL}, start: "<li>", end: "</li>", open: "<ol>", close: "</ol>" } ),
+    new MarkUp( { type: "list", match: {start: REG_EX+EOL+WHITE_SPACE+"\\*",end: EOL}, start: "<li>", end: "</li>", open: "<ul>", close: "</ul>" } ),
+    new MarkUp( { type: "numbered list", match: {start: REG_EX+EOL+WHITE_SPACE+"\\#",end: EOL}, start: "<li>", end: "</li>", open: "<ol>", close: "</ol>" } ),
     new MarkUp( { type: "bold", match: {start: "__",end: "__"}, start: "<b>", end: "</b>" } ),
     new MarkUp( { type: "strike", match: {start: "~~",end: "~~"}, start: "<strike>", end: "</strike>" } ),
+    new MarkUp( { type: "version", match: {start: "@RENDERER",end: EOL}, start: "<!--" + self.getVersion(), end: "-->" } ),
     new MarkUp( { type: "super script", match: {start: "^^",end: "^^"}, start: "<sup>", end: "</sup>" } ),
     new MarkUp( { type: "comment", match: {start: "/*",end: "*/"}, start: "<!--", end: "-->" } ),
     new MarkUp( { type: "italic", match: {start: "''",end: "''"}, start: "<i>", end: "</i>" } ),
     new MarkUp( { type: "line break", match: {start: "\\",end: EOL}, start: "<br/>", end: "" } ),
-    new MarkUp( { type: "code", match: {start: "{{{",end: "}}}"}, start: "<xmp class=\"panel\">", end: "</xmp>", stackable: false } ),
+    new MarkUp( { type: "code", match: {start: "{{{",end: "}}}"}, start: "<xmp class=\"panel\" of-exclude=\"true\">", end: "</xmp>", stackable: false } ),
+    new MarkUp( { type: "notMarkup", match: {start: "+++",end: "+++"}, start: "", end: "", stackable: false } ),
     new MarkUp( { type: "paragraph", match: {start: "((",end: "))"}, start: "<p>", end: "</p>" } ),
+    new MarkUp( { type: "box", match: {start: ">>",end: "<<"}, start: "<div class=\"row\">", end: "</div>" } ),
     new MarkUp( { type: "box", match: {start: "[[",end: "]]"}, start: "<div class=\"panel callout radius\">", end: "</div>" } ),
     new MarkUp( { type: "h1", match: {start: "!!!!",end: EOL}, start: "<h1>", end: "</h1>" } ),
     new MarkUp( { type: "h2", match: {start: "!!!",end: EOL}, start: "<h2>", end: "</h2>" } ),
     new MarkUp( { type: "h3", match: {start: "!!",end: EOL}, start: "<h3>", end: "</h3>" } ),
     new MarkUp( { type: "center", match: {start: "=-=",end: "=-="}, start: "<center>", end: "</center>" } ),
-    new MarkUp( { type: "section", match: {start: EOL+"--8<!--",end: EOL+"-->8--"}, start: "<hr/>", end: "" } ),
+    new MarkUp( { type: "section", match: {start: EOL+"--8<--",end: EOL+"-->8--"}, start: "", end: "" } ),
     new MarkUp( { type: "rule", match: {start: "----",end: EOL}, start: "<hr/>", end: "" } ),
+    new MarkUp( { type: "checkbox", match: {start: "[x",end: "]"}, start: "", end: "", render: renderCheckbox } ),
+    new MarkUp( { type: "radioButton", match: {start: "[o",end: "]"}, start: "", end: "", render: renderRadioButton } ),
     new MarkUp( { type: "extension", match: {start: "[{",end: "}]"}, start: "", end: "", render: renderExtension, stackable: false } ),
     new MarkUp( { type: "link", match: {start: "[",end: "]"}, start: "", end: "", render: renderLink } ),
-    new MarkUp( { type: "table", match: {start: EOL+"|",end: EOL}, start: "<tr>", end: "</tr>", open: "<table>", close: "</table>", render: renderTableRow } )
+    new MarkUp( { type: "table", match: {start: REG_EX+EOL+WHITE_SPACE+"\\|",end: EOL}, start: "<tr>", end: "</tr>", open: "<table>", close: "</table>", render: renderTableRow } )
   ];
 
   /*===================================*/
@@ -297,75 +379,75 @@ function DefaultRenderer() {
    */
   self.render = function(pageName,text) {
     try{
-    var input = EOL+text+EOL;
-    var rendererStack = [];
-    var output = "";
-      
-    //While there is input text left to render
-    while(input.length>0) {
-      //Find the next instance of marked up text
-      //and return the required renderer
-      var renderer = findFirstMatch( input,markUp );
-      
-      //If no renderer found in remaining text, add text to output and end
-      if(renderer===null) {
-        output+=input;
-        break;
-      } else {
-        //Record the start and cut start as the start of the markup
-        var startPoint = input.indexOf(renderer.getStart());
-        var startCutPoint = startPoint;
-        //If the first character of the cut is new line and markup is not a title, move cut point past it
-        if(input.substring(startCutPoint,1)===EOL && renderer.getStart().charAt(0)!=="!") {
-          startCutPoint++;
-        }
-        
-        //Record the string before the markup start
-        var before = input.substring(0,startCutPoint);
-        
-        //Record the string after the markup start
-        var after = input.substring(startPoint+renderer.getStart().length);
-        //Record the index of the start of the end markup
-        var endPoint = after.indexOf(renderer.getEnd());
-        //Record the string within the markup
-        var content = after.substring( 0,endPoint );
+      var input = EOL+text+EOL;
+      var rendererStack = [];
+      var output = "";
 
-        //If the markup does not end at the line end
-        if(renderer.getEnd()!==EOL) {
-          //Record the end of the markup as after the end markup
-          endPoint += renderer.getEnd().length;
-        }
+      //While there is input text left to render
+      while(input.length>0) {
+        //Find the next instance of marked up text
+        //and return the required renderer
+        var renderer = findFirstMatch( input,markUp );
 
-        //Fix to render links in lists
-        if(renderer.canBeStacked()===true) {
-          content = self.render(pageName,content);
-        }
+        //If no renderer found in remaining text, add text to output and end
+        if(renderer===null) {
+          output+=input;
+          break;
+        } else {
+          //Record the start and cut start as the start of the markup
+          var startPoint = regexIndexOf(input,renderer.getStart());
+          var startCutPoint = startPoint;
+          //If the first character of the cut is new line and markup is not a title, move cut point past it
+          if(input.substring(startCutPoint,1)===EOL && renderer.getStart().charAt(0)!=="!") {
+            startCutPoint++;
+          }
 
-        //Record the string after the markup end
-        after = after.substring( endPoint );
-        //Add the string before the markup to the output
-        output += before;
-        //Add the rendered markup to the output
-        output += renderer.render(pageName,content);
-        //Set the input as the string after the markup
-        input = after;
-        
-        if(input.substring(0,2)==="\n\n") {
-          output += "\n"+renderer.renderClose();
-          input = input.substring(1);
-        } else {        
-          rendererStack.push(renderer);
+          //Record the string before the markup start
+          var before = input.substring(0,startCutPoint);
+
+          //Record the string after the markup start
+          var after = input.substring( indexAfter(input,renderer.getStart()) );
+          //Record the index of the start of the end markup
+          var endPoint = regexIndexOf(after,renderer.getEnd());
+          //Record the string within the markup
+          var content = after.substring( 0,endPoint );
+
+          //If the markup does not end at the line end
+          if(renderer.getEnd()!==EOL) {
+            //Record the end of the markup as after the end markup
+            endPoint += renderer.getEnd().length;
+          }
+
+          //Fix to render links in lists
+          if(renderer.canBeStacked()===true) {
+            content = self.render(pageName,content);
+          }
+
+          //Record the string after the markup end
+          after = after.substring( endPoint );
+          //Add the string before the markup to the output
+          output += before;
+          //Add the rendered markup to the output
+          output += renderer.render(pageName,content);
+          //Set the input as the string after the markup
+          input = after;
+
+          if(input.substring(0,2)==="\n\n") {
+            output += "\n"+renderer.renderClose();
+            input = input.substring(1);
+          } else {        
+            rendererStack.push(renderer);
+          }
         }
       }
-    }
-    output = output.substring(1,output.length-1);
+      output = output.substring(1,output.length-1);
 
-    while(rendererStack.length>0) {
-      var poppedRenderer = rendererStack.pop();
-      output = output + poppedRenderer.renderClose();
-    }
+      while(rendererStack.length>0) {
+        var poppedRenderer = rendererStack.pop();
+        output = output + poppedRenderer.renderClose();
+      }
 
-    return output;
+      return output;
     } catch(e){
       if(log) {
         log.error("Error in /OpenForum/Javascript/Renderer/DefaultRenderer. Excpetion "+e+" on line "+e.lineNumber);

@@ -1,0 +1,128 @@
+{
+    "version": "1.1.1",
+    "libraries": [
+        {
+            "name": "Publisher",
+            "fileName": "Publisher.sjs",
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "parameters": [
+        {
+            "name": "action",
+            "type": "string",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "actions": [
+        {
+            "name": "publish",
+            "action": "publish",
+            "libraries": {},
+            "parameters": [
+                {
+                    "name": "pageName",
+                    "type": "string",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "practice",
+                    "type": "boolean",
+                    "required": true,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "debug",
+                    "type": "boolean",
+                    "required": false,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "call": "Publisher.publish(pageName,practice,debug,log);",
+            "method": "get",
+            "example": {
+                "response": "",
+                "errorResponse": "",
+                "request": ""
+            },
+            "description": ""
+        },
+        {
+            "name": "getNeedsPublishing",
+            "action": "getNeedsPublishing",
+            "libraries": {},
+            "parameters": [
+                {
+                    "name": "pageName",
+                    "type": "string",
+                    "required": false,
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "call": "Publisher.getNeedsPublishing(pageName);?edit",
+            "method": "get",
+            "example": {
+                "response": "",
+                "errorResponse": "",
+                "request": ""
+            },
+            "description": ""
+        },
+        {
+            "name": "getPublishedPageDifferences",
+            "call": "Publisher.getPublishedPageDifferences(pageName);",
+            "parameters": [
+                {
+                    "name": "pageName",
+                    "required": true,
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "action": "getPublishedPageDifferences",
+            "example": {
+                "response": "",
+                "errorResponse": "",
+                "request": ""
+            },
+            "description": ""
+        },
+        {
+            "name": "reversePublish",
+            "call": "Publisher.reversePublish(pageName);",
+            "parameters": [
+                {
+                    "name": "pageName",
+                    "required": true,
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "action": "reversePublish",
+            "example": {
+                "response": "",
+                "errorResponse": "",
+                "request": ""
+            },
+            "description": ""
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/AddOn/Publisher",
+    "configFile": "get-service-definition-config.json",
+    "steps": null
+}

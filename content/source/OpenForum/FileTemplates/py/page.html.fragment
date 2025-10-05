@@ -1,10 +1,16 @@
-<h3>&title;</h3>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>py</h3>
 
 <hr/>
 <h3>Child Pages</h3>
-
+<!--Extension ChildPagesList pageName="/OpenForum/FileTemplates/py" --><!--End Extension ChildPagesList pageName="/OpenForum/FileTemplates/py" -->
 
 <hr/>
 <h3>Attachments</h3>
-
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Extension AttachmentsList pageName="/OpenForum/FileTemplates/py" matching=".*" --><ul><li> <a href="/OpenForum/FileTemplates/py/page.js">/OpenForum/FileTemplates/py/page.js</a></li>
+<li> <a href="/OpenForum/FileTemplates/py/page.content">/OpenForum/FileTemplates/py/page.content</a></li>
+<li> <a href="/OpenForum/FileTemplates/py/default.py">/OpenForum/FileTemplates/py/default.py</a></li>
+<li> <a href="/OpenForum/FileTemplates/py/page.html.fragment">/OpenForum/FileTemplates/py/page.html.fragment</a></li>
+<li> <a href="/OpenForum/FileTemplates/py/data.json">/OpenForum/FileTemplates/py/data.json</a></li>
+<li> <a href="/OpenForum/FileTemplates/py/page.html">/OpenForum/FileTemplates/py/page.html</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/FileTemplates/py" matching=".*" -->

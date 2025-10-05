@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Extensions/Redirect",
-    "title": " Redirect"
+    "pageName": "/OpenForum/Extensions/Redirect",
+    "title": "Redirect",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

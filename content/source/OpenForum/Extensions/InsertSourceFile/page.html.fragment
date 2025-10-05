@@ -1,3 +1,4 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 Inserts a files contents into the page
 <hr/>
 <h3>Parameters</h3>
@@ -6,29 +7,33 @@ Inserts a files contents into the page
 </ul>
 <hr/>
 <h3>Usage:</h3>
-<xmp class="panel">
-[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json"}]
+<xmp class="panel" of-exclude="true">
+<!--Extension InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json" --><a href="//OpenForum/Extensions/InsertSourceFile/data.json">//OpenForum/Extensions/InsertSourceFile/data.json</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=data.json" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">{
+    "pageName": "/OpenForum/Extensions/InsertSourceFile",
+    "title": "InsertSourceFile",
+    "pageParent": "https://open-forum.onestonesoup.org"
+}</xmp><!--End Extension InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json" -->
 </xmp>
-<a href="//OpenForum/Extensions/InsertSourceFile/data.json">//OpenForum/Extensions/InsertSourceFile/data.json</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=data.json" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">{
-    "pageName": "//OpenForum/Extensions/InsertSourceFile",
-    "title": " Insert Source File"
-}</xmp>
+<!--Extension InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json" --><a href="//OpenForum/Extensions/InsertSourceFile/data.json">//OpenForum/Extensions/InsertSourceFile/data.json</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=data.json" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">{
+    "pageName": "/OpenForum/Extensions/InsertSourceFile",
+    "title": "InsertSourceFile",
+    "pageParent": "https://open-forum.onestonesoup.org"
+}</xmp><!--End Extension InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json" -->
 
 <hr/>
 
-<a href="//OpenForum/Extensions/InsertSourceFile/renderer.sjs">//OpenForum/Extensions/InsertSourceFile/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var sourcePageName = extension.getAttribute("pageName");
+<!--Extension InsertSourceFile fileName="renderer.sjs" --><a href="//OpenForum/Extensions/InsertSourceFile/renderer.sjs">//OpenForum/Extensions/InsertSourceFile/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var sourcePageName = extension.getAttribute("pageName");
 if(sourcePageName===null) {
   sourcePageName = pageName;
 }
 
 var fileName = extension.getAttribute("fileName");
 var data = ""+file.getAttachment( sourcePageName,fileName );
-data = data.replace(/(xmp)/g,"((xmp))");
+data = data.replace(/(xmp)/g,"<p>xmp</p>");
 var editLink = "/OpenForum/Editor?pageName="+sourcePageName+"&fileName="+fileName;
 
-pageData = "[/"+sourcePageName+"/"+fileName+"]<a href=\""+editLink+"\" title=\"Edit\"><img src=\"/OpenForum/Images/icons/gif/pencil.gif\" border=\"0\"></a><(xmp) class=\"panel\">$contents$</(xmp)>";
+pageData = "<a href="/OpenForum/Editor?pageName=/"+sourcePageName+"/"+fileName+""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/"+sourcePageName+"/"+fileName+" does not exist. Click to create it.">/"+sourcePageName+"/"+fileName+"</a><a href=<br/>""+editLink+"<br/>" title=<br/>"Edit<br/>"><img src=<br/>"/OpenForum/Images/icons/gif/pencil.gif<br/>" border=<br/>"0<br/>"></a><(xmp) class=<br/>"panel<br/>">$contents$</(xmp)>";
 pageData = js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").render(pageName,pageData);
 pageData = pageData.replace("$contents$",data);
 
-return pageData;</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+return pageData;</xmp><!--End Extension InsertSourceFile fileName="renderer.sjs" -->

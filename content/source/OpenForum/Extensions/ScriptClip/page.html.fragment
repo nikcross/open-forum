@@ -1,0 +1,152 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>ScriptClip</h3>
+
+
+<p> Displays a small line of text on the page with a button to transfer it to the clipboard. </p>
+<b>Parameters</b>
+<ul><li> script - The text to display </li>
+<li> fileName - Alternative to script. The file to display as a clip</li>
+          
+<xmp class="panel" of-exclude="true"><!--Extension /OpenForum/Extensions/ScriptClip script="ls -la /open-forum/content" --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;'  id='D837B35B' rows='2' >ls -la /open-forum/content</textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("D837B35B"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('D837B35B').setAttribute('readonly', 'readonly');</script><!--End Extension /OpenForum/Extensions/ScriptClip script="ls -la /open-forum/content" --></xmp>
+       
+       
+<xmp class="panel" of-exclude="true"><!--Extension /OpenForum/Extensions/ScriptClip fileName="renderer.sjs" --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;'  id='55AF93E9' rows='47' >/*
+* Author: 
+* Description: 
+*/
+
+try{
+  var script = extension.getAttribute("script");
+
+  var fileName = extension.getAttribute("fileName");
+  var scriptPageName = extension.getAttribute("scriptPageName");
+  if( fileName!=null ) {
+    if( scriptPageName==null ) scriptPageName = pageName;
+    
+    if(file.attachmentExists( scriptPageName, fileName )) {
+		script = file.getAttachment( scriptPageName, fileName );
+    } else {
+      script = "";
+    }
+  }
+  script = ""+script;
+
+  var id = extension.getAttribute("id");
+  var ofId = "";
+  if(id==null) {
+    id =  ""+js.generateMD5(script).substring(0,8);
+  } else {
+    id = "" + id;
+    ofId = "of-id='" + id + "'";
+  }
+  
+  var rows = script.split("\n").length+1;
+
+  script = script.replace(/&lt;/g,"&lt;").replace(/&gt;/g,"&gt;");
+
+  var html = "&lt;div class='row'&gt;&lt;div class='columns large-10'&gt;&lt;textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' " + ofId + " id='" + id + "' rows='"+rows+"' &gt;"+script+"&lt;/textarea&gt;&lt;/div&gt;"+
+      "&lt;div class='columns large-2'&gt;"+
+      "&lt;a href='#' title='Copy to clipboard' onClick='"+
+      "OpenForum.copyElement(\""+id+"\"); return false;"+
+      "'&gt;&lt;img src='/OpenForum/Images/icons/png/page_copy.png' /&gt;&lt;/a&gt;"+
+      "&lt;/div&gt;&lt;/div&gt;&lt;script&gt;document.getElementById('" + id + "').setAttribute('readonly', 'readonly');&lt;/script&gt;";
+
+  return html;
+} catch(e) {
+  return ""+e;
+}
+</textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("55AF93E9"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('55AF93E9').setAttribute('readonly', 'readonly');</script><!--End Extension /OpenForum/Extensions/ScriptClip fileName="renderer.sjs" --></xmp></ul>
+<!--Extension /OpenForum/Extensions/ScriptClip script="ls -la /open-forum/content" --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;'  id='D837B35B' rows='2' >ls -la /open-forum/content</textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("D837B35B"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('D837B35B').setAttribute('readonly', 'readonly');</script><!--End Extension /OpenForum/Extensions/ScriptClip script="ls -la /open-forum/content" -->
+  
+<!--Extension /OpenForum/Extensions/ScriptClip fileName="renderer.sjs" --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;'  id='55AF93E9' rows='47' ><!--<ul><li> Author: </li>
+<li> Description: </li>
+</ul>-->
+
+try{
+  var script = extension.getAttribute("script");
+
+  var fileName = extension.getAttribute("fileName");
+  var scriptPageName = extension.getAttribute("scriptPageName");
+  if( fileName!=null ) {
+    if( scriptPageName==null ) scriptPageName = pageName;
+    
+    if(file.attachmentExists( scriptPageName, fileName )) {
+		script = file.getAttachment( scriptPageName, fileName );
+    } else {
+      script = "";
+    }
+  }
+  script = ""+script;
+
+  var id = extension.getAttribute("id");
+  var ofId = "";
+  if(id==null) {
+    id =  ""+js.generateMD5(script).substring(0,8);
+  } else {
+    id = "" + id;
+    ofId = "of-id='" + id + "'";
+  }
+  
+  var rows = script.split("<br/>n").length+1;
+
+  script = script.replace(/&lt;/g,"&lt;").replace(/&gt;/g,"&gt;");
+
+  var html = "&lt;div class='row'&gt;&lt;div class='columns large-10'&gt;&lt;textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' " + ofId + " id='" + id + "' rows='"+rows+"' &gt;"+script+"&lt;/textarea&gt;&lt;/div&gt;"+
+      "&lt;div class='columns large-2'&gt;"+
+      "&lt;a href='#' title='Copy to clipboard' onClick='"+
+      "OpenForum.copyElement(<br/>""+id+"<br/>"); return false;"+
+      "'&gt;&lt;img src='/OpenForum/Images/icons/png/page_copy.png' /&gt;&lt;/a&gt;"+
+      "&lt;/div&gt;&lt;/div&gt;&lt;script&gt;document.getElementById('" + id + "').setAttribute('readonly', 'readonly');&lt;/script&gt;";
+
+  return html;
+} catch(e) {
+  return ""+e;
+}
+</textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("55AF93E9"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('55AF93E9').setAttribute('readonly', 'readonly');</script><!--End Extension /OpenForum/Extensions/ScriptClip fileName="renderer.sjs" -->
+<hr/>
+<h3>Source</h3>
+<!--Extension InsertSourceFile pageName="OpenForum/Extensions/ScriptClip" fileName="renderer.sjs" --><a href="/OpenForum/Extensions/ScriptClip/renderer.sjs">/OpenForum/Extensions/ScriptClip/renderer.sjs</a><a href="/OpenForum/Editor?pageName=OpenForum/Extensions/ScriptClip&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel"><!--<ul><li> Author: </li>
+<li> Description: </li>
+</ul>-->
+
+try{
+  var script = extension.getAttribute("script");
+
+  var fileName = extension.getAttribute("fileName");
+  var scriptPageName = extension.getAttribute("scriptPageName");
+  if( fileName!=null ) {
+    if( scriptPageName==null ) scriptPageName = pageName;
+    
+    if(file.attachmentExists( scriptPageName, fileName )) {
+		script = file.getAttachment( scriptPageName, fileName );
+    } else {
+      script = "";
+    }
+  }
+  script = ""+script;
+
+  var id = extension.getAttribute("id");
+  var ofId = "";
+  if(id==null) {
+    id =  ""+js.generateMD5(script).substring(0,8);
+  } else {
+    id = "" + id;
+    ofId = "of-id='" + id + "'";
+  }
+  
+  var rows = script.split("<br/>n").length+1;
+
+  script = script.replace(/</g,"&lt;").replace(/>/g,"&gt;");
+
+  var html = "<div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' " + ofId + " id='" + id + "' rows='"+rows+"' >"+script+"</textarea></div>"+
+      "<div class='columns large-2'>"+
+      "<a href='#' title='Copy to clipboard' onClick='"+
+      "OpenForum.copyElement(<br/>""+id+"<br/>"); return false;"+
+      "'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a>"+
+      "</div></div><script>document.getElementById('" + id + "').setAttribute('readonly', 'readonly');</script>";
+
+  return html;
+} catch(e) {
+  return ""+e;
+}
+</xmp><!--End Extension InsertSourceFile pageName="OpenForum/Extensions/ScriptClip" fileName="renderer.sjs" -->

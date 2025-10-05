@@ -1,0 +1,22 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3>Date v0.0.0</h3>
+<xmp class="panel" of-exclude="true"> <!--Extension Date  --><script>
+  currentDate = new Date().toLocaleDateString();
+  setInterval(
+    function() { currentDate = new Date().toLocaleDateString(); }
+    ,10000
+  );
+</script>
+<span class="label tiny success round">{{currentDate}}</span><!--End Extension Date  --> </xmp>
+<!--Extension Date  --><script>
+  currentDate = new Date().toLocaleDateString();
+  setInterval(
+    function() { currentDate = new Date().toLocaleDateString(); }
+    ,10000
+  );
+</script>
+<span class="label tiny success round">{{currentDate}}</span><!--End Extension Date  -->
+<br/><br/>
+<!--Extension ActionButton text="Add Date Block type to Content Editor" action="addToContentEditor" --><a  class='button radius tiny' href='#' onclick='addToContentEditor(); return false;'>Add Date Block type to Content Editor</a> <!--End Extension ActionButton text="Add Date Block type to Content Editor" action="addToContentEditor" -->
+</div>

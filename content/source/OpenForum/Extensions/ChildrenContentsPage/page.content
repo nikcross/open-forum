@@ -1,0 +1,14 @@
+Creates a content page for child pages
+----
+!!Parameters
+*pageName - The page to list children of (optional. default = current page)
+----
+!!Usage:
+{{{
+[{ChildrenContentsPage pageName="/OpenForum"}]
+}}}
+[{ChildrenContentsPage pageName="/OpenForum"}]
+
+----
+!!renderer.sjs
+[{InsertSourceFile fileName="renderer.sjs"}]

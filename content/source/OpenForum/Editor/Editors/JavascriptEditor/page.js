@@ -6,9 +6,11 @@ OpenForum.init = function() {
 
   var editorConfig = {
     flavour: "Javascript",
+    fileExtension: "js",
     editingPageName: "/TheLab/Sandbox",
     editingFileName: "sandbox-giraffe.js",
-    elementId: "javascriptEditor"
+    elementId: "InPageEditor",
+    fullScreen: true
   };
   if(OpenForum.getParameter("pageName")) {
     editorConfig.editingPageName = OpenForum.getParameter("pageName");

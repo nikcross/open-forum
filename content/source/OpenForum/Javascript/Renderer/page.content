@@ -1,1 +1,5 @@
-[{InsertSourceFile fileName="DefaultRenderer.sjs"}]
+!![Quick Reference|/OpenForum/Javascript/Renderer/QuickReference]
+<div class="row">
+!!&title;
+[{InsertSourceFile page="/OpenForum/Javascript/Renderer" fileName="DefaultRenderer.sjs"}] 
+</div>

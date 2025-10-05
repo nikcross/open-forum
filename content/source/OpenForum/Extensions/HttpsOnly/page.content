@@ -1,1 +1,8 @@
-[{InsertSourceFile fileName="render.sjs"}]
+&title;
+--8<--
+       
+((Redirects to the https url if the user arrives via http))
+       
+{{{[{HttpsOnly}]}}}
+-->8--
+[{InsertSourceFile fileName="renderer.sjs"}]

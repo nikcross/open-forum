@@ -1,0 +1,50 @@
+{
+    "version": "0.0.5",
+    "configFile": "extension-config.json",
+    "pageName": "/OpenForum/Extensions/UploadFileInputField",
+    "template": {
+        "pageName": "/OpenForum/Extensions/UploadFileInputField",
+        "fileName": "uploader.html.template"
+    },
+    "buildReferencePage": true,
+    "buildBlockEditor": true,
+    "parameters": [
+        {
+            "name": "name",
+            "exampleValue": "upload",
+            "defaultValue": "upload",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "targetPageName",
+            "exampleValue": "/Sandbox",
+            "defaultValue": "/Sandbox",
+            "required": true,
+            "view": "display: none;",
+            "edit": "display: block;"
+        },
+        {
+            "name": "text",
+            "exampleValue": "Upload",
+            "defaultValue": "Upload",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "message",
+            "exampleValue": "File Uploaded",
+            "defaultValue": "File Uploaded",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "blockEditor": {
+        "name": "",
+        "icon": ""
+    },
+    "buildRenderer": false
+}

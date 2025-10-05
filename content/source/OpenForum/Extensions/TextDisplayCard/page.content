@@ -1,0 +1,7 @@
+<div class="row">
+!!TextDisplayCard v0.0.1
+{{{ [{TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/"}] }}}
+[{TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/"}]
+\\
+[{ActionButton text="Add TextDisplayCard Block type to Content Editor" action="addToContentEditor"}]
+</div>

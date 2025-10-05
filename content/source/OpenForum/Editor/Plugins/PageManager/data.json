@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Editor/Plugins/PageManager",
-    "title": " Page Manager"
+    "pageName": "/OpenForum/Editor/Plugins/PageManager",
+    "title": "PageManager",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

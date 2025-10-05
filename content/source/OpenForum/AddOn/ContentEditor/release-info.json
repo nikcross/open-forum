@@ -1,0 +1,7 @@
+{
+    "version": "0.0.16",
+    "extra": {
+        "notes": "Stop override of pages list and categories list\nAdded category list editor\nAdded pages list editor"
+    },
+    "installedDate": 1759502259417
+}

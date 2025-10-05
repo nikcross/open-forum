@@ -1,0 +1,117 @@
+!!/OpenForum/AddOn/ContentEditor Sevice API Version 0.1.6
+
+----
+!!Get Actions
+
+  <div class="panel callout radius">
+!!Action getPages
+(())
+
+!!Parameters
+|Name|Description
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/ContentEditor?action=getPages+++</textarea>
+  
+[/OpenForum/AddOn/ContentEditor?action=getPages++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action getBlockEditors
+(())
+
+!!Parameters
+|Name|Description
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/ContentEditor?action=getBlockEditors+++</textarea>
+  
+[/OpenForum/AddOn/ContentEditor?action=getBlockEditors++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action convertPage
+(())
+
+!!Parameters
+|Name|Description
+|targetPageName (''required=true'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/ContentEditor?action=convertPage+++</textarea>
+  
+[/OpenForum/AddOn/ContentEditor?action=convertPage++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action convertHTMLPage
+(())
+
+!!Parameters
+|Name|Description
+|targetPageName (''required=true'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/ContentEditor?action=convertHTMLPage+++</textarea>
+  
+[/OpenForum/AddOn/ContentEditor?action=convertHTMLPage++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+  <div class="panel callout radius">
+!!Action addPage
+(())
+
+!!Parameters
+|Name|Description
+|pageName (''required=true'')|{{parameter.description}}
+|pageTitle (''required=true'')|{{parameter.description}}
+
+       
+!!Example Get Request
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>+++/OpenForum/AddOn/ContentEditor?action=addPage+++</textarea>
+  
+[/OpenForum/AddOn/ContentEditor?action=addPage++++++]
+
+!!Example Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='10'>++++++</textarea>
+    
+!!Example Error Response
+<textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;' rows='2'>++++++</textarea>
+    
+  </div>
+
+
+----
+!!Post Actions

@@ -1,0 +1,9 @@
+/*
+* Author: 
+* Description: 
+*/
+//var value = extension.getAttribute("value");
+
+var html = "<div> Some Content </div>";
+
+return html;

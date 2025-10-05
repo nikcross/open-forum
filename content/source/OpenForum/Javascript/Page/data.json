@@ -1,5 +1,6 @@
 {
     "editor": "/OpenForum/Editor",
     "pageName": "/OpenForum/Javascript/Page",
-    "title": " Page"
+    "title": "Page",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

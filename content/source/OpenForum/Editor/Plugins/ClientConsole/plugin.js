@@ -70,6 +70,7 @@ addPlugin( {
       }
       clientConsole.open=true;
       editorIndex++;
+      this.editorIndex = editorIndex;
       var editor = document.createElement("div");
       editor.setAttribute("id","editor"+editorIndex);
       editor.setAttribute("style","display:block;");

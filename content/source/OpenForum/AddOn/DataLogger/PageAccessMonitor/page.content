@@ -1,0 +1,9 @@
+!!&title;
+
+----
+!!Child Pages
+[{ChildPagesList pageName="&pageName;"}]
+
+----
+!!Attachments
+[{AttachmentsList pageName="&pageName;" matching=".*\.txt"}]

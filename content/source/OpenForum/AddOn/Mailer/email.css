@@ -1,0 +1,71 @@
+.EmailPage {
+  border: solid 1px;
+  padding: 10px;
+  width: 794px;
+  box-shadow: 10px 10px 5px grey;
+  margin: 20px;
+  display: table;
+  border-collapse: collapse
+}
+
+.EmailBody {
+  padding: 20px;
+  color: black
+}
+
+.EmailRow {
+  width : 100%
+}
+
+.EmailTitle {
+  padding: 20px;
+  color: black
+}
+
+.EmailColumns2 {
+  width: 50%
+}
+
+.EmailHeader {
+  background: #0078AE;
+  display: table-row;
+  height: 60px
+}
+
+.EmailAlertHeader {
+  background: #CC0000;
+  display: table-row;
+  height: 60px
+}
+
+.EmailHeaderH2 {
+  color: white;
+  margin: 10px
+}
+
+.EmailFooter {
+  display: table-row; 
+  background: #CCCCCC; 
+  height: 40px; 
+  margin: 10px
+}
+
+.EmailFooterH2 {
+  color: white;
+  margin: 10px;
+  text-align: center
+}
+
+.EmailTable {
+  border: solid 2px black;
+  width: 80%
+}
+
+.TableHead {
+  color: white;
+  background: #0078AE
+}
+
+.TableRowOdd {
+  background: #CCCCCC
+}

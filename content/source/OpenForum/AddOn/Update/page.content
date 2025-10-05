@@ -1,0 +1,47 @@
+<div class="row">
+  !!Updater {{VERSION}}
+
+  <div class="row">
+    <label>Parent Host </label><div class="columns large-8">{{host}}</div>
+  </div>
+  <div class="row">
+    <label>Page Name </label><div class="columns large-8"><input type="text" of-id="targetPageName" /></div>
+  </div>
+  <div class="row">
+    [{Button title="Get Update Info" function="getUpdateInfo"}]
+    [{Button title="Get Update" function="getUpdate"}]
+  </div>
+  <div class="row">
+* Page Name: {{release.pagename}}
+* Version: {{release.version}}
+* Released: {{release.releaseTime}}
+* Size: {{release.zipfilesize_VIEW}}
+
+    __Notes:__ [[ {{release.extra.extra.notes}} ]] \\
+    __Requires:__
+    [[ 
+    <ul>
+      <li of-repeatFor="required in release.extra.requires">{{required.pageName}} version {{required.version}}</li>
+    </ul>
+   ]] \\
+  </div>
+  ----
+  <div class="row">
+    Search For <input of-id="rowFilter" type="text"/>
+  </div>
+  <div class="row">
+    <table id="releases">
+      <tr of-repeatFor="release in releases">
+        <td><a href="#" onClick="targetPageName='{{release.pagename}}'; getUpdateInfo(); return false;">{{release.pagename}}</a></td>
+        <td>{{release.version_VIEW}}</td>
+        <td>{{release.releaseTime}}</td>
+        <td>{{release.zipfilesize_VIEW}}</td>
+        <td>{{release.autoUpdate}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+  <div class="row">
+    [API Reference|]
+  </div>

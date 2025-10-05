@@ -1,0 +1,50 @@
+{
+    "version": "0.0.1",
+    "configFile": "extension-config.json",
+    "pageName": "/OpenForum/Extensions/TextDisplayCard",
+    "template": {
+        "pageName": "/OpenForum/Extensions/TextDisplayCard",
+        "fileName": "text-display-card.html.template"
+    },
+    "buildReferencePage": true,
+    "buildBlockEditor": true,
+    "parameters": [
+        {
+            "name": "title",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;",
+            "exampleValue": "Open Forum",
+            "defaultValue": ""
+        },
+        {
+            "name": "description",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;",
+            "exampleValue": "The future",
+            "defaultValue": ""
+        },
+        {
+            "name": "linkText",
+            "required": true,
+            "view": "display: block;",
+            "edit": "display: none;",
+            "exampleValue": "Open Forum",
+            "defaultValue": ""
+        },
+        {
+            "name": "linkURL",
+            "required": true,
+            "view": "display: none;",
+            "edit": "display: block;",
+            "exampleValue": "https://open-forum.onestonesoup.org/",
+            "defaultValue": ""
+        }
+    ],
+    "blockEditor": {
+        "name": "Text Display Card",
+        "icon": "textfield"
+    },
+    "buildRenderer": true
+}

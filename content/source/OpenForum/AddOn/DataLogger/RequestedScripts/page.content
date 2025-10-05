@@ -1,0 +1,36 @@
+((This service requests a data logging node to pick up a script and run it locally.))
+
+<div class="row">
+  <div class="column large-3">
+    !!Sending ''{{selectedScript}}'' to ''{{selectedNode}}'' <a class="tiny button" id="send" onClick="sendScript(); return false;">Send</a>
+    <xmp> {{scriptCode}} </xmp>
+  </div>
+  <div class="column large-3">
+    !!Requested Scripts
+    <table>
+      <tr of-repeatFor="script in requestedScripts">
+        <td>{{script.fileName}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="column large-6">
+    !!Scripts
+    <table>
+      <tr of-repeatFor="script in scripts">
+        <td><a href="/OpenForum/Editor?pageName=/OpenForum/AddOn/DataLogger/RequestedScripts&fileName={{script.fileName}}">{{script.fileName}}</a></td>
+        <td><a class="tiny radius button" onClick="selectScript('{{script.fileName}}'); return false;">Select</a></td>
+      </tr>
+    </table>
+  </div>
+  <div class="column large-6">
+    !!Nodes
+    <table>
+      <tr of-repeatFor="node in nodes">
+        <td>{{node.name}}</td>
+        <td><a class="tiny radius button" onClick="selectNode('{{node.name}}'); return false;">Select</a></td>
+      </tr>
+    </table>
+  </div>
+</div>

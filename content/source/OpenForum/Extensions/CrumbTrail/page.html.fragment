@@ -1,11 +1,7 @@
-Displays a page hierachy trail
-<hr/>
-<h3>Parameters</h3>
-<hr/>
-<h3>Usage:</h3>
-<xmp class="panel">
-[{CrumbTrail}]
-</xmp>
-<nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">CrumbTrail</a></li></nav>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+(<p>Displays a page hierachy trail</p>
 
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<xmp class="panel" of-exclude="true">
+<!--Extension CrumbTrail --><nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">CrumbTrail</a></li></nav><!--End Extension CrumbTrail -->
+</xmp>
+<!--Extension CrumbTrail --><nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">CrumbTrail</a></li></nav><!--End Extension CrumbTrail -->

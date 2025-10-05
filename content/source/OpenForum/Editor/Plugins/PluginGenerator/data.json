@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Editor/Plugins/PluginGenerator",
-    "title": " Plugin Generator"
+    "pageName": "/OpenForum/Editor/Plugins/PluginGenerator",
+    "title": "PluginGenerator",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

@@ -1,22 +1,165 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <h3>Plugins</h3>
 
-<ul><li> <a href="/OpenForum/Editor/Plugins/ClientConsole">ClientConsole</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/Console">Console</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/DataTransform">DataTransform</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/FileDiff">FileDiff</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/FormBuilder">FormBuilder</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/GameConsole">GameConsole</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/Giraffe">Giraffe</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/History">History</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/JavascriptConsole">JavascriptConsole</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/PageManager">PageManager</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/PluginGenerator">PluginGenerator</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/PluginTemplate">PluginTemplate</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/RemoteEditor">RemoteEditor</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/ServerConsole">ServerConsole</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/Service">Service</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/ServiceGenerator">ServiceGenerator</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/Video">Video</a></li>
-<li> <a href="/OpenForum/Editor/Plugins/Vision">Vision</a></li>
-</ul>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Extension ChildrenContentsPage --><div class="row">
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/ClientConsole">ClientConsole</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/ClientConsole" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/ClientConsole" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/Console">Console</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/Console" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/Console" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/DataTransform">DataTransform</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/DataTransform" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/DataTransform" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/FileDiff">FileDiff</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/FileDiff" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/FileDiff" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/FormBuilder">FormBuilder</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/FormBuilder" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/FormBuilder" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/GameConsole">GameConsole</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/GameConsole" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/GameConsole" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/Giraffe">Giraffe</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/Giraffe" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/Giraffe" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/History">History</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/History" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/History" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder">JavascriptBuilder</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/JavascriptBuilder" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/JavascriptBuilder" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/JavascriptConsole">JavascriptConsole</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/JavascriptConsole" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/JavascriptConsole" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/PageManager">PageManager</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/PageManager" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/PageManager" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/PagePreview">PagePreview</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/PagePreview" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/PagePreview" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/PluginGenerator">PluginGenerator</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/PluginGenerator" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/PluginGenerator" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/PluginTemplate">PluginTemplate</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/PluginTemplate" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/PluginTemplate" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/RemoteEditor">RemoteEditor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/RemoteEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/RemoteEditor" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/ServerConsole">ServerConsole</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/ServerConsole" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/ServerConsole" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/Service">Service</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/Service" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/Service" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/ServiceGenerator">ServiceGenerator</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/ServiceGenerator" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/ServiceGenerator" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/TableBuilder">TableBuilder</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/TableBuilder/QuickReference" section="1" -->
+(<p>The Table Builder enables the quick building of table html for use with OpenForum.</p>
+<!--End Extension InsertPage page="/OpenForum/Editor/Plugins/TableBuilder/QuickReference" section="1" --><br />
+ <!--Extension Popup id="QR_TableBuilder" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Editor/Plugins/TableBuilder/QuickReference" --><div id="QR_TableBuilder" class="reveal-modal" data-reveal aria-labelledby="QR_TableBuilderModalTitle" aria-hidden="true" role="dialog"><!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>QuickReference</h3>
+
+
+(<p>The Table Builder enables the quick building of table html for use with OpenForum.</p>
+
+(<p>Enter a table name in the Table name field. The last word will be the data name for the table. The rows behind that will be the tables display name.</p>
+<p>Enter column names, one per row, in the Columns text area. The last word in each row will be the column cells data name, the rows behind that will be the columns display name.</p>
+<p>You can see a preview of the table in the Table panel and the html to build it in the far right hand column.</p>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="QR_TableBuilder" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Editor/Plugins/TableBuilder/QuickReference" --><br />
+ <!--Extension Popup id="QR_TableBuilder" title="Quick Reference" --><a class='button small round' onClick="$('#QR_TableBuilder').foundation('reveal', 'open');;return false;">Quick Reference</a><!--End Extension Popup id="QR_TableBuilder" title="Quick Reference" --> <b><a href="/OpenForum/Editor/Plugins/TableBuilder/QuickReference">Open in a new tab</a></b><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/Video">Video</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/Video" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/Video" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Plugins/Vision">Vision</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/Vision" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/Vision" section="1" --><br />
+
+</div><!--End Extension ChildrenContentsPage -->

@@ -11,6 +11,9 @@ var pageManager = {
   },
   createPage: function() {
         window.open("/OpenForum/Actions/Edit?pageName="+createPageName,"createEditor");
+  },
+  close: function() {
+    pageManager.open = false;
   }
 };
 
@@ -22,6 +25,7 @@ addPlugin( {
       }
       pageManager.open=true;
       editorIndex++;
+      this.editorIndex = editorIndex;
       var editor = document.createElement("div");
       editor.setAttribute("id","editor"+editorIndex);
       editor.setAttribute("style","display:block;");
@@ -33,7 +37,7 @@ addPlugin( {
       OpenForum.crawl(document.getElementById("editor"+editorIndex));
     
       OpenForum.addTab("editor"+editorIndex);
-      editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "pageManager", changed: ""};
+      editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "pageManager", changed: "", plugin: pageManager};
       showTab(editorIndex);
       pageManager.log("pageManager Ready");
       return editorList[editorIndex];

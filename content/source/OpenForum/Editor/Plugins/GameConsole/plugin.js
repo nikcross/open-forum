@@ -15,20 +15,24 @@ var gameConsole = {
 
       GameConsole.setGame(game);
       GameConsole.run();
+  },
+  close: function() {
+    gameConsole.open = false;
   }
 };
 
 addPlugin( {
   name: "Game Console",
   init: function() {
-      if(console.open===true) {
+      if(gameConsole.open===true) {
         return;
       }
       OpenForum.loadCSS("/OpenForum/Editor/Plugins/GameConsole/game.css");
 	  OpenForum.loadScript("/OpenForum/Editor/Plugins/GameConsole/game-console.js");    
     
-      console.open=true;
+      gameConsole.open=true;
       editorIndex++;
+      this.editorIndex = editorIndex;
       var editor = document.createElement("div");
       editor.setAttribute("id","editor"+editorIndex);
       editor.setAttribute("style","display:block;");
@@ -40,7 +44,7 @@ addPlugin( {
       OpenForum.crawl(document.getElementById("editor"+editorIndex));
     
       OpenForum.addTab("editor"+editorIndex);
-      editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Game Console", changed: ""};
+      editorList[editorIndex] = {id: editorIndex, tabButtonStyle: "tab", tabId: "editor"+editorIndex, name: "Game Console", changed: "", plugin: gameConsole};
       showTab(editorIndex);
       console.log("Game Console Ready");
       return editorList[editorIndex];

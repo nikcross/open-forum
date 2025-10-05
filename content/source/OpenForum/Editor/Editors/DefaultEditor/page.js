@@ -8,7 +8,8 @@ OpenForum.init = function() {
     flavour: "Default",
     editingPageName: "/TheLab/Sandbox",
     editingFileName: "sandbox.txt",
-    elementId: "defaultEditor"
+    elementId: "InPageEditor",
+    fullScreen: true
   };
   if(OpenForum.getParameter("pageName")) {
     editorConfig.editingPageName = OpenForum.getParameter("pageName");

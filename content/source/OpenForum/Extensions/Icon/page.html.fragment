@@ -1,13 +1,11 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 Places an icon on the page
-<hr/>
-<h3>Parameters</h3>
+
+<b>Parameters</b>
 <ul><li> name - name of icon</li>
 </ul>
-<hr/>
-<h3>Usage:</h3>
-<xmp class="panel">
-[{Icon name="chart pie"}]
+<xmp class="panel" of-exclude="true">
+<!--Extension Icon name="chart pie" --><img src="/OpenForum/Images/icons/png/chart_pie.png"><!--End Extension Icon name="chart pie" -->
 </xmp>
 Example:
-<img src="/OpenForum/Images/icons/png/chart_pie.png">
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Extension Icon name="chart pie" --><img src="/OpenForum/Images/icons/png/chart_pie.png"><!--End Extension Icon name="chart pie" -->

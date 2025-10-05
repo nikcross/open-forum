@@ -1,0 +1,15 @@
+Inserts a form input field.
+----
+!!Parameters
+name - the field name
+list - the list name
+value - optional value
+----
+!!Usage:
+{{{ [{ListField name="beetle" list="names"}] }}}
+[{ListField name="beetle" list="names"}]
+
+!!Your Beetle is {{beetle}}
+----
+
+[{InsertSourceFile fileName="renderer.sjs"}]

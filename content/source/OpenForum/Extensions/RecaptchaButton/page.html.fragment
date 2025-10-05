@@ -1,0 +1,33 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+A button that checks you are not a robot
+<hr/>
+<h3>Parameters</h3>
+<ul><li> action = Button javascript function name</li>
+<li> text = Button text</li>
+</ul>
+<hr/>
+<h3>Usage:</h3>
+<xmp class="panel" of-exclude="true">
+<!--Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" --><script src="https://www.google.com/recaptcha/api.js"></script><button  class="g-recaptcha button"  data-sitekey="6LdxaaofAAAAAOhD2TZLh5yedBGjixR3NeWVKnQM"  data-callback="alertMe">Am I A Robot ?</button><!--End Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" -->
+</xmp>
+<!--Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" --><script src="https://www.google.com/recaptcha/api.js"></script><button  class="g-recaptcha button"  data-sitekey="6LdxaaofAAAAAOhD2TZLh5yedBGjixR3NeWVKnQM"  data-callback="alertMe">Am I A Robot ?</button><!--End Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" -->
+
+<hr/>
+
+<!--Extension InsertSourceFile fileName="renderer.sjs" --><a href="//OpenForum/Extensions/RecaptchaButton/renderer.sjs">//OpenForum/Extensions/RecaptchaButton/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/RecaptchaButton&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var text = extension.getAttribute("text");
+var action = extension.getAttribute("action");
+
+var config = openForum.retrieveObject("config");
+var key = config.getValue("recaptcha-key");
+
+if(typeof key == "undefined") {
+  return( "<b>Missing configuration value for recaptcha-key</b>" );
+}
+
+return "<script src=<br/>"https://www.google.com/recaptcha/api.js<br/>"></script>" +
+	"<button" + 
+    "  class=<br/>"g-recaptcha button<br/>"" + 
+    "  data-sitekey=<br/>"" + key + "<br/>"" + 
+    "  data-callback=<br/>"" + action + "<br/>">" + 
+    text + 
+    "</button>";</xmp><!--End Extension InsertSourceFile fileName="renderer.sjs" -->

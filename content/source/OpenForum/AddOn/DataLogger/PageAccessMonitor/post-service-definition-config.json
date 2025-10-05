@@ -1,0 +1,77 @@
+{
+    "version": "0.0.5",
+    "libraries": [
+        {
+            "name": "PageAccessMonitor",
+            "fileName": "PageAccessMonitor.sjs",
+            "view": "display: block;",
+            "edit": "display: none;",
+            "pageName": "/OpenForum/AddOn/DataLogger/PageAccessMonitor"
+        }
+    ],
+    "parameters": [],
+    "actions": [
+        {
+            "name": "logPageAccess",
+            "call": "PageAccessMonitor.logPageAccess(site,pages);",
+            "parameters": [
+                {
+                    "name": "site",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "pages",
+                    "required": true,
+                    "type": "json"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "action": "logPageAccess",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            }
+        },
+        {
+            "name": "logUserJourney",
+            "call": "PageAccessMonitor.logUserJourney(currentPage,referrer,userAgent,transaction);",
+            "parameters": [
+                {
+                    "name": "currentPage",
+                    "required": "false",
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "referrer",
+                    "required": "false",
+                    "type": "string",
+                    "view": "display: none;",
+                    "edit": "display: block;"
+                },
+                {
+                    "name": "userAgent",
+                    "required": "false",
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "logUserJourney"
+        }
+    ],
+    "method": "post",
+    "pageName": "/OpenForum/AddOn/DataLogger/PageAccessMonitor"
+}

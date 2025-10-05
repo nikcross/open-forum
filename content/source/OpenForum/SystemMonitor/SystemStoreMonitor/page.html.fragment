@@ -1,5 +1,18 @@
-<h3>Store Data</h3>
-<xmp class="panel">
-{{dataView}}
-</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+  <h3>Store Data</h3>
+  <table>
+    <thead>
+      <tr>
+        <td>Key</td>
+        <td>Value</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr of-repeatFor="row in data">
+        <td>{{row.key}}</td>
+        <td>{{row.value}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

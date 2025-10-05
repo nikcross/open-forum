@@ -1,0 +1,38 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>InputFileName</h3>
+
+<xmp class="panel" of-exclude="true">
+<!--Extension InputFileName id="myPage" --><script>
+  var myPagePages = [];
+  var myPageWaitToUpdateTree = false;
+  var myPageupdatePageList = function(element) {
+    if(myPageWaitToUpdateTree) clearTimeout(myPageWaitToUpdateTree);
+    myPageWaitToUpdateTree = setTimeout( function() {
+      OFX.get("/OpenForum/Javascript/Tree").withAction("getSubPages").withData({pageName: element.value}).onSuccess( function(newList) {
+        myPagePages = newList;
+      }).go();
+    }, 500);
+  }
+</script>
+<input list="myPagePagesList" of-id="myPage" onKeyUp="myPageupdatePageList(this);" ondblclick="this.value=OpenForum.BLANK;" title="Double Click to clear"/>
+<datalist id="myPagePagesList">
+  <option of-repeatFor="pageName in myPagePages" value="{{pageName}}">{{pageName}}</option>
+</datalist><!--End Extension InputFileName id="myPage" -->
+</xmp>
+
+<ul><li>Page <!--Extension InputFileName id="myPage" --><script>
+  var myPagePages = <a href="/OpenForum/Extensions/InputFileName/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var myPageWaitToUpdateTree = false;
+  var myPageupdatePageList = function(element) {
+    if(myPageWaitToUpdateTree) clearTimeout(myPageWaitToUpdateTree);
+    myPageWaitToUpdateTree = setTimeout( function() {
+      OFX.get("/OpenForum/Javascript/Tree").withAction("getSubPages").withData({pageName: element.value}).onSuccess( function(newList) {
+        myPagePages = newList;
+      }).go();
+    }, 500);
+  }
+</script>
+<input list="myPagePagesList" of-id="myPage" onKeyUp="myPageupdatePageList(this);" ondblclick="this.value=OpenForum.BLANK;" title="Double Click to clear"/>
+<datalist id="myPagePagesList">
+  <option of-repeatFor="pageName in myPagePages" value="{{pageName}}">{{pageName}}</option>
+</datalist><!--End Extension InputFileName id="myPage" --></li></ul>

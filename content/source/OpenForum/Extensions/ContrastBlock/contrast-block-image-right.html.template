@@ -1,0 +1,8 @@
+<div class="row" style="background-color: {{backgroundColor}};">
+    <div class="columns large-6" style="padding: 0px;">
+    <h2 style="color: {{textColor}}; padding: 1em; text-align: center;">{{text}}</h2>
+  </div>
+  <div class="columns large-6" style="padding: 0px;">
+    <img src="{{imageURL}}" />
+  </div>
+</div>

@@ -1,0 +1,8 @@
+!!&title;
+
+----
+!![/OpenForum/Actions/Access?action=getAccess&pageName=/OpenForum/Actions/Access]
+
+----
+!!Attachments
+[{AttachmentsList pageName="&pageName;" matching=".*"}]

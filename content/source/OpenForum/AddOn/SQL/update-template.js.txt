@@ -1,0 +1,5 @@
+
+        var sql = "update &tableName; set &fields; where ???";
+8<---&fieldName; = '"+&tableName;.&fieldName;: row.cell&index;+"'---8<
+8<---&fieldName; = "+&tableName;.&fieldName;: row.cell&index;+"---8<
+        DB.execute(sql);

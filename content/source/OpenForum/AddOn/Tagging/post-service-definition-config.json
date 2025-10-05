@@ -1,0 +1,92 @@
+{
+    "version": "0.0.1",
+    "libraries": [
+        {
+            "name": "TagMatcher",
+            "fileName": "TagMatcher.sjs",
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "TagManager",
+            "fileName": "TagManager.sjs",
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "parameters": [],
+    "actions": [
+        {
+            "name": "tag",
+            "call": "TagManager.tag(tag,type,name,wildCard,caseSensitive);",
+            "parameters": [
+                {
+                    "name": "tag",
+                    "required": true,
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "type",
+                    "required": true,
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "name",
+                    "required": true,
+                    "type": "string",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "wildCard",
+                    "required": "false",
+                    "type": "boolean",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                },
+                {
+                    "name": "caseSensitive",
+                    "required": "false",
+                    "type": "boolean",
+                    "view": "display: block;",
+                    "edit": "display: none;"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "tag"
+        },
+        {
+            "name": "addTag",
+            "call": "TagManager.addTag(tag);",
+            "parameters": [
+                {
+                    "name": "tag",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "addTag"
+        }
+    ],
+    "method": "post",
+    "pageName": "/OpenForum/AddOn/Tagging"
+}

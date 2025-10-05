@@ -1,0 +1,19 @@
+!!ScriptClip
+--8<--
+
+(( Displays a small line of text on the page with a button to transfer it to the clipboard. ))
+__Parameters__
+* script - The text to display 
+* fileName - Alternative to script. The file to display as a clip
+          
+{{{[{/OpenForum/Extensions/ScriptClip script="ls -la /open-forum/content"}]}}}
+       
+       
+{{{[{/OpenForum/Extensions/ScriptClip fileName="renderer.sjs"}]}}}
+-->8--
+[{/OpenForum/Extensions/ScriptClip script="ls -la /open-forum/content"}]
+  
+[{/OpenForum/Extensions/ScriptClip fileName="renderer.sjs"}]
+----
+!!Source
+[{InsertSourceFile pageName="OpenForum/Extensions/ScriptClip" fileName="renderer.sjs"}]

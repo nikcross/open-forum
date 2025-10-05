@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/GetInheritedFilePath",
-    "title": " Get Inherited File Path"
+    "pageName": "/OpenForum/Actions/GetInheritedFilePath",
+    "title": "GetInheritedFilePath",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

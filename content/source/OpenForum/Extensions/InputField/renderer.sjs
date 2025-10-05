@@ -5,7 +5,7 @@ action = extension.getAttribute("action");
 
 if(value==null)
 {
-  value=" ";
+  value="{{"+name+"}}";
 }
 
 if(type==null)
@@ -14,8 +14,8 @@ if(type==null)
 }
 
 var onChange = "";
-if(action!==null) {
+if(action!=null) {
   onChange = "onChange='"+action+"(); return false;'";
 }
 
-return "<input type='"+type+"' name='"+name+"' of-id="+name+" id='"+name+"' value='"+value+"' "+onChange+" />";
+return "<input type='"+type+"' name='"+name+"' id='"+name+"Field' of-id='"+name+"' value='"+value+"' "+onChange+" />";

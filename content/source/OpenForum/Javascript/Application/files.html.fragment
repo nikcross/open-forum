@@ -1,0 +1,7 @@
+<div id="filesOpenModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">Select File</h2>
+  <div>Open <input type="text" id="Files.newFileName" onKeyPress="Files.createNew(this.value,event);" onKeyUp="Files.updateTreeView(this);"/></div>
+  <div>{{Files.pageName}}</div>
+  <div id="Files.fileTree"></div>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

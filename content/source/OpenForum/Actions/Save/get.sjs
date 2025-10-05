@@ -6,7 +6,7 @@ if(typeof(pageName)=="undefined") {
 try{
   transaction.getPostData();
   var json = false;
-  var returnType = transaction.getParameter("returnType");
+  var returnType = transaction.getParameter("returnType"); //If set as 'json', will return json response else will forward to pageName
 
   if(returnType!==null && (""+returnType)=="json") {
     json = true;

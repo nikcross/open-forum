@@ -1,8 +1,13 @@
-<h3>Example</h3>
-<xmp class="panel">
-[{InsertPage page='/OpenForum/PageTemplates/Example'}]
-</xmp>
-Lorem ipsum dolor sit amet,
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class='row'>
+<p> Inserts the contents of one page in another. </p>
+<b>Parameters</b>
+<ul><li> page - The page to insert content from.</li>
+<li> section (optional) - The number of the section of the page to insert content from. See wiki markup</li>
+</div></ul>
+<div class="row">
+<h3>InsertPage v0.0.7</h3>
+<xmp class="panel" of-exclude="true"> <!--Extension InsertPage page="/OpenForum/PageTemplates/Example" section="" -->Lorem ipsum dolor sit amet,
  consectetur adipiscing elit. Maecenas venenatis elit nibh,
  at molestie eros lacinia quis. Donec sed tortor massa. Maecenas dignissim neque et massa iaculis,
  in pretium quam tincidunt. Cras interdum purus ut ante interdum,
@@ -13,5 +18,19 @@ Lorem ipsum dolor sit amet,
  bibendum volutpat erat. Cras posuere malesuada arcu in tempus. Donec id libero ut nulla finibus egestas. Vestibulum elementum,
  erat sit amet rhoncus vestibulum,
  lectus tortor tempor lorem,
- vitae luctus quam ipsum at elit.
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+ vitae luctus quam ipsum at elit.<!--End Extension InsertPage page="/OpenForum/PageTemplates/Example" section="" --> </xmp>
+<!--Extension InsertPage page="/OpenForum/PageTemplates/Example" section="" -->Lorem ipsum dolor sit amet,
+ consectetur adipiscing elit. Maecenas venenatis elit nibh,
+ at molestie eros lacinia quis. Donec sed tortor massa. Maecenas dignissim neque et massa iaculis,
+ in pretium quam tincidunt. Cras interdum purus ut ante interdum,
+ quis tempor ante pharetra. Suspendisse pellentesque nunc a tellus suscipit tempor. Donec sed nisi sagittis,
+ finibus lectus et,
+ tempus ex. Suspendisse vehicula efficitur ullamcorper. Phasellus ex erat,
+ dignissim id nulla in,
+ bibendum volutpat erat. Cras posuere malesuada arcu in tempus. Donec id libero ut nulla finibus egestas. Vestibulum elementum,
+ erat sit amet rhoncus vestibulum,
+ lectus tortor tempor lorem,
+ vitae luctus quam ipsum at elit.<!--End Extension InsertPage page="/OpenForum/PageTemplates/Example" section="" -->
+<br/><br/>
+<!--Extension ActionButton text="Add InsertPage Block type to Content Editor" action="addToContentEditor" --><a  class='button radius tiny' href='#' onclick='addToContentEditor(); return false;'>Add InsertPage Block type to Content Editor</a> <!--End Extension ActionButton text="Add InsertPage Block type to Content Editor" action="addToContentEditor" -->
+</div>

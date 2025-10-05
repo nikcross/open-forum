@@ -1,0 +1,6 @@
+{
+    "version": "0.0.7",
+    "extra": {
+        "notes": "ServiceLayer shows service registration status"
+    }
+}

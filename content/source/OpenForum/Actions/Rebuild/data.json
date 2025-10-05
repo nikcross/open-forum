@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Actions/Rebuild",
-    "title": " Rebuild"
+    "pageName": "/OpenForum/Actions/Rebuild",
+    "title": "Rebuild",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

@@ -1,0 +1,12 @@
+{{{{counter}}}}
+<script>
+var {{counter}} = {{period}};
+  {{action}}();
+  setInterval(function() {
+    {{counter}}--;
+    if({{counter}}==0) {
+     {{action}}();
+    	{{counter}} = {{period}};
+    }
+  },1000);
+</script>

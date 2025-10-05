@@ -1,0 +1,58 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>WysiwygInput</h3>
+
+<!--Extension WysiwygInput name="myText" value="1234" --><textarea id="myText_content">
+</textarea>
+<script>
+  myText = "1234";
+  
+  if(typeof ClassicEditor == "undefined" && typeof ClassicEditorLoading == "undefined") { 
+    OpenForum.loadScript("/OpenForum/Javascript/CKEditor/ck-classic-editor.js");
+    ClassicEditorLoading = true;
+  }
+
+  new Process().waitFor(
+    function() { return (typeof ClassicEditor != "undefined"); }
+  ).then( function() {
+    ClassicEditor
+      .create( document.getElementById( "myText_content" ), 
+              {
+      toolbar: <a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/WysiwygInput/", "bold", "italic", "link", "bulletedList", "numberedList", ""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/WysiwygInput/", "bold", "italic", "link", "bulletedList", "numberedList", " does not exist. Click to create it.">"heading", "</a>
+    } )
+      .then( newEditor => {
+      myText_editor = newEditor;
+      myText_editor.setData( myText );
+      myText_editor.model.document.on('change:data', (evt, data) => {
+        //OpenForum.getObject("myText").setValue(myText_editor.getData());
+        myText = myText_editor.getData();
+        OpenForum.getObject("myText").setValueQuietly(myText_editor.getData());
+      });
+  		OpenForum.addListener("myText", function() {
+          myText_editor.setData( myText );
+		})
+    } )
+      .catch( error => {
+      console.error( error );
+    } );
+  }).run();
+</script><!--End Extension WysiwygInput name="myText" value="1234" -->
+
+<hr/>
+<h3>My Text</h3>
+{{myText}}
+
+<hr/>
+<h3>Child Pages</h3>
+<!--Extension ChildPagesList pageName="/OpenForum/Extensions/WysiwygInput" --><!--End Extension ChildPagesList pageName="/OpenForum/Extensions/WysiwygInput" -->
+
+<hr/>
+<h3>Attachments</h3>
+<!--Extension AttachmentsList pageName="/OpenForum/Extensions/WysiwygInput" matching=".*" --><ul><li> <a href="/OpenForum/Extensions/WysiwygInput/page.js">/OpenForum/Extensions/WysiwygInput/page.js</a></li>
+<li> <a href="/OpenForum/Extensions/WysiwygInput/renderer.sjs">/OpenForum/Extensions/WysiwygInput/renderer.sjs</a></li>
+<li> <a href="/OpenForum/Extensions/WysiwygInput/page.content">/OpenForum/Extensions/WysiwygInput/page.content</a></li>
+<li> <a href="/OpenForum/Extensions/WysiwygInput/wysiwyg-input.html.template">/OpenForum/Extensions/WysiwygInput/wysiwyg-input.html.template</a></li>
+<li> <a href="/OpenForum/Extensions/WysiwygInput/extension-config.json">/OpenForum/Extensions/WysiwygInput/extension-config.json</a></li>
+<li> <a href="/OpenForum/Extensions/WysiwygInput/page.html.fragment">/OpenForum/Extensions/WysiwygInput/page.html.fragment</a></li>
+<li> <a href="/OpenForum/Extensions/WysiwygInput/data.json">/OpenForum/Extensions/WysiwygInput/data.json</a></li>
+<li> <a href="/OpenForum/Extensions/WysiwygInput/page.html">/OpenForum/Extensions/WysiwygInput/page.html</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/Extensions/WysiwygInput" matching=".*" -->

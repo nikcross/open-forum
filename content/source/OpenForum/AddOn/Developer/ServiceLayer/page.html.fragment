@@ -1,0 +1,47 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+  <center>
+  <!--Extension ActionButton action="refresh" parameters="ALL" text="Refresh All Service Objects" --><a  class='button radius tiny' href='#' onclick='refresh("ALL"); return false;'>Refresh All Service Objects</a> <!--End Extension ActionButton action="refresh" parameters="ALL" text="Refresh All Service Objects" -->
+  <!--Extension ActionButton action="refresh" parameters="DEV" text="Refresh Development Service Objects" --><a  class='button radius tiny' href='#' onclick='refresh("DEV"); return false;'>Refresh Development Service Objects</a> <!--End Extension ActionButton action="refresh" parameters="DEV" text="Refresh Development Service Objects" -->
+  <!--Extension ActionButton action="refresh" parameters="PROD" text="Refresh Production Service Objects" --><a  class='button radius tiny' href='#' onclick='refresh("PROD"); return false;'>Refresh Production Service Objects</a> <!--End Extension ActionButton action="refresh" parameters="PROD" text="Refresh Production Service Objects" -->
+  </center>
+  {{messages}}
+</div>
+
+<hr/>
+
+<div class="">
+  <div class="column large-6">
+    <h3>Object List</h3>
+    <table>
+      <thead>
+        <tr>
+          <td>Page Name</td>
+          <td>Object Name</td>
+          <td>Status</td>
+          <td>&nbsp;</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr of-repeatFor='row in serviceObjects'>
+          <td><span style='{{row.view}}'>{{row.pageName}}</span><span style='{{row.edit}}'><input type='text' value='{{row.pageName}}' onChange='OpenForum.Table.setCell(serviceObjects,{{row.index}},"pageName",this.value);'/></span></td>
+          <td><span style='{{row.view}}'>{{row.objectName}}</span><span style='{{row.edit}}'><input type='text' value='{{row.objectName}}' onChange='OpenForum.Table.setCell(serviceObjects,{{row.index}},"objectName",this.value);'/></span></td>
+          <td>{{row.status}}</td>
+          <td><a class='button tiny' onClick='OpenForum.Table.editRow(serviceObjects,{{row.index}}); return false;'>Edit</a>
+            <a class='button tiny' onClick='OpenForum.Table.removeRow(serviceObjects,{{row.index}}); return false;'>Remove</a></td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="4"><a href="#" onClick="OpenForum.Table.addRow(serviceObjects,rowTemplate); return false;" class="button tiny round">Add Row</a>
+          <a href="#" onClick="OpenForum.Table.closeTable(serviceObjects); OpenForum.saveJSON('/Development/ServiceLayer/services-list.json',serviceObjects); return false;" class="button tiny round">Save Changes</a>
+          </td></tr></tfoot>
+    </table>
+  </div>
+  <div class="column large-6">
+    <h3>Service Pages</h3>
+    <!--Extension ChildrenContentsPage --><div class="row">
+
+</div><!--End Extension ChildrenContentsPage -->
+
+  </div>
+</div>

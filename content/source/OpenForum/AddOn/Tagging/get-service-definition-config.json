@@ -1,0 +1,61 @@
+{
+    "version": "0.0.1",
+    "libraries": [
+        {
+            "name": "TagMatcher",
+            "fileName": "TagMatcher.sjs",
+            "view": "display: block;",
+            "edit": "display: none;"
+        },
+        {
+            "name": "TagManager",
+            "fileName": "TagManager.sjs",
+            "view": "display: block;",
+            "edit": "display: none;"
+        }
+    ],
+    "parameters": [],
+    "actions": [
+        {
+            "name": "getTags",
+            "call": "TagMatcher.getTags();",
+            "parameters": [],
+            "libraries": [],
+            "method": "get",
+            "description": "",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "getTags"
+        },
+        {
+            "name": "findMatches",
+            "call": "TagMatcher.findMatches(type,tag);",
+            "parameters": [
+                {
+                    "name": "type",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "tag",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "description": "",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "findMatches"
+        }
+    ],
+    "method": "get",
+    "pageName": "/OpenForum/AddOn/Tagging"
+}

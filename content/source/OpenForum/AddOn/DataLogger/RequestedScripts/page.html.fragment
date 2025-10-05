@@ -1,0 +1,37 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<p>This service requests a data logging node to pick up a script and run it locally.</p>
+
+<div class="row">
+  <div class="column large-3">
+    <h3>Sending <i>{{selectedScript}}</i> to <i>{{selectedNode}}</i> <a class="tiny button" id="send" onClick="sendScript(); return false;">Send</a></h3>
+    <xmp> {{scriptCode}} </xmp>
+  </div>
+  <div class="column large-3">
+    <h3>Requested Scripts</h3>
+    <table>
+      <tr of-repeatFor="script in requestedScripts">
+        <td>{{script.fileName}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="column large-6">
+    <h3>Scripts</h3>
+    <table>
+      <tr of-repeatFor="script in scripts">
+        <td><a href="/OpenForum/Editor?pageName=/OpenForum/AddOn/DataLogger/RequestedScripts&fileName={{script.fileName}}">{{script.fileName}}</a></td>
+        <td><a class="tiny radius button" onClick="selectScript('{{script.fileName}}'); return false;">Select</a></td>
+      </tr>
+    </table>
+  </div>
+  <div class="column large-6">
+    <h3>Nodes</h3>
+    <table>
+      <tr of-repeatFor="node in nodes">
+        <td>{{node.name}}</td>
+        <td><a class="tiny radius button" onClick="selectNode('{{node.name}}'); return false;">Select</a></td>
+      </tr>
+    </table>
+  </div>
+</div>

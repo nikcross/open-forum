@@ -1,0 +1,30 @@
+{
+    "editors": [
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor",
+            "fileName": "page.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor",
+            "fileName": "get.sjs"
+        },
+        {
+            "type": "plugin",
+            "sourcePage": "/OpenForum/AddOn/ServiceBuilder/javascript-builder-plugin.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor",
+            "fileName": "page.html.template"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor",
+            "fileName": "top-menu.html.template"
+        }
+    ],
+    "pageName": "/OpenForum/Editor",
+    "fileName": "/OpenForum/Editor/editor-config.json"
+}

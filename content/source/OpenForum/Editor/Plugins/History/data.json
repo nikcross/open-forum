@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Editor/Plugins/History",
-    "title": " History"
+    "pageName": "/OpenForum/Editor/Plugins/History",
+    "title": "History",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

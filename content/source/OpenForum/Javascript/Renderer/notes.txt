@@ -1,0 +1,9 @@
+Mon Feb 15 2021 08:47:16 GMT+0000 (Greenwich Mean Time)
+Added the ability for extensions to have absolute paths.
+
+Mon Feb 15 2021 10:46:56 GMT+0000 (Greenwich Mean Time)
+Added ability to supply renderer script file in extension
+
+Mon Nov 06 2023 08:52:37 GMT+0000 (Greenwich Mean Time)
+Fixed whitespace at start of line causing list markup not to render
+

@@ -1,2 +1,2 @@
-<script>window.location='/OpenForum/Extensions/Redirect';</script><a href='/OpenForum/Extensions/Redirect'>Redirecting to /OpenForum/Extensions/Redirect. Click here if you are not redirected automatically.</a>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Extension Redirect page="/OpenForum/Extensions/Redirect" --><script>window.location='/OpenForum/Extensions/Redirect';</script><a href='/OpenForum/Extensions/Redirect'>Redirecting to /OpenForum/Extensions/Redirect. Click here if you are not redirected automatically.</a><!--End Extension Redirect page="/OpenForum/Extensions/Redirect" -->

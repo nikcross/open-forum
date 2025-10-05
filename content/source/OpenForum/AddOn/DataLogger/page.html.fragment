@@ -1,0 +1,18 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<a href="#" class="button" onClick="sendTestDataLog();return false;">Test Data Logger</a>
+<a href="#" class="button" onClick="sendTestDataStore();return false;">Test Data Storage</a>
+<h3>Data Logger Messages</h3>
+<xmp class="panel">
+{{messagesView}}
+</xmp>
+<h3>Sub Pages</h3>
+<!--Extension ChildPagesList pageName="/OpenForum/AddOn/DataLogger" --><ul><li> <a href="/OpenForum/AddOn/DataLogger/BrowserErrorLoger">BrowserErrorLoger</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/BrowserErrorLogger">BrowserErrorLogger</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/Data">Data</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/DockerMonitor">DockerMonitor</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/EnergyMonitor">EnergyMonitor</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/PageAccessMonitor">PageAccessMonitor</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/RemoteSystemMonitor">RemoteSystemMonitor</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/RequestedScripts">RequestedScripts</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/SQLDB">SQLDB</a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum/AddOn/DataLogger" -->

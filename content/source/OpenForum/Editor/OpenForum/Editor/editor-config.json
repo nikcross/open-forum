@@ -1,0 +1,14 @@
+{
+    "editors": [
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor",
+            "fileName": "page.js"
+        },
+        {
+            "type": "plugin"
+        }
+    ],
+    "pageName": "/OpenForum/Editor",
+    "fileName": "/OpenForum/Editor/editor-config.json"
+}

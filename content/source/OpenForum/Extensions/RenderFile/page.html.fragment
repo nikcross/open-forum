@@ -1,0 +1,24 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+  <h3>RenderFile</h3>
+
+  Example:
+  <xmp class="panel" of-exclude="true">
+  <!--Extension RenderFile pageName="/OpenForum/Extensions/RenderFile" fileName="example-list.fragment" --><ul><li> One</li>
+<li> Two</li>
+<li> Three</li></ul><!--End Extension RenderFile pageName="/OpenForum/Extensions/RenderFile" fileName="example-list.fragment" -->
+
+  or 
+
+  <!--Extension RenderFile fileName="example-list.fragment" --><ul><li> One</li>
+<li> Two</li>
+<li> Three</li></ul><!--End Extension RenderFile fileName="example-list.fragment" --> defaults to current page name
+
+  </xmp>
+
+  Example:
+  <!--Extension RenderFile pageName="/OpenForum/Extensions/RenderFile" fileName="example-list.fragment" --><ul><li> One</li>
+<li> Two</li>
+<li> Three</li></ul><!--End Extension RenderFile pageName="/OpenForum/Extensions/RenderFile" fileName="example-list.fragment" -->
+
+</div>

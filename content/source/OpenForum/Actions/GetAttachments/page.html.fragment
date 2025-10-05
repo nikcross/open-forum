@@ -1,19 +1,54 @@
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Returns a list of the pages attachments as Javascript.
-<hr/>
-<h3>Get Parameters</h3>
-<ul><li>pageName<br/><br/></li>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<!--OF insert (/OpenForum/Actions/GetAttachments/service-definition.wiki.fragment) start --><h3>/OpenForum/Actions/GetAttachments Sevice API Version 0.0.2</h3>
 
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
-<xmp class="panel"> if(typeof(pageName)=="undefined")
-{
-	transaction.setResult(transaction.SHOW_PAGE);
-}
-else
-{
-	user = transaction.getUser();
-	files = file.getAttachmentsForPage(pageName);
-	page = js.getAttachmentsJS(pageName,files);
-	transaction.sendPage(page);
-} </xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>
+<h3>Get Actions</h3>
+
+  <div class="panel callout radius">
+<h3>Action getMatching</h3>
+<p>Get files matching the request</p>
+
+<h3>Parameters</h3>
+<table><tr><td>Name</td><td>Description</td></tr>
+<tr><td>matching (<i>required=</i>)</td><td>A regex expression to match files to return</td></tr>
+</table>
+       
+<h3>Example Get Request</h3>
+<xmp>
+/OpenForum/Actions/GetAttachments?action=getMatching{{action.example.request}}
+</xmp>
+<a href="/OpenForum/Actions/GetAttachments?action=getMatching{{action.example.request}}">/OpenForum/Actions/GetAttachments?action=getMatching{{action.example.request}}</a>
+
+<h3>Example Response</h3>
+<!--Extension ScriptClip script=""  --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;'  id='D41D8CD9' rows='2' ></textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("D41D8CD9"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('D41D8CD9').setAttribute('readonly', 'readonly');</script><!--End Extension ScriptClip script=""  -->
+    
+<h3>Example Error Response</h3>
+<!--Extension ScriptClip script=""  --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;'  id='D41D8CD9' rows='2' ></textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("D41D8CD9"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('D41D8CD9').setAttribute('readonly', 'readonly');</script><!--End Extension ScriptClip script=""  -->
+    
+  </div>
+
+  <div class="panel callout radius">
+<h3>Action getAll</h3>
+<p>Get all files</p>
+
+<h3>Parameters</h3>
+<table><tr><td>Name</td><td>Description</td></tr>
+</table>
+       
+<h3>Example Get Request</h3>
+<xmp>
+/OpenForum/Actions/GetAttachments?action=getAll{{action.example.request}}
+</xmp>
+<a href="/OpenForum/Actions/GetAttachments?action=getAll{{action.example.request}}">/OpenForum/Actions/GetAttachments?action=getAll{{action.example.request}}</a>
+
+<h3>Example Response</h3>
+<!--Extension ScriptClip script=""  --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;'  id='D41D8CD9' rows='2' ></textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("D41D8CD9"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('D41D8CD9').setAttribute('readonly', 'readonly');</script><!--End Extension ScriptClip script=""  -->
+    
+<h3>Example Error Response</h3>
+<!--Extension ScriptClip script=""  --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;'  id='D41D8CD9' rows='2' ></textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("D41D8CD9"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('D41D8CD9').setAttribute('readonly', 'readonly');</script><!--End Extension ScriptClip script=""  -->
+    
+  </div>
+<!--OF insert (/OpenForum/Actions/GetAttachments/service-definition.wiki.fragment) end -->
+</div><ul><li> <a href="/OpenForum/Actions/GetAttachments?action=getMatching&pageName=/OpenForum/Actions/GetAttachments&matching=.*<br/>.js$">/OpenForum/Actions/GetAttachments?action=getMatching&pageName=/OpenForum/Actions/GetAttachments&matching=.*<br/>.js$</a></li>
+<li> <a href="/OpenForum/Actions/GetAttachments?action=getAll&pageName=/OpenForum/Actions/GetAttachments">/OpenForum/Actions/GetAttachments?action=getAll&pageName=/OpenForum/Actions/GetAttachments</a></li></ul>

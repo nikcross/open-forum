@@ -1,14 +1,7 @@
-Creates a bulleted list of attachments on a pages
-----
-!!Parameters
-*pageName - The page to list (optional. default = current page)
-----
-!!Usage:
-{{{
-[{AttachmentsList matching=".txt"}]
-}}}
-[{AttachmentsList matching=".txt"}]
-
-----
-
-[{InsertSourceFile fileName="renderer.sjs"}]
+<div class="row">
+!!AttachmentsList v0.0.1
+{{{ [{AttachmentsList targetPage="" matching=".txt" actions=""}] }}}
+[{AttachmentsList targetPage="" matching=".txt" actions=""}]
+\\
+[{ActionButton text="Add AttachmentsList Block type to Content Editor" action="addToContentEditor"}]
+</div>

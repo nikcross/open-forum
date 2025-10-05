@@ -1,0 +1,22 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3>ContrastBlock v0.0.1</h3>
+<xmp class="panel" of-exclude="true"> <!--Extension ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false" --><div class="row" style="background-color: blueviolet;">
+  <div class="columns large-6" style="padding: 0px;">
+    <img src="/OpenForum/Images/open-forum-dog.png" />
+  </div>
+  <div class="columns large-6" style="padding: 0px;">
+    <h2 style="color: white; padding: 1em; text-align: center;">Some text in here</h2>
+  </div>
+</div><!--End Extension ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false" --> </xmp>
+<!--Extension ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false" --><div class="row" style="background-color: blueviolet;">
+  <div class="columns large-6" style="padding: 0px;">
+    <img src="/OpenForum/Images/open-forum-dog.png" />
+  </div>
+  <div class="columns large-6" style="padding: 0px;">
+    <h2 style="color: white; padding: 1em; text-align: center;">Some text in here</h2>
+  </div>
+</div><!--End Extension ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false" -->
+<br/><br/>
+<!--Extension ActionButton text="Add ContrastBlock Block type to Content Editor" action="addToContentEditor" --><a  class='button radius tiny' href='#' onclick='addToContentEditor(); return false;'>Add ContrastBlock Block type to Content Editor</a> <!--End Extension ActionButton text="Add ContrastBlock Block type to Content Editor" action="addToContentEditor" -->
+</div>

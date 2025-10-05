@@ -1,4 +1,17 @@
-!!Store Data
-{{{
-{{dataView}}
-}}}
+<div class="row">
+  !!Store Data
+  <table>
+    <thead>
+      <tr>
+        <td>Key</td>
+        <td>Value</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr of-repeatFor="row in data">
+        <td>{{row.key}}</td>
+        <td>{{row.value}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

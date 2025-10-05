@@ -1,0 +1,6 @@
+{
+    "version": "0.0.22",
+    "extra": {
+        "notes": "Fixed tab target on wrong element\nFixed missing edit link\nFixed popup to show as html\nFixed bug in removal of Development"
+    }
+}

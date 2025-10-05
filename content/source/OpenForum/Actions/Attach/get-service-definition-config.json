@@ -1,0 +1,37 @@
+{
+    "method": "get",
+    "pageName": "/OpenForum/Actions/Attach",
+    "libraries": [],
+    "parameters": [
+        {
+            "name": "action",
+            "type": "string",
+            "required": true
+        }
+    ],
+    "actions": [
+        {
+            "name": "upload",
+            "action": "upload",
+            "libraries": [],
+            "parameters": [
+                {
+                    "name": "url",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "pageName",
+                    "type": "string",
+                    "required": true
+                },
+                {
+                    "name": "fileName",
+                    "type": "string",
+                    "required": true
+                }
+            ]
+        }
+    ],
+    "configFile": "get-service-definition-config.json"
+}

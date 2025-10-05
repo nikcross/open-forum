@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Nik",
+        "age": "50",
+        "address": "1 BFC",
+        "view": "display: block;",
+        "edit": "display: none;",
+        "index": "0"
+    },
+    {
+        "name": "Sephy",
+        "age": "10",
+        "address": "2 BFC",
+        "view": "display: block;",
+        "edit": "display: none;",
+        "index": "1"
+    }
+]
