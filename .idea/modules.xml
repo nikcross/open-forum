@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/addons/Automaton/Automaton.iml" filepath="$PROJECT_DIR$/addons/Automaton/Automaton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/addons/Claude.AI/Claude.AI.iml" filepath="$PROJECT_DIR$/addons/Claude.AI/Claude.AI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/addons/InterQueue/InterQueue.iml" filepath="$PROJECT_DIR$/addons/InterQueue/InterQueue.iml" />
       <module fileurl="file://$PROJECT_DIR$/content/content.iml" filepath="$PROJECT_DIR$/content/content.iml" />
       <module fileurl="file://$PROJECT_DIR$/docker/docker.iml" filepath="$PROJECT_DIR$/docker/docker.iml" />
-      <module fileurl="file://$PROJECT_DIR$/addons/java-trail/java-trail.iml" filepath="$PROJECT_DIR$/addons/java-trail/java-trail.iml" />
     </modules>
   </component>
 </project>

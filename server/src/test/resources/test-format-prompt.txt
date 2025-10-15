@@ -1,0 +1,9 @@
+When writing JUnit tests for this project, follow these conventions:
+
+1. One scenario per method. Method names must start with `test` and use camel case (e.g. `testHandlesEmptyInput`).
+2. Annotate every test with `@DisplayName("…")` describing the behaviour under test.
+3. Structure each test body with the comments `//Given`, `//When`, `//Then`. Immediately below each comment add a short sentence describing what is being prepared, executed, or asserted.
+4. Build domain objects using real constructors/setters; introduce private helper methods inside the test class only when this improves readability.
+5. Assert precise outcomes that demonstrate the scenario. Avoid verifying logging.
+6. Use JUnit
+7. Place new test sources in the appropriate `src/.../test/java` tree.

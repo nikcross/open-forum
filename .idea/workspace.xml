@@ -5,468 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3557c3be-9bd8-417c-a27b-8e4842d6a6a3" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/purge-changes.sh" beforeDir="false" afterPath="$PROJECT_DIR$/content/purge-changes.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/purge-source.sh" beforeDir="false" afterPath="$PROJECT_DIR$/content/purge-source.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attach/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attach/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attach/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attach/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attach/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attach/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attach/post.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attach/post.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/AttachmentExists/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/AttachmentExists/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/AttachmentExists/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/AttachmentExists/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/AttachmentExists/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/AttachmentExists/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attachments/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attachments/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attachments/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attachments/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attachments/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Attachments/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/CauseError/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/CauseError/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/CauseError/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/CauseError/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/CauseError/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/CauseError/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Copy/FileManager.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Copy/FileManager.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Copy/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Copy/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Copy/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Copy/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Copy/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Copy/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/CreateQueue/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/CreateQueue/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/CreateQueue/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/CreateQueue/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/CreateQueue/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/CreateQueue/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Delete/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Delete/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Delete/get.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Delete/get.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Delete/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Delete/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Delete/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Delete/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/ForkLink/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/ForkLink/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/ForkLink/get.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/ForkLink/get.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/ForkLink/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/ForkLink/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/ForkLink/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/ForkLink/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAttachments/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAttachments/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAttachments/get.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAttachments/get.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAttachments/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAttachments/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAttachments/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAttachments/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAttachments/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAttachments/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAuthentication/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAuthentication/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAuthentication/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAuthentication/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAuthentication/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetAuthentication/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetInheritedFilePath/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetInheritedFilePath/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetInheritedFilePath/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetInheritedFilePath/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetInheritedFilePath/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetInheritedFilePath/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPageAsList/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPageAsList/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPageAsList/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPageAsList/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPageAsList/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPageAsList/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPagesList/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPagesList/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPagesList/get.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPagesList/get.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPagesList/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPagesList/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPagesList/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetPagesList/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetUser/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetUser/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetUser/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetUser/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetUser/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/GetUser/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/History/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/History/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/History/get.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/History/get.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/History/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/History/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/History/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/History/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/History/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/History/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/History/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/History/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Move/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Move/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Move/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Move/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Move/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Move/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/PageExists/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/PageExists/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/PageExists/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/PageExists/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/PageExists/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/PageExists/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Pages/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Pages/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Pages/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Pages/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Pages/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Pages/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Publish/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Publish/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Publish/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Publish/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Publish/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Publish/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RJSC/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RJSC/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RJSC/get.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RJSC/get.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RJSC/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RJSC/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RJSC/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RJSC/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RJSC/post.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RJSC/post.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Rebuild/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Rebuild/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Rebuild/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Rebuild/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Rebuild/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Rebuild/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshJarManager/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshJarManager/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshJarManager/get.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshJarManager/get.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshJarManager/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshJarManager/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshJarManager/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshJarManager/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshPage/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshPage/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshPage/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshPage/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshPage/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RefreshPage/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RenderWikiData/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RenderWikiData/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RenderWikiData/get.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RenderWikiData/get.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RenderWikiData/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RenderWikiData/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RenderWikiData/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RenderWikiData/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/RenderWikiData/post.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/RenderWikiData/post.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Revert/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Revert/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Revert/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Revert/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Revert/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Revert/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Save/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Save/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Save/get.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Save/get.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Save/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Save/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Save/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Save/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Save/post.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Save/post.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/SaveImage/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/SaveImage/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/SaveImage/get.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/SaveImage/get.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/SaveImage/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/SaveImage/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/SaveImage/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/SaveImage/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/TestExample/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/TestExample/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/TestExample/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/TestExample/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/TestExample/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/TestExample/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Update/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Update/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Update/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Update/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Update/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Update/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/UpdateJarManager/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/UpdateJarManager/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/UpdateJarManager/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/UpdateJarManager/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/UpdateJarManager/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/UpdateJarManager/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/User/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/User/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/User/get.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/User/get.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/User/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/User/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/User/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/User/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/User/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/User/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/ValidatePageName/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/ValidatePageName/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/ValidatePageName/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/ValidatePageName/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/ValidatePageName/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/ValidatePageName/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/ViewFolder/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/ViewFolder/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/ViewFolder/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/ViewFolder/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/ViewFolder/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/ViewFolder/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Zip/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Zip/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Zip/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Zip/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/Zip/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/Zip/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Actions/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Actions/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Configuration/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Configuration/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Configuration/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Configuration/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Configuration/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Configuration/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Configuration/trigger.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Configuration/trigger.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/CSSEditor/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/CSSEditor/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/CSSEditor/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/CSSEditor/editor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/CSSEditor/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/CSSEditor/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/CSSEditor/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/CSSEditor/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/CSSEditor/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/CSSEditor/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/CSSEditor/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/CSSEditor/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/DefaultEditor/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/DefaultEditor/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/DefaultEditor/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/DefaultEditor/editor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/DefaultEditor/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/DefaultEditor/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/DefaultEditor/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/DefaultEditor/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/DefaultEditor/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/DefaultEditor/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/DefaultEditor/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/DefaultEditor/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/HTMLEditor/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/HTMLEditor/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/HTMLEditor/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/HTMLEditor/editor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/HTMLEditor/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/HTMLEditor/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/HTMLEditor/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/HTMLEditor/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/HTMLEditor/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/HTMLEditor/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/HTMLEditor/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/HTMLEditor/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/JavascriptEditor/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/JavascriptEditor/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/JavascriptEditor/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/JavascriptEditor/editor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/JavascriptEditor/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/JavascriptEditor/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/JavascriptEditor/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/JavascriptEditor/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/JavascriptEditor/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/JavascriptEditor/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/JavascriptEditor/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/JavascriptEditor/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/PythonEditor/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/PythonEditor/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/PythonEditor/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/PythonEditor/editor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/PythonEditor/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/PythonEditor/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/PythonEditor/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/PythonEditor/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/PythonEditor/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/PythonEditor/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/PythonEditor/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/PythonEditor/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/StandaloneEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/StandaloneEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/WYSIWYGEditor/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/WYSIWYGEditor/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/WYSIWYGEditor/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/WYSIWYGEditor/editor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/WYSIWYGEditor/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/WYSIWYGEditor/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/WYSIWYGEditor/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/WYSIWYGEditor/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/WYSIWYGEditor/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/WYSIWYGEditor/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/WYSIWYGEditor/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/WYSIWYGEditor/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/XMLEditor/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/XMLEditor/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/XMLEditor/editor.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/XMLEditor/editor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/XMLEditor/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/XMLEditor/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/XMLEditor/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/XMLEditor/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/XMLEditor/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/XMLEditor/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/XMLEditor/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/XMLEditor/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/standalone.page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Editors/standalone.page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/LivePageView/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/LivePageView/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/LivePageView/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/LivePageView/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/LivePageView/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/LivePageView/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/OverviewTemplate/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/OverviewTemplate/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/OverviewTemplate/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/OverviewTemplate/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/OverviewTemplate/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/OverviewTemplate/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/OverviewTemplate/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/OverviewTemplate/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ClientConsole/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ClientConsole/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ClientConsole/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ClientConsole/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ClientConsole/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ClientConsole/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ClientConsole/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ClientConsole/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Console/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Console/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Console/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Console/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Console/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Console/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Console/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Console/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Console/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Console/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Console/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Console/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/DataTransform/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/DataTransform/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/DataTransform/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/DataTransform/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/DataTransform/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/DataTransform/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/DataTransform/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/DataTransform/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/DataTransform/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/DataTransform/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/DataTransform/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/DataTransform/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FileDiff/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FileDiff/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FileDiff/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FileDiff/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FileDiff/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FileDiff/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FileDiff/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FileDiff/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FileDiff/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FileDiff/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FileDiff/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FileDiff/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/notes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/FormBuilder/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/GameConsole/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/GameConsole/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/GameConsole/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/GameConsole/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/GameConsole/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/GameConsole/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/GameConsole/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/GameConsole/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/Examples/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/Examples/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/Examples/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/Examples/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/Examples/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/Examples/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Giraffe/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/History/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/History/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/History/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/History/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/History/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/History/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/History/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/History/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/History/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/History/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/JavascriptConsole/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/JavascriptConsole/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/JavascriptConsole/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/JavascriptConsole/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/JavascriptConsole/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/JavascriptConsole/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PageManager/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PageManager/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PageManager/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PageManager/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PageManager/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PageManager/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PageManager/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PageManager/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginGenerator/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginGenerator/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginGenerator/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginGenerator/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginGenerator/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginGenerator/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginTemplate/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginTemplate/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginTemplate/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginTemplate/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginTemplate/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginTemplate/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginTemplate/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/PluginTemplate/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/RemoteEditor/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/RemoteEditor/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/RemoteEditor/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/RemoteEditor/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/RemoteEditor/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/RemoteEditor/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/RemoteEditor/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/RemoteEditor/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServerConsole/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServerConsole/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServerConsole/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServerConsole/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServerConsole/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServerConsole/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServerConsole/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServerConsole/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServerConsole/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServerConsole/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServerConsole/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServerConsole/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Service/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Service/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Service/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Service/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Service/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Service/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Service/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Service/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServiceGenerator/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServiceGenerator/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServiceGenerator/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServiceGenerator/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServiceGenerator/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/ServiceGenerator/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/Examples/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/Examples/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/Examples/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/Examples/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/Examples/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/Examples/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Video/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/Examples/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/Examples/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/Examples/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/Examples/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/Examples/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/Examples/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/plugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/Vision/plugin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/Plugins/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/attachments.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/attachments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/code-mirror.css" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/code-mirror.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/editors.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/editors.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/get.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/get.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/notes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/notes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/page.html.template" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/page.html.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/plugins.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/plugins.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/post.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/post.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/tabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/tabs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Editor/top-menu.html.template" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Editor/top-menu.html.template" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/ErrorPages/500/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/ErrorPages/500/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionButton/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionButton/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionButton/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionButton/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionButton/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionButton/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionButton/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionButton/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionButton/renderer.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionButton/renderer.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionInput/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionInput/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionInput/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionInput/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionInput/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ActionInput/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/AttachmentsList/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/AttachmentsList/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/AttachmentsList/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/AttachmentsList/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/AttachmentsList/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/AttachmentsList/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/AttachmentsList/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/AttachmentsList/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/AttachmentsList/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/AttachmentsList/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/AttachmentsList/renderer.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/AttachmentsList/renderer.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Button/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Button/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Button/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Button/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Button/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Button/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Button/renderer.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Button/renderer.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ChildPagesList/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ChildPagesList/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ChildPagesList/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ChildPagesList/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ChildPagesList/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ChildPagesList/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ChildPagesList/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ChildPagesList/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ChildPagesList/renderer.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ChildPagesList/renderer.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/CrumbTrail/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/CrumbTrail/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/CrumbTrail/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/CrumbTrail/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/CrumbTrail/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/CrumbTrail/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/CrumbTrail/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/CrumbTrail/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/DisplayCard/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/DisplayCard/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/DisplayCard/page.css" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/DisplayCard/page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/DisplayCard/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/DisplayCard/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/DisplayCard/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/DisplayCard/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/HttpsOnly/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/HttpsOnly/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/HttpsOnly/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/HttpsOnly/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/HttpsOnly/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/HttpsOnly/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/HttpsOnly/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/HttpsOnly/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Icon/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Icon/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Icon/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Icon/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Icon/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Icon/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Icon/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Icon/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Icon/renderer.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Icon/renderer.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InputField/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InputField/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InputField/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InputField/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InputField/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InputField/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InputField/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InputField/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InputField/renderer.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InputField/renderer.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertFile/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertFile/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertFile/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertFile/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertFile/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertFile/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertPage/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertPage/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertPage/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertPage/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertPage/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertPage/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertPage/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertPage/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertPage/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertPage/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertPage/renderer.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertPage/renderer.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertSourceFile/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertSourceFile/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertSourceFile/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertSourceFile/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertSourceFile/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/InsertSourceFile/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkDown/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkDown/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkDown/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkDown/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkDown/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkDown/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkDown/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkDown/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkPage/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkPage/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkPage/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkPage/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkPage/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkPage/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkPage/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/MarkPage/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Redirect/Example/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Redirect/Example/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Redirect/Example/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Redirect/Example/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Redirect/Example/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Redirect/Example/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Redirect/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Redirect/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Redirect/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Redirect/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Redirect/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/Redirect/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ServerActionButton/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ServerActionButton/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ServerActionButton/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ServerActionButton/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ServerActionButton/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/ServerActionButton/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Extensions/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Extensions/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/default/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/default/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/default/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/default/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/default/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/default/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/folder/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/folder/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/folder/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/folder/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/folder/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/folder/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/gif/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/gif/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/grfxml/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/grfxml/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/jpg/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/jpg/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/js/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/js/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/js/get.sjs.default" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/js/get.sjs.default" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/js/object.sjs.default" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/js/object.sjs.default" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/js/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/js/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/js/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/js/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/js/post.sjs.default" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/js/post.sjs.default" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/link/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/link/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/openforum/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/openforum/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/png/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/png/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/py/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/py/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/py/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/py/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/py/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/py/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/sjs/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/sjs/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/txt/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/txt/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/uninstall/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/uninstall/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/xml/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/xml/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/zip/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/FileTemplates/zip/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Application/Tabs.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Application/Tabs.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Application/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Application/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Application/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Application/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Application/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Application/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Application/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Application/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Application/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Application/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Common.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Common.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Page/Data.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Page/Data.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Page/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Page/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Page/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Page/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Page/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Page/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Renderer/DefaultRenderer.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Renderer/DefaultRenderer.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Renderer/DefaultRenderer.test.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Renderer/DefaultRenderer.test.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Renderer/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Renderer/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Renderer/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Renderer/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Renderer/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Renderer/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Renderer/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/Renderer/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/open-forum.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/open-forum.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Javascript/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Javascript/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/PageTemplates/CommonElements/header-script.common.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/PageTemplates/CommonElements/header-script.common.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/PageTemplates/CommonElements/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/PageTemplates/CommonElements/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/PageTemplates/CommonElements/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/PageTemplates/CommonElements/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/PageTemplates/PageInDevelopment/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/PageTemplates/PageInDevelopment/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/JavascriptMonitor/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/JavascriptMonitor/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/JavascriptMonitor/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/JavascriptMonitor/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/JavascriptMonitor/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/JavascriptMonitor/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/QueueManager/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/QueueManager/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/QueueManager/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/QueueManager/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/QueueManager/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/QueueManager/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SessionStoreMonitor/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SessionStoreMonitor/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SessionStoreMonitor/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SessionStoreMonitor/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SessionStoreMonitor/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SessionStoreMonitor/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemLogs/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemLogs/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemLogs/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemLogs/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemLogs/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemLogs/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemStoreMonitor/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemStoreMonitor/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemStoreMonitor/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemStoreMonitor/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemStoreMonitor/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemStoreMonitor/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemStoreMonitor/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemStoreMonitor/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemStoreMonitor/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/SystemStoreMonitor/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/data.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/data.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/get.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/get.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/SystemMonitor/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Triggers/TimerTrigger/TaskScheduler/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Triggers/TimerTrigger/TaskScheduler/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Triggers/TimerTrigger/TaskScheduler/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Triggers/TimerTrigger/TaskScheduler/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Triggers/TimerTrigger/TaskScheduler/schedule.json" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Triggers/TimerTrigger/TaskScheduler/schedule.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Triggers/TimerTrigger/TaskScheduler/trigger.sjs" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Triggers/TimerTrigger/TaskScheduler/trigger.sjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Users/Admin/page.content" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Users/Admin/page.content" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Users/Admin/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Users/Admin/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Users/Admin/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Users/Admin/page.html.fragment" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/Users/Admin/password.txt" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/Users/Admin/password.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/page.html" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/page.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/source/OpenForum/page.html.fragment" beforeDir="false" afterPath="$PROJECT_DIR$/content/source/OpenForum/page.html.fragment" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/test/resources/test-format-prompt.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/java-trail/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/SimpleDebugVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/SimpleDebugVM.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -514,99 +57,105 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Automaton.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.CertificateCheck.executor&quot;: &quot;Run&quot;,
-    &quot;Application.ClaudeOpenForumProxyTest.executor&quot;: &quot;Run&quot;,
-    &quot;Application.JavascriptCommandLineInterface.executor&quot;: &quot;Run&quot;,
-    &quot;Application.JavascriptExternalResourceHelper.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Open Forum Client.executor&quot;: &quot;Run&quot;,
-    &quot;Application.OpenForumServer.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.ProductImporter.executor&quot;: &quot;Run&quot;,
-    &quot;Application.RtspGrabber.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestApp.executor&quot;: &quot;Debug&quot;,
-    &quot;Application.TestBoolean.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestGmailMailer.executor&quot;: &quot;Run&quot;,
-    &quot;Application.TestMailer.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.FlowTracerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.KeyValueListPageTest.executor&quot;: &quot;Run&quot;,
-    &quot;Java Scratch.Scratch.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Claude.AI [clean,compile,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.certificate-check [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.client [clean,compile,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.email [clean,compile,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.email [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.email [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.email [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.flow-tracer [clean,compile,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.flow-tracer-server [clean,compile...].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.image-processor [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.javascript [clean,compile,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.javascript [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.open-forum.server [clean,compile,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.open-forum.server [clean,install].executor&quot;: &quot;Debug&quot;,
-    &quot;Maven.open-forum.server [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.open-forum.server [compile,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.open-forum.server [compile].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.open-forum.server [install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.packager [clean,install].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.product-db-importer [clean,compile...].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.sql-database [clean,compile,install].executor&quot;: &quot;Run&quot;,
-    &quot;Remote JVM Debug.Open Forum Automaton.executor&quot;: &quot;Debug&quot;,
-    &quot;Remote JVM Debug.Open Forum Server (Docker Remote).executor&quot;: &quot;Debug&quot;,
-    &quot;Remote JVM Debug.Open Forum Server (Docker).executor&quot;: &quot;Debug&quot;,
-    &quot;Remote JVM Debug.Open Forum Server.executor&quot;: &quot;Debug&quot;,
-    &quot;Remote JVM Debug.Thirtie.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Shell Script.docker-build.sh.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.export-jar.sh.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.flow-tracer.sh.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.publish-to-docker-hub.sh.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.test-claude-mcp-server.sh.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.test-claude-proxy.sh.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.update-jar.sh.executor&quot;: &quot;Run&quot;,
-    &quot;Shell Script.update.sh.executor&quot;: &quot;Run&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11 (2)&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/nik/os-git/open-forum/addons/flow-tracer&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Debugger_Data_Views_Java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Automaton.executor": "Debug",
+    "Application.CertificateCheck.executor": "Run",
+    "Application.ClaudeOpenForumProxyTest.executor": "Run",
+    "Application.JavascriptCommandLineInterface.executor": "Run",
+    "Application.JavascriptExternalResourceHelper.executor": "Run",
+    "Application.Open Forum Client.executor": "Run",
+    "Application.OpenForumServer.executor": "Debug",
+    "Application.ProductImporter.executor": "Run",
+    "Application.RtspGrabber.executor": "Run",
+    "Application.TestApp.executor": "Debug",
+    "Application.TestBoolean.executor": "Run",
+    "Application.TestGmailMailer.executor": "Run",
+    "Application.TestMailer.executor": "Run",
+    "JUnit.FlowTracerTest.executor": "Run",
+    "JUnit.JavaTrailCamConfigTest.executor": "Run",
+    "JUnit.KeyValueListPageTest.executor": "Run",
+    "JUnit.SimpleDebugVMMethodTraceSessionTest.executor": "Run",
+    "JUnit.SimpleDebugVMMethodTraceSessionTest.testCapturesStartMethodEntryAndExit.executor": "Run",
+    "JUnit.javatrail in java-trail.executor": "Run",
+    "Java Scratch.Scratch.executor": "Run",
+    "Maven.Claude.AI [clean,compile,install].executor": "Run",
+    "Maven.certificate-check [clean,install].executor": "Run",
+    "Maven.client [clean,compile,install].executor": "Run",
+    "Maven.email [clean,compile,install].executor": "Run",
+    "Maven.email [clean,install].executor": "Run",
+    "Maven.email [clean].executor": "Run",
+    "Maven.email [install].executor": "Run",
+    "Maven.flow-tracer [clean,compile,install].executor": "Run",
+    "Maven.flow-tracer-server [clean,compile...].executor": "Run",
+    "Maven.image-processor [clean].executor": "Run",
+    "Maven.java-trail [clean,compile,test,install].executor": "Run",
+    "Maven.java-trail [clean,compile,test].executor": "Run",
+    "Maven.javascript [clean,compile,install].executor": "Run",
+    "Maven.javascript [clean,install].executor": "Run",
+    "Maven.open-forum.server [clean,compile,install].executor": "Run",
+    "Maven.open-forum.server [clean,install].executor": "Debug",
+    "Maven.open-forum.server [clean].executor": "Run",
+    "Maven.open-forum.server [compile,install].executor": "Run",
+    "Maven.open-forum.server [compile].executor": "Run",
+    "Maven.open-forum.server [install].executor": "Run",
+    "Maven.packager [clean,install].executor": "Run",
+    "Maven.product-db-importer [clean,compile...].executor": "Run",
+    "Maven.sql-database [clean,compile,install].executor": "Run",
+    "Remote JVM Debug.Open Forum Automaton.executor": "Debug",
+    "Remote JVM Debug.Open Forum Server (Docker Remote).executor": "Debug",
+    "Remote JVM Debug.Open Forum Server (Docker).executor": "Debug",
+    "Remote JVM Debug.Open Forum Server.executor": "Debug",
+    "Remote JVM Debug.Thirtie.executor": "Debug",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Shell Script.docker-build.sh.executor": "Run",
+    "Shell Script.export-jar.sh.executor": "Run",
+    "Shell Script.flow-tracer.sh.executor": "Run",
+    "Shell Script.publish-to-docker-hub.sh.executor": "Run",
+    "Shell Script.test-claude-mcp-server.sh.executor": "Run",
+    "Shell Script.test-claude-proxy.sh.executor": "Run",
+    "Shell Script.update-jar.sh.executor": "Run",
+    "Shell Script.update.sh.executor": "Run",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "jdk.selected.JAVA_MODULE": "11 (2)",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/nik/os-git/open-forum/server/src/test/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "Debugger_Data_Views_Java",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;JAVA&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "JAVA"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/server/src/test/resources" />
       <recent name="$PROJECT_DIR$/addons/Claude.AI" />
       <recent name="$PROJECT_DIR$/addons/email/src/test/resources" />
       <recent name="$PROJECT_DIR$/tools/product-db-importer" />
-      <recent name="$PROJECT_DIR$/server/src/test/resources" />
       <recent name="$PROJECT_DIR$/docker/open-forum" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/addons/java-trail" />
       <recent name="$PROJECT_DIR$/addons/flow-tracer/src/test/java/org/onestonesoup/openforum/testapp" />
       <recent name="$PROJECT_DIR$/addons/flow-tracer/src/test/java/org/onestonesoup/openforum/flowtracer" />
       <recent name="$PROJECT_DIR$/addons/flow-tracer/src/main/java/org/onestonesoup/openforum/flowtracer" />
       <recent name="$PROJECT_DIR$/addons/flow-tracer" />
-      <recent name="$PROJECT_DIR$/addons" />
     </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="org.onestonesoup.openforum.email" />
@@ -623,7 +172,7 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="Shell Script.update.sh">
+  <component name="RunManager" selected="Application.SampleApplication">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -673,13 +222,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.openforum.testapp.TestApp" />
-      <module name="flow-tracer" />
+    <configuration name="SampleApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.openforum.javatrail.sample.SampleApplication" />
+      <module name="java-trail" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.onestonesoup.openforum.testapp.*" />
+          <option name="PATTERN" value="org.onestonesoup.openforum.javatrail.sample.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -693,16 +242,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="FlowTracerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="flow-tracer" />
+    <configuration name="SimpleDebugVMMethodTraceSessionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-trail" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.onestonesoup.openforum.flowtracer.*" />
+          <option name="PATTERN" value="org.onestonesoup.openforum.javatrail.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.onestonesoup.openforum.flowtracer" />
-      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.openforum.flowtracer.FlowTracerTest" />
+      <option name="PACKAGE_NAME" value="org.onestonesoup.openforum.javatrail" />
+      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.openforum.javatrail.SimpleDebugVMMethodTraceSessionTest" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
@@ -715,6 +264,80 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration name="javatrail in java-trail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="java-trail" />
+      <option name="TEST_OBJECT" value="directory" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <dir value="$PROJECT_DIR$/addons/java-trail/src/test/java/org/onestonesoup/openforum/javatrail" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="java-trail [clean,compile,test]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="compile" />
+                <option value="test" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/addons/java-trail" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+    <configuration name="java-trail [clean,compile,test,install]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="compile" />
+                <option value="test" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="multimoduleDir" />
+            <option name="pomFileName" value="pom.xml" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/addons/java-trail" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
     </configuration>
     <configuration name="Open Forum Automaton" type="Remote">
       <module name="Automaton" />
@@ -786,51 +409,6 @@
       </RunnerSettings>
       <method v="2" />
     </configuration>
-    <configuration name="export-jar.sh" type="ShConfigurationType" temporary="true">
-      <option name="SCRIPT_TEXT" value="" />
-      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/addons/Claude.AI/build-and-export-jar.sh" />
-      <option name="SCRIPT_OPTIONS" value="" />
-      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/addons/Claude.AI" />
-      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
-      <option name="INTERPRETER_PATH" value="/bin/bash" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="EXECUTE_IN_TERMINAL" value="true" />
-      <option name="EXECUTE_SCRIPT_FILE" value="true" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="flow-tracer.sh" type="ShConfigurationType" temporary="true">
-      <option name="SCRIPT_TEXT" value="" />
-      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/addons/flow-tracer/flow-tracer.sh" />
-      <option name="SCRIPT_OPTIONS" value="" />
-      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/addons/flow-tracer" />
-      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
-      <option name="INTERPRETER_PATH" value="/bin/bash" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="EXECUTE_IN_TERMINAL" value="true" />
-      <option name="EXECUTE_SCRIPT_FILE" value="true" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="update.sh" type="ShConfigurationType" temporary="true">
-      <option name="SCRIPT_TEXT" value="" />
-      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/docker/update.sh" />
-      <option name="SCRIPT_OPTIONS" value="" />
-      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/docker" />
-      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
-      <option name="INTERPRETER_PATH" value="/bin/bash" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="EXECUTE_IN_TERMINAL" value="true" />
-      <option name="EXECUTE_SCRIPT_FILE" value="true" />
-      <envs />
-      <method v="2" />
-    </configuration>
     <configuration default="true" type="TestNG">
       <option name="TEST_OBJECT" value="CLASS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -843,24 +421,24 @@
     <list>
       <item itemvalue="Application.Open Forum Client" />
       <item itemvalue="Application.OpenForumServer" />
-      <item itemvalue="Application.TestApp" />
-      <item itemvalue="JUnit.FlowTracerTest" />
+      <item itemvalue="Application.SampleApplication" />
+      <item itemvalue="JUnit.SimpleDebugVMMethodTraceSessionTest" />
+      <item itemvalue="JUnit.javatrail in java-trail" />
+      <item itemvalue="Maven.java-trail [clean,compile,test,install]" />
+      <item itemvalue="Maven.java-trail [clean,compile,test]" />
       <item itemvalue="Remote JVM Debug.Thirtie" />
       <item itemvalue="Remote JVM Debug.Open Forum Server (Docker Remote)" />
       <item itemvalue="Remote JVM Debug.Open Forum Server (Docker)" />
       <item itemvalue="Remote JVM Debug.Open Forum Server" />
       <item itemvalue="Remote JVM Debug.Open Forum Automaton" />
-      <item itemvalue="Shell Script.update.sh" />
-      <item itemvalue="Shell Script.export-jar.sh" />
-      <item itemvalue="Shell Script.flow-tracer.sh" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Shell Script.update.sh" />
-        <item itemvalue="Application.TestApp" />
-        <item itemvalue="Shell Script.export-jar.sh" />
-        <item itemvalue="Shell Script.flow-tracer.sh" />
-        <item itemvalue="JUnit.FlowTracerTest" />
+        <item itemvalue="Application.SampleApplication" />
+        <item itemvalue="JUnit.SimpleDebugVMMethodTraceSessionTest" />
+        <item itemvalue="Maven.java-trail [clean,compile,test,install]" />
+        <item itemvalue="Maven.java-trail [clean,compile,test]" />
+        <item itemvalue="JUnit.javatrail in java-trail" />
       </list>
     </recent_temporary>
   </component>
@@ -1123,6 +701,8 @@
       <workItem from="1758619745470" duration="1605000" />
       <workItem from="1758621477959" duration="466000" />
       <workItem from="1759591906378" duration="1163000" />
+      <workItem from="1759999230441" duration="33000" />
+      <workItem from="1760515723658" duration="14119000" />
     </task>
     <servers />
   </component>
@@ -1254,7 +834,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/SimpleDebugVM.java</url>
-          <line>145</line>
+          <line>188</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

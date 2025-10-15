@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaTrailCam Implementation Steps</title>
+</head>
+<body>
+    <h1>Steps to Deliver JavaTrailCam</h1>
+    <ol>
+        <li>Extend <code>SimpleDebugVM</code> so its event loop can dispatch both field watchpoints and
+            method entry/exit events, exposing a reusable method-trace session API.</li>
+        <li>Create the <code>JavaTrailCam</code> entry point that reads a JSON configuration via
+            <code>JsonHelper.parseObject</code> and validates required parameters.</li>
+        <li>Use the configuration to attach to the target JVM, register method entry/exit requests, and
+            start tracing from the specified class and method.</li>
+        <li>Track the active call stack per event thread, logging entry and exit events with class, method,
+            signature, line number, depth, timestamps, and duration.</li>
+        <li>Respect include/exclude filters and the <code>skipOutsideDomain</code> option while keeping the
+            internal stack balanced for filtered calls.</li>
+        <li>Stop the trace when execution returns to the starting frame or when configured limits (depth,
+            duration, await timeout) are reached, marking the outcome accordingly.</li>
+        <li>Serialise the captured trace to JSON using <code>JsonHelper.stringifyObject</code>, writing to
+            the configured output file or standard output.</li>
+        <li>Update project documentation to describe configuration parameters, JSON output, and the workflow
+            for running <code>JavaTrailCam</code> alongside the existing <code>JavaTrail</code> tooling.</li>
+    </ol>
+</body>
+</html>

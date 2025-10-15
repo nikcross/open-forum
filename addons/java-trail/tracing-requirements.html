@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Debugger Flow Tracing Requirements</title>
+</head>
+<body>
+    <h1>Debugger Flow Tracing Requirements</h1>
+
+    <h2>Overview</h2>
+    <p>
+        Build a Java entry point named <code>JavaTrailCam</code> that consumes a JSON configuration file,
+        attaches to a target JVM via the Java Debug Interface (JDI) using <code>SimpleDebugVM</code>, and
+        traces execution flow starting from a specified class and method. The tracer follows all method
+        invocations reachable from the starting point, records their entry and exit points, and produces
+        a JSON log developers can use to document and visualise the call flow.
+    </p>
+
+    <h2>Goals</h2>
+    <ul>
+        <li>Enable developers to understand runtime behaviour from an initial entry point.</li>
+        <li>Provide a compact, navigable JSON log of classes, methods, and line numbers visited.</li>
+        <li>Offer configuration to filter out framework or third-party classes from the trace.</li>
+        <li>Reuse and extend <code>SimpleDebugVM</code> so existing tooling (e.g. <code>JavaTrail</code>) continues to run.</li>
+    </ul>
+
+    <h2>Usage Scenario</h2>
+    <p>
+        A developer prepares a JSON configuration file describing the debug host/port, starting class
+        and method, and optional filters, then launches <code>JavaTrailCam &lt;config.json&gt;</code>.
+        The tracer connects, registers method entry and exit requests, then records live execution flow
+        until control returns to the initial frame or a configured timeout is reached. The captured data
+        is emitted as JSON (stdout or file) for documentation or visualisation tooling.
+    </p>
+
+    <h2>Functional Requirements</h2>
+    <ol>
+        <li>Load a configuration JSON document using <code>JsonHelper.parseObject</code> and validate
+            required fields (host, port, startClass, startMethod).</li>
+        <li>Expose configuration-driven options for optional method signature, package filters, depth
+            limit, duration limit, and output destination.</li>
+        <li>Connect to a running JVM using the provided host and port parameters.</li>
+        <li>Resolve the starting class and method; fail fast with a descriptive error when unresolved.</li>
+        <li>Initiate tracing on the first entry into the specified method on any thread and lock tracing
+            to that thread until completion.</li>
+        <li>Record each subsequent method entry encountered on the active call stack, capturing:
+            <ul>
+                <li>Fully qualified class name.</li>
+                <li>Method name and signature (optional).</li>
+                <li>Source line number (if available).</li>
+                <li>Thread name.</li>
+                <li>Wall-clock timestamp and elapsed time since the trace started.</li>
+                <li>Call depth relative to the starting method.</li>
+            </ul>
+        </li>
+        <li>Record method exit events with matching metadata plus the time spent inside the frame.</li>
+        <li>Maintain stack integrity even when log output is filtered, ensuring exit events align with
+            their corresponding entries.</li>
+        <li>Stop tracing when the execution returns to the originating frame or when a configurable
+            maximum depth or duration is reached, marking the session as timed out when applicable.</li>
+        <li>Render the captured trace as a JSON object (via <code>JsonHelper.stringifyObject</code>)
+            and deliver it to stdout or a configured output file.</li>
+    </ol>
+
+    <h2>Filtering Requirements</h2>
+    <ul>
+        <li>Accept a list of package include prefixes defining the developer's domain.</li>
+        <li>Accept an explicit exclude list of packages, classes, or method patterns that should never
+            appear in the log.</li>
+        <li>When <code>skipOutsideDomain</code> is enabled, omit events whose class does not match any
+            include prefix while still tracking them internally to maintain stack balance.</li>
+        <li>Always log the starting class/method regardless of include or exclude filters.</li>
+    </ul>
+
+    <h2>Non-Functional Requirements</h2>
+    <ul>
+        <li>Minimal overhead: tracing should not introduce significant slowdown (&lt;20% when filters are active).</li>
+        <li>Thread-safety: leverage a dedicated event-processing thread inside <code>SimpleDebugVM</code> and
+            guard shared state (field change queue, trace events) appropriately.</li>
+        <li>Error resilience: degrade gracefully if source line information is missing or a frame cannot
+            be inspected; continue tracing remaining frames.</li>
+        <li>Resource management: ensure the debugger connection and event requests can be cleanly detached,
+            and that <code>JavaTrail</code> continues to function unchanged.</li>
+    </ul>
+
+    <h2>Configuration Parameters</h2>
+    <table border="1" cellpadding="4" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Parameter</th>
+                <th>Description</th>
+                <th>Required</th>
+                <th>Default</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>host</td>
+                <td>Target JVM host name for the JDI socket attach</td>
+                <td>Yes</td>
+                <td>localhost</td>
+            </tr>
+            <tr>
+                <td>port</td>
+                <td>Target JVM debug port</td>
+                <td>Yes</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>startClass</td>
+                <td>Fully qualified class name for the tracing entry point</td>
+                <td>Yes</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>startMethod</td>
+                <td>Method name (plus signature when overloaded) in the start class</td>
+                <td>Yes</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>startSignature</td>
+                <td>Optional JVM signature to disambiguate overloaded start methods</td>
+                <td>No</td>
+                <td>None</td>
+            </tr>
+            <tr>
+                <td>includePackages</td>
+                <td>JSON array of package prefixes that define the developer's domain</td>
+                <td>No</td>
+                <td>Empty</td>
+            </tr>
+            <tr>
+                <td>excludePackages</td>
+                <td>JSON array of package prefixes or class names to suppress</td>
+                <td>No</td>
+                <td>Empty</td>
+            </tr>
+            <tr>
+                <td>skipOutsideDomain</td>
+                <td>Boolean flag indicating whether to omit classes outside <code>includePackages</code></td>
+                <td>No</td>
+                <td>false</td>
+            </tr>
+            <tr>
+                <td>maxDepth</td>
+                <td>Maximum call depth to record (values &lt;= 0 disable the limit)</td>
+                <td>No</td>
+                <td>Unlimited</td>
+            </tr>
+            <tr>
+                <td>maxDurationMillis</td>
+                <td>Maximum tracing duration in milliseconds before the session is marked as timed out</td>
+                <td>No</td>
+                <td>Unlimited</td>
+            </tr>
+            <tr>
+                <td>awaitCompletionMillis</td>
+                <td>Maximum time <code>JavaTrailCam</code> waits for completion (defaults to <code>maxDurationMillis</code>)</td>
+                <td>No</td>
+                <td>Unlimited</td>
+            </tr>
+            <tr>
+                <td>outputFile</td>
+                <td>Optional file path for the JSON trace output (stdout used when absent)</td>
+                <td>No</td>
+                <td>stdout</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Logging Output</h2>
+    <ul>
+        <li>Emit a JSON object with metadata (start class/method, host/port, timings, completion status).</li>
+        <li>Provide an <code>events</code> array where each element records an <code>ENTER</code> or <code>EXIT</code>
+            event plus class, method, signature, depth, line number, timestamps, and duration.</li>
+        <li>Include the configured include/exclude package lists in the output for trace provenance.</li>
+        <li>Ensure the JSON can be regenerated via <code>JsonHelper.stringifyObject</code> for downstream tooling.</li>
+    </ul>
+
+    <h2>Success Criteria</h2>
+    <ul>
+        <li>Given a sample application, the tracer outputs a JSON event list that reflects the call tree
+            from the starting method through nested invocations, with accurate line numbers where debug
+            symbols exist.</li>
+        <li>Filtered packages are absent from the JSON when <code>skipOutsideDomain</code> is true, while
+            the stack remains balanced and the session completes successfully.</li>
+        <li>The tracer detaches cleanly, releases event requests, and <code>JavaTrail</code> continues to run.</li>
+    </ul>
+
+    <h2>Open Questions</h2>
+    <ul>
+        <li>Should the tracer support interactive commands (pause, resume, step) while running?</li>
+        <li>Is persistent storage (e.g., writing to a database) required for historical traces?</li>
+        <li>Do we need derived outputs (sequence diagrams, graphs) built from the JSON as part of the MVP?</li>
+        <li>Should aggregated metrics (per-method duration totals, counts) be included directly in the JSON?</li>
+    </ul>
+</body>
+</html>

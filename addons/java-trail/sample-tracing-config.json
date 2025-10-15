@@ -1,0 +1,18 @@
+{
+  "host": "localhost",
+  "port": "5005",
+  "startClass": "org.onestonesoup.openforum.javatrail.sample.SampleApplication",
+  "startMethod": "entryPoint",
+  "startSignature": "",
+  "includePackages": [
+    "org.onestonesoup.openforum.javatrail.sample.domain"
+  ],
+  "excludePackages": [
+    "org.onestonesoup.openforum.javatrail.sample.lib"
+  ],
+  "skipOutsideDomain": true,
+  "maxDepth": 8,
+  "maxDurationMillis": 60000,
+  "awaitCompletionMillis": 65000,
+  "outputFile": "sample-trace.json"
+}
