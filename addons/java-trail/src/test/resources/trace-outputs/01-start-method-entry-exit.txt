@@ -1,0 +1,14 @@
+=== Method Trace Session Output ===
+Started: true
+Completed: true
+Timed Out: false
+Completion Reason: Returned to start method
+Trace Start Time: 10
+Trace End Time: 60
+
+=== Trace Events ===
+[0] ENTER: com.example.Root.execute @ line 42 (depth=0, thread=main, timestamp=30, elapsed=20, duration=0)
+[1] EXIT: com.example.Root.execute @ line 45 (depth=0, thread=main, timestamp=50, elapsed=40, duration=20)
+
+=== Summary ===
+Total Events: 2

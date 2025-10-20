@@ -118,8 +118,51 @@ class JavaTrailCamIntegrationTest {
                         || event.className.startsWith("org.onestonesoup.openforum.javatrail.sample.domain")));
     }
 
+    @Test
+    @DisplayName("processUsingConfig emits trace JSON")
+    void testProcessUsingConfigEmitsTraceJson() throws Exception {
+        //Given
+        //A JSON configuration string for the sample application
+        int port = findFreePort();
+        Process sampleProcess = launchSampleApplication(port);
+        Thread.sleep(500);
+        String configJson = buildConfigJson(port,
+                Collections.singletonList("org.onestonesoup.openforum.javatrail.sample.domain"),
+                Collections.singletonList("org.onestonesoup.openforum.javatrail.sample.lib"),
+                true,
+                -1,
+                30000,
+                35000,
+                null);
+        JavaTrailCam cam = new JavaTrailCam();
+        String traceJson;
+
+        try {
+            //When
+            //processUsingConfig runs the trace against the sample application
+            traceJson = cam.processUsingConfig(configJson);
+        } finally {
+            waitForProcessTermination(sampleProcess);
+        }
+
+        //Then
+        //The returned JSON should indicate successful completion within domain packages
+        EntityTree.TreeEntity root = parseTrace(traceJson);
+        assertEquals("Returned to start method", root.getChild("completionReason").getValue());
+        assertEquals("false", root.getChild("timedOut").getValue());
+        List<EventRecord> events = readEvents(root);
+        assertTrue(events.size() >= 4);
+        events.forEach(event -> assertTrue(
+                event.className.equals("org.onestonesoup.openforum.javatrail.sample.SampleApplication")
+                        || event.className.startsWith("org.onestonesoup.openforum.javatrail.sample.domain"),
+                () -> "Unexpected class in trace: " + event.className));
+    }
+
     private static EntityTree.TreeEntity parseTrace(ByteArrayOutputStream output) {
-        String json = output.toString(StandardCharsets.UTF_8);
+        return parseTrace(output.toString(StandardCharsets.UTF_8));
+    }
+
+    private static EntityTree.TreeEntity parseTrace(String json) {
         EntityTree tree = JsonHelper.parseObject("javaTrailCamTrace", json.trim());
         return tree.getRoot();
     }
@@ -147,6 +190,22 @@ class JavaTrailCamIntegrationTest {
                                     long maxDurationMillis,
                                     long awaitCompletionMillis,
                                     Path outputFile) throws IOException {
+        String json = buildConfigJson(port, includePackages, excludePackages, skipOutsideDomain,
+                maxDepth, maxDurationMillis, awaitCompletionMillis, outputFile);
+
+        Path configFile = Files.createTempFile("javatrailcam-config", ".json");
+        Files.writeString(configFile, json, StandardCharsets.UTF_8);
+        return configFile;
+    }
+
+    private static String buildConfigJson(int port,
+                                          List<String> includePackages,
+                                          List<String> excludePackages,
+                                          boolean skipOutsideDomain,
+                                          int maxDepth,
+                                          long maxDurationMillis,
+                                          long awaitCompletionMillis,
+                                          Path outputFile) {
         String includeJson = toJsonArray(includePackages);
         String excludeJson = toJsonArray(excludePackages);
         StringBuilder builder = new StringBuilder();
@@ -165,10 +224,7 @@ class JavaTrailCamIntegrationTest {
             builder.append(",\"outputFile\":\"").append(outputFile.toAbsolutePath()).append("\"");
         }
         builder.append("}");
-
-        Path configFile = Files.createTempFile("javatrailcam-config", ".json");
-        Files.writeString(configFile, builder.toString(), StandardCharsets.UTF_8);
-        return configFile;
+        return builder.toString();
     }
 
     private static String toJsonArray(List<String> values) {

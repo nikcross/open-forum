@@ -1,0 +1,14 @@
+=== Method Trace Session Output ===
+Started: true
+Completed: true
+Timed Out: true
+Completion Reason: Reached maxDurationMillis
+Trace Start Time: 0
+Trace End Time: 25
+
+=== Trace Events ===
+[0] ENTER: com.example.Root.execute @ line 5 (depth=0, thread=main, timestamp=0, elapsed=0, duration=0)
+[1] ENTER: com.example.Service.work()V @ line 6 (depth=1, thread=main, timestamp=0, elapsed=0, duration=0)
+
+=== Summary ===
+Total Events: 2

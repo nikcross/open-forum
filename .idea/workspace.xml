@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3557c3be-9bd8-417c-a27b-8e4842d6a6a3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/test/resources/test-format-prompt.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/java-trail/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/SimpleDebugVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/SimpleDebugVM.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,91 +53,91 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Automaton.executor": "Debug",
-    "Application.CertificateCheck.executor": "Run",
-    "Application.ClaudeOpenForumProxyTest.executor": "Run",
-    "Application.JavascriptCommandLineInterface.executor": "Run",
-    "Application.JavascriptExternalResourceHelper.executor": "Run",
-    "Application.Open Forum Client.executor": "Run",
-    "Application.OpenForumServer.executor": "Debug",
-    "Application.ProductImporter.executor": "Run",
-    "Application.RtspGrabber.executor": "Run",
-    "Application.TestApp.executor": "Debug",
-    "Application.TestBoolean.executor": "Run",
-    "Application.TestGmailMailer.executor": "Run",
-    "Application.TestMailer.executor": "Run",
-    "JUnit.FlowTracerTest.executor": "Run",
-    "JUnit.JavaTrailCamConfigTest.executor": "Run",
-    "JUnit.KeyValueListPageTest.executor": "Run",
-    "JUnit.SimpleDebugVMMethodTraceSessionTest.executor": "Run",
-    "JUnit.SimpleDebugVMMethodTraceSessionTest.testCapturesStartMethodEntryAndExit.executor": "Run",
-    "JUnit.javatrail in java-trail.executor": "Run",
-    "Java Scratch.Scratch.executor": "Run",
-    "Maven.Claude.AI [clean,compile,install].executor": "Run",
-    "Maven.certificate-check [clean,install].executor": "Run",
-    "Maven.client [clean,compile,install].executor": "Run",
-    "Maven.email [clean,compile,install].executor": "Run",
-    "Maven.email [clean,install].executor": "Run",
-    "Maven.email [clean].executor": "Run",
-    "Maven.email [install].executor": "Run",
-    "Maven.flow-tracer [clean,compile,install].executor": "Run",
-    "Maven.flow-tracer-server [clean,compile...].executor": "Run",
-    "Maven.image-processor [clean].executor": "Run",
-    "Maven.java-trail [clean,compile,test,install].executor": "Run",
-    "Maven.java-trail [clean,compile,test].executor": "Run",
-    "Maven.javascript [clean,compile,install].executor": "Run",
-    "Maven.javascript [clean,install].executor": "Run",
-    "Maven.open-forum.server [clean,compile,install].executor": "Run",
-    "Maven.open-forum.server [clean,install].executor": "Debug",
-    "Maven.open-forum.server [clean].executor": "Run",
-    "Maven.open-forum.server [compile,install].executor": "Run",
-    "Maven.open-forum.server [compile].executor": "Run",
-    "Maven.open-forum.server [install].executor": "Run",
-    "Maven.packager [clean,install].executor": "Run",
-    "Maven.product-db-importer [clean,compile...].executor": "Run",
-    "Maven.sql-database [clean,compile,install].executor": "Run",
-    "Remote JVM Debug.Open Forum Automaton.executor": "Debug",
-    "Remote JVM Debug.Open Forum Server (Docker Remote).executor": "Debug",
-    "Remote JVM Debug.Open Forum Server (Docker).executor": "Debug",
-    "Remote JVM Debug.Open Forum Server.executor": "Debug",
-    "Remote JVM Debug.Thirtie.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Shell Script.docker-build.sh.executor": "Run",
-    "Shell Script.export-jar.sh.executor": "Run",
-    "Shell Script.flow-tracer.sh.executor": "Run",
-    "Shell Script.publish-to-docker-hub.sh.executor": "Run",
-    "Shell Script.test-claude-mcp-server.sh.executor": "Run",
-    "Shell Script.test-claude-proxy.sh.executor": "Run",
-    "Shell Script.update-jar.sh.executor": "Run",
-    "Shell Script.update.sh.executor": "Run",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "jdk.selected.JAVA_MODULE": "11 (2)",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/nik/os-git/open-forum/server/src/test/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "Debugger_Data_Views_Java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Automaton.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.CertificateCheck.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ClaudeOpenForumProxyTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JavascriptCommandLineInterface.executor&quot;: &quot;Run&quot;,
+    &quot;Application.JavascriptExternalResourceHelper.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Open Forum Client.executor&quot;: &quot;Run&quot;,
+    &quot;Application.OpenForumServer.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.ProductImporter.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RtspGrabber.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestApp.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.TestBoolean.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestGmailMailer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestMailer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.FlowTracerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.JavaTrailCamConfigTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.KeyValueListPageTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SimpleDebugVMMethodTraceSessionTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.SimpleDebugVMMethodTraceSessionTest.testCapturesStartMethodEntryAndExit.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.javatrail in java-trail.executor&quot;: &quot;Run&quot;,
+    &quot;Java Scratch.Scratch.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.Claude.AI [clean,compile,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.certificate-check [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.client [clean,compile,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.email [clean,compile,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.email [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.email [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.email [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.flow-tracer [clean,compile,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.flow-tracer-server [clean,compile...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.image-processor [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.java-trail [clean,compile,test,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.java-trail [clean,compile,test].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.javascript [clean,compile,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.javascript [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.open-forum.server [clean,compile,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.open-forum.server [clean,install].executor&quot;: &quot;Debug&quot;,
+    &quot;Maven.open-forum.server [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.open-forum.server [compile,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.open-forum.server [compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.open-forum.server [install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.packager [clean,install].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.product-db-importer [clean,compile...].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.sql-database [clean,compile,install].executor&quot;: &quot;Run&quot;,
+    &quot;Remote JVM Debug.Open Forum Automaton.executor&quot;: &quot;Debug&quot;,
+    &quot;Remote JVM Debug.Open Forum Server (Docker Remote).executor&quot;: &quot;Debug&quot;,
+    &quot;Remote JVM Debug.Open Forum Server (Docker).executor&quot;: &quot;Debug&quot;,
+    &quot;Remote JVM Debug.Open Forum Server.executor&quot;: &quot;Debug&quot;,
+    &quot;Remote JVM Debug.Thirtie.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Shell Script.docker-build.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.export-jar.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.flow-tracer.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.publish-to-docker-hub.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.test-claude-mcp-server.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.test-claude-proxy.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.update-jar.sh.executor&quot;: &quot;Run&quot;,
+    &quot;Shell Script.update.sh.executor&quot;: &quot;Run&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11 (2)&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/nik/os-git/open-forum/server/src/test/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Debugger_Data_Views_Java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
-      "JAVA"
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;JAVA&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/server/src/test/resources" />
@@ -834,7 +830,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/SimpleDebugVM.java</url>
-          <line>188</line>
+          <line>145</line>
           <option name="timeStamp" value="76" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

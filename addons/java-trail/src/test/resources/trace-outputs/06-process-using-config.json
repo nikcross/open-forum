@@ -1,0 +1,9 @@
+
+{"host": "localhost","port": "5005","startClass": "com.example.Root","startMethod": "entryPoint","started": "true","completed": "true","timedOut": "false","completionReason": "Returned to start method","traceStartTime": "1000","traceEndTime": "1600","traceDurationMillis": "600","eventCount": "2","includePackages": 
+["com.example.domain"],"excludePackages": 
+["com.example.excluded"],"events": 
+[
+{"type": "ENTER","className": "com.example.Root","methodName": "entryPoint","lineNumber": "42","depth": "0","thread": "main","timestampMillis": "1000","elapsedMillis": "0","durationMillis": "0"}
+, 
+{"type": "EXIT","className": "com.example.Root","methodName": "entryPoint","lineNumber": "45","depth": "0","thread": "main","timestampMillis": "1600","elapsedMillis": "600","durationMillis": "600"}
+]}
