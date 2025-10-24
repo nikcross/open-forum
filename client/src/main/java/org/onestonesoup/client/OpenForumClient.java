@@ -123,30 +123,29 @@ public class OpenForumClient  {
 
 		connection.setDoOutput(true);
 		connection.setRequestProperty("Cookie",sessionCookie);
+		connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
 
-		String parameters = "";
+		StringBuilder parameters = new StringBuilder();
 		for(String name: postData.keySet()) {
-			if(parameters.length()>0) parameters += "&";
-			parameters += name + "=" + postData.get(name).replaceAll("&","%26");
+			if(parameters.length() > 0) parameters.append("&");
+			parameters.append(URLEncoder.encode(name, "UTF-8"))
+					.append("=")
+					.append(URLEncoder.encode(postData.get(name), "UTF-8"));
 		}
 
-		connection.setDoOutput(true);
-
-		OutputStreamWriter out = new OutputStreamWriter(
-				connection.getOutputStream());
-		out.write(parameters);
-		out.close();
-
-		BufferedReader in = new BufferedReader(
-				new InputStreamReader(
-						connection.getInputStream()));
-		String decodedString;
-		String result = "";
-		while ((decodedString = in.readLine()) != null) {
-			result += decodedString;
+		try (OutputStreamWriter out = new OutputStreamWriter(connection.getOutputStream(), "UTF-8")) {
+			out.write(parameters.toString());
 		}
-		in.close();
-		return result;
+
+		StringBuilder result = new StringBuilder();
+		try (BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8"))) {
+			String decodedString;
+			while ((decodedString = in.readLine()) != null) {
+				result.append(decodedString);
+			}
+		}
+
+		return result.toString();
 	}
 
 	public String getFile(String pageName, String fileName) throws IOException {

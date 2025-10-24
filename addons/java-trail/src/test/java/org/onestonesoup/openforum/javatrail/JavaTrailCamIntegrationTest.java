@@ -288,6 +288,16 @@ class JavaTrailCamIntegrationTest {
         }
     }
 
-    private record EventRecord(String type, String className, String methodName) {
+    private static final class EventRecord {
+        final String type;
+        final String className;
+        final String methodName;
+
+        private EventRecord(String type, String className, String methodName) {
+            this.type = type;
+            this.className = className;
+            this.methodName = methodName;
+        }
+
     }
 }

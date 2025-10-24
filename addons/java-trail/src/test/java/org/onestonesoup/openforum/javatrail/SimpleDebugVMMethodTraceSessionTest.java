@@ -358,20 +358,18 @@ class SimpleDebugVMMethodTraceSessionTest {
         when(session.getEvents()).thenReturn(events);
         when(vm.startMethodTrace(any(SimpleDebugVM.MethodTraceConfig.class))).thenReturn(session);
 
-        String configJson = """
-                {
-                  "host":"localhost",
-                  "port":"5005",
-                  "startClass":"com.example.Root",
-                  "startMethod":"entryPoint",
-                  "includePackages":["com.example.domain"],
-                  "excludePackages":["com.example.excluded"],
-                  "skipOutsideDomain":true,
-                  "maxDepth":3,
-                  "maxDurationMillis":3000,
-                  "awaitCompletionMillis":4000
-                }
-                """;
+        String configJson = "{"
+                + "\"host\":\"localhost\","
+                + "\"port\":\"5005\","
+                + "\"startClass\":\"com.example.Root\","
+                + "\"startMethod\":\"entryPoint\","
+                + "\"includePackages\":[\"com.example.domain\"],"
+                + "\"excludePackages\":[\"com.example.excluded\"],"
+                + "\"skipOutsideDomain\":true,"
+                + "\"maxDepth\":3,"
+                + "\"maxDurationMillis\":3000,"
+                + "\"awaitCompletionMillis\":4000"
+                + "}";
 
         //When
         String traceJson = cam.processUsingConfig(configJson);

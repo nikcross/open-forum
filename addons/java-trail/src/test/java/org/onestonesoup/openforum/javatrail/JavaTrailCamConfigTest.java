@@ -116,4 +116,50 @@ class JavaTrailCamConfigTest {
             Files.deleteIfExists(configFile);
         }
     }
+
+    @Test
+    @DisplayName("Parses include and exclude package arrays supplied as JSON")
+    void testParsesIncludeAndExcludePackageArrays() {
+        //Given
+        //A JSON string containing includePackages and excludePackages arrays
+        String json = "{"
+                + "\"port\":\"5050\","
+                + "\"startClass\":\"com.example.Root\","
+                + "\"startMethod\":\"execute\","
+                + "\"includePackages\":[\"com.example.app\",\"org.partner.feature\"],"
+                + "\"excludePackages\":[\"java.\",\"javax.\"]"
+                + "}";
+
+        //When
+        //The configuration is parsed from the JSON payload
+        JavaTrailCam.Config config = JavaTrailCam.Config.fromString(json);
+
+        //Then
+        //Include and exclude package lists reflect the JSON arrays exactly
+        assertEquals(List.of("com.example.app", "org.partner.feature"), config.getIncludePackages());
+        assertEquals(List.of("java.", "javax."), config.getExcludePackages());
+    }
+
+    @Test
+    @DisplayName("Ignores include and exclude package fields when not expressed as arrays")
+    void testIgnoresIncludeAndExcludePackagesIfNotArrays() {
+        //Given
+        //A JSON string where includePackages and excludePackages are not arrays
+        String json = "{"
+                + "\"port\":\"5050\","
+                + "\"startClass\":\"com.example.Root\","
+                + "\"startMethod\":\"execute\","
+                + "\"includePackages\":\"com.example\","
+                + "\"excludePackages\":\"java.\""
+                + "}";
+
+        //When
+        //The configuration is parsed despite the incorrect package format
+        JavaTrailCam.Config config = JavaTrailCam.Config.fromString(json);
+
+        //Then
+        //Package lists remain empty, demonstrating that arrays are the required format
+        assertTrue(config.getIncludePackages().isEmpty());
+        assertTrue(config.getExcludePackages().isEmpty());
+    }
 }

@@ -6,18 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="java-flow-tracer" />
+        <module name="claude-ai-mcp" />
         <module name="raspberrypi" />
+        <module name="rtsp" />
+        <module name="packager" />
+        <module name="javascript" />
+        <module name="image-processor" />
+        <module name="java-flow-tracer" />
         <module name="sql-database" />
         <module name="certificate-check" />
         <module name="open-forum.server" />
         <module name="client" />
-        <module name="rtsp" />
         <module name="java-trail" />
-        <module name="packager" />
-        <module name="javascript" />
         <module name="email" />
-        <module name="image-processor" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>

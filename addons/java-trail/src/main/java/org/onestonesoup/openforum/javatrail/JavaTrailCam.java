@@ -16,6 +16,17 @@ import org.onestonesoup.core.data.JsonHelper;
 
 public class JavaTrailCam {
 
+    private volatile SimpleDebugVM activeVm;
+    private volatile SimpleDebugVM.MethodTraceSession activeTraceSession;
+
+    SimpleDebugVM getActiveVm() {
+        return activeVm;
+    }
+
+    SimpleDebugVM.MethodTraceSession getActiveTraceSession() {
+        return activeTraceSession;
+    }
+
 public static void main(String[] args) throws Exception {
     if (args.length == 0) {
         System.err.println("Usage: JavaTrailCam <config.json>");
@@ -69,9 +80,11 @@ public String processUsingConfig(String configString) {
     try {
         Config config = Config.fromString(configString);
         vm = connect(config.getHost(), config.getPort());
+        activeVm = vm;
 
         SimpleDebugVM.MethodTraceConfig traceConfig = config.toMethodTraceConfig();
         SimpleDebugVM.MethodTraceSession session = vm.startMethodTrace(traceConfig);
+        activeTraceSession = session;
 
         long awaitMillis = config.awaitCompletionMillis > 0
                 ? config.awaitCompletionMillis
@@ -80,9 +93,13 @@ public String processUsingConfig(String configString) {
 
         List<SimpleDebugVM.MethodTraceEvent> events = session.getEvents();
         return buildOutput(config, session, events);
+    } catch (InterruptedException e) {
+        Thread.currentThread().interrupt();
+        return "Exception: " + e.toString();
     } catch (Exception e) {
         return "Exception: " + e.toString();
     } finally {
+        activeTraceSession = null;
         if (vm != null) {
             try {
                 vm.disconnect();
@@ -90,6 +107,7 @@ public String processUsingConfig(String configString) {
                 // ignore disconnect issues
             }
         }
+        activeVm = null;
     }
 }
 
