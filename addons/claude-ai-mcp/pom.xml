@@ -5,7 +5,7 @@
 
     <groupId>org.onestonesoup</groupId>
     <artifactId>claude-ai-mcp</artifactId>
-    <version>0.1.2</version>
+    <version>0.1.6</version>
     <packaging>jar</packaging>
 
     <name>claude-ai-mcp</name>

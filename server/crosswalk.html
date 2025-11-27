@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenForum Server — Narrative & Implementation Crosswalk</title>
+<style>
+body {
+  background: #0b0d10;
+  color: #e7ecf3;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+.wrap {
+  max-width: 1100px;
+  padding: 40px 24px 80px;
+  margin: 0 auto;
+}
+h1 {
+  color: #8fd3f4;
+  margin-top: 0;
+}
+h2 {
+  color: #7ad3a8;
+  margin-bottom: 0.6em;
+}
+h3 {
+  color: #9ecdea;
+  margin-top: 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 32px;
+}
+th, td {
+  background: #12161b;
+  border: 1px solid #1c2733;
+  padding: 18px 22px;
+  vertical-align: top;
+}
+th {
+  background: #16202a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: #9ab4c8;
+}
+td.section {
+  width: 60%;
+}
+td.refs {
+  width: 40%;
+  background: #141a21;
+}
+a {
+  color: #4fb3d8;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+code {
+  background: rgba(79, 179, 216, 0.12);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+ul, ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.muted {
+  color: #738290;
+  font-size: 0.92em;
+  margin-top: 8px;
+}
+table tr:nth-child(even) td {
+  background: #10161c;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>OpenForum Server — Narrative & Implementation Crosswalk</h1>
+<p>The OpenForum Server is a lightweight Java content platform that hosts multiple domain-specific wiki instances. This crosswalk outlines how the narrative design goals map to the concrete Java implementation.</p>
+<table>
+<thead>
+<tr>
+<th>Specification Narrative</th>
+<th>Implementation References</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="section">
+<section id="section-1">
+<h2>1. Multi-Domain Bootstrap & Networking</h2>
+<p><code>OpenForumServer</code> boots by parsing the runtime JSON and instantiating one <code>OpenForumController</code> per host declared in <a href="#cfg-domain-mapping"><code>domains</code></a>. Each controller binds to the content root defined there, while redirect-only entries short-circuit to <code>OpenForumRedirector</code>. The bootstrapper falls back to the configured <a href="#cfg-default-redirect"><code>noMatchDomain</code></a> whenever the incoming host lacks an explicit match.</p>
+<p>HTTP and optional HTTPS listeners are created from the provided <a href="#cfg-http-port"><code>ports.http</code></a> and <a href="#cfg-https-keystore"><code>ports.https</code></a> settings. Both listeners share a <code>ServerRequestExecuter</code> thread pool whose max concurrency and request timeout honour <a href="#cfg-thread-limits"><code>maxThreads</code></a> and <a href="#cfg-thread-limits"><code>maxThreadTime</code></a>. When HTTPS is requested, the server materialises a <code>SSLContext</code> from the supplied keystore credentials before wiring <code>HttpsServer</code> handlers.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/server/OpenForumServer.java">OpenForumServer.java</a> — Parses JSON config and orchestrates controller/domain setup.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/server/ServerRequestExecuter.java">ServerRequestExecuter.java</a> — Custom executor enforcing thread ceilings and timeout accounting.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/server/OpenForumRedirector.java">OpenForumRedirector.java</a> — Implements host-level redirects and default fallbacks.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/test/resources/config.json">src/test/resources/config.json</a> — Sample configuration used in tests and development.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-2">
+<h2>2. HTTP Request Processing & Routing</h2>
+<p><code>RequestProcessor</code> acts as the <code>HttpHandler</code> entry point, normalising the exchange into an <code>HttpHeader</code> tree, decoding query strings, POST form bodies, and cookies. It selects the right domain controller by host and hands the enriched request to the router.</p>
+<p>The <code>Router</code> coordinates static asset delivery, page rendering, and server-side script execution by delegating into <code>GetTransaction</code>/<code>PostTransaction</code>. Dynamic page rewrites honour regex-driven lists sourced from configuration pages, while <code>WikiAttachmentHandler</code> streams large uploads into the file store with optional progress queue updates. Error paths fall back to templated error pages when handlers throw.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/server/RequestProcessor.java">RequestProcessor.java</a> — Converts <code>HttpExchange</code> metadata into platform headers and routes by host.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/router/Router.java">Router.java</a> — Dispatches to pages, scripts, or attachments; manages dynamic route tables.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/transaction/Transaction.java">Transaction.java</a> — Common response helpers for GET/POST flows.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/transaction/PostTransaction.java">PostTransaction.java</a> — Streams multipart uploads and enforces update permissions.</li>
+</ul>
+<h3>Key Tests</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/test/java/org/onestonesoup/openforum/router/RouterTest.java">RouterTest.java</a> — Validates dynamic page regex matching; other routing tests pending TODO fixes.</li>
+</ul>
+<p class="muted">Coverage focuses on dynamic rewrite matching; integration tests for page/script execution remain disabled.</p>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-3">
+<h2>3. Content, Storage & Versioning</h2>
+<p>The <code>FileManager</code> mediates page content, attachments, and metadata across pluggable <code>ResourceStore</code> backends. It supports inherited templates (<code>page.build.js</code>), MIME type negotiation, Journals, and redirect lists, while <code>FrequentFileCache</code> and <code>ResourceStoreProxy</code> consolidate multi-store deployments.</p>
+<p>Version snapshots are delegated to <code>DefaultVersionController</code>, which persists historical copies and audit logs per resource. <code>KeyValueListPage</code> transforms OpenForum configuration pages into readily queryable maps for aliases, redirects, and security wiring, enabling administrators to steer behaviour without redeploying.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/filemanager/FileManager.java">FileManager.java</a> — High-level API over resource stores for pages, attachments, and backups.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/filemanager/ResourceStore.java">ResourceStore.java</a> — Backend contract for storage providers.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/filemanager/LocalDriveResourceStore.java">LocalDriveResourceStore.java</a> — Default filesystem-backed implementation with caching hooks.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/versioncontrol/DefaultVersionController.java">DefaultVersionController.java</a> — Maintains per-page history (diff/revert stubs noted).</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/KeyValueListPage.java">KeyValueListPage.java</a> — Parses wiki list pages into runtime configuration maps.</li>
+</ul>
+<h3>Key Tests</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/test/java/org/onestonesoup/openforum/DataHelperTest.java">DataHelperTest.java</a> — Confirms table parsing utilities used by list-page loaders.</li>
+</ul>
+<p class="muted">Automated coverage for file-store behaviours is minimal; several tests remain commented out pending mock infrastructure.</p>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-4">
+<h2>4. Dynamic Scripting & Plugin Integration</h2>
+<p><code>OpenForumController.buildPage</code> composes runtime HTML by executing inherited <code>page.build.js</code> Rhino scripts, mounting page content and helper objects into the scripting scope. <code>JavascriptHelper</code>, <code>JavascriptOpenForumHelper</code>, and <code>JavascriptFileHelper</code> surface platform APIs (file IO, transactions, helpers) to server-side JavaScript.</p>
+<p>The <code>PluginManager</code> watches declared classpath jars, hot-reloads changed resources, and materialises per-page <code>SystemAPI</code> instances. APIs can in turn bootstrap dedicated Rhino engines via <code>SystemAPI.getJavascriptEngine</code>, enabling hybrid Java/JavaScript extensions without server restarts.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java">OpenForumController.java</a> — Page build pipeline and script execution, including trigger hooks.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/javascript/JavascriptHelper.java">JavascriptHelper.java</a> — Provides cached access to Rhino objects and utility helpers.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/javascript/JavascriptOpenForumHelper.java">JavascriptOpenForumHelper.java</a> — Bridges wiki APIs into the JavaScript runtime.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/plugin/PluginManager.java">PluginManager.java</a> — Dynamic classpath loader and API factory.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/plugin/SystemAPI.java">SystemAPI.java</a> — Base class for plugins that need controller and scripting access.</li>
+</ul>
+<h3>Key Tests</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/test/java/org/onestonesoup/openforum/javascript/JavascriptHelperTest.java">JavascriptHelperTest.java</a> — Spot-checks MD5 helper exposed to scripts.</li>
+</ul>
+<p class="muted">Script engine behaviour is mainly verified manually; automated coverage is limited to utility helpers.</p>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-5">
+<h2>5. Messaging, Triggers & Background Utilities</h2>
+<p><code>MessageQueueManager</code> and <code>MessageQueue</code> deliver lightweight in-memory queues for upload progress, async notifications, and UI polling. Queues enforce TTL and size bounds, with housekeeping invoked from controller maintenance paths.</p>
+<p>System automation relies on trigger pages: <code>Trigger</code> watches list pages for listeners, spawns <code>TriggerProcessThread</code> workers, and executes <code>trigger.sjs</code> scripts with contextual bindings. <code>StartUpTrigger</code>, <code>RebuildTrigger</code>, and <code>TimerTrigger</code> are initialised during controller bootstrap to seed page rebuilds, timed jobs, and startup tasks.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/messagequeue/MessageQueueManager.java">MessageQueueManager.java</a> — Creates and cleans queues used by various platform services.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/messagequeue/MessageQueue.java">MessageQueue.java</a> — TTL-bound message store with progress integration hooks.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/trigger/Trigger.java">Trigger.java</a> — Core trigger runner powering startup, rebuild, and timers.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/trigger/RebuildTrigger.java">RebuildTrigger.java</a> — Schedules page rebuild work when content changes.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/trigger/TimerTrigger.java">TimerTrigger.java</a> — Executes periodic trigger scripts in background threads.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java">OpenForumController.java</a> — Wires queue manager and triggers during <code>initialise()</code>.</li>
+</ul>
+<p class="muted">Triggers run scripts asynchronously; error handling currently logs stack traces without retry orchestration.</p>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-6">
+<h2>6. Security & Session Lifecycle</h2>
+<p>The default <code>SessionCookieAuthenticator</code> issues and validates <code>openForumSession</code> cookies through <code>SessionStore</code>, which rotates IDs, expires stale sessions, and logs lifecycle events. POST login requests invoke <code>login.sjs</code>, allowing administrators to customise credential checks without touching Java code.</p>
+<p>During <code>initialise()</code>, <code>OpenForumController</code> optionally swaps in custom <code>Authenticator</code>/<code>Authorizer</code> implementations declared on the <code>/OpenForum/Configuration</code> page. Absent overrides, the system falls back to <code>DummyAuthenticator</code>/<code>DummyAuthorizer</code>, ensuring guests can still browse content.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/security/cookie/SessionCookieAuthenticator.java">SessionCookieAuthenticator.java</a> — Cookie-based auth flow interacting with login scripts.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/security/cookie/SessionStore.java">SessionStore.java</a> — In-memory session registry with timeout management.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/security/Login.java">Login.java</a> — Encapsulates user identity, session IDs, and role checks.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/security/Authorizer.java">Authorizer.java</a> — Contract for page/action authorisation providers.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java">OpenForumController.java</a> — Loads authenticator/authorizer classes from configuration pages.</li>
+</ul>
+<p class="muted">Security code lacks automated tests; consider adding harnesses for sign-in flows and permission checks.</p>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="configuration">
+<h2>Configuration Appendix</h2>
+<p>These runtime controls are consumed during server startup and govern networking, controller provisioning, and TLS behaviour.</p>
+<ul>
+<li id="cfg-domain-mapping"><code>domains</code> — Array of host entries that define content roots or redirect targets for each virtual host.</li>
+<li id="cfg-default-redirect"><code>noMatchDomain</code> — Fallback URL used when no host entry matches an incoming request.</li>
+<li id="cfg-http-port"><code>ports.http</code> — TCP port bound by the clear-text <code>HttpServer</code> listener.</li>
+<li id="cfg-https-keystore"><code>ports.https</code>, <code>keyStore</code>, <code>keyStorePassword</code> — Enables TLS listener plus keystore material used to build the <code>SSLContext</code>.</li>
+<li id="cfg-thread-limits"><code>maxThreads</code>, <code>maxThreadTime</code> — Caps for concurrent request threads and optional timeout thresholds enforced by the executor.</li>
+</ul>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/test/resources/config.json">src/test/resources/config.json</a> — Reference JSON showing expected schema for bootstrap settings.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/server/OpenForumServer.java">OpenForumServer.java</a> — Consumes the configuration map and applies defaults.</li>
+</ul>
+<p class="muted">Production deployments typically pass an absolute config file path into <code>OpenForumServer.main()</code>.</p>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-7">
+<h2>7. Future Enhancements</h2>
+<ul>
+<li>Rebuild router integration tests by replacing the TODO scaffolding with real controller/file-manager doubles to exercise GET/POST flows.</li>
+<li>Implement version history listing, diff, and revert in <code>DefaultVersionController</code> to make the backup UI functional.</li>
+<li>Re-enable Mockito-based parsing tests for <code>KeyValueListPage</code> once file-store contracts are injectable.</li>
+</ul>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/test/java/org/onestonesoup/openforum/router/RouterTest.java">RouterTest.java</a> — TODO markers block wider routing coverage.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/versioncontrol/DefaultVersionController.java">DefaultVersionController.java</a> — Diff/revert methods remain TODO stubs.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/test/java/org/onestonesoup/openforum/KeyValueListPageTest.java">KeyValueListPageTest.java</a> — Commented-out Mockito tests awaiting refactor.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="summary">
+<h2>8. Summary</h2>
+<p>The OpenForum Server blends a bespoke HTTP stack, scripted page rendering, and pluggable storage to host multi-tenant wiki spaces. Controllers materialise per-domain behaviours, the router drives scriptable content delivery, and background triggers automate rebuilds, messaging, and authentication handshakes. With additional investment in automated tests and unfinished versioning features, the platform can continue to serve as a flexible, script-driven collaboration hub.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java">OpenForumController.java</a> — Central orchestrator tying together storage, scripting, triggers, and security.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/server/OpenForumServer.java">OpenForumServer.java</a> — Launcher wiring network listeners to controllers.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

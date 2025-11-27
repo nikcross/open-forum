@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQL Database Add-on — Narrative & Implementation Crosswalk</title>
+<style>
+body {
+  background: #0b0d10;
+  color: #e7ecf3;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+.wrap {
+  max-width: 1100px;
+  padding: 40px 24px 80px;
+  margin: 0 auto;
+}
+h1 {
+  color: #8fd3f4;
+  margin-top: 0;
+}
+h2 {
+  color: #7ad3a8;
+  margin-bottom: 0.6em;
+}
+h3 {
+  color: #9ecdea;
+  margin-top: 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 32px;
+}
+th, td {
+  background: #12161b;
+  border: 1px solid #1c2733;
+  padding: 18px 22px;
+  vertical-align: top;
+}
+th {
+  background: #16202a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: #9ab4c8;
+}
+td.section {
+  width: 60%;
+}
+td.refs {
+  width: 40%;
+  background: #141a21;
+}
+a {
+  color: #4fb3d8;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+code {
+  background: rgba(79, 179, 216, 0.12);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+ul, ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.muted {
+  color: #738290;
+  font-size: 0.92em;
+  margin-top: 8px;
+}
+table tr:nth-child(even) td {
+  background: #10161c;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>SQL Database Add-on — Narrative & Implementation Crosswalk</h1>
+<p>The SQL Database add-on equips OpenForum with JDBC-backed data access, spanning driver registration, connection orchestration, and browser tooling that empowers administrators to inspect and script their databases from <code>/OpenForum/AddOn/SQL</code>.</p>
+<table>
+<thead>
+<tr>
+<th>Specification Narrative</th>
+<th>Implementation References</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="section">
+<section id="section-1">
+<h2>1. Bootstrap & JDBC Driver Lifecycle</h2>
+<p>Installation seeds an <code>initialise.sjs</code> scaffold that pulls the add-on&rsquo;s <code>DatabaseAPI</code> via <code>js.getApi</code>, registers vendor JDBC drivers stored under <code>/OpenForum/JarManager/JDBC</code>, and prepares connection aliases. Administrators uncomment or extend these snippets to load Oracle, HSQLDB, or other drivers shipped with the page.</p>
+<p>On the Java side, <code>DatabaseAPI.registerDriver</code> resolves the upload location, loads the driver via an isolated <code>URLClassLoader</code>, and wraps it in <code>JDBCDriverWrapper</code> so the JVM can safely register multiple vendor drivers without classloader clashes.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=addons/sql-database/src/main/java/org/onestonesoup/openforum/jdbc/DatabaseAPI.java">DatabaseAPI.java</a> — Loads JDBC jars, registers drivers, and exposes connection factories.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=addons/sql-database/src/main/java/org/onestonesoup/openforum/jdbc/JDBCDriverWrapper.java">JDBCDriverWrapper.java</a> — Delegates JDBC calls while shielding unsupported logger APIs.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=addons/sql-database/src/main/open-forum/initialise.sjs">src/main/open-forum/initialise.sjs</a> — Packaged template demonstrating driver registration during deployment.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/initialise.sjs">content/.../AddOn/SQL/initialise.sjs</a> — Runtime page attachment admins edit to register drivers and aliases.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-2">
+<h2>2. Connection Management & Admin Configuration</h2>
+<p>Connection aliases are created with <code>createConnection</code> or elevated via <code>createAdminConnection</code>, both delegating to <code>DriverManager</code> and caching live <code>java.sql.Connection</code> objects keyed by alias. The add-on persists alias definitions in <a href="#cfg-sql-config"><code>sql.config</code></a>, editable from the Admin console fragment injected during install.</p>
+<p><code>install.sjs</code> migrates legacy inline connection scripts into structured JSON, drops the new config fragment into <code>/OpenForum/Users/Admin</code>, and refreshes the page so future edits flow through the UI instead of direct file tweaks.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=addons/sql-database/src/main/java/org/onestonesoup/openforum/jdbc/DatabaseAPI.java">DatabaseAPI.java</a> — Implements <code>createConnection</code>, <code>createAdminConnection</code>, and connection caching.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/install.sjs">install.sjs</a> — Migrates legacy configs, writes <code>sql.config</code>, and updates Admin UI.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/sql-config.wiki.fragment">sql-config.wiki.fragment</a> — Admin table for capturing DB aliases, URLs, and credentials.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/sql-config.js">sql-config.js</a> — Loads/saves <code>sql.config</code> through OpenForum&rsquo;s JSON helpers.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-3">
+<h2>3. HTTP Bridge & Query Execution</h2>
+<p>The add-on exposes a lightweight GET endpoint (<code>get.sjs</code>) that routes actions such as <code>query</code>, <code>execute</code>, and <code>getConnections</code>, handing off to the JVM-backed <code>DatabaseAPI</code>. Errors get normalised for the UI, stripping noisy vendor prefixes when possible.</p>
+<p>On the JVM, <code>DatabaseAPI.query</code> converts results into <code>EntityTree</code> structures which <code>JSONHelper</code> serialises into a deterministic pseudo-JSON string. <code>execute</code> commits successful DML and surfaces commit state back to the browser.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/get.sjs">get.sjs</a> — REST-style controller delegating requests to the Java API.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=addons/sql-database/src/main/java/org/onestonesoup/openforum/jdbc/DatabaseAPI.java">DatabaseAPI.java</a> — Executes prepared statements, exposes metadata, and manages commits.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=addons/sql-database/src/main/java/org/onestonesoup/openforum/jdbc/JSONHelper.java">JSONHelper.java</a> — Serialises <code>EntityTree</code> query results for delivery to JavaScript.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-4">
+<h2>4. Server-Side Scripting Helpers</h2>
+<p>Backend pages access SQL through <code>DB.sjs</code>, which wraps the REST bridge, generates SQL from structured objects (<code>insert</code>/<code>update</code>/<code>delete</code>/<code>upsert</code>), performs naive escaping, and returns row sets as plain JavaScript objects. Developers call <code>DB.run</code> or <code>DB.query</code> from add-on scripts and triggers (for example in task schedulers or tagging workflows).</p>
+<p>The helper also supports templated <code>query</code> definitions with <code>{{placeholders}}</code>, populating them from <code>sqlObject.data</code> before forwarding to the JVM API.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/DB.sjs">DB.sjs</a> — Provides structured SQL builders and result conversion for server-side scripts.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/migration.sjs">migration.sjs</a> — Example consumer demonstrating schema migrations via the helper API.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/test.sjs">test.sjs</a> — Smoke-test harness for exercising the helper against configured aliases.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-5">
+<h2>5. Browser Tooling & Developer Experience</h2>
+<p>The public page at <code>/OpenForum/AddOn/SQL</code> combines CodeMirror editing, schema inspection, and code generation. <code>page.js</code> wires in the standalone editor, while <code>sql-editor.js</code> populates connection dropdowns, runs SQL against the REST layer, formats results into HTML tables, and scaffolds JS snippets that call <code>DB.sjs</code>.</p>
+<p>Client-side <code>DB.js</code> mirrors key helper functions for direct AJAX usage, queueing calls to avoid overlapping requests. Quick-reference pages and the generator sub-page round out the documentation embedded in the add-on.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/page.html">page.html</a> — Foundation-based UI hosting the editor, result grid, and modals.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/page.js">page.js</a> — Bootstraps the SQL editor experience on page load.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/sql-editor.js">sql-editor.js</a> — Manages client-side execution, history, inspectors, and code generation.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/DB.js">DB.js</a> — Lightweight AJAX wrapper mirroring server-side helpers for browser scripts.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="configuration">
+<h2>Configuration Appendix</h2>
+<p>Runtime behaviour hinges on per-alias connection settings defined in <code>sql.config</code>. Each record specifies the JDBC URL, credentials, and alias name that drive <code>DatabaseAPI.createConnection</code> during start-up scripts.</p>
+<ul>
+<li id="cfg-sql-config"><code>sql.config</code> — JSON array of database aliases persisted under <code>/OpenForum/Users/Admin/sql.config</code>, loaded by <code>sql-config.js</code>.</li>
+</ul>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/Users/Admin/sql.config">Users/Admin/sql.config</a> — Stored connection metadata synchronised from the Admin console.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/sql-config.js">sql-config.js</a> — Loads and saves the configuration through OpenForum APIs.</li>
+</ul>
+<p class="muted">Ensure the add-on&rsquo;s <code>initialise.sjs</code> reads from the latest config after editing aliases.</p>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-6">
+<h2>6. Future Enhancements</h2>
+<ul>
+<li>Add parameter binding or prepared statement support to eliminate SQL injection risks from string substitution.</li>
+<li>Introduce connection pooling and health checks so long-lived dashboards don&rsquo;t hold onto stale JDBC sessions.</li>
+<li>Expand automated testing around <code>JSONHelper</code> and <code>DB.sjs</code> to detect regression in result serialisation.</li>
+</ul>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li class="muted">Tracking TBD — capture follow-up in project backlog or <code>/OpenForum/AddOn/SQL/release-info.json</code>.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="summary">
+<h2>7. Summary</h2>
+<p>The SQL Database add-on layers a full-stack bridge from OpenForum pages to JDBC data sources: administrators register drivers and aliases, browser tooling issues ad-hoc queries, and server-side scripts reuse the same helper APIs for automation. Strengthening configuration-driven initialisation, tightening query parameterisation, and broadening tests will keep the add-on reliable across future database integrations.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=addons/sql-database/src/main/java/org/onestonesoup/openforum/jdbc/DatabaseAPI.java">DatabaseAPI.java</a></li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/SQL/page.html">/OpenForum/AddOn/SQL/page.html</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

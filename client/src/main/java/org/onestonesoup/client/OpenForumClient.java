@@ -42,11 +42,11 @@ public class OpenForumClient  {
         System.out.println(result);
     }
 
-    private String host;
+    private final String host;
 	private String sessionCookie;
 
     public OpenForumClient(String host, String userId,String password, boolean hashedPassword) throws Exception {
-    	this.host = host;
+    	this.host = normalizeHost(host);
     	this.userId = userId;
     	this.password = password;
 		this.hashedPassword = hashedPassword;
@@ -104,7 +104,7 @@ public class OpenForumClient  {
 	}
 
 	public String doGet(String pageName) throws IOException {
-		String url = host + "/" + pageName;
+		String url = buildUrl(pageName);
 		URLConnection connection = new URL(url).openConnection();
 		connection.setRequestProperty("Cookie",sessionCookie);
 
@@ -118,7 +118,7 @@ public class OpenForumClient  {
 	}
 
 	public String doPost(String pageName,Map<String,String> postData)  throws IOException {
-		String url = host + "/" + pageName;
+		String url = buildUrl(pageName);
 		URLConnection connection = new URL(url).openConnection();
 
 		connection.setDoOutput(true);
@@ -149,12 +149,12 @@ public class OpenForumClient  {
 	}
 
 	public String getFile(String pageName, String fileName) throws IOException {
-    	return doGet(pageName + "/" + fileName );
+    	return doGet(combinePageAndFile(pageName,fileName));
 	}
 
 
 	public void downloadFile(String pageName, String fileName, String localFileName) throws IOException {
-		String url = host + "/" + pageName + "/" + fileName;
+		String url = buildUrl(combinePageAndFile(pageName,fileName));
 		URLConnection connection = new URL(url).openConnection();
 		connection.setRequestProperty("Cookie",sessionCookie);
 
@@ -162,7 +162,8 @@ public class OpenForumClient  {
 	}
 
 	public String uploadFile(String pageName, String fileName, String  localFileName) throws IOException {
-		String url = host + "/OpenForum/Actions/Attach?page=" + pageName + "&fileName=" + fileName;
+		String normalizedPage = ensureAbsolutePath(pageName);
+		String url = host + "/OpenForum/Actions/Attach?page=" + normalizedPage + "&fileName=" + fileName;
 
 		CloseableHttpClient httpClient = HttpClients.createDefault();
 		HttpPost uploadFile = new HttpPost(url);
@@ -205,5 +206,68 @@ public class OpenForumClient  {
 			hashtext = "0"+hashtext;
 		}
 		return hashtext;
+	}
+
+	private String normalizeHost(String rawHost) {
+		if(rawHost == null) {
+			throw new IllegalArgumentException("host is required");
+		}
+		String normalized = rawHost.trim();
+		if(normalized.isEmpty()) {
+			throw new IllegalArgumentException("host is required");
+		}
+		while(normalized.endsWith("/")) {
+			normalized = normalized.substring(0, normalized.length()-1);
+		}
+		return normalized;
+	}
+
+	private String buildUrl(String relativePath) {
+		if(relativePath == null || relativePath.trim().isEmpty()) {
+			return host + "/";
+		}
+		if(relativePath.startsWith("http://") || relativePath.startsWith("https://")) {
+			return relativePath;
+		}
+		return host + ensureAbsolutePath(relativePath);
+	}
+
+	private String ensureAbsolutePath(String rawPath) {
+		if(rawPath == null || rawPath.trim().isEmpty()) {
+			return "/";
+		}
+		String trimmed = rawPath.trim().replace('\\','/');
+		if(trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
+			return trimmed;
+		}
+		String path = trimmed;
+		String query = "";
+		int queryIndex = trimmed.indexOf('?');
+		if(queryIndex >= 0) {
+			path = trimmed.substring(0, queryIndex);
+			query = trimmed.substring(queryIndex);
+		}
+		while(path.startsWith("/")) {
+			path = path.substring(1);
+		}
+		if(path.isEmpty()) {
+			return "/" + query;
+		}
+		return "/" + path + query;
+	}
+
+	private String combinePageAndFile(String pageName, String fileName) {
+		String base = ensureAbsolutePath(pageName);
+		if(fileName == null || fileName.trim().isEmpty()) {
+			return base;
+		}
+		String child = fileName.trim().replace('\\','/');
+		while(child.startsWith("/")) {
+			child = child.substring(1);
+		}
+		if(base.endsWith("/")) {
+			return base + child;
+		}
+		return base + "/" + child;
 	}
 }

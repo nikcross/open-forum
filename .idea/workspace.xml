@@ -5,22 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3557c3be-9bd8-417c-a27b-8e4842d6a6a3" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/addons/claude-ai-mcp/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/addons/claude-ai-mcp/src/main/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/java-trail/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/JavaTrail.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/JavaTrail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/JavaTrailCam.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/JavaTrailCam.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/JavaTrailSystemHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/JavaTrailSystemHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/SimpleDebugVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/src/main/java/org/onestonesoup/openforum/javatrail/SimpleDebugVM.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/java-trail/src/test/java/org/onestonesoup/openforum/javatrail/JavaTrailCamConfigTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/src/test/java/org/onestonesoup/openforum/javatrail/JavaTrailCamConfigTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/java-trail/src/test/java/org/onestonesoup/openforum/javatrail/JavaTrailCamIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/src/test/java/org/onestonesoup/openforum/javatrail/JavaTrailCamIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/java-trail/src/test/java/org/onestonesoup/openforum/javatrail/SimpleDebugVMMethodTraceSessionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/src/test/java/org/onestonesoup/openforum/javatrail/SimpleDebugVMMethodTraceSessionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addons/java-trail/src/test/java/org/onestonesoup/openforum/javatrail/sample/SampleApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/java-trail/src/test/java/org/onestonesoup/openforum/javatrail/sample/SampleApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/claude-ai-mcp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/addons/claude-ai-mcp/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/claude-ai-mcp/src/main/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/claude-ai-mcp/src/main/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/addons/claude-ai-mcp/src/test/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/addons/claude-ai-mcp/src/test/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxyTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,6 +74,7 @@
     &quot;Application.TestBoolean.executor&quot;: &quot;Run&quot;,
     &quot;Application.TestGmailMailer.executor&quot;: &quot;Run&quot;,
     &quot;Application.TestMailer.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ClaudeOpenForumProxyFileTransferTest.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ClaudeOpenForumProxyTest - Local.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ClaudeOpenForumProxyTest - Remote.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.ClaudeOpenForumProxyTest.executor&quot;: &quot;Run&quot;,
@@ -195,7 +184,7 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.JavaTrailCamConfigTest">
+  <component name="RunManager" selected="JUnit.ClaudeOpenForumProxyTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
       <option name="WIDTH" value="400" />
@@ -265,6 +254,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ClaudeOpenForumProxyFileTransferTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="claude-ai-mcp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.onestonesoup.claude.mcp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.onestonesoup.claude.mcp" />
+      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.claude.mcp.ClaudeOpenForumProxyFileTransferTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ClaudeOpenForumProxyTest - Remote" type="JUnit" factoryName="JUnit">
       <module name="claude-ai-mcp" />
       <extension name="coverage">
@@ -283,6 +288,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ClaudeOpenForumProxyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="claude-ai-mcp" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.onestonesoup.claude.mcp.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.onestonesoup.claude.mcp" />
+      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.claude.mcp.ClaudeOpenForumProxyTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JavaTrailCamConfigTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="java-trail" />
       <extension name="coverage">
@@ -293,22 +314,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.onestonesoup.openforum.javatrail" />
       <option name="MAIN_CLASS_NAME" value="org.onestonesoup.openforum.javatrail.JavaTrailCamConfigTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="JavaTrailSystemHelperTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="java-trail" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="org.onestonesoup.openforum.javatrail.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="org.onestonesoup.openforum.javatrail" />
-      <option name="MAIN_CLASS_NAME" value="org.onestonesoup.openforum.javatrail.JavaTrailSystemHelperTest" />
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
@@ -331,38 +336,6 @@
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
       <module name="packager" />
       <option name="filePath" />
-      <method v="2" />
-    </configuration>
-    <configuration name="claude-ai-mcp [clean,compile,install]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="cmdOptions" />
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list>
-                <option value="clean" />
-                <option value="compile" />
-                <option value="install" />
-              </list>
-            </option>
-            <option name="multimoduleDir" />
-            <option name="pomFileName" value="pom.xml" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="projectsCmdOptionValues">
-              <list />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$/addons/claude-ai-mcp" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
       <method v="2" />
     </configuration>
     <configuration name="java-trail [clean,compile,install]" type="MavenRunConfiguration" factoryName="Maven" temporary="true">
@@ -481,23 +454,23 @@
       <item itemvalue="Application.OpenForumServer" />
       <item itemvalue="Application.SampleApplication - continuous mode" />
       <item itemvalue="JUnit.ClaudeOpenForumProxyTest - Remote" />
+      <item itemvalue="JUnit.ClaudeOpenForumProxyTest" />
+      <item itemvalue="JUnit.ClaudeOpenForumProxyFileTransferTest" />
       <item itemvalue="JUnit.JavaTrailCamConfigTest" />
-      <item itemvalue="JUnit.JavaTrailSystemHelperTest" />
-      <item itemvalue="Maven.claude-ai-mcp [clean,compile,install]" />
       <item itemvalue="Maven.java-trail [clean,compile,install]" />
-      <item itemvalue="Remote JVM Debug.Open Forum Automaton" />
+      <item itemvalue="Remote JVM Debug.Thirtie" />
       <item itemvalue="Remote JVM Debug.Open Forum Server (Docker Remote)" />
       <item itemvalue="Remote JVM Debug.Open Forum Server (Docker)" />
       <item itemvalue="Remote JVM Debug.Open Forum Server" />
-      <item itemvalue="Remote JVM Debug.Thirtie" />
+      <item itemvalue="Remote JVM Debug.Open Forum Automaton" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ClaudeOpenForumProxyTest" />
+        <item itemvalue="JUnit.ClaudeOpenForumProxyFileTransferTest" />
         <item itemvalue="JUnit.JavaTrailCamConfigTest" />
         <item itemvalue="Maven.java-trail [clean,compile,install]" />
         <item itemvalue="Application.SampleApplication - continuous mode" />
-        <item itemvalue="JUnit.JavaTrailSystemHelperTest" />
-        <item itemvalue="Maven.claude-ai-mcp [clean,compile,install]" />
       </list>
     </recent_temporary>
   </component>
@@ -765,6 +738,14 @@
       <workItem from="1760986295925" duration="21688000" />
       <workItem from="1761136718510" duration="5801000" />
       <workItem from="1761155068410" duration="29262000" />
+      <workItem from="1761317776941" duration="7461000" />
+      <workItem from="1761466390912" duration="10544000" />
+      <workItem from="1761666371480" duration="5383000" />
+      <workItem from="1762158697523" duration="198000" />
+      <workItem from="1762526252700" duration="20969000" />
+      <workItem from="1762944550690" duration="5789000" />
+      <workItem from="1763130973385" duration="19219000" />
+      <workItem from="1764063085436" duration="2948000" />
     </task>
     <servers />
   </component>
@@ -1200,21 +1181,6 @@
           <option name="timeStamp" value="385" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/addons/claude-ai-mcp/src/main/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxy.java</url>
-          <line>162</line>
-          <option name="timeStamp" value="386" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/addons/claude-ai-mcp/src/main/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxy.java</url>
-          <line>159</line>
-          <option name="timeStamp" value="387" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/addons/claude-ai-mcp/src/main/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxy.java</url>
-          <line>157</line>
-          <option name="timeStamp" value="388" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java</url>
           <line>147</line>
           <option name="timeStamp" value="389" />
@@ -1223,21 +1189,6 @@
           <url>file://$PROJECT_DIR$/client/src/main/java/org/onestonesoup/client/OpenForumClient.java</url>
           <line>148</line>
           <option name="timeStamp" value="391" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/addons/claude-ai-mcp/src/main/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxy.java</url>
-          <line>166</line>
-          <option name="timeStamp" value="392" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/addons/claude-ai-mcp/src/main/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxy.java</url>
-          <line>170</line>
-          <option name="timeStamp" value="393" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/addons/claude-ai-mcp/src/main/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxy.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="394" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/addons/claude-ai-mcp/src/test/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxyTest.java</url>

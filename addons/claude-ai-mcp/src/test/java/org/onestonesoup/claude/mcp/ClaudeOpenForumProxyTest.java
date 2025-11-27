@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-//@Disabled
+@Disabled("Requires live OpenForum server")
 public class ClaudeOpenForumProxyTest {
 
     private String remoteHost;

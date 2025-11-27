@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenForum Static File Delivery — Narrative & Implementation Crosswalk</title>
+<style>
+body {
+  background: #0b0d10;
+  color: #e7ecf3;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+.wrap {
+  max-width: 1100px;
+  padding: 40px 24px 80px;
+  margin: 0 auto;
+}
+h1 {
+  color: #8fd3f4;
+  margin-top: 0;
+}
+h2 {
+  color: #7ad3a8;
+  margin-bottom: 0.6em;
+}
+h3 {
+  color: #9ecdea;
+  margin-top: 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 32px;
+}
+th, td {
+  background: #12161b;
+  border: 1px solid #1c2733;
+  padding: 18px 22px;
+  vertical-align: top;
+}
+th {
+  background: #16202a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: #9ab4c8;
+}
+td.section {
+  width: 60%;
+}
+td.refs {
+  width: 40%;
+  background: #141a21;
+}
+a {
+  color: #4fb3d8;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+code {
+  background: rgba(79, 179, 216, 0.12);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+ul, ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.muted {
+  color: #738290;
+  font-size: 0.92em;
+  margin-top: 8px;
+}
+table tr:nth-child(even) td {
+  background: #10161c;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>OpenForum Static File Delivery — Narrative & Implementation Crosswalk</h1>
+<p>This crosswalk follows the OpenForum server’s Java execution path from bootstrap through request intake and routing to the point where a static resource is streamed back to the client, pairing each narrative step with the concrete classes and methods that implement it.</p>
+<table>
+<thead>
+<tr>
+<th>Specification Narrative</th>
+<th>Implementation References</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="section">
+<section id="section-1">
+<h2>1. Controller Bootstrap & Resource Stores</h2>
+<p>The JVM entry point loads a JSON runtime descriptor, instantiates one <code>OpenForumController</code> per host declared in the <a href="#cfg-domains"><code>domains</code></a> array, and wires optional redirect-only hosts. HTTP/HTTPS listeners are created from <a href="#cfg-http-port"><code>ports.http</code></a> (and the TLS counterparts when present) while concurrency caps honour <a href="#cfg-thread-limits"><code>maxThreads</code></a> and <code>maxThreadTime</code>.</p>
+<p>Each controller initialises its plugin/mime state, then constructs a <code>Router</code> that embeds an <code>OpenForumFileServer</code>. That file server exposes a <code>ResourceStore</code> scoped to the controller’s root so subsequent static asset lookups resolve against the correct tenant.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/server/OpenForumServer.java:56">OpenForumServer.java:56</a> — Parses config JSON, spawns controllers, and captures port/thread settings.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/server/OpenForumServer.java:136">OpenForumServer.java:136</a> — <code>initControllers</code> maps hosts to controllers or redirectors.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/controller/OpenForumController.java:1221">OpenForumController.java:1221</a> — <code>initialise()</code> loads MIME metadata, builds the router, and configures security hooks.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/filemanager/OpenForumFileServer.java:20">OpenForumFileServer.java:20</a> — Wraps the controller’s <code>ResourceStore</code> and MIME table for later static lookups.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-2">
+<h2>2. Request Normalisation & Controller Selection</h2>
+<p><code>RequestProcessor</code> is registered as the <code>HttpHandler</code> for “/”. For each exchange it canonicalises the URI, lowercases the HTTP method, copies headers (authorization, content metadata, cookies), and expands both query-string and URL-encoded POST bodies into the <code>HttpHeader</code> tree that downstream code consumes.</p>
+<p>Once the host header is known, the processor resolves the matching controller (or a default redirect) and wraps the <code>HttpExchange</code> in a <code>ClientConnection</code> so that routing code can stay servlet-agnostic. The fully-populated header and connection are then handed to the controller’s router.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/server/RequestProcessor.java:30">RequestProcessor.java:30</a> — Builds the <code>HttpHeader</code> tree, decodes query/form payloads, and attaches cookies.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/server/OpenForumServer.java:101">OpenForumServer.java:101</a> — Provides <code>getController</code>/<code>getRedirector</code> lookups keyed by host.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/server/ClientConnection.java:43">ClientConnection.java:43</a> — Adapts <code>HttpExchange</code> into the server’s connection interface for downstream streaming.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-3">
+<h2>3. Routing Decisions & Static Target Resolution</h2>
+<p>The router performs early policy checks—HTTPS enforcement, page/parameter redirects, and authentication via the controller’s configured <code>Authenticator</code>. It also honours regex-based dynamic page rewrites before deciding whether the request should execute page scripts or fall back to file serving.</p>
+<p>When a static asset is needed, <code>sendFile</code> derives the canonical page/file names. Wiki-style paths are converted with <code>OpenForumNameHelper.titleToWikiName</code>, a missing extension defaults to <code>page.html</code>, and the resolved page/file pair is authorised through the controller’s <code>Authorizer</code> to prevent leakage across tenants.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/router/Router.java:231">Router.java:231</a> — Core <code>route</code> method covering HTTPS redirects, dynamic rewrites, and auth hand-offs.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/router/Router.java:563">Router.java:563</a> — <code>sendFile</code> transforms the request into concrete page/file targets and enforces read permissions.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/OpenForumNameHelper.java:56">OpenForumNameHelper.java:56</a> — Provides the wiki-title conversion used to map friendly URLs to stored pages.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-4">
+<h2>4. Response Headers, Conditional GETs & Streaming</h2>
+<p>After confirming the resource exists, the router evaluates the optional <code>If-Modified-Since</code> header to return a 304 when appropriate; otherwise it stamps <code>content-length</code>, <code>last-modified</code>, <code>expires</code>, and cache-control metadata before initiating the transfer.</p>
+<p><code>OpenForumFileServer</code> selects the correct MIME type, sets the response length, and streams the bytes via <code>ClientConnection</code>, with hooks for gzip compression (currently disabled). <code>HttpResponseHeader</code> encapsulates header emission, including session cookies propagated from the request context.</p>
+<p class="muted">Compression is hard-coded off by forcing <code>compress = false</code>, so Accept-Encoding negotiation is not yet honoured even though the plumbing is present (Router.java:717-721).</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/router/Router.java:636">Router.java:636</a> — Handles 404 fallback, conditional GET evaluation, and cache header composition.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/transaction/HttpResponseHeader.java:7">HttpResponseHeader.java:7</a> — Centralises status codes, headers, and cookie propagation.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/filemanager/OpenForumFileServer.java:86">OpenForumFileServer.java:86</a> — Streams resources, chooses MIME types, and (optionally) gzip-compresses payloads.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/server/ClientConnection.java:57">ClientConnection.java:57</a> — Sends headers/body on top of <code>HttpExchange</code> and tracks per-request status.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-5">
+<h2>5. Error Hooks & Observability</h2>
+<p>Missing files trigger a 404 response plus execution of <code>OpenForum/Page404/hook.sjs</code> when present, allowing instrumentation or custom messaging. The router logs each 404 and successful transfer through the controller’s logger for traceability.</p>
+<p>Unexpected exceptions funnel through <code>do500</code>, which reruns the site’s <code>PAGE_500/get.sjs</code> to render a diagnostic page with the captured exception string before logging the failure.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/router/Router.java:526">Router.java:526</a> — <code>do500</code> helper executes the error template with injected exception context.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/router/Router.java:646">Router.java:646</a> — 404 branch invokes optional hook scripts and logs the miss.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/filemanager/OpenForumFileServer.java:95">OpenForumFileServer.java:95</a> — Falls back to the 404 page and supplies default content type when the asset is absent.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-6">
+<h2>6. Configuration Anchors</h2>
+<ul>
+<li id="cfg-domains"><code>domains</code>: Maps hostnames to content roots and optional redirect targets, determining which controller/resource store handles a request.</li>
+<li id="cfg-http-port"><code>ports.http</code> (and optional <code>ports.https</code>): Defines the listener ports used when binding <code>HttpServer</code>/<code>HttpsServer</code>.</li>
+<li id="cfg-thread-limits"><code>maxThreads</code> &amp; <code>maxThreadTime</code>: Sets the upper bound and timeout window enforced by <code>ServerRequestExecuter</code>.</li>
+</ul>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/test/resources/config.json:1">src/test/resources/config.json</a> — Sample runtime descriptor showing domain roots, redirect targets, and port/thread values.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-7">
+<h2>7. Future Enhancements</h2>
+<ul>
+<li>Negotiate compression using <code>Accept-Encoding</code> so static assets can be gzip/deflate encoded when the client supports it.</li>
+<li>Support HTTP range and resume semantics when streaming large binaries from the <code>ResourceStore</code>.</li>
+</ul>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/router/Router.java:717">Router.java:717</a> — The compression branch is stubbed out; respecting request headers would enable negotiated gzip.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=src/main/java/org/onestonesoup/openforum/filemanager/OpenForumFileServer.java:111">OpenForumFileServer.java:111</a> — Streaming currently copies the full resource; extending this method could add range-aware reads.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-8">
+<h2>8. Summary</h2>
+<p>Static file delivery in OpenForum flows from JSON-driven controller bootstrap, through a normalised request envelope, into router logic that resolves wiki-friendly paths, enforces authorisation, and finally streams bytes from the controller’s resource store with cache-aware headers and scripted fallbacks for errors. Each layer is intentionally narrow so that multiple domains can share the same stack while still isolating their content trees.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=README.md">README.md</a> — High-level project overview and operational notes.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>

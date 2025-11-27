@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Claude MCP Add-on — Narrative & Implementation Crosswalk</title>
+<style>
+body {
+  background: #0b0d10;
+  color: #e7ecf3;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+}
+.wrap {
+  max-width: 1100px;
+  padding: 40px 24px 80px;
+  margin: 0 auto;
+}
+h1 {
+  color: #8fd3f4;
+  margin-top: 0;
+}
+h2 {
+  color: #7ad3a8;
+  margin-bottom: 0.6em;
+}
+h3 {
+  color: #9ecdea;
+  margin-top: 0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 32px;
+}
+th, td {
+  background: #12161b;
+  border: 1px solid #1c2733;
+  padding: 18px 22px;
+  vertical-align: top;
+}
+th {
+  background: #16202a;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.85rem;
+  color: #9ab4c8;
+}
+td.section {
+  width: 60%;
+}
+td.refs {
+  width: 40%;
+  background: #141a21;
+}
+a {
+  color: #4fb3d8;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+code {
+  background: rgba(79, 179, 216, 0.12);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+ul, ol {
+  margin: 0;
+  padding-left: 20px;
+}
+.muted {
+  color: #738290;
+  font-size: 0.92em;
+  margin-top: 8px;
+}
+table tr:nth-child(even) td {
+  background: #10161c;
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Claude MCP Add-on — Narrative & Implementation Crosswalk</h1>
+<p>The Claude MCP add-on bridges OpenForum with Anthropic’s Model Context Protocol stack. It ships a Java proxy, HTTP endpoints, rich MCP tool scripts, and an operator console at <code>/OpenForum/AddOn/ClaudeMCP</code> so Claude Desktop or other MCP clients can reach OpenForum resources safely.</p>
+<table>
+<thead>
+<tr>
+<th>Specification Narrative</th>
+<th>Implementation References</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="section">
+<section id="section-1">
+<h2>1. MCP Proxy Runtime & Connectivity</h2>
+<p>The add-on relies on <code>ClaudeOpenForumProxy</code> to run alongside Claude Desktop. The proxy authenticates with OpenForum, streams JSON-RPC requests from stdin, and relays them to the add-on’s <code>action=handleRequest</code> endpoint. Responses get mirrored back to stdout while significant events are appended to a local log for diagnostics.</p>
+<p>The proxy keeps a shared Rhino <code>JavascriptEngine</code> instance to parse JSON payloads and normalises “notification” calls by returning <code>null</code> when the MCP contract signals no reply. Version metadata is resolved from the packaged pom so the desktop helper can display build provenance.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=addons/claude-ai-mcp/src/main/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxy.java">ClaudeOpenForumProxy.java</a> — Sets up <code>OpenForumClient</code>, reads streamed MCP requests, and handles logging/versioning.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=addons/claude-ai-mcp/src/test/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxyTest.java">ClaudeOpenForumProxyTest.java</a> — Remote-integration style tests for <code>initialize</code>, <code>tools/list</code>, <code>resources/list</code>, and notification semantics.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=addons/claude-ai-mcp/pom.xml">pom.xml</a> — Declares OpenForum client, Rhino, and assembly plugins for jar-with-dependencies distribution.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-2">
+<h2>2. HTTP Endpoints & Service Definition</h2>
+<p><code>get.sjs</code> and <code>post.sjs</code> form the MCP surface area. They authenticate requests, marshal JSON-RPC payloads, and route them through tool dispatchers documented in <code>service-definition-config.json</code>. Pre-built service-definition fragments (HTML and wiki) keep the external contract in sync with Claude Desktop’s expectations while the <code>Direct</code> child page exposes a raw MCP API explorer.</p>
+<p>A collection of sample payloads (<code>example-request.json</code>, <code>example-response.json</code>, tool and resource lists) help operators validate connectivity and provide templates for new tool authors.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/get.sjs">get.sjs</a> / <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/post.sjs">post.sjs</a> — Process JSON-RPC requests and notifications from the proxy.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/service-definition-config.json">service-definition-config.json</a> — Declarative map from MCP method to handler script.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/service-definition.html.fragment">service-definition.html.fragment</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/service-definition.wiki.fragment">service-definition.wiki.fragment</a> — Published documentation of supported MCP methods.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/example-requests.json">example-requests.json</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/example-response.json">example-response.json</a> — Canonical payloads for testing interoperability.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-3">
+<h2>3. Tool Dispatchers & Prompt Libraries</h2>
+<p>The add-on bundles a suite of MCP tools implemented as server-side SJS modules. <code>ClaudeTool.sjs</code> coordinates tool registration while specialised helpers provide functionality ranging from Git operations and Java compilation (<code>GitTool.sjs</code>, <code>JavaTool.sjs</code>) to speech synthesis (<code>EnhancedSpeechTool.sjs</code>) and system diagnostics.</p>
+<p>Complementary prompt scripts (<code>MCPToolDeveloperPrompt.sjs</code>, <code>JavaCodeReviewPrompt.sjs</code>, <code>SystemDiagnosticsPrompt.sjs</code>) encapsulate reusable instructions that Claude Desktop can inject into conversations, ensuring tool responses follow established narratives.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/ClaudeTool.sjs">ClaudeTool.sjs</a> — Entry point wiring MCP tool metadata to runtime handlers.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/GitTool.sjs">GitTool.sjs</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/JavaTool.sjs">JavaTool.sjs</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/EnhancedSpeechTool.sjs">EnhancedSpeechTool.sjs</a> — Concrete tool implementations surfaced to Claude.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/MCPDevTool.sjs">MCPDevTool.sjs</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/MCPDebugTool.sjs">MCPDebugTool.sjs</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/DebugTool.sjs">DebugTool.sjs</a> — Utilities for debugging, restarting MCP sessions, and developing new tools.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/JavaCodeReviewPrompt.sjs">JavaCodeReviewPrompt.sjs</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/MCPToolDeveloperPrompt.sjs">MCPToolDeveloperPrompt.sjs</a> — Prompt scaffolds provided to Claude for consistent responses.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-4">
+<h2>4. Resource Providers & MCP Data Surfaces</h2>
+<p>To serve Claude Desktop’s <code>resources/*</code> requests, the add-on exposes curated resource handlers. <code>ProjectFilesResource.sjs</code> scans the workspace, <code>SystemLogsResource.sjs</code> streams relevant logs, and <code>ToolDirectoryResource.sjs</code> reveals available MCP tools. Supporting JSON files (<code>tool-list.json</code>, <code>tool-list-remote.json</code>, <code>resource-list.json</code>) provide static fallbacks and seed data for discovery.</p>
+<p>Queue introspection and restart flows rely on <code>queueChecker.sjs</code>, <code>PreRestartSave.sjs</code>, and <code>DocumentationGenerator.sjs</code>, letting Claude orchestrate OpenForum maintenance tasks before prompting a restart.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/ProjectFilesResource.sjs">ProjectFilesResource.sjs</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/SystemLogsResource.sjs">SystemLogsResource.sjs</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/ToolDirectoryResource.sjs">ToolDirectoryResource.sjs</a> — Resource handlers consumed via <code>resources/list</code>.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/tool-list.json">tool-list.json</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/tool-list-remote.json">tool-list-remote.json</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/resource-list.json">resource-list.json</a> — Static manifests mirroring MCP discovery replies.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/queueChecker.sjs">queueChecker.sjs</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/PreRestartSave.sjs">PreRestartSave.sjs</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/DocumentationGenerator.sjs">DocumentationGenerator.sjs</a> — Operational helpers invoked via MCP to monitor queues and capture context before restarts.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-5">
+<h2>5. Operator Console & Front-end Assets</h2>
+<p>The add-on page doubles as a hub for operators. The hero panel exposes launch buttons, restart hooks, and documentation links; the status section pulls queue health via MCP endpoints. <code>ClaudeClient.js</code> handles UI actions (desktop restarts, queue tests) while <code>claude-style.css</code> provides the dark, card-based aesthetic shared across subsections.</p>
+<p>Quick links route to embedded manuals such as the Quick Reference guide, the MCP tool creation tutorial, content generation notes, and Giraffe.js documentation for graphics-driven outputs.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/page.html">page.html</a> — Landing page wiring quick actions, monitoring widgets, and documentation links.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/page.js">page.js</a> — Boots client-side behaviour, including queue polling and restart triggers.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/ClaudeClient.js">ClaudeClient.js</a> — Browser helper that issues MCP calls (restart Claude Desktop, run queue check) from UI buttons.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/claude-style.css">claude-style.css</a> — Centralised styling for hero banners, cards, and status widgets.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-6">
+<h2>6. Documentation, Examples & Packaging</h2>
+<p>The add-on ships ready-to-use manuals (<code>HowToCreateAndWorkWithMCPTools.md</code>, <code>OpenForumContentGenerationNotes</code>) and reference archives (<code>ClaudeMCP.wiki.zip</code>) so tool authors can bootstrap new interactions. <code>IMPLEMENTATION-SUMMARY.md</code>, <code>REMOTE-DEPLOYMENT.md</code>, and <code>REMOTE-MODE-QUICKSTART.txt</code> capture runbooks for deploying the proxy or configuring remote agents.</p>
+<p>Example prompt bundles (<code>prompt-list.json</code>, <code>example-prompts.json</code>) and service-definition configs ensure the Claude Desktop integration stays deterministic across environments.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/HowToCreateAndWorkWithMCPTools.md">HowToCreateAndWorkWithMCPTools.md</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/IMPLEMENTATION-SUMMARY.md">IMPLEMENTATION-SUMMARY.md</a> — Human-readable guides for MCP development.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/prompt-list.json">prompt-list.json</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/example-prompts.json">example-prompts.json</a> — Curated prompt sets referenced by Claude Desktop.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/ClaudeMCP.wiki.zip">ClaudeMCP.wiki.zip</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/REMOTE-DEPLOYMENT.md">REMOTE-DEPLOYMENT.md</a> — Offline docs and deployment notes bundled with the add-on.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="configuration">
+<h2>Configuration Appendix</h2>
+<p>The add-on keeps most configuration data in JSON attachments that the MCP proxy consumes during registration.</p>
+<ul>
+<li><code>tool-list.json</code> / <code>tool-list-remote.json</code> — Tool manifests advertised during <code>tools/list</code>.</li>
+<li><code>resource-list.json</code> — Resource descriptors surfaced through <code>resources/list</code>.</li>
+<li><code>service-definition-config.json</code> — Global registry mapping MCP method names to handler scripts.</li>
+<li><code>get-service-definition-config.json</code>, <code>post-service-definition-config.json</code> — Method-specific configurations used by entry-point scripts.</li>
+</ul>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/get-service-definition-config.json">get-service-definition-config.json</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/post-service-definition-config.json">post-service-definition-config.json</a> — Split configuration for GET/POST MCP handlers.</li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/tool-list.json">tool-list.json</a>, <a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/resource-list.json">resource-list.json</a> — JSON manifests enumerating MCP tools and resources.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="section-7">
+<h2>7. Future Enhancements</h2>
+<ul>
+<li>Automate regeneration of <code>tool-list*</code> manifests from the active tool scripts to avoid drift.</li>
+<li>Expose richer health telemetry (latency, error rates) alongside the message queue monitor to improve desktop troubleshooting.</li>
+<li>Add regression tests for each server-side tool script to catch breaking changes before publishing new proxy builds.</li>
+</ul>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li class="muted">Tracking TBD — capture in <code>IMPLEMENTATION-SUMMARY.md</code> or release backlog for upcoming iterations.</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td class="section">
+<section id="summary">
+<h2>8. Summary</h2>
+<p>The Claude MCP add-on provides a full-stack bridge between OpenForum and Claude Desktop: a Java proxy streams MCP traffic, server endpoints dispatch to tool-specific scripts, resource providers expose project data, and an operator console centralises monitoring and documentation. Keeping manifests auto-generated, expanding health telemetry, and strengthening automated tests will preserve reliability as new MCP tools and runtime features arrive.</p>
+</section>
+</td>
+<td class="refs">
+<h3>Key Implementation</h3>
+<ul>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=addons/claude-ai-mcp/src/main/java/org/onestonesoup/claude/mcp/ClaudeOpenForumProxy.java">ClaudeOpenForumProxy.java</a></li>
+<li><a href="jetbrains://idea/navigate/reference?project=open-forum&path=content/source/OpenForum/AddOn/ClaudeMCP/page.html">/OpenForum/AddOn/ClaudeMCP/page.html</a></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</body>
+</html>
