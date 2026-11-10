@@ -15,8 +15,8 @@ mvn clean package
 
 Artifacts:
 
-- `target/java-trail-openforum-1.5.0.jar`: thin adapter; supply Java Trail and its runtime dependencies separately.
-- `target/java-trail-openforum-1.5.0-plugin.jar`: adapter with Java Trail and core dependencies bundled for plugin installation. It deliberately excludes the OpenForum server and its provided dependencies.
+- `target/java-trail-openforum-1.6.0.jar`: thin adapter; supply Java Trail and its runtime dependencies separately.
+- `target/java-trail-openforum-1.6.0-plugin.jar`: adapter with Java Trail and core dependencies bundled for plugin installation. It deliberately excludes the OpenForum server and its provided dependencies.
 
 Install the `-plugin.jar` using your normal OpenForum plugin workflow. Replace the old combined java-trail JAR rather than leaving both versions on the classpath. No server JAR or page configuration has been changed or deployed by this extraction. Restart/reload using your usual plugin procedure.
 
@@ -33,4 +33,8 @@ Existing OpenForum scripts can continue to call their current methods. Traces/co
 
 ## Tests
 
-`mvn test` runs the existing helper session/status/stop tests and tests for API registration class names, legacy method return types, inherited debugger operations and JSON error contracts. Engine tests run in the independent project. A library dependency on `org.onestonesoup:java-trail:1.5.0` is required; the standalone executable's `cli` classifier is not used as a library.
+`mvn test` runs the existing helper session/status/stop tests and tests for API registration class names, legacy method return types, inherited debugger operations and JSON error contracts. Engine tests run in the independent project. A library dependency on `org.onestonesoup:java-trail:1.6.0` is required; the standalone executable's `cli` classifier is not used as a library.
+
+Java Trail 1.6.0 adds bounded sessions, reliable debugger cleanup, late-class watches and CLI/offline walkthrough reports. Legacy adapter class and method signatures remain available. See the standalone README for the new options.
+
+The helper reads trace JSON through the standalone codec, preserving commas, brackets, escapes and Unicode in messages. Explicit `failed` results become FAILED sessions; truncated traces retain the compatible COMPLETED state with a partial-data message.

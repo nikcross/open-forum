@@ -6,7 +6,7 @@
 
     <groupId>org.onestonesoup</groupId>
     <artifactId>java-trail-openforum</artifactId>
-    <version>1.5.0</version>
+    <version>1.6.0</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.onestonesoup</groupId>
             <artifactId>java-trail</artifactId>
-            <version>1.5.0</version>
+            <version>1.6.0</version>
         </dependency>
         <dependency>
             <groupId>org.onestonesoup</groupId>

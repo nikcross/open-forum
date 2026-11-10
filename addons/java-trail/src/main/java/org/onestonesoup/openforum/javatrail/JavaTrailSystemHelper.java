@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import com.sun.jdi.connect.IllegalConnectorArgumentsException;
 
 import org.onestonesoup.core.data.EntityTree;
-import org.onestonesoup.core.data.JsonHelper;
+import org.onestonesoup.javatrail.TrailJson;
 import org.onestonesoup.openforum.messagequeue.MessageQueue;
 import org.onestonesoup.openforum.messagequeue.MessageQueueManager;
 import org.onestonesoup.openforum.plugin.SystemAPI;
@@ -76,15 +76,18 @@ public class JavaTrailSystemHelper extends SystemAPI {
                     EntityTree.TreeEntity root = null;
                     boolean timedOut = false;
                     try {
-                        root = JsonHelper.parseObject("javaTrailCamTrace", json.trim()).getRoot();
+                        root = TrailJson.parseObject("javaTrailCamTrace", json.trim()).getRoot();
                         timedOut = Boolean.parseBoolean(valueOf(root, "timedOut"));
                     } catch (Exception parseEx) {
                         post(queue, sessionId, "Failed to parse trace JSON for status: " + parseEx.getMessage());
                     }
-                    if (timedOut) {
+                    if (root == null || Boolean.parseBoolean(valueOf(root, "failed"))) {
+                        session.updateState(SessionState.FAILED, root == null ? "Invalid trace JSON" : valueOf(root, "completionReason"), false);
+                    } else if (timedOut) {
                         session.updateState(SessionState.TIMED_OUT, "Trace completed with timeout", true);
                     } else {
-                        session.updateState(SessionState.COMPLETED, "Trace completed successfully", false);
+                        session.updateState(SessionState.COMPLETED,
+                                Boolean.parseBoolean(valueOf(root, "truncated")) ? "Trace reached event limit; partial data" : "Trace completed successfully", false);
                     }
                     post(queue, sessionId, "JavaTrailCam session finished");
                     publishTrace(sessionId, queue, json, root);
@@ -166,7 +169,7 @@ public class JavaTrailSystemHelper extends SystemAPI {
         try {
             EntityTree.TreeEntity root = preParsedRoot != null
                     ? preParsedRoot
-                    : JsonHelper.parseObject("javaTrailCamTrace", json.trim()).getRoot();
+                    : TrailJson.parseObject("javaTrailCamTrace", json.trim()).getRoot();
 
             post(queue, sessionId, "Trace JSON: " + json);
             post(queue, sessionId, "Trace completion reason: " + valueOf(root, "completionReason"));

@@ -1,46 +1,117 @@
-Java Trail extraction verification - 2026-11-10
+Java Trail 1.6.0 improvement verification - 2026-11-10
 
-Environment: OpenJDK 21; Maven 3.6.3; sources compiled with release 11.
-Standalone: mvn -q install - 17 tests passed, no failures/errors/skips.
-Plugin: mvn -q clean package - 5 tests passed, no failures/errors/skips.
+Environment: OpenJDK 21, Maven 3.6.3; Java sources compiled with release 11.
+Installed standalone: mvn -q install - 43 tests passed, zero failures/errors/skips.
+Installed OpenForum adapter: mvn -q clean package - 7 tests passed, zero failures/errors/skips.
+Packaged CLI/JAR scenarios: 26 passed. Chrome desktop/mobile checks: 23 passed.
 
-Independent library: org.onestonesoup:java-trail:1.5.0
-OpenForum adapter: org.onestonesoup:java-trail-openforum:1.5.0
-Retained JSON dependency: org.onestonesoup:core:0.1.4.
-Standalone git repository initialized separately, with no remote configured.
-Existing OpenForum page API class names preserved by thin adapters.
-No running OpenForum server installation/restart performed; page compatibility
-checked through class/method contracts and helper session tests.
-External precompiled Java consumers may require recompilation for moved nested types.
+Changes:
+- Finally-based debugger event resumption, idempotent disconnect, synchronized
+  trace snapshots/terminal state, per-camera concurrent-capture guard.
+- Start-class request filter before capture, selected-thread requests during
+  capture. Full selected-thread call depth preserved across recorded filters.
+- Class-prepare-based field watch waiting; initializer writes captured.
+- Default 100000-event trace bound, explicit truncation metadata, optional JSONL
+  streaming with no-retain mode. Pending field changes bounded at 10000 with a
+  dropped-count API and CLI diagnostics.
+- Named CLI options, overrides/help/version, timed watchers, strict timeout exit
+  3, safe distinct input/output paths and offline report command.
+- Self-contained text/HTML flow walkthroughs styled from the supplied prompt:
+  context, highlights, call/mock summary, narrative/reference table, method counts
+  and inclusive durations, partial-call annotations, encoded IDE links and footer.
+  Mock/override provenance comes exclusively from explicit author declarations.
+- Retained org.onestonesoup:core:0.1.4 EntityTree model. Local strict JSON codec
+  handles commas/quotes/brackets/Unicode/controls/empty arrays and rejects malformed
+  input. Existing trace numbers/booleans remain string-valued.
+- Compatible plugin signatures retained; failed traces report FAILED; truncated
+  traces use COMPLETED with an explicit partial-data message.
 
-During verification, fixed the inherited field watcher to report the declaring
-class and limit stack extraction to available frames. Added a real-JVM regression.
-Made the external-library sample deterministic to avoid UUID startup method-event
-overhead exceeding the existing integration-test timeout. Engine trace semantics
-and JSON configuration/output formats retained. Test outputs now go under target.
+Meaningful failure coverage: injected handler and stream/disk errors, event-set
+resumption, concurrent cancellation/snapshots, idle timeout without debugger
+traffic, target exit before/during capture, late class initializers, high event
+volume, event caps, camera cleanup, connection failure, unsafe HTML/link metadata,
+input/output collision protection and old adapter class/method contracts.
+Expected injected-fault diagnostics appear on stderr during successful tests.
 
-Packaged artifact checks (real local JDWP sample JVMs, separate CLI processes):
-- Packaged CLI exposes both commands
-- Packaged CLI returns exit 2 for a missing configuration
-- Standalone executable contains no OpenForum or Rhino classes
-- Standalone executable bundles core JSON helpers
-- Plugin bundles independent tracing engine
-- Plugin retains legacy server API class
-- Plugin excludes OpenForum server and Rhino classes
-- Plugin has no stale nested engine classes from the former combined build
-- Packaged trace command completes against a real JVM:
-- Packaged trace captures method events and completes without timeout
-- Trace retains completion reason format
-- Packaged trace honors domain filters
-- Relative output path resolves against config directory
-- Packaged watch command captures real field changes
-- Watcher detaches on termination and allows a new debugger connection
+Sample artifacts: examples/sample-trace.json, examples/sample-report.html,
+examples/sample-report.txt, examples/report-metadata.json. The 22 sample events
+were captured from the actual sample JVM; all 22 source/line references checked.
+Mock declarations were not supplied for the sample; reports state unknown status.
+Chrome screenshots are generated under target/report-*.png and target/report-flow-*.png.
+
+Reproduce from standalone root:
+  mvn clean install
+  python3 scripts/verify-packages.py --plugin /home/nik/os-git/open-forum/addons/java-trail/target/java-trail-openforum-1.6.0-plugin.jar
+  node scripts/check-report.cjs
+The plugin argument is optional. Python 3 required for packaged checks; Chrome and
+Node 22+ required for browser checks. These checks start disposable local processes.
+
+Limits: observed timings include debugger overhead; no production profiling or test
+pass/fail outcomes are inferred. IDE project/source paths are author-supplied or
+derived, not resolved from the target JVM. Stream-only captures cannot be rendered
+as reports because events are not retained. OS interruption may leave flushed JSONL
+without a final summary/report. JDK 11 bytecode target checked; runtime tests used 21.
+No running-server plugin installation/restart performed. Existing external binary
+consumers of relocated nested types still require recompilation as noted in 1.5.0.
+
+Packaged checks:
+- Packaged help exposes offline reports
+- Packaged version is 1.6.0
+- Standalone JAR has no OpenForum or Rhino classes
+- Plugin bundles updated standalone engine/report library
+- Plugin retains original helper API
+- Plugin excludes the provided server runtime
+- Capture with named overrides succeeds: Report written to /tmp/java-trail-package-duzaoz48/report.html
+- Packaged trace completes and records domain calls
+- Capture records explicit retention/limit state
+- Capture produces walkthrough-style HTML
+- Offline report creates text tree and counts
+- CLI refuses to overwrite trace input with a report
+- CLI refuses to overwrite configuration with trace output
+- Stream-only mode requires a JSONL sink
+- Report accepts arbitrary metadata as escaped text
+- Report escapes HTML and rejects unsafe link paths
+- Strict timeout returns 3 and writes the JSON result
+- Timed-out tracing leaves target alive
+- Named watcher captures late-class initializer and subsequent field changes
+- JSONL records are valid and respect maxEvents
+- Stream-only capture retains no events and marks truncation
+- Event-limit completion detaches without killing the target
+- Report refuses a summary whose events were not retained
+- Ctrl+C releases debugger so a second watcher can attach
+- Interrupted watcher leaves target JVM alive
+- Connection failure returns exit 1
+
+Chrome checks:
+- desktop: walkthrough title
+- desktop: requested dark palette
+- desktop: no horizontal overflow
+- desktop: one narrative step per observed event
+- desktop: narrative/reference table headings
+- desktop: unknown mock status remains explicit
+- desktop: encoded IDE project/source links
+- desktop: script-free report and closing summary
+- desktop: prompt attribution
+- desktop: references accessible by keyboard
+- mobile: walkthrough title
+- mobile: requested dark palette
+- mobile: no horizontal overflow
+- mobile: one narrative step per observed event
+- mobile: narrative/reference table headings
+- mobile: unknown mock status remains explicit
+- mobile: encoded IDE project/source links
+- mobile: script-free report and closing summary
+- mobile: prompt attribution
+- mobile: references accessible by keyboard
+- Hostile metadata cannot execute HTML or scripts
+- No browser runtime errors
+- Reports make no network requests
 
 Artifact SHA-256:
-e4d23a62fcfb2830128a96bac121aaf1e4ad859aa5bafe69832ddcb529ca4ceb  java-trail-1.5.0.jar
-0b2406d3d3c2bdd2006e3d4bb59e670b64e2c694ee944366d40f8dc15e721a4a  java-trail-1.5.0-cli.jar
-2f81ed381e94e483353df2fff7320a5b162fecc41c16e2a4c6a795988e3cfc6d  java-trail-openforum-1.5.0.jar
-4caeecd14e79cbfd290b44e536f3c39b8ee56237142c87ed7471d9bed42c59da  java-trail-openforum-1.5.0-plugin.jar
+90617aa6f88e7503dd5606ea41e2018ae2fcca2a28ede2aab51d2adeca075499  java-trail-1.6.0.jar
+3bfe613af1ad4f2746ad4df4ebde77b6bb06ee3a94efce9aca05aa531d706e97  java-trail-1.6.0-cli.jar
+3deffa27553120416026d8a41a3bf1d290adcb15bae0d184c48fe75ffd4e7aed  java-trail-openforum-1.6.0.jar
+a20a2e06abd3dbd9b5373fc6ed28ad8defe18cc9fe0d9b6da0b13bcb2d5159bd  java-trail-openforum-1.6.0-plugin.jar
 
-Tracking: Java Trail / JTR-T-001 in AgileProjectManager.
-Original addon backup: /tmp/java-trail-extract/original-addon.tar.gz
+Tracking: Java Trail / JTR-T-002.
+Original changed-file backup: /tmp/java-trail-improvements/before-1.6.0.tar.gz
