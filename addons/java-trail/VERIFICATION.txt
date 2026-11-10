@@ -1,0 +1,46 @@
+Java Trail extraction verification - 2026-11-10
+
+Environment: OpenJDK 21; Maven 3.6.3; sources compiled with release 11.
+Standalone: mvn -q install - 17 tests passed, no failures/errors/skips.
+Plugin: mvn -q clean package - 5 tests passed, no failures/errors/skips.
+
+Independent library: org.onestonesoup:java-trail:1.5.0
+OpenForum adapter: org.onestonesoup:java-trail-openforum:1.5.0
+Retained JSON dependency: org.onestonesoup:core:0.1.4.
+Standalone git repository initialized separately, with no remote configured.
+Existing OpenForum page API class names preserved by thin adapters.
+No running OpenForum server installation/restart performed; page compatibility
+checked through class/method contracts and helper session tests.
+External precompiled Java consumers may require recompilation for moved nested types.
+
+During verification, fixed the inherited field watcher to report the declaring
+class and limit stack extraction to available frames. Added a real-JVM regression.
+Made the external-library sample deterministic to avoid UUID startup method-event
+overhead exceeding the existing integration-test timeout. Engine trace semantics
+and JSON configuration/output formats retained. Test outputs now go under target.
+
+Packaged artifact checks (real local JDWP sample JVMs, separate CLI processes):
+- Packaged CLI exposes both commands
+- Packaged CLI returns exit 2 for a missing configuration
+- Standalone executable contains no OpenForum or Rhino classes
+- Standalone executable bundles core JSON helpers
+- Plugin bundles independent tracing engine
+- Plugin retains legacy server API class
+- Plugin excludes OpenForum server and Rhino classes
+- Plugin has no stale nested engine classes from the former combined build
+- Packaged trace command completes against a real JVM:
+- Packaged trace captures method events and completes without timeout
+- Trace retains completion reason format
+- Packaged trace honors domain filters
+- Relative output path resolves against config directory
+- Packaged watch command captures real field changes
+- Watcher detaches on termination and allows a new debugger connection
+
+Artifact SHA-256:
+e4d23a62fcfb2830128a96bac121aaf1e4ad859aa5bafe69832ddcb529ca4ceb  java-trail-1.5.0.jar
+0b2406d3d3c2bdd2006e3d4bb59e670b64e2c694ee944366d40f8dc15e721a4a  java-trail-1.5.0-cli.jar
+2f81ed381e94e483353df2fff7320a5b162fecc41c16e2a4c6a795988e3cfc6d  java-trail-openforum-1.5.0.jar
+4caeecd14e79cbfd290b44e536f3c39b8ee56237142c87ed7471d9bed42c59da  java-trail-openforum-1.5.0-plugin.jar
+
+Tracking: Java Trail / JTR-T-001 in AgileProjectManager.
+Original addon backup: /tmp/java-trail-extract/original-addon.tar.gz

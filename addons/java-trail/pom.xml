@@ -5,8 +5,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.onestonesoup</groupId>
-    <artifactId>java-trail</artifactId>
-    <version>1.4.1</version>
+    <artifactId>java-trail-openforum</artifactId>
+    <version>1.5.0</version>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -17,8 +17,19 @@
     <dependencies>
         <dependency>
             <groupId>org.onestonesoup</groupId>
-            <artifactId>javascript</artifactId>
-            <version>1.0.14</version>
+            <artifactId>java-trail</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.onestonesoup</groupId>
+            <artifactId>open-forum.server</artifactId>
+            <version>5.0.9</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.onestonesoup</groupId>
+            <artifactId>core</artifactId>
+            <version>0.1.4</version>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -31,12 +42,6 @@
             <artifactId>mockito-core</artifactId>
             <version>5.11.0</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.onestonesoup</groupId>
-            <artifactId>open-forum.server</artifactId>
-            <version>5.0.9</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
     <build>
@@ -58,17 +63,32 @@
                     <argLine>-Djdk.attach.allowAttachSelf=true</argLine>
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <mainClass>org.onestonesoup.javascript.cli.JavascriptCommandLineInterface</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.2</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals><goal>shade</goal></goals>
+                        <configuration>
+                            <shadedArtifactAttached>true</shadedArtifactAttached>
+                            <shadedClassifierName>plugin</shadedClassifierName>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
