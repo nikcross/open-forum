@@ -1,3 +1,28 @@
+Sticky diagram lane headings verification - 2026-11-12 (JTR-T-005)
+
+Participant boxes now occupy a CSS sticky heading strip within the diagram's
+scroll region. The heading SVG and flow SVG share one fixed-width canvas and
+identical horizontal coordinates. The flow viewBox starts below the heading
+strip; lifelines align without a duplicate header or added JavaScript.
+
+Validation: 50 standalone tests, 7 plugin tests and 39 Chrome checks passed.
+On both desktop/mobile, actual scrollTop=300 moved flow arrows while the heading
+strip retained its top position. Actual scrollLeft=220 shifted headings and all
+lifelines together; every participant center stayed aligned within one pixel.
+Keyboard diagram navigation, no page overflow, no scripts/network/runtime errors
+and the optional mock-section behavior remain verified. Sample HTML regenerated
+through the packaged CLI. Scrolled desktop/mobile screenshots visually reviewed:
+target/report-sticky-desktop.png and target/report-sticky-mobile.png.
+No running-server deployment. Latest standalone/plugin artifacts rebuilt.
+
+Current artifact SHA-256:
+a4d875c195602a73acd9ecb4a6e92381f0cdf5422f67876c8e6c8fe1aedf28cb  java-trail-1.6.0.jar
+f46cf83158f81c3de604bf33d3220d5ebedb22dba15fd92900ba03ec19d8bdb9  java-trail-1.6.0-cli.jar
+3deffa27553120416026d8a41a3bf1d290adcb15bae0d184c48fe75ffd4e7aed  java-trail-openforum-1.6.0.jar
+29b398a48207041d534ef704d9c57be2663bdd266e7b2edced4b40fd2d6628a2  java-trail-openforum-1.6.0-plugin.jar
+
+Earlier verification (historical):
+
 Interaction diagram verification - 2026-11-12 (JTR-T-004)
 
 HTML reports now include an offline, script-free SVG sequence diagram. Class
