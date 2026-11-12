@@ -35,7 +35,7 @@ public abstract class Trigger {
 		public void run()
 		{
 			try{
-				js.runJavascript(fileName,script);
+				js.runCachedJavascript(fileName,script);
 			}
 			catch(Throwable th)
 			{

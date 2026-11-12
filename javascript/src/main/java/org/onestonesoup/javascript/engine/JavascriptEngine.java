@@ -2,7 +2,9 @@ package org.onestonesoup.javascript.engine;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -10,6 +12,7 @@ import org.mozilla.javascript.Context;
 import org.mozilla.javascript.ContextFactory;
 import org.mozilla.javascript.EcmaError;
 import org.mozilla.javascript.EvaluatorException;
+import org.mozilla.javascript.Script;
 import org.mozilla.javascript.Scriptable;
 import org.mozilla.javascript.ScriptableObject;
 import org.mozilla.javascript.WrappedException;
@@ -95,6 +98,54 @@ public class JavascriptEngine {
 	private JsContextFactory jsContextFactory = new JsContextFactory();
 	private Context jsContext;
 	private Scriptable jsScope;
+
+	/*
+	 * OFS (TT-B-011): every request gets a new JavascriptEngine, so before this cache each request
+	 * parsed and compiled its page script and every library it loaded (js.getObject) again - about
+	 * 200 to 250 ms a request for the bigger applications. Compiled scripts don't hold a scope, so
+	 * one compiled from the same source text with the same compiler settings is reused, and only
+	 * run again in the new engine's own scope: each request still gets its own fresh objects and
+	 * state, exactly as before. The key is the source text itself, so an edited file is compiled
+	 * afresh the next time it is run. Least recently used scripts are dropped beyond
+	 * SCRIPT_CACHE_SIZE. Only callers that run the same text again and again (page scripts,
+	 * triggers, plugin initialisers, js.getObject libraries) use it, through runCachedJavascript and
+	 * evaluateCachedJavascript; one-off text (JSON parsing, the command line) is compiled as before.
+	 * Set the system property openforum.javascript.scriptCacheSize to 0 to turn it off.
+	 */
+	private static final int SCRIPT_CACHE_SIZE = Integer.getInteger("openforum.javascript.scriptCacheSize", 256);
+	private static final String SOURCE_NAME = "Javascript Engine";
+	private static final Map<String, Script> scriptCache = Collections.synchronizedMap(
+			new LinkedHashMap<String, Script>(64, 0.75f, true) {
+				private static final long serialVersionUID = 1L;
+
+				@Override
+				protected boolean removeEldestEntry(Map.Entry<String, Script> eldest) {
+					return size() > SCRIPT_CACHE_SIZE;
+				}
+			});
+
+	// Compiles script in context, or reuses the copy compiled earlier from the same text with the
+	// same compiler settings (optimisation level and instruction counting both change the code).
+	private static Object evaluate(Context context, Scriptable scope, String script, boolean useCache) {
+		if (!useCache || SCRIPT_CACHE_SIZE <= 0) {
+			return context.evaluateString(scope, script, SOURCE_NAME, 1, null);
+		}
+		String key = context.getOptimizationLevel() + ":" + (context.getInstructionObserverThreshold() != 0) + ":" + script;
+		Script compiled = scriptCache.get(key);
+		if (compiled == null) {
+			compiled = context.compileString(script, SOURCE_NAME, 1, null);
+			scriptCache.put(key, compiled);
+		}
+		return compiled.exec(context, scope);
+	}
+
+	public static int getScriptCacheEntries() {
+		return scriptCache.size();
+	}
+
+	public static void clearScriptCache() {
+		scriptCache.clear();
+	}
 
 	public class JavascriptProcessThread implements Runnable {
 		private String fileName;
@@ -266,7 +317,13 @@ public class JavascriptEngine {
 
 	public String runJavascript(String fileName, String script)
 			throws Throwable {
-		return runJavascript(fileName, script, null, null, null);
+		return runJavascript(fileName, script, null, null, null, false);
+	}
+
+	// As runJavascript, reusing the compiled script when the same text was run before (see scriptCache).
+	public String runCachedJavascript(String fileName, String script)
+			throws Throwable {
+		return runJavascript(fileName, script, null, null, null, true);
 	}
 
 	public String runJavascript(
@@ -275,6 +332,17 @@ public class JavascriptEngine {
 			final Integer maximumInstruactions,
 			final Integer maximumTime,
 			JsContext context
+	) throws Throwable {
+		return runJavascript(fileName, script, maximumInstruactions, maximumTime, context, false);
+	}
+
+	private String runJavascript(
+			String fileName,
+			String script,
+			final Integer maximumInstruactions,
+			final Integer maximumTime,
+			JsContext context,
+			boolean useCache
 	) throws Throwable {
 		try {
 			if(context==null) {
@@ -305,8 +373,7 @@ public class JavascriptEngine {
 			}
 
 			jsContextFactory.enterContext(jsContext);
-			return Context.toString(jsContext.evaluateString(jsScope, script,
-					"Javascript Engine", 1, null));
+			return Context.toString(evaluate(jsContext, jsScope, script, useCache));
 		} catch (WrappedException we) {
 			String trace = StringHelper.arrayToString(
 					ExceptionHelper.getTrace(we.getWrappedException()), "\n");
@@ -344,13 +411,23 @@ public class JavascriptEngine {
 
 	public Object evaluateJavascript(String fileName, String script)
 			throws Throwable {
+		return evaluateJavascript(fileName, script, false);
+	}
+
+	// As evaluateJavascript, reusing the compiled script when the same text was run before (see scriptCache).
+	public Object evaluateCachedJavascript(String fileName, String script)
+			throws Throwable {
+		return evaluateJavascript(fileName, script, true);
+	}
+
+	private Object evaluateJavascript(String fileName, String script, boolean useCache)
+			throws Throwable {
 		try {
 			jsContext = Context.enter(); //jsContextFactory.createContext();
 			//jsContext.resetStartTime();
 			//jsContext.setMaximumScriptTime(-1);
 			jsContextFactory.enterContext(jsContext);
-			return jsContext.evaluateString(jsScope, script,
-					"Javascript Engine", 1, null);
+			return evaluate(jsContext, jsScope, script, useCache);
 		} catch (WrappedException we) {
 			String trace = StringHelper.arrayToString(
 					ExceptionHelper.getTrace(we.getWrappedException()), "\n");

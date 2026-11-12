@@ -11,7 +11,7 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.Map;
 import java.util.Properties;
 
@@ -21,7 +21,28 @@ import org.onestonesoup.openforum.plugin.SystemAPI;
 
 public class DatabaseAPI extends SystemAPI {
 
-	private Map<String, Connection> connections = new HashMap<String, Connection>();
+	// OFS (TT-B-011): a small pool of connections per alias instead of one shared by every request
+	// (see ConnectionPool). Sizes can be set with system properties.
+	private static final int POOL_SIZE = Integer.getInteger("openforum.sql.poolSize", 4);
+	private static final long BORROW_WAIT_MILLIS = Long.getLong("openforum.sql.borrowWaitMillis", 30000L);
+	private static final long CHECK_AFTER_IDLE_MILLIS = Long.getLong("openforum.sql.checkAfterIdleMillis", 30000L);
+	private static final int CHECK_TIMEOUT_SECONDS = Integer.getInteger("openforum.sql.checkTimeoutSeconds", 5);
+
+	private Map<String, ConnectionPool> connections = new ConcurrentHashMap<String, ConnectionPool>();
+
+	private void addPool(String alias, ConnectionPool.ConnectionFactory factory) throws Exception {
+		ConnectionPool pool = new ConnectionPool(alias, factory, POOL_SIZE, BORROW_WAIT_MILLIS,
+				CHECK_AFTER_IDLE_MILLIS, CHECK_TIMEOUT_SECONDS);
+		pool.start();
+		ConnectionPool old = connections.put(alias, pool);
+		if (old != null) old.close();
+	}
+
+	private ConnectionPool getPool(String alias) throws SQLException {
+		ConnectionPool pool = connections.get(alias);
+		if (pool == null) throw new SQLException("No database connection for alias " + alias);
+		return pool;
+	}
 
 	public void registerDriver(String driverName, String pageName,
 			String jarFileName) throws Exception {
@@ -50,24 +71,28 @@ public class DatabaseAPI extends SystemAPI {
 		}*/
 	}
 
-	public void createAdminConnection(String url, String password)
+	public void createAdminConnection(final String url, String password)
 			throws Exception {
-		Properties info = new java.util.Properties();
+		final Properties info = new java.util.Properties();
 		info.put("user", "sys");
 		info.put("password", password);
 		info.put("internal_logon", "sysdba");
 
-		Connection connection = DriverManager.getConnection(url, info);
-		connections.put("admin", connection);
+		addPool("admin", new ConnectionPool.ConnectionFactory() {
+			public Connection open() throws Exception {
+				return DriverManager.getConnection(url, info);
+			}
+		});
 	}
 
-	public void createConnection(String alias, String url, String user,
-			String password) throws Exception {
+	public void createConnection(String alias, final String url, final String user,
+			final String password) throws Exception {
 		try{
-		Connection connection = DriverManager
-				.getConnection(url, user, password);
-
-		connections.put(alias, connection);
+			addPool(alias, new ConnectionPool.ConnectionFactory() {
+				public Connection open() throws Exception {
+					return DriverManager.getConnection(url, user, password);
+				}
+			});
 		} catch(Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -80,7 +105,21 @@ public class DatabaseAPI extends SystemAPI {
 
 	private EntityTree queryAsEntityTree(String alias, String query)
 			throws Exception {
-		Connection connection = getConnection(alias);
+		ConnectionPool pool = getPool(alias);
+		Connection connection = pool.borrow();
+		EntityTree table;
+		try {
+			table = queryAsEntityTree(connection, query);
+		} catch (Throwable t) {
+			pool.releaseAfterError(connection);
+			throw t;
+		}
+		pool.release(connection);
+		return table;
+	}
+
+	private EntityTree queryAsEntityTree(Connection connection, String query)
+			throws Exception {
 		PreparedStatement statement = null;
 		ResultSet result = null;
 
@@ -124,38 +163,47 @@ public class DatabaseAPI extends SystemAPI {
 
 			return table;
 		} finally {
-			statement.close();
+			// A statement that failed to prepare is null; closing it used to hide the real error.
+			if (statement != null) statement.close();
 		}
 	}
 
 	public boolean execute(String alias, String executeStatement)
 			throws Exception {
-		Connection connection = getConnection(alias);
-		Statement statement = connection.createStatement();
-
+		ConnectionPool pool = getPool(alias);
+		Connection connection = pool.borrow();
 		try {
-			boolean state = statement.execute(executeStatement);
+			Statement statement = connection.createStatement();
 
-			if (state == true) {
-				connection.commit();
+			try {
+				boolean state = statement.execute(executeStatement);
+
+				if (state == true) {
+					connection.commit();
+				}
+
+				//System.out.println("Database Executed " + executeStatement
+				//		+ " for schema alias " + alias);
+			} finally {
+				statement.close();
 			}
-
-			//System.out.println("Database Executed " + executeStatement
-			//		+ " for schema alias " + alias);
-
-			return true;
-		} finally {
-			statement.close();
+		} catch (Throwable t) {
+			pool.releaseAfterError(connection);
+			throw t;
 		}
-	}
-
-	protected Connection getConnection(String alias) {
-		return (Connection) connections.get(alias);
+		pool.release(connection);
+		return true;
 	}
 
 	public DatabaseMetaData getDatabaseMetaData(String alias)
-			throws SQLException {
-		return ((Connection) connections.get(alias)).getMetaData();
+			throws Exception {
+		ConnectionPool pool = getPool(alias);
+		Connection connection = pool.borrow();
+		try {
+			return connection.getMetaData();
+		} finally {
+			pool.release(connection);
+		}
 	}
 
 	public String[] getConnections() {

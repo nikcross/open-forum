@@ -231,7 +231,7 @@ public class PluginManager{
 				
 				script = "function initialiseSJS() {"+script+"} initialiseSJS();";
 				
-				js.runJavascript(pageName+"/initialise.sjs",script);
+				js.runCachedJavascript(pageName+"/initialise.sjs",script);
 				
 				controller.getLogger().info( "Ran initialise.js for API "+pageName );
 			}
