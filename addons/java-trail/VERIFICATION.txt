@@ -1,3 +1,25 @@
+Report follow-up verification - 2026-11-12 (JTR-T-003)
+
+Absent or empty mockedMethods now omits the mock/override section, default mock
+highlight and per-call unknown-status labels in both HTML and text. HTML uses a
+full-width called-method summary in this case. Supplied declarations retain their
+section and per-call provenance. Sample metadata, HTML/text reports, README and
+browser/package assertions updated.
+
+Current validation: 45 standalone tests, 7 plugin tests, 23 Chrome desktop/mobile
+checks passed. Regression coverage includes absent, empty and supplied declarations.
+The 26 packaged scenarios recorded below belong to the earlier full-release run;
+this focused follow-up regenerated both reports through the packaged CLI and
+rebuilt the standalone and compatible plugin JARs. No server deployment performed.
+
+Current artifact SHA-256:
+9f9be415021c49f9e493245082f90b403d8c83f7e9df62242e7905cb15132da3  java-trail-1.6.0.jar
+3fbf0417c00ec919eaa498e3775280bc2c9b494b1463124560a17ab2ed638a4f  java-trail-1.6.0-cli.jar
+3deffa27553120416026d8a41a3bf1d290adcb15bae0d184c48fe75ffd4e7aed  java-trail-openforum-1.6.0.jar
+b264d87c559b8abd793b8bf313d73a1777ddb38be6d6c51464ec446b46dc84a2  java-trail-openforum-1.6.0-plugin.jar
+
+Earlier release verification (historical):
+
 Java Trail 1.6.0 improvement verification - 2026-11-10
 
 Environment: OpenJDK 21, Maven 3.6.3; Java sources compiled with release 11.
