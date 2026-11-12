@@ -1,3 +1,32 @@
+Interaction diagram verification - 2026-11-12 (JTR-T-004)
+
+HTML reports now include an offline, script-free SVG sequence diagram. Class
+participants show observed entries and recorded exits, including self-calls.
+Arrows link to the corresponding narrative step and include full method/thread
+tooltips. A keyboard-focusable scroll region accommodates desktop/mobile widths.
+Participant legend gives full class names. Filtered depth gaps, unmatched exits
+and separate thread stacks are handled without invented direct callers/returns.
+Missing exits remain missing. Classes represent groups, not object identities.
+The diagram is limited to 80 events/12 participants; any cutoff is explicit and
+the full retained narrative remains available. Text reports are unchanged.
+
+Validated: 50 standalone tests, 7 plugin tests and 31 desktop/mobile Chrome checks
+passed. Semantic tests cover calls/exits, self-calls, per-thread stacks, unknown
+callers, partial traces, event/participant limits, empty traces and SVG escaping.
+Packaged CLI regenerated the sample HTML with 22 sequence arrows. Desktop/mobile
+screenshots visually reviewed; arrow keyboard activation navigates to step 1,
+no document overflow/runtime errors/network requests. Optional mock-section
+omission preserved. Standalone/plugin artifacts rebuilt; no server deployment.
+Screenshots: target/report-diagram-desktop.png and report-diagram-mobile.png.
+
+Current artifact SHA-256:
+1895b01415fad1243087b4510b5886f038af9c42c3f4db59f4b9fc6c7d2423be  java-trail-1.6.0.jar
+6f7bfc36f71dd7f06ece1215d10012372fbd74489cf9fb3362efe144bc859bb6  java-trail-1.6.0-cli.jar
+3deffa27553120416026d8a41a3bf1d290adcb15bae0d184c48fe75ffd4e7aed  java-trail-openforum-1.6.0.jar
+40aa26e08cfa7f2deeb9476b19dad2fd8cc3c5b6b593cb3be73b0dfa72fa3cc9  java-trail-openforum-1.6.0-plugin.jar
+
+Earlier verification (historical):
+
 Report follow-up verification - 2026-11-12 (JTR-T-003)
 
 Absent or empty mockedMethods now omits the mock/override section, default mock
