@@ -20,6 +20,7 @@ import org.onestonesoup.openforum.DataHelper;
 import org.onestonesoup.openforum.controller.OpenForumController;
 import org.onestonesoup.openforum.filemanager.FileManager;
 import org.onestonesoup.openforum.filemanager.Resource;
+import org.onestonesoup.openforum.filemanager.ResourceStore;
 import org.onestonesoup.openforum.javascript.JSONJavaAccess;
 import org.onestonesoup.openforum.javascript.JSONJavaAccess.JSONWrapper;
 import org.onestonesoup.openforum.security.AuthenticationException;
@@ -56,7 +57,7 @@ public class PluginManager{
 	private void updateClassPath(String path) throws Throwable
 	{
 		try{
-			controller.getLogger().info( " Upadateing Class Path" );
+			log( " Upadateing Class Path" );
 			
 			String[] list = path.split(";");
 			boolean update = false;
@@ -64,30 +65,28 @@ public class PluginManager{
 			{
 				if(classPath.get(list[loop])!=null)
 				{
-					long oldTime = classPath.get(list[loop]).timeStamp;
-					long newTime = new File(list[loop]).lastModified();
-					if(oldTime<newTime)
+					if(hasChanged(list[loop]))
 					{
-						controller.getLogger().info( new File(list[loop]).getName()+" CHANGED" );						
+						log( new File(list[loop]).getName()+" CHANGED" );
 						update=true;
 					}
 					else
 					{
-						controller.getLogger().info( new File(list[loop]).getName()+" Unchanged" );						
+						log( new File(list[loop]).getName()+" Unchanged" );
 					}
 					continue;
 				}
 	
 				try{
-					controller.getLogger().info( list[loop]+" NEW" );
-					controller.getLogger().info("Found Jar path to add "+list[loop]);
-					Resource resource = fileManager.getResourceStore(controller.getSystemLogin()).getResource(list[loop]);
+					log( list[loop]+" NEW" );
+					log("Found Jar path to add "+list[loop]);
+					Resource resource = resourceStore().getResource(list[loop]);
 					if(resource==null) continue;
 					classPath.put(
 							list[loop],
 							new ClassPath(
-									fileManager.getResourceStore(controller.getSystemLogin()).getResourceURL(resource),
-									fileManager.getResourceStore(controller.getSystemLogin()).lastModified(resource)
+									resourceStore().getResourceURL(resource),
+									resourceStore().lastModified(resource)
 							)
 						);
 				}
@@ -104,32 +103,32 @@ public class PluginManager{
 			}
 			else
 			{
-				controller.getLogger().info( " No Class Paths to update" );
+				log( " No Class Paths to update" );
 			}
 			
-			controller.getLogger().info( " Upadate Complete" );
+			log( " Upadate Complete" );
 		}
 		catch(Throwable t)
 		{
 			StringBuffer result = new StringBuffer();
 			result.append(StringHelper.arrayToString(ExceptionHelper.getTrace(t),"\n"));
-			controller.getLogger().info( result.toString() );			
+			log( result.toString() );			
 			
 			throw t;
 		}
 	}
 	
-	public void clearAPI(String pageName)
+	public synchronized void clearAPI(String pageName)
 	{
 		apis.remove(pageName);
 	}
 	
-	public void clearAllAPIs()
+	public synchronized void clearAllAPIs()
 	{
 		apis = new HashMap<String,Object>();
 	}
 	
-	public Object getApi(String pageName) throws Throwable
+	public synchronized Object getApi(String pageName) throws Throwable
 	{
 		checkForChanges();
 		
@@ -157,10 +156,9 @@ public class PluginManager{
 		
 		for(String key: classPath.keySet())
 		{
-			long oldTime = classPath.get(key).timeStamp;
-			long newTime = new File(key).lastModified();
-			if(oldTime<newTime)
+			if(hasChanged(key))
 			{
+				log( new File(key).getName()+" CHANGED" );
 				update=true;
 			}
 		}
@@ -171,6 +169,43 @@ public class PluginManager{
 		}	
 	}
 	
+	/*
+	 * Jars are keyed by their resource path (e.g. /Page/plugin.jar), so their
+	 * timestamps must be read through the resource store. new File(key) would
+	 * resolve against the file system root and always return 0 (OFS-B-002).
+	 */
+	private boolean hasChanged(String path)
+	{
+		ClassPath entry = classPath.get(path);
+		if(entry==null)
+		{
+			return false;
+		}
+		long newTime = getTimeStamp(path);
+		return newTime!=0 && newTime!=entry.timeStamp;
+	}
+
+	private long getTimeStamp(String path)
+	{
+		ResourceStore store = resourceStore();
+		Resource resource = store.getResource(path);
+		if(resource==null)
+		{
+			return 0;
+		}
+		return store.lastModified(resource);
+	}
+
+	protected ResourceStore resourceStore()
+	{
+		return fileManager.getResourceStore(controller.getSystemLogin());
+	}
+
+	protected void log(String message)
+	{
+		controller.getLogger().info( message );
+	}
+
 	private Object getInstance(String pageName,String className) throws Throwable
 	{
 		Class<?> clazz = urlClassLoader.loadClass(className);
@@ -191,37 +226,58 @@ public class PluginManager{
 		for(String path: classPath.keySet())
 		{
 			urls[loop] = classPath.get( path ).classPath;
-			controller.getLogger().info("Added JAR path "+classPath.get( path ));
+			log("Added JAR path "+classPath.get( path ).classPath);
 			
-			classPath.get( path ).timeStamp = fileManager.getResourceStore(controller.getSystemLogin()).lastModified(
-					fileManager.getResourceStore(controller.getSystemLogin()).getResource(path)
-			);		
+			classPath.get( path ).timeStamp = getTimeStamp(path);
 			loop++;
 		}
 		urlClassLoader = URLClassLoader.newInstance( urls,getClass().getClassLoader() );
 
-		Map newApis = new HashMap<String,Object>();
+		// Rebuild the loaded APIs from the new class loader, still keyed by page name.
+		// The old loader is not closed: objects already handed out (e.g. stored with
+		// js.storeObject) may still need to load classes from it.
+		Map<String,Object> newApis = new HashMap<String,Object>();
 		for(String pageName: apis.keySet())
 		{
+			// A null entry is a page getApi() is loading right now; it builds and initialises it itself
+			if(apis.get(pageName)==null)
+			{
+				continue;
+			}
 			String className = getClassNameForApi(pageName);
+			if(className==null)
+			{
+				continue;
+			}
 			
 			try{
-				newApis.put( className,getInstance(pageName,className) );
+				newApis.put( pageName,getInstance(pageName,className) );
 
-				controller.getLogger().info( "Created instance of "+className );
+				log( "Created instance of "+className );
 			}
 			catch(Exception e)
 			{
 				e.printStackTrace();
 				StringBuffer trace = new StringBuffer();
 				trace.append(StringHelper.arrayToString(ExceptionHelper.getTrace(e),"\n"));
-				controller.getLogger().info( "Failed to create instance of "+classPath+" "+trace.toString() );
+				log( "Failed to create instance of "+className+" "+trace.toString() );
 			}
 		}
 		apis = newApis;
+
+		for(String pageName: newApis.keySet())
+		{
+			try{
+				initialiseAPI(pageName);
+			}
+			catch(Throwable t)
+			{
+				// initialiseAPI has logged the failure; keep the other APIs available
+			}
+		}
 	}
 	
-	private void initialiseAPI(String pageName) throws Throwable
+	protected void initialiseAPI(String pageName) throws Throwable
 	{
 		try{
 			String script = controller.getFileManager().getPageAttachmentAsString( pageName,"initialise.sjs",controller.getSystemLogin() );
@@ -233,14 +289,14 @@ public class PluginManager{
 				
 				js.runCachedJavascript(pageName+"/initialise.sjs",script);
 				
-				controller.getLogger().info( "Ran initialise.js for API "+pageName );
+				log( "Ran initialise.js for API "+pageName );
 			}
 		}
 		catch(Throwable t)
 		{
 			StringBuffer trace = new StringBuffer();
 			trace.append(StringHelper.arrayToString(ExceptionHelper.getTrace(t),"\n"));
-			controller.getLogger().info( "Failed in initialise.js for API "+pageName+" "+trace.toString() );
+			log( "Failed in initialise.js for API "+pageName+" "+trace.toString() );
 			
 			throw t;
 		}
@@ -276,7 +332,7 @@ public class PluginManager{
 		return jars;
 	}
 	
-	private String getClassNameForApi(String pageName) throws Throwable
+	protected String getClassNameForApi(String pageName) throws Throwable
 	{
 		if(controller.getFileManager().attachmentExists(pageName,DATA_FILE,controller.getSystemLogin())) {
 			JSONWrapper data = new JSONJavaAccess(controller).getJSON(pageName,DATA_FILE);
@@ -286,12 +342,12 @@ public class PluginManager{
 		}
 	}
 
-	public void updateClassPath() throws Throwable {
+	public synchronized void updateClassPath() throws Throwable {
 		
 		String path = "";
 		for(String resource: apis.keySet()) {
-			if(fileManager.getResourceStore(controller.getSystemLogin()).isResourceFolder(resource)) {
-				Resource[] resources = fileManager.getResourceStore(controller.getSystemLogin()).listResources(fileManager.getResourceStore(controller.getSystemLogin()).getResourceFolder(resource,false));
+			if(resourceStore().isResourceFolder(resource)) {
+				Resource[] resources = resourceStore().listResources(resourceStore().getResourceFolder(resource,false));
 				for(Resource r: resources) {
 					if(r.getExtension().equals("jar")) {
 						if(path.length()>0) {
