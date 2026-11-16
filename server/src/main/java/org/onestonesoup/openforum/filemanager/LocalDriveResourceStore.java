@@ -296,6 +296,9 @@ public class LocalDriveResourceStore implements ResourceStore {
 	public Resource[] listResources(ResourceFolder folder) {
 		String[] list = getResourceFolderAsFile(folder).list();
 		ArrayList<Resource> resources = new ArrayList<Resource>();
+		if (list == null) {
+			return new Resource[] {};
+		}
 		for (int loop = 0; loop < list.length; loop++) {
 			Resource listFolder = getResource(folder.getPath() + "/"
 					+ list[loop]);

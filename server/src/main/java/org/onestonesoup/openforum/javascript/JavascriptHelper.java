@@ -54,7 +54,7 @@ public class JavascriptHelper {
 		JavascriptEngine engine = controller.getJavascriptEngine(controller
 				.getSystemLogin());
 		String name = pageName + "/" + fileName;
-		NativeObject function = (NativeObject) engine.evaluateJavascript(name,
+		NativeObject function = (NativeObject) engine.evaluateCachedJavascript(name,
 				script);
 
 		functions.put(name, function);

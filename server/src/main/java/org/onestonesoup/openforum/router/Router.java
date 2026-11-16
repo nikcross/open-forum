@@ -485,7 +485,7 @@ public class Router {
 		js.mount("pageName", pageName);
 
 		//Process the get request
-		js.runJavascript(jsFile, script);
+		js.runCachedJavascript(jsFile, script);
 
 		// If the transaction result is set to show the page, return true: more is required
 		return transaction.getResult().equals(Transaction.SHOW_PAGE);
@@ -520,7 +520,7 @@ public class Router {
 		js.mount("pageName", pageName);
 
 		//Process the post action
-		js.runJavascript(jsFile, script);
+		js.runCachedJavascript(jsFile, script);
 	}
 
 	/*
@@ -555,7 +555,7 @@ public class Router {
 		js.mount("pageName", pageName);
 		js.mount("exception", exceptionMessage);
 
-		js.runJavascript(jsFile, script);
+		js.runCachedJavascript(jsFile, script);
 		
 		controller.getLogger().error("Error on page:"+pageName+" Exception:"+exceptionMessage);
 	}
@@ -651,7 +651,7 @@ public class Router {
 						String script = controller.getFileManager().getPageAttachmentAsString(PAGE_404_PATH, HOOK_SJS, login);
 						JavascriptEngine engine = controller.getJavascriptEngine(login);
 						engine.mount("request", request);
-						engine.runJavascript(PAGE_404_PATH + "/" + HOOK_SJS, script);
+						engine.runCachedJavascript(PAGE_404_PATH + "/" + HOOK_SJS, script);
 					} catch (Throwable e) {
 						controller.getLogger().error(e.getMessage());
 						e.printStackTrace();
