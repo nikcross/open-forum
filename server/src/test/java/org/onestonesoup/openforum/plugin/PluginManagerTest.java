@@ -38,6 +38,7 @@ public class PluginManagerTest {
 	private static class TestPluginManager extends PluginManager {
 		private ResourceStore store;
 		private List<String> initialised = new ArrayList<String>();
+		private String[] apiJars = null;
 
 		TestPluginManager(ResourceStore store) throws Throwable {
 			super(null, null);
@@ -56,6 +57,11 @@ public class PluginManagerTest {
 		@Override
 		protected String getClassNameForApi(String pageName) {
 			return PAGE.equals(pageName) ? CLASS_NAME : null;
+		}
+
+		@Override
+		protected String[] getJarNamesForApi(String pageName) {
+			return PAGE.equals(pageName) ? apiJars : null;
 		}
 
 		@Override
@@ -79,13 +85,13 @@ public class PluginManagerTest {
 
 	@Test
 	public void replacedJarIsReloadedOnNextRequest() throws Throwable {
-		buildJar("v1", 1_000_000_000_000L);
+		buildJar(jar, "v1", 1_000_000_000_000L);
 
 		Object first = pluginManager.getApi(PAGE);
 		assertEquals("v1", first.toString());
 		assertSame("unchanged jar keeps the same instance", first, pluginManager.getApi(PAGE));
 
-		buildJar("v2", 1_000_000_005_000L);
+		buildJar(jar, "v2", 1_000_000_005_000L);
 
 		Object second = pluginManager.getApi(PAGE);
 		assertEquals("v2", second.toString());
@@ -95,27 +101,76 @@ public class PluginManagerTest {
 
 	@Test
 	public void reloadRunsInitialiseAgainOncePerApi() throws Throwable {
-		buildJar("v1", 1_000_000_000_000L);
+		buildJar(jar, "v1", 1_000_000_000_000L);
 		pluginManager.getApi(PAGE);
 		assertEquals(1, pluginManager.initialised.size());
 
-		buildJar("v2", 1_000_000_005_000L);
+		buildJar(jar, "v2", 1_000_000_005_000L);
 		pluginManager.getApi(PAGE);
 		assertEquals(2, pluginManager.initialised.size());
 	}
 
 	@Test
 	public void updateClassPathAfterReloadDoesNotFail() throws Throwable {
-		buildJar("v1", 1_000_000_000_000L);
+		buildJar(jar, "v1", 1_000_000_000_000L);
 		pluginManager.getApi(PAGE);
-		buildJar("v2", 1_000_000_005_000L);
+		buildJar(jar, "v2", 1_000_000_005_000L);
 		pluginManager.getApi(PAGE);
 
 		pluginManager.updateClassPath();
 		assertEquals("v2", pluginManager.getApi(PAGE).toString());
 	}
 
-	private void buildJar(String version, long lastModified) throws IOException {
+	@Test
+	public void apiJarsLoadsOnlyTheListedJar() throws Throwable {
+		buildJar(pageFile("a.jar"), "A", 1_000_000_000_000L);
+		buildJar(pageFile("b.jar"), "B", 1_000_000_000_000L);
+		pluginManager.apiJars = new String[] { "b.jar" };
+
+		assertEquals("B", pluginManager.getApi(PAGE).toString());
+	}
+
+	@Test
+	public void apiJarsSkipsAMissingJar() throws Throwable {
+		buildJar(pageFile("b.jar"), "B", 1_000_000_000_000L);
+		pluginManager.apiJars = new String[] { "missing.jar", " b.jar " };
+
+		assertEquals("B", pluginManager.getApi(PAGE).toString());
+	}
+
+	@Test
+	public void apiJarsCanNameAJarOnAnotherPage() throws Throwable {
+		Files.createDirectories(root.resolve("Shared"));
+		buildJar(root.resolve("Shared").resolve("lib.jar"), "shared", 1_000_000_000_000L);
+		buildJar(pageFile("a.jar"), "A", 1_000_000_000_000L);
+		pluginManager.apiJars = new String[] { "/Shared/lib.jar" };
+
+		assertEquals("shared", pluginManager.getApi(PAGE).toString());
+	}
+
+	@Test
+	public void changingApiJarsInDataJsonSwitchesJarAtRuntime() throws Throwable {
+		buildJar(pageFile("a.jar"), "A", 1_000_000_000_000L);
+		buildJar(pageFile("b.jar"), "B", 1_000_000_000_000L);
+		Path dataJson = pageFile("data.json");
+		Files.write(dataJson, "{}".getBytes("UTF-8"));
+		dataJson.toFile().setLastModified(1_000_000_000_000L);
+		pluginManager.apiJars = new String[] { "a.jar" };
+		Object first = pluginManager.getApi(PAGE);
+		assertEquals("A", first.toString());
+
+		pluginManager.apiJars = new String[] { "b.jar" };
+		assertSame("no reload until data.json changes", first, pluginManager.getApi(PAGE));
+
+		dataJson.toFile().setLastModified(1_000_000_005_000L);
+		assertEquals("a.jar dropped, b.jar loaded", "B", pluginManager.getApi(PAGE).toString());
+	}
+
+	private Path pageFile(String name) {
+		return root.resolve(PAGE.substring(1)).resolve(name);
+	}
+
+	private void buildJar(Path jar, String version, long lastModified) throws IOException {
 		Path src = Files.createTempDirectory("plugin-src");
 		try {
 			Path javaFile = src.resolve("Greeter.java");

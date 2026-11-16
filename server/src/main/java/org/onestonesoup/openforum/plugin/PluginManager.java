@@ -44,6 +44,8 @@ public class PluginManager{
 	private URLClassLoader urlClassLoader;
 	private Map<String,ClassPath> classPath;
 	private Map<String,Object> apis;
+	// data.json timestamp per API page when its jar list was last read (OFS-T-016)
+	private Map<String,Long> dataFileTimeStamps = new HashMap<String,Long>();
 	
 	public PluginManager( OpenForumController controller,FileManager fileManager ) throws Throwable
 	{		
@@ -61,6 +63,18 @@ public class PluginManager{
 			
 			String[] list = path.split(";");
 			boolean update = false;
+
+			// Drop jars no longer on any API page's list (e.g. removed from apiJars)
+			List<String> wanted = java.util.Arrays.asList(list);
+			for(String key: new ArrayList<String>(classPath.keySet()))
+			{
+				if(wanted.contains(key)==false)
+				{
+					log( new File(key).getName()+" REMOVED" );
+					classPath.remove(key);
+					update=true;
+				}
+			}
 			for(int loop=0;loop<list.length;loop++)
 			{
 				if(classPath.get(list[loop])!=null)
@@ -126,6 +140,7 @@ public class PluginManager{
 	public synchronized void clearAllAPIs()
 	{
 		apis = new HashMap<String,Object>();
+		dataFileTimeStamps = new HashMap<String,Long>();
 	}
 	
 	public synchronized Object getApi(String pageName) throws Throwable
@@ -152,6 +167,17 @@ public class PluginManager{
 	
 	private void checkForChanges() throws Throwable
 	{
+		// A changed data.json may change an API page's apiJars list
+		for(String pageName: dataFileTimeStamps.keySet())
+		{
+			if(getTimeStamp(pageName+"/"+DATA_FILE)!=dataFileTimeStamps.get(pageName))
+			{
+				log( pageName+"/"+DATA_FILE+" CHANGED" );
+				updateClassPath();
+				return;
+			}
+		}
+
 		boolean update = false;
 		
 		for(String key: classPath.keySet())
@@ -342,10 +368,70 @@ public class PluginManager{
 		}
 	}
 
+	/*
+	 * The jars to load for an API page, from the optional apiJars list in its
+	 * data.json (OFS-T-016). A name without a leading / is a file in the page,
+	 * one with a leading / is a full path. Returns null when apiJars is not set,
+	 * meaning every jar in the page is loaded.
+	 */
+	protected String[] getJarNamesForApi(String pageName) throws Throwable
+	{
+		if(controller.getFileManager().attachmentExists(pageName,DATA_FILE,controller.getSystemLogin())==false) {
+			return null;
+		}
+		JSONWrapper data = new JSONJavaAccess(controller).getJSON(pageName,DATA_FILE);
+		// An array comes back joined with commas; a missing field as "undefined"
+		String jars = data.get("apiJars");
+		if(jars==null || jars.equals("undefined") || jars.equals("null")) {
+			return null;
+		}
+		return jars.split(",");
+	}
+
+	private String getListedJars(String pageName,String[] names)
+	{
+		String path = "";
+		for(String name: names) {
+			name = name.trim();
+			if(name.length()==0) {
+				continue;
+			}
+			String jarPath = name.startsWith("/") ? name : pageName+"/"+name;
+			if(resourceStore().getResource(jarPath)==null || getTimeStamp(jarPath)==0) {
+				log( "apiJars for "+pageName+" lists "+jarPath+" which does not exist. Skipped" );
+				continue;
+			}
+			if(path.length()>0) {
+				path+=";";
+			}
+			path+=jarPath;
+		}
+		return path;
+	}
+
 	public synchronized void updateClassPath() throws Throwable {
 		
 		String path = "";
 		for(String resource: apis.keySet()) {
+			String[] jarNames = null;
+			try{
+				dataFileTimeStamps.put( resource,getTimeStamp(resource+"/"+DATA_FILE) );
+				jarNames = getJarNamesForApi(resource);
+			}
+			catch(Throwable t)
+			{
+				log( "Could not read apiJars for "+resource+" so loading all its jars. "+t );
+			}
+			if(jarNames!=null) {
+				String listed = getListedJars(resource,jarNames);
+				if(listed.length()>0) {
+					if(path.length()>0) {
+						path+=";";
+					}
+					path+=listed;
+				}
+				continue;
+			}
 			if(resourceStore().isResourceFolder(resource)) {
 				Resource[] resources = resourceStore().listResources(resourceStore().getResourceFolder(resource,false));
 				for(Resource r: resources) {
