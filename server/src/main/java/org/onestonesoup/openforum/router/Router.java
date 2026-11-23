@@ -243,11 +243,11 @@ public class Router {
 		if(httpHeader.getChild("secure").getValue().equals("false") && controller.isSecure()) {
 			HttpResponseHeader responseHeader = new HttpResponseHeader(
 						httpHeader, "text/html", ClientConnection.MOVED_PERMANENTLY, connection);
-				responseHeader.addParameter("location", "https://"+httpHeader.getChild("host").getValue() + request); // Rediect to https page
+				responseHeader.addParameter("location", "https://"+httpHeader.getChild("host").getValue() + httpHeader.getChild("rawUri").getValue()); // Redirect to https page
 
 				connection.sendEmpty();
 
-				return true;
+				return false; // sendEmpty has already closed the connection
 		}
 
 		//Check if server has redirect set for page

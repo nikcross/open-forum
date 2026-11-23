@@ -1291,4 +1291,11 @@ public class OpenForumController implements OpenForumScripting,
 	public boolean isSecure() {
 		return secure;
 	}
+
+	/**
+	 * When true, plain http requests are redirected to https by the Router.
+	 */
+	public void setSecure(boolean secure) {
+		this.secure = secure;
+	}
 }
