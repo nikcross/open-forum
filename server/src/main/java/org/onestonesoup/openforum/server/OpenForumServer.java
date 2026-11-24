@@ -69,7 +69,7 @@ public class OpenForumServer {
 
         int httpPort = Integer.parseInt( ports.get("http").toString() );
 
-        initControllers( domains );
+        initControllers( domains, ports.get("https") != null );
 
         if( ((NativeObject) config).get("noMatchDomain") != null ) {
             String noMatchDomain = ((NativeObject) config).get("noMatchDomain").toString();
@@ -133,7 +133,7 @@ public class OpenForumServer {
         return httpsServer;
     }
 
-    private void initControllers( NativeArray domains ) throws Exception {
+    private void initControllers( NativeArray domains, boolean httpsAvailable ) throws Exception {
 
             System.out.println("Configuring OpenForum Domain Controllers");
 
@@ -151,6 +151,14 @@ public class OpenForumServer {
                 System.out.println("  Adding OpenForum Controller for "+domainName+" root:"+root);
                 OpenForumController controller = new OpenForumController(root, domainName);
                 controller.setOpenForumServer( this );
+                if( domain.get("secure") != null && "true".equals( domain.get("secure").toString() ) ) {
+                    if( httpsAvailable ) {
+                        controller.setSecure( true );
+                        System.out.println("  Redirecting http to https for "+domainName);
+                    } else {
+                        System.out.println("  Ignoring secure setting for "+domainName+" as no https port is configured");
+                    }
+                }
                 controller.initialise();
                 controllers.put(domainName,controller);
                 System.out.println("  OpenForum Controller added for "+domainName);

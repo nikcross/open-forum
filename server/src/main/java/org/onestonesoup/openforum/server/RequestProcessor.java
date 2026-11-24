@@ -43,7 +43,13 @@
                 HttpHeader httpHeader = new HttpHeader();
                 httpHeader.addChild("method").setValue(httpExchange.getRequestMethod().toLowerCase());
                 httpHeader.addChild("request").setValue(requestURI);
-                httpHeader.addChild("host").setValue(httpExchange.getRequestURI().getHost());
+                httpHeader.addChild("host").setValue(host);
+                // The path and query exactly as received, for use in redirects
+                String rawUri = httpExchange.getRequestURI().getRawPath();
+                if (httpExchange.getRequestURI().getRawQuery() != null) {
+                    rawUri += "?" + httpExchange.getRequestURI().getRawQuery();
+                }
+                httpHeader.addChild("rawUri").setValue(rawUri);
 
                 if (httpExchange instanceof HttpsExchange) {
                     httpHeader.addChild("secure").setValue("true");
