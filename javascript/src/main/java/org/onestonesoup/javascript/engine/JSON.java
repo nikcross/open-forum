@@ -27,7 +27,9 @@ public class JSON {
 	/*
 	 * OFS-B-009: this used to run the text as a script ("result = "+jtext), so anyone who could send
 	 * text to a service that parses it could run code on the server. The text is now only ever read
-	 * as JSON, and text that is not strict JSON is refused with a SyntaxError.
+	 * as JSON, and text that is not strict JSON is refused with a SyntaxError. The one exception is a
+	 * block comment before the JSON: the FileManager and Publisher scripts write new data.json files as
+	 * a comment followed by {}, and every server has some.
 	 */
 	public Object parse(String jtext, Callable reviver) throws Throwable {
 		if(jtext==null) {
@@ -36,6 +38,8 @@ public class JSON {
 		if(jtext.length()>0 && jtext.charAt(0)=='\uFEFF') {
 			jtext = jtext.substring(1); // Byte order mark left by some editors
 		}
+
+		jtext = skipLeadingComments(jtext);
 
 		Scriptable scope = jsEngine.getJsScope();
 		Context context = Context.getCurrentContext();
@@ -54,6 +58,23 @@ public class JSON {
 			if(entered) {
 				Context.exit();
 			}
+		}
+	}
+
+	private static String skipLeadingComments(String text) {
+		int start = 0;
+		while(true) {
+			while(start<text.length() && Character.isWhitespace(text.charAt(start))) {
+				start++;
+			}
+			if(text.startsWith("/*", start)==false) {
+				return text.substring(start);
+			}
+			int end = text.indexOf("*/", start+2);
+			if(end==-1) {
+				return text; // Not closed, so it will be refused
+			}
+			start = end+2;
 		}
 	}
 }
