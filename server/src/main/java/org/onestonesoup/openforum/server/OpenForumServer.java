@@ -19,7 +19,6 @@ import com.sun.net.httpserver.HttpServer;
 import org.mozilla.javascript.NativeArray;
 import org.mozilla.javascript.NativeObject;
 import org.onestonesoup.core.FileHelper;
-import org.onestonesoup.javascript.engine.JSON;
 import org.onestonesoup.javascript.engine.JavascriptEngine;
 import org.onestonesoup.openforum.controller.OpenForumController;
 
@@ -62,7 +61,9 @@ public class OpenForumServer {
 
         System.out.println("  Config Data: " + configData);
 
-        Object config = new JSON( js ).parse( configData );
+        // The server's own configuration file is trusted, and may hold comments or extra commas that are
+        // not strict JSON, so it is still read as a script. Never read text from a request this way.
+        Object config = js.evaluateJavascript( configurationFile, "config = " + configData );
 
         NativeArray domains = (NativeArray) ((NativeObject) config).get("domains");
         NativeObject ports = (NativeObject) ((NativeObject) config).get("ports");
