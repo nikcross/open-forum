@@ -29,10 +29,15 @@
         <option value="$PROJECT_DIR$/addons/java-debug/untitled/Java Flow Tracer/pom.xml" />
         <option value="$PROJECT_DIR$/addons/flow-tracer/pom.xml" />
         <option value="$PROJECT_DIR$/addons/claude-ai-mcp/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/ai-mcp/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/ahoyahoy/ahoyahoy/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/ahoyahoy/untitled/pom.xml" />
+        <option value="$PROJECT_DIR$/addons/ahoyahoy/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/addons/ai-mcp/ai-mcp/pom.xml" />
         <option value="$PROJECT_DIR$/addons/java-trail/Claude.AI/pom.xml" />
         <option value="$PROJECT_DIR$/addons/raspberrypi/automaton/pom.xml" />
         <option value="$PROJECT_DIR$/tools/product-db-importer/product-db-importer/pom.xml" />

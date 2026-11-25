@@ -1,6 +1,26 @@
+--8<--
+       
+((Throws a server-side JavaScript error to test error reporting))
+
+__Post parameters__
+* None
+
+__Post example:__
+{{{
+// Using JSON.post
+JSON.post('/OpenForum/Actions/CauseError', null, '')
+  .onSuccess(function(result) {
+    console.log('This should not succeed');
+  })
+  .onError(function(error) {
+    console.log('Error caught:', error);
+  }).go();
+}}}
+
+-->8--
+
 Throws a Server Side Javascript Error to test error reporting.
 ----
 
-
 !!post.sjs
-{{{doesNotExist += cheese}}}
+{{{doesNotExist  = cheese}}}

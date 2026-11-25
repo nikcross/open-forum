@@ -104,6 +104,8 @@ function Builder(JSON,file) {
       buildScript.versionedTargetFile = versionedTargetFile;
 
       this.file.saveAttachment("",versionedTargetFile,script);
+      
+      return script;
     };
   };
 

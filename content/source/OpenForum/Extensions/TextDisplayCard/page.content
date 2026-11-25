@@ -1,6 +1,19 @@
+--8<--
+
+((Creates a text display card with title, description, and link))
+__Parameters__
+* title = Card title
+* description = Card description text
+* linkText = Text for the link button
+* linkURL = URL for the card link
+
+{{{
+[{TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/"}]
+}}}
+-->8--
+
 <div class="row">
 !!TextDisplayCard v0.0.1
-{{{ [{TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/"}] }}}
 [{TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/"}]
 \\
 [{ActionButton text="Add TextDisplayCard Block type to Content Editor" action="addToContentEditor"}]

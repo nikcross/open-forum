@@ -1,11 +1,26 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> Saves a pages source as page.wiki and rebuilds the page. Also saves the tags to tags.txt
-<hr/>
-<h3>Post Data</h3>
-<ul><li>pageName<br/><br/></li>
-<li>source<br/><br/></li>
-<li>tags<br/><br/></li>
+       
+<p>Saves a page's wiki source and rebuilds the page</p>
+
+<b>Post parameters</b>
+<ul><li> pageName = Page name to update</li>
+<li> source = Wiki markup source content</li>
+<li> tags = Page tags (comma-separated)</li>
 </ul>
+<b>Post example:</b>
+<xmp class="panel" of-exclude="true">
+// Using JSON.post
+JSON.post('/OpenForum/Actions/Update', null, 
+  'pageName=/MyPage&source='   encodeURIComponent('<h3>My Page<br/>n<br/>n<p>Content</p>')   </h3>
+  '&tags=documentation,wiki')
+  .onSuccess(function(result) {
+    console.log('Page updated');
+  }).go();
+</xmp>
+
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> 
+
 <hr/>
 <h3>Server Side Javascript for POST method</h3>
 <xmp class="panel" of-exclude="true"> transaction.getPostData();
@@ -40,13 +55,13 @@ if(pageName.indexOf("/blog/")!=-1)
 
  if( wiki.pageExists(pageName) )
  {
-  subject = pageName+" has been changed";
- message = "The Wiki Page "+pageName+" has been changed by "+user; 
+  subject = pageName " has been changed";
+ message = "The Wiki Page " pageName " has been changed by " user; 
  }
  else
  {
-  subject = pageName+" has been created";
- message = "The Wiki Page "+pageName+" has been created by "+user; 
+  subject = pageName " has been created";
+ message = "The Wiki Page " pageName " has been created by " user; 
  }
 mailer.sendMail("Admin","Admin",subject,message);
 

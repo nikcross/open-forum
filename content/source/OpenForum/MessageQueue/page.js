@@ -8,7 +8,7 @@ OpenForum.init = function() {
   queueName = OpenForum.getParameter("queue");
   if(queueName) {
     startWatchingQueue();
-    document.getElementById( "queueName" ).value = queueName;
+    //document.getElementById( "queueName" ).value = queueName;
   }
 };
 

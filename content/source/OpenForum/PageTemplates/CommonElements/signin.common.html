@@ -4,9 +4,22 @@
     <li class="divider"></li>
 
     <li class="has-dropdown">
+      <a href="#">Access</a>
+      <ul class="dropdown">
+        <li of-repeatFor="reader in pageAccess.readers"><a href="[{Hash}]" onClick="return false;">{{reader}}</a></li>
+      </ul>
+      <script>
+        var pageAccess = {};
+        JSON.get("/OpenForum/Actions/Access","getAccess","pageName=&pageName;").onSuccess( function(response) {
+          pageAccess = response;
+        }).go();
+      </script>
+    </li>
+    
+    <li class="has-dropdown">
       <a href="#">Favourite Pages</a>
       <ul class="dropdown">
-        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="/{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
+        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
       </ul>
     </li>
 
@@ -33,6 +46,7 @@
             OpenForum.Access.showPopup();
           };
         </script>
+        {{currentUserExtraOptions}}
       </ul>
     </li>
   </ul>

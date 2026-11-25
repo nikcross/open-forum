@@ -1,48 +1,106 @@
-<a href="//OpenForum/Giraffe/SaveCanvas/save-canvas.js">//OpenForum/Giraffe/SaveCanvas/save-canvas.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Giraffe/SaveCanvas&fileName=save-canvas.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Extension InsertSourceFile fileName="save-canvas.js" --><a href="//OpenForum/Giraffe/SaveCanvas/save-canvas.js">//OpenForum/Giraffe/SaveCanvas/save-canvas.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Giraffe/SaveCanvas&fileName=save-canvas.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
   OpenForum = {};
 }
 
-OpenForum.saveCanvas = function(canvas,pageName,fileName) {
-  data = canvas.toDataURL();
-  data = data.substring(22);
+OpenForum.clipCanvas = function (canvas,x,y,w,h) {
+  var newCanvas = document.createElement('canvas');
+  newCanvas.width = w;
+  newCanvas.height = h;
 
-  /*post = new Post(data);
-      post.addItem("data",data);
-      post.addItem("fileName",fileName);
-      post.addItem("pageName",pageName);
-      result = ajax.doPost("/OpenForum/Giraffe/SaveCanvas",post.data);
-      return result;*/
+  var newContext = newCanvas.getContext('2d');
 
-  JSON.post("/OpenForum/Giraffe/SaveCanvas","save","pageName="+pageName+"&fileName="+fileName+"&date="+data).go();
+  newContext.drawImage(
+    canvas,
+    x,
+    y,
+    w,
+    h,
+    0,
+    0,
+    w,
+    h
+  );
+
+  return newCanvas;
 };
 
-OpenForum.downloadCanvas = function(canvas, filename) {
+OpenForum.saveCanvas = function(canvas,targetPageName,fileName,x,y,w,h) {
+
+  if(x && y && w && h) {
+    canvas = OpenForum.clipCanvas(canvas,x,y,w,h);
+  }
+
+  var mimeType = "image/png";
+  var offset = 22;
+  if( fileName.indexOf("jpg")!=-1 || fileName.indexOf("jpeg")!=-1 ) {
+    mimeType = "image/jpeg";
+    offset = 23;
+  }
+  data = canvas.toDataURL( mimeType, 0.3 );
+  //data.replaceAll("/+"," ");
+  //data = JSON.stringify(data);
+
+  OFX.post("/OpenForum/Giraffe/SaveCanvas")
+    .withAction("save")
+    .withData( {pageName: targetPageName, fileName: fileName, data: data} )
+    .onSuccess( function() {
+    	console.log("File " + targetPageName + "/" + fileName + " saved");
+  	})
+    .go();
+};
+
+OpenForum.downloadCanvas = function(canvas, fileName,x,y,w,h) {
+  if(x && y && w && h) {
+    canvas = OpenForum.clipCanvas(canvas,x,y,w,h);
+  }
+
+  var mimeType = "image/png";
+  if( fileName.indexOf("jpg")!=-1 || fileName.indexOf("jpeg")!=-1 ) {
+    mimeType = "image/jpeg";
+  }
+
   var hiddenElement = document.createElement('a');
-  hiddenElement.href = canvas.toDataURL();
-  hiddenElement.download = filename;
+  hiddenElement.href = canvas.toDataURL(mimeType);
+  hiddenElement.download = fileName;
   hiddenElement.style.display = "none";
   document.body.appendChild(hiddenElement);
   hiddenElement.click();
 };
-</xmp>
+</xmp><!--End Extension InsertSourceFile fileName="save-canvas.js" -->
 
-<a href="//OpenForum/Giraffe/SaveCanvas/post.sjs">//OpenForum/Giraffe/SaveCanvas/post.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Giraffe/SaveCanvas&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Take base64 image and convert to image file
+<!--Extension InsertSourceFile fileName="post.sjs" --><a href="//OpenForum/Giraffe/SaveCanvas/post.sjs">//OpenForum/Giraffe/SaveCanvas/post.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Giraffe/SaveCanvas&fileName=post.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var action = transaction.getParameter("action");
+if(action===null) {
+  transaction.setResult(transaction.SHOW_PAGE);
+  return;
+}
 
 try{
-  dec = Packages.javax.xml.bind.DatatypeConverter;
+  action = ""+action;
+  result = {result: "error", message: "Action "+action+" not recognised."};
 
-  data = transaction.getParameter("data");
-  fileName = transaction.getParameter("fileName");
-  pageName = transaction.getParameter("pageName");
+  if(action==="save") {
+    var dec = Packages.javax.xml.bind.DatatypeConverter;
 
-  var outStream = file.getAttachmentOutputStream(pageName,fileName);
-  outStream.write( dec.parseBase64Binary(data) );
-  outStream.flush();
-  outStream.close();
+    var data = transaction.getParameter("data");
+    data = data.substring(data.indexOf(",")+1);
+    data = data.replaceAll(" ","+");
+    
+    var fileName = transaction.getParameter("fileName");
+    var pageName = transaction.getParameter("pageName");
 
+    var outStream = file.getAttachmentOutputStream(pageName,fileName);
+    outStream.write( Packages.java.util.Base64.getMimeDecoder().decode(data.trim().getBytes("UTF-8")) );
+    outStream.flush();
+    outStream.close();
 
-  transaction.sendJSON( JSON.stringiify({result: "ok", message: "Saved "+pageName+"/"+fileName}));
+    result = {result: "ok", message: "Saved "+pageName+"/"+fileName};
+  }
+
 } catch(e) {
-  transaction.sendJSON( JSON.stringiify({result: "error", message: ""+e}));
-}</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+  transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber+" of "+e.sourceName}));
+  return;
+}
+
+transaction.sendJSON( JSON.stringify(result) );
+</xmp><!--End Extension InsertSourceFile fileName="post.sjs" -->

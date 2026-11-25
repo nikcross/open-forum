@@ -1,12 +1,13 @@
-Places an icon on the page
 --8<--
 
+((Places an icon on the page))
 __Parameters__
-* name - name of icon
+* name = Name of icon
 
 {{{
 [{Icon name="chart pie"}]
 }}}
 -->8--
+
 Example:
 [{Icon name="chart pie"}]

@@ -5,6 +5,9 @@
 Giraffe.Interactive = {
   shiftKeyDown : false,
   controlKeyDown : false,
+  keyDown : null,
+  keyDownListeners : [],
+  keyUpListeners : [],
   init : function() {
     document.onkeydown = Giraffe.Interactive.keyDownHandler;
     document.onkeyup = Giraffe.Interactive.keyUpHandler;
@@ -23,6 +26,11 @@ Giraffe.Interactive = {
     } else if(pressedKey===17) {
       Giraffe.Interactive.controlKeyDown=true;
     }
+    Giraffe.Interactive.keyDown = pressedKey;
+    
+    for(var l in Giraffe.Interactive.keyDownListeners) {
+      Giraffe.Interactive.keyDownListeners[l](pressedKey);
+    }
   },
   keyUpHandler : function(e) {
     var pressedKey;
@@ -36,6 +44,11 @@ Giraffe.Interactive = {
     } else if(pressedKey===17) {
       Giraffe.Interactive.controlKeyDown=false;
     }
+    for(var l in Giraffe.Interactive.keyUpListeners) {
+      Giraffe.Interactive.keyUpListeners[l](pressedKey);
+    }
+    
+    Giraffe.Interactive.keyDown = null;
   },
   isDragging : function() {
     if( self.dragging && self.dragging.length>0 ) {
@@ -51,7 +64,10 @@ Giraffe.Interactive = {
       position = getPosition(element);
       x=event.x-position[Giraffe.X]+window.scrollX;
       y=event.y-position[Giraffe.Y]+window.scrollY;
-      
+
+      x = x / canvas.scaleX;
+      y = y / canvas.scaleY;
+
       return {
         x : x, y : y  
       };
@@ -60,10 +76,10 @@ Giraffe.Interactive = {
     canvas.onClick = function(event) {
       event = canvas.convertEvent(event,canvas.canvasElement);
 
-      for(this.loop=0;this.loop<canvas.graphicsObjects.length;this.loop++)
+      for(var loop=canvas.graphicsObjects.length-1;loop>=0;loop--)
       {
-        if(canvas.graphicsObjects[this.loop].visible===true && canvas.graphicsObjects[this.loop].isInside(event.x,event.y)) {
-          canvas.graphicsObjects[this.loop].onClick(event.x,event.y);
+        if(canvas.graphicsObjects[loop].visible===true && canvas.graphicsObjects[loop].isInside(event.x,event.y)) {
+          canvas.graphicsObjects[loop].onClick(event.x,event.y);
         }
       }
     };
@@ -77,10 +93,26 @@ Giraffe.Interactive = {
 
         canvas.dragging=new Array();
       }
-      for(var dragTarget in canvas.draggable) {
-        dragTarget=canvas.draggable[dragTarget];
+      for(var d = canvas.draggable.length-1; d>=0 ; d--) {
+        dragTarget=canvas.draggable[d];
 
-        if(dragTarget.isInside(event.x,event.y)) {
+        var root = dragTarget;
+        var stack = [];
+        while( root.parent ) {
+          root = root.parent;
+          stack.push(root);
+        }
+
+        var x = event.x;
+        var y = event.y;
+
+        for( var i = stack.length-1; i>=0; i--  ) {
+          var p = stack[i].getRelativePosition( x,y );	
+          x = p.x;
+          y = p.y;	
+        }
+
+        if(dragTarget.isInside( x, y )) {
           var included = false;
           for(var check in canvas.dragging) {
             check = canvas.dragging[check];
@@ -124,8 +156,7 @@ Giraffe.Interactive = {
       event = canvas.convertEvent(event,canvas.canvasElement);
 
       if(canvas.dragAndDrop==true && canvas.dragging.length>0) {
-        for(this.loop=0;this.loop<canvas.graphicsObjects.length;this.loop++)
-        {
+        for(this.loop=0;this.loop<canvas.graphicsObjects.length;this.loop++) {
           if(canvas.graphicsObjects[this.loop].dragging) {
             canvas.graphicsObjects[this.loop].dragging=false;
           }
@@ -158,9 +189,20 @@ Giraffe.Interactive = {
         var dragDY = event.y-canvas.dragStart[1];
 
         for(var dragTarget in canvas.dragging) {
+
           dragTarget = canvas.dragging[dragTarget];
-          dragTarget.x = dragTarget.x+(dragDX-canvas.lastDx);
-          dragTarget.y = dragTarget.y+(dragDY-canvas.lastDy);
+          
+          var scaleX = 1;
+          var scaleY = 1;
+          var parent = dragTarget.parent;
+          while( parent ) {
+            scaleX = scaleX * parent.scaleX;
+            scaleY = scaleY * parent.scaleY;
+            parent = parent.parent;
+          }
+
+          dragTarget.x = dragTarget.x+((dragDX-canvas.lastDx)/scaleY);
+          dragTarget.y = dragTarget.y+((dragDY-canvas.lastDy)/scaleX);
         }
 
         canvas.lastDx = dragDX;
@@ -176,16 +218,17 @@ Giraffe.Interactive = {
           canvas.graphicsObjects[this.loop].onMouseOut(event.x,event.y);
         }
       }
-      
+
       canvas.onMouseOver(event.x,event.y);
-    }
+    };
 
     canvas.onMouseOver = function(x,y){};
-    
+
     canvas.makeDraggable = function(object) {
       this.dragAndDrop = true;
       this.draggable[this.draggable.length]=object;
-    }
+      object.draggable = true;
+    };
     canvas.removeDraggable = function(object) {
       //this.dragAndDrop = false;
       var foundIndex = -1;
@@ -196,9 +239,10 @@ Giraffe.Interactive = {
         }
       }
       if(foundIndex!=-1) {
+        object.draggable = false;
         this.draggable.splice(foundIndex,1);
       }
-    }
+    };
 
     canvas.dragStart = [0,0];
     canvas.dragging = new Array();
@@ -210,28 +254,30 @@ Giraffe.Interactive = {
     canvas.canvasElement.onmousedown = canvas.onMouseDown;
     canvas.canvasElement.onclick = canvas.onClick;
   }
-}
+};
 Giraffe.Interactive.init();
 
 /* behaviours */
 function setReveal(target,reveal) {
   target.onMouseOver = function(x,y) {
     reveal.visible=true;
-  }
+  };
   target.onMouseOut = function(x,y) {
     reveal.visible=false;
-  }
+  };
   reveal.visible=false;
 }
 
 function getPosition(obj) {
   this.curleft = this.curtop = 0;
   if (obj.offsetParent) {
-    this.curleft = obj.offsetLeft
-    this.curtop = obj.offsetTop
-    while (obj = obj.offsetParent) {
-      this.curleft += obj.offsetLeft
-      this.curtop += obj.offsetTop
+    this.curleft = obj.offsetLeft;
+    this.curtop = obj.offsetTop;
+    obj = obj.offsetParent;
+    while (obj) {
+      this.curleft += obj.offsetLeft;
+      this.curtop += obj.offsetTop;
+      obj = obj.offsetParent;
     }
   }
   return [this.curleft,this.curtop];

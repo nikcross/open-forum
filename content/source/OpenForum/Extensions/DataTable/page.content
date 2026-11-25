@@ -1,3 +1,18 @@
+--8<--
+
+((Creates an interactive data table with actions))
+__Parameters__
+* name = Name of the table (links to Table extension data)
+* data = Column definitions with format "Label columnName type"
+
+{{{
+[{DataTable name="myTable" data="
+Site site
+Open openLink action
+"}]
+}}}
+-->8--
+
 !!&title;
 
 {{{

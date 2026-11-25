@@ -1,11 +1,25 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> Saves some text as an attachment
-<hr/>
-<h3>Post Parameters</h3>
-<ul><li>pageName - The name of the page to save attachment to</li>
-<li>fileName - The file name for the attachment</li>
-<li>data - The data to place in the attachment</li>
+       
+<p>Saves text data as an attachment to a page</p>
+
+<b>Post parameters</b>
+<ul><li> pageName = Page name to save attachment to</li>
+<li> fileName = File name for the attachment</li>
+<li> data = Text data to save in the attachment</li>
 </ul>
+<b>Post example:</b>
+<xmp class="panel" of-exclude="true">
+// Using JSON.post
+JSON.post('/OpenForum/Actions/Save', null, 
+  'pageName=/MyPage&fileName=notes.txt&data='   encodeURIComponent('My notes'))
+  .onSuccess(function(result) {
+    console.log('Saved!');
+  }).go();
+</xmp>
+
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> 
+
 <hr/>
 <h3>Server Side Javascript for POST method</h3>
 <xmp class="panel" of-exclude="true"> transaction.getPostData();
@@ -20,4 +34,4 @@ user = transaction.getUser();
 wiki.saveAsAttachment(pageName,fileName,data,user);
 wiki.buildPage(pageName);
 
-transaction.goToPage(pageName); </xmp> 
+transaction.goToPage(pageName); </xmp>

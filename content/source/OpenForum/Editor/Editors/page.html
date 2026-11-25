@@ -6,19 +6,19 @@
     <title>Editors</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1730279425000"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/Editors/page.js?ts=1730279425000"></script>
-    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1730279425000" />
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1794835592000"></script>
+    <script type="text/javascript" src="/OpenForum/Editor/Editors/page.js?ts=1794835592000"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1794835592000" />
     <!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) start --><link rel="icon" href="/OpenForum/Images/open-forum-dog-small.png" /><!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) end --> 
 
     <!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start --><script>
   var pageName = "/OpenForum/Editor/Editors";
   var author = "unknown";
-  var time = "1730279425000";
+  var time = "1794835592000";
   var currentUser = "";
   var user = {};
   var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
-  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data.data;  } ).go();
+  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data;  } ).go();
   JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
     function (response) {
       user.profile = response.data;
@@ -174,6 +174,13 @@
 
 <hr/>
 
+ <h3> <a href="/OpenForum/Editor/Editors/MarkDownEditor">MarkDownEditor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Editors/MarkDownEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/MarkDownEditor" section="1" --><br />
+
+
+<hr/>
+
  <h3> <a href="/OpenForum/Editor/Editors/PythonEditor">PythonEditor</a> </h3>
 
  <!--Extension InsertPage page="/OpenForum/Editor/Editors/PythonEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/PythonEditor" section="1" --><br />
@@ -188,6 +195,13 @@
 
 <hr/>
 
+ <h3> <a href="/OpenForum/Editor/Editors/SimpleHTMLEditor">SimpleHTMLEditor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Editors/SimpleHTMLEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/SimpleHTMLEditor" section="1" --><br />
+
+
+<hr/>
+
  <h3> <a href="/OpenForum/Editor/Editors/WYSIWYGEditor">WYSIWYGEditor</a> </h3>
 
  <!--Extension InsertPage page="/OpenForum/Editor/Editors/WYSIWYGEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/WYSIWYGEditor" section="1" --><br />
@@ -195,9 +209,23 @@
 
 <hr/>
 
+ <h3> <a href="/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor">WYSIWYGMarkDownEditor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor" section="1" --><br />
+
+
+<hr/>
+
  <h3> <a href="/OpenForum/Editor/Editors/XMLEditor">XMLEditor</a> </h3>
 
  <!--Extension InsertPage page="/OpenForum/Editor/Editors/XMLEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/XMLEditor" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Editors/YAMLEditor">YAMLEditor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Editors/YAMLEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/YAMLEditor" section="1" --><br />
 
 </div><!--End Extension ChildrenContentsPage -->
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->

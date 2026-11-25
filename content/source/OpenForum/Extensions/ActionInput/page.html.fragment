@@ -1,16 +1,21 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
-<hr/>
-<h3>Parameters</h3>
+
+<p>An input field that fires an <a href="/OpenForum/Actions">OpenForum GET action</a></p>
+<b>Parameters</b>
 <ul><li> action = Action Name</li>
-<li> text = Action button text</li>
+<li> parameters = Optional parameters to pass to the action</li>
 </ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension ActionInput action="alert" parameters="pageName=Home" --><input type="text" onKeyPress="(function(element,event) { if(event.charCode != 13) {return false;} else { alert( element.value ); } })(this,event);"><!--End Extension ActionInput action="alert" parameters="pageName=Home" -->
+</xmp>
+
+<!--Extension ActionInput action="alert" parameters="pageName=Home" --><input type="text" onKeyPress="(function(element,event) { if(event.charCode != 13) {return false;} else { alert( element.value ); } })(this,event);"><!--End Extension ActionInput action="alert" parameters="pageName=Home" -->
+
 <hr/>
 <h3>Usage:</h3>
 <xmp class="panel" of-exclude="true">
 <!--Extension ActionInput action="alert" parameters="pageName=Home" --><input type="text" onKeyPress="(function(element,event) { if(event.charCode != 13) {return false;} else { alert( element.value ); } })(this,event);"><!--End Extension ActionInput action="alert" parameters="pageName=Home" -->
 </xmp>
-<!--Extension ActionInput action="alert" parameters="pageName=Home" --><input type="text" onKeyPress="(function(element,event) { if(event.charCode != 13) {return false;} else { alert( element.value ); } })(this,event);"><!--End Extension ActionInput action="alert" parameters="pageName=Home" -->
 
 <hr/>
 

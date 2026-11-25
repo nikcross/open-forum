@@ -1,5 +1,5 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<h3> Javascript Builder</h3>
+<h3>Javascript Builder</h3>
 
 <hr/>
 <h3>Child Pages</h3>
@@ -10,6 +10,7 @@
 <!--Extension AttachmentsList pageName="/OpenForum/Editor/Plugins/JavascriptBuilder" matching=".*" --><ul><li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder/plugin.js">/OpenForum/Editor/Plugins/JavascriptBuilder/plugin.js</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder/page.js">/OpenForum/Editor/Plugins/JavascriptBuilder/page.js</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder/page.content">/OpenForum/Editor/Plugins/JavascriptBuilder/page.content</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Editor/Plugins/JavascriptBuilder/page.html.template.link"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Editor/Plugins/JavascriptBuilder/page.html.template.link does not exist. Click to create it.">/OpenForum/Editor/Plugins/JavascriptBuilder/page.html.template.link</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder/page.html.fragment">/OpenForum/Editor/Plugins/JavascriptBuilder/page.html.fragment</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder/data.json">/OpenForum/Editor/Plugins/JavascriptBuilder/data.json</a></li>
 <li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder/page.html">/OpenForum/Editor/Plugins/JavascriptBuilder/page.html</a></li>

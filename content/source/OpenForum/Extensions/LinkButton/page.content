@@ -1,6 +1,18 @@
+--8<--
+
+((Creates a button that links to a URL))
+__Parameters__
+* href = URL to link to
+* target = Link target (e.g., "externalTab", "_blank")
+* text = Button text
+
+{{{
+[{LinkButton href="https://www.bbc.co.uk" target="externalTab" text="BBC"}]
+}}}
+-->8--
+
 <div class="row">
 !!LinkButton v0.0.1
-{{{ [{LinkButton href="https://www.bbc.co.uk" target="externalTab" text="BBC"}] }}}
 [{LinkButton href="https://www.bbc.co.uk" target="externalTab" text="BBC"}]
 \\
 [{ActionButton text="Add LinkButton Block type to Content Editor" action="addToContentEditor"}]

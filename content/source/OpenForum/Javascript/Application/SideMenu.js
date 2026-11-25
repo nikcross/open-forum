@@ -35,14 +35,22 @@ function SideMenu(menuElementId,applicationViewId,sideMenu,callback) {
   OpenForum.sideViews[index] = self;
 
   var selectedView = {id: ""};
-  //Ignore hash change on showView call to stop infinite regression
-  var ignoreHash = false;
+
+  //Sub-variable from the current hash, eg. for "#Project.My_Project_Title" this is "My_Project_Title".
+  //Apps can read this (via the SideMenu instance they already hold, eg. window.sideMenu.hashParam)
+  //to drive their own view-specific behaviour. Generic - SideMenu never interprets the value itself.
+  self.hashParam = null;
 
   OpenForum.scan();
 
   var viewsHtml = "";
   var viewList = [];
   var defaultView = null;
+  
+  if( typeof sideMenu.defaultView != "undefined" ) {
+    defaultView = sideMenu.defaultView;
+  }
+  
   for(var i in sideMenu) {
     var part = sideMenu[i];
     if( part.category ) {
@@ -53,7 +61,7 @@ function SideMenu(menuElementId,applicationViewId,sideMenu,callback) {
         if(cpart.view) {
           viewsHtml += "<li><a href=\"#\" onClick=\"OpenForum.sideViews["+index+"].showView('" + cpart.id + "'); return false;\">" + cpart.view + "</a></li>";
           viewList.push( cpart );
-          if( cpart.default ) {
+          if( defaultView == null && cpart.default ) {
             defaultView = cpart;
           }
         }
@@ -80,7 +88,7 @@ function SideMenu(menuElementId,applicationViewId,sideMenu,callback) {
     } else if(part.view) {
       viewsHtml += "<li><a href=\"#\" onClick=\"OpenForum.sideViews["+index+"].showView('" + part.id + "'); return false;\">" + part.view + "</a></li>";
       viewList.push( part );
-      if( part.default ) {
+      if( defaultView==null && part.default ) {
         defaultView = part;
       }
 
@@ -107,6 +115,50 @@ function SideMenu(menuElementId,applicationViewId,sideMenu,callback) {
   OpenForum.scan();
   OpenForum.setElement(menuElementId,viewsHtml);
   //OpenForum.crawl(document.body);
+
+  //Find a view by its "view" title, eg. "About" or "Project" - this is what showView()
+  //writes into window.location.hash, so it's what a hash link needs to match against.
+  var getViewByTitle = function(title) {
+    for(var i in viewList) {
+      if(viewList[i].view == title) return viewList[i];
+    }
+    return null;
+  };
+
+  //Splits a hash into its view portion and an optional generic sub-variable after the
+  //first ".", eg. "Project.My_Project_Title" -> view "Project", param "My_Project_Title".
+  //Returns null if the view portion doesn't match a known view.
+  var parseHash = function(hash) {
+    if(!hash) return null;
+    var dotIndex = hash.indexOf(".");
+    var viewTitle = dotIndex==-1 ? hash : hash.substring(0,dotIndex);
+    var param = dotIndex==-1 ? null : hash.substring(dotIndex+1);
+    try { viewTitle = decodeURIComponent(viewTitle); } catch(e) {}
+    if(param!=null) {
+      try { param = decodeURIComponent(param); } catch(e) {}
+    }
+    var view = getViewByTitle(viewTitle);
+    if(!view) return null;
+    return {view: view, param: param};
+  };
+
+  var handleHash = function(hash) {
+    var parsed = parseHash(hash);
+    if(parsed) {
+      self.hashParam = parsed.param;
+      self.showView(parsed.view.id);
+    }
+  };
+
+  //Hook into OpenForum's generic post-hashCalls extension point rather than the exact-match
+  //addHashCall dictionary, since that can't handle a hash with a sub-variable attached.
+  //Chained onto whatever was there before so multiple SideMenu instances (or other hash
+  //consumers) on the same page keep working.
+  var previousOnHash = OpenForum.onHash;
+  OpenForum.onHash = function(hash) {
+    if(previousOnHash) previousOnHash(hash);
+    handleHash(hash);
+  };
 
 
   var html = "";
@@ -241,18 +293,6 @@ function SideMenu(menuElementId,applicationViewId,sideMenu,callback) {
     for(var i in viewList) {
       var view = viewList[i];
       if(view.callback) view.callback();
-
-      OpenForum.addHashCall(
-        escape(view.title),
-        function(viewId) {
-          return function() {
-            if( ignoreHash ) {
-              ignoreHash=false;
-              return;
-            }
-            self.showView(viewId); 
-          }; 
-        }(view.id));
     }
     checkAllViewsReady();
   };
@@ -317,7 +357,6 @@ function SideMenu(menuElementId,applicationViewId,sideMenu,callback) {
       if(view.id==id) {
         selectedView = view;
         window.location.hash = selectedView.view;
-        ignoreHash = true;
       }
     }
     if(selectedView && selectedView.refresh) {
@@ -336,7 +375,15 @@ function SideMenu(menuElementId,applicationViewId,sideMenu,callback) {
   //Default is close on show
   self.closeOnShow(true);
 
-  if( defaultView != null ) {
+  //An incoming hash (eg. loading the page on "#About" or "#Project.My_Project_Title")
+  //overrides the configured default view. Falls back to the default view if there's no
+  //hash, or it doesn't match a known view.
+  var initialHash = window.location.hash ? window.location.hash.substring(1) : "";
+  var initialParsed = parseHash(initialHash);
+  if( initialParsed ) {
+    self.hashParam = initialParsed.param;
+    self.showView( initialParsed.view.id );
+  } else if( defaultView != null ) {
     self.showView( defaultView.id );
   }
 }

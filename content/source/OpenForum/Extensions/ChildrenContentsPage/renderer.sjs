@@ -33,9 +33,10 @@ for(var i in keys) {
     content += "\n\n----\n\n !! [" + addOnPageName + "|" + targetPage + "/" + addOnPageName + "] \n\n";
     content += " [{InsertPage page=\"" + targetPage + "/" + contentPageName + "\" section=\"1\"}]<br />\n";
     if(hasQuickReference) {
+      content += " [{InsertPage page=\"" + targetPage + "/" + contentPageName + "/QuickReference\" section=\"1\"}]<br />\n";
       content += " [{Popup id=\"QR_"+addOnPageName+"\" sourceFileName=\"page.html.fragment\" sourcePageName=\"" + targetPage + "/" + contentPageName + "\"}]<br />\n";
       content += " [{Popup id=\"QR_"+addOnPageName+"\" title=\"Quick Reference\"}] ";
-      content += "__[Open in a new tab|" + targetPage + "/" + contentPageName + "]__<br />\n";
+      content += "__[Open in a new tab|" + targetPage + "/" + contentPageName + "=]__<br />\n";
     }
   }
 }

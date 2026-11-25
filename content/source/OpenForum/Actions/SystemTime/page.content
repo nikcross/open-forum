@@ -1,3 +1,24 @@
+--8<--
+       
+((Returns the current system time in milliseconds))
+
+__Get parameters__
+* action = "getTime"
+
+__Get examples:__
+{{{
+// Simple URL
+/OpenForum/Actions/SystemTime?action=getTime
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/SystemTime', 'getTime', '')
+  .onSuccess(function(result) {
+    console.log('System time:', result.time);
+  }).go();
+}}}
+
+-->8--
+
 !!&title;
 
 [/OpenForum/Actions/SystemTime?action=getTime]

@@ -1,15 +1,22 @@
-A button that checks you are not a robot
-----
-!!Parameters
+--8<--
+
+((A button that checks you are not a robot using reCAPTCHA))
+__Parameters__
 * action = Button javascript function name
 * text = Button text
+
+{{{
+[{RecaptchaButton action="alertMe" text="Am I A Robot ?"}]
+}}}
+-->8--
+
+[{RecaptchaButton action="alertMe" text="Am I A Robot ?"}]
 
 ----
 !!Usage:
 {{{
 [{RecaptchaButton action="alertMe" text="Am I A Robot ?"}]
 }}}
-[{RecaptchaButton action="alertMe" text="Am I A Robot ?"}]
 
 ----
 

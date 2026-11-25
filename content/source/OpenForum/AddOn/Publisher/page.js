@@ -63,7 +63,7 @@ function publishPage(practice) {
 }
 
 function reversePublish() {
-	PublisherClient.reversePublish( pageName, function(response) {
+	PublisherClient.reversePublish( targetPageName, function(response) {
       alert("Reverse Publish Completed.");
     });
 }

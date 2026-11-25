@@ -3,22 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QuickReference</title>
+    <title>Quick Reference</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1612979264000"></script>
-    <script type="text/javascript" src="/OpenForum/Editor/Plugins/TableBuilder/QuickReference/page.js?ts=1612979264000"></script>
-    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1612979264000" />
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1794835592000"></script>
+    <script type="text/javascript" src="/OpenForum/Editor/Plugins/TableBuilder/QuickReference/page.js?ts=1794835592000"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1794835592000" />
     <!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) start --><link rel="icon" href="/OpenForum/Images/open-forum-dog-small.png" /><!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) end --> 
 
     <!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start --><script>
   var pageName = "/OpenForum/Editor/Plugins/TableBuilder/QuickReference";
   var author = "unknown";
-  var time = "1612979264000";
+  var time = "1794835592000";
   var currentUser = "";
   var user = {};
   var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
-  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data.data;  } ).go();
+  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data;  } ).go();
   JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
     function (response) {
       user.profile = response.data;
@@ -63,7 +63,7 @@
       <ul class="title-area">
         <li class="name">
           <h1>
-            <a href="#" title="QuickReference"> Quick Reference</a>
+            <a href="#" title="Quick Reference"> Quick Reference</a>
           </h1>
         </li>
       </ul>
@@ -125,7 +125,7 @@
 
     <div style="padding-bottom: 100px;">
     <!--PageContent Start-->
-<h3>QuickReference</h3>
+<h3>Quick Reference</h3>
 
 
 (<p>The Table Builder enables the quick building of table html for use with OpenForum.</p>

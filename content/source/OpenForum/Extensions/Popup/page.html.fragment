@@ -1,4 +1,18 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+
+<p>Creates a popup modal dialog</p>
+<b>Parameters</b>
+<ul><li> id = Unique identifier for the popup</li>
+<li> sourceFileName = File containing popup content (optional)</li>
+<li> sourcePageName = Page where popup content is located (optional)</li>
+<li> content = Inline content for the popup (optional)</li>
+<li> title = Title for popup button (optional)</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" --><div id="test1" class="reveal-modal" data-reveal aria-labelledby="test1ModalTitle" aria-hidden="true" role="dialog"><h3>One Time Popup</h3>
+<p>This is a popup that can be supressed</p>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" -->
+</xmp>
+
 <h3>Popup</h3>
 <hr/>
 <h3>Popup</h3>
@@ -7,17 +21,12 @@
 <!--Extension Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" --><div id="test1" class="reveal-modal" data-reveal aria-labelledby="test1ModalTitle" aria-hidden="true" role="dialog"><h3>One Time Popup</h3>
 <p>This is a popup that can be supressed</p>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" -->
 
-<xmp class="panel" of-exclude="true"><!--Extension Popup id="test2" content="some content"]</xmp>
+<xmp class="panel" of-exclude="true"><!--Extension Popup id="test2" content="some content" --><div id="test2" class="reveal-modal" data-reveal aria-labelledby="test2ModalTitle" aria-hidden="true" role="dialog">some content  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="test2" content="some content" --></xmp>
 <!--Extension Popup id="test2" content="some content" --><div id="test2" class="reveal-modal" data-reveal aria-labelledby="test2ModalTitle" aria-hidden="true" role="dialog">some content  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="test2" content="some content" -->
 
 <hr/>
 <h3>Popup button</h3>
-<xmp class="panel" of-exclude="true">[{Popup id="test1" title="Pop me up" --><div id="test2" class="reveal-modal" data-reveal aria-labelledby="test2ModalTitle" aria-hidden="true" role="dialog">some content  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="test2" content="some content"]</xmp>
-<!--Extension Popup id="test2" content="some content" --><div id="test2" class="reveal-modal" data-reveal aria-labelledby="test2ModalTitle" aria-hidden="true" role="dialog">some content  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="test2" content="some content" -->
-
-<hr/>
-<h3>Popup button</h3>
-<xmp class="panel" of-exclude="true">[{Popup id="test1" title="Pop me up" --></xmp>
+<xmp class="panel" of-exclude="true"><!--Extension Popup id="test1" title="Pop me up" --><a class='button small round' onClick="$('#test1').foundation('reveal', 'open');;return false;">Pop me up</a><!--End Extension Popup id="test1" title="Pop me up" --></xmp>
 <!--Extension Popup id="test1" title="Pop me up" --><a class='button small round' onClick="$('#test1').foundation('reveal', 'open');;return false;">Pop me up</a><!--End Extension Popup id="test1" title="Pop me up" -->
 
 <xmp class="panel" of-exclude="true"><!--Extension Popup id="test2" title="Pop me up" --><a class='button small round' onClick="$('#test2').foundation('reveal', 'open');;return false;">Pop me up</a><!--End Extension Popup id="test2" title="Pop me up" --></xmp>

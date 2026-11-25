@@ -1,10 +1,12 @@
+<!--Content built using /OpenForum/PageTemplates/PublishedPage/page.build.js x0.0.4 February Promise builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <section class="top-bar-section">
   <ul class="right">
     
     <li class="divider"></li>
     
     <li class="has-dropdown">
-      <a href="<ol><li>">Favourite Pages</a></li></ol>      <ul class="dropdown">
+      <a href="#">Favourite Pages</a>
+      <ul class="dropdown">
         <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
       </ul>
     </li>
@@ -12,9 +14,11 @@
     <li class="divider"></li>
     
     <li class="has-dropdown">
-      <a href="<ol><li>">Signed in as {{currentUser}} {{avatar}}</a></li></ol>      <ul class="dropdown">
+      <a href="#">Signed in as {{currentUser}} {{avatar}}</a>
+      <ul class="dropdown">
         <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-        <li><a href="<ol><li>" onClick="doSignIn(); return false;">Sign In as Different User</a></li></li></ol>        <script>
+        <li><a href="#" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+        <script>
           var accessLoading = false;
           function doSignIn() {
 
@@ -34,4 +38,3 @@
     </li>
   </ul>
 </section>
-<!--Content built using default-->

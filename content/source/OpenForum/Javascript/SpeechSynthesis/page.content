@@ -11,7 +11,7 @@
     <div class="large-8 columns">
       <label>Name 
         <select of-id="OpenForum.Speech.voice.name">
-  			<option of-repeatFor="voiceName in OpenForum.Speech.voices" selected>{{voiceName}}</option>
+          <option of-repeatFor="voiceName in OpenForum.Speech.voices" selected>{{voiceName}}</option>
         </select>
       </label>
     </div>
@@ -36,6 +36,7 @@
     <div class="large-12 columns">
       <ul class="button-group round">
         <li><a class="button" onClick="OpenForum.Speech.test();">Test</a></li>
+        <li><a class="button success" onClick="OpenForum.Speech.copySettings();">Copy</a></li>
         <li><a class="button success" onClick="OpenForum.Speech.saveSettings();">Save</a></li>
       </ul>
     </div>

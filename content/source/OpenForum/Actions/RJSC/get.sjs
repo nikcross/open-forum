@@ -6,17 +6,23 @@ if( code===null )
   return;
 }
 
+var rjscUser = ""+transaction.getUser();
+if(rjscUser!=="Admin" && rjscUser!=="System") {
+  transaction.sendJSON( JSON.stringify({result: "error", message: "Forbidden: RJSC requires Admin"}) );
+  return;
+}
+
 try{
  function println(message) {
    openForum.postMessageToQueue(queueName,message);
  }
-  
+
  console = {
    log: function(message) {
      println(message);
    }
  };
-  
+
   println("Running");
 
   code = ""+code;
@@ -30,7 +36,7 @@ try{
   }
 
   println("Complete");
-  
+
   transaction.sendJSON( JSON.stringify( {result: result} ) );
 } catch(e) {
   try{

@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Javascript/Tester",
-    "title": " Tester"
+    "pageName": "/OpenForum/Javascript/Tester",
+    "title": "Tester",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

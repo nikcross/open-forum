@@ -1,20 +1,60 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  -Description-
-<hr/>
-<h3>Parameters</h3>
-<hr/>
-<h3>Usage:</h3>
+       
+<p>Zips or unzips a page and its attachments</p>
+
+<b>Get parameters</b>
+<ul><li> action = "zip" or "unzip"</li>
+<li> pageName = Page name to zip/unzip</li>
+<li> fileName = File name to unzip (required for "unzip" action)</li>
+</ul>
+<b>Get examples:</b>
 <xmp class="panel" of-exclude="true">
--Example-
+// Simple URL - zip a page
+/OpenForum/Actions/Zip?action=zip&pageName=/MyPage
+
+// Using JSON.get - unzip a file
+JSON.get('/OpenForum/Actions/Zip', 'unzip', 'pageName=/MyPage&fileName=backup.zip')
+  .onSuccess(function(result) {
+    console.log('Unzipped:', result);
+  }).go();
 </xmp>
--Example-
+
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
 
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
-<xmp class="panel" of-exclude="true"> if(typeof(pageName)=="undefined")
-{
-	transaction.setResult(transaction.SHOW_PAGE);
+<h3>Server Side Javascript for GET method</h3>
+<!--Extension InsertSourceFile fileName="get.sjs" --><a href="//OpenForum/Actions/Zip/get.sjs">//OpenForum/Actions/Zip/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Zip&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var action = transaction.getParameter("action");
+if(action===null) {
+  transaction.setResult(transaction.SHOW_PAGE);
+  return;
 }
-else
-{
-} </xmp>
+
+try{
+  action = ""+action;
+  var pageName = ""+transaction.getParameter("pageName");
+  result = {result: "error", message: "Action "+action+" not recognised."};
+
+  if(action === "zip") {
+
+    file.zipPage( pageName );
+    wiki.buildPage( pageName );
+
+    var fileName = pageName.substring(pageName.lastIndexOf("/"))+".wiki.zip";
+    transaction.goToPage( pageName+"/"+fileName );
+    return;
+  } else if(action === "unzip") {
+    var fileName = transaction.getParameter("fileName");
+
+    file.unZipAttachment(pageName,fileName);
+
+    result = JSON.stringify({result: "ok"});
+  }
+
+} catch(e) {
+  transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e}));
+  return;
+}
+
+transaction.sendJSON( JSON.stringify(result) );
+</xmp><!--End Extension InsertSourceFile fileName="get.sjs" -->

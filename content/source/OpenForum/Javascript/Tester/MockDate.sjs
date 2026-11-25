@@ -7,7 +7,7 @@
 var MockDate = function() {
   var nowMs = 0;
 
-  this.setMockTime = function(ts) { nowMs = ts };
+  this.setMockTime = function(ts) { nowMs = ts; };
 
   this.getMock = function(ts) {
     if(ts) { nowMs = ts; }
@@ -15,45 +15,45 @@ var MockDate = function() {
     return function() {
       var date = new Date(nowMs);
 
-      this.getDate = function() { return date.getDate(); }
+      this.getDate = function() { return date.getDate(); };
 
-      this.getDay = function() { return date.getDay(); }
+      this.getDay = function() { return date.getDay(); };
 
-      this.getFullYear = function() { return date.getFullYear(); }
+      this.getFullYear = function() { return date.getFullYear(); };
 
-      this.getHours = function() { return date.getHours(); }
+      this.getHours = function() { return date.getHours(); };
 
-      this.getMilliseconds = function() { return date.getMilliseconds(); }
+      this.getMilliseconds = function() { return date.getMilliseconds(); };
 
-      this.getMinutes = function() { return date.getMinutes(); }
+      this.getMinutes = function() { return date.getMinutes(); };
 
-      this.getMonth = function() { return date.getMonth(); }
+      this.getMonth = function() { return date.getMonth(); };
 
-      this.getSeconds = function() { return date.getSeconds(); }
+      this.getSeconds = function() { return date.getSeconds(); };
 
-      this.getTime = function() { return date.getTime(); }
+      this.getTime = function() { return date.getTime(); };
 
-      this.getTimezoneOffset = function() { return date.getTimezoneOffset(); }
+      this.getTimezoneOffset = function() { return date.getTimezoneOffset(); };
 
-      this.parse = function() { return date.parse(); }
+      this.parse = function() { return date.parse(); };
 
-      this.setDate = function(dom) { return date.setDate(dom); }
+      this.setDate = function(dom) { return date.setDate(dom); };
 
-      this.setFullYear = function(year) { return date.setFullYear(year); }
+      this.setFullYear = function(year) { return date.setFullYear(year); };
 
-      this.setHours = function(hours) { return date.setHours(hours); }
+      this.setHours = function(hours) { return date.setHours(hours); };
 
-      this.setMilliseconds = function(ms) { return date.setMilliseconds(ms); }
+      this.setMilliseconds = function(ms) { return date.setMilliseconds(ms); };
 
-      this.setMinutes = function(minutes) { return date.setMinutes(minutes); }
+      this.setMinutes = function(minutes) { return date.setMinutes(minutes); };
 
-      this.setMonth = function(month) { return date.setMonth(month); }
+      this.setMonth = function(month) { return date.setMonth(month); };
 
-      this.setSeconds = function(seconds) { return date.setSeconds(seconds); }
+      this.setSeconds = function(seconds) { return date.setSeconds(seconds); };
 
-      this.setTime = function(time) { return date.setTime(time); }
+      this.setTime = function(time) { return date.setTime(time); };
 
-      this.toDateString = function() { return date.toDateString(); }
+      this.toDateString = function() { return date.toDateString(); };
 
       this.getDisplayString = function() { return date.getDisplayString(); };
 
@@ -84,4 +84,4 @@ var MockDate = function() {
       this.toString = function() { return ""+date; };
     };
   };
-}
+};

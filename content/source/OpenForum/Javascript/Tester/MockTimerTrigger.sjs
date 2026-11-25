@@ -19,7 +19,7 @@ var MockTimerTrigger = function() {
         } else {
           return minutePeriod;
         }
-      }
+      };
 
       var tenMinutePeriod = false;
       self.isTenMinutePeriod = function(state) {
@@ -28,7 +28,7 @@ var MockTimerTrigger = function() {
         } else {
           return tenMinutePeriod;
         }
-      }
+      };
 
       var hourPeriod = false;
       self.isHourPeriod = function(state) {
@@ -37,13 +37,13 @@ var MockTimerTrigger = function() {
         } else {
           return hourPeriod;
         }
-      }
+      };
       
       self.resetMock = function() {
         minutePeriod = false;
         tenMinutePeriod = false;
         hourPeriod = false;
-      }
+      };
     };
-  }
-}
+  };
+};

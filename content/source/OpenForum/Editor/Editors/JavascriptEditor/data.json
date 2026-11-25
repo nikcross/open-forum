@@ -1,6 +1,6 @@
 {
     "pageName": "/OpenForum/Editor/Editors/JavascriptEditor",
-    "title": "JavascriptEditor",
+    "title": "Javascript Editor",
     "pageParent": "https://open-forum.onestonesoup.org",
     "editorConfig": "/OpenForum/Editor/Editors/JavascriptEditor//OpenForum/Editor/Editors/JavascriptEditor/editor-config.json"
 }

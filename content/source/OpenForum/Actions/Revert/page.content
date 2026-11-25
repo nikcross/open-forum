@@ -1,8 +1,27 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Reverts a page to a specific version
-----
-!!Get Parameters
-*pageName -  The name of the page to revert
-*version - The version to revert to
+--8<--
+       
+((Reverts a page to a specific historical version))
+
+__Get parameters__
+* pageName = Page name to revert
+* version = Version identifier to revert to
+
+__Get examples:__
+{{{
+// Simple URL
+/OpenForum/Actions/Revert?pageName=/MyPage&version=2022-11-17-07-32-56-0380
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Revert', null, 
+  'pageName=/MyPage&version=2022-11-17-07-32-56-0380')
+  .onSuccess(function(result) {
+    console.log('Page reverted');
+  }).go();
+}}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 ----
 !!Server Side Javascript for GET method

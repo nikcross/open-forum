@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/ErrorPages/503",
-    "title": "503"
+    "pageName": "/OpenForum/ErrorPages/503",
+    "title": "503",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

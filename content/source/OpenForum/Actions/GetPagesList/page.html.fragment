@@ -1,11 +1,28 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Returns a comma delimited list of page names
-<hr/>
-<h3>Get Parameters</h3>
-<ul><li>pageName - a dummy parameter</li>
+       
+<p>Returns a comma-delimited list of all page names in the wiki</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Any page name (required but not used)</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/GetPagesList?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/GetPagesList', null, 'pageName=dummy')
+  .onSuccess(function(pageList) {
+    var pages = pageList.split(',');
+    console.log('Pages:', pages);
+  }).go();
+</xmp>
+
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
 
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel" of-exclude="true"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
@@ -15,14 +32,14 @@ else
 	pages = wiki.getPages();
 	
 	page="";
-	for(loop=0;loop<pages.length;loop++)
+	for(loop=0;loop<pages.length;loop  )
 	{
 		if(loop>0)
 		{
-			page = page+",";
+			page = page ",";
 		}
-		page = page+pages<a href="/OpenForum/Editor?pageName=/OpenForum/Actions/GetPagesList/loop"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/GetPagesList/loop does not exist. Click to create it.">loop</a>;	
+		page = page pages<a href="/OpenForum/Editor?pageName=/OpenForum/Actions/GetPagesList/loop"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/GetPagesList/loop does not exist. Click to create it.">loop</a>;	
 	}
 	
 	transaction.sendPage(page);
-} </xmp></ul>
+} </xmp>

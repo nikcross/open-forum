@@ -1,8 +1,26 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Checks if an attachment exists. Returns true or false
-----
-!!Parameters
-*pageName - The page containing the attachment
-*fileName - The attachment to check for
+--8<--
+       
+((Checks if an attachment exists on a page))
+
+__Get parameters__
+* pageName = Page name containing the attachment
+* fileName = Name of the attachment to check
+
+__Get examples:__
+{{{
+// Simple URL
+/OpenForum/Actions/AttachmentExists?pageName=/MyPage&fileName=file.txt
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/AttachmentExists', null, 'pageName=/MyPage&fileName=file.txt')
+  .onSuccess(function(result) {
+    console.log('Exists:', result);
+  }).go();
+}}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 ----
 !!Server Side Javascript for GET method

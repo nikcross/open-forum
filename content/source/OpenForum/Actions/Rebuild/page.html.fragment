@@ -1,18 +1,29 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Requests Wiki to rebuild pages
-<hr/>
-<h3>Parameters</h3>
-<ul><li> pageName - The pageName to return to</li>
+       
+<p>Rebuilds all wiki pages from their source markup</p>
 
-<hr/>
-<h3>Usage:</h3>
+<b>Get parameters</b>
+<ul><li> pageName = Page name to return to after rebuild</li>
+</ul>
+<b>Get examples:</b>
 <xmp class="panel" of-exclude="true">
+// Simple URL
 /OpenForum/Actions/Rebuild?pageName=/Home
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Rebuild', null, 'pageName=/Home')
+  .onSuccess(function(result) {
+    console.log('Rebuild started:', result);
+  }).go();
 </xmp>
-<a href="/OpenForum/Actions/Rebuild/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a><a href="/OpenForum/Actions/Rebuild?pageName=/Home">/OpenForum/Actions/Rebuild?pageName=/Home</a>
+
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
+
+<a href="/OpenForum/Actions/Rebuild?pageName=/Home">/OpenForum/Actions/Rebuild?pageName=/Home</a>
 
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel" of-exclude="true"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
@@ -21,4 +32,4 @@ else
 {
   js.startJavascript( "wiki.rebuild(true);" );
   transaction.sendPage("OK");
-} </xmp></ul>
+} </xmp>

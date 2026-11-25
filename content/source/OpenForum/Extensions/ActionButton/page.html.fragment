@@ -1,10 +1,17 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
-<hr/>
-<h3>Parameters</h3>
+
+<p>A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a></p>
+<b>Parameters</b>
 <ul><li> action = Action Name</li>
 <li> text = Action button text</li>
+<li> parameters = Optional parameters to pass to the action</li>
 </ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" --><a  class='button radius tiny' href='#' onclick='Rebuild("pageName=Home"); return false;'>Rebuild Wiki</a> <!--End Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" -->
+</xmp>
+
+<!--Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" --><a  class='button radius tiny' href='#' onclick='Rebuild("pageName=Home"); return false;'>Rebuild Wiki</a> <!--End Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" -->
+
 <hr/>
 <h3>Usage:</h3>
 

@@ -1,10 +1,33 @@
-<h3>&title;</h3>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>addon</h3>
 
 <hr/>
 <h3>Child Pages</h3>
-
+<!--Extension ChildPagesList pageName="/OpenForum/Javascript/CodeMirror/addon" --><ul><li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/comment"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/comment does not exist. Click to create it.">comment</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/dialog"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/dialog does not exist. Click to create it.">dialog</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/display"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/display does not exist. Click to create it.">display</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/edit"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/edit does not exist. Click to create it.">edit</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/fold"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/fold does not exist. Click to create it.">fold</a></li>
+<li> <a href="/OpenForum/Javascript/CodeMirror/addon/hint">hint</a></li>
+<li> <a href="/OpenForum/Javascript/CodeMirror/addon/lint">lint</a></li>
+<li> <a href="/OpenForum/Javascript/CodeMirror/addon/merge">merge</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/mode"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/mode does not exist. Click to create it.">mode</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/runmode"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/runmode does not exist. Click to create it.">runmode</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/scroll"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/scroll does not exist. Click to create it.">scroll</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/search"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/search does not exist. Click to create it.">search</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/selection"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/selection does not exist. Click to create it.">selection</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/tern"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/tern does not exist. Click to create it.">tern</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/wrap"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/wrap does not exist. Click to create it.">wrap</a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum/Javascript/CodeMirror/addon" -->
 
 <hr/>
 <h3>Attachments</h3>
-
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Extension AttachmentsList pageName="/OpenForum/Javascript/CodeMirror/addon" matching=".*" --><ul><li> <a href="/OpenForum/Javascript/CodeMirror/addon/page.content">/OpenForum/Javascript/CodeMirror/addon/page.content</a></li>
+<li> <a href="/OpenForum/Javascript/CodeMirror/addon/data.json">/OpenForum/Javascript/CodeMirror/addon/data.json</a></li>
+<li> <a href="/OpenForum/Javascript/CodeMirror/addon/jshint.js.old">/OpenForum/Javascript/CodeMirror/addon/jshint.js.old</a></li>
+<li> <a href="/OpenForum/Javascript/CodeMirror/addon/jshint.js">/OpenForum/Javascript/CodeMirror/addon/jshint.js</a></li>
+<li> <a href="/OpenForum/Javascript/CodeMirror/addon/page.js">/OpenForum/Javascript/CodeMirror/addon/page.js</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/page.html.template.link"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/CodeMirror/addon/page.html.template.link does not exist. Click to create it.">/OpenForum/Javascript/CodeMirror/addon/page.html.template.link</a></li>
+<li> <a href="/OpenForum/Javascript/CodeMirror/addon/page.html.fragment">/OpenForum/Javascript/CodeMirror/addon/page.html.fragment</a></li>
+<li> <a href="/OpenForum/Javascript/CodeMirror/addon/page.html">/OpenForum/Javascript/CodeMirror/addon/page.html</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/Javascript/CodeMirror/addon" matching=".*" -->

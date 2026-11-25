@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/JarManager",
-    "title": " Jar Manager"
+    "pageName": "/OpenForum/JarManager",
+    "title": "JarManager",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

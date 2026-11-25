@@ -5,8 +5,9 @@
 * Built to pageName:/OpenForum/AddOn/DataLogger/PageAccessMonitor fileName:get.sjs
 **/
 /*
-* Author: 
-* Description: 
+* Development copy (Marketing App). Release: change the js.getObject path below back to
+* /OpenForum/AddOn/DataLogger/PageAccessMonitor. Journey reports, import and status are Admin only;
+* logUserJourneys is called by every server's UserJourneyLogger and checked with the shared key.
 */
 var action = transaction.getParameter("action");
 if(action===null) {
@@ -46,6 +47,43 @@ if(action==="getSiteAccesData") {
     if(returned) result = {result: "ok", message: "Performed action "+action, data: returned};
 }
 
+    var requireAdmin = function() {
+      if(""+transaction.getUser()!=="Admin") throw "Not Authorised";
+    };
+if(action==="getJourneySummary") {
+    requireAdmin();
+    var site = transaction.getParameter("site");
+    if(site===null) {
+     site = "";
+    } else {
+     site = "" + site;
+    }
+    var startTime = transaction.getParameter("startTime");
+    if(startTime===null) {
+     throw "Request is missing required parameter startTime";
+    } else {
+     startTime = "" + startTime;
+    }
+    var endTime = transaction.getParameter("endTime");
+    if(endTime===null) {
+     throw "Request is missing required parameter endTime";
+    } else {
+     endTime = "" + endTime;
+    }
+    var returned = PageAccessMonitor.getJourneySummary(site,startTime,endTime);
+    if(returned) result = {result: "ok", message: "Performed action "+action, data: returned};
+}
+if(action==="getJourneySites") {
+    requireAdmin();
+    var returned = PageAccessMonitor.getJourneySites();
+    if(returned) result = {result: "ok", message: "Performed action "+action, data: returned};
+}
+if(action==="getJourneySettings") {
+    requireAdmin();
+    var returned = PageAccessMonitor.getJourneySettings();
+    if(returned) result = {result: "ok", message: "Performed action "+action, data: returned};
+}
+
 } catch(e) {
   var message = "Error:"+e;
   if( typeof e.lineNumber != "undefined" ) {
@@ -60,3 +98,4 @@ if(action==="getSiteAccesData") {
 }
   
 transaction.sendJSON( JSON.stringify(result) );
+

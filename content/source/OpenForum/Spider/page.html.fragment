@@ -1,12 +1,13 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <div class="row">
   <div class="large-12 columns">
     <form>
 	<div id="editor0">Editor Loading...</div>
       <br/>
 <center>
-      <a class="button tiny" onClick="runSpider(); return false;">Release Spider</a>
-      <a class="button tiny" onClick="stopSpider(); return false;">Stop Spider</a>
-      <a class="button tiny" onClick="clearLog(); return false;">Clear Log</a>
+      <!--Extension Button title="Release Spider" function="runSpider" --><a class="button tiny" onClick="runSpider(); return false;">Release Spider</a><!--End Extension Button title="Release Spider" function="runSpider" -->
+      <!--Extension Button title="Stop Spider" function="stopSpider" --><a class="button tiny" onClick="stopSpider(); return false;">Stop Spider</a><!--End Extension Button title="Stop Spider" function="stopSpider" -->
+      <!--Extension Button title="Clear Log" function="clearLog" --><a class="button tiny" onClick="clearLog(); return false;">Clear Log</a><!--End Extension Button title="Clear Log" function="clearLog" -->
 </center>
     </form>
   </div>
@@ -18,4 +19,3 @@
 </div>
       </div>
 </div>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

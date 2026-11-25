@@ -1,3 +1,5 @@
+Deprecated. Use script.build.json
+
 {
     "version": "1.0.11",
     "targetFile": "/OpenForum/Giraffe/giraffe.js",
@@ -91,6 +93,20 @@
         {
             "action": "append",
             "file": "/OpenForum/Giraffe/Core/giraffe-core.js",
+            "index": "17"
+        },
+        {
+            "action": "replace",
+            "searchFor": "&version;",
+            "replaceWith": "$version",
+            "ofIndex": "17",
+            "index": "17"
+        },
+        {
+            "action": "replace",
+            "searchFor": "&date;",
+            "replaceWith": "$date",
+            "ofIndex": "17",
             "index": "17"
         },
         {

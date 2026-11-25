@@ -1,10 +1,24 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-Inserts a files contents into the page
-<hr/>
-<h3>Parameters</h3>
-<ul><li> pageName - The page where the file is attached (optional. default = current page name)</li>
-<li> fileName - The file to insert</li>
+
+<p>Inserts a file's contents into the page as source code</p>
+<b>Parameters</b>
+<ul><li> pageName = The page where the file is attached (optional, default = current page)</li>
+<li> fileName = The file to insert</li>
 </ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json" --><a href="//OpenForum/Extensions/InsertSourceFile/data.json">//OpenForum/Extensions/InsertSourceFile/data.json</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=data.json" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">{
+    "pageName": "/OpenForum/Extensions/InsertSourceFile",
+    "title": "InsertSourceFile",
+    "pageParent": "https://open-forum.onestonesoup.org"
+}</xmp><!--End Extension InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json" -->
+</xmp>
+
+<!--Extension InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json" --><a href="//OpenForum/Extensions/InsertSourceFile/data.json">//OpenForum/Extensions/InsertSourceFile/data.json</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=data.json" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">{
+    "pageName": "/OpenForum/Extensions/InsertSourceFile",
+    "title": "InsertSourceFile",
+    "pageParent": "https://open-forum.onestonesoup.org"
+}</xmp><!--End Extension InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json" -->
+
 <hr/>
 <h3>Usage:</h3>
 <xmp class="panel" of-exclude="true">
@@ -14,11 +28,6 @@ Inserts a files contents into the page
     "pageParent": "https://open-forum.onestonesoup.org"
 }</xmp><!--End Extension InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json" -->
 </xmp>
-<!--Extension InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json" --><a href="//OpenForum/Extensions/InsertSourceFile/data.json">//OpenForum/Extensions/InsertSourceFile/data.json</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=data.json" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">{
-    "pageName": "/OpenForum/Extensions/InsertSourceFile",
-    "title": "InsertSourceFile",
-    "pageParent": "https://open-forum.onestonesoup.org"
-}</xmp><!--End Extension InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json" -->
 
 <hr/>
 

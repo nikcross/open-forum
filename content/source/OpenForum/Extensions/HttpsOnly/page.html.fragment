@@ -1,10 +1,16 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-HttpsOnly
        
 <p>Redirects to the https url if the user arrives via http</p>
+<b>Parameters</b>
+<ul><li> None</li>
        
-<xmp class="panel" of-exclude="true"><!--Extension HttpsOnly --><script>if(window.location.protocol=='http:') window.location.href = window.location.href.replace('http:','https:');
-</script><!--End Extension HttpsOnly --></xmp>
+<xmp class="panel" of-exclude="true">
+<!--Extension HttpsOnly --><script>if(window.location.protocol=='http:') window.location.href = window.location.href.replace('http:','https:');
+</script><!--End Extension HttpsOnly -->
+</xmp></ul>
+
+HttpsOnly
+
 <!--Extension InsertSourceFile fileName="renderer.sjs" --><a href="//OpenForum/Extensions/HttpsOnly/renderer.sjs">//OpenForum/Extensions/HttpsOnly/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/HttpsOnly&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel"><!--<ul><li> Author: </li>
 <li> Description: </li>
 </ul>-->

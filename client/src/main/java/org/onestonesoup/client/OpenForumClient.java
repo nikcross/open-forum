@@ -11,10 +11,14 @@ import org.onestonesoup.core.FileHelper;
 import org.onestonesoup.core.StringHelper;
 
 import java.io.*;
+import java.net.HttpURLConnection;
 import java.math.BigInteger;
 import java.net.URL;
 import java.net.URLConnection;
 import java.net.URLEncoder;
+import java.nio.file.AtomicMoveNotSupportedException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
@@ -52,6 +56,13 @@ public class OpenForumClient  {
 		this.hashedPassword = hashedPassword;
 
     	signIn(userId,password,hashedPassword);
+	}
+
+	OpenForumClient(String host, String sessionCookie) {
+		this.host = normalizeHost(host);
+		this.userId = "";
+		this.password = "";
+		this.sessionCookie = sessionCookie;
 	}
 
 	public String getUserId() {
@@ -155,10 +166,90 @@ public class OpenForumClient  {
 
 	public void downloadFile(String pageName, String fileName, String localFileName) throws IOException {
 		String url = buildUrl(combinePageAndFile(pageName,fileName));
-		URLConnection connection = new URL(url).openConnection();
-		connection.setRequestProperty("Cookie",sessionCookie);
+		System.out.println("Downloading OpenForum file: " + url + " -> " + localFileName);
+		HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
+		if(sessionCookie != null) {
+			connection.setRequestProperty("Cookie",sessionCookie);
+		}
 
-		FileHelper.copyInputStreamToFile( connection.getInputStream(),new File(localFileName) );
+		File target = new File(localFileName);
+		File parent = target.getParentFile();
+		if(parent != null && parent.exists() == false) {
+			Files.createDirectories(parent.toPath());
+		}
+
+		File tempFile = File.createTempFile(tempFilePrefix(target), ".download", parent);
+		boolean success = false;
+		try {
+			int status = connection.getResponseCode();
+			if(status < 200 || status >= 300) {
+				throw new IOException("Download failed with HTTP " + status + " for " + url + ": " + readResponseSnippet(connection));
+			}
+
+			FileHelper.copyInputStreamToFile( connection.getInputStream(), tempFile );
+			String errorMarker = getOpenForumErrorMarker(tempFile);
+			if(errorMarker != null) {
+				throw new IOException("Download returned OpenForum error marker for " + url + ": " + errorMarker);
+			}
+
+			moveDownloadedFile(tempFile, target);
+			success = true;
+		} finally {
+			connection.disconnect();
+			if(success == false && tempFile.exists()) {
+				tempFile.delete();
+			}
+		}
+	}
+
+	private void moveDownloadedFile(File source, File target) throws IOException {
+		try {
+			Files.move(source.toPath(), target.toPath(), StandardCopyOption.REPLACE_EXISTING, StandardCopyOption.ATOMIC_MOVE);
+		} catch (AtomicMoveNotSupportedException e) {
+			Files.move(source.toPath(), target.toPath(), StandardCopyOption.REPLACE_EXISTING);
+		}
+	}
+
+	private String tempFilePrefix(File target) {
+		String prefix = target.getName();
+		while(prefix.length() < 3) {
+			prefix += "_";
+		}
+		return prefix;
+	}
+
+	private String readResponseSnippet(HttpURLConnection connection) throws IOException {
+		InputStream stream = connection.getErrorStream();
+		if(stream == null) {
+			stream = connection.getInputStream();
+		}
+		if(stream == null) {
+			return "";
+		}
+		return readSnippet(stream, 2048);
+	}
+
+	private String getOpenForumErrorMarker(File file) throws IOException {
+		String snippet;
+		try (InputStream stream = new FileInputStream(file)) {
+			snippet = readSnippet(stream, 2048).trim();
+		}
+		if(snippet.matches("^/OpenForum/ErrorPages/\\d+.*")) {
+			return snippet;
+		}
+		return null;
+	}
+
+	private String readSnippet(InputStream stream, int maxBytes) throws IOException {
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
+		byte[] buffer = new byte[Math.min(1024, maxBytes)];
+		int total = 0;
+		int read;
+		while(total < maxBytes && (read = stream.read(buffer, 0, Math.min(buffer.length, maxBytes - total))) != -1) {
+			output.write(buffer, 0, read);
+			total += read;
+		}
+		return output.toString("UTF-8");
 	}
 
 	public String uploadFile(String pageName, String fileName, String  localFileName) throws IOException {

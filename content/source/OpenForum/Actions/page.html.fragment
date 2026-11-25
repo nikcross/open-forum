@@ -9,252 +9,995 @@
 
  <h3> <a href="/OpenForum/Actions/Access">Access</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/Access" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Access" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/Access" section="1" -->
+       
+<p>Get access permissions for a page</p>
+
+<b>Get parameters</b>
+<ul><li> action = "getAccess"</li>
+<li> pageName = Page name to get access permissions for</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/Access?action=getAccess&pageName=/OpenForum/Actions/Access
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Access', 'getAccess', 'pageName=/OpenForum/Actions/Access')
+  .onSuccess(function(result) {
+    console.log('Access:', result);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/Access" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/Attach">Attach</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/Attach" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Attach" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/Attach" section="1" -->
+       
+<p>Upload and attach a file to a page</p>
+
+<b>Post parameters</b>
+<ul><li> page = Target page name</li>
+<li> fileName = Name of the file being uploaded</li>
+<li> (file data) = Multipart form data with file content</li>
+</ul>
+<b>Post example:</b>
+<xmp class="panel" of-exclude="true">
+// Using FormData and fetch
+var formData = new FormData();
+formData.append('file', fileInput.files<a href="/OpenForum/Editor?pageName=/OpenForum/Actions/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/0 does not exist. Click to create it.">0</a>);
+formData.append('fileName', 'myfile.txt');
+
+fetch('/OpenForum/Actions/Attach?page=/MyPage', {
+  method: 'POST',
+  body: formData
+}).then(response => response.json())
+  .then(result => console.log('Uploaded:', result));
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/Attach" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/AttachmentExists">AttachmentExists</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/AttachmentExists" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/AttachmentExists" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/AttachmentExists" section="1" -->
+       
+<p>Checks if an attachment exists on a page</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name containing the attachment</li>
+<li> fileName = Name of the attachment to check</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/AttachmentExists?pageName=/MyPage&fileName=file.txt
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/AttachmentExists', null, 'pageName=/MyPage&fileName=file.txt')
+  .onSuccess(function(result) {
+    console.log('Exists:', result);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/AttachmentExists" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/Attachments">Attachments</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/Attachments" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Attachments" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/Attachments" section="1" -->
+       
+<p>Get list of attachments for a page with optional metadata</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to list attachments from</li>
+<li> matching = Optional filter pattern (regex)</li>
+<li> metaData = Optional flag to include file size and timestamp</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/Attachments?pageName=/MyPage&matching=.*.txt
+
+// Using JSON.get with metadata
+JSON.get('/OpenForum/Actions/Attachments', null, 'pageName=/MyPage&metaData=true')
+  .onSuccess(function(result) {
+    console.log('Attachments:', result.attachments);
+    console.log('Total size:', result.size);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/Attachments" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/CauseError">CauseError</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/CauseError" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/CauseError" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/CauseError" section="1" -->
+       
+<p>Throws a server-side JavaScript error to test error reporting</p>
+
+<b>Post parameters</b>
+<ul><li> None</li>
+</ul>
+<b>Post example:</b>
+<xmp class="panel" of-exclude="true">
+// Using JSON.post
+JSON.post('/OpenForum/Actions/CauseError', null, <i>)
+  .onSuccess(function(result) {
+    console.log('This should not succeed');
+  })
+  .onError(function(error) {
+    console.log('Error caught:', error);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/CauseError" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/Copy">Copy</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/Copy" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Copy" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/Copy" section="1" -->
+       
+<p>Copy a file attachment or entire page to another location</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Source page name</li>
+<li> newPageName = Destination page name (optional, defaults to pageName)</li>
+<li> fileName = File to copy (optional - if not specified, copies entire page)</li>
+<li> newFileName = Destination filename (optional, defaults to fileName)</li>
+<li> returnType = Response type: "json" for JSON response, otherwise redirects to Editor</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/Copy?pageName=/Source&newPageName=/Destination&fileName=file.txt
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Copy', null, 
+  'pageName=/Source&newPageName=/Destination&fileName=file.txt&returnType=json')
+  .onSuccess(function(result) {
+    console.log('Copied:', result);
+  }).go();
+</xmp>
+
+<b>Post parameters (deprecated)</b>
+<ul><li> sourcePageName</li>
+<li> newPageName</li>
+<li> listPageName</li>
+</ul>
+<b>Post example:</b>
+<xmp class="panel" of-exclude="true">
+// Using JSON.post
+JSON.post('/OpenForum/Actions/Copy', null, 
+  'sourcePageName=/OldPage&newPageName=/NewPage')
+  .onSuccess(function(result) {
+    console.log('Copied!');
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/Copy" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/CreateQueue">CreateQueue</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/CreateQueue" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/CreateQueue" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/CreateQueue" section="1" -->
+       
+<p>Creates a new queue with a unique name and returns the queue name</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Any page name (required but not used)</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/CreateQueue?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/CreateQueue', null, 'pageName=dummy')
+  .onSuccess(function(queueName) {
+    console.log('Queue created:', queueName);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/CreateQueue" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/Delete">Delete</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/Delete" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Delete" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/Delete" section="1" -->
+       
+<p>Deletes a page or file, moving it to <a href="/OpenForum/DeletedPages">/OpenForum/DeletedPages</a></p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to delete (or page containing file if fileName is specified)</li>
+<li> fileName = Optional file to delete (if omitted, entire page is deleted)</li>
+<li> returnType = Response type: "json" for JSON response, otherwise redirects</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL - delete a file
+/OpenForum/Actions/Delete?pageName=/MyPage&fileName=file.txt
+
+// Using JSON.get - delete a page
+JSON.get('/OpenForum/Actions/Delete', null, 'pageName=/MyPage&returnType=json')
+  .onSuccess(function(result) {
+    console.log('Deleted:', result);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/Delete" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/ForkLink">ForkLink</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/ForkLink" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/ForkLink" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/ForkLink" section="1" -->
+       
+<p>Resolves a .link file by copying the linked resource to the page</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page containing the .link file</li>
+<li> fileName = Name of the .link file to resolve</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/ForkLink?pageName=/MyPage&fileName=resource.txt.link
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/ForkLink', null, 'pageName=/MyPage&fileName=resource.txt.link')
+  .onSuccess(function(result) {
+    console.log('Forked:', result);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/ForkLink" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/GetAttachments">GetAttachments</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/GetAttachments" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/GetAttachments" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/GetAttachments" section="1" -->
+       
+<p>Get attachments for a page with optional filtering</p>
+
+<b>Get parameters</b>
+<ul><li> action = "getMatching" or "getAll"</li>
+<li> pageName = Page name to get attachments from</li>
+<li> matching = Regex expression to match files (required for "getMatching")</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL - get matching files
+/OpenForum/Actions/GetAttachments?action=getMatching&pageName=/MyPage&matching=.*<br/>.js$
+
+// Using JSON.get - get all files
+JSON.get('/OpenForum/Actions/GetAttachments', 'getAll', 'pageName=/MyPage')
+  .onSuccess(function(result) {
+    console.log('Attachments:', result);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/GetAttachments" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/GetAuthentication">GetAuthentication</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/GetAuthentication" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/GetAuthentication" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/GetAuthentication" section="1" -->
+       
+<p>Returns the authentication string from HTTP headers for use by applets</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Any page name (required but not used)</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/GetAuthentication?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/GetAuthentication', null, 'pageName=dummy')
+  .onSuccess(function(authString) {
+    console.log('Authentication:', authString);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/GetAuthentication" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/GetInheritedFilePath">GetInheritedFilePath</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/GetInheritedFilePath" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/GetInheritedFilePath" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/GetInheritedFilePath" section="1" -->
+       
+<p>Returns the inherited path of a file, searching up the page hierarchy</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to start searching from</li>
+<li> fileName = Name of the file to find the inherited path for</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/GetInheritedFilePath?pageName=/MyPage&fileName=page.js
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/GetInheritedFilePath', null, 'pageName=/MyPage&fileName=page.js')
+  .onSuccess(function(path) {
+    console.log('Inherited path:', path);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/GetInheritedFilePath" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/GetPageAsList">GetPageAsList</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/GetPageAsList" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/GetPageAsList" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/GetPageAsList" section="1" -->
+       
+<p>Returns a page as a JavaScript array of list entries</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page to read as a list</li>
+<li> varName = Name of JavaScript array variable to return</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/GetPageAsList?pageName=/MyPage&varName=myList
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/GetPageAsList', null, 'pageName=/MyPage&varName=myList')
+  .onSuccess(function(jsArray) {
+    console.log('Array:', jsArray);
+    eval(jsArray); // Creates myList variable
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/GetPageAsList" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/GetPagesList">GetPagesList</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/GetPagesList" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/GetPagesList" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/GetPagesList" section="1" -->
+       
+<p>Returns a comma-delimited list of all page names in the wiki</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Any page name (required but not used)</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/GetPagesList?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/GetPagesList', null, 'pageName=dummy')
+  .onSuccess(function(pageList) {
+    var pages = pageList.split(',');
+    console.log('Pages:', pages);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/GetPagesList" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/GetUser">GetUser</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/GetUser" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/GetUser" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/GetUser" section="1" -->
+       
+<p>Returns the current user's name</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Any page name (required but not used)</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/GetUser?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/GetUser', null, 'pageName=dummy')
+  .onSuccess(function(username) {
+    console.log('Current user:', username);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/GetUser" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/History">History</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/History" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/History" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/History" section="1" -->
+       
+<p>Get history of file changes for a page</p>
+
+<b>Get parameters</b>
+<ul><li> action = "list"</li>
+<li> pageName = Page to get history for</li>
+<li> fileName = Optional specific file to get history for</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL - get all page history
+/OpenForum/Actions/History?action=list&pageName=/MyPage
+
+// Using JSON.get - get specific file history
+JSON.get('/OpenForum/Actions/History', 'list', 'pageName=/MyPage&fileName=page.js')
+  .onSuccess(function(result) {
+    console.log('History:', result.data);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/History" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/Move">Move</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/Move" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Move" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/Move" section="1" -->
+       
+<p>Move a file or entire page to a new location</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Source page name</li>
+<li> newPageName = Destination page name (optional, defaults to pageName)</li>
+<li> fileName = File to move (optional - if not specified, moves entire page)</li>
+<li> newFileName = Destination filename (optional, defaults to fileName)</li>
+<li> returnType = Response type: "json" for JSON response, otherwise redirects to Editor</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL - move a file
+/OpenForum/Actions/Move?pageName=/OldPage&newPageName=/NewPage&fileName=file.txt
+
+// Using JSON.get - move a page
+JSON.get('/OpenForum/Actions/Move', null, 'pageName=/OldPage&newPageName=/NewPage&returnType=json')
+  .onSuccess(function(result) {
+    console.log('Moved:', result);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/Move" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/PageExists">PageExists</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/PageExists" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/PageExists" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/PageExists" section="1" -->
+       
+<p>Checks if a page exists in the wiki</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to check</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/PageExists?pageName=/MyPage
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/PageExists', null, 'pageName=/MyPage')
+  .onSuccess(function(exists) {
+    console.log('Page exists:', exists);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/PageExists" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/Pages">Pages</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/Pages" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Pages" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/Pages" section="1" -->
+       
+<p>Returns a JSON array of child page names for a given page</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Parent page name to get children from</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/Pages?pageName=/OpenForum
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Pages', null, 'pageName=/OpenForum')
+  .onSuccess(function(pages) {
+    var pageList = JSON.parse(pages);
+    console.log('Child pages:', pageList);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/Pages" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/Publish">Publish</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/Publish" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Publish" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/Publish" section="1" -->
+       
+<p>Publishes a page to a remote OpenForum site</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to publish</li>
+<li> newPageName = Destination page name on remote site</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/Publish?pageName=/MyPage&newPageName=/PublishedPage
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Publish', null, 'pageName=/MyPage&newPageName=/PublishedPage')
+  .onSuccess(function(result) {
+    console.log('Published:', result);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/Publish" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/RJSC">RJSC</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/RJSC" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/RJSC" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/RJSC" section="1" -->
+       
+<p>Remote JavaScript Call - executes server-side JavaScript code</p>
+
+<b>Get parameters</b>
+<ul><li> code = JavaScript code to execute on the server</li>
+<li> queueName = Optional queue name for output messages</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/RJSC', null, 'code=wiki.getDateTimeStamp();')
+  .onSuccess(function(result) {
+    console.log('Result:', result);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/RJSC" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/Rebuild">Rebuild</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/Rebuild" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Rebuild" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/Rebuild" section="1" -->
+       
+<p>Rebuilds all wiki pages from their source markup</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to return to after rebuild</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/Rebuild?pageName=/Home
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Rebuild', null, 'pageName=/Home')
+  .onSuccess(function(result) {
+    console.log('Rebuild started:', result);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/Rebuild" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/RefreshJarManager">RefreshJarManager</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/RefreshJarManager" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/RefreshJarManager" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/RefreshJarManager" section="1" -->
+       
+<p>Refreshes the JAR manager to reload Java libraries</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Any page name (required but not used)</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/RefreshJarManager?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/RefreshJarManager', null, 'pageName=dummy')
+  .onSuccess(function(result) {
+    console.log('JAR manager refreshed:', result);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/RefreshJarManager" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/RefreshPage">RefreshPage</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/RefreshPage" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/RefreshPage" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/RefreshPage" section="1" -->
+       
+<p>Refreshes a page by regenerating HTML from its wiki markup</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to refresh</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/RefreshPage?pageName=/MyPage
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/RefreshPage', null, 'pageName=/MyPage')
+  .onSuccess(function(result) {
+    console.log('Page refreshed');
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/RefreshPage" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/RenderWikiData">RenderWikiData</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/RenderWikiData" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/RenderWikiData" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/RenderWikiData" section="1" -->
+       
+<p>Renders wiki markup data to HTML</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page context for rendering</li>
+<li> data = Wiki markup data to render (optional if using sourcePageName/fileName)</li>
+<li> sourcePageName = Source page containing file to render (optional)</li>
+<li> fileName = File containing wiki markup to render (optional)</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL - render inline data
+/OpenForum/Actions/RenderWikiData?pageName=/MyPage&data=<h3>Title</h3>
+
+// Using JSON.get - render from file
+JSON.get('/OpenForum/Actions/RenderWikiData', null, 
+  'pageName=/MyPage&sourcePageName=/Source&fileName=content.wiki')
+  .onSuccess(function(html) {
+    console.log('Rendered HTML:', html);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/RenderWikiData" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/Revert">Revert</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/Revert" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Revert" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/Revert" section="1" -->
+       
+<p>Reverts a page to a specific historical version</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to revert</li>
+<li> version = Version identifier to revert to</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/Revert?pageName=/MyPage&version=2022-11-17-07-32-56-0380
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Revert', null, 
+  'pageName=/MyPage&version=2022-11-17-07-32-56-0380')
+  .onSuccess(function(result) {
+    console.log('Page reverted');
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/Revert" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/Save">Save</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/Save" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Save" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/Save" section="1" -->
+       
+<p>Saves text data as an attachment to a page</p>
+
+<b>Post parameters</b>
+<ul><li> pageName = Page name to save attachment to</li>
+<li> fileName = File name for the attachment</li>
+<li> data = Text data to save in the attachment</li>
+</ul>
+<b>Post example:</b>
+<xmp class="panel" of-exclude="true">
+// Using JSON.post
+JSON.post('/OpenForum/Actions/Save', null, 
+  'pageName=/MyPage&fileName=notes.txt&data='   encodeURIComponent('My notes'))
+  .onSuccess(function(result) {
+    console.log('Saved!');
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/Save" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/SaveImage">SaveImage</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/SaveImage" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/SaveImage" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/SaveImage" section="1" -->
+       
+<p>Saves a base64-encoded image as an attachment</p>
+
+<b>Post parameters</b>
+<ul><li> pageName = Page name to save image to</li>
+<li> fileName = Image file name</li>
+<li> data = Base64-encoded image data</li>
+</ul>
+<b>Post example:</b>
+<xmp class="panel" of-exclude="true">
+// Using JSON.post with base64 image data
+JSON.post('/OpenForum/Actions/SaveImage', null, 
+  'pageName=/MyPage&fileName=image.png&data='   base64ImageData)
+  .onSuccess(function(result) {
+    console.log('Image saved:', result);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/SaveImage" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/SystemTime">SystemTime</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/SystemTime" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/SystemTime" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/SystemTime" section="1" -->
+       
+<p>Returns the current system time in milliseconds</p>
+
+<b>Get parameters</b>
+<ul><li> action = "getTime"</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/SystemTime?action=getTime
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/SystemTime', 'getTime', </i>)
+  .onSuccess(function(result) {
+    console.log('System time:', result.time);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/SystemTime" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/TestExample">TestExample</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/TestExample" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/TestExample" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/TestExample" section="1" -->
+       
+<p>Example action template for testing purposes</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Any page name (required but not used)</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/TestExample?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/TestExample', null, 'pageName=dummy')
+  .onSuccess(function(result) {
+    console.log('Result:', result);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/TestExample" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/Update">Update</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/Update" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Update" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/Update" section="1" -->
+       
+<p>Saves a page's wiki source and rebuilds the page</p>
+
+<b>Post parameters</b>
+<ul><li> pageName = Page name to update</li>
+<li> source = Wiki markup source content</li>
+<li> tags = Page tags (comma-separated)</li>
+</ul>
+<b>Post example:</b>
+<xmp class="panel" of-exclude="true">
+// Using JSON.post
+JSON.post('/OpenForum/Actions/Update', null, 
+  'pageName=/MyPage&source='   encodeURIComponent('<h3>My Page<br/>n<br/>n<p>Content</p>')   </h3>
+  '&tags=documentation,wiki')
+  .onSuccess(function(result) {
+    console.log('Page updated');
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/Update" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/UpdateJarManager">UpdateJarManager</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/UpdateJarManager" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/UpdateJarManager" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/UpdateJarManager" section="1" -->
+       
+<p>Updates and refreshes the JAR manager to reload Java libraries</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Any page name (required but not used)</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/UpdateJarManager?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/UpdateJarManager', null, 'pageName=dummy')
+  .onSuccess(function(result) {
+    console.log('JAR manager updated');
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/UpdateJarManager" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/User">User</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/User" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/User" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/User" section="1" -->
+       
+<p>Get current user information and profile</p>
+
+<b>Get parameters</b>
+<ul><li> action = "getCurrentUser" or "getCurrentUserProfile"</li>
+<li> currentPage = Current page (optional, for getCurrentUser)</li>
+<li> referrer = Referrer URL (optional, for getCurrentUser)</li>
+<li> userAgent = User agent string (optional, for getCurrentUser)</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL - get current user
+/OpenForum/Actions/User?action=getCurrentUser
+
+// Using JSON.get - get user profile
+JSON.get('/OpenForum/Actions/User', 'getCurrentUserProfile', <i></i>
+  .onSuccess(function(result) {
+    console.log('User profile:', result.data);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/User" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/ValidatePageName">ValidatePageName</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/ValidatePageName" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/ValidatePageName" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/ValidatePageName" section="1" -->
+       
+<p>Validates a page name against wiki naming rules</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to validate</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/ValidatePageName?pageName=/MyPage
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/ValidatePageName', null, 'pageName=/MyNewPage')
+  .onSuccess(function(isValid) {
+    console.log('Page name valid:', isValid);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/ValidatePageName" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/ViewFolder">ViewFolder</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/ViewFolder" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/ViewFolder" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/ViewFolder" section="1" -->
+       
+<p>Creates a page view of a folder showing its contents</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to view as a folder</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/ViewFolder?pageName=/OpenForum/Actions
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/ViewFolder', null, 'pageName=/MyFolder')
+  .onSuccess(function(page) {
+    console.log('Folder view:', page);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/ViewFolder" section="1" --><br />
 
 
 <hr/>
 
  <h3> <a href="/OpenForum/Actions/Zip">Zip</a> </h3>
 
- <!--Extension InsertPage page="/OpenForum/Actions/Zip" section="1" --><!--End Extension InsertPage page="/OpenForum/Actions/Zip" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Actions/Zip" section="1" -->
+       
+<p>Zips or unzips a page and its attachments</p>
+
+<b>Get parameters</b>
+<ul><li> action = "zip" or "unzip"</li>
+<li> pageName = Page name to zip/unzip</li>
+<li> fileName = File name to unzip (required for "unzip" action)</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL - zip a page
+/OpenForum/Actions/Zip?action=zip&pageName=/MyPage
+
+// Using JSON.get - unzip a file
+JSON.get('/OpenForum/Actions/Zip', 'unzip', 'pageName=/MyPage&fileName=backup.zip')
+  .onSuccess(function(result) {
+    console.log('Unzipped:', result);
+  }).go();
+</xmp>
+
+<!--End Extension InsertPage page="/OpenForum/Actions/Zip" section="1" --><br />
 
 </div><!--End Extension ChildrenContentsPage -->
 </div></div>

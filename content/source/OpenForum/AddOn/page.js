@@ -1,6 +1,0 @@
-/*
-* Author: 
-*/
-
-OpenForum.init = function() {
-};

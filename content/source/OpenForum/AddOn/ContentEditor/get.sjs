@@ -56,8 +56,121 @@ if(action==="convertHTMLPage") {
     if(returned) result = {result: "ok", message: "Performed action "+action, data: returned};
 }
 
+// CON-T-024: saved content pages (added by hand, see ContentPages.sjs).
+if(action==="listContentPages" || action==="readContentPage" || action==="listContentPageRevisions" || action==="readContentPageRevision" || action==="checkContentPagePublication" || action==="previewContentPageImport") {
+    transaction.userCanPerformAction("/OpenForum/AddOn/ContentEditor", "read", true);
+    var ContentPages = js.getObject("/OpenForum/AddOn/ContentEditor","ContentPages.sjs");
+    var pageId = transaction.getParameter("pageId");
+    if(action!=="listContentPages" && action!=="previewContentPageImport" && pageId===null) {
+     throw "Request is missing required parameter pageId";
+    }
+    var returned;
+    if(action==="listContentPages") {
+      returned = ContentPages.listContentPages();
+    } else if(action==="previewContentPageImport") {
+      var sourcePage = transaction.getParameter("sourcePage");
+      var importTemplate = transaction.getParameter("templateId");
+      if(sourcePage===null || importTemplate===null) {
+       throw "Request is missing required parameter sourcePage or templateId";
+      }
+      transaction.userCanPerformAction(""+sourcePage, "read", true);
+      returned = ContentPages.previewContentPageImport(""+sourcePage, ""+importTemplate);
+    } else if(action==="readContentPage") {
+      returned = ContentPages.readContentPage(""+pageId);
+    } else if(action==="listContentPageRevisions") {
+      returned = ContentPages.listContentPageRevisions(""+pageId);
+    } else if(action==="checkContentPagePublication") {
+      var checkedRevision = transaction.getParameter("revisionId");
+      returned = ContentPages.checkContentPagePublication(""+pageId, checkedRevision===null ? "" : ""+checkedRevision);
+    } else {
+      var revisionId = transaction.getParameter("revisionId");
+      if(revisionId===null) {
+       throw "Request is missing required parameter revisionId";
+      }
+      returned = ContentPages.readContentPageRevision(""+pageId, ""+revisionId);
+    }
+    result = {result: "ok", message: "Performed action "+action, data: returned};
+}
+
+// CON-T-045: the site's library of components, layouts and styles (added by hand, see SiteLibrary.sjs).
+// CON-T-051: site structure (added by hand, see ContentPages.sjs).
+if(action==="planContentPageMove" || action==="listOtherDevelopmentPages") {
+    transaction.userCanPerformAction("/OpenForum/AddOn/ContentEditor", "read", true);
+    var Structure = js.getObject("/OpenForum/AddOn/ContentEditor","ContentPages.sjs");
+    var structureReturned;
+    if(action==="planContentPageMove") {
+      var movePageId = transaction.getParameter("pageId"), movePath = transaction.getParameter("path");
+      if(movePageId===null || movePath===null) {
+       throw "Request is missing required parameter pageId or path";
+      }
+      structureReturned = Structure.planContentPageMove(""+movePageId, ""+movePath);
+    } else {
+      var folder = transaction.getParameter("folder");
+      if(folder===null) {
+       throw "Request is missing required parameter folder";
+      }
+      structureReturned = Structure.listOtherDevelopmentPages(""+folder);
+    }
+    result = {result: "ok", message: "Performed action "+action, data: structureReturned};
+}
+if(action==="listLinkedImages") {
+    transaction.userCanPerformAction("/OpenForum/AddOn/ContentEditor", "read", true);
+    result = {result: "ok", message: "Performed action "+action, data: js.getObject("/OpenForum/AddOn/ContentEditor","SiteLibrary.sjs").listLinkedImages()};
+}
+// CON-T-057: the site's shared parts (added by hand, see ContentPages.sjs).
+if(action==="listSharedParts") {
+    transaction.userCanPerformAction("/OpenForum/AddOn/ContentEditor", "read", true);
+    result = {result: "ok", message: "Performed action "+action, data: js.getObject("/OpenForum/AddOn/ContentEditor","ContentPages.sjs").listSharedParts()};
+}
+if(action==="readSharedPart") {
+    transaction.userCanPerformAction("/OpenForum/AddOn/ContentEditor", "read", true);
+    var partPath = transaction.getParameter("path");
+    if(partPath===null) throw "Request is missing required parameter path";
+    result = {result: "ok", message: "Performed action "+action, data: js.getObject("/OpenForum/AddOn/ContentEditor","ContentPages.sjs").readSharedPart(""+partPath)};
+}
+if(action==="listSitePages") {
+    transaction.userCanPerformAction("/OpenForum/AddOn/ContentEditor", "read", true);
+    result = {result: "ok", message: "Performed action "+action, data: js.getObject("/OpenForum/AddOn/ContentEditor","ContentPages.sjs").listSitePages()};
+}
+if(action==="imageDetails") {
+    transaction.userCanPerformAction("/OpenForum/AddOn/ContentEditor", "read", true);
+    var detailsPage = transaction.getParameter("pageName"), detailsFile = transaction.getParameter("fileName");
+    if(detailsPage===null || detailsFile===null) {
+     throw "Request is missing required parameter pageName or fileName";
+    }
+    result = {result: "ok", message: "Performed action "+action, data: js.getObject("/OpenForum/AddOn/ContentEditor","SiteLibrary.sjs").imageDetails(""+detailsPage, ""+detailsFile)};
+}
+if(action==="listImageSources") {
+    transaction.userCanPerformAction("/OpenForum/AddOn/ContentEditor", "read", true);
+    result = {result: "ok", message: "Performed action "+action, data: js.getObject("/OpenForum/AddOn/ContentEditor","SiteLibrary.sjs").listImageSources()};
+}
+if(action==="listLibrary" || action==="readLibraryEntry" || action==="libraryUsage") {
+    transaction.userCanPerformAction("/OpenForum/AddOn/ContentEditor", "read", true);
+    var SiteLibrary = js.getObject("/OpenForum/AddOn/ContentEditor","SiteLibrary.sjs");
+    var kind = transaction.getParameter("kind");
+    if(kind===null) {
+     throw "Request is missing required parameter kind";
+    }
+    var entryId = transaction.getParameter("id");
+    if(action!=="listLibrary" && entryId===null) {
+     throw "Request is missing required parameter id";
+    }
+    var libraryReturned;
+    if(action==="listLibrary") {
+      libraryReturned = SiteLibrary.listLibrary(""+kind);
+    } else if(action==="readLibraryEntry") {
+      var version = transaction.getParameter("version");
+      libraryReturned = SiteLibrary.readLibraryEntry(""+kind, ""+entryId, version===null ? "" : ""+version);
+    } else {
+      libraryReturned = SiteLibrary.libraryUsage(""+kind, ""+entryId);
+    }
+    result = {result: "ok", message: "Performed action "+action, data: libraryReturned};
+}
+
 } catch(e) {
-  transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber+" of "+e.sourceName}));
+  // Refusals are thrown as plain text and shown to the person as they are.
+  var message = typeof e === "string" ? e : "Error:"+e+" on line "+e.lineNumber+" of "+e.sourceName;
+  transaction.sendJSON( JSON.stringify({result: "error",message: message}));
   return;
 }
   

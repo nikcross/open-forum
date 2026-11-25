@@ -1,3 +1,4 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <h3>Page</h3>
 <ul><li>Create</li>
 <li>Copy</li>
@@ -37,11 +38,11 @@
 <li>Remove User read access to page</li>
 <li>Add Group read access to page</li>
 <li>Remove Group read access to page</li>
-<li>Add User update access to page</li>
+<li>Add User update access to page</li>
 <li>Remove User update access to page</li>
 <li>Add Group update access to page</li>
 <li>Remove Group update access to page</li>
-<li>Add User delete access to page</li>
+<li>Add User delete access to page</li>
 <li>Remove User delete access to page</li>
 <li>Add Group delete access to page</li>
 <li>Remove Group delete access to page</li>
@@ -57,7 +58,7 @@
 <li>Page create logged</li>
 <li>Page update logged</li>
 <li>Page delete logged</li>
-<li>Attachment create logged</li>
+<li>Attachment create logged</li>
 <li>Attachment update logged</li>
 <li>Attachment delete logged</li>
 
@@ -65,5 +66,4 @@
 <li>Create blog entry</li>
 <li>Read blog entry</li>
 <li>Update blog entry</li>
-<li>Delete blog entry</li>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth--></ul>
+<li>Delete blog entry</li></ul>

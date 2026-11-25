@@ -1,18 +1,29 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Renders Wiki Data to HTML
-----
-!!Parameters
-*pageName
-*data
-or
-*sourcePageName
-*fileName
-----
-!!Usage:
+--8<--
+       
+((Renders wiki markup data to HTML))
+
+__Get parameters__
+* pageName = Page context for rendering
+* data = Wiki markup data to render (optional if using sourcePageName/fileName)
+* sourcePageName = Source page containing file to render (optional)
+* fileName = File containing wiki markup to render (optional)
+
+__Get examples:__
 {{{
-RenderWikiData?pageName=PageName&data=WikiData
-or
-RenderWikiData?pageName=PageName&sourcePageName=PageName&fileName=FileName
+// Simple URL - render inline data
+/OpenForum/Actions/RenderWikiData?pageName=/MyPage&data=!!Title
+
+// Using JSON.get - render from file
+JSON.get('/OpenForum/Actions/RenderWikiData', null, 
+  'pageName=/MyPage&sourcePageName=/Source&fileName=content.wiki')
+  .onSuccess(function(html) {
+    console.log('Rendered HTML:', html);
+  }).go();
 }}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 ----
 !!Server Side Javascript for GET method

@@ -1,7 +1,14 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<div class="row">
-<h3>TextDisplayCard v0.0.1</h3>
-<xmp class="panel" of-exclude="true"> <!--Extension TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" --><script>
+
+<p>Creates a text display card with title, description, and link</p>
+<b>Parameters</b>
+<ul><li> title = Card title</li>
+<li> description = Card description text</li>
+<li> linkText = Text for the link button</li>
+<li> linkURL = URL for the card link</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" --><script>
 if( typeof imageDisplayCSSLoaded == "undefined" ){ 
   OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");
   imageDisplayCSSLoaded = true;
@@ -17,7 +24,11 @@ if( typeof imageDisplayCSSLoaded == "undefined" ){
       <a href='https://open-forum.onestonesoup.org/'>Open Forum</a>
     </div>
   </div>
-</div><!--End Extension TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" --> </xmp>
+</div><!--End Extension TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" -->
+</xmp>
+
+<div class="row">
+<h3>TextDisplayCard v0.0.1</h3>
 <!--Extension TextDisplayCard title="Open Forum" description="The future" linkText="Open Forum" linkURL="https://open-forum.onestonesoup.org/" --><script>
 if( typeof imageDisplayCSSLoaded == "undefined" ){ 
   OpenForum.loadCSS("/OpenForum/Extensions/DisplayCard/page.css");

@@ -1,30 +1,33 @@
-<div class="row">
-  <div class="large-12 columns">
-!!System Configuration Pages
-    
-*[Actions|/OpenForum/Actions]
-*[Extensions|/OpenForum/Extensions]
-*[Triggers|/OpenForum/Triggers]
-*[Java Plugin Manager|/OpenForum/JarManager]
-*[Site Wide Page Definition|/OpenForum/PageTemplates/Default]
-*[Javascript|/OpenForum/Javascript]
-*[Aliases|/OpenForum/Aliases]
-*[Dynamic Pages|/OpenForum/DynamicPages]
-  </div>
-</div>
-<div class="row">
-  <div class="large-6 columns">
-    !!Reference
-*[Styles|/OpenForum/Styles]
-*[System Page Templates|/OpenForum/PageTemplates]
-*[System Images and Icons|/OpenForum/Images]
-  </div>
-  <div class="large-6 columns">
-    !!System Documents
-*[About OpenForum|/OpenForum/About]
-*[Credits|/OpenForum/About/Credits]
-*[Release Notes|/OpenForum/About/Release Notes]
-*[License|/OpenForum/About/License]
-  </div>
-</div>
+<div id="splash" style="display: block;">
+  <center>
+    !!!!Loading
+    !!Please Wait...
+  </center>
+</div> 
 
+<div id="application" style="display: none; height: 100%;">
+  <div id="leftPanel" class="columns large-2" style="border: solid 1px; height: inherit; overflow: auto">
+    
+    !!Overview
+    <div id="tree"></div>
+    [{Date}][{Clock}]
+  </div>
+
+  <div id="rightPanel" class="columns large-10" style="border: solid 1px; padding: 0px; height: inherit; overflow: hidden">
+    <div style="border-bottom: solid 3px #00A000;">
+      <nav class="top-bar" data-topbar role="navigation">
+        <section class="top-bar-section">
+          <ul class="left">
+            <li of-repeatFor="tab in tabList" id="{{tab.button}}" class="">
+              <a href="#{{tab.title}}" onclick="pageTabs.showTab('{{tab.id}}');">{{tab.title}}</a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div id="tabViews" style="overflow: auto; height: 90%;">
+      Loading...
+    </div>
+  </div>
+</div>

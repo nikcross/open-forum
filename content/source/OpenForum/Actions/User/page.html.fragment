@@ -1,3 +1,25 @@
-<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release--><ul><li> <a href="/OpenForum/Actions/User?action=getCurrentUser">/OpenForum/Actions/User?action=getCurrentUser</a></li>
-<li> <a href="/OpenForum/Actions/User?action=getCurrentUserProfile">/OpenForum/Actions/User?action=getCurrentUserProfile</a></li>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+       
+<p>Get current user information and profile</p>
+
+<b>Get parameters</b>
+<ul><li> action = "getCurrentUser" or "getCurrentUserProfile"</li>
+<li> currentPage = Current page (optional, for getCurrentUser)</li>
+<li> referrer = Referrer URL (optional, for getCurrentUser)</li>
+<li> userAgent = User agent string (optional, for getCurrentUser)</li>
 </ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL - get current user
+/OpenForum/Actions/User?action=getCurrentUser
+
+// Using JSON.get - get user profile
+JSON.get('/OpenForum/Actions/User', 'getCurrentUserProfile', <i></i>
+  .onSuccess(function(result) {
+    console.log('User profile:', result.data);
+  }).go();
+</xmp>
+
+
+<ul><li> <a href="/OpenForum/Actions/User?action=getCurrentUser">/OpenForum/Actions/User?action=getCurrentUser</a></li>
+<li> <a href="/OpenForum/Actions/User?action=getCurrentUserProfile">/OpenForum/Actions/User?action=getCurrentUserProfile</a></li></ul>

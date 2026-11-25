@@ -5,8 +5,9 @@
 * Built to pageName:/OpenForum/AddOn/DataLogger/PageAccessMonitor fileName:post.sjs
 **/
 /*
-* Author: 
-* Description: 
+* Development copy (Marketing App). Release: change the js.getObject path below back to
+* /OpenForum/AddOn/DataLogger/PageAccessMonitor. Journey reports, import and status are Admin only;
+* logUserJourneys is called by every server's UserJourneyLogger and checked with the shared key.
 */
 var action = transaction.getParameter("action");
 if(action===null) {
@@ -67,6 +68,82 @@ if(action==="logUserJourney") {
     if(returned) result = {result: "ok", message: "Performed action "+action, data: returned};
 }
 
+    var requireAdmin = function() {
+      if(""+transaction.getUser()!=="Admin") throw "Not Authorised";
+    };
+if(action==="logEvent") {
+    var app = transaction.getParameter("app");
+    if(app===null) {
+     throw "Request is missing required parameter app";
+    } else {
+     app = "" + app;
+    }
+    var step = transaction.getParameter("step");
+    if(step===null) {
+     throw "Request is missing required parameter step";
+    } else {
+     step = "" + step;
+    }
+    var pageName = transaction.getParameter("pageName");
+    if(pageName===null) {
+     pageName = "";
+    } else {
+     pageName = "" + pageName;
+    }
+    var userAgent = transaction.getParameter("userAgent");
+    if(userAgent===null) {
+     userAgent = "";
+    } else {
+     userAgent = "" + userAgent;
+    }
+    var item = transaction.getParameter("item");
+    item = (item===null) ? "" : "" + item;
+    var order = transaction.getParameter("order");
+    order = (order===null) ? "" : "" + order;
+    var returned = PageAccessMonitor.logEvent(app,step,pageName,userAgent,item,order,transaction);
+    if(returned) result = {result: "ok", message: "Performed action "+action, data: returned};
+}
+if(action==="logUserJourneys") {
+    var key = transaction.getParameter("key");
+    if(key===null) {
+     throw "Request is missing required parameter key";
+    } else {
+     key = "" + key;
+    }
+    var batch = transaction.getParameter("batch");
+    if(batch===null) {
+     throw "Request is missing required parameter batch";
+    } else {
+     batch = "" + batch;
+    }
+    var returned = PageAccessMonitor.logUserJourneys(key,batch);
+    if(returned) result = {result: "ok", message: "Performed action "+action, data: returned};
+}
+if(action==="logShopData") {
+    var shopKey = transaction.getParameter("key");
+    if(shopKey===null) throw "Request is missing required parameter key";
+    var shopBatch = transaction.getParameter("batch");
+    if(shopBatch===null) throw "Request is missing required parameter batch";
+    var returned = PageAccessMonitor.logShopData(""+shopKey,""+shopBatch);
+    if(returned) result = {result: "ok", message: "Performed action "+action, data: returned};
+}
+if(action==="importUserJourneyFile") {
+    requireAdmin();
+    var maxLines = transaction.getParameter("maxLines");
+    if(maxLines===null) {
+     maxLines = "";
+    } else {
+     maxLines = "" + maxLines;
+    }
+    var returned = PageAccessMonitor.importUserJourneyFile(maxLines);
+    if(returned) result = {result: "ok", message: "Performed action "+action, data: returned};
+}
+if(action==="resetUserJourneyImport") {
+    requireAdmin();
+    var returned = PageAccessMonitor.resetUserJourneyImport();
+    if(returned) result = {result: "ok", message: "Performed action "+action, data: returned};
+}
+
 } catch(e) {
   var message = "Error:"+e;
   if( typeof e.lineNumber != "undefined" ) {
@@ -81,3 +158,4 @@ if(action==="logUserJourney") {
 }
   
 transaction.sendJSON( JSON.stringify(result) );
+

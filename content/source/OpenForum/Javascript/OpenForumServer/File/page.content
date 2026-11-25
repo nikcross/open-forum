@@ -1,0 +1,4 @@
+!!Deprecated. Use [/OpenForum/Actions/Attachments]
+
+* <a href="/OpenForum/Javascript/OpenForumServer/File?action=getAttachmentForPage&arg0=/OpenForum/Javascript/OpenForumServer/File&arg1=File.js" target="test">getAttachmentForPage</a>
+* <a href="/OpenForum/Javascript/OpenForumServer/File?action=getAttachmentSize&arg0=/OpenForum/Javascript/OpenForumServer/File&arg1=File.js" target="test">getAttachmentSize</a>

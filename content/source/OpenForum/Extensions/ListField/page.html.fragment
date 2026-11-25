@@ -1,20 +1,30 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-Inserts a form input field.
-<hr/>
-<h3>Parameters</h3>
-name - the field name
-list - the list name
-value - optional value
-<hr/>
-<h3>Usage:</h3>
-<xmp class="panel" of-exclude="true"> <!--Extension ListField name="beetle" list="names" --><input type='text' list='dataList_names072464749071337131730250721070' name='beetleInput' id='beetleField'  of-id='beetle' value=''  ondblclick='beetle=OpenForum.BLANK;' title='Double click to clear'/><datalist id='dataList_names072464749071337131730250721070'>
+
+<p>Inserts a form input field with a datalist for autocomplete</p>
+<b>Parameters</b>
+<ul><li> name = Field name</li>
+<li> list = Name of the datalist</li>
+<li> value = Optional default value</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension ListField name="beetle" list="names" --><input type='text' list='dataList_names059797033712106621795482712264' name='beetleInput' id='beetleField'  of-id='beetle' value=''  ondblclick='beetle=OpenForum.BLANK;' title='Double click to clear'/><datalist id='dataList_names059797033712106621795482712264'>
 <option of-repeatFor='optionValue in names'>{{optionValue}}</option>
-</datalist><!--End Extension ListField name="beetle" list="names" --> </xmp>
-<!--Extension ListField name="beetle" list="names" --><input type='text' list='dataList_names0105564879917193991730250721065' name='beetleInput' id='beetleField'  of-id='beetle' value=<i></i> ondblclick='beetle=OpenForum.BLANK;' title='Double click to clear'/><datalist id='dataList_names0105564879917193991730250721065'>
+</datalist><!--End Extension ListField name="beetle" list="names" -->
+</xmp>
+
+<!--Extension ListField name="beetle" list="names" --><input type='text' list='dataList_names063296941508899811795482712190' name='beetleInput' id='beetleField'  of-id='beetle' value=<i></i> ondblclick='beetle=OpenForum.BLANK;' title='Double click to clear'/><datalist id='dataList_names063296941508899811795482712190'>
 <option of-repeatFor='optionValue in names'>{{optionValue}}</option>
 </datalist><!--End Extension ListField name="beetle" list="names" -->
 
 <h3>Your Beetle is {{beetle}}</h3>
+<hr/>
+<h3>Usage:</h3>
+<xmp class="panel" of-exclude="true">
+<!--Extension ListField name="beetle" list="names" --><input type='text' list='dataList_names024668667831035141795482712279' name='beetleInput' id='beetleField'  of-id='beetle' value=''  ondblclick='beetle=OpenForum.BLANK;' title='Double click to clear'/><datalist id='dataList_names024668667831035141795482712279'>
+<option of-repeatFor='optionValue in names'>{{optionValue}}</option>
+</datalist><!--End Extension ListField name="beetle" list="names" -->
+</xmp>
+
 <hr/>
 
 <!--Extension InsertSourceFile fileName="renderer.sjs" --><a href="//OpenForum/Extensions/ListField/renderer.sjs">//OpenForum/Extensions/ListField/renderer.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ListField&fileName=renderer.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">name = extension.getAttribute("name");

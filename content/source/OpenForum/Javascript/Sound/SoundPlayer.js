@@ -1,22 +1,30 @@
 if(!OpenForum) {
   OpenForum = {};
 }
-OpenForum.SoundPlayer = new function() {
-  var sounds = [];
+if(!OpenForum.SoundPlayer) {
+  OpenForum.SoundPlayer = new function() {
+    var sounds = [];
+    
+    this.addSound = function(source,id) {
+      var sound = document.createElement('audio');
+      sound.src = source;
+      sounds[id] = {source: source,sound: sound};
+    };
 
-  this.addSound = function(source,id) {
-    sound = document.createElement('audio');
-    sound.src = source;
-    sounds[id] = [source,sound];
-  };
+    this.playSound = function(id,onEndCallBack) {
+      if(onEndCallBack) sounds[id].sound.onended = onEndCallBack;
+      sounds[id].sound.loop=false;
+      sounds[id].sound.play();
+    };
 
-  this.playSound = function(id) {
-    sounds[id][1].loop=false;
-    sounds[id][1].play();
+    this.loopSound = function(id) {
+      sounds[id].sound.loop=true;
+      sounds[id].sound.play();
+    };
+    
+    this.stopSound = function(id) {
+      sounds[id].sound.loop=false;
+      sounds[id].sound.pause();
+    };
   };
-
-  this.loopSound = function(id) {
-    sounds[id][1].loop=true;
-    sounds[id][1].play();
-  };
-};
+}

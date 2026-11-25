@@ -1,6 +1,20 @@
+--8<--
+
+((Creates a call-to-action banner with image, title, text, and button))
+__Parameters__
+* imageURL = URL of the banner image
+* title = Banner title
+* text = Description text for the CTA
+* ctaText = Text for the call-to-action button
+* ctaURL = URL the button links to
+
+{{{
+[{CTABanner imageURL="/OpenForum/Images/open-forum-dog-small.png" title="Call To Action" text="A description of the CTA" ctaText="Click Me" ctaURL="http://www.bbc.co.uk"}]
+}}}
+-->8--
+
 <div class="row">
 !!CTABanner v0.0.3
-{{{ [{CTABanner imageURL="/OpenForum/Images/open-forum-dog-small.png" title="Call To Action" text="A description of the CTA" ctaText="Click Me" ctaURL="http://www.bbc.co.uk"}] }}}
 [{CTABanner imageURL="/OpenForum/Images/open-forum-dog-small.png" title="Call To Action" text="A description of the CTA" ctaText="Click Me" ctaURL="http://www.bbc.co.uk"}]
 \\
 [{ActionButton text="Add CTABanner Block type to Content Editor" action="addToContentEditor"}]

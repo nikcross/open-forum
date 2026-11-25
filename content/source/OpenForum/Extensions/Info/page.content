@@ -1,3 +1,17 @@
+--8<--
+
+((Creates an info popup icon))
+__Parameters__
+* id = Unique identifier for the info popup
+* sourceFileName = File containing info content
+* sourcePageName = Page where info content is located
+* title = Optional title for the info popup
+
+{{{
+[{Info id="test" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup"}]
+}}}
+-->8--
+
 !!&title;
 ----
 

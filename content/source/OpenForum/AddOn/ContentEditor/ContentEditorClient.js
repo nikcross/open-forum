@@ -43,11 +43,162 @@
         .onSuccess( callBack ).go();
     };
 
+    // CON-T-024: saved content pages. Reads use OFX like the methods above.
+    //Example use: ContentEditorClient.listContentPages( callBack );
+    self.listContentPages = function( callBack ) {
+      OFX.get( host+'/OpenForum/AddOn/ContentEditor' )
+        .withAction( 'listContentPages' )
+        .withData( {} )
+        .onSuccess( callBack ).go();
+    };
+
+    //Example use: ContentEditorClient.readContentPage( pageId, callBack );
+    self.readContentPage = function( pageId, callBack ) {
+      OFX.get( host+'/OpenForum/AddOn/ContentEditor' )
+        .withAction( 'readContentPage' )
+        .withData( {pageId: pageId} )
+        .onSuccess( callBack ).go();
+    };
+
+    //Example use: ContentEditorClient.listContentPageRevisions( pageId, callBack );
+    self.listContentPageRevisions = function( pageId, callBack ) {
+      OFX.get( host+'/OpenForum/AddOn/ContentEditor' )
+        .withAction( 'listContentPageRevisions' )
+        .withData( {pageId: pageId} )
+        .onSuccess( callBack ).go();
+    };
+
+    //Example use: ContentEditorClient.checkContentPagePublication( pageId, revisionId, callBack );
+    self.checkContentPagePublication = function( pageId, revisionId, callBack ) {
+      OFX.get( host+'/OpenForum/AddOn/ContentEditor' )
+        .withAction( 'checkContentPagePublication' )
+        .withData( {pageId: pageId, revisionId: revisionId || ""} )
+        .onSuccess( callBack ).go();
+    };
+
+    // CON-T-045: the site's library. kind is components, layouts or styles.
+    //Example use: ContentEditorClient.listLibrary( kind, callBack );
+    self.listLibrary = function( kind, callBack ) {
+      OFX.get( host+'/OpenForum/AddOn/ContentEditor' )
+        .withAction( 'listLibrary' )
+        .withData( {kind: kind} )
+        .onSuccess( callBack ).go();
+    };
+
 // End get methods
 
 // post methods
 
 
+
+    // CON-T-024/025: the page model is large JSON, so these post a form body
+    // encoded with encodeURIComponent (as OpenForum.saveFile does) rather
+    // than OFX.withData, whose encoding differs between OpenForum cores.
+    // Each returns a promise of the parsed reply: {result: "ok"|"conflict"|"error", ...}.
+    var post = function( action, fields ) {
+      var body = Object.keys( fields ).map( function( key ) {
+        return encodeURIComponent( key ) + "=" + encodeURIComponent( fields[key] );
+      } ).join( "&" );
+      return fetch( host+'/OpenForum/AddOn/ContentEditor?action=' + action, {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body
+      } ).then( function( response ) { return response.json(); } );
+    };
+
+    //Example use: ContentEditorClient.createContentPage( page, message ).then( callBack );
+    self.createContentPage = function( page, message, folder ) {
+      return post( 'createContentPage', { page: JSON.stringify( page ), message: message || "", folder: folder || "" } );
+    };
+
+    //Example use: ContentEditorClient.moveContentPage( pageId, path ).then( callBack );
+    self.moveContentPage = function( pageId, path ) {
+      return post( 'moveContentPage', { pageId: pageId, path: path } );
+    };
+
+    //Example use: ContentEditorClient.saveContentPage( pageId, baseRevision, page, message ).then( callBack );
+    self.saveContentPage = function( pageId, baseRevision, page, message ) {
+      return post( 'saveContentPage', { pageId: pageId, baseRevision: baseRevision, page: JSON.stringify( page ), message: message || "" } );
+    };
+
+    //Example use: ContentEditorClient.setContentPageArchived( pageId, archived ).then( callBack );
+    self.setContentPageArchived = function( pageId, archived ) {
+      return post( 'setContentPageArchived', { pageId: pageId, archived: archived ? "true" : "false" } );
+    };
+
+    //Example use: ContentEditorClient.publishContentPage( pageId, revisionId, practice ).then( callBack );
+    self.publishContentPage = function( pageId, revisionId, practice ) {
+      return post( 'publishContentPage', { pageId: pageId, revisionId: revisionId || "", practice: practice === false ? "false" : "true" } );
+    };
+
+    //Example use: ContentEditorClient.importContentPage( sourcePage, templateId ).then( callBack );
+    self.importContentPage = function( sourcePage, templateId ) {
+      return post( 'importContentPage', { sourcePage: sourcePage, templateId: templateId } );
+    };
+
+    //Example use: ContentEditorClient.createLibraryEntry( kind, name, content, message ).then( callBack );
+    self.createLibraryEntry = function( kind, name, content, message ) {
+      return post( 'createLibraryEntry', { kind: kind, name: name, content: JSON.stringify( content ), message: message || "" } );
+    };
+
+    //Example use: ContentEditorClient.saveLibraryEntry( kind, id, baseVersion, content, message ).then( callBack );
+    self.saveLibraryEntry = function( kind, id, baseVersion, content, message ) {
+      return post( 'saveLibraryEntry', { kind: kind, id: id, baseVersion: baseVersion, content: JSON.stringify( content ), message: message || "" } );
+    };
+
+    //Example use: ContentEditorClient.updateLibraryEntry( kind, id, { name, archived } ).then( callBack );
+    self.updateLibraryEntry = function( kind, id, changes ) {
+      return post( 'updateLibraryEntry', { kind: kind, id: id, name: changes.name || "",
+        archived: changes.archived === undefined ? "" : String( !!changes.archived ) } );
+    };
+
+    //Example use: ContentEditorClient.duplicateLibraryEntry( kind, id, name ).then( callBack );
+    self.duplicateLibraryEntry = function( kind, id, name ) {
+      return post( 'duplicateLibraryEntry', { kind: kind, id: id, name: name } );
+    };
+
+    // CON-T-049: the image library.
+    //Example use: ContentEditorClient.uploadImage( fileName, dataUrl ).then( callBack );
+    self.uploadImage = function( fileName, data ) {
+      return post( 'uploadImage', { fileName: fileName, data: data } );
+    };
+
+    //Example use: ContentEditorClient.addLinkedImage( url, name ).then( callBack );
+    self.addLinkedImage = function( url, name ) {
+      return post( 'addLinkedImage', { url: url, name: name || "" } );
+    };
+
+    //Example use: ContentEditorClient.updateLinkedImage( id, archived ).then( callBack );
+    self.updateLinkedImage = function( id, archived ) {
+      return post( 'updateLinkedImage', { id: id, archived: String( !!archived ) } );
+    };
+
+    //Example use: ContentEditorClient.addImageSource( pageName ).then( callBack );
+    self.addImageSource = function( pageName ) {
+      return post( 'addImageSource', { pageName: pageName } );
+    };
+
+    //Example use: ContentEditorClient.removeImageSource( id ).then( callBack );
+    self.removeImageSource = function( id ) {
+      return post( 'removeImageSource', { id: id } );
+    };
+
+    // CON-T-023: replace or remove an uploaded image.
+    //Example use: ContentEditorClient.replaceImage( fileName, dataUrl ).then( callBack );
+    self.replaceImage = function( fileName, data ) {
+      return post( 'replaceImage', { fileName: fileName, data: data } );
+    };
+
+    //Example use: ContentEditorClient.removeImage( fileName ).then( callBack );
+    self.removeImage = function( fileName ) {
+      return post( 'removeImage', { fileName: fileName } );
+    };
+
+    //Example use: ContentEditorClient.saveSharedPart( path, html, baseVersion ).then( callBack );
+    self.saveSharedPart = function( path, html, baseVersion ) {
+      return post( 'saveSharedPart', { path: path, html: html, baseVersion: baseVersion } );
+    };
 
 // End post methods
 

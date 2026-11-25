@@ -6,12 +6,12 @@
  * @param {number} x the position the graphics object is to be drawn at on the x axis 
  * @param {number} y the position the graphics object is to be drawn at on the y axis 
  */
-function GraphicsObject(x,y)
-{
+Giraffe.GraphicsObject = function(x,y) {
   this.canvasParent = null;
   this.canvas = null;
   this.x = x;
   this.y = y;
+  this.id = null;
   this.rotation = 0;
   this.color = "black";
   this.fillColor = null;
@@ -21,6 +21,60 @@ function GraphicsObject(x,y)
   this.scaleY = 1;
   this.visible=true;
   this.mouseOver=false;
+  this.type="GraphicsObject";
+  this.draggable=false;
+  this.excludeFromSave=false;
+
+  var getReferenceType = function(type) {
+    if(!Giraffe.ReferenceTypes) {
+      Giraffe.ReferenceTypes = {};
+    }
+    if(!Giraffe.ReferenceTypes[type]) {
+      Giraffe.ReferenceTypes[type] = new Giraffe[type]();
+    }
+    return Giraffe.ReferenceTypes[type];
+  };
+
+  this.toJson = function(self) {
+    if(this.excludeFromSave == true) return; 
+      
+    if(!self) self = this;
+    
+    var json = {type: self.type};
+    var reference = getReferenceType(self.type);
+    for(var part in self) {
+      if(typeof self[part] === "undefined" || self[part]===null) {
+        continue;
+      } else if(typeof self[part] === "string" || typeof self[part] === "number" || typeof self[part] === "boolean") {
+        if(reference[part]!=self[part]) {
+          json[part] = self[part];
+        }
+      } else if( part!="parent" && self[part].toJson && self[part].type) {
+        json[part] = self[part].toJson();
+      }
+    }
+    return json;
+  };
+
+
+  this.fromJson = function(json, canvas ,self) {
+    if(!self) self = this;
+    
+    for(var part in json) {
+      if(json[part] == null) {
+        continue;
+      } else if(json[part].type) {
+        self[part] = new Giraffe[json[part].type]();
+        self[part].fromJson( json[part], canvas, self[part] );
+      } else if( isFunction( self[part] ) ) {
+         self[part] = eval( "f = "+json[part] );
+      } else if( self[part]==null || (!isObject( self[part] ) && !isArray( self[part] )) ) {
+        self[part] = json[part];
+      }
+    }
+      
+    return self;
+  };
 
   /**#@+
    * @memberOf GraphicsObject
@@ -33,6 +87,9 @@ function GraphicsObject(x,y)
     this.canvasParent._store();
     if(this.canvas==undefined) {
       this.canvas = this.canvasParent.canvasContext;
+      if(this.draggable) {
+        this.canvasParent.makeDraggable( this );
+      }
     }
     this.canvas.translate(this.x,this.y);
     if(this.scaleX!=1 || this.scaleY!=1)
@@ -55,8 +112,15 @@ function GraphicsObject(x,y)
     }
 
     this.draw();
-    
+
     this.canvasParent._restore();
+  };
+
+  this.setScale = function(scaleX,scaleY) {
+    if(!scaleY) scaleY = scaleX;
+    this.scaleX=scaleX;
+    this.scaleY=scaleY;
+    return this;
   };
 
   /**
@@ -101,6 +165,25 @@ function GraphicsObject(x,y)
     this.rotation=rotation;
     return this;
   };
+  
+  this.getRelativePosition = function(posX,posY) {
+
+    var relativePosX = (posX-this.x) / this.scaleX;
+    var relativePosY = (posY-this.y) / this.scaleY;
+
+    if(this.rotation!=0) {
+      //var l = Math.pow( (relativePosX*relativePosX)+(relativePosY*relativePosY),0.5 );
+      var cos = Math.cos(-this.rotation);
+      var sin = Math.sin(-this.rotation);
+      var x = (relativePosX*cos) - (relativePosY*sin);
+      var y = (relativePosY*cos) + (relativePosX*sin);
+      
+      relativePosX = x;
+      relativePosY = y;
+    }
+
+    return {x: relativePosX, y: relativePosY};
+  };
 
   this.isInside = function(x,y){return false;};
   this.onClick = function(x,y){};
@@ -110,5 +193,7 @@ function GraphicsObject(x,y)
   this.onMouseReleased = function(x,y) {};
   this.animate = function(frame){};
   this.draw = function(){};
-}
+};
+//Deprecated
+GraphicsObject = Giraffe.GraphicsObject;
 /**#@-*/

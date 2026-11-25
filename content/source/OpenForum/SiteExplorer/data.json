@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/SiteExplorer",
-    "title": " Site Explorer"
+    "pageName": "/OpenForum/SiteExplorer",
+    "title": "SiteExplorer",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

@@ -13,17 +13,28 @@ var editor = { changed: " " };
 var editorList = [ {changed: " "} ];
 
 OpenForum.init = function() {
-  
+
   editor = new JavascriptEditor(0, "/OpenForum/Spider", "spider.config.json");
-  
+
   var queueName = "/OpenForum/Spider";
   queue = new MessageQueue(queueName);
 
   queue.processMessages = function(messages) {
     for(var message in messages) {
-		document.getElementById( "queueData" ).innerHTML += messages[message].substring(messages[message].indexOf(":")+1) + "\n";
+      document.getElementById( "queueData" ).innerHTML += messages[message].substring(messages[message].indexOf(":")+1) + "\n";
     }
   };
+
+  var configFile = OpenForum.getParameter("config");
+  var run = OpenForum.getParameter("run");
+  if(configFile!=="") {
+    OpenForum.loadFile(configFile, function(config) {
+      editor.setValue(config);
+      if(run==="true") {
+        runSpider();
+      }
+    });
+  }
 
   timer = setInterval( queue.pull , 1000 );
 };

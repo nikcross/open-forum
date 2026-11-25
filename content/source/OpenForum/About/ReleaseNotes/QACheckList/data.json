@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/About/ReleaseNotes/QACheckList",
-    "title": " QACheck List"
+    "pageName": "/OpenForum/About/ReleaseNotes/QACheckList",
+    "title": "QACheckList",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Access/SignOut",
-    "title": " Sign Out"
+    "pageName": "/OpenForum/Access/SignOut",
+    "title": "SignOut",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

@@ -1,6 +1,8 @@
 var width = 800;
 var height = 600;
 
+giraffe.canvas.add( new Giraffe.Picture( 400,150,"/OpenForum/Giraffe/giraffe-colour.svg" ).setScale(0.3) );
+
 for(var i=0;i<50;i++) {
   
   var red = Math.floor(Math.random()*256);

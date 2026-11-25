@@ -14,7 +14,7 @@ public class SessionStore implements Runnable {
 
 	private static SessionStore sessionStore;
 
-	private static long TIMEOUT = TimeConstants.DAY;
+	private static long TIMEOUT = TimeConstants.DAY * 30;
 
 	private Map<String, Session> sessions = new HashMap<String, Session>();
 	private int sessionCount = 0;
@@ -34,6 +34,10 @@ public class SessionStore implements Runnable {
 		public String getSessionId() {
 			return sessionId;
 		}
+	}
+
+	public static long getTimeoutSeconds() {
+		return TIMEOUT / TimeConstants.SECOND;
 	}
 
 	public static SessionStore getSessionStore(OpenForumController controller) {

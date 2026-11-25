@@ -322,6 +322,8 @@ function getFlavour( fileName ) {
     flavour = "html";
   } else if(fileName.indexOf(".xml")==fileName.length-4) {
     flavour = "xml";
+  } else if(/\.(yaml|yml)$/i.test(fileName)) {
+    flavour = "yaml";
   }
   return flavour;
 }

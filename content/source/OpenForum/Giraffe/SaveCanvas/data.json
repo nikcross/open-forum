@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Giraffe/SaveCanvas",
-    "title": " Save Canvas"
+    "pageName": "/OpenForum/Giraffe/SaveCanvas",
+    "title": "SaveCanvas",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

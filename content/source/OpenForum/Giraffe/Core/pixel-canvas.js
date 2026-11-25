@@ -5,8 +5,7 @@
 /**
  * Defines a 
  */
-function PixelCanvas(x,y,width,height)
-{
+Giraffe.PixelCanvas = function(x,y,width,height) {
 	  /**#@+
 	   * @memberOf PixelCanvas
 	   */
@@ -32,11 +31,15 @@ function PixelCanvas(x,y,width,height)
     imageData.data[cursor+2] = b;
     imageData.data[cursor+3] = a;
   };
+  
+  this.getPixel = function(x,y) {
+    var cursor = (x+(y*width))*4;
+    return {red: imageData.data[cursor], green: imageData.data[cursor+1], blue: imageData.data[cursor+2], alpha: imageData.data[cursor+3]};
+  };
 /**
  * @private
  */
-  this.draw = function()
-  {
+  this.draw = function() {
     this.canvas.putImageData(imageData,x,y);
   };
   
@@ -47,12 +50,19 @@ function PixelCanvas(x,y,width,height)
    * @returns true if the point lies within the picture
    */
   this.isInside = function(posX,posY) {
-	if(
-		posX-this.x>0 &&
-		posX-this.x<this.width &&
-		posY-this.y>0 &&
-		posY-this.y<this.height
-		){ return true; } else { return false; }
+    var rPos = this.getRelativePosition(posX,posY);
+    posX = rPos.x;
+    posY = rPos.y;
+    
+    if(
+      posX>0 &&
+      posX<(this.img.width*this.scaleX) &&
+      posY>0 &&
+      posY<(this.img.height*this.scaleY)
+    ){ return true; } else { return false; }
   };
-}
-PixelCanvas.prototype = new GraphicsObject();
+};
+Giraffe.PixelCanvas.prototype = new Giraffe.GraphicsObject();
+
+//Deprecated
+PixelCanvas = Giraffe.PixelCanvas;

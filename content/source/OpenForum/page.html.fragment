@@ -1,31 +1,48 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<div class="row">
-  <div class="large-12 columns">
-<h3>System Configuration Pages</h3>
-<ul><li><a href="/OpenForum/Actions">Actions</a></li>
-<li><a href="/OpenForum/Extensions">Extensions</a></li>
-<li><a href="/OpenForum/Triggers">Triggers</a></li>
-<li><a href="/OpenForum/JarManager">Java Plugin Manager</a></li>
-<li><a href="/OpenForum/PageTemplates/Default">Site Wide Page Definition</a></li>
-<li><a href="/OpenForum/Javascript">Javascript</a></li>
-<li><a href="/OpenForum/Editor?pageName=/OpenForum/Aliases"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Aliases does not exist. Click to create it.">Aliases</a></li>
-<li><a href="/OpenForum/Editor?pageName=/OpenForum/DynamicPages"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/DynamicPages does not exist. Click to create it.">Dynamic Pages</a></li>
-  </div>
-</div>
-<div class="row">
-  <div class="large-6 columns">
-    <h3>Reference</h3>
-<li><a href="/OpenForum/Editor?pageName=/OpenForum/Styles"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Styles does not exist. Click to create it.">Styles</a></li>
-<li><a href="/OpenForum/PageTemplates">System Page Templates</a></li>
-<li><a href="/OpenForum/Images">System Images and Icons</a></li>
-  </div>
-  <div class="large-6 columns">
-    <h3>System Documents</h3>
-<li><a href="/OpenForum/About">About OpenForum</a></li>
-<li><a href="/OpenForum/About/Credits">Credits</a></li>
-<li><a href="/OpenForum/About/Release Notes">Release Notes</a></li>
-<li><a href="/OpenForum/About/License">License</a></li>
-  </div>
-</div>
+<div id="splash" style="display: block;">
+  <center>
+    <h1>Loading</h1>
+    <h3>Please Wait...</h3>
+  </center>
+</div> 
 
-</ul>
+<div id="application" style="display: none; height: 100%;">
+  <div id="leftPanel" class="columns large-2" style="border: solid 1px; height: inherit; overflow: auto">
+    
+    <h3>Overview</h3>
+    <div id="tree"></div>
+    <!--Extension Date --><script>
+  currentDate = new Date().toLocaleDateString();
+  setInterval(
+    function() { currentDate = new Date().toLocaleDateString(); }
+    ,10000
+  );
+</script>
+<span class="label tiny success round">{{currentDate}}</span><!--End Extension Date --><!--Extension Clock --><script>
+  currentTime = new Date().toLocaleTimeString();
+  setInterval(
+    function() { currentTime = new Date().toLocaleTimeString(); }
+    ,500
+  );
+</script>
+<span class="label tiny success round">{{currentTime}}</span><!--End Extension Clock -->
+  </div>
+
+  <div id="rightPanel" class="columns large-10" style="border: solid 1px; padding: 0px; height: inherit; overflow: hidden">
+    <div style="border-bottom: solid 3px #00A000;">
+      <nav class="top-bar" data-topbar role="navigation">
+        <section class="top-bar-section">
+          <ul class="left">
+            <li of-repeatFor="tab in tabList" id="{{tab.button}}" class="">
+              <a href="#{{tab.title}}" onclick="pageTabs.showTab('{{tab.id}}');">{{tab.title}}</a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div id="tabViews" style="overflow: auto; height: 90%;">
+      Loading...
+    </div>
+  </div>
+</div>

@@ -1,4 +1,6 @@
 {
-    "pageName": "//OpenForum/Authorization",
-    "title": " Authorization"
+    "pageName": "/OpenForum/Authorization",
+    "title": "Authorization",
+    "pageParent": "https://open-forum.onestonesoup.org",
+    "editorConfig": "/OpenForum/Authorization/editor-config.json"
 }

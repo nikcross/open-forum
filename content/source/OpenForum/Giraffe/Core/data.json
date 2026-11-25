@@ -1,4 +1,6 @@
 {
-    "pageName": "//OpenForum/Giraffe/Core",
-    "title": " Core"
+    "pageName": "/OpenForum/Giraffe/Core",
+    "title": "Core",
+    "pageParent": "https://open-forum.onestonesoup.org",
+    "editorConfig": "/OpenForum/Giraffe/Core/editor-config.json"
 }

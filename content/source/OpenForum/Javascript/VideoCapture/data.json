@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Javascript/VideoCapture",
-    "title": " Video Capture"
+    "pageName": "/OpenForum/Javascript/VideoCapture",
+    "title": "VideoCapture",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

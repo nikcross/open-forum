@@ -1,2 +1,26 @@
+--8<--
+       
+((Get current user information and profile))
+
+__Get parameters__
+* action = "getCurrentUser" or "getCurrentUserProfile"
+* currentPage = Current page (optional, for getCurrentUser)
+* referrer = Referrer URL (optional, for getCurrentUser)
+* userAgent = User agent string (optional, for getCurrentUser)
+
+__Get examples:__
+{{{
+// Simple URL - get current user
+/OpenForum/Actions/User?action=getCurrentUser
+
+// Using JSON.get - get user profile
+JSON.get('/OpenForum/Actions/User', 'getCurrentUserProfile', '')
+  .onSuccess(function(result) {
+    console.log('User profile:', result.data);
+  }).go();
+}}}
+
+-->8--
+
 * [/OpenForum/Actions/User?action=getCurrentUser]
 * [/OpenForum/Actions/User?action=getCurrentUserProfile]

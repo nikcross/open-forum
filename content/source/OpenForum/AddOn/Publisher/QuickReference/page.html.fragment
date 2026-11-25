@@ -2,16 +2,25 @@
 <h3>QuickReference</h3>
 
 
-       
-<p>The Publisher AddOn enables the publishing of packages from the developent area of a site into prodction.</p>
-<p>All text files in the package (page and sub pages) are translated before publishing. References to Development are removed so a path /MyPage becomes /MyPage</p>
-<p>Deletions are not processed immediately, but placed in a deletions script file to run later.</p>
-       
-  
+(<p>Publisher promotes any /... page hierarchy to production by copying it without the /Development prefix so work-in-progress stays isolated.</p>
+<p>Every text-based attachment is rewritten so `"/"` links become live paths, and optional rules in `development-translation.sjs` can further transform each file.</p>
+<p>Practice publishes generate release notes plus a deletions script preview without touching the live site; the real publish copies files and appends removal commands into `process-deletions.sjs` for manual execution.</p>
+
+<h3>Actions</h3>
+<ul><li> <b>Check for Page Differences</b> – Compares timestamps and hashes between the /Development tree and its published counterpart so you can see what will change.</li>
+<li> <b>Reverse Publish</b> – Copies the published page back into /Development to recover live edits or restart from a known-good state.</li>
+<li> <b>Publish Page (practice)</b> – Runs the full translation/diff pipeline, writes detailed release notes, but skips copying so you can verify the impact.</li>
+<li> <b>Publish Page (for real)</b> – Performs the same checks and then copies the files, applies path rewrites, generates release notes, and refreshes the published page.</li>
+</ul>
 <h3>Special files</h3>
-<ul><li> development-translation.sjs - This is an optional script that will translate the contents of files. The script is passed the contents of each text file as the variable data and is expected to return the transformed version.</li>
-<li> publish-config.json - Can contain a list of files to exclude eg. <xmp class="panel" of-exclude="true"> { excludedFiles: <a href="/OpenForum/Editor?pageName=/OpenForum/AddOn/Publisher/QuickReference/'do-not-publish.me'"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/AddOn/Publisher/QuickReference/'do-not-publish.me' does not exist. Click to create it.">'do-not-publish.me'</a> } </xmp></li>
-<li> do-not-release.txt - Marks a page as not to be published. Should contain text stateing the reason</li>
-<li> process-deletions.sjs - A script that is generated with files to be deleted after publishing</li>
-<li> release-notes.html.fragment - Notes generated during the release are saved here</li>
+<ul><li> <b>development-translation.sjs</b> – Optional script invoked per text file; receives the file contents as `data` and must return the transformed string.</li>
+<li> <b>publish-config.json</b> – JSON blob for exclusions, e.g. `{"excludedFiles":<a href="/OpenForum/Editor?pageName=/OpenForum/AddOn/Publisher/QuickReference/"do-not-publish.me""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/AddOn/Publisher/QuickReference/"do-not-publish.me" does not exist. Click to create it.">"do-not-publish.me"</a>}`; also expands the standard exclusion list.</li>
+<li> <b>do-not-release.txt</b> – Presence blocks publishing and should describe why the page is locked.</li>
+<li> <b>process-deletions.sjs</b> – Auto-generated script listing live files to delete after you verify them; run manually once you are satisfied.</li>
+<li> <b>release-notes.html.fragment</b> – Captures the accordion-style log of each publish run for auditing.</li>
+</ul>
+<h3>Usage tips</h3>
+<ul><li> Publish from the root /... page you want to release; sub pages are handled automatically.</li>
+<li> Always inspect the practice-mode release notes before running the real publish so you catch unexpected deletions or TODO markers.</li>
+<li> Keep the generated deletions script in source control (or review it) before executing so you have an audit trail of removed files.</li>
 </ul>

@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Javascript/QRCode",
-    "title": " QRCode"
+    "pageName": "/OpenForum/Javascript/QRCode",
+    "title": "QRCode",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

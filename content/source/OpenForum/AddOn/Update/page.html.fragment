@@ -1,3 +1,4 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <div class="row">
   <h3>Updater {{VERSION}}</h3>
 
@@ -8,10 +9,10 @@
     <label>Page Name </label><div class="columns large-8"><input type="text" of-id="targetPageName" /></div>
   </div>
   <div class="row">
-    <a class="button tiny" onClick="getUpdateInfo(); return false;">Get Update Info</a>
-    <a class="button tiny" onClick="getUpdate(); return false;">Get Update</a>
+    <!--Extension Button title="Get Update Info" function="getUpdateInfo" --><a class="button tiny" onClick="getUpdateInfo(); return false;">Get Update Info</a><!--End Extension Button title="Get Update Info" function="getUpdateInfo" -->
+    <!--Extension Button title="Get Update" function="getUpdate" --><a class="button tiny" onClick="getUpdate(); return false;">Get Update</a><!--End Extension Button title="Get Update" function="getUpdate" -->
   </div>
-  <div class="row"><ul><li> Page Name: {{release.pagename}}</li>
+  <div class="row"> <ul><li> Page Name: {{release.pagename}}</li>
 <li> Version: {{release.version}}</li>
 <li> Released: {{release.releaseTime}}</li>
 <li> Size: {{release.zipfilesize_VIEW}}</li>
@@ -42,6 +43,5 @@
 </div>
 
   <div class="row">
-    <a href="/OpenForum/AddOn/Update/">API Reference</a>
+    <a href="/OpenForum/AddOn/Update/" target="newTab">API Reference<img src='/OpenForum/Images/icons/png/link_go.png' /></a>
   </div>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

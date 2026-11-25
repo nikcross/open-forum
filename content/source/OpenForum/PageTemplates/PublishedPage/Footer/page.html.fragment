@@ -1,12 +1,13 @@
+<!--Content built using /OpenForum/PageTemplates/PublishedPage/page.build.js x0.0.4 February Promise builder and renderer DefaultRenderer v1.08 2021 Covid release-->
       <footer class="row">
         <div class="large-12 columns">
           		<hr/>
               <ul class="inline-list right">
-                <li><a href="">About</a></li>
-                <li><a href="">Open Forum @ OneStoneSoup.org</a></li>
-                <li><a href="">Documentation</a></li>
-                <li><a href="">Developers</a></li>
+                <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->">About</a></li>
+                <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->">Open Forum @ OneStoneSoup.org</a></li>
+                <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->">Documentation</a></li>
+                <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->">Developers</a></li>
                 <li><a href="http://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
               </ul>
             </div>
-      </footer><!--Content built using default-->
+      </footer>

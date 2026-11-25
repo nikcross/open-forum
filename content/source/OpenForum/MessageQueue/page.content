@@ -4,7 +4,7 @@
     Queue Name:
   </div>
   <div class="large-6 columns">
-    <input type="text" of-id="queueName" id="queueName" size="50"/>
+    <input type="text" of-id="queueName" size="50"/>
   </div>
   <div class="large-2 columns">
     <a href="#" class="button tiny radius" onClick="startWatchingQueue();">Start Watching</a>

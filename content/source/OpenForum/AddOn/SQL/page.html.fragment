@@ -1,3 +1,4 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <div style="background-color: #203d64; color: #eef7ee; height: inherit;">
   <h3><a href="/OpenForum/AddOn/SQL/QuickReference">Code Quick Reference</a></h3>
   <h3><a href="/OpenForum/AddOn/SQL/Generator">SQL and Javascript Generator</a></h3>
@@ -7,10 +8,10 @@
       <option of-repeatFor="alias in SQLEditorController.dbAliases" selected>{{alias.name}}</option>
     </select>
     <div id="sqlEditor"><textarea id="editor{{editorIndex}}Src" style="height: 100%;">Loading...</textarea></div>
-    <a  class='button radius tiny' href='#' onclick='SQLEditorController.runSQLScript(); return false;'>Run</a> 
-    <a  class='button radius tiny' href='#' onclick='SQLEditorController.generateSQLCode(); return false;'>Generate Code</a> 
-    <a  class='button radius tiny' href='#' onclick='SQLEditorController.showHistoryView(); return false;'>View Query History</a> 
-    <a  class='button radius tiny' href='#' onclick='SQLEditorController.showInspectionView(); return false;'>View DB Instector</a> 
+    <!--Extension ActionButton action="SQLEditorController.runSQLScript" text="Run" --><a  class='button radius tiny' href='#' onclick='SQLEditorController.runSQLScript(); return false;'>Run</a> <!--End Extension ActionButton action="SQLEditorController.runSQLScript" text="Run" -->
+    <!--Extension ActionButton action="SQLEditorController.generateSQLCode" text="Generate Code" --><a  class='button radius tiny' href='#' onclick='SQLEditorController.generateSQLCode(); return false;'>Generate Code</a> <!--End Extension ActionButton action="SQLEditorController.generateSQLCode" text="Generate Code" -->
+    <!--Extension ActionButton action="SQLEditorController.showHistoryView" text="View Query History" --><a  class='button radius tiny' href='#' onclick='SQLEditorController.showHistoryView(); return false;'>View Query History</a> <!--End Extension ActionButton action="SQLEditorController.showHistoryView" text="View Query History" -->
+    <!--Extension ActionButton action="SQLEditorController.showInspectionView" text="View DB Instector" --><a  class='button radius tiny' href='#' onclick='SQLEditorController.showInspectionView(); return false;'>View DB Instector</a> <!--End Extension ActionButton action="SQLEditorController.showInspectionView" text="View DB Instector" -->
   </div>
 
   <div class="row">
@@ -40,9 +41,9 @@
     <div class="column large-8">
       <h3>Table {{SQLEditorController.tableView.schema}}.{{SQLEditorController.tableView.name}}</h3>
       <i>Current Rows: {{SQLEditorController.tableView.rows}}</i><br/>
-      <a  class='button radius tiny' href='#' onclick='SQLEditorController.createSelect(); return false;'>Create Select</a> 
-      <a  class='button radius tiny' href='#' onclick='SQLEditorController.createInsert(); return false;'>Create Insert</a> 
-      <a  class='button radius tiny' href='#' onclick='SQLEditorController.createTable(); return false;'>Create Table</a> 
+      <!--Extension ActionButton action="SQLEditorController.createSelect" text="Create Select" --><a  class='button radius tiny' href='#' onclick='SQLEditorController.createSelect(); return false;'>Create Select</a> <!--End Extension ActionButton action="SQLEditorController.createSelect" text="Create Select" -->
+      <!--Extension ActionButton action="SQLEditorController.createInsert" text="Create Insert" --><a  class='button radius tiny' href='#' onclick='SQLEditorController.createInsert(); return false;'>Create Insert</a> <!--End Extension ActionButton action="SQLEditorController.createInsert" text="Create Insert" -->
+      <!--Extension ActionButton action="SQLEditorController.createTable" text="Create Table" --><a  class='button radius tiny' href='#' onclick='SQLEditorController.createTable(); return false;'>Create Table</a> <!--End Extension ActionButton action="SQLEditorController.createTable" text="Create Table" -->
       <table>
         <thead>
           <tr>
@@ -109,7 +110,7 @@
   <h2 id="historyViewTitle">Query History.</h2>
   <p>
     <input list="historyList" of-id="SQLEditorController.historicQuery">
-    <a  class='button radius tiny' href='#' onclick='SQLEditorController.appendHistoricQuery(); return false;'>Append To SQL</a> 
+    <!--Extension ActionButton action="SQLEditorController.appendHistoricQuery" text="Append To SQL" --><a  class='button radius tiny' href='#' onclick='SQLEditorController.appendHistoricQuery(); return false;'>Append To SQL</a> <!--End Extension ActionButton action="SQLEditorController.appendHistoricQuery" text="Append To SQL" -->
     <datalist id="historyList">
       <option of-repeatFor="sql in SQLEditorController.sqlHistory" value="{{sql.query}}" />
     </datalist>
@@ -117,4 +118,3 @@
 
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

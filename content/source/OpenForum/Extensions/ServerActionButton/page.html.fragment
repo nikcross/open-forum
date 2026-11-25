@@ -1,16 +1,22 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a>
--<hr/>
-<h3>Parameters</h3>
-<ul><li> action = Action Name</li>
-<li> text = Action button text</li>
+
+<p>A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a> on the server</p>
+<b>Parameters</b>
+<ul><li> action = Action Name</li>
+<li> text = Action button text</li>
+<li> parameters = Optional parameters to pass to the action</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension ServerActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" --><a class="button" href="#" onclick="ajax.doGet('/OpenForum/Actions/Rebuild','pageName=Home');return false;">Rebuild Wiki</a><!--End Extension ServerActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" -->
+</xmp>
+
+<!--Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" --><a  class='button radius tiny' href='#' onclick='Rebuild("pageName=Home"); return false;'>Rebuild Wiki</a> <!--End Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" -->
 
 <hr/>
-<h3>Usage:</h3>
+<h3>Usage:</h3>
 <xmp class="panel" of-exclude="true">
 <!--Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" --><a  class='button radius tiny' href='#' onclick='Rebuild("pageName=Home"); return false;'>Rebuild Wiki</a> <!--End Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" -->
 </xmp>
-<a href="/OpenForum/Extensions/ServerActionButton/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a><!--Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" --><a  class='button radius tiny' href='#' onclick='Rebuild("pageName=Home"); return false;'>Rebuild Wiki</a> <!--End Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" -->
 
 <hr/>
 
@@ -19,4 +25,4 @@ parameters = extension.getAttribute("parameters");
 text = extension.getAttribute("text");
 
 return "<a class=<br/>"button<br/>" href=<br/>"#<br/>" onclick=<br/>"ajax.doGet('/OpenForum/Actions/"+action+"','"+parameters+"');return false;<br/>">"+text+"</a>";
-</xmp><!--End Extension InsertSourceFile fileName="renderer.sjs" --></ul>
+</xmp><!--End Extension InsertSourceFile fileName="renderer.sjs" -->

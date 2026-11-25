@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/PageTemplates",
-    "title": " Page Templates"
+    "pageName": "/OpenForum/PageTemplates",
+    "title": "PageTemplates",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

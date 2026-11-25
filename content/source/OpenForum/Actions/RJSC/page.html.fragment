@@ -1,13 +1,26 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Remote Javascript Call
-<hr/>
-<h3>Parameters</h3>
-<ul><li>code</li>
-<hr/>
-<h3>Usage:</h3>
+       
+<p>Remote JavaScript Call - executes server-side JavaScript code</p>
+
+<b>Get parameters</b>
+<ul><li> code = JavaScript code to execute on the server</li>
+<li> queueName = Optional queue name for output messages</li>
+</ul>
+<b>Get examples:</b>
 <xmp class="panel" of-exclude="true">
-<a href="/OpenForum/Actions/RJSC?code=transaction.getParameter("code");">/OpenForum/Actions/RJSC?code=transaction.getParameter("code");</a>
+// Simple URL
+/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/RJSC', null, 'code=wiki.getDateTimeStamp();')
+  .onSuccess(function(result) {
+    console.log('Result:', result);
+  }).go();
 </xmp>
+
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Remote Javascript Call
+
 <a href="/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();">/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();</a>
 
 <hr/>
@@ -20,17 +33,23 @@ if( code===null )
   return;
 }
 
+var rjscUser = ""+transaction.getUser();
+if(rjscUser!=="Admin" && rjscUser!=="System") {
+  transaction.sendJSON( JSON.stringify({result: "error", message: "Forbidden: RJSC requires Admin"}) );
+  return;
+}
+
 try{
  function println(message) {
    openForum.postMessageToQueue(queueName,message);
  }
-  
+
  console = {
    log: function(message) {
      println(message);
    }
  };
-  
+
   println("Running");
 
   code = ""+code;
@@ -44,7 +63,7 @@ try{
   }
 
   println("Complete");
-  
+
   transaction.sendJSON( JSON.stringify( {result: result} ) );
 } catch(e) {
   try{
@@ -52,4 +71,5 @@ try{
   }
   catch(e2){}
   transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber}));
-}</xmp><!--End Extension InsertSourceFile fileName="get.sjs" --></ul>
+}
+</xmp><!--End Extension InsertSourceFile fileName="get.sjs" -->

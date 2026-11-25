@@ -1,13 +1,26 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Publishes a page to a remote site
-----
-!!Parameters
-* pageName - the name of the page to publish
-----
-!!Usage:
+--8<--
+       
+((Publishes a page to a remote OpenForum site))
+
+__Get parameters__
+* pageName = Page name to publish
+* newPageName = Destination page name on remote site
+
+__Get examples:__
 {{{
-/OpenForum/Actions/Publish?pageName=MyPage
+// Simple URL
+/OpenForum/Actions/Publish?pageName=/MyPage&newPageName=/PublishedPage
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Publish', null, 'pageName=/MyPage&newPageName=/PublishedPage')
+  .onSuccess(function(result) {
+    console.log('Published:', result);
+  }).go();
 }}}
 
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 ----
 !!Server Side Javascript for GET method

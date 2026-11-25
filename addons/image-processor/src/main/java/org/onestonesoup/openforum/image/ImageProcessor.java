@@ -11,7 +11,7 @@ import java.nio.ByteBuffer;
 
 public class ImageProcessor extends SystemAPI {
 
-	private static final String VERSION = "3.0.2";
+	private static final String VERSION = "3.0.3";
 
 	public String getVersion() {
 		return VERSION;

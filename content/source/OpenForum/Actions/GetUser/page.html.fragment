@@ -1,13 +1,29 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Returns the current users name.
-<hr/>
-<h3>Get Parameters</h3>
-<ul><li>pageName</li>
+       
+<p>Returns the current user's name</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Any page name (required but not used)</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/GetUser?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/GetUser', null, 'pageName=dummy')
+  .onSuccess(function(username) {
+    console.log('Current user:', username);
+  }).go();
+</xmp>
+
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
 
 <DIV id="userLayer"></DIV>
 
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel" of-exclude="true"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
@@ -15,4 +31,4 @@
 else
 {
   transaction.sendPage( transaction.getUser() );
-} </xmp></ul>
+} </xmp>

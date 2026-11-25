@@ -1,2 +1,2 @@
 
-<div id="InPageEditor" style="background-color: #ffffff"><textarea id="editor{{editorIndex}}Src">Loading...</textarea></div>
+<div id="InPageEditor" class="row"  style="background-color: #ffffff"><textarea id="editor{{editorIndex}}Src">Loading...</textarea></div>

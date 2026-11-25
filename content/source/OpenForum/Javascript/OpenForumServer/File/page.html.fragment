@@ -1,2 +1,5 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>Deprecated. Use <a href="/OpenForum/Actions/Attachments">/OpenForum/Actions/Attachments</a></h3>
 
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<ul><li> <a href="/OpenForum/Javascript/OpenForumServer/File?action=getAttachmentForPage&arg0=/OpenForum/Javascript/OpenForumServer/File&arg1=File.js" target="test">getAttachmentForPage</a></li>
+<li> <a href="/OpenForum/Javascript/OpenForumServer/File?action=getAttachmentSize&arg0=/OpenForum/Javascript/OpenForumServer/File&arg1=File.js" target="test">getAttachmentSize</a></li></ul>

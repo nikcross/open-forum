@@ -1,10 +1,9 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <div class="medium-4 columns">
-
+<!--Extension ChildPagesList --><!--End Extension ChildPagesList -->
 </div>
 <div class="medium-4 columns">
-  <h2>Generate Help</h2>
-
-<table><tr><td><table><tr><td></td></tr></table></td></tr>
+  <h2>Generate Help</h2><table><tr><td><table><tr><td></td></tr></table></td></tr>
 <tr><td>Script to load:</td><td><input type="text" of-id="scriptFileName"></td></tr>
 <tr><td>Help Script to load:</td><td><input type="text" of-id="helpScriptFileName"></td></tr>
 <tr><td>Object Name:</td><td><input type="text" of-id="objectName"></td></tr>
@@ -22,4 +21,3 @@
 </div>
 <div class="row">
 <h3> Needs to be able to run on server side as well to document server side scripts</h3>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

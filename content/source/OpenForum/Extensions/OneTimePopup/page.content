@@ -1,3 +1,17 @@
+--8<--
+
+((Creates a popup that displays once per user session))
+__Parameters__
+* id = Unique identifier for the popup
+* sourceFileName = File containing popup content
+* sourcePageName = Page where popup content is located
+* suppressText = Text for the close/dismiss button
+
+{{{
+[{OneTimePopup id="test" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" suppressText="Make this go away"}]
+}}}
+-->8--
+
 !!&title;
 ----
 

@@ -6,19 +6,19 @@
     <title>TableEditor</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1633365237000"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/Application/TableEditor/page.js?ts=1633365237000"></script>
-    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1633365237000" />
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1794835592000"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1612515763000" />
+    <script type="text/javascript" src="/OpenForum/Javascript/Application/TableEditor/page.js?ts=1794835592000"></script>
     <!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) start --><link rel="icon" href="/OpenForum/Images/open-forum-dog-small.png" /><!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) end --> 
 
     <!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start --><script>
   var pageName = "/OpenForum/Javascript/Application/TableEditor";
   var author = "unknown";
-  var time = "1633365237000";
+  var time = "1794835592000";
   var currentUser = "";
   var user = {};
   var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
-  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data.data;  } ).go();
+  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data;  } ).go();
   JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
     function (response) {
       user.profile = response.data;
@@ -56,9 +56,10 @@
       <ul class="title-area">
         <li class="name">
           <h1>
-            <!--OF insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) start --><a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" style="max-width: 50px; max-height: 50px;"/></a><!--OF insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) end -->
+            <img src="/OpenForum/Images/open-forum-dog-small.png" />
           </h1>
         </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
       <ul class="title-area">
         <li class="name">
@@ -67,9 +68,35 @@
           </h1>
         </li>
       </ul>
-      <!--OF insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) start --><section class="top-bar-section">
+      <!--OF insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) start --><section class="top-bar-section">
   <ul class="right">
-
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Actions</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Application/TableEditor">Edit</a></li>
+        <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Javascript/Application/TableEditor">Refresh Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewPageModal">Create New Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewChildPageModal">Create New Child Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
+        <li><a href="/Development?action=publish&pageName=/OpenForum/Javascript/Application/TableEditor">Publish Page</a></li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Sub Pages</a>
+      <ul class="dropdown"><li>
+        <!--Extension ChildPagesList --><!--End Extension ChildPagesList -->
+        </li></ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Attachments</a>
+      <ul class="dropdown"><li>
+        <!--Extension AttachmentsList --><!--End Extension AttachmentsList -->
+        </li></ul>
+    </li>
     <li class="divider"></li>
 
     <li class="has-dropdown">
@@ -119,7 +146,48 @@
       </ul>
     </li>
   </ul>
-</section><!--OF insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) end -->
+</section>
+
+<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Page</h2>
+  <p>Copy this page to <input type="text" of-id="OpenForumCopyPage"/></p>
+  <p><a href="#" onClick="OpenForum.action.copyPage('/OpenForum/Javascript/Application/TableEditor',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumCopyPage = "/OpenForum/Javascript/Application/TableEditor";
+  </script>
+</div>
+
+<div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Move Page</h2>
+  <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
+  <p><a href="#" onClick="OpenForum.action.movePage('/OpenForum/Javascript/Application/TableEditor',OpenForumMovePage);return false;" class="secondary button">Move Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumMovePage = "/OpenForum/Javascript/Application/TableEditor";
+  </script>
+</div>
+
+<div id="OpenForumNewPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Page</h2>
+  <p>New page to create <input type="text" of-id="OpenForumNewPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewPage = "/";
+  </script>
+</div>
+
+<div id="OpenForumNewChildPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Child Page</h2>
+  <p>New child page to create <input type="text" of-id="OpenForumNewChildPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewChildPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewChildPage = "/OpenForum/Javascript/Application/TableEditor/";
+  </script>
+</div>
+<!--OF insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) end -->
     </nav>
     <!--Extension CrumbTrail --><nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem"><a href="/OpenForum/Javascript/Application">Application</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript/Application">TableEditor</a></li></nav><!--End Extension CrumbTrail -->
 
@@ -128,71 +196,12 @@
 <div class="row">
 <h3>/OpenForum/Javascript/Application/TableEditor v0.0.2</h3>
 <xmp class="panel" of-exclude="true"> [{/OpenForum/Javascript/Application/TableEditor tableName="myTable" fileName="/OpenForum/Javascript/Application/TableEditor/table-data.json" rowTemplateFileName="/OpenForum/Javascript/Application/TableEditor/row-template.json"}] </xmp>
-<!--Extension /OpenForum/Javascript/Application/TableEditor tableName="myTable" fileName="/OpenForum/Javascript/Application/TableEditor/table-data.json" rowTemplateFileName="/OpenForum/Javascript/Application/TableEditor/row-template.json" --><table>
-<thead>
-    <tr>
-        
-<td>Name</td>
--->8--
-<td>Age</td>
--->8--
-<td>Address</td>
--->8--
-        <td>&nbsp;</td>
-   </tr>
-</thead>
-<tbody>
-    <tr of-repeatFor='row in myTable'>
-        
-<td>
-	<span style='{{row.view}}'>
-      {{row.name}}
-	</span>
-	<span style='{{row.edit}}'>
-      <input type='text' value='{{row.name}}' onChange='OpenForum.Table.setCell(myTable,{{row.index}},"name",this.value);'/>
-	</span>
-</td>
--->8--
-
-<td>
-	<span style='{{row.view}}'>
-      {{row.age}}
-	</span>
-	<span style='{{row.edit}}'>
-      <input type='text' value='{{row.age}}' onChange='OpenForum.Table.setCell(myTable,{{row.index}},"age",this.value);'/>
-	</span>
-</td>
--->8--
-
-<td>
-	<span style='{{row.view}}'>
-      {{row.address}}
-	</span>
-	<span style='{{row.edit}}'>
-      <input type='text' value='{{row.address}}' onChange='OpenForum.Table.setCell(myTable,{{row.index}},"address",this.value);'/>
-	</span>
-</td>
--->8--
-
-        <td><a class='button tiny' onClick='OpenForum.Table.editRow(myTable,{{row.index}}); return false;'>Edit</a>
-        <a class='button tiny' onClick='OpenForum.Table.moveRowUp(myTable,{{row.index}}); return false;'>Move Up</a>
-        <a class='button tiny' onClick='OpenForum.Table.moveRowDown(myTable,{{row.index}}); return false;'>Move Down</a>
-        <a class='button tiny' onClick='OpenForum.Table.removeRow(myTable,{{row.index}}); return false;'>Remove</a></td>
-    </tr>
-</tbody>
-<tfoot>
-<tr><td><a href="#" onClick="OpenForum.Table.addRow(myTable,myTable_rowTemplate); return false;" class="button tiny round">Add Row</a>
-<a href="#" onClick="OpenForum.Table.closeTable(myTable); OpenForum.saveJSON('/OpenForum/Javascript/Application/TableEditor/table-data.json',myTable); return false;" class="button tiny round">Save Changes</a>
-</td></tr></tfoot>
-</table>
-
-
+<!--Extension /OpenForum/Javascript/Application/TableEditor tableName="myTable" fileName="/OpenForum/Javascript/Application/TableEditor/table-data.json" rowTemplateFileName="/OpenForum/Javascript/Application/TableEditor/row-template.json" -->undefined
 <script>
 var myTable = OpenForum.loadJSON( '/OpenForum/Javascript/Application/TableEditor/table-data.json' );
 var myTable_rowTemplate = OpenForum.loadJSON( '/OpenForum/Javascript/Application/TableEditor/row-template.json' );
 OpenForum.addInitialiser( function() { OpenForum.Table.closeTable(myTable); } );
 </script>
--->8--
 <!--End Extension /OpenForum/Javascript/Application/TableEditor tableName="myTable" fileName="/OpenForum/Javascript/Application/TableEditor/table-data.json" rowTemplateFileName="/OpenForum/Javascript/Application/TableEditor/row-template.json" -->
 <br/><br/>
 <!--Extension ActionButton text="Add /OpenForum/Javascript/Application/TableEditor Block type to Content Editor" action="addToContentEditor" --><a  class='button radius tiny' href='#' onclick='addToContentEditor(); return false;'>Add /OpenForum/Javascript/Application/TableEditor Block type to Content Editor</a> <!--End Extension ActionButton text="Add /OpenForum/Javascript/Application/TableEditor Block type to Content Editor" action="addToContentEditor" -->
@@ -200,24 +209,22 @@ OpenForum.addInitialiser( function() { OpenForum.Table.closeTable(myTable); } );
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <!--Page Content End-->
     </div>
-
-    <!--OF insert (/OpenForum/PageTemplates/Footer/page.content) start --><!-- Generated by Page Block Editor v 0.0.1 -->
-<footer style="background-color: black; padding-left: 50px;">
+      
+    <!--OF insert (/OpenForum/PageTemplates/Branding/footer.page.content) start --><footer>
   <div>
     <div>
     <ul class="inline-list">
-      <li><a href="https://open-forum.onestonesoup.org/OpenForum" style="color:white">About</a></li>
+      <li><a href="https://open-forum.onestonesoup.org/OpenForum/About">About</a></li>
       <li>|</li>
-      <li><a href="https://open-forum.onestonesoup.org" style="color:white">Open Forum @ OneStoneSoup.org</a></li>
+      <li><a href="https://open-forum.onestonesoup.org">Open Forum @ OneStoneSoup.org</a></li>
       <li>|</li>
-      <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/Introduction" style="color:white">Developers</a></li>
-      <li class="right"><a href="https://open-forum.onestonesoup.org" style="color:white"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+      <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/Introduction">Developers</a></li>
+      <li class="right"><a href="https://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
     </ul>
     </div>
   </div>
-</footer>
-<!--OF insert (/OpenForum/PageTemplates/Footer/page.content) end -->
-    
+</footer><!--OF insert (/OpenForum/PageTemplates/Branding/footer.page.content) end -->
+
     <!--OF insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
   <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
   <p>{{OpenForum.errorMessage}}</p>
@@ -236,7 +243,7 @@ OpenForum.addInitialiser( function() { OpenForum.Table.closeTable(myTable); } );
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 <!--OF insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) end -->
-
+    
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
     <script>

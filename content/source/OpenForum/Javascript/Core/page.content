@@ -1,1 +1,24 @@
-&insert:/OpenForum/Javascript/Builder/build-client.content;
+!!&title;
+
+!!!OpenForum Javascript {{version}}
+!!Latest build {{buildDate}}
+* Lines of code {{lines}}
+* Size {{size}} KB
+
+[Edit OpenForum Javascript Core|/OpenForum/Javascript/Core?edit]
+<xmp>
+[{InsertFile pageName="/OpenForum/Javascript" fileName="open-forum.js"}]
+</xmp>
+  
+----
+!!Child Pages
+[{ChildPagesList pageName="&pageName;"}]
+
+----
+!!Build Script
+<xmp>
+[{InsertFile pageName="/OpenForum/Javascript/Core" fileName="script.build.json"}]
+</xmp>
+----
+!!Script elements
+[{AttachmentsList pageName="&pageName;" matching=".*.js"}]

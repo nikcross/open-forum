@@ -1,3 +1,15 @@
+--8<--
+
+((Creates a boolean checkbox input field with data binding))
+__Parameters__
+* id = Variable name for data binding
+* text = Label text for the checkbox
+
+{{{
+[{InputBoolean id="myValue" text="My Value"}]
+}}}
+-->8--
+
 !!&title;
 
 myValue: {{myValue}}

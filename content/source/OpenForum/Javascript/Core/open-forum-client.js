@@ -1,3 +1,4 @@
+//Remove. Out of use
 if(!OpenForum) {
   OpenForum = {};
 }

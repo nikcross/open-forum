@@ -1,3 +1,6 @@
 {
-  "editor": "/OpenForum/Editor/Editors/WYSIWYGEditor"
+    "editor": "/OpenForum/Editor/Editors/WYSIWYGEditor",
+    "pageName": "/OpenForum/PageTemplates/Alloy-WYSIWYG",
+    "title": "Alloy-WYSIWYG",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

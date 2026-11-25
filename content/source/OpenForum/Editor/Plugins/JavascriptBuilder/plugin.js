@@ -24,7 +24,7 @@ addPlugin( {
 
     OpenForum.crawl(document.getElementById("editor"+editorIndex));
 
-    var content = OpenForum.loadFile("/OpenForum/Actions/RenderWikiData?pageName=/Development/Planner&sourcePageName=/OpenForum/Javascript/Builder&fileName=build-client.content");
+    var content = OpenForum.loadFile("/OpenForum/Actions/RenderWikiData?pageName=/Planner&sourcePageName=/OpenForum/Javascript/Builder&fileName=build-client.content");
     OpenForum.setElement("editor"+editorIndex,content);    
 
     OpenForum.crawl(document.getElementById("editor"+editorIndex));
@@ -54,3 +54,4 @@ addPlugin( {
     }
   }
 }
+

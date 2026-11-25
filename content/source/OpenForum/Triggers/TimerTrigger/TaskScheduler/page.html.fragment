@@ -78,6 +78,7 @@ var countDownTasks = 10;
           </tr>
         </tbody>
       </table>
+      <a class="button round" href="" onClick="editTask(); return false;">Add a Task</a>
     </div>
   </div>
 </div>

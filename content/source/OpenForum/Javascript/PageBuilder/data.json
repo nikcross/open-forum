@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Javascript/PageBuilder",
-    "title": " Page Builder"
+    "pageName": "/OpenForum/Javascript/PageBuilder",
+    "title": "PageBuilder",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

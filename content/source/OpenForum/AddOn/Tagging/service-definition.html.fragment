@@ -56,10 +56,10 @@
 <p></p>
 
 <h3>Parameters</h3>
-<tr><td>Name</td><td>Description</td></tr>
-<tr><td>tag (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<table><tr><td>Name</td><td>Description</td></tr>
+<table><tr><td>tag (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
 <tr><td>type (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
-<table><tr><td>name (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<tr><td>name (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
 <tr><td>wildCard (<i>required=false</i>)</td><td>{{parameter.description}}</td></tr>
 <tr><td>caseSensitive (<i>required=false</i>)</td><td>{{parameter.description}}</td></tr>
 </table>
@@ -82,8 +82,8 @@
 <p></p>
 
 <h3>Parameters</h3>
-<tr><td>Name</td><td>Description</td></tr>
-<table><tr><td>tag (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<table><tr><td>Name</td><td>Description</td></tr>
+<tr><td>tag (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
 </table>
        
 <h3>Example Post Request</h3>

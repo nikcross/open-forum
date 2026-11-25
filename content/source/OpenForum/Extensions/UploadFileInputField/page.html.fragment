@@ -1,28 +1,13 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<div class="row">
-<h3>UploadFileInputField v0.0.6</h3>
-<xmp class="panel" of-exclude="true"> <!--Extension UploadFileInputField name="upload" targetPageName="/Sandbox" text="Upload" message="File Uploaded" --><form id="upload"><table>
-  <tr>
-    <td>
-      <input type="file" name="file" title="Drop file here" 
-             style="background-color: black;
-                    margin: 10px;
-                    color: white;
-                    font-size: 3em;
-                    border: solid 5px black;
-                    border-radius: 20px;">
-    </td>
-    <td>
-      <a 
-         style="background-color: black;
-                margin: 10px;
-                color: white;
-                font-size: 3em;
-                border: solid 20px black;
-                border-radius: 20px;" onclick="OpenForum.uploadFile('upload','/Sandbox',function() { alert('File Uploaded');}); } ); return false;">Upload</a>
-    </td>
-  </tr>
-</table></form><!--End Extension UploadFileInputField name="upload" targetPageName="/Sandbox" text="Upload" message="File Uploaded" --> </xmp>
+
+<p>Creates a file upload input field</p>
+<b>Parameters</b>
+<ul><li> name = Field name</li>
+<li> targetPageName = Page to upload the file to</li>
+<li> text = Button text</li>
+<li> message = Message to display after successful upload</li>
+</ul>
+<xmp class="panel" of-exclude="true">
 <!--Extension UploadFileInputField name="upload" targetPageName="/Sandbox" text="Upload" message="File Uploaded" --><form id="upload"><table>
   <tr>
     <td>
@@ -41,7 +26,33 @@
                 color: white;
                 font-size: 3em;
                 border: solid 20px black;
-                border-radius: 20px;" onclick="OpenForum.uploadFile('upload','/Sandbox',function() { alert('File Uploaded');}); } ); return false;">Upload</a>
+                border-radius: 20px;" onclick="OpenForum.uploadFile('upload','/Sandbox',function() { alert('File Uploaded'); } ); return false;">Upload</a>
+    </td>
+  </tr>
+</table></form><!--End Extension UploadFileInputField name="upload" targetPageName="/Sandbox" text="Upload" message="File Uploaded" -->
+</xmp>
+
+<div class="row">
+<h3>UploadFileInputField v0.0.6</h3>
+<!--Extension UploadFileInputField name="upload" targetPageName="/Sandbox" text="Upload" message="File Uploaded" --><form id="upload"><table>
+  <tr>
+    <td>
+      <input type="file" name="file" title="Drop file here" 
+             style="background-color: black;
+                    margin: 10px;
+                    color: white;
+                    font-size: 3em;
+                    border: solid 5px black;
+                    border-radius: 20px;">
+    </td>
+    <td>
+      <a 
+         style="background-color: black;
+                margin: 10px;
+                color: white;
+                font-size: 3em;
+                border: solid 20px black;
+                border-radius: 20px;" onclick="OpenForum.uploadFile('upload','/Sandbox',function() { alert('File Uploaded'); } ); return false;">Upload</a>
     </td>
   </tr>
 </table></form><!--End Extension UploadFileInputField name="upload" targetPageName="/Sandbox" text="Upload" message="File Uploaded" -->

@@ -1,17 +1,44 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Post Action</a></b> Copy one page to another
+       
+<p>Copy a file attachment or entire page to another location</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Source page name</li>
+<li> newPageName = Destination page name (optional, defaults to pageName)</li>
+<li> fileName = File to copy (optional - if not specified, copies entire page)</li>
+<li> newFileName = Destination filename (optional, defaults to fileName)</li>
+<li> returnType = Response type: "json" for JSON response, otherwise redirects to Editor</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/Copy?pageName=/Source&newPageName=/Destination&fileName=file.txt
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Copy', null, 
+  'pageName=/Source&newPageName=/Destination&fileName=file.txt&returnType=json')
+  .onSuccess(function(result) {
+    console.log('Copied:', result);
+  }).go();
+</xmp>
+
+<b>Post parameters (deprecated)</b>
+<ul><li> sourcePageName</li>
+<li> newPageName</li>
+<li> listPageName</li>
+</ul>
+<b>Post example:</b>
+<xmp class="panel" of-exclude="true">
+// Using JSON.post
+JSON.post('/OpenForum/Actions/Copy', null, 
+  'sourcePageName=/OldPage&newPageName=/NewPage')
+  .onSuccess(function(result) {
+    console.log('Copied!');
+  }).go();
+</xmp>
+
 <hr/>
-<h3>Get parameters</h3>
-<ul><li> newPageName</li>
-<li> sourcePageName</li>
-<li> listPageName</li>
-<hr/>
-<h3>Post parameters</h3>
-<li> newPageName</li>
-<li> sourcePageName</li>
-<li> listPageName</li>
-<hr/>
-<h3>get.sjs</h3>
+<h3>get.sjs</h3>
 <xmp class="example"><!--Extension InsertFile fileName="get.sjs" -->if(typeof(pageName)=="undefined") {
   transaction.setResult(transaction.SHOW_PAGE);
   return;
@@ -72,7 +99,7 @@ try{
 }<!--End Extension InsertFile fileName="get.sjs" --></xmp>
 
 <hr/>
-<h3>Server Side Javascript for POST method</h3>
+<h3>Server Side Javascript for POST method</h3>
 <xmp class="panel" of-exclude="true"> transaction.getPostData();
 sourcePageName = transaction.getPostParameter("sourcePageName");
 newPageName = transaction.getPostParameter("newPageName");
@@ -86,4 +113,4 @@ if(listPageName!=null)
 
 wiki.copyPage(sourcePageName,newPageName,listPageName);
 	
-transaction.goToPage("/OpenForum/Actions/Edit?pageName="+newPageName); </xmp></ul>
+transaction.goToPage("/OpenForum/Actions/Edit?pageName=" newPageName); </xmp>

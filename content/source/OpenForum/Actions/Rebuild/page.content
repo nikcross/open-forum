@@ -1,13 +1,26 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Requests Wiki to rebuild pages
-----
-!!Parameters
-* pageName - The pageName to return to
+--8<--
+       
+((Rebuilds all wiki pages from their source markup))
 
-----
-!!Usage:
+__Get parameters__
+* pageName = Page name to return to after rebuild
+
+__Get examples:__
 {{{
+// Simple URL
 /OpenForum/Actions/Rebuild?pageName=/Home
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Rebuild', null, 'pageName=/Home')
+  .onSuccess(function(result) {
+    console.log('Rebuild started:', result);
+  }).go();
 }}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
+
 [/OpenForum/Actions/Rebuild?pageName=/Home]
 
 ----

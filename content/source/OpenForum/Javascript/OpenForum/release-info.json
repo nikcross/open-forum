@@ -1,7 +1,6 @@
 {
-    "version": "0.0.38",
+    "version": "0.0.41",
     "extra": {
-        "notes": "Added persistent objects\nImproved keyboard\nExtended Math object for deg and rad conversion\nFixed localStorage error in safari ? Now just logs error\nAdded endless scroll\nAdded more cookie functions (set and delete)\nFixed endless scroll for mobile"
-    },
-    "installedDate": 1759492757827
+        "notes": "Improved intraq"
+    }
 }

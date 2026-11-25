@@ -1,7 +1,26 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Returns a comma delimited list of page names
-----
-!!Get Parameters
-*pageName - a dummy parameter
+--8<--
+       
+((Returns a comma-delimited list of all page names in the wiki))
+
+__Get parameters__
+* pageName = Any page name (required but not used)
+
+__Get examples:__
+{{{
+// Simple URL
+/OpenForum/Actions/GetPagesList?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/GetPagesList', null, 'pageName=dummy')
+  .onSuccess(function(pageList) {
+    var pages = pageList.split(',');
+    console.log('Pages:', pages);
+  }).go();
+}}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 ----
 !!Server Side Javascript for GET method
@@ -14,13 +33,13 @@ else
 	pages = wiki.getPages();
 	
 	page="";
-	for(loop=0;loop<pages.length;loop++)
+	for(loop=0;loop<pages.length;loop  )
 	{
 		if(loop>0)
 		{
-			page = page+",";
+			page = page ",";
 		}
-		page = page+pages[loop];	
+		page = page pages[loop];	
 	}
 	
 	transaction.sendPage(page);

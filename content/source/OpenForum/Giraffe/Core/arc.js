@@ -9,9 +9,8 @@
  * @param x {number} the position that the ... is to be drawn on the x axis
  * @param y {number} the position that the ... is to be drawn on the y axis
  */
-function Arc(x,y,startAngle,sweepAngle,radius)
-{
-	  /**#@+
+Giraffe.Arc = function(x,y,startAngle,sweepAngle,radius) {
+  /**#@+
 	   * @memberOf Arc
 	   */
   this.x=x;
@@ -20,6 +19,7 @@ function Arc(x,y,startAngle,sweepAngle,radius)
   this.startAngle=startAngle;
   this.sweepAngle=sweepAngle;
   this.radius=radius;
+  this.type="Arc";
   /**
    * @private
    */
@@ -35,15 +35,15 @@ function Arc(x,y,startAngle,sweepAngle,radius)
 
     this.canvas.strokeStyle = this.color;
     if(this.closed==true) {
-    	this.canvas.moveTo(0,0);
-	    this.canvas.lineTo(
-    		Math.cos(startAngleRad)*radius,
-      		Math.sin(startAngleRad)*radius
-    	);
+      this.canvas.moveTo(0,0);
+      this.canvas.lineTo(
+        Math.cos(startAngleRad)*radius,
+        Math.sin(startAngleRad)*radius
+      );
     }
     this.canvas.arc(0,0,this.radius,startAngleRad,sweepAngleRad,false);
     if(this.closed==true) {
-    	this.canvas.lineTo( 0,0 );
+      this.canvas.lineTo( 0,0 );
     }
     this.canvas.closePath();
     if(this.fillColor!=null)
@@ -61,34 +61,41 @@ function Arc(x,y,startAngle,sweepAngle,radius)
     this.fillColor= fillColor;
     return this;
   };
-  
+
   this.isInside = function(posX,posY) {
-	var xl = this.x-posX;
-	var yl = this.y-posY;
-	var d = Math.pow( (xl*xl)+(yl*yl),0.5);
-	if( d<this.radius ) {
-		if(xl==0 && yl==0) return true;
-		var a = Math.atan(yl/xl);
-		if(xl>0) a=Math.PI+a;
-		if(a<0) a=(Math.PI*2)+a;
-		a = (a*180)/(Math.PI);
-		if(a>=this.startAngle &&
-		a<=this.startAngle+this.sweepAngle) {
-			return true;
-		} else {
-			return false;
-		}
-	} else {
-		return false;
-	}
+    var rPos = this.getRelativePosition(posX,posY);
+    posX = rPos.x;
+    posY = rPos.y;
+
+    var xl = posX;
+    var yl = posY;
+    var d = Math.pow( (xl*xl)+(yl*yl),0.5);
+    if( d<this.radius ) {
+      if(xl==0 && yl==0) return true;
+      var a = Math.atan(yl/xl);
+      if(xl>0) a=Math.PI+a;
+      if(a<0) a=(Math.PI*2)+a;
+      a = (a*180)/(Math.PI);
+      if(a>=this.startAngle &&
+         a<=this.startAngle+this.sweepAngle) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return false;
+    }
   };
   this.setClosed = function() {
-  	this.closed=true;
-  	return this;
+    this.closed=true;
+    return this;
   };
   this.setOpen = function() {
-  	this.closed=false;
-  	return this;
+    this.closed=false;
+    return this;
   };
-}
-Arc.prototype = new GraphicsObject();
+};
+Giraffe.Arc.prototype = new Giraffe.GraphicsObject();
+
+//Deprecated
+Arc = Giraffe.Arc;

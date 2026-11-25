@@ -1,1 +1,44 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+       
+<p>Returns a JSON array of child page names for a given page</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Parent page name to get children from</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/Pages?pageName=/OpenForum
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Pages', null, 'pageName=/OpenForum')
+  .onSuccess(function(pages) {
+    var pageList = JSON.parse(pages);
+    console.log('Child pages:', pageList);
+  }).go();
+</xmp>
+
+
+<!--Extension InsertSourceFile fileName="get.sjs" --><a href="//OpenForum/Actions/Pages/get.sjs">//OpenForum/Actions/Pages/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Pages&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var pageName = transaction.getParameter("pageName");
+if(pageName===null) {
+    transaction.setResult(transaction.SHOW_PAGE);
+    return;
+}
+
+list = file.getAttachmentsForPage( pageName );
+
+var pagesList = <a href="/OpenForum/Actions/Pages/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+iterator= list.keySet().iterator();
+while(iterator.hasNext()) {
+  var key = ""+iterator.next();
+  if(key.charAt(0)!='+' || key=="+history") {
+    continue;
+  } else {
+    pagesList.push( pageName+"/"+key.substring(1) );
+  }
+}
+pagesList.sort();
+
+//transaction.sendPage("{}");
+transaction.sendPage( JSON.stringify(pagesList) );
+</xmp><!--End Extension InsertSourceFile fileName="get.sjs" -->

@@ -1,12 +1,25 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Returns the authentication string for use by applets
-----
-!!Parameters
-*pageName - dummy
-----
-!!Usage:
+--8<--
+       
+((Returns the authentication string from HTTP headers for use by applets))
+
+__Get parameters__
+* pageName = Any page name (required but not used)
+
+__Get examples:__
 {{{
+// Simple URL
 /OpenForum/Actions/GetAuthentication?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/GetAuthentication', null, 'pageName=dummy')
+  .onSuccess(function(authString) {
+    console.log('Authentication:', authString);
+  }).go();
 }}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 ----
 !!Server Side Javascript for GET method

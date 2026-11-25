@@ -1,4 +1,25 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+       
+<p>Get attachments for a page with optional filtering</p>
+
+<b>Get parameters</b>
+<ul><li> action = "getMatching" or "getAll"</li>
+<li> pageName = Page name to get attachments from</li>
+<li> matching = Regex expression to match files (required for "getMatching")</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL - get matching files
+/OpenForum/Actions/GetAttachments?action=getMatching&pageName=/MyPage&matching=.*<br/>.js$
+
+// Using JSON.get - get all files
+JSON.get('/OpenForum/Actions/GetAttachments', 'getAll', 'pageName=/MyPage')
+  .onSuccess(function(result) {
+    console.log('Attachments:', result);
+  }).go();
+</xmp>
+
+
 <div class="row">
 <!--OF insert (/OpenForum/Actions/GetAttachments/service-definition.wiki.fragment) start --><h3>/OpenForum/Actions/GetAttachments Sevice API Version 0.0.2</h3>
 

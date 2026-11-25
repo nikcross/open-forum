@@ -1,4 +1,6 @@
 {
-    "pageName": "//TheLab/Keyboard",
-    "title": " Keyboard"
+    "pageName": "/OpenForum/Javascript/Keyboard",
+    "title": "Keyboard",
+    "pageParent": "https://open-forum.onestonesoup.org",
+    "editorConfig": "/OpenForum/Javascript/Keyboard/editor-config.json"
 }

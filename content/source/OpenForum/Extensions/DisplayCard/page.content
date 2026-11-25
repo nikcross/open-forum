@@ -1,3 +1,18 @@
+--8<--
+
+((Creates a display card with optional image, title, description, and link))
+__Parameters__
+* linkURL = URL for the card link
+* linkText = Text for the link button
+* title = Card title
+* description = Card description text
+* imageURL = Optional image URL for the card
+
+{{{
+[{DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://example.com/image.jpg"}]
+}}}
+-->8--
+
 !!&title;
 {{{
 Add this line to page javascript:

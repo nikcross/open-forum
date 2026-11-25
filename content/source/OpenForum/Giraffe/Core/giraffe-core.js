@@ -43,3 +43,9 @@ Giraffe = {
 Giraffe.X=0;
 Giraffe.Y=1;
 Giraffe.DEG_TO_RAD = Math.PI/180;
+
+Giraffe.VERSION = "&version;";
+Giraffe.getVersion = function() { return Giraffe.VERSION; };
+
+Giraffe.BUILD_DATE = "&date;";
+Giraffe.getBuildDate = function() { return Giraffe.BUILD_DATE; };

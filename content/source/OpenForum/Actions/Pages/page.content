@@ -1,0 +1,23 @@
+--8<--
+       
+((Returns a JSON array of child page names for a given page))
+
+__Get parameters__
+* pageName = Parent page name to get children from
+
+__Get examples:__
+{{{
+// Simple URL
+/OpenForum/Actions/Pages?pageName=/OpenForum
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Pages', null, 'pageName=/OpenForum')
+  .onSuccess(function(pages) {
+    var pageList = JSON.parse(pages);
+    console.log('Child pages:', pageList);
+  }).go();
+}}}
+
+-->8--
+
+[{InsertSourceFile fileName="get.sjs"}]

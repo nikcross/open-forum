@@ -1,7 +1,13 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<div class="row">
-<h3>CountDown v0.0.1</h3>
-<xmp class="panel" of-exclude="true"> <!--Extension CountDown counter="Alerts" action="doAction" period="10" -->{{Alerts}}
+
+<p>Creates a countdown timer that triggers an action</p>
+<b>Parameters</b>
+<ul><li> counter = Name/label for the counter</li>
+<li> action = JavaScript action to call when countdown completes</li>
+<li> period = Time period in seconds</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension CountDown counter="Alerts" action="doAction" period="10" -->{{Alerts}}
 <script>
 var Alerts = 10;
   doAction();
@@ -12,7 +18,11 @@ var Alerts = 10;
     	Alerts = 10;
     }
   },1000);
-</script><!--End Extension CountDown counter="Alerts" action="doAction" period="10" --> </xmp>
+</script><!--End Extension CountDown counter="Alerts" action="doAction" period="10" -->
+</xmp>
+
+<div class="row">
+<h3>CountDown v0.0.1</h3>
 <!--Extension CountDown counter="Alerts" action="doAction" period="10" -->{{Alerts}}
 <script>
 var Alerts = 10;

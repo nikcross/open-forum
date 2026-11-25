@@ -1,13 +1,18 @@
-!!&title;
 --8<--
 
 ((Creates a popup help link))
+__Parameters__
+* id = Unique identifier for the help popup
+* sourceFileName = File containing help content
+* sourcePageName = Page where help content is located
+* title = Optional title for the help link
+
 {{{
 [{Help id="test" sourceFileName="help-content.wiki" sourcePageName="/OpenForum/Extensions/Help"}]
-
-[{Help id="test" title="Pop me up"}]
 }}}       
 -->8--
+
+!!&title;
 ----
 [{Help id="test" sourceFileName="help-content.wiki" sourcePageName="/OpenForum/Extensions/Help"}]
 

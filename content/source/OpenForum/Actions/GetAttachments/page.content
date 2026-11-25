@@ -1,3 +1,26 @@
+--8<--
+       
+((Get attachments for a page with optional filtering))
+
+__Get parameters__
+* action = "getMatching" or "getAll"
+* pageName = Page name to get attachments from
+* matching = Regex expression to match files (required for "getMatching")
+
+__Get examples:__
+{{{
+// Simple URL - get matching files
+/OpenForum/Actions/GetAttachments?action=getMatching&pageName=/MyPage&matching=.*\.js$
+
+// Using JSON.get - get all files
+JSON.get('/OpenForum/Actions/GetAttachments', 'getAll', 'pageName=/MyPage')
+  .onSuccess(function(result) {
+    console.log('Attachments:', result);
+  }).go();
+}}}
+
+-->8--
+
 <div class="row">
 &insert:/OpenForum/Actions/GetAttachments/service-definition.wiki.fragment;
 </div>

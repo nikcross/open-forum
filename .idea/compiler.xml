@@ -6,7 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="claude-ai-mcp" />
+        <module name="AhoyAhoy" />
         <module name="raspberrypi" />
         <module name="rtsp" />
         <module name="packager" />
@@ -14,6 +14,7 @@
         <module name="image-processor" />
         <module name="java-flow-tracer" />
         <module name="sql-database" />
+        <module name="ai-mcp" />
         <module name="certificate-check" />
         <module name="open-forum.server" />
         <module name="client" />
@@ -22,6 +23,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ahoyahoy" target="17" />
       <module name="Automaton" target="17" />
       <module name="automaton" target="17" />
       <module name="Claude.AI" target="1.8" />

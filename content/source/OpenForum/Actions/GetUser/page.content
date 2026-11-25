@@ -1,7 +1,25 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Returns the current users name.
-----
-!!Get Parameters
-*pageName
+--8<--
+       
+((Returns the current user's name))
+
+__Get parameters__
+* pageName = Any page name (required but not used)
+
+__Get examples:__
+{{{
+// Simple URL
+/OpenForum/Actions/GetUser?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/GetUser', null, 'pageName=dummy')
+  .onSuccess(function(username) {
+    console.log('Current user:', username);
+  }).go();
+}}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 <DIV id="userLayer"></DIV>
 

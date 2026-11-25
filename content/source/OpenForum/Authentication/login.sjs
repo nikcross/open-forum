@@ -7,9 +7,6 @@ var siteHashB = ""+file.getAttachment("/OpenForum/Authentication","authenticatio
 var hashedPasswordA = ""+js.generateMD5( testPassword + siteHashA );
 var hashedPasswordB = ""+js.generateMD5( testPassword + siteHashB );
 
-file.saveAttachment( "/OpenForum/Authentication", "test.txt", "(" + siteHashA + " or " + siteHashB + ") " +
- hashedPasswordA + " or " + hashedPasswordB + "=" + password + "(" + testPassword + ")" );
-
 	if(
       hashedPasswordA.toUpperCase()==password.toUpperCase() ||
       hashedPasswordB.toUpperCase()==password.toUpperCase()

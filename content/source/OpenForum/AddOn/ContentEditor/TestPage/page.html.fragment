@@ -6,9 +6,15 @@
 <p>Cheese</p>
 <br/><p>123</p><div class='row'><div class='columns large-6'><p>abc<img src="https://ci3.googleusercontent.com/proxy/wv80EQHswko2cCdPM9gIA_TSKhi7nlz5na1839_7k1VgkbvxM4HN6jlKJaEu-B7G0XAzN-vnOEoPjx_ALiQSKWBynJwFc3y3MVPq5vYTHPO4m-xlxVWLkdK1=s0-d-e1-ft#https://avaazimages.avaaz.org/44546_44543_wallkidskabul_2_3_533x300.jpg" alt="Take Action Now!"></p></div><div class='columns large-6'><p>def</p></div></div><p>a block of text in here</p>
 <br/><!--Extension InsertPage page='/OpenForum/AddOn/AnonymousSession/QuickReference' section='1' -->
-  
-<p>Anonymous Session provides the ability to offer tokens to store assets against like Zoom call ids.
-You can also combine them with passwords as an extra security step.</p>
 
+<p>Create and manage temporary anonymous user sessions</p>
+
+<b>Key Features</b>
+<ul><li> Generate unique session keys for anonymous users</li>
+<li> Optional password protection</li>
+<li> Session prefix customization</li>
+<li> Database-backed session storage</li>
+<li> Web UI for session creation</li>
+</ul>
 <!--End Extension InsertPage page='/OpenForum/AddOn/AnonymousSession/QuickReference' section='1' -->
 </div>

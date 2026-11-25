@@ -1,9 +1,30 @@
-!!&title;
+<div style="height: 80%;">
+  <div class="columns large-2" style="border: solid 1px; height: 100%; overflow-y: scroll">
+    !!OpenForum Javascript Libraries
+    <div id="tree"></div>
+  </div>
+  <div class="columns large-10" style="border: solid 1px; height: 100%; overflow-y: scroll">
+    <div class="row">
+      [/OpenForum/Javascript/open-forum.js]
+    </div>
+    <div class="row"><div class="large-4 columns">
+      !!Pages
+      [[
+      [{ChildPagesList}]
+      ]]
+      </div>
+      <div class="large-8 columns">
+      !![Core|/OpenForum/Javascript/Core] | [Core Editor|/OpenForum/Javascript/Core?edit]
+      
+      [[
+	  [{AttachmentsList pageName="/OpenForum/Javascript/Core" matching="open-forum.*"}]
+      ]]
+      
+      !!Versions
+      [[
+	  [{AttachmentsList pageName="/OpenForum/Javascript/Core/Version" matching="open-forum.*"}]
+      ]]
 
-----
-!!Child Pages
-[{ChildPagesList pageName="&pageName;"}]
-
-----
-!!Attachments
-[{AttachmentsList pageName="&pageName;" matching=".*"}]
+      </div></div>
+  </div>
+</div>

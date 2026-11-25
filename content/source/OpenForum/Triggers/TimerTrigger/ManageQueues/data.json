@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Triggers/TimerTrigger/ManageQueues",
-    "title": " Manage Queues"
+    "pageName": "/OpenForum/Triggers/TimerTrigger/ManageQueues",
+    "title": "ManageQueues",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

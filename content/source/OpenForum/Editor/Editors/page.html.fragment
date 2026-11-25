@@ -48,6 +48,13 @@
 
 <hr/>
 
+ <h3> <a href="/OpenForum/Editor/Editors/MarkDownEditor">MarkDownEditor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Editors/MarkDownEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/MarkDownEditor" section="1" --><br />
+
+
+<hr/>
+
  <h3> <a href="/OpenForum/Editor/Editors/PythonEditor">PythonEditor</a> </h3>
 
  <!--Extension InsertPage page="/OpenForum/Editor/Editors/PythonEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/PythonEditor" section="1" --><br />
@@ -62,6 +69,13 @@
 
 <hr/>
 
+ <h3> <a href="/OpenForum/Editor/Editors/SimpleHTMLEditor">SimpleHTMLEditor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Editors/SimpleHTMLEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/SimpleHTMLEditor" section="1" --><br />
+
+
+<hr/>
+
  <h3> <a href="/OpenForum/Editor/Editors/WYSIWYGEditor">WYSIWYGEditor</a> </h3>
 
  <!--Extension InsertPage page="/OpenForum/Editor/Editors/WYSIWYGEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/WYSIWYGEditor" section="1" --><br />
@@ -69,8 +83,22 @@
 
 <hr/>
 
+ <h3> <a href="/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor">WYSIWYGMarkDownEditor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor" section="1" --><br />
+
+
+<hr/>
+
  <h3> <a href="/OpenForum/Editor/Editors/XMLEditor">XMLEditor</a> </h3>
 
  <!--Extension InsertPage page="/OpenForum/Editor/Editors/XMLEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/XMLEditor" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Editor/Editors/YAMLEditor">YAMLEditor</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Editor/Editors/YAMLEditor" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Editors/YAMLEditor" section="1" --><br />
 
 </div><!--End Extension ChildrenContentsPage -->

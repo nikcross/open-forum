@@ -6,19 +6,19 @@
     <title>ChildrenContentsPage</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1612371474000"></script>
-    <script type="text/javascript" src="/OpenForum/Extensions/ChildrenContentsPage/page.js?ts=1612371474000"></script>
-    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1612371474000" />
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1794835592000"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1612515763000" />
+    <script type="text/javascript" src="/OpenForum/Extensions/ChildrenContentsPage/page.js?ts=1794835592000"></script>
     <!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) start --><link rel="icon" href="/OpenForum/Images/open-forum-dog-small.png" /><!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) end --> 
 
     <!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start --><script>
   var pageName = "/OpenForum/Extensions/ChildrenContentsPage";
   var author = "unknown";
-  var time = "1612371474000";
+  var time = "1794835592000";
   var currentUser = "";
   var user = {};
   var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
-  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data.data;  } ).go();
+  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data;  } ).go();
   JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
     function (response) {
       user.profile = response.data;
@@ -56,9 +56,10 @@
       <ul class="title-area">
         <li class="name">
           <h1>
-            <!--OF insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) start --><a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" style="max-width: 50px; max-height: 50px;"/></a><!--OF insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) end -->
+            <img src="/OpenForum/Images/open-forum-dog-small.png" />
           </h1>
         </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
       <ul class="title-area">
         <li class="name">
@@ -67,9 +68,35 @@
           </h1>
         </li>
       </ul>
-      <!--OF insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) start --><section class="top-bar-section">
+      <!--OF insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) start --><section class="top-bar-section">
   <ul class="right">
-
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Actions</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/ChildrenContentsPage">Edit</a></li>
+        <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Extensions/ChildrenContentsPage">Refresh Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewPageModal">Create New Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewChildPageModal">Create New Child Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
+        <li><a href="/Development?action=publish&pageName=/OpenForum/Extensions/ChildrenContentsPage">Publish Page</a></li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Sub Pages</a>
+      <ul class="dropdown"><li>
+        <!--Extension ChildPagesList --><!--End Extension ChildPagesList -->
+        </li></ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Attachments</a>
+      <ul class="dropdown"><li>
+        <!--Extension AttachmentsList --><!--End Extension AttachmentsList -->
+        </li></ul>
+    </li>
     <li class="divider"></li>
 
     <li class="has-dropdown">
@@ -119,21 +146,62 @@
       </ul>
     </li>
   </ul>
-</section><!--OF insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) end -->
+</section>
+
+<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Page</h2>
+  <p>Copy this page to <input type="text" of-id="OpenForumCopyPage"/></p>
+  <p><a href="#" onClick="OpenForum.action.copyPage('/OpenForum/Extensions/ChildrenContentsPage',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumCopyPage = "/OpenForum/Extensions/ChildrenContentsPage";
+  </script>
+</div>
+
+<div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Move Page</h2>
+  <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
+  <p><a href="#" onClick="OpenForum.action.movePage('/OpenForum/Extensions/ChildrenContentsPage',OpenForumMovePage);return false;" class="secondary button">Move Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumMovePage = "/OpenForum/Extensions/ChildrenContentsPage";
+  </script>
+</div>
+
+<div id="OpenForumNewPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Page</h2>
+  <p>New page to create <input type="text" of-id="OpenForumNewPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewPage = "/";
+  </script>
+</div>
+
+<div id="OpenForumNewChildPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Child Page</h2>
+  <p>New child page to create <input type="text" of-id="OpenForumNewChildPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewChildPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewChildPage = "/OpenForum/Extensions/ChildrenContentsPage/";
+  </script>
+</div>
+<!--OF insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) end -->
     </nav>
     <!--Extension CrumbTrail --><nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">ChildrenContentsPage</a></li></nav><!--End Extension CrumbTrail -->
 
     <div style="padding-bottom: 100px;">
     <!--PageContent Start-->
-Creates a content page for child pages
-<hr/>
-<h3>Parameters</h3>
-<ul><li>pageName - The page to list children of (optional. default = current page)</li>
-<hr/>
-<h3>Usage:</h3>
+
+<p>Creates a content page showing the contents section from each child page</p>
+<b>Parameters</b>
+<ul><li> pageName = The page to list children of (optional, default = current page)</li>
+</ul>
 <xmp class="panel" of-exclude="true">
 [{ChildrenContentsPage pageName="/OpenForum"}]
 </xmp>
+
 <!--Extension ChildrenContentsPage pageName="/OpenForum" --><div class="row">
 
 
@@ -181,6 +249,13 @@ Creates a content page for child pages
 
 <hr/>
 
+ <h3> <a href="/OpenForum/CapabilityMap">CapabilityMap</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/CapabilityMap" section="1" --><!--End Extension InsertPage page="/OpenForum/CapabilityMap" section="1" --><br />
+
+
+<hr/>
+
  <h3> <a href="/OpenForum/Configuration">Configuration</a> </h3>
 
  <!--Extension InsertPage page="/OpenForum/Configuration" section="1" --><!--End Extension InsertPage page="/OpenForum/Configuration" section="1" --><br />
@@ -191,6 +266,13 @@ Creates a content page for child pages
  <h3> <a href="/OpenForum/DeletedPages">DeletedPages</a> </h3>
 
  <!--Extension InsertPage page="/OpenForum/DeletedPages" section="1" --><!--End Extension InsertPage page="/OpenForum/DeletedPages" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/Documentation">Documentation</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/Documentation" section="1" --><!--End Extension InsertPage page="/OpenForum/Documentation" section="1" --><br />
 
 
 <hr/>
@@ -226,6 +308,7 @@ Creates a content page for child pages
  <h3> <a href="/OpenForum/Giraffe">Giraffe</a> </h3>
 
  <!--Extension InsertPage page="/OpenForum/Giraffe/QuickReference" section="1" --><!--End Extension InsertPage page="/OpenForum/Giraffe/QuickReference" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Giraffe/QuickReference/QuickReference" section="1" --><!--End Extension InsertPage page="/OpenForum/Giraffe/QuickReference/QuickReference" section="1" --><br />
  <!--Extension Popup id="QR_Giraffe" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Giraffe/QuickReference" --><div id="QR_Giraffe" class="reveal-modal" data-reveal aria-labelledby="QR_GiraffeModalTitle" aria-hidden="true" role="dialog"><!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <div class="row">
 <h2>Giraffe Graphics Objects - Quick Reference</h2>
@@ -318,6 +401,14 @@ Example: var text = new Giraffe.Text(100,100,"My Message",20,"Arial");
 </xmp>
 
 <hr/>
+<h3>TextBlock</h3>
+<xmp class="panel" of-exclude="true">
+var textBlock = new Giraffe.TextBlock(x,y,text,textSize,font,alignment);
+Example: var textBlock = new Giraffe.TextBlock(50,50,"Line 1<br/>nLine 2",18,"Arial","center");
+textBlock.setLineHeight(24).setAlignment("right");
+</xmp>
+
+<hr/>
 <h3>Composite</h3>
 <xmp class="panel" of-exclude="true">
 var composite = new Giraffe.Composite(x,y,rotation);
@@ -397,8 +488,9 @@ graphicsObject.animate = function(frame){ <!-- Frame {frame} is rendering. Make 
 <hr/>
 <h3>Transitions - ToDo</h3>
   
-</div>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="QR_Giraffe" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Giraffe/QuickReference" --><br />
- <!--Extension Popup id="QR_Giraffe" title="Quick Reference" --><a class='button small round' onClick="$('#QR_Giraffe').foundation('reveal', 'open');;return false;">Quick Reference</a><!--End Extension Popup id="QR_Giraffe" title="Quick Reference" --> <b><a href="/OpenForum/Giraffe/QuickReference">Open in a new tab</a></b><br />
+</div>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="QR_Giraffe" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Giraffe/QuickReference" --><br />
+ <!--Extension Popup id="QR_Giraffe" title="Quick Reference" --><a class='button small round' onClick="$('#QR_Giraffe').foundation('reveal', 'open');;return false;">Quick Reference</a><!--End Extension Popup id="QR_Giraffe" title="Quick Reference" --> <b><a href="/OpenForum/Giraffe/QuickReference" target="newTab">Open in a new tab<img src='/OpenForum/Images/icons/png/link_go.png' /></a></b><br />
 
 
 <hr/>
@@ -560,6 +652,7 @@ graphicsObject.animate = function(frame){ <!-- Frame {frame} is rendering. Make 
  <h3> <a href="/OpenForum/Triggers">Triggers</a> </h3>
 
  <!--Extension InsertPage page="/OpenForum/Triggers/QuickReference" section="1" --><!--End Extension InsertPage page="/OpenForum/Triggers/QuickReference" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Triggers/QuickReference/QuickReference" section="1" --><!--End Extension InsertPage page="/OpenForum/Triggers/QuickReference/QuickReference" section="1" --><br />
  <!--Extension Popup id="QR_Triggers" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Triggers/QuickReference" --><div id="QR_Triggers" class="reveal-modal" data-reveal aria-labelledby="QR_TriggersModalTitle" aria-hidden="true" role="dialog"><!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <h3>QuickReference</h3>
 
@@ -578,7 +671,7 @@ This provides a user interface to add scripts that can be run at specific period
 There is also an option to decide if a script should run based on a script.
 </p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="QR_Triggers" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Triggers/QuickReference" --><br />
- <!--Extension Popup id="QR_Triggers" title="Quick Reference" --><a class='button small round' onClick="$('#QR_Triggers').foundation('reveal', 'open');;return false;">Quick Reference</a><!--End Extension Popup id="QR_Triggers" title="Quick Reference" --> <b><a href="/OpenForum/Triggers/QuickReference">Open in a new tab</a></b><br />
+ <!--Extension Popup id="QR_Triggers" title="Quick Reference" --><a class='button small round' onClick="$('#QR_Triggers').foundation('reveal', 'open');;return false;">Quick Reference</a><!--End Extension Popup id="QR_Triggers" title="Quick Reference" --> <b><a href="/OpenForum/Triggers/QuickReference" target="newTab">Open in a new tab<img src='/OpenForum/Images/icons/png/link_go.png' /></a></b><br />
 
 
 <hr/>
@@ -588,6 +681,12 @@ There is also an option to decide if a script should run based on a script.
  <!--Extension InsertPage page="/OpenForum/Users" section="1" --><!--End Extension InsertPage page="/OpenForum/Users" section="1" --><br />
 
 </div><!--End Extension ChildrenContentsPage pageName="/OpenForum" -->
+
+<hr/>
+<h3>Usage:</h3>
+<xmp class="panel" of-exclude="true">
+[{ChildrenContentsPage pageName="/OpenForum"}]
+</xmp>
 
 <hr/>
 <h3>renderer.sjs</h3>
@@ -626,9 +725,10 @@ for(var i in keys) {
     content += "\n\n----\n\n !! [" + addOnPageName + "|" + targetPage + "/" + addOnPageName + "] \n\n";
     content += " [{InsertPage page=\"" + targetPage + "/" + contentPageName + "\" section=\"1\"}]<br />\n";
     if(hasQuickReference) {
+      content += " [{InsertPage page=\"" + targetPage + "/" + contentPageName + "/QuickReference\" section=\"1\"}]<br />\n";
       content += " [{Popup id=\"QR_"+addOnPageName+"\" sourceFileName=\"page.html.fragment\" sourcePageName=\"" + targetPage + "/" + contentPageName + "\"}]<br />\n";
       content += " [{Popup id=\"QR_"+addOnPageName+"\" title=\"Quick Reference\"}] ";
-      content += "__[Open in a new tab|" + targetPage + "/" + contentPageName + "]__<br />\n";
+      content += "__[Open in a new tab|" + targetPage + "/" + contentPageName + "=]__<br />\n";
     }
   }
 }
@@ -639,24 +739,22 @@ return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").rend
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <!--Page Content End-->
     </div>
-
-    <!--OF insert (/OpenForum/PageTemplates/Footer/page.content) start --><!-- Generated by Page Block Editor v 0.0.1 -->
-<footer style="background-color: black; padding-left: 50px;">
+      
+    <!--OF insert (/OpenForum/PageTemplates/Branding/footer.page.content) start --><footer>
   <div>
     <div>
     <ul class="inline-list">
-      <li><a href="https://open-forum.onestonesoup.org/OpenForum" style="color:white">About</a></li>
+      <li><a href="https://open-forum.onestonesoup.org/OpenForum/About">About</a></li>
       <li>|</li>
-      <li><a href="https://open-forum.onestonesoup.org" style="color:white">Open Forum @ OneStoneSoup.org</a></li>
+      <li><a href="https://open-forum.onestonesoup.org">Open Forum @ OneStoneSoup.org</a></li>
       <li>|</li>
-      <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/Introduction" style="color:white">Developers</a></li>
-      <li class="right"><a href="https://open-forum.onestonesoup.org" style="color:white"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+      <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/Introduction">Developers</a></li>
+      <li class="right"><a href="https://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
     </ul>
     </div>
   </div>
-</footer>
-<!--OF insert (/OpenForum/PageTemplates/Footer/page.content) end -->
-    
+</footer><!--OF insert (/OpenForum/PageTemplates/Branding/footer.page.content) end -->
+
     <!--OF insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
   <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
   <p>{{OpenForum.errorMessage}}</p>
@@ -675,7 +773,7 @@ return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").rend
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
 <!--OF insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) end -->
-
+    
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
     <script>
@@ -683,4 +781,3 @@ return js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs").rend
     </script>
   </body>
 </html>
-</ul>

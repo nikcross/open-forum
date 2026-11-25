@@ -1,8 +1,14 @@
-&title;
 --8<--
        
 ((Redirects to the https url if the user arrives via http))
+__Parameters__
+* None
        
-{{{[{HttpsOnly}]}}}
+{{{
+[{HttpsOnly}]
+}}}
 -->8--
+
+&title;
+
 [{InsertSourceFile fileName="renderer.sjs"}]

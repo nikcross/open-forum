@@ -15,7 +15,7 @@ try {
   		var then = extension.getAttribute("then");
   
   		if( then == null ) {
-        	then = "alert('{{message}}');});";
+        	then = "alert('{{message}}');";
         }
   
         var content = "" + file.getAttachment("/OpenForum/Extensions/UploadFileInputField","uploader.html.template");

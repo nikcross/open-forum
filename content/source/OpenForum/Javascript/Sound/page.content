@@ -1,3 +1,7 @@
+[{InsertSourceFile fileName="page.js"}]
+
+[{InsertSourceFile fileName="page.content"}]
+
 <button onClick="OpenForum.SoundPlayer.playSound('sound1')">Play Sound 1</button>
 <button onClick="OpenForum.SoundPlayer.playSound('sound2')">Play Sound 2</button>
 <br/>

@@ -1,15 +1,14 @@
-Creates a bulleted list of child pages
 --8<--
 
+((Creates a bulleted list of child pages))
 __Parameters__
-*pageName - The page to list (optional. default = current page)
+* pageName = The page to list children of (optional, default = current page)
 
 {{{
 [{ChildPagesList pageName="/OpenForum"}]
-       or
-[{ChildPagesList}]
 }}}
 -->8--
+
 [{ChildPagesList pageName="/OpenForum"}]
 
 ----

@@ -123,11 +123,11 @@ function Test() {
 
   tester.logPassed = function(message) {
     openForum.postMessageToQueue( queue,"  PASSED:  "+message);
-  }
+  };
  
   tester.logFailed = function(message) {
     openForum.postMessageToQueue( queue,"  FAILED:  "+message);
-  }
+  };
   
   tester.log = function(message) {
     openForum.postMessageToQueue( queue,"  MESSAGE:  "+message);

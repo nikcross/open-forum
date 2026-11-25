@@ -1,4 +1,30 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+
+<p>Creates a display card with optional image, title, description, and link</p>
+<b>Parameters</b>
+<ul><li> linkURL = URL for the card link</li>
+<li> linkText = Text for the link button</li>
+<li> title = Card title</li>
+<li> description = Card description text</li>
+<li> imageURL = Optional image URL for the card</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://example.com/image.jpg" --><div class="medium-4 columns">
+  <div class="card">
+    <div class="image">
+      <img src="http://example.com/image.jpg">
+      <span class="title">Title</span>
+    </div>
+    <div class="content">
+      <p>Description</p>
+    </div>
+    <div class="action">
+      <a href='#'>Link</a>
+    </div>
+  </div>
+</div><!--End Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://example.com/image.jpg" -->
+</xmp>
+
 <h3>DisplayCard</h3>
 <xmp class="panel" of-exclude="true">
 Add this line to page javascript:

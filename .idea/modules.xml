@@ -3,9 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/addons/InterQueue/InterQueue.iml" filepath="$PROJECT_DIR$/addons/InterQueue/InterQueue.iml" />
-      <module fileurl="file://$PROJECT_DIR$/addons/claude-ai-mcp/claude-ai-mcp.iml" filepath="$PROJECT_DIR$/addons/claude-ai-mcp/claude-ai-mcp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/addons/ai-mcp/ai-mcp.iml" filepath="$PROJECT_DIR$/addons/ai-mcp/ai-mcp.iml" />
       <module fileurl="file://$PROJECT_DIR$/content/content.iml" filepath="$PROJECT_DIR$/content/content.iml" />
       <module fileurl="file://$PROJECT_DIR$/docker/docker.iml" filepath="$PROJECT_DIR$/docker/docker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/addons/ai-mcp/src/main/main.iml" filepath="$PROJECT_DIR$/addons/ai-mcp/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/server/open-forum.server.iml" filepath="$PROJECT_DIR$/server/open-forum.server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/addons/ai-mcp/src/test/test.iml" filepath="$PROJECT_DIR$/addons/ai-mcp/src/test/test.iml" />
     </modules>
   </component>
 </project>

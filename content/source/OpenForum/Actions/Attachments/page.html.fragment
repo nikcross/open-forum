@@ -1,4 +1,26 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+       
+<p>Get list of attachments for a page with optional metadata</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to list attachments from</li>
+<li> matching = Optional filter pattern (regex)</li>
+<li> metaData = Optional flag to include file size and timestamp</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/Attachments?pageName=/MyPage&matching=.*.txt
+
+// Using JSON.get with metadata
+JSON.get('/OpenForum/Actions/Attachments', null, 'pageName=/MyPage&metaData=true')
+  .onSuccess(function(result) {
+    console.log('Attachments:', result.attachments);
+    console.log('Total size:', result.size);
+  }).go();
+</xmp>
+
+
 <!--Extension InsertSourceFile fileName="get.sjs" --><a href="//OpenForum/Actions/Attachments/get.sjs">//OpenForum/Actions/Attachments/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Attachments&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var targetPage = transaction.getParameter("pageName");
 var matching = transaction.getParameter("matching");
 

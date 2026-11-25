@@ -94,6 +94,8 @@ function addEditor(newPageName,fileName,flavour,tabName) {
     editorObj = new SQLEditor(editorIndex,newPageName,fileName,!isScrap);
   } else if(flavour=="python") {
     editorObj = new PythonEditor(editorIndex,newPageName,fileName,!isScrap);
+  } else if(flavour=="yaml") {
+    editorObj = new YAMLEditor(editorIndex,newPageName,fileName,!isScrap);
   } else if(flavour=="content") {
     editorObj = new ContentView(editorIndex,newPageName,fileName,!isScrap);
   } else {

@@ -1,17 +1,26 @@
 !!&title;
 
 --8<--
-       
-((The Publisher AddOn enables the publishing of packages from the developent area of a site into prodction.))
-((All text files in the package (page and sub pages) are translated before publishing. References to Development are removed so a path /MyPage becomes /MyPage))
-((Deletions are not processed immediately, but placed in a deletions script file to run later.))
-       
+((Publisher promotes any /... page hierarchy to production by copying it without the /Development prefix so work-in-progress stays isolated.))
+((Every text-based attachment is rewritten so `"/"` links become live paths, and optional rules in `development-translation.sjs` can further transform each file.))
+((Practice publishes generate release notes plus a deletions script preview without touching the live site; the real publish copies files and appends removal commands into `process-deletions.sjs` for manual execution.))
 -->8--
-  
+
+!!Actions
+* __Check for Page Differences__ – Compares timestamps and hashes between the /Development tree and its published counterpart so you can see what will change.
+* __Reverse Publish__ – Copies the published page back into /Development to recover live edits or restart from a known-good state.
+* __Publish Page (practice)__ – Runs the full translation/diff pipeline, writes detailed release notes, but skips copying so you can verify the impact.
+* __Publish Page (for real)__ – Performs the same checks and then copies the files, applies path rewrites, generates release notes, and refreshes the published page.
+
 !!Special files
-  
-* development-translation.sjs - This is an optional script that will translate the contents of files. The script is passed the contents of each text file as the variable data and is expected to return the transformed version.
-* publish-config.json - Can contain a list of files to exclude eg. {{{ { excludedFiles: ['do-not-publish.me'] } }}}
-* do-not-release.txt - Marks a page as not to be published. Should contain text stateing the reason
-* process-deletions.sjs - A script that is generated with files to be deleted after publishing
-* release-notes.html.fragment - Notes generated during the release are saved here
+* __development-translation.sjs__ – Optional script invoked per text file; receives the file contents as `data` and must return the transformed string.
+* __publish-config.json__ – JSON blob for exclusions, e.g. `{"excludedFiles":["do-not-publish.me"]}`; also expands the standard exclusion list.
+* __do-not-release.txt__ – Presence blocks publishing and should describe why the page is locked.
+* __process-deletions.sjs__ – Auto-generated script listing live files to delete after you verify them; run manually once you are satisfied.
+* __release-notes.html.fragment__ – Captures the accordion-style log of each publish run for auditing.
+
+!!Usage tips
+* Publish from the root /... page you want to release; sub pages are handled automatically.
+* Always inspect the practice-mode release notes before running the real publish so you catch unexpected deletions or TODO markers.
+* Keep the generated deletions script in source control (or review it) before executing so you have an audit trail of removed files.
+

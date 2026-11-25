@@ -1,5 +1,6 @@
 {
     "apiClass": "org.onestonesoup.openforum.jdbc.DatabaseAPI",
-    "pageName": "//OpenForum/SQL",
-    "title": " SQL"
+    "pageName": "/OpenForum/SQL",
+    "title": "SQL",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

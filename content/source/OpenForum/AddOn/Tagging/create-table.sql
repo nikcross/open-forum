@@ -7,5 +7,5 @@ create table tag_link (
   type varchar(100),
   name varchar(100),
   wild_card bool,
-  case_sensitive bool,
+  case_sensitive bool
 );

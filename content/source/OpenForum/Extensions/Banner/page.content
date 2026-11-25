@@ -1,6 +1,18 @@
+--8<--
+
+((Creates a banner with image, title, and text))
+__Parameters__
+* imageURL = URL of the banner image
+* title = Banner title
+* text = Banner text content
+
+{{{
+[{Banner imageURL="/path/to/image.jpg" title="Welcome" text="Welcome to our site"}]
+}}}
+-->8--
+
 <div class="row">
 !!Banner v0.0.2
-{{{ [{Banner imageURL="" title="" text=""}] }}}
 [{Banner imageURL="" title="" text=""}]
 \\
 [{ActionButton text="Add Banner Block type to Content Editor" action="addToContentEditor"}]

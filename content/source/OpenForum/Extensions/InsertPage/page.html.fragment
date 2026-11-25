@@ -1,13 +1,12 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<div class='row'>
-<p> Inserts the contents of one page in another. </p>
+
+<p>Inserts the contents of one page into another</p>
 <b>Parameters</b>
-<ul><li> page - The page to insert content from.</li>
-<li> section (optional) - The number of the section of the page to insert content from. See wiki markup</li>
-</div></ul>
-<div class="row">
-<h3>InsertPage v0.0.7</h3>
-<xmp class="panel" of-exclude="true"> <!--Extension InsertPage page="/OpenForum/PageTemplates/Example" section="" -->Lorem ipsum dolor sit amet,
+<ul><li> page = The page to insert content from</li>
+<li> section = Optional section number of the page to insert</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension InsertPage page="/OpenForum/PageTemplates/Example" section="" -->Lorem ipsum dolor sit amet,
  consectetur adipiscing elit. Maecenas venenatis elit nibh,
  at molestie eros lacinia quis. Donec sed tortor massa. Maecenas dignissim neque et massa iaculis,
  in pretium quam tincidunt. Cras interdum purus ut ante interdum,
@@ -18,7 +17,11 @@
  bibendum volutpat erat. Cras posuere malesuada arcu in tempus. Donec id libero ut nulla finibus egestas. Vestibulum elementum,
  erat sit amet rhoncus vestibulum,
  lectus tortor tempor lorem,
- vitae luctus quam ipsum at elit.<!--End Extension InsertPage page="/OpenForum/PageTemplates/Example" section="" --> </xmp>
+ vitae luctus quam ipsum at elit.<!--End Extension InsertPage page="/OpenForum/PageTemplates/Example" section="" -->
+</xmp>
+
+<div class="row">
+<h3>InsertPage v0.0.7</h3>
 <!--Extension InsertPage page="/OpenForum/PageTemplates/Example" section="" -->Lorem ipsum dolor sit amet,
  consectetur adipiscing elit. Maecenas venenatis elit nibh,
  at molestie eros lacinia quis. Donec sed tortor massa. Maecenas dignissim neque et massa iaculis,

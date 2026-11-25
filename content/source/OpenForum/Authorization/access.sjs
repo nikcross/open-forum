@@ -3,6 +3,39 @@ function access() {
   var userName = ""+login.getUser().getName();
   if(userName==="Admin" || userName==="System") {
     return true;
+  } else if(pageName.indexOf("/private")!=-1) {
+    return false;
+  }
+  
+  //Log
+  try{
+    //openForum.storeValue("openForum.pageViews.error",""+fileName);
+    var count = openForum.retrieveValue("openForum.fileViews.bucket");
+    count = parseInt(""+count);
+    if( isNaN(count) ) count = 0;
+    count ++;
+    openForum.storeValue("openForum.fileViews.bucket",""+count);
+
+  } catch(e) {
+    openForum.storeValue("openForum.fileViews.bucket","0");
+  }
+
+  try{
+
+    if( typeof fileName != "undefined" && fileName == "page.html" ) {
+      var pageCount = openForum.retrieveValue("openForum.pageViews.bucket");
+      pageCount = parseInt(""+pageCount);
+      if( isNaN(pageCount) ) pageCount = 0;
+      pageCount ++;
+      openForum.storeValue("openForum.pageViews.bucket",""+pageCount);
+    }
+
+  } catch(e) {
+    openForum.storeValue("openForum.pageViews.bucket",""+e);
+  }
+
+  if(userName==="Admin" || userName==="System") {
+    return true;
   }
 
   var data = file.getPageInheritedFileAsString(pageName,"access.json");
@@ -42,9 +75,9 @@ function access() {
   }
 
   if(accessJSON.userAccess[action] && accessJSON.userAccess[action]["Guest"]) { // If Guest access allowed
-  	return true;
+    return true;
   }
-  
+
   if(!accessJSON.userAccess[action] || !accessJSON.userAccess[action][userName]) { // If no access.action.userName then cannot access
     if(accessJSON.groupAccess && accessJSON.groupAccess[action]) {
       for(var groupName in accessJSON.groupAccess[action]) {

@@ -1,48 +1,62 @@
+<!--Content built using /OpenForum/PageTemplates/PageInDevelopment/page.build.js x0.0.4 February Promise builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <section class="top-bar-section">
   <ul class="right">
     <li class="divider"></li>
     <li class="has-dropdown">
       <a href="#">Actions</a>
       <ul class="dropdown">
-        <li><a href="/OpenForum/Editor?pageName=&pageName;">Edit</a></li>
-        <li><a href="/OpenForum/Actions/RefreshPage?pageName=&pageName;">Refresh Page</a></li>
+        <li><a href="/OpenForum/Editor?pageName=/OpenForum/PageTemplates/PageInDevelopment/TopMenu">Edit</a></li>
+        <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/PageTemplates/PageInDevelopment/TopMenu">Refresh Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumNewPageModal">Create New Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumNewChildPageModal">Create New Child Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
-        <li><a href="/Development?action=publish&pageName=&pageName;">Publish Page</a></li>
+        <li><a href="/Development?action=publish&pageName=/OpenForum/PageTemplates/PageInDevelopment/TopMenu">Publish Page</a></li>
       </ul>
     </li>
     <li class="divider"></li>
     <li class="has-dropdown">
       <a href="#">Sub Pages</a>
       <ul class="dropdown"><li>
-        
+        <!--Extension ChildPagesList --><!--End Extension ChildPagesList -->
         </li></ul>
     </li>
     <li class="divider"></li>
     <li class="has-dropdown">
       <a href="#">Attachments</a>
       <ul class="dropdown"><li>
-        
+        <!--Extension AttachmentsList --><!--End Extension AttachmentsList -->
         </li></ul>
     </li>
     <li class="divider"></li>
 
     <li class="has-dropdown">
+      <a href="#">Access</a>
+      <ul class="dropdown">
+        <li of-repeatFor="reader in pageAccess.readers"><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onClick="return false;">{{reader}}</a></li>
+      </ul>
+      <script>
+        var pageAccess = {};
+        JSON.get("/OpenForum/Actions/Access","getAccess","pageName=/OpenForum/PageTemplates/PageInDevelopment/TopMenu").onSuccess( function(response) {
+          pageAccess = response;
+        }).go();
+      </script>
+    </li>
+    
+    <li class="has-dropdown">
       <a href="#">Favourite Pages</a>
       <ul class="dropdown">
-        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="/{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
+        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
       </ul>
     </li>
 
     <li class="divider"></li>
 
     <li class="has-dropdown">
-      <a href="undefined">Signed in as {{currentUser}} {{avatar}}</a>
+      <a href="<!--Extension Hash -->undefined<!--End Extension Hash -->">Signed in as {{currentUser}} {{avatar}}</a>
       <ul class="dropdown">
         <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
-        <li><a href="undefined" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+        <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
         <script>
           var accessLoading = false;
           function doSignIn() {
@@ -59,6 +73,7 @@
             OpenForum.Access.showPopup();
           };
         </script>
+        {{currentUserExtraOptions}}
       </ul>
     </li>
   </ul>
@@ -67,20 +82,20 @@
 <div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Copy Page</h2>
   <p>Copy this page to <input type="text" of-id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.action.copyPage('&pageName;',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
+  <p><a href="#" onClick="OpenForum.action.copyPage('/OpenForum/PageTemplates/PageInDevelopment/TopMenu',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
-    OpenForumCopyPage = "&pageName;";
+    OpenForumCopyPage = "/OpenForum/PageTemplates/PageInDevelopment/TopMenu";
   </script>
 </div>
 
 <div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Move Page</h2>
   <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
-  <p><a href="#" onClick="OpenForum.action.movePage('&pageName;',OpenForumCopyPage);return false;" class="secondary button">Move Page</a></p>
+  <p><a href="#" onClick="OpenForum.action.movePage('/OpenForum/PageTemplates/PageInDevelopment/TopMenu',OpenForumMovePage);return false;" class="secondary button">Move Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
-    OpenForumMovePage = "&pageName;";
+    OpenForumMovePage = "/OpenForum/PageTemplates/PageInDevelopment/TopMenu";
   </script>
 </div>
 
@@ -100,8 +115,6 @@
   <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewChildPage);return false;" class="secondary button">Create Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
-    OpenForumNewChildPage = "&pageName;/";
+    OpenForumNewChildPage = "/OpenForum/PageTemplates/PageInDevelopment/TopMenu/";
   </script>
 </div>
-
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

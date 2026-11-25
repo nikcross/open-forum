@@ -1,1 +1,24 @@
-&insert:/OpenForum/Javascript/Builder/build-client.content;
+!!&title;
+
+!!!OpenForum Giraffe {{version}}
+!!Latest build {{buildDate}}
+* Lines of code {{lines}}
+* Size {{size}} KB
+
+[Edit OpenForum Giraffe Core|/OpenForum/Giraffe/Core?edit]
+<xmp>
+[{InsertFile pageName="/OpenForum/Giraffe" fileName="giraffe.js"}]
+</xmp>
+  
+----
+!!Child Pages
+[{ChildPagesList pageName="&pageName;"}]
+
+----
+!!Build Script
+<xmp>
+[{InsertFile pageName="/OpenForum/Giraffe/Core" fileName="script.build.json"}]
+</xmp>
+----
+!!Script elements
+[{AttachmentsList pageName="&pageName;" matching=".*.js"}]

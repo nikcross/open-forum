@@ -1,12 +1,29 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Returns a Page as an array of list entries
-<hr/>
-<h3>Get Parameters</h3>
-<ul><li>pageName - Page to read as a list</li>
-<li>varName - Name of Javascript array to return</li>
+       
+<p>Returns a page as a JavaScript array of list entries</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page to read as a list</li>
+<li> varName = Name of JavaScript array variable to return</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/GetPageAsList?pageName=/MyPage&varName=myList
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/GetPageAsList', null, 'pageName=/MyPage&varName=myList')
+  .onSuccess(function(jsArray) {
+    console.log('Array:', jsArray);
+    eval(jsArray); // Creates myList variable
+  }).go();
+</xmp>
+
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
 
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel" of-exclude="true"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
@@ -18,4 +35,4 @@ else
 	arrayData = wiki.getPageAsList(pageName);
 	arrayJs = js.get2DArrayAsJavascript( varName,arrayData);
 	transaction.sendPage(arrayJs);
-} </xmp></ul>
+} </xmp>

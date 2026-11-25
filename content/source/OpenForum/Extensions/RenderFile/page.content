@@ -1,3 +1,15 @@
+--8<--
+
+((Renders a file fragment into the page))
+__Parameters__
+* pageName = Page where the file is attached (optional, default = current page)
+* fileName = Name of the fragment file to render
+
+{{{
+[{RenderFile pageName="/OpenForum/Extensions/RenderFile" fileName="example-list.fragment"}]
+}}}
+-->8--
+
 <div class="row">
   !!&title;
 

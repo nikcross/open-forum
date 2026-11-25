@@ -128,7 +128,7 @@ function JavascriptEditor(editorIndex,pageName,fileName,markChanged) {
     data += renderTabOption("Download to desktop","Download "+pageName+"/"+fileName,"OpenForum.Browser.download( '"+fileName+"',editorList["+editorIndex+"].editor.getValue() )");
     data += renderTabOption("Copy","Copy to clipboard","OpenForum.copyData( editorList["+editorIndex+"].editor.getValue() )");
 
-    if( pageName.indexOf("/Development/") == 0 ) {
+    if( pageName.indexOf("/") == 0 ) {
       if( OpenForum.fileExists( pageName.substring(12) + "/" + fileName ) ) {
         data += renderTabOption("Compare","Compare with Production","editorList["+editorIndex+"].editor.compareWithProduction();");
       }
@@ -138,7 +138,7 @@ function JavascriptEditor(editorIndex,pageName,fileName,markChanged) {
   };
 
   self.compareWithProduction = function() {
-    if( pageName.indexOf("/Development/") != 0 ) return;
+    if( pageName.indexOf("/") != 0 ) return;
 
     if( typeof fileDiff == "undefined" ) {
       loadPlugin("FileDiff", self.compareWithProduction);
@@ -219,3 +219,4 @@ function JavascriptEditor(editorIndex,pageName,fileName,markChanged) {
   } ).loadDependencies();
 
 }
+

@@ -12,6 +12,7 @@
 <li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/jpg"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/jpg does not exist. Click to create it.">jpg</a></li>
 <li> <a href="/OpenForum/FileTemplates/js">js</a></li>
 <li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/link"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/link does not exist. Click to create it.">link</a></li>
+<li> <a href="/OpenForum/FileTemplates/md">md</a></li>
 <li> <input type='radio' /></li>
 <li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/png"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/png does not exist. Click to create it.">png</a></li>
 <li> <a href="/OpenForum/FileTemplates/py">py</a></li>
@@ -20,6 +21,7 @@
 <li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/txt"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/txt does not exist. Click to create it.">txt</a></li>
 <li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/uninstall"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/uninstall does not exist. Click to create it.">uninstall</a></li>
 <li> <input type='checkbox' /></li>
+<li> <a href="/OpenForum/FileTemplates/yaml">yaml</a></li>
 <li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/zip"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/zip does not exist. Click to create it.">zip</a></li>
 </ul><!--End Extension ChildPagesList pageName="/OpenForum/FileTemplates" -->
 
@@ -30,5 +32,6 @@
 <li> <a href="/OpenForum/FileTemplates/page.js">/OpenForum/FileTemplates/page.js</a></li>
 <li> <a href="/OpenForum/FileTemplates/page.html.fragment">/OpenForum/FileTemplates/page.html.fragment</a></li>
 <li> <a href="/OpenForum/FileTemplates/page.html">/OpenForum/FileTemplates/page.html</a></li>
+<li> <a href="/OpenForum/FileTemplates/FileTemplates.wiki.zip">/OpenForum/FileTemplates/FileTemplates.wiki.zip</a></li>
 <li> <a href="/OpenForum/FileTemplates/release-info.json">/OpenForum/FileTemplates/release-info.json</a></li>
 </ul><!--End Extension AttachmentsList pageName="/OpenForum/FileTemplates" matching=".*" -->

@@ -34,6 +34,16 @@ try{
     treeData = JSON.stringify( tree.createFileTree(targetPage,matcher,fileOffset,pageOffset) );   
 
     transaction.sendJSON( treeData );
+  } else if(action==="getSubPages") {
+    var targetPage = ""+transaction.getParameter("pageName");
+    if(targetPage.charAt(0)!='/') {
+      targetPage = "/"+targetPage;
+    }
+    
+    var pages = js.getObject("/OpenForum/Javascript/Tree","Pages.sjs");
+    var list = pages.getSubPages(targetPage);
+    
+    transaction.sendJSON( JSON.stringify(list) );
   }
 }catch(e) {
   transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber}));

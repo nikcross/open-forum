@@ -11,15 +11,17 @@
  * @param width (number) the width of the rectangle
  * @param height (number) the height of the rectangle
  */
-function Rectangle(x,y,width,height)
+Giraffe.Rectangle = function(x,y,width,height)
 {
-	  /**#@+
+  /**#@+
 	   * @memberOf Rectangle
 	   */
-  this.x=x;
-  this.y=y;
-  this.width=width;
-  this.height=height;
+  var self = this;
+  self.x=x;
+  self.y=y;
+  self.width=width;
+  self.height=height;
+  self.type="Rectangle";
 
   /**
    * Checks to see if a given point lies inside the rectangle.
@@ -27,33 +29,39 @@ function Rectangle(x,y,width,height)
    * @param posY {number} the y axis of the point to check
    * @returns true if the point lies within the Rectangle
    */
-  this.isInside = function(posX,posY) {
-	if(
-		posX-this.x>0 &&
-		posX-this.x<this.width &&
-		posY-this.y>0 &&
-		posY-this.y<this.height
-		){ return true; } else { return false; }
+  self.isInside = function(posX,posY) {
+    var rPos = self.getRelativePosition(posX,posY);
+    posX = rPos.x;
+    posY = rPos.y;
+
+    if(
+      posX>0 &&
+      posX<self.width &&
+      posY>0 &&
+      posY<self.height
+    ){ return true; } else { return false; }
   };
-  
+
   /**
    * @private
    */
-  this.draw = function()
+  self.draw = function()
   {
-    this.canvas.beginPath();
-    if(this.fillColor!=null)
+    self.canvas.beginPath();
+    if(self.fillColor!=null)
     {
-      this.canvas.fillStyle = this.fillColor;
+      self.canvas.fillStyle = self.fillColor;
     }
-    this.canvas.strokeStyle = this.color;
-    this.canvas.rect(0,0,this.width,this.height);
-    this.canvas.closePath();
-    if(this.fillColor!=null)
+    self.canvas.strokeStyle = self.color;
+    self.canvas.rect(0,0,self.width,self.height);
+    self.canvas.closePath();
+    if(self.fillColor!=null)
     {
-      this.canvas.fillRect(0,0,this.width,this.height);
+      self.canvas.fillRect(0,0,self.width,self.height);
     }
-    this.canvas.stroke();
+    self.canvas.stroke();
   };
-}
-Rectangle.prototype = new GraphicsObject();
+};
+Giraffe.Rectangle.prototype = new Giraffe.GraphicsObject();
+//Deprecated
+Rectangle = Giraffe.Rectangle;

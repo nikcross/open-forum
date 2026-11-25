@@ -1,7 +1,18 @@
+--8<--
+
+((Lists attachments for a page with optional filtering))
+__Parameters__
+* targetPage = Page name to list attachments from (blank for current page)
+* matching = Filter pattern (e.g., ".txt" for text files)
+
+{{{
+[{AttachmentsList targetPage="" matching=".txt"}]
+}}}
+-->8--
+
 <div class="row">
 !!AttachmentsList v0.0.1
-{{{ [{AttachmentsList targetPage="" matching=".txt" actions=""}] }}}
-[{AttachmentsList targetPage="" matching=".txt" actions=""}]
+[{AttachmentsList targetPage="" matching=".txt"}]
 \\
 [{ActionButton text="Add AttachmentsList Block type to Content Editor" action="addToContentEditor"}]
 </div>

@@ -1,15 +1,24 @@
-<div class="row">
-  !!&title;
-
-  <div class="panel columns large-12">
-    Page [{InputFileName id="convertPageName"}]<br/>
-    <a class="button tiny radius" href="#" onclick="convertMarkup(); return false;">Convert for Content Editor (Markup)</a>
-    <a class="button tiny radius" href="#" onClick="convertHTML(); return false;">Convert for Content Editor (HTML)</a>
+<link rel="stylesheet" href="/OpenForum/AddOn/ContentEditor/PageConverter/page.css?ts=&time;"/>
+<div class="pc">
+  <header class="pc-head">
+    <a class="pc-back" href="/OpenForum/AddOn/ContentEditor">← Content Editor</a>
+    <h1>Import a page into the Content Editor</h1>
+    <p>Turns an existing Development page into a content page or blog article you can edit, save and publish in the Content Editor. Importing only adds the editor's own files: the page shows its old content until you publish it from the editor, and its original page.content and data.json are kept beside it.</p>
+  </header>
+  <form class="pc-form" id="pc-form" autocomplete="off">
+    <label for="pc-page">Page</label>
+    <input id="pc-page" type="text" spellcheck="false" placeholder="/YourPage"/>
+    <fieldset class="pc-types">
+      <legend>Import as</legend>
+      <label><input type="radio" name="pc-type" value="content-page" checked/> Content page</label>
+      <label><input type="radio" name="pc-type" value="blog-article"/> Blog article</label>
+    </fieldset>
+    <button class="pc-btn" type="submit">Check</button>
+  </form>
+  <div id="pc-result" class="pc-result" role="status" aria-live="polite"></div>
+  <div class="pc-frames">
+    <figure><figcaption>The page now</figcaption><iframe id="pc-original" title="The page now"></iframe></figure>
+    <figure><figcaption>Imported into the template</figcaption><iframe id="pc-preview" title="The imported page" sandbox=""></iframe></figure>
   </div>
 </div>
-<div class="row">
-<iframe id="viewFrame" src="/" style="width: 90%;
-    border: solid 2px black;
-    height: 100%;
-    min-height: 400px;"/>
-</div>
+

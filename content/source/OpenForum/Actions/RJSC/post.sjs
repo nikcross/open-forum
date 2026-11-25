@@ -2,10 +2,16 @@ try{
 var code = transaction.getParameter("code");
 var queueName = transaction.getParameter("queueName");
 
+var rjscUser = ""+transaction.getUser();
+if(rjscUser!=="Admin" && rjscUser!=="System") {
+  transaction.sendJSON( JSON.stringify({result: "error", message: "Forbidden: RJSC requires Admin"}) );
+  return;
+}
+
  function println(message) {
    openForum.postMessageToQueue(queueName,message);
  }
-  
+
  console = {
    log: function(message) {
      println(message);
@@ -25,7 +31,7 @@ var queueName = transaction.getParameter("queueName");
   }
 
   println("Status: Script Completed");
-  
+
   transaction.sendJSON( JSON.stringify( {result: result} ) );
 } catch(e) {
   try{

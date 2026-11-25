@@ -1,15 +1,22 @@
-Inserts a files contents into the page
-----
-!!Parameters
-* pageName - The page where the file is attached (optional. default = current page name)
-* fileName - The file to insert
+--8<--
+
+((Inserts a file's contents into the page as source code))
+__Parameters__
+* pageName = The page where the file is attached (optional, default = current page)
+* fileName = The file to insert
+
+{{{
+[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json"}]
+}}}
+-->8--
+
+[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json"}]
 
 ----
 !!Usage:
 {{{
 [{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json"}]
 }}}
-[{InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json"}]
 
 ----
 

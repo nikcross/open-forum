@@ -1,15 +1,25 @@
-Inserts a form input field.
-----
-!!Parameters
-name - the field name
-list - the list name
-value - optional value
-----
-!!Usage:
-{{{ [{ListField name="beetle" list="names"}] }}}
+--8<--
+
+((Inserts a form input field with a datalist for autocomplete))
+__Parameters__
+* name = Field name
+* list = Name of the datalist
+* value = Optional default value
+
+{{{
+[{ListField name="beetle" list="names"}]
+}}}
+-->8--
+
 [{ListField name="beetle" list="names"}]
 
 !!Your Beetle is {{beetle}}
+----
+!!Usage:
+{{{
+[{ListField name="beetle" list="names"}]
+}}}
+
 ----
 
 [{InsertSourceFile fileName="renderer.sjs"}]

@@ -1,0 +1,23 @@
+--8<--
+       
+((Resolves a .link file by copying the linked resource to the page))
+
+__Get parameters__
+* pageName = Page containing the .link file
+* fileName = Name of the .link file to resolve
+
+__Get examples:__
+{{{
+// Simple URL
+/OpenForum/Actions/ForkLink?pageName=/MyPage&fileName=resource.txt.link
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/ForkLink', null, 'pageName=/MyPage&fileName=resource.txt.link')
+  .onSuccess(function(result) {
+    console.log('Forked:', result);
+  }).go();
+}}}
+
+-->8--
+
+[{InsertSourceFile fileName="get.sjs"}]

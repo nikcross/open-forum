@@ -23,9 +23,9 @@ try{
     build.setBuildParameter("versionFile",transaction.getParameter("versionFile")); // Override if present
     build.setBuildParameter("version",transaction.getParameter("version"));
     
-    build.build();
+    var script = build.build();
     
-    result = {result: "ok", message: "Built "+build.getBuildParameter("targetFile")+" and "+build.getBuildParameter("versionedTargetFile")};
+    result = {result: "ok", message: "Built "+build.getBuildParameter("targetFile")+" and "+build.getBuildParameter("versionedTargetFile"), script: script};
   } else {
     result = { result: "error", message: "Action "+action+" not recognised"};
   }

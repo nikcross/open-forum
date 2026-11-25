@@ -116,8 +116,13 @@
         },
         {
             "action": "append",
+            "file": "/OpenForum/Editor/Editors/YAMLEditor/editor.js",
+            "index": "21"
+        },
+        {
+            "action": "append",
             "file": "/OpenForum/Editor/editor-config.js",
-            "index": "21",
+            "index": "22",
             "searchFor": "",
             "replaceWith": "",
             "data": ""
@@ -126,13 +131,13 @@
             "action": "replace",
             "searchFor": "&version;",
             "replaceWith": "$version",
-            "index": "22"
+            "index": "23"
         },
         {
             "action": "replace",
             "searchFor": "&date;",
             "replaceWith": "$date",
-            "index": "23"
+            "index": "24"
         }
     ]
 }

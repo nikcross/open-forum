@@ -39,9 +39,9 @@ OpenForum.Keyboard = function() {
     }
 
     if(pressedKey==8) {
-    	self._keyPress("del");
+      self._keyPress("del");
     } else {
-    	self._keyPress(String.fromCharCode(pressedKey).toLowerCase());
+      self._keyPress(String.fromCharCode(pressedKey).toLowerCase());
     }
 
     if(oldKeyDown) {
@@ -60,6 +60,15 @@ OpenForum.Keyboard = function() {
   self.bindRealKeyboard = function() {
     oldKeyDown = document.onkeydown;
     document.onkeydown = keyDown;
+  };
+
+  self.appendTyped = function(text) {
+    if(typedField) {
+      var start = typedField.value.substring(0,typedField.selectionEnd);
+      var end = typedField.value.substring(typedField.selectionEnd);
+      typedField.value = start + text + end;
+    }
+    if(typedView) typedView.innerHTML += text;
   };
 
   self.getTyped = function() {
@@ -88,6 +97,21 @@ OpenForum.Keyboard = function() {
       for(var ki=0; ki<row.length; ki++) {
         var key = row[ki];
         keyboardHtml+="<a class=\"button round\" onclick=\"OpenForum.Keyboard._keyClicked('"+key+"');\">"+key+"</a>&nbsp;";
+      }
+      keyboardHtml+="<br/>";
+    }
+    keyboardHtml+="<a class=\"button round\" onclick=\"OpenForum.Keyboard._keyClicked(' ');\" style=\"width: 8em;\">SPACE</a>&nbsp;";
+
+    document.getElementById(elementId).innerHTML = keyboardHtml;
+  };
+
+  self.createKeyboard = function(elementId,keyArray) {
+    var keyboardHtml = "";
+    for(var ri in keyArray) {
+      var row = keyArray[ri];
+      for(var ki=0; ki<row.length; ki++) {
+        var key = row[ki];
+        keyboardHtml+="<a class=\"button round\" onclick=\"OpenForum.Keyboard._keyClicked('"+key+"',this);\">"+key+"</a>&nbsp;";
       }
       keyboardHtml+="<br/>";
     }
@@ -130,9 +154,22 @@ OpenForum.Keyboard = function() {
 
     document.getElementById(elementId).innerHTML = keyboardHtml;
   };
-  
+
   self.addKey = function(elementId,display,key) {
-    document.getElementById(elementId).innerHTML += "<a class=\"button round\" onclick=\"OpenForum.Keyboard._keyClicked('"+key+"');\">"+display+"</a>&nbsp;";
+    if(key.length>1) {
+      if(key.charAt(0) == "=") {
+        var fn = key.substring(1);
+        document.getElementById(elementId).innerHTML += "<a class=\"button round\" onclick=\"OpenForum.Keyboard."+fn+"; return false;\">"+display+"</a>&nbsp;";
+      } else {
+        document.getElementById(elementId).innerHTML += "<a class=\"button round\" onclick=\"OpenForum.Keyboard.appendTyped('"+key+"');\">"+display+"</a>&nbsp;";
+      }
+    } else {
+      document.getElementById(elementId).innerHTML += "<a class=\"button round\" onclick=\"OpenForum.Keyboard._keyClicked('"+key+"');\">"+display+"</a>&nbsp;";
+    }
+  };
+
+  self.addRow = function(elementId) {
+    document.getElementById(elementId).innerHTML += "<br/>";
   };
 
   self.createCursor = function(elementId) {
@@ -157,7 +194,8 @@ OpenForum.Keyboard = function() {
 
   self._keyClicked = function(key) {
     if(typedField) {
-      typedField.value += key;
+      //typedField.value += key;
+      self.appendTyped( key );
     } else {
       self._keyPress(key);
     }
@@ -173,10 +211,10 @@ OpenForum.Keyboard = function() {
     }
     if(key=="del") {
       if(typed.length>0) {
-      	typed = typed.substring(0,typed.length-1);
+        typed = typed.substring(0,typed.length-1);
       }
     } else {
-    	typed += key;
+      typed += key;
     }
     if(typedView) typedView.innerHTML = typed.replace(/\s/g,"&nbsp;");
 

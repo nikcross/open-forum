@@ -1,12 +1,22 @@
-Inserts a form input field.
-----
-!!Parameters
-name - the field name
-value - optional value
+--8<--
+
+((Inserts a form input field))
+__Parameters__
+* name = Field name
+* value = Optional default value
+
+{{{
+[{InputField name="myField"}]
+}}}
+-->8--
+
+[{InputField name="myField"}]
+
 ----
 !!Usage:
-{{{[{InputField name="myField"}]}}}
+{{{
 [{InputField name="myField"}]
+}}}
 
 ----
 

@@ -1,6 +1,9 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<h3>InputFileName</h3>
 
+<p>Creates a filename input field with validation</p>
+<b>Parameters</b>
+<ul><li> id = Variable name for data binding</li>
+</ul>
 <xmp class="panel" of-exclude="true">
 <!--Extension InputFileName id="myPage" --><script>
   var myPagePages = [];
@@ -19,6 +22,8 @@
   <option of-repeatFor="pageName in myPagePages" value="{{pageName}}">{{pageName}}</option>
 </datalist><!--End Extension InputFileName id="myPage" -->
 </xmp>
+
+<h3>InputFileName</h3>
 
 <ul><li>Page <!--Extension InputFileName id="myPage" --><script>
   var myPagePages = <a href="/OpenForum/Extensions/InputFileName/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;

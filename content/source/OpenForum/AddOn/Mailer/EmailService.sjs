@@ -100,6 +100,9 @@ var EmailService = function() {
     var css = {};
 
     var template = file.getAttachment(templatePage,templateName+".email.template");
+    if (template === null || typeof template === "undefined") {
+      throw "Email template not found: " + templateName + ".email.template on page " + templatePage;
+    }
     var parts = template.split("#\n");
     var subject = ""+parts[1].trim();
     var type = ""+parts[2].trim();

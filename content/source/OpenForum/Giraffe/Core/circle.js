@@ -10,14 +10,14 @@
  * @param y {number} the position that the ... is to be drawn on the y axis
  * @param radius (number) the radius of the circle to be drawn. Must be greater than 0
  */
-function Circle(x,y,radius)
-{
+Giraffe.Circle = function(x,y,radius) {
 	  /**#@+
 	   * @memberOf Circle
 	   */
   this.x=x;
   this.y=y;
   this.radius=radius;
+  this.type="Circle";
   /**
    * @private
    */
@@ -45,9 +45,12 @@ function Circle(x,y,radius)
    * @returns true if the point lies within the Circle
    */
   this.isInside = function(posX,posY) {
-		//alert("testing "+posX+","+posY);
-	var xl = this.x-posX;
-	var yl = this.y-posY;
+    var rPos = this.getRelativePosition(posX,posY);
+    posX = rPos.x;
+    posY = rPos.y;
+    
+	var xl = posX;
+	var yl = posY;
 	if( Math.round( 
 		Math.pow( (xl*xl)+(yl*yl),0.5)
 	)<this.radius) {
@@ -56,5 +59,8 @@ function Circle(x,y,radius)
 		return false;
 	}
   };
-}
-Circle.prototype = new GraphicsObject();
+};
+Giraffe.Circle.prototype = new Giraffe.GraphicsObject();
+
+//Deprecated
+Circle = Giraffe.Circle;

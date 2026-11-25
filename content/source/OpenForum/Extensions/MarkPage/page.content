@@ -1,15 +1,15 @@
-!!&title;
-
 --8<--
 
-((Mark a point in a page that can be referenced))
+((Marks a point in a page that can be referenced))
 __Parameters__
-* name - the name of the mark
+* name = Name of the mark
 
 {{{
 [{Mark name="TestMark"}] Some text to reference
 }}}
 -->8--
+
+!!&title;
 
 [{Mark name="TestMark"}] Some text to reference\\
 See: [GoToMark|/OpenForum/Extensions/GoToMark] for an example of using this mark

@@ -1,6 +1,6 @@
 {
     "pageName": "/OpenForum/Editor/Editors/PythonEditor",
-    "title": "PythonEditor",
+    "title": "Python Editor",
     "pageParent": "https://open-forum.onestonesoup.org",
     "editorConfig": "/OpenForum/Editor/Editors/PythonEditor/editor-config.json"
 }

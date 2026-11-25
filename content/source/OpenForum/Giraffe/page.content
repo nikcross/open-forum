@@ -1,1 +1,12 @@
-<canvas id="exampleCanvas" width="800" height="600" style="border: solid 1px;"></canvas>
+<div class="row">
+  [Quick Reference|/OpenForum/Giraffe/QuickReference]\\
+  <canvas id="exampleCanvas" width="800" height="600" style="border: solid 1px;"></canvas>
+</div>
+
+----
+<div class="row">
+!!Examples
+
+*[Spline Editor|/OpenForum/Giraffe/SplineEditor=]
+*[Data Visualisation|/OpenForum/Giraffe/Visualisation=]
+  

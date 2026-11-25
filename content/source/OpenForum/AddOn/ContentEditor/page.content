@@ -1,9 +1,6 @@
-
-<div style="border: solid 1px; height: 100%; background-color: #000000; padding: 20px !important;">
-  <br/>
-  <div id="pageEditor">
-  </div>
-  <br/>
-  <br/>
-  <br/>
-</div>
+<nav class="ce-appbar" aria-label="Content Editor">
+  <span class="ce-logo"><span class="ce-logo-mark" aria-hidden="true">✎</span><span class="ce-logo-text">Content Editor</span></span>
+  <ul class="ce-view-menu" id="ceViewMenu"></ul>
+  <span class="ce-appbar-site" id="ce-site-name"></span>
+</nav>
+<div id="ceApplicationView"><p class="ce-app-loading">Loading...</p></div>

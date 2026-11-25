@@ -1,8 +1,112 @@
-//Should use link to /OpenForum/Javascript/PageBuilder
 var htmlContent = "";
 if(pageName.charAt(0)!="/") pageName = "/"+pageName;
 
+var VERSION = "x0.0.4 February Promise";
+var contentBuilder = "/OpenForum/PageTemplates/PageInDevelopment/page.build.js "+VERSION;
+
 try{
+
+  var applyFields = function( pageName, timestamp, htmlContent ) {
+    var fields = [];
+    fields["pageName"] = pageName;
+    fields["title"] = openForum.wikiToTitleName(pageName);
+    fields["shortTitle"] = openForum.wikiToTitleName(pageName);
+    fields["author"] = "unknown";
+    fields["lastChangedBy"] = "unknown";
+    fields["referringPages"] = "";
+    fields["attachments"] = "";
+    fields["tags"] = "";
+    fields["time"] = timestamp;
+
+    // Replace template fields
+    var stepCount = 0;
+    var MAX_STEP_COUNTS = 10000;
+    var MAX_PAGE_LENGTH = 1000000;
+
+    //openForum.postMessageToQueue("test","Buidling Page:(" +pageName+ ") File:(page.html)"); 
+
+    var searchData = htmlContent;
+    htmlContent = "";
+    while( searchData.indexOf("&")!=-1 ) {
+
+      stepCount++;
+      if(stepCount>MAX_STEP_COUNTS) break;
+
+      var indexStart = searchData.indexOf("&");
+      htmlContent += searchData.substring(0,indexStart);
+      searchData = searchData.substring(indexStart+1);
+
+      var endIndex = searchData.indexOf(";");
+      if(endIndex==-1) {
+        htmlContent += "&";
+        break;
+      }
+
+      var fieldName = searchData.substring(0,endIndex);
+      if( typeof(fields[fieldName])!=="undefined" ) {
+        htmlContent += fields[fieldName];
+        searchData = searchData.substring(endIndex+1);
+      } else if(fieldName.indexOf("insert:")===0) {
+        var insertFile = fieldName.substring(7);
+        if(insertFile.indexOf("/")!=0) insertFile = pageName +"/"+ insertFile;
+        var insertPageName = ""+insertFile.substring(0,insertFile.lastIndexOf("/"));
+        var insertFileName = ""+insertFile.substring(insertFile.lastIndexOf("/")+1);
+        searchData = searchData.substring(endIndex+1);
+
+        if(file.attachmentExists(insertFile,"page.html.fragment")) {
+          searchData = "<!-- insert (" +insertFile+ ") start -->" + file.getAttachment(insertFile,"page.html.fragment") + "<!-- insert (" +insertFile+ ") end -->" + searchData;
+        } else if(file.attachmentExists(insertPageName,insertFileName)) {
+          searchData = "<!-- insert (" +insertFile+ ") start -->" + file.getAttachment(insertPageName,insertFileName) + "<!-- insert (" +insertFile+ ") end -->" + searchData;
+        } else {
+          searchData = "<!-- insert not found ( page:" +insertPageName+" file:"+insertFileName+ ") -->" + searchData;
+        }
+      } else {
+        htmlContent += "&";
+      }
+
+      if(htmlContent>MAX_PAGE_LENGTH) {
+        htmlContent += "<!-- Truncated. Content too long. -->";
+        break;
+      }
+    }
+    htmlContent += searchData;
+    try{
+      htmlContent = renderer.render(pageName,htmlContent);
+    } catch(e) {
+      log.error("Failed to render renderer "+renderer.getType()+" on "+pageName+" using "+contentBuilder+". Exception "+e+" on line number "+e.lineNumber);
+    }
+    return htmlContent;
+  };
+
+  // --- Build content fragments  
+
+  var attachments=[];
+  //var pageName = "/Sandbox";
+  var matching = ".*\\.wiki\\.fragment"; //Regex include all wiki fragments
+
+  var list = file.getAttachmentsForPage( pageName );
+  if(pageName.charAt(0)!='/')
+  {
+    pageName = "/"+pageName;
+  }
+
+  var iterator= list.keySet().iterator();
+  while(iterator.hasNext())
+  {
+    var key = ""+iterator.next();
+    var item;
+    if(key.charAt(0)==='+') { // ignore sub pages
+      continue;
+    } else if(key.search( matching )==-1 ) {
+      continue;
+    } else {
+      var name = key.substring(0,key.indexOf(".wiki.fragment"));
+      var content = file.getAttachment(pageName,key);
+      file.saveAttachment(pageName,name+".html.fragment",renderer.render(pageName,content));
+    }
+  }
+
+  // --- End Build
 
   var pageTemplate = file.getPageInheritedFileAsString(pageName,"page.html.template");
   if( pageTemplate===null ) {
@@ -19,7 +123,7 @@ try{
 
   var savePage = true;
   var errors = "";
-  var contentBuilder = "default";
+
   var renderer = js.getObject("/OpenForum/Javascript/Renderer","DefaultRenderer.sjs");
   var timestamp = new Date().getTime();
 
@@ -73,87 +177,28 @@ try{
 
   //log.debug("Content loaded for "+pageName);  
 
+  var htmlFragment = "<!--Content built using "+contentBuilder+" builder and renderer "+renderer.getVersion()+"-->\n" + htmlContent;
+  htmlFragment = applyFields( pageName, timestamp, htmlFragment );
+  if(savePage===true) {
+    file.saveAttachment(pageName,"page.html.fragment",renderer.render(pageName,htmlFragment));
+  }
+
   htmlContent = htmlContent + "\n<!--Content built using "+contentBuilder+" builder and renderer "+renderer.getVersion()+"-->";
-
-  if(savePage===true) file.saveAttachment(pageName,"page.html.fragment",renderer.render(pageName,htmlContent));
-
   htmlContent = pageTemplate.replace("&content;","\n"+htmlContent+"\n");
 
-  var fields = [];
-  fields["pageName"] = pageName;
-  fields["title"] = openForum.wikiToTitleName(pageName);
-  fields["author"] = "unknown";
-  fields["lastChangedBy"] = "unknown";
-  fields["referringPages"] = "";
-  fields["attachments"] = "";
-  fields["tags"] = "";
-  fields["time"] = timestamp;
+  htmlContent = applyFields( pageName, timestamp, htmlContent );
 
-  // Replace template fields
-  var stepCount = 0;
-  var MAX_STEP_COUNTS = 10000;
-  var MAX_PAGE_LENGTH = 1000000;
+    //log.debug("Content built for "+pageName);
 
-  //openForum.postMessageToQueue("test","Buidling Page:(" +pageName+ ") File:(page.html)"); 
-
-  var searchData = htmlContent;
-  htmlContent = "";
-  while( searchData.indexOf("&")!=-1 ) {
-
-    stepCount++;
-    if(stepCount>MAX_STEP_COUNTS) break;
-
-    var indexStart = searchData.indexOf("&");
-    htmlContent += searchData.substring(0,indexStart);
-    searchData = searchData.substring(indexStart+1);
-
-    var endIndex = searchData.indexOf(";");
-    if(endIndex==-1) {
-      htmlContent += "&";
-      break;
+    if(savePage===true) {
+      file.saveAttachment(pageName,"page.html",htmlContent);
     }
-
-    var fieldName = searchData.substring(0,endIndex);
-    if( typeof(fields[fieldName])!=="undefined" ) {
-      htmlContent += fields[fieldName];
-      searchData = searchData.substring(endIndex+1);
-    } else if(fieldName.indexOf("insert:")===0) {
-      var insertFile = fieldName.substring(7);
-      var insertPageName = ""+insertFile.substring(0,insertFile.lastIndexOf("/"));
-      var insertFileName = ""+insertFile.substring(insertFile.lastIndexOf("/")+1);
-      searchData = searchData.substring(endIndex+1);
-
-      if(file.attachmentExists(insertFile,"page.html.fragment")) {
-        searchData = "<!-- insert (" +insertFile+ ") start -->" + file.getAttachment(insertFile,"page.html.fragment") + "<!-- insert (" +insertFile+ ") end -->" + searchData;
-      } else if(file.attachmentExists(insertPageName,insertFileName)) {
-        searchData = "<!-- insert (" +insertFile+ ") start -->" + file.getAttachment(insertPageName,insertFileName) + "<!-- insert (" +insertFile+ ") end -->" + searchData;
-      } else {
-        searchData = "<!-- insert not found (" +insertFile+ ") -->" + searchData;
-      }
-    } else {
-      htmlContent += "&";
-    }
-
-    if(htmlContent>MAX_PAGE_LENGTH) {
-      htmlContent += "<!-- Truncated. Content too long. -->";
-      break;
-    }
-  }
-  htmlContent += searchData;
-  try{
-    htmlContent = renderer.render(pageName,htmlContent);
-  } catch(e) {
-    log.error("Failed to render renderer "+renderer.getType()+" on "+pageName+" using /OpenForum/PageTemplates/Default/page.build.js. Exception "+e+" on line number "+e.lineNumber);
-  }
-
-  //log.debug("Content built for "+pageName);
-
-  if(savePage===true) file.saveAttachment(pageName,"page.html",htmlContent);
+  log.info("Built "+pageName+" save:"+savePage);
 
   htmlContent = ""+htmlContent;
 
-  log.info("Built "+pageName);
-
 } catch(e) {
-  log.error("Failed to build "+pageName+" using /OpenForum/PageTemplates/Default/page.build.js. Exception "+e+" on line number "+e.lineNumber);
+  message = "Failed to build "+pageName+" using "+contentBuilder+". Exception "+e+" on line number "+e.lineNumber;
+  log.error(message);
+  //htmlContent = message;
 }

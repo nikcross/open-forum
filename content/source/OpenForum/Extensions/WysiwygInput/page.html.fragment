@@ -1,4 +1,48 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+
+<p>Creates a WYSIWYG (What You See Is What You Get) text editor input field</p>
+<b>Parameters</b>
+<ul><li> name = Field name for data binding</li>
+<li> value = Optional default value</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension WysiwygInput name="myText" value="1234" --><textarea id="myText_content">
+</textarea>
+<script>
+  myText = "1234";
+  
+  if(typeof ClassicEditor == "undefined" && typeof ClassicEditorLoading == "undefined") { 
+    OpenForum.loadScript("/OpenForum/Javascript/CKEditor/ck-classic-editor.js");
+    ClassicEditorLoading = true;
+  }
+
+  new Process().waitFor(
+    function() { return (typeof ClassicEditor != "undefined"); }
+  ).then( function() {
+    ClassicEditor
+      .create( document.getElementById( "myText_content" ), 
+              {
+      toolbar: ["heading", "|", "bold", "italic", "link", "bulletedList", "numberedList", "|", "outdent", "indent", "|", "blockQuote", "insertTable", "mediaEmbed", "undo", "redo" ]
+    } )
+      .then( newEditor => {
+      myText_editor = newEditor;
+      myText_editor.setData( myText );
+      myText_editor.model.document.on('change:data', (evt, data) => {
+        //OpenForum.getObject("myText").setValue(myText_editor.getData());
+        myText = myText_editor.getData();
+        OpenForum.getObject("myText").setValueQuietly(myText_editor.getData());
+      });
+  		OpenForum.addListener("myText", function() {
+          myText_editor.setData( myText );
+		})
+    } )
+      .catch( error => {
+      console.error( error );
+    } );
+  }).run();
+</script><!--End Extension WysiwygInput name="myText" value="1234" -->
+</xmp>
+
 <h3>WysiwygInput</h3>
 
 <!--Extension WysiwygInput name="myText" value="1234" --><textarea id="myText_content">

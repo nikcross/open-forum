@@ -1,5 +1,6 @@
 OpenForum.loadCSS("/OpenForum/Javascript/CodeMirror/lib/codemirror.css");
 OpenForum.loadCSS("/OpenForum/Editor/code-mirror.css");
+OpenForum.loadCSS("/OpenForum/AddOn/FileManager/file-manager.css");
 
 if(typeof(editors)=="undefined") {
   editors = [];
@@ -13,6 +14,7 @@ var checkChanges = true;
 var fileChoiceActionTitle = "Select File";
 var fileChoiceAction = "Open";
 var fileChoiceActionButton = "Open";
+var currentEditor = {}; // For search
 
 function renderTabOption(name,toolTip,action) {
   return "<li><a href=\"#\" onClick=\""+action+"; return false;\" title=\""+toolTip+"\">"+name+"</a></li>";
@@ -20,6 +22,7 @@ function renderTabOption(name,toolTip,action) {
 
 function StandaloneEditor( config ) {
   var self = this;
+  
   var timeOffset = OpenForum.getSystemTime().getTime() - new Date().getTime();
 
   self.status = "status is..";
@@ -45,12 +48,15 @@ function StandaloneEditor( config ) {
   }
 
   var elementPX = id.replaceAll("\\.","_").replaceAll(":","_");
+  fileManagerContainerId = elementPX + "FileManagerContainer";
+  legacyFilePickerId = elementPX + "legacyFilePicker";
 
   var flavour = "HTML";
   var elementId = "standaloneEditor";
   var tree;
   var editor = null;
   var editorPage = "/OpenForum/Editor/Editors/";
+  var editorsPage = "/OpenForum/Editor/Editors/"; // Where editor scripts are loaded from, e.g. /OpenForum/Editor/Editors/
   var editingPageName = "?";
   var editingFileName = "sandbox.html";
   var fileExtension = "html";
@@ -64,6 +70,12 @@ function StandaloneEditor( config ) {
   var waitToUpdateTree;
   var inPlugin = false; // In use in an editor plugin
   var bind = null; // Bind the edited data to an of id
+  var useFileManager = "auto";
+  var fileManagerAvailable = false;
+  var fileManagerChecked = false;
+  var fileManagerInstance = null;
+  var fileManagerContainerId = null;
+  var legacyFilePickerId = null;
 
   for(var i in config) {
     if( eval("typeof " + i + " !== \"undefined\"") ) {
@@ -76,6 +88,26 @@ function StandaloneEditor( config ) {
       self[i] = config[i];
     }
   }
+  
+  currentEditor.editor = this; // For search
+  currentEditor.tabId = elementId;
+  
+  if(!fileManagerContainerId) {
+    fileManagerContainerId = elementPX + "FileManagerContainer";
+  }
+  if(!legacyFilePickerId) {
+    legacyFilePickerId = elementPX + "legacyFilePicker";
+  }
+
+  // An editor can live on a sub-page: flavour "SimpleHTMLEditor/WYSIWYGMarkDown" loads
+  // <editorsPage>SimpleHTMLEditor/WYSIWYGMarkDownEditor/editor.js and creates a WYSIWYGMarkDownEditor
+  if(editorsPage.charAt(editorsPage.length-1)!="/") {
+    editorsPage += "/";
+  }
+  var editorPath = flavour + "Editor";
+  var editorClass = editorPath.substring( editorPath.lastIndexOf("/")+1 );
+  window.OpenForumEditorPaths = window.OpenForumEditorPaths || {};
+  window.OpenForumEditorPaths[editorClass] = editorsPage + editorPath;
 
   if(editingPageName==="?") {
     if(user && user.profile && user.profile.pages && user.profile.pages.workspace) {
@@ -109,19 +141,20 @@ function StandaloneEditor( config ) {
     } else {
       editorContent = editorContent.replace(/&editor;/g,"editors['"+id+"']");
       editorContent = editorContent.replace(/&editorId;/g,id);
-      editorContent = editorContent.replace(/&elementId;/g,elementPX);
     }
+    editorContent = editorContent.replace(/&elementId;/g,elementPX);
 
     document.getElementById(elementId).innerHTML = editorContent;
     OpenForum.crawl(document.getElementById(elementId));
 
     editorButtons = document.getElementById("editor"+id+"Buttons");
+    showFileManagerPicker(false);
 
     if(canSetPageTitle) {
       document.title = "Editing "+editingPageName+"/"+editingFileName;
     }
 
-    eval("editor = new "+flavour+"Editor('"+id+"',editingPageName,editingFileName,false);");
+    eval("editor = new "+editorClass+"('"+id+"',editingPageName,editingFileName,false);");
     if(typeof editor.changed == "undefined") editor.changed = "";
 
     new Process().waitFor( function() { return editor.ready; } ).then( function() {
@@ -194,6 +227,126 @@ function StandaloneEditor( config ) {
     showStatus("Error: "+message);
   };
 
+  var showFileManagerPicker = function(enabled) {
+    var legacy = document.getElementById(legacyFilePickerId);
+    if(legacy) {
+      legacy.style.display = enabled ? "none" : "";
+    }
+    var container = document.getElementById(fileManagerContainerId);
+    if(container) {
+      container.style.display = enabled ? "" : "none";
+    }
+  };
+
+  var checkFileManagerAvailability = function() {
+    if(fileManagerChecked) return;
+    fileManagerChecked = true;
+    try {
+      fileManagerAvailable = OpenForum.fileExists("/OpenForum/AddOn/FileManager/file-manager.js");
+    } catch(e) {
+      fileManagerAvailable = false;
+    }
+    if(useFileManager === true && !fileManagerAvailable) {
+      showStatus("FileManager not installed; using legacy file picker.");
+    }
+  };
+
+  var shouldUseFileManager = function() {
+    checkFileManagerAvailability();
+    if(useFileManager === false) return false;
+    return fileManagerAvailable === true;
+  };
+
+  var splitFilePath = function(filePath, isBrowser) {
+    var normalized = filePath || "";
+    if(isBrowser && normalized.indexOf("browser://") !== 0) {
+      normalized = "browser://" + (normalized.charAt(0) === "/" ? normalized : "/" + normalized);
+    }
+
+    if(normalized.indexOf("browser://") === 0) {
+      var browserPath = normalized.substring("browser://".length);
+      browserPath = browserPath.replace(/\/+$/,"");
+      var lastSlash = browserPath.lastIndexOf("/");
+      if(lastSlash <= 0) {
+        return { pageName: "browser://", fileName: browserPath.replace(/^\/+/,"") };
+      }
+      return {
+        pageName: "browser://" + browserPath.substring(0,lastSlash),
+        fileName: browserPath.substring(lastSlash+1)
+      };
+    }
+
+    normalized = normalized.replace(/\/+$/,"");
+    var lastSlash = normalized.lastIndexOf("/");
+    if(lastSlash === -1) {
+      return { pageName: "", fileName: normalized };
+    }
+    return {
+      pageName: normalized.substring(0,lastSlash),
+      fileName: normalized.substring(lastSlash+1)
+    };
+  };
+
+  var ensureFileManager = function(callback) {
+    if(!shouldUseFileManager()) {
+      if(callback) callback(false);
+      return;
+    }
+
+    if(fileManagerInstance) {
+      if(callback) callback(true);
+      return;
+    }
+
+    OpenForum.loadScript("/OpenForum/AddOn/FileManager/file-manager.js");
+    new Process().waitFor( function() { return typeof FileManager !== "undefined"; } ).then( function() {
+      fileManagerInstance = new FileManager();
+      fileManagerInstance.createView(fileManagerContainerId);
+      fileManagerInstance.init();
+      if(callback) callback(true);
+    }).run();
+  };
+
+  var openFilePicker = function(mode, actionFn, defaultFileName) {
+    var openModal = function() {
+      $("#"+elementPX+"openModal").foundation('reveal', 'open');
+    };
+
+    if(shouldUseFileManager()) {
+      ensureFileManager(function(ready) {
+        if(!ready || !fileManagerInstance) {
+          showFileManagerPicker(false);
+          if(!tree) initialiseTree();
+          openModal();
+          return;
+        }
+
+        fileManagerInstance.setMode(mode, defaultFileName);
+        fileManagerInstance.onFileSelected = function(filePath, isBrowser) {
+          var parsed = splitFilePath(filePath, isBrowser);
+          if(!parsed.pageName || !parsed.fileName) {
+            showError("Invalid file selection.");
+            return;
+          }
+          actionFn(parsed.pageName, parsed.fileName);
+        };
+        if(typeof fileManagerInstance.refreshBrowserFiles === "function") {
+          fileManagerInstance.refreshBrowserFiles();
+        }
+        if(typeof fileManagerInstance.refreshServerFiles === "function") {
+          fileManagerInstance.refreshServerFiles();
+        }
+        showFileManagerPicker(true);
+        openModal();
+      });
+      return;
+    }
+
+    showFileManagerPicker(false);
+    if(!tree) initialiseTree();
+    openModal();
+  };
+
   var checkForChanges = function() {
     if(checkChanges==false) return;
 
@@ -264,7 +417,7 @@ function StandaloneEditor( config ) {
 
     showStatus("Now editing "+editingPageName+"/"+editingFileName);
 
-    if( OpenForum.fileExists(editingPageName,editingFileName)==false ) {
+    if( OpenForum.fileExists(editingPageName+"/"+editingFileName)==false ) {
       OpenForum.saveFile(editingPageName+"/"+editingFileName,"");
     }
     openFile();
@@ -309,7 +462,9 @@ function StandaloneEditor( config ) {
 
   DependencyService.createNewDependency().
   addDependency("/OpenForum/Javascript/CodeMirror/lib/codemirror.js").
-  addDependency("/OpenForum/Editor/Editors/"+flavour+"Editor/editor.js").
+  addDependency("/OpenForum/Javascript/CodeMirror/addon/search/searchcursor.js").
+  addDependency("/OpenForum/Editor/search.js").
+  addDependency(editorsPage+editorPath+"/editor.js").
   addDependency("/OpenForum/Javascript/JavaWrapper/File/File.js").
   addDependency("/OpenForum/Javascript/User/open-forum-user.js").
   setOnLoadTrigger(
@@ -477,8 +632,7 @@ function StandaloneEditor( config ) {
     self.fileChoiceActionButton = "Save As";
     OpenForum.scan();
 
-    if(!tree) initialiseTree();
-    $("#"+elementPX+"openModal").foundation('reveal', 'open');
+    openFilePicker("save", saveAs, editingFileName);
   };
 
   self.openFileCreateNew = function() {
@@ -489,8 +643,7 @@ function StandaloneEditor( config ) {
     self.fileChoiceActionButton = "Create";
     OpenForum.scan();
 
-    if(!tree) initialiseTree();
-    $("#"+elementPX+"openModal").foundation('reveal', 'open');
+    openFilePicker("save", createNewFile, editingFileName);
   };
 
   self.setFile = function(keyEvent) {  
@@ -513,8 +666,7 @@ function StandaloneEditor( config ) {
     self.fileChoiceActionButton = "Open";
     OpenForum.scan();
 
-    if(!tree) initialiseTree();
-    $("#"+elementPX+"openModal").foundation('reveal', 'open');
+    openFilePicker("open", openFile, editingFileName);
   };
 
   self.save = function() {
@@ -547,3 +699,4 @@ function StandaloneEditor( config ) {
     OpenForum.copyData( editor.getValue() );
   };
 }
+

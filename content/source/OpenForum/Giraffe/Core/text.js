@@ -9,37 +9,44 @@
  * @param x {number} the position that the ... is to be drawn on the x axis
  * @param y {number} the position that the ... is to be drawn on the y axis
  */
-function Text(x,y,text,textSize,font)
-{
+Giraffe.Text = function(x,y,text,textSize,font) {
 	  /**#@+
 	   * @memberOf Text
 	   */
-  this.x=x;
-  this.y=y;
-  this.width=0;
-  this.text=text;
-  this.textSize=textSize;
-  this.font = font;
+  var self = this;
+  
+  self.x=x;
+  self.y=y;
+  self.width=0;
+  self.text=text;
+  self.textSize=textSize;
+  self.font = font;
+  self.type = "Text";
+  self.weight = "normal";
 
+  self.setFontWeight = function(weight) {
+    self.weight = weight;
+    return this;
+  };
+  
   /**
    * @private
    */
-  this.draw = function()
-  {
-    if(this.fillColor!=null)
+  self.draw = function() {
+    if(self.fillColor!=null)
     {
-      this.canvas.fillStyle = this.fillColor;
+      self.canvas.fillStyle = self.fillColor;
     }
-    this.canvas.strokeStyle = this.color;
+    self.canvas.strokeStyle = self.color;
 
-    this.canvas.font = this.textSize+"px "+this.font;
-    this.width = this.canvas.measureText(this.text).width;
-    if(this.fillColor!=null)
+    self.canvas.font = self.weight + " " + self.textSize+"px "+self.font;
+    self.width = self.canvas.measureText(self.text).width;
+    if(self.fillColor!=null)
     {
-      this.canvas.fillText(this.text,0,0,400);
+      self.canvas.fillText(self.text,0,0);
     }
     
-    this.canvas.strokeText(this.text,0,0,400);
+    self.canvas.strokeText(self.text,0,0);
   };
   
   /**
@@ -48,13 +55,28 @@ function Text(x,y,text,textSize,font)
    * @param posY {number} the y axis of the point to check
    * @returns true if the point lies within the Text
    */
-  this.isInside = function(posX,posY) {
-	if(
-		posX-this.x>(this.textSize/2) &&
-		posX-this.x<this.textSize+(this.text.length*(this.textSize/2)) &&
-		posY-this.y>-(this.textSize/2) &&
-		posY-this.y<(this.textSize/2)
+  self.isInside = function(posX,posY) {
+    var rPos = self.getRelativePosition(posX,posY);
+    posX = rPos.x;
+    posY = rPos.y;
+    
+	/*if(
+		posX>(self.textSize/2) &&
+		posX<self.textSize+(self.text.length*(self.textSize/2)) &&
+		posY>-(self.textSize/2) &&
+		posY<(self.textSize/2)
 		){ return true; } else { return false; }
+    */
+    
+    if(
+		posX>0 &&
+		posX<self.textSize+(self.text.length*(self.textSize/2)) &&
+		posY>-(self.textSize) &&
+		posY<(self.textSize)
+	){ return true; } else { return false; }
   };
-}
-Text.prototype = new GraphicsObject();
+};
+Giraffe.Text.prototype = new Giraffe.GraphicsObject();
+
+//Deprecated
+Text = Giraffe.Text;

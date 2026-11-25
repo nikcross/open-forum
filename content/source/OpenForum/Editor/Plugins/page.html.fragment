@@ -137,8 +137,9 @@
  <!--Extension InsertPage page="/OpenForum/Editor/Plugins/TableBuilder/QuickReference" section="1" -->
 (<p>The Table Builder enables the quick building of table html for use with OpenForum.</p>
 <!--End Extension InsertPage page="/OpenForum/Editor/Plugins/TableBuilder/QuickReference" section="1" --><br />
+ <!--Extension InsertPage page="/OpenForum/Editor/Plugins/TableBuilder/QuickReference/QuickReference" section="1" --><!--End Extension InsertPage page="/OpenForum/Editor/Plugins/TableBuilder/QuickReference/QuickReference" section="1" --><br />
  <!--Extension Popup id="QR_TableBuilder" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Editor/Plugins/TableBuilder/QuickReference" --><div id="QR_TableBuilder" class="reveal-modal" data-reveal aria-labelledby="QR_TableBuilderModalTitle" aria-hidden="true" role="dialog"><!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<h3>QuickReference</h3>
+<h3>Quick Reference</h3>
 
 
 (<p>The Table Builder enables the quick building of table html for use with OpenForum.</p>
@@ -146,7 +147,7 @@
 (<p>Enter a table name in the Table name field. The last word will be the data name for the table. The rows behind that will be the tables display name.</p>
 <p>Enter column names, one per row, in the Columns text area. The last word in each row will be the column cells data name, the rows behind that will be the columns display name.</p>
 <p>You can see a preview of the table in the Table panel and the html to build it in the far right hand column.</p>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="QR_TableBuilder" sourceFileName="page.html.fragment" sourcePageName="/OpenForum/Editor/Plugins/TableBuilder/QuickReference" --><br />
- <!--Extension Popup id="QR_TableBuilder" title="Quick Reference" --><a class='button small round' onClick="$('#QR_TableBuilder').foundation('reveal', 'open');;return false;">Quick Reference</a><!--End Extension Popup id="QR_TableBuilder" title="Quick Reference" --> <b><a href="/OpenForum/Editor/Plugins/TableBuilder/QuickReference">Open in a new tab</a></b><br />
+ <!--Extension Popup id="QR_TableBuilder" title="Quick Reference" --><a class='button small round' onClick="$('#QR_TableBuilder').foundation('reveal', 'open');;return false;">Quick Reference</a><!--End Extension Popup id="QR_TableBuilder" title="Quick Reference" --> <b><a href="/OpenForum/Editor/Plugins/TableBuilder/QuickReference" target="newTab">Open in a new tab<img src='/OpenForum/Images/icons/png/link_go.png' /></a></b><br />
 
 
 <hr/>

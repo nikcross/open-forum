@@ -1,3 +1,15 @@
+--8<--
+
+((Deprecated - Use [/OpenForum/Extensions/ActionButton] instead))
+__Parameters__
+* title = Button text
+* function = JavaScript function to call
+
+{{{
+[{Button title="Do Action" function="doAction"}]
+}}}
+-->8--
+
 !!Deprecated - Use [/OpenForum/Extensions/ActionButton]
 
 !!Example

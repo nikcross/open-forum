@@ -1,8 +1,17 @@
-A button that fires an [OpenForum GET action|/OpenForum/Actions]
-----
-!!Parameters
+--8<--
+
+((A button that fires an [OpenForum GET action|/OpenForum/Actions]))
+__Parameters__
 * action = Action Name
 * text = Action button text
+* parameters = Optional parameters to pass to the action
+
+{{{
+[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
+}}}
+-->8--
+
+[{ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki"}]
 
 ----
 !!Usage:

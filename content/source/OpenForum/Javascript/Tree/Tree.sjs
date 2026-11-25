@@ -40,7 +40,7 @@ function Tree() {
 
       var pageLeafCount = 0;
       for(var i in keys) {
-        if(pageLeafCount<=pageOffset) {
+        if(pageOffset>pageLeafCount) {
           pageLeafCount++;
           continue;
         }
@@ -66,7 +66,7 @@ function Tree() {
           data.push( createPageLeaf( pageName + "/" + item, matcher, depth ) );
           pageLeafCount++;
           if((pageLeafCount-pageOffset)>MAX_PAGES) {
-            data.push( createMorePagesLeaf( pageName, matcher, pageLeafCount ) );
+            data.push( createMorePagesLeaf( pageName, matcher, pageLeafCount-1 ) );
             break;
           }
         }

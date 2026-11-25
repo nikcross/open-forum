@@ -137,13 +137,13 @@ function runTask(taskId) {
   for(var i in schedule) {
     var task = schedule[i];
     if(task.name===taskId) {
-      alert("Running "+task.pageName+"/"+task.scriptFile,"Please Wait...");
-      JSON.get("","runTrigger","pageName="+task.pageName+"&triggerFile="+task.scriptFile).onSuccess(
+      alert("Running "+task.pagename+"/"+task.scriptfile,"Please Wait...");
+      JSON.get("","runTrigger","pageName="+task.pagename+"&triggerFile="+task.scriptfile).onSuccess(
         function(response) {
           if(response.error) {
-            alert("Ran "+task.pageName+"/"+task.scriptFile,"Error: "+response.error);
+            alert("Ran "+task.pagename+"/"+task.scriptfile,"Error: "+response.error);
           } else {
-            alert("Ran "+task.pageName+"/"+task.scriptFile,"Time Taken: "+response.data.timeTaken+" milliseconds");
+            alert("Ran "+task.pagename+"/"+task.scriptfile,"Time Taken: "+response.data.timeTaken+" milliseconds");
           }
         }
       ).go();

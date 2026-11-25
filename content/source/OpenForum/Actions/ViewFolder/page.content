@@ -1,12 +1,25 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Creates a page view of a folder
-----
-!!Parameters
-* pageName - Name of the page to view as a folder
-----
-!!Usage:
+--8<--
+       
+((Creates a page view of a folder showing its contents))
+
+__Get parameters__
+* pageName = Page name to view as a folder
+
+__Get examples:__
 {{{
-/OpenForum/Actions/ViewFolder?folderName=Folder to View
+// Simple URL
+/OpenForum/Actions/ViewFolder?pageName=/OpenForum/Actions
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/ViewFolder', null, 'pageName=/MyFolder')
+  .onSuccess(function(page) {
+    console.log('Folder view:', page);
+  }).go();
 }}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 [/OpenForum/Actions/ViewFolder?pageName=/OpenForum/Actions/ViewFolder]
 
@@ -18,6 +31,6 @@ __[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Referen
 }
 else
 {
-  page = wiki.buildPage(pageName,"!!Folder: "+pageName,true);
+  page = wiki.buildPage(pageName,"!!Folder: " pageName,true);
   transaction.sendPage( page );
 } }}}

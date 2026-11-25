@@ -1,19 +1,34 @@
-//Take base64 image and convert to image file
+var action = transaction.getParameter("action");
+if(action===null) {
+  transaction.setResult(transaction.SHOW_PAGE);
+  return;
+}
 
 try{
-  dec = Packages.javax.xml.bind.DatatypeConverter;
+  action = ""+action;
+  result = {result: "error", message: "Action "+action+" not recognised."};
 
-  data = transaction.getParameter("data");
-  fileName = transaction.getParameter("fileName");
-  pageName = transaction.getParameter("pageName");
+  if(action==="save") {
+    var dec = Packages.javax.xml.bind.DatatypeConverter;
 
-  var outStream = file.getAttachmentOutputStream(pageName,fileName);
-  outStream.write( dec.parseBase64Binary(data) );
-  outStream.flush();
-  outStream.close();
+    var data = transaction.getParameter("data");
+    data = data.substring(data.indexOf(",")+1);
+    data = data.replaceAll(" ","+");
+    
+    var fileName = transaction.getParameter("fileName");
+    var pageName = transaction.getParameter("pageName");
 
+    var outStream = file.getAttachmentOutputStream(pageName,fileName);
+    outStream.write( Packages.java.util.Base64.getMimeDecoder().decode(data.trim().getBytes("UTF-8")) );
+    outStream.flush();
+    outStream.close();
 
-  transaction.sendJSON( JSON.stringiify({result: "ok", message: "Saved "+pageName+"/"+fileName}));
+    result = {result: "ok", message: "Saved "+pageName+"/"+fileName};
+  }
+
 } catch(e) {
-  transaction.sendJSON( JSON.stringiify({result: "error", message: ""+e}));
+  transaction.sendJSON( JSON.stringify({result: "error",message: "Error:"+e+" on line "+e.lineNumber+" of "+e.sourceName}));
+  return;
 }
+
+transaction.sendJSON( JSON.stringify(result) );

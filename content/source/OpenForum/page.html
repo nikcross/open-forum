@@ -3,22 +3,22 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Open Forum</title>
+    <title>OpenForum</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1737409577363"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1794835592000"></script>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1612515763000" />
-    <script type="text/javascript" src="//OpenForum/page.js?ts=1737409577363"></script>
+    <script type="text/javascript" src="/OpenForum/page.js?ts=1794835592000"></script>
     <!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) start --><link rel="icon" href="/OpenForum/Images/open-forum-dog-small.png" /><!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) end --> 
 
     <!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start --><script>
-  var pageName = "//OpenForum";
+  var pageName = "/OpenForum";
   var author = "unknown";
-  var time = "1737409577363";
+  var time = "1794835592000";
   var currentUser = "";
   var user = {};
   var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
-  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data.data;  } ).go();
+  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data;  } ).go();
   JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
     function (response) {
       user.profile = response.data;
@@ -64,7 +64,7 @@
       <ul class="title-area">
         <li class="name">
           <h1>
-            <a href="#" title=" Open Forum">Open Forum</a>
+            <a href="#" title="OpenForum">Open Forum</a>
           </h1>
         </li>
       </ul>
@@ -74,13 +74,13 @@
     <li class="has-dropdown">
       <a href="#">Actions</a>
       <ul class="dropdown">
-        <li><a href="/OpenForum/Editor?pageName=//OpenForum">Edit</a></li>
-        <li><a href="/OpenForum/Actions/RefreshPage?pageName=//OpenForum">Refresh Page</a></li>
+        <li><a href="/OpenForum/Editor?pageName=/OpenForum">Edit</a></li>
+        <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum">Refresh Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumNewPageModal">Create New Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumNewChildPageModal">Create New Child Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
         <li><a href="#" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
-        <li><a href="/Development?action=publish&pageName=//OpenForum">Publish Page</a></li>
+        <li><a href="/Development?action=publish&pageName=/OpenForum">Publish Page</a></li>
       </ul>
     </li>
     <li class="divider"></li>
@@ -93,8 +93,10 @@
 <li> <a href="/OpenForum/AddOn">AddOn</a></li>
 <li> <a href="/OpenForum/Authentication">Authentication</a></li>
 <li> <a href="/OpenForum/Authorization">Authorization</a></li>
+<li> <a href="/OpenForum/CapabilityMap">CapabilityMap</a></li>
 <li> <a href="/OpenForum/Configuration">Configuration</a></li>
 <li> <a href="/OpenForum/DeletedPages">DeletedPages</a></li>
+<li> <a href="/OpenForum/Documentation">Documentation</a></li>
 <li> <a href="/OpenForum/Editor">Editor</a></li>
 <li> <a href="/OpenForum/ErrorPages">ErrorPages</a></li>
 <li> <a href="/OpenForum/Extensions">Extensions</a></li>
@@ -103,17 +105,25 @@
 <li> <a href="/OpenForum/Groups">Groups</a></li>
 <li> <a href="/OpenForum/HomePage">HomePage</a></li>
 <li> <a href="/OpenForum/Images">Images</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Jaascript"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Jaascript does not exist. Click to create it.">Jaascript</a></li>
 <li> <a href="/OpenForum/JarManager">JarManager</a></li>
 <li> <a href="/OpenForum/Javascript">Javascript</a></li>
 <li> <a href="/OpenForum/Journal">Journal</a></li>
+<li> <a href="/OpenForum/Keyboard">Keyboard</a></li>
 <li> <a href="/OpenForum/MessageQueue">MessageQueue</a></li>
+<li> <a href="/OpenForum/MissingPages">MissingPages</a></li>
 <li> <a href="/OpenForum/PageTemplates">PageTemplates</a></li>
 <li> <a href="/OpenForum/Processor">Processor</a></li>
+<li> <a href="/OpenForum/PublishingJournal">PublishingJournal</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/ReleaseNotes"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/ReleaseNotes does not exist. Click to create it.">ReleaseNotes</a></li>
+<li> <a href="/OpenForum/ReleasedPackages">ReleasedPackages</a></li>
 <li> <a href="/OpenForum/SQL">SQL</a></li>
 <li> <a href="/OpenForum/SiteExplorer">SiteExplorer</a></li>
+<li> <a href="/OpenForum/Sounds">Sounds</a></li>
 <li> <a href="/OpenForum/Spider">Spider</a></li>
 <li> <a href="/OpenForum/SystemMonitor">SystemMonitor</a></li>
 <li> <a href="/OpenForum/Editor?pageName=/OpenForum/Temporary"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Temporary does not exist. Click to create it.">Temporary</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/TheLab"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/TheLab does not exist. Click to create it.">TheLab</a></li>
 <li> <a href="/OpenForum/Triggers">Triggers</a></li>
 <li> <a href="/OpenForum/Users">Users</a></li>
 </ul><!--End Extension ChildPagesList -->
@@ -135,7 +145,7 @@
       </ul>
       <script>
         var pageAccess = {};
-        JSON.get("/OpenForum/Actions/Access","getAccess","pageName=//OpenForum").onSuccess( function(response) {
+        JSON.get("/OpenForum/Actions/Access","getAccess","pageName=/OpenForum").onSuccess( function(response) {
           pageAccess = response;
         }).go();
       </script>
@@ -180,20 +190,20 @@
 <div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Copy Page</h2>
   <p>Copy this page to <input type="text" of-id="OpenForumCopyPage"/></p>
-  <p><a href="#" onClick="OpenForum.action.copyPage('//OpenForum',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
+  <p><a href="#" onClick="OpenForum.action.copyPage('/OpenForum',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
-    OpenForumCopyPage = "//OpenForum";
+    OpenForumCopyPage = "/OpenForum";
   </script>
 </div>
 
 <div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Move Page</h2>
   <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
-  <p><a href="#" onClick="OpenForum.action.movePage('//OpenForum',OpenForumMovePage);return false;" class="secondary button">Move Page</a></p>
+  <p><a href="#" onClick="OpenForum.action.movePage('/OpenForum',OpenForumMovePage);return false;" class="secondary button">Move Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
-    OpenForumMovePage = "//OpenForum";
+    OpenForumMovePage = "/OpenForum";
   </script>
 </div>
 
@@ -213,7 +223,7 @@
   <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewChildPage);return false;" class="secondary button">Create Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
-    OpenForumNewChildPage = "//OpenForum/";
+    OpenForumNewChildPage = "/OpenForum/";
   </script>
 </div>
 <!--OF insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) end -->
@@ -222,36 +232,53 @@
 
     <div style="padding-bottom: 100px;">
     <!--PageContent Start-->
-<div class="row">
-  <div class="large-12 columns">
-<h3>System Configuration Pages</h3>
-<ul><li><a href="/OpenForum/Actions">Actions</a></li>
-<li><a href="/OpenForum/Extensions">Extensions</a></li>
-<li><a href="/OpenForum/Triggers">Triggers</a></li>
-<li><a href="/OpenForum/JarManager">Java Plugin Manager</a></li>
-<li><a href="/OpenForum/PageTemplates/Default">Site Wide Page Definition</a></li>
-<li><a href="/OpenForum/Javascript">Javascript</a></li>
-<li><a href="/OpenForum/Editor?pageName=/OpenForum/Aliases"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Aliases does not exist. Click to create it.">Aliases</a></li>
-<li><a href="/OpenForum/Editor?pageName=/OpenForum/DynamicPages"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/DynamicPages does not exist. Click to create it.">Dynamic Pages</a></li>
+<div id="splash" style="display: block;">
+  <center>
+    <h1>Loading</h1>
+    <h3>Please Wait...</h3>
+  </center>
+</div> 
+
+<div id="application" style="display: none; height: 100%;">
+  <div id="leftPanel" class="columns large-2" style="border: solid 1px; height: inherit; overflow: auto">
+    
+    <h3>Overview</h3>
+    <div id="tree"></div>
+    <!--Extension Date --><script>
+  currentDate = new Date().toLocaleDateString();
+  setInterval(
+    function() { currentDate = new Date().toLocaleDateString(); }
+    ,10000
+  );
+</script>
+<span class="label tiny success round">{{currentDate}}</span><!--End Extension Date --><!--Extension Clock --><script>
+  currentTime = new Date().toLocaleTimeString();
+  setInterval(
+    function() { currentTime = new Date().toLocaleTimeString(); }
+    ,500
+  );
+</script>
+<span class="label tiny success round">{{currentTime}}</span><!--End Extension Clock -->
+  </div>
+
+  <div id="rightPanel" class="columns large-10" style="border: solid 1px; padding: 0px; height: inherit; overflow: hidden">
+    <div style="border-bottom: solid 3px #00A000;">
+      <nav class="top-bar" data-topbar role="navigation">
+        <section class="top-bar-section">
+          <ul class="left">
+            <li of-repeatFor="tab in tabList" id="{{tab.button}}" class="">
+              <a href="#{{tab.title}}" onclick="pageTabs.showTab('{{tab.id}}');">{{tab.title}}</a>
+            </li>
+          </ul>
+        </section>
+      </nav>
+    </div>
+
+    <div id="tabViews" style="overflow: auto; height: 90%;">
+      Loading...
+    </div>
   </div>
 </div>
-<div class="row">
-  <div class="large-6 columns">
-    <h3>Reference</h3>
-<li><a href="/OpenForum/Editor?pageName=/OpenForum/Styles"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Styles does not exist. Click to create it.">Styles</a></li>
-<li><a href="/OpenForum/PageTemplates">System Page Templates</a></li>
-<li><a href="/OpenForum/Images">System Images and Icons</a></li>
-  </div>
-  <div class="large-6 columns">
-    <h3>System Documents</h3>
-<li><a href="/OpenForum/About">About OpenForum</a></li>
-<li><a href="/OpenForum/About/Credits">Credits</a></li>
-<li><a href="/OpenForum/About/Release Notes">Release Notes</a></li>
-<li><a href="/OpenForum/About/License">License</a></li>
-  </div>
-</div>
-
-
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <!--Page Content End-->
     </div>
@@ -297,4 +324,3 @@
     </script>
   </body>
 </html>
-</ul>

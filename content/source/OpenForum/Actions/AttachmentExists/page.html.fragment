@@ -1,12 +1,28 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Checks if an attachment exists. Returns true or false
-<hr/>
-<h3>Parameters</h3>
-<ul><li>pageName - The page containing the attachment</li>
-<li>fileName - The attachment to check for</li>
+       
+<p>Checks if an attachment exists on a page</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name containing the attachment</li>
+<li> fileName = Name of the attachment to check</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/AttachmentExists?pageName=/MyPage&fileName=file.txt
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/AttachmentExists', null, 'pageName=/MyPage&fileName=file.txt')
+  .onSuccess(function(result) {
+    console.log('Exists:', result);
+  }).go();
+</xmp>
+
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
 
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel" of-exclude="true"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
@@ -18,4 +34,4 @@ else
 
   transaction.sendPage(exists);
 }
- </xmp></ul>
+ </xmp>

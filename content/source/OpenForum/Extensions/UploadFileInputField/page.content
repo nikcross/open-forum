@@ -1,6 +1,19 @@
+--8<--
+
+((Creates a file upload input field))
+__Parameters__
+* name = Field name
+* targetPageName = Page to upload the file to
+* text = Button text
+* message = Message to display after successful upload
+
+{{{
+[{UploadFileInputField name="upload" targetPageName="/Sandbox" text="Upload" message="File Uploaded"}]
+}}}
+-->8--
+
 <div class="row">
 !!UploadFileInputField v0.0.6
-{{{ [{UploadFileInputField name="upload" targetPageName="/Sandbox" text="Upload" message="File Uploaded"}] }}}
 [{UploadFileInputField name="upload" targetPageName="/Sandbox" text="Upload" message="File Uploaded"}]
 \\
 [{ActionButton text="Add UploadFileInputField Block type to Content Editor" action="addToContentEditor"}]

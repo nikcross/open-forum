@@ -9,8 +9,7 @@
  * @param x {number} the position that the ... is to be drawn on the x axis
  * @param y {number} the position that the ... is to be drawn on the y axis
  */
-function Polygon(x,y)
-{
+Giraffe.Polygon = function(x,y) {
 	  /**#@+
 	   * @memberOf Polygon
 	   */
@@ -18,20 +17,39 @@ function Polygon(x,y)
   this.y=y;
   this.smooth = false;
   this.closed = true;
+  this.type="Polygon";
 
   this.points = [];
   this.addPoint = function(px,py) {
     this.points[this.points.length]=[px,py];
     return this;
   };
+  
+  var self = this;
+  var superToJson = self.toJson;
+  this.toJson = function() {
+    var json = superToJson(self);
+    json.points = self.points;
+    return json;
+  };
+  
+  
+  var superFromJson = self.fromJson;
+  self.fromJson = function(json,canvas) {
+    superFromJson( json, canvas, self );
+    if(json.points) {
+      for(var p=0;p<json.points.length;p++) {
+        self.points.push( json.points[p] );
+      }
+    }
+  };
+  
   /**
    * @private
    */
-  this.draw = function()
-  {
+  this.draw = function() {
     this.canvas.beginPath();
-    if(this.fillColor!=null)
-    {
+    if(this.fillColor!=null) {
       this.canvas.fillStyle = this.fillColor;
     }
     this.canvas.strokeStyle = this.color;
@@ -62,5 +80,8 @@ function Polygon(x,y)
     }
     this.canvas.stroke(); 
   };
-}
-Polygon.prototype = new GraphicsObject();
+};
+Giraffe.Polygon.prototype = new Giraffe.GraphicsObject();
+
+//Deprecated
+Polygon = Giraffe.Polygon;

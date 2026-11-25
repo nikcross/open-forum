@@ -628,8 +628,9 @@ var Publisher = function() {
     var devPageName = "/Develop"+"ment" + publishedPageName;
     
     var notes = "";
+    var recursive = false;
     
-    var logged = FileManager.copyPage( publishedPageName,devPageName );
+    var logged = FileManager.copyPage( publishedPageName,devPageName,recursive );
     notes += "Page " + publishedPageName + " copied to " + devPageName + " logged:" + logged;
 
     return {notes: notes,publishedPageName: publishedPageName, devPageName: devPageName };
@@ -722,7 +723,7 @@ var Publisher = function() {
 
   var FileManager = function(isExcludedFile) {
     var self = this;
-    self.copyPage = function(fromPage,toPage) {
+    self.copyPage = function(fromPage,toPage,recursive) {
       if(fromPage.charAt(0)!='/') {
         fromPage = "/"+fromPage;
       }
@@ -732,10 +733,10 @@ var Publisher = function() {
       }
 
       var log = "Copy Log: ";
-      return copy(fromPage,toPage,log);
+      return copy(fromPage,toPage,recursive,log);
     };
 
-    var copy = function(fromPage,toPage,log) {
+    var copy = function(fromPage,toPage,recursive,log) {
       var list = file.getAttachmentsForPage( fromPage );
 
       if(file.attachmentExists(toPage,"data.json")===false) {
@@ -750,7 +751,11 @@ var Publisher = function() {
           continue;
         } else if(key.charAt(0)==='+') {
           var name = key.substring(1);
-          log += copy( fromPage+"/"+name,toPage+"/"+name );
+          if(recursive) {
+          	log += copy( fromPage+"/"+name,toPage+"/"+name,recursive );
+          } else {
+          	log += "   Not Copying "+fromPage+"/"+key+"->"+toPage;
+          }
         } else {
           log += "    "+fromPage+"/"+key+"->"+toPage;
           try{

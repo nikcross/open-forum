@@ -12,7 +12,10 @@
 var User = function() {
   var self = this;
 
-  var PageAccessMonitor = js.getObject("/OpenForum/AddOn/DataLogger/PageAccessMonitor","PageAccessMonitor.sjs");
+  var PageAccessMonitor = null;
+  try{
+    PageAccessMonitor = js.getObject("/OpenForum/AddOn/DataLogger/PageAccessMonitor","PageAccessMonitor.sjs");
+  } catch(e){}
 
   /* Used in service /OpenForum/Actions/User getCurrentUser */
   //Example use: User.getCurrentUser(currentPage,user,referrer)
@@ -32,7 +35,9 @@ var User = function() {
       }
     }
 
-    PageAccessMonitor.logUserJourney( currentPage, referrer, userAgent, transaction );
+    if(PageAccessMonitor!=null) {
+    	PageAccessMonitor.logUserJourney( currentPage, referrer, userAgent, transaction );
+    }
     
     result = userName;
 

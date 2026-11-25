@@ -1,8 +1,125 @@
-<center>
-<h1>Open Forum Release 2.2 Build 005</h1>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3> OpenForum Server — What it offers</h3>
 
-<h3>brought to you by <a href="http://www.onestonesoup.org" target="external_page">One Stone Soup</a></h3>
+<p>OpenForum is a browser‑editable web application server: like a wiki that can also host and run web services. Authorized editors work entirely in the browser, creating content and server endpoints without restarting the server. It ships with an integrated web server and authentication, supports real‑time + static content, and can integrate with databases/REST/XML. Pages are hierarchical and inherit templates. See <a href="/OpenForum/Documentation/Introduction">Introduction</a> and <a href="/OpenForum/Documentation/Architecture">Architecture</a>.</p>
 
-<h3><a href="/OpenForum/Editor?pageName=/OpenForum/ReleaseNotes/Version2.2Build005"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/ReleaseNotes/Version2.2Build005 does not exist. Click to create it.">Release Notes</a></h3>
-</center>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<hr/>
+
+<h2> 1) Core idea & page architecture</h2>
+
+<p>Each page is a folder with well‑known files that define its content and behavior.</p>
+
+<ul><li> <b>page.content</b> → source (OpenForum wiki + HTML). Saved content is compiled to <b>page.html</b> and <b>page.html.fragment</b>.</li>
+<li> <b>page.html.template</b> (inherited or linked via `.link`) → the wrapper/layout; usually loads <b>page.js</b>.</li>
+<li> <b>page.js</b> → client‑side script; OpenForum’s library (`open-forum.js`) is also loaded and `OpenForum.init()` commonly boots the page.</li>
+<li> <b>access.json</b> (optional, inherited) → per‑page read/update/delete permissions for users/groups.</li>
+<li> <b>get.sjs / post.sjs</b> (optional) → add server‑side JavaScript services for GET/POST.</li>
+<li> <b>data.json</b> (generated) → page metadata.</li>
+<li> <b>page.build.js</b> (optional) → override the page build process.</li>
+</ul>
+<p>Useful background: <a href="/OpenForum/Documentation/Architecture">Architecture</a>.</p>
+
+<hr/>
+
+<h2> 2) Special “system” pages & built‑ins</h2>
+
+<ul><li> <a href="/OpenForum/Documentation/SpecialPages">Special Pages</a> (configuration, templates, authentication, authorization, users/groups, deleted pages, history).</li>
+<li> <b>Editor & Content Editor</b> for in‑browser authoring (<a href="/OpenForum/Documentation/Contenteditor">Content Editor</a>, <a href="/OpenForum/Documentation/Editor">Editor</a>).</li>
+<li> <b>Triggers</b> (start / 10‑second timer / page‑change / rebuild).</li>
+<li> <b>Message Queue</b> (transient), <b>Spider</b> (iterate pages), <b>System Monitor</b> (runtime metrics & logs).</li>
+<li> <b>Error Pages</b>, <b>Page Templates</b>, <b>File Templates</b>.</li>
+<li> <b>Actions</b> (server APIs) at <a href="/OpenForum/Actions">/OpenForum/Actions</a>(/OpenForum/Actions).</li>
+</ul>
+<hr/>
+
+<h2> 3) Editing experience</h2>
+
+<p>The Content Editor is a two‑pane, block‑based editor focused on content pages (text/images). Left: overview + pages + image library. Right: sectioned WYSIWYG editing with add/move controls. You can drag images from the library, use <b>Preview</b> (updates on save), then <b>Publish</b> to go live. You can also create new pages and choose a category. See <a href="/OpenForum/Documentation/Contenteditor">Content Editor</a>.</p>
+
+<p>The Advanced Editor exposes an overview, editors, plugins, and actions (<a href="/OpenForum/Documentation/Editor">Editor</a>).</p>
+
+<hr/>
+
+<h2> 4) Markup & templating</h2>
+
+<ul><li> <b>Standard wiki syntax</b> (links, images, code, lists, headings, boxes, rules, tables): <a href="/OpenForum/Documentation/OpenForumMarkup/KitchenSink">Kitchen Sink</a>.</li>
+<li> <b>Extended wiki markup</b> short‑codes such as <b>ScriptClip</b>, <b>ChildPagesList</b>, <b>Icon</b>, <b>HttpsOnly</b>, <b>CrumbTrail</b>, <b>Bookmarklet</b>, <b>MarkDown</b>, <b>InsertPage</b>, etc.: <a href="/OpenForum/Documentation/OpenForumMarkup/ExtendedWikiMarkup">Extended Markup</a>.</li>
+<li> <b>Front‑end framework</b>: ZURB Foundation v5.5.3 is bundled to speed layout: <a href="/OpenForum/Documentation/Foundation">Foundation</a>.</li>
+</ul>
+<hr/>
+
+<h2> 5) Client‑side JavaScript (OpenForum JS)</h2>
+
+<p>A built‑in JS library provides high‑level primitives: dependency management and DOM scanning/binding; file/storage APIs (load/save/append/list), JSON/AJAX helpers (`JSON.get/post`), an offline‑aware OFX layer, table helpers, UI utilities, async helpers, and inter‑tab collaboration (IntraQ). See <a href="/OpenForum/Documentation/OpenForumJavascript">Open Forum Javascript</a>.</p>
+
+<ul><li> Dependency loading: `OpenForum.includeScript`, `OpenForum.addScript`</li>
+<li> DOM & binding: `OpenForum.scan`, `OpenForum.getObject`, `OpenForum.bind`</li>
+<li> Files/storage: `OpenForum.saveFile`, `OpenForum.getAttachments`, `OpenForum.Storage`</li>
+<li> AJAX/JSON: `JSON.get`, `JSON.post`, `OFX.get/post`</li>
+<li> Tables/UI/async: `OpenForum.Table.*`, `OpenForum.setTitle`, `OpenForum.setInterval`</li>
+<li> Collaboration: `OpenForum.IntraQ` (message bus)</li>
+</ul>
+<hr/>
+
+<h2> 6) Server‑side JavaScript & Actions</h2>
+
+<p>Add a <b>get.sjs</b> or <b>post.sjs</b> file to a page to turn it into an API endpoint. Server‑side code can call helper services (transaction/wiki/file/js) and Java APIs. A rich catalog of reusable endpoints lives under <a href="/OpenForum/Actions">/OpenForum/Actions</a>(/OpenForum/Actions) (e.g., <b>Save</b>, <b>SaveImage</b>, <b>GetAttachments</b>, <b>Rebuild</b>, <b>SystemTime</b>, <b>Copy/Move/Delete</b>, <b>Pages</b>, <b>Publish</b>, <b>Zip</b>).</p>
+
+<div class="panel callout radius"> Example: save text to an attachment via the <b>Save</b> action </div>
+<xmp class="panel" of-exclude="true">
+POST /OpenForum/Actions/Save
+Parameters: pageName, fileName, data
+</xmp>
+
+<div class="panel callout radius"> Example: save a canvas image via <b>SaveImage</b> from the browser </div>
+<xmp class="panel" of-exclude="true">
+function saveCanvas(pageName,fileName,canvas){
+  var data = canvas.toDataURL().substring(22);
+  var post = new Post();
+  post.addItem("data",data).addItem("fileName",fileName).addItem("pageName",pageName);
+  JSON.post("/OpenForum/Actions/SaveImage","save",post.getData()).go();
+}
+</xmp>
+
+<p>More: <a href="/OpenForum/Documentation/OpenForumServerSideJavascript">Open Forum Server Side Javascript</a> and <a href="/OpenForum/Actions">Actions</a>.</p>
+
+<hr/>
+
+<h2> 7) Graphics (Giraffe)</h2>
+
+<p>Giraffe is an integrated canvas graphics engine for 2D objects, animation and interaction.</p>
+
+<xmp class="panel" of-exclude="true">
+OpenForum.includeScript("/OpenForum/Giraffe/giraffe.js");
+var giraffeCanvas;
+OpenForum.init = function() {
+  giraffeCanvas = Giraffe.quickStart("canvas");
+  giraffeCanvas.add(new Giraffe.Line(100,100,130,150));
+};
+</xmp>
+
+<p>See <a href="/OpenForum/Documentation/Giraffe">Giraffe</a> for objects, animation, and interaction.</p>
+
+<hr/>
+
+<h2> 8) Deployment & operations</h2>
+
+<ul><li> <b>Docker (recommended)</b> and <b>Zip install (Jetty bundled)</b>: <a href="/OpenForum/Documentation/Installation">Installation</a>.</li>
+<li> <b>System Monitor</b>, <b>Error Pages</b>, <b>Deleted Pages</b>, <b>history</b>, <b>Triggers</b>, <b>Spider</b>: <a href="/OpenForum/Documentation/SpecialPages">Special Pages</a>.</li>
+</ul>
+<hr/>
+
+<h2> 9) Standard JavaScript reference</h2>
+
+<p>Quick references to core JS objects (Array, Date, Global, JSON, String) are bundled under <a href="/OpenForum/Documentation/StandardJavascript">Standard Javascript</a>.</p>
+
+<hr/>
+
+<h2> TL;DR</h2>
+
+<ul><li> <b>Build dynamic sites and small apps in the browser</b> with page‑scoped code and services.</li>
+<li> <b>Compose UIs quickly</b> using wiki markup + extensions, ZURB Foundation, and the OpenForum JS API.</li>
+<li> <b>Add server endpoints</b> with per‑page `.sjs` or call built‑in Actions; automate with triggers and the transient message queue.</li>
+<li> <b>Deploy fast</b> via Docker or a Jetty zip.</li>
+</div></ul>

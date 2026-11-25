@@ -5,6 +5,7 @@
         ]
     },
     "apiClass": "org.onestonesoup.openforum.messagequeue.MessageQueueView",
-    "pageName": "//OpenForum/MessageQueue",
-    "title": " Message Queue"
+    "pageName": "/OpenForum/MessageQueue",
+    "title": "MessageQueue",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

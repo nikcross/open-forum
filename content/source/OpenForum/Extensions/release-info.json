@@ -1,7 +1,6 @@
 {
-    "version": "0.0.19",
+    "version": "0.0.22",
     "extra": {
-        "notes": "New Extensions: Table and DataTable\nAdded links to instructions on Table and Form"
-    },
-    "installedDate": 1759492808120
+        "notes": "New Documentation\nFixed Upload"
+    }
 }

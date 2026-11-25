@@ -1,6 +1,11 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<h3>Table</h3>
 
+<p>Creates an editable data table</p>
+<b>Parameters</b>
+<ul><li> name = Name of the table</li>
+<li> actions = Comma-separated list of actions (add, edit, move, remove)</li>
+<li> data = Column definitions with format "Label columnName type"</li>
+</ul>
 <xmp class="panel" of-exclude="true">
 <!--Extension Table name="myTable" actions="add,edit,move,remove" data="
 Site site
@@ -69,65 +74,9 @@ OpenForum.Table.addRow(myTable,myTable_rowTemplate);
 Site site
 Link url link
 " -->
-
-<!--Extension Table name="myTable" data="
-Site site
-Open openLink action
-" --><table>
-<thead>
-    <tr>
-        <td>Site</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-   </tr>
-</thead>
-<tbody>
-    <tr of-repeatFor='row in myTable'>
-        <td><span>{{row.site}}</span></td>
-        <td><a class='button tiny round' href='#' onClick='openLink(myTable,{{row.index}}); return false;'>Open</a></td>
-    </tr>
-</tbody>
-<tfoot>
-<tr><td colspan="5"></td></tr></tfoot>
-</table><script>//=========
-
-myTabletableDefinition = {columns: {
-    "tableName": "myTable",
-    "rowsDefinition": "\nSite site\nOpen openLink action\n",
-    "actions": {},
-    "site": {
-        "name": "Site",
-        "dataName": "site",
-        "type": "text"
-    },
-    "openLink": {
-        "name": "Open",
-        "dataName": "openLink",
-        "type": "action"
-    }
-},
-rows: [
-{
-    "site": "",
-    "openLink": ""
-}
-]};
-
-//=========
-
-myTable=[];
-myTable_rowTemplate = {"site":"","openLink":""};
-OpenForum.Table.addRow(myTable,myTable_rowTemplate);
-//OpenForum.loadJSON("your page/myTable.json",function(json){ myTable=json; });
-
-
-//=========
-
-</script><!--End Extension Table name="myTable" data="
-Site site
-Open openLink action
-" -->
 </xmp>
+
+<h3>Table</h3>
 
 <!--Extension Table name="myTable" actions="add,edit,move,remove" data="
 Site site

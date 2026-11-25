@@ -1,2 +1,2685 @@
-&insert:/OpenForum/Javascript/Core/open-forum.help.content;
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--OF insert (/OpenForum/Javascript/Core/open-forum.help.content) start --><div class="large-6 columns"><h3></h3>
+
+ <h3>OpenForum<br/></h3>
+<br/>* function getVersion()  - Get the version number of this script<br/>
+ Returns:  - The version number as a string. eg. 1.0.0<br/>
+<br/>* function getBuildDate()  - Get the build date and time of this script as a UTC date and time string<br/>
+ Returns:  - UTC date and time string. eg. Wed Feb 10 2016 15:04:02 GMT-0000 (UTC)<br/>
+<br/>* function includeScript(scriptFileName - the full path of the script to dynamically load)  - Dynamically loads a script<br/>
+<br/>* function getDepemdencies() <br/>
+<br/>* function getRoot() <br/>
+<br/>* function addNodeProcessor(arg0) <br/>
+<br/>* function addScanner(arg0) <br/>
+<br/>* function addInitialiser(arg0) <br/>
+<br/>* function addHashCall(arg0,arg1) <br/>
+<br/>* function addTable(arg0) <br/>
+<br/>* function getTable(arg0) <br/>
+<br/>* function getNextId() <br/>
+<br/>* function getObject(arg0) <br/>
+<br/>* function scan() <br/>
+<br/>* function crawl(arg0) <br/>
+<br/>* function preparePage(arg0) <br/>
+<br/>* function crawlParts(arg0,arg1) <br/>
+<br/>* function crawlTables(arg0) <br/>
+<br/>* function parseText(arg0,arg1,arg2) <br/>
+<br/>* function parseParts(arg0,arg1,arg2) <br/>
+<br/>* function loadScript(arg0) <br/>
+<br/>* function loadCSS(arg0) <br/>
+<br/>* function onHash(arg0) <br/>
+<br/>* function init() <br/>
+<br/>* function close() <br/>
+<br/>* function onload(arg0) <br/>
+<br/>* function waitForReady() <br/>
+<br/>* function stopAutoScan() <br/>
+<br/>* function startAutoScan(arg0) <br/>
+<br/>* function onunload() <br/>
+<br/>* function getObjects() <br/>
+<br/>* function getTables() <br/>
+<br/>* function listData() <br/>
+<br/>* function createData() <br/>
+<br/>* function createParents(arg0) <br/>
+<br/>* function createObjectSignature(arg0) <br/>
+<br/>* function childCount(arg0) <br/>
+<br/>* function addTab(arg0) <br/>
+<br/>* function showTab(arg0) <br/>
+<br/>* function getTabs() <br/>
+<br/>* function getTab(arg0) <br/>
+<br/>* function evaluate(arg0) <br/>
+<br/>* function globalExists(arg0) <br/>
+<br/>* function getGlobal(arg0) <br/>
+<br/>* function setGlobal(arg0,arg1,arg2) <br/>
+<br/>* function getSystemTime(arg0) <br/>
+<br/>* function loadScripts(arg0,arg1) <br/>
+<br/>* function getAttachments(arg0,arg1,arg2,arg3) <br/>
+<br/>* function loadFile(arg0,arg1,arg2) <br/>
+<br/>* function loadJSON(arg0,arg1,arg2) <br/>
+<br/>* function loadXML(arg0,arg1,arg2) <br/>
+<br/>* function saveFile(arg0,arg1,arg2) <br/>
+<br/>* function saveJSON(arg0,arg1,arg2) <br/>
+<br/>* function saveXML(arg0,arg1,arg2) <br/>
+<br/>* function appendFile(arg0,arg1,arg2) <br/>
+<br/>* function deleteFile(arg0,arg1,arg2) <br/>
+<br/>* function copyFile(arg0,arg1,arg2) <br/>
+<br/>* function moveFile(arg0,arg1,arg2) <br/>
+<br/>* function fileExists(arg0) <br/>
+<br/>* function uploadFile(arg0,arg1,arg2) <br/>
+<br/>* function setDebugToConsole(arg0) <br/>
+<br/>* function debug(arg0,arg1,arg2) <br/>
+<br/>* function createFileTree(arg0,arg1) <br/>
+<br/>* function copyElement(arg0) <br/>
+<br/>* function copyData(arg0) <br/>
+<br/>* function setElement(arg0,arg1) <br/>
+<br/>* function appendToElement(arg0,arg1) <br/>
+<br/>* function showElement(arg0) <br/>
+<br/>* function hideElement(arg0) <br/>
+<br/>* function toggleElement(arg0) <br/>
+<br/>* function getParameter(arg0) <br/>
+<br/>* function getCookie(arg0) <br/>
+<br/>* function isEqual(arg0,arg1) <br/>
+<br/>* function copyDifferencesFromTo(arg0,arg1,arg2,arg3,arg4) <br/>
+<br/>* function clone(arg0) <br/>
+<br/>* function clean(arg0) <br/>
+<br/>* function setInterval(arg0,arg1,arg2,arg3,arg4) <br/>
+<br/>* function waitFor(arg0,arg1,arg2,arg3) <br/>
+<br/>* function runAsync(arg0) <br/>
+<br/>* function queue(arg0,arg1) <br/>
+<br/>* function jsonToCsv(arg0,arg1) <br/>
+
+
+<hr/>
+
+
+
+ <h3>DependencyService<br/></h3>
+<br/>* function createNewDependency() <br/>
+<br/>* function scriptLoaded(arg0) <br/>
+
+
+<hr/>
+
+
+
+ <h3>Process<br/></h3>
+<br/>* function call(arg0) <br/>
+<br/>* function waitFor(arg0) <br/>
+<br/>* function then(arg0) <br/>
+<br/>* function run(arg0) <br/>
+
+
+<hr/>
+
+
+
+ <h3>JSON<br/></h3>
+<br/>* function get(arg0,arg1,arg2) <br/>
+<br/>* function post(arg0,arg1,arg2) <br/>
+<br/>* function onSuccess(arg0) <br/>
+<br/>* function onError(arg0) <br/>
+<br/>* function go() <br/>
+
+
+<hr/>
+
+
+
+ <h3>OFX<br/></h3>
+<br/>* function get(arg0) <br/>
+<br/>* function post(arg0) <br/>
+
+
+<hr/>
+
+<br/><i>Built Thu Jul 25 2019 07:20:10 GMT-0000 (GMT)</i></div><div class="large-6 columns"><xmp class="panel" of-exclude="true">//==============================================================================================================//
+<!-- Version 1.8.6-->
+<!-- Built on Thu Jul 25 2019 07:20:10 GMT-0000 (GMT) -->
+<!-- Built by /OpenForum/Javascript/Builder.-->
+<!-- Do not edit as changes may be overwritten -->
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-dependency.js-->
+//==============================================================================================================//
+//<hr/> DependencyService <hr/>
+if(typeof OpenForum == "undefined") OpenForum = {};
+
+var DependencyService = new function() {
+  var dependencies = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var loadedScripts = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var requestedScripts = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  this.createNewDependency = function() {
+    var dependency = new function() {
+      var id = dependencies.length;
+      var self = this;
+      var scriptsToLoad = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+      var requiredScripts = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+      var onLoadTrigger = function() {};
+      var loaded = false;
+
+      self.addDependency = function(script) {
+        requiredScripts.push(script);
+        if( requestedScripts.includes(script) ) return this;
+        requestedScripts.push(script);
+        scriptsToLoad.push(script);
+        return this;
+      };
+      self.setOnLoadTrigger = function(triggerFunction) {
+        onLoadTrigger = triggerFunction;
+        return this;
+      };
+
+      self.loadDependencies = function() {
+        if(requiredScripts.length===0) {
+          self.setLoaded();
+          return;
+        }
+        
+        if(scriptsToLoad.length==0) {
+          DependencyService.scriptLoaded(id);
+          return;
+        }
+        
+        var fileName = "";
+        for(var i=0;i<scriptsToLoad.length;i++) {
+          if(i>0) fileName+=",";
+          fileName+=scriptsToLoad<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>;
+        }
+
+        OpenForum.loadScript("/OpenForum/Javascript/Services?script="+fileName+"&callback=DependencyService.scriptLoaded&callbackId="+id);
+      };
+      self.checkLoaded = function() {
+        return loaded;
+      };
+      self.setLoaded = function() {
+        for(var i in requiredScripts) {
+          if(!loadedScripts<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/requiredScripts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt="requiredScripts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title="requiredScripts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>]) {
+            setTimeout(self.setLoaded,100);
+            return;
+          }
+        }
+        loaded = true;
+        onLoadTrigger();
+      };
+      self.getScriptsToLoad = function() {
+        return scriptsToLoad;
+      };
+    };
+    dependencies.push(dependency);
+    return dependency;
+  };
+  this.scriptLoaded = function(id) {
+    var newScripts = dependencies<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id does not exist. Click to create it.">id</a>.getScriptsToLoad();
+    for(var i in newScripts) {
+      loadedScripts<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/newScripts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt="newScripts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title="newScripts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>]=true;
+    }
+    dependencies<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id does not exist. Click to create it.">id</a>.setLoaded();
+  };
+};
+<!-- End of: /OpenForum/Javascript/Core/open-forum-dependency.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-scanner.js-->
+//==============================================================================================================//
+//<hr/> OpenForum <hr/>
+
+var OpenForum = new function(){
+  this.FIELD_DELIMETER_START = "{"+"{";
+  this.FIELD_DELIMETER_END = "}"+"}";
+  var self = this;
+  var objects= <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var tables = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var tabs = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var nextId = 0;
+  var hash;
+  var hashCalls = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var nodeProcessors = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var scanners = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var initialisers = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var dependencies = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var watchers = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var defaultScanPeriod = 500;
+
+  self.interval = null;
+
+  self.getVersion = function() {
+    return "1.8.6";
+  };
+
+  self.getBuildDate = function() {
+    return "Thu Jul 25 2019 07:20:10 GMT-0000 (GMT)";
+  };
+
+  self.initDependencies = DependencyService.createNewDependency();
+
+  self.includeScript = function( scriptName ) {
+    if(dependencies<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/scriptName"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/scriptName does not exist. Click to create it.">scriptName</a>) return;
+    dependencies<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/scriptName"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/scriptName does not exist. Click to create it.">scriptName</a> = self.initDependencies.addDependency( scriptName );
+  };
+
+  self.getDepemdencies = function() {
+    return dependencies;
+  };
+
+  self.getRoot = function() {
+    var root = document.location.toString();
+    root = root.substring( root.indexOf("://")+3 );
+    root = root.substring( root.indexOf("/")+1 );
+    root = "/"+root.substring( 0,root.indexOf("/") );
+    return root;
+  };
+
+  self.addNodeProcessor = function(processor) {
+    nodeProcessors.push(processor);
+  };
+
+  self.addScanner = function(scanner) {
+    scanners.push(scanner);
+  };
+
+  self.addInitialiser = function( fn ) {
+    initialisers.push(fn);
+  };
+  self.addHashCall = function(hash,callFn) {
+    hashCalls<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/hash"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/hash does not exist. Click to create it.">hash</a> = callFn;
+  };
+
+  self.addTable = function(table) {
+    tables<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/table.getId()"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/table.getId() does not exist. Click to create it.">table.getId()</a>=table;
+  };
+
+  self.getTable = function(ofId) {
+    return tables<input type='radio' />;
+  };
+
+  self.getNextId = function() {
+    nextId++;
+    return nextId;
+  };
+
+  self.getObject= function(id) {
+    //id = id.replace(/<br/>./g,"_dot_");
+    if(objects<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id does not exist. Click to create it.">id</a>===undefined) {
+      objects<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id does not exist. Click to create it.">id</a> = new OpenForumObject(id);
+    }
+    return objects<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id does not exist. Click to create it.">id</a>;
+  };
+
+  self.scan = function() {
+    if(self.hash != window.location.hash) {
+      self.hash = window.location.hash;
+      self._onHash(self.hash);
+    }
+    for(var tableIndex in tables) {
+      tables<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/tableIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/tableIndex does not exist. Click to create it.">tableIndex</a>.refresh();
+    }
+    for(var objectIndex in objects) {
+      object = objects<input type='radio' />;
+      if(typeof(object)=="undefined") {
+      } else {
+        object.scan();
+      }
+    }
+    for(var scanner in scanners) {
+      try{
+        scanners<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/scanner"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/scanner does not exist. Click to create it.">scanner</a>();
+      } catch(e) {
+        console.log(e);
+      }
+    }
+    
+    self.preparePage(document.body);
+  };
+
+  self.addNodeProcessor( function(node) {
+    if(node.attributes==undefined) return;
+    for(var a=0; a<node.attributes.length; a++) {
+      //has attribute to map
+      if(node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/a"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/a does not exist. Click to create it.">a</a>.value.indexOf(self.FIELD_DELIMETER_START)!==0) continue;
+      var key = node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/a"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/a does not exist. Click to create it.">a</a>.name;
+      var watch = node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/a"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/a does not exist. Click to create it.">a</a>.value.substring(2,node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/a"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/a does not exist. Click to create it.">a</a>.value.length-2);
+      var value = OpenForum.evaluate( watch );
+      node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/a"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/a does not exist. Click to create it.">a</a>.value = value;
+      self.addScanner( function() {
+        var newValue = OpenForum.evaluate( watch );
+        if(value==newValue) return;
+        value = newValue;
+        node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/key"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/key does not exist. Click to create it.">key</a>.value = value;
+      }
+                     );
+    }
+  });                 
+
+  self.crawl = function (node) {
+    self.crawlTables(node);
+    self.crawlParts(node);
+  };
+
+  self.preparePage = function(node) {
+        //Copy all attributes starting ofa-??? to attribute ???
+    if(node.attributes) {
+      for(var i=0;i<node.attributes.length;i++) {
+        var key = node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.name;
+        if(key.indexOf("ofa-")==0) {
+          key = key.substring(4);
+          if(node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.value.indexOf(self.FIELD_DELIMETER_START)==-1) {
+            node.setAttribute(key,node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.value);
+            node.removeAttribute(node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.name);
+          }
+        }
+      }
+    }
+    for(var nodeIndex=0; nodeIndex<node.childNodes.length; nodeIndex++) {
+      self.preparePage( node.childNodes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/nodeIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/nodeIndex does not exist. Click to create it.">nodeIndex</a> );
+    }
+  };
+  
+  self.crawlParts = function (node,prefix) {
+    if(node.attributes && node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-exclude'"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-exclude' does not exist. Click to create it.">'of-exclude'</a>) {
+      return;
+    }
+
+    if(typeof(prefix)=="undefined") {
+      prefix="";
+    }
+
+    for(var ni = 0; ni<nodeProcessors.length; ni++) {
+      try{
+        nodeProcessors<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/ni"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/ni does not exist. Click to create it.">ni</a>(node);
+      } catch(e) {
+        console.log(e);
+      }
+    }
+
+    if(!(node.childNodes && node.childNodes.length>0) || node.type=="select-one" || node.type=="select-multiple") {          
+      if(node.attributes && node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-id'"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-id' does not exist. Click to create it.">'of-id'</a>) {
+        var nodeName = node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-id'"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-id' does not exist. Click to create it.">'of-id'</a>.value;
+        if(prefix.length>0) {
+          nodeName = prefix+"."+nodeName;
+        }
+
+        var object = OpenForum.getObject(nodeName).add( node );
+        objects<input type='radio' />=object;
+      }
+      if( typeof(node.innerHTML)!="undefined" && node.innerHTML.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+        self.parseParts(node,objects,prefix);
+      }
+      if( node.nodeName=="#text" && node.nodeValue.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+        self.parseText(node,objects,prefix);
+      }
+    }
+
+    for(var nodeIndex=0; nodeIndex<node.childNodes.length; nodeIndex++) {
+      var childNode = node.childNodes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/nodeIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/nodeIndex does not exist. Click to create it.">nodeIndex</a>;
+
+      self.crawlParts(childNode,prefix);
+
+      if(childNode.id && childNode.id.indexOf("OFTable")===0) {
+        self.getTable(childNode.id).setTableNode(childNode);
+      }
+
+      if(childNode.id && childNode.id.indexOf("OFTabs")===0) {
+        self.getTab(childNode.id).setTabNode(childNode);
+      }
+    }
+
+    return objects;
+  };
+
+  self.crawlTables = function (node) {
+    for(var nodeIndex=0; nodeIndex<node.childNodes.length; nodeIndex++) {
+      var childNode = node.childNodes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/nodeIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/nodeIndex does not exist. Click to create it.">nodeIndex</a>;
+      self.crawlTables(childNode);
+      if(childNode.attributes && childNode.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-repeatFor'"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-repeatFor' does not exist. Click to create it.">'of-repeatFor'</a>) {
+        self.addTable( new OpenForumTable(childNode) );
+      }
+    }
+  };
+
+  self.parseText= function(node,objects,prefix) {
+    var data = node.nodeValue;
+
+    var spans = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+    while(data.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+      name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
+
+      data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
+        "<span id='OpenForumId"+nextId+"'>&nbsp;</span>"+
+        data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
+      spans<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/spans.length"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/spans.length does not exist. Click to create it.">spans.length</a> = {id: 'OpenForumId'+nextId,name: name};
+
+      nextId++;
+    }
+    //node.nodeValue = data;
+    newNode = document.createElement("span");
+    node.parentNode.replaceChild(newNode,node);
+    newNode.innerHTML = data;
+
+    for(var spanIndex in spans) {
+      var span = spans<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/spanIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/spanIndex does not exist. Click to create it.">spanIndex</a>;
+      var object = self.getObject( span.name );
+      object.add( document.getElementById(span.id) );
+      objects<input type='radio' />=object;
+    }
+  };    
+
+  self.parseParts= function(node,objects,prefix) {
+    var data = node.innerHTML;
+
+    var spans = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+    while(data.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+      name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
+
+      data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
+        "<span id='OpenForumId"+nextId+"'>&nbsp;</span>"+
+        data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
+      spans.push( {id: 'OpenForumId'+nextId,name: name} );
+
+      nextId++;
+    }
+    node.innerHTML = data;
+
+    for(var spanIndex = 0; spanIndex<spans.length; spanIndex++) {
+      var span = spans<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/spanIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/spanIndex does not exist. Click to create it.">spanIndex</a>;
+      var object = self.getObject( span.name );
+      object.add( document.getElementById(span.id) );
+      objects<input type='radio' />=object;
+    }
+  };
+
+
+  self.loadScript = function(scriptURL) {
+    if(dependencies<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/scriptURL"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/scriptURL does not exist. Click to create it.">scriptURL</a>) return;
+
+    var fileref = document.createElement("script");
+    fileref.setAttribute("src",scriptURL);
+    fileref.setAttribute("type","text/javascript");
+    document.getElementsByTagName("head")<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0 does not exist. Click to create it.">0</a>.appendChild(fileref);
+
+    dependencies<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/scriptURL"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/scriptURL does not exist. Click to create it.">scriptURL</a> = fileref;
+  };
+
+  self.loadCSS = function(cssURL) {
+    if(dependencies<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/cssURL"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/cssURL does not exist. Click to create it.">cssURL</a>) return;
+
+    var fileref = document.createElement("link");
+    fileref.setAttribute("rel", "stylesheet");
+    fileref.setAttribute("type", "text/css");
+    fileref.setAttribute("href", cssURL);
+    document.getElementsByTagName("head")<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0 does not exist. Click to create it.">0</a>.appendChild(fileref);
+
+    dependencies<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/cssURL"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/cssURL does not exist. Click to create it.">cssURL</a> = fileref;
+  };
+
+  self._onHash= function(hash) {
+    hash = hash.substring(1);
+    if(hash==="") {
+      hash="home";
+    }
+    if(hashCalls<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/hash"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/hash does not exist. Click to create it.">hash</a>) {
+      hashCalls<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/hash"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/hash does not exist. Click to create it.">hash</a>();
+    }
+    self.onHash(hash);
+  };
+  self.onHash= function(hash) {};
+  self.init= function() {};
+  self.close= function() {};
+
+  self.onload= function(next) {
+    self.initDependencies.loadDependencies();
+    self.waitForReady();
+  };
+
+  var waitForReadyCount = 0;
+  self.waitForReady = function() { 
+    if(waitForReadyCount<75) {
+      if(self.initDependencies.checkLoaded()===false) {
+        setTimeout(OpenForum.waitForReady,200);
+        waitForReadyCount++;
+        return;
+      }
+      for(var fni in initialisers) {
+        var initialiser = initialisers<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/fni"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/fni does not exist. Click to create it.">fni</a>;
+        if(!initialiser.ready) {
+          initialiser.ready = initialiser()!==false;
+          setTimeout(OpenForum.waitForReady,200);
+          waitForReadyCount++;
+          return;
+        }
+      }
+    } else {
+      console.log("Error: OpenForum.waitForReady timed out.");
+    }
+    console.log("Running OpenForum Version "+OpenForum.getVersion());
+
+    self.crawl(document.body);
+    self.createData();
+    self.hash = "";
+    self.scan();
+    self.init();
+
+    self.startAutoScan();
+  };
+
+  self.stopAutoScan = function() {
+    if(self.interval !== null ) {
+      clearInterval( self.interval );
+      self.interval = null;
+    }
+  };
+
+  self.startAutoScan = function(scanTime) {
+    self.stopAutoScan();
+    if(scanTime) {
+      self.interval = setInterval(self.scan,scanTime,scanTime);
+    } else {
+      self.interval = setInterval(self.scan,defaultScanPeriod,defaultScanPeriod);
+    }
+  };
+
+  self.onunload= function() {
+    this.close();
+  };
+
+  self.getObjects = function() {
+    return objects;
+  };
+
+  self.getTables = function() {
+    return tables;
+  };
+
+  self.listData = function() {
+    var list = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+    for(var objectIndex in objects) {
+      var object = objects<input type='radio' />;
+      if(typeof(object)=="undefined") {
+        continue;
+      }
+      if(object.getId()) {
+        list<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/list.length"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/list.length does not exist. Click to create it.">list.length</a>=object.getId();
+      }
+    }	
+    return list;
+  };
+
+  self.createData = function() {
+    for(var objectIndex in objects) {
+      var object = objects<input type='radio' />;
+      if(typeof(object)=="undefined") {
+        continue;
+      }
+      this.createParents(object.getId());
+      if( OpenForum.evaluate("typeof("+object.getId()+")")==="undefined" ) {
+        OpenForum.evaluate(object.getId()+"=<br/>"<br/>";");
+        object.setValue("");
+      } else {
+        object.setValue( OpenForum.evaluate(object.getId()) );
+      }
+    }
+  };
+
+  self.createParents = function(id)  {
+    if(id.indexOf(".")==-1) {
+      return;
+    }
+    var parts = id.split(".");
+    id = "";
+    for(var index=0;index<parts.length-1;index++) {
+      if(id.length>0) {
+        id+=".";
+      }
+      id+=parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/index"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/index does not exist. Click to create it.">index</a>;
+
+      if( OpenForum.evaluate("typeof("+id+")")=="undefined" ) {
+        OpenForum.evaluate(id+"={};");
+      }
+    }
+  };
+
+  self.createObjectSignature = function(object) {
+    var cache = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+    var signature = JSON.stringify(object, function(key, value) {
+      if (typeof value === 'object' && value !== null) {
+        if (cache.indexOf(value) !== -1) {
+          // Circular reference found, discard key
+          return;
+        }
+        // Store value in our collection
+        cache.push(value);
+      }
+      return value;
+    });
+    cache = null;
+    return signature;
+  };
+
+  self.childCount = function(object) {
+    var count=0;
+
+    for(var index in object) {
+      count++;
+    }
+    return count;
+  };
+
+  self.addTab = function(id) {
+    tabs<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id does not exist. Click to create it.">id</a> = document.getElementById(id);
+  };
+
+  self.showTab = function(id){
+    for(var index in tabs) {
+      tabs<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/index"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/index does not exist. Click to create it.">index</a>.style.display="none";
+    }
+    tabs<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id does not exist. Click to create it.">id</a>.style.display="block";
+  };
+
+  self.getTabs = function(){
+    return tabs;
+  };    
+
+  self.getTab = function(id){
+    return tabs<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id does not exist. Click to create it.">id</a>;
+  };
+
+  //Keep all the evil in one place
+  self.evaluate = function(script) {
+    try{
+      return eval(script);
+    } catch (e) {
+      OpenForum.debug( "ERROR", "Exception evaluating '" + script + "'",e );
+      throw e;
+    }
+  };
+
+  self.globalExists = function( name ) {
+    name = name.replace(/<br/><a href="/OpenForum/Editor?pageName=/g,".").replace(/<br/>"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/g,".").replace(/<br/> does not exist. Click to create it.">/g,".").replace(/<br/></a>/g,"").replace(/'/g,"").replace(/<br/>(.*<br/>)/g,"");
+    var parts = name.split(".");
+    var obj = window;
+    for(var part in parts) {
+      if( typeof obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part"/>] === "undefined" ) return false;
+      obj = obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part"/>];
+    }
+
+    return true;
+  };
+
+  self.getGlobal = function( name ) {
+    name = name.replace(/<br/><a href="/OpenForum/Editor?pageName=/g,".").replace(/<br/>"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/g,".").replace(/<br/> does not exist. Click to create it.">/g,".").replace(/<br/></a>/g,"").replace(/'/g,"").replace(/<br/>(.*<br/>)/g,"");
+    var parts = name.split(".");
+    var obj = window;
+    for(var part in parts) obj = obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part"/>];
+
+    if(typeof obj === "function") return obj();
+    else return obj;
+  };
+
+  self.setGlobal = function( name,value,create ) {
+    name = name.replace(/<br/><a href="/OpenForum/Editor?pageName=/g,".").replace(/<br/>"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/g,".").replace(/<br/> does not exist. Click to create it.">/g,".").replace(/<br/></a>/g,"").replace(/'/g,"");
+    var parts = name.split(".");
+    var obj = window;
+    var i=0;
+    for(i=0; i<parts.length-1; i++) {
+      if( typeof obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>] === "undefined" && create===true ) obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>] = {};
+      obj = obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>];
+    }
+
+    obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>] = value;
+  };
+
+};
+
+OpenForum.getSystemTime = function(callback) {
+  var callTime = new Date().getTime();
+  if(!callback) {
+    var data = OpenForum.loadFile("/OpenForum/Actions/SystemTime?action=getTime");
+    var jsonData = JSON.parse(data);
+    var responseTime = new Date().getTime();
+    return new Date( jsonData.time - (responseTime-callTime) );
+  } else {
+    OpenForum.loadFile(
+      "/OpenForum/Actions/SystemTime?action=getTime",
+      function(data) {
+        var jsonData = JSON.parse(data);
+        var responseTime = new Date().getTime();
+        return new Date( jsonData.time - (responseTime-callTime) );
+        callback( new Date( jsonData.time ) );
+      }
+    );
+  }
+};
+
+onload = function() {
+  OpenForum.onload();
+};
+
+onunload = function() {
+  OpenForum.onunload();
+};
+<!-- End of: /OpenForum/Javascript/Core/open-forum-scanner.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-files.js-->
+//==============================================================================================================//
+<!--<ul><li> Author: </li>
+<li> Description: </li>
+</ul>-->
+
+OpenForum.loadScripts = function(scriptURLs,callback) {
+  var scripts="&callback="+callback;
+  var index=1;
+  for(var scriptIndex in scriptURLs) {
+    scripts+="&script"+index+"="+scriptURLs<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/scriptIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/scriptIndex does not exist. Click to create it.">scriptIndex</a>;
+    index++;
+  }
+  var fileref = document.createElement("script");
+  fileref.setAttribute("src",OpenForum.getRoot()+"/OpenForum/Javascripts?action=getScripts"+scripts);
+  fileref.setAttribute("type","text/javascript");
+  document.getElementsByTagName("head")<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0 does not exist. Click to create it.">0</a>.appendChild(fileref);
+};
+
+OpenForum.getAttachments = function(pageName,callBack,matching,withMetaData) {
+  var params = "pageName="+pageName;
+  if(matching) params += "&matching="+matching;
+  if(withMetaData) params += "&metaData=true";
+
+  if(callBack) {
+    var action = function(response) {
+      callBack( JSON.parse(response) );
+    };
+    Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Attachments",params,null,action,null,true));
+  } else {
+    return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Attachments",params,null,null,null,false)) );
+  }
+};
+
+OpenForum.loadFile = function(fileName,callBack,noCache) {
+  if(noCache) {
+    if(fileName.indexOf("?")!==-1) {
+      fileName += "&ts="+new Date().getTime();
+    } else {
+      fileName += "?ts="+new Date().getTime();
+    }
+  }
+
+  if(callBack) {
+    Ajax.sendRequest( new AjaxRequest("GET",fileName,"",null,callBack,null,true)  );
+  } else {
+    return Ajax.sendRequest( new AjaxRequest("GET",fileName,"",null,null,null,false)  );
+  }
+};
+
+OpenForum.loadJSON = function(fileName,callBack,noCache) {
+  if(callBack) {
+    var action = function(response) {
+      callBack( JSON.parse(response) );
+    };
+    OpenForum.loadFile(fileName,action,noCache);
+  } else {
+    return JSON.parse( OpenForum.loadFile(fileName,null,noCache) );
+  }
+};
+
+OpenForum.loadXML = function(fileName,callBack,noCache) {
+  if(callBack) {
+    var action = function(response) {
+      var parser = new DOMParser();
+      response = parser.parseFromString(response,"text/xml");
+      callBack( JSON.parse(response) );
+    };
+    OpenForum.loadFile(fileName,action,noCache);
+  } else {
+    var text = OpenForum.loadFile(fileName,null,noCache);
+    var parser = new DOMParser();
+    text = parser.parseFromString(text,"text/xml");
+    return JSON.parse( text );
+  }
+};
+
+OpenForum.saveFile = function(fileName,data,callBack) {
+  var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
+  fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+
+  data = "pageName="+encodeURIComponent(pageName)+"&fileName="+encodeURIComponent(fileName)+"&data="+encodeURIComponent(data);
+
+  if(callBack) {
+    Ajax.sendRequest( new AjaxRequest(
+      "POST",
+      "/OpenForum/Actions/Save",
+      "returnType=json",
+      data,
+      function(data) {
+        callBack(JSON.parse(data));
+      },
+      null,
+      true));
+  } else {
+    return JSON.parse( Ajax.sendRequest( new AjaxRequest("POST","/OpenForum/Actions/Save","returnType=json",data,null,null,false)) );
+  }
+};
+
+OpenForum.saveJSON = function(fileName,data,callBack) {
+  data = JSON.stringify(data,null,4);
+  return OpenForum.saveFile(fileName,data,callBack);
+};
+
+OpenForum.saveXML = function(fileName,data,callBack) {
+  data = XMLSerializer.serializeToString(data);
+  return OpenForum.saveFile(fileName,data,callBack);
+};
+
+OpenForum.appendFile = function(fileName,data,callBack) {
+  var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
+  fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+
+  var parameters = "action=appendStringToFileNoBackup"+
+      "&arg0="+encodeURIComponent(pageName)+"&arg1="+encodeURIComponent(fileName)+"&arg2="+encodeURIComponent(data);
+
+  if(callBack) {
+    return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,callBack,null,true));
+  } else {
+    return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,null,null,false)) );
+  }
+};
+
+OpenForum.deleteFile = function(pageName,fileName,callBack) {
+
+  var parameters = "pageName="+pageName+
+      "&fileName="+fileName+
+      "&returnType=json";
+
+  if(callBack) {
+    return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Delete",parameters,null,
+                                             function(response) { callBack(response.deleted); },
+                                             null,true));
+  } else {
+    var response = Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Delete",parameters,null,null,null,false));
+    return JSON.parse( response ).deleted;
+  }
+};
+
+OpenForum.copyFile = function(fileName,toFileName,callBack) {
+  var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
+  fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+
+  var toPageName = toFileName.substring(0,toFileName.lastIndexOf("/"));
+  toFileName = toFileName.substring(toFileName.lastIndexOf("/")+1);
+
+  var parameters = "pageName="+pageName+
+      "&fileName="+fileName+
+      "&newPageName="+toPageName+
+      "&newFileName="+toFileName+
+      "&returnType=json";
+  if(callBack) {
+    return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Copy",parameters,null,callBack,null,true));
+  } else {
+    return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Copy",parameters,null,null,null,false)));
+  }
+};
+
+OpenForum.moveFile = function(fileName,toFileName,callBack) {
+  var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
+  fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+
+  var toPageName = toFileName.substring(0,toFileName.lastIndexOf("/"));
+  toFileName = toFileName.substring(toFileName.lastIndexOf("/")+1);
+
+  var parameters = "pageName="+pageName+
+      "&fileName="+fileName+
+      "&newPageName="+toPageName+
+      "&newFileName="+toFileName+
+      "&returnType=json";
+
+  if(callBack) {
+    return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Move",parameters,null,callBack,null,true));
+  } else {
+    return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Move",parameters,null,null,null,false)) );
+  }
+};
+
+OpenForum.fileExists = function(fileName) {
+  var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
+  fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+
+  return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/AttachmentExists","pageName="+pageName+"&fileName="+fileName,null,null,null,false)) );
+};
+
+OpenForum.uploadFile = function(id,pageName,callBack) {
+  var fileName = document.getElementById(id).file.value;
+  fileName = fileName.replace(/<br/><br/>/g,"/");
+  fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+  var result = OpenForum.loadFile("/OpenForum/Actions/AttachmentExists?pageName="+pageName+"&fileName="+fileName);
+  if(result==="true" && confirm("Attachment "+fileName+" exists","Replace this attachment ?")===false ) {
+    return;
+  }
+
+  //Not working
+  //See: http://blog.teamtreehouse.com/uploading-files-ajax
+  if(callBack) {
+    document.getElementById(id).onsubmit = function(event) {
+      event.preventDefault();
+      callBack();
+    };
+  }
+
+  document.getElementById(id).action="/OpenForum/Actions/Attach?page="+pageName;
+  //document.getElementById(id).statusQueue.value = statusQueueName;
+  document.getElementById(id).submit();
+};
+
+
+<!-- End of: /OpenForum/Javascript/Core/open-forum-files.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-debug.js-->
+//==============================================================================================================//
+<!--<ul><li> Author: </li>
+<li> Description: </li>
+</ul>-->
+OpenForum.debugON = false;
+
+OpenForum.setDebugToConsole = function(state) {
+  if( state === true ) {
+    OpenForum.debug = function(type,message,exception) {
+      if(!message) {
+        message = type;
+        type = "INFO";
+      }
+      console.log( new Date().toLocaleTimeString() + " " + type + " " + message );
+      if(exception) {
+        if(exception.stack) {
+          console.log("Stack trace: " + exception.stack);
+        } else {
+          console.log("Exception: " + exception);
+        }
+      }
+    };
+    OpenForum.debug("INFO","OpenForum Console Debugging now on.");
+  } else {
+    OpenForum.debug("INFO","OpenForum Console Debugging now off.");
+    OpenForum.debug = function(type,message,exception) {};
+  }
+  OpenForum.debugON = state;
+};
+
+OpenForum.debug = function(type,message,exception) {};
+<!-- End of: /OpenForum/Javascript/Core/open-forum-debug.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-json.js-->
+//==============================================================================================================//
+//<hr/> JSON <hr/>
+
+if( typeof(JSON)=="undefined" ) {
+  JSON = {};
+}
+
+JSON.get = function( page,action,parameters ) {
+  var request = {method: 'GET',page: page,action: action,parameters: parameters, onSuccess: JSON.onSuccess, onError: JSON.onError, go: JSON.go};
+  return request;
+};
+
+JSON.post = function( page,action,parameters ) {
+  var request = {method: 'POST',page: page,action: action,parameters: parameters, onSuccess: JSON.onSuccess, onError: JSON.onError, go: JSON.go};
+  return request;
+};
+JSON.onSuccess = function(onSuccess) {
+  this.onSuccess = function(data) {
+    //var object = JSON.parse(data);
+    var object = OpenForum.evaluate("("+data+")");
+    onSuccess(object);
+  };
+  return this;
+};
+JSON.onError = function(onError) {
+  this.onError = function(error) {
+    onError(error);
+  };
+  return this;
+};
+JSON.go = function() {
+  var request = null;
+  if(this.action && this.action !== null && this.action !== "") request = "action="+this.action;
+
+  if(this.method=="GET") {
+    if(this.parameters && this.parameters.length>0) {
+      request+="&"+this.parameters;
+    }
+    OpenForum.debug("INFO","JSON.get page:" + this.page + " request:" + request);
+    Ajax.sendRequest( new AjaxRequest(this.method,this.page,request,"",this.onSuccess,this.onError,true) );
+  } else {
+    if(this.parameters.length<200) {
+		OpenForum.debug("INFO","JSON.post page:" + this.page + " request:" + request + " parameters:" + this.parameters);
+    } else {
+		OpenForum.debug("INFO","JSON.post page:" + this.page + " request:" + request + " parameters:"+this.parameters.substring(0,200)+"... p;arameters size:" + this.parameters.length);
+    }
+    Ajax.sendRequest( new AjaxRequest(this.method,this.page,request,this.parameters,this.onSuccess,this.onError,true) );
+  }
+};
+<!-- End of: /OpenForum/Javascript/Core/open-forum-json.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-ajax-request.js-->
+//==============================================================================================================//
+//<hr/> AjaxRequest <hr/>
+
+requestCount = 0;
+function AjaxRequest(method,url,request,data,onSuccess,onError,asynchronous)
+{
+  var self=this;
+  self.id = "request_"+requestCount;
+  requestCount++;
+  eval( self.id+"=this;" );
+
+  self.method = method;
+  self.url = url;
+  self.request = request;
+  self.data = data;
+  self.onSuccess = onSuccess;
+  self.onError = onError;
+  self.asynchronous = asynchronous;
+  self.transaction = null;
+
+  this.processTransactionStateChange = function processTransactionStateChange(ev) {
+    if (self.transaction.readyState == 4) {
+      if (self.transaction.status == 200) {
+          onSuccess(self.transaction.responseText);
+      } else if (self.transaction.status === 0) {
+      } else {
+        onError( self.transaction.status,self.transaction.statusText );
+      }
+      eval( self.id+"=null;" );
+    }
+  };
+}
+<!-- End of: /OpenForum/Javascript/Core/open-forum-ajax-request.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-ajax.js-->
+//==============================================================================================================//
+//<hr/> Ajax <hr/>
+
+Ajax = new function() {
+
+  this.sendRequest = function sendRequest(request) {
+
+    request.transaction = false;
+
+    if(window.XMLHttpRequest)
+    {
+      try {
+        request.transaction = new XMLHttpRequest();
+      }
+      catch(e)
+      {
+        alert(e);
+        request.transaction = false;
+      }
+    }
+    else if(window.ActiveXObject)
+    {
+      try {
+        request.transaction = new ActiveXObject("Msxml2.XMLHTTP");
+      }
+      catch(e)
+      {
+        alert(e);
+        try {
+          request.transaction = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        catch(e)
+        {
+          alert(e);
+          request.transaction = false;
+        }
+      }
+    }
+    if(request.transaction)
+    {
+      if(request.asynchronous === true)
+      {
+        var fn = eval(request.id+".processTransactionStateChange");
+        request.transaction.onreadystatechange= function(ev){ fn(ev); };
+        if(request.request!==null && request.request.length>0) {
+          request.transaction.open(request.method, request.url+"?"+request.request,true);
+          request.transaction.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+          //request.transaction.setRequestHeader("If-Modified-Since", new Date(0));
+          request.transaction.send(request.data);
+		} else {
+          request.transaction.open(request.method, request.url,true);
+          request.transaction.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+          //request.transaction.setRequestHeader("If-Modified-Since", new Date(0));
+          request.transaction.send(request.data);
+        }
+      }
+      else
+      {
+        if(request.request!==null && request.request.length>0) {
+          request.transaction.open(request.method, request.url+"?"+request.request,false);
+          request.transaction.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        } else {
+          request.transaction.open(request.method, request.url,false);
+          request.transaction.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        }
+        //request.transaction.setRequestHeader("If-Modified-Since", new Date(0));
+        request.transaction.send(request.data);
+        this.currentRequest=null;
+        return request.transaction.responseText;
+      }
+    }
+    else
+    {
+      alert("failed");
+    }
+  };
+
+};
+<!-- End of: /OpenForum/Javascript/Core/open-forum-ajax.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-ajax-post.js-->
+//==============================================================================================================//
+//<hr/> Post <hr/>
+
+function Post()
+{
+  this.data = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+
+  this.addItem = function(name,value)
+  {
+    this.item = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+    this.data<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/this.data.length"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/this.data.length does not exist. Click to create it.">this.data.length</a> = this.item;
+    this.item<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0 does not exist. Click to create it.">0</a> = name;
+    this.item<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/1"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/1 does not exist. Click to create it.">1</a> = value;
+    
+    return this;
+  };
+
+  this.addForm = function(formId) {
+    form = document.getElementById(formId);
+    for(var loop=0;loop<form.elements.length;loop++) {
+      name=form.elements<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/loop"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/loop does not exist. Click to create it.">loop</a>.name;
+      if(name.length>0) {
+        this.addItem(name,form.elements<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/loop"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/loop does not exist. Click to create it.">loop</a>.value);
+      }
+    }
+    
+    return this;
+  };
+  
+  this.getData = function() {
+    var dataString = "";
+    for(var entry in this.data) {
+      if(dataString.length>0) {
+        dataString +="&";
+      }
+      dataString += this.data<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/entry"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/entry does not exist. Click to create it.">entry</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0 does not exist. Click to create it.">0</a>+"="+encodeURIComponent(this.data<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/entry"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/entry does not exist. Click to create it.">entry</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/1"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/1 does not exist. Click to create it.">1</a>);
+    }
+    return dataString;
+  };
+  //TODO add get parameters method like
+  <!--
+      this.data="";
+    for(this.loop=0;this.loop<dataArray.length;this.loop++)
+    {
+      if(this.loop!=0)
+      {
+        this.data += "&";
+      }
+      this.data += dataArray<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/this.loop"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/this.loop does not exist. Click to create it.">this.loop</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0 does not exist. Click to create it.">0</a>+"="+encodeURIComponent(dataArray<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/this.loop"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/this.loop does not exist. Click to create it.">this.loop</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/1"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/1 does not exist. Click to create it.">1</a>);
+    }
+    -->
+}
+<!-- End of: /OpenForum/Javascript/Core/open-forum-ajax-post.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-tree.js-->
+//==============================================================================================================//
+//<hr/> Tree <hr/>
+
+var NextTreeNodeIndex = 0;
+var TreeNodes = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+
+function Tree(elementId,name,attributes,modifier) {
+  var self = this;
+  var jsonModifier = function(json) {
+    if(modifier) modifier(json);
+  };
+  
+  var root = new TreeNode(name,attributes,null,jsonModifier);
+
+  self.setJSONModifier = function(newModifier) {
+    modifier = newModifier;
+  };
+  
+  self.render = function() {
+    var element = document.getElementById(elementId);
+    element.innerHTML = root.render(0);
+    return this;
+  };
+  self.addChild = function(name,attributes) {
+    return root.addChild(name,attributes);
+  };
+  self.addJSON = function(node) {
+    return root.addJSON(node);
+  };
+  self.setJSON = function(node) {
+    root = root.addJSON(node);
+    root.setParent(null);
+    return root;
+  };
+  self.render();
+
+  self.expandAll = function() {
+    root.applyToChildren( function(child){ child.expand(); } );
+    root.expand();
+    return this;
+  };
+
+  self.collapseAll = function() {
+    root.applyToChildren( function(child){ child.collapse(); } );
+    root.collapse();
+    return this;
+  };
+  self.deleteChild = function(node) {
+    node.parent.deleteChild(node);
+    return this;
+  };
+  self.getRoot = function() {
+    return root;
+  };
+  self.expandPath = function(path) {
+
+    var nodePath = findPath(path);
+    if(nodePath!==null) {
+      nodePath.forEach( function(node) {node.expand(); } );
+      return true;
+    } else {
+      return false;
+    }
+  };
+  self.findNode = function(path) {
+    return findPath(path);
+  };
+  self.init = function() {};
+  var findPath = function(path) {
+    if(path.charAt(0)==="/") {
+      path = path.substring(1);
+    }
+    var parts = path.split("/");
+    var node = root;
+    var nodePath = <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/root"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/root does not exist. Click to create it.">root</a>;
+    for(var i=0;i<parts.length;i++) {
+      var children = node.getChildren();
+      for(var c=0;c<children.length;c++) {
+        if(children<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/c"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/c does not exist. Click to create it.">c</a>.getName()===parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>) {
+          node = children<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/c"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/c does not exist. Click to create it.">c</a>;
+          nodePath.push(node);
+          break;
+        }
+      }
+      if(c===children.length) {
+        return null; //No path match
+      }
+    }
+    return nodePath;
+  };
+}
+
+var NextActionId=0;
+var Actions = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+function Action(config) {
+  var self = this;
+  var fn = OpenForum.evaluate("("+config.fn+")");
+  var icon = config.icon;
+  var toolTip = config.toolTip;
+  
+  var id = "ActionId"+NextActionId;
+  NextActionId++;
+  Actions<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id does not exist. Click to create it.">id</a>=this;
+
+  icon = "/OpenForum/Images/icons/png/" + icon + ".png";
+
+  self.call = function(node) {
+    fn(node);
+  };
+  self.render = function(target)
+  {
+    data="&nbsp;<a href='#' onClick='Actions<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/<br/>""+id+"<br/>""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/<br/>""+id+"<br/>" does not exist. Click to create it."><br/>""+id+"<br/>"</a>.call("+target+");return false;'>"+
+      "<i style='background: url(<br/>""+icon+"<br/>") no-repeat scroll; min-width: 16px; min-height: 16px;	display: inline-block;' title='"+toolTip+"'></i></a>";
+    return data;
+  };
+}
+
+function TreeNode(name,attributes,newParent,jsonModifier) {
+  var self = this;
+  var id = "TreeNode"+NextTreeNodeIndex;
+  NextTreeNodeIndex++;
+  TreeNodes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/id does not exist. Click to create it.">id</a> = self;
+  var children = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var expanded = false;
+  var SPACE = "&nbsp;&nbsp;&nbsp;&nbsp;";
+  var localDepth = 0;
+  var lazyLoad = null;
+  var parent = newParent;
+
+  var paint = function() {
+    document.getElementById(id).innerHTML = self.render(localDepth);
+  };
+  self.paint = paint;
+  
+  self.getId = function() {
+    return id;
+  };
+
+  self.setLazyLoad = function(lazyLoadFn) {
+    lazyLoad = lazyLoadFn;
+    return this;
+  };
+
+  self.getParent = function() {
+    return parent;
+  };
+  
+  self.setParent = function(newParent) {
+    parent =  newParent;
+  };
+  
+  self.addChild = function(name,attributes) {
+    var newChild = new TreeNode(name,attributes,self,jsonModifier);
+    children<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/children.length"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/children.length does not exist. Click to create it.">children.length</a> = newChild;
+    newChild.parent = self;
+    return newChild;
+  };
+
+  self.addJSON = function(node) {
+    if(jsonModifier!==null) jsonModifier(node);
+    var child = self.addChild( node.name,node.attributes );
+    if(node.leaves) {
+      for(var i in node.leaves) {
+        child.addJSON( node.leaves<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> );
+      }
+    }
+    return child;
+  };
+  
+  self.importJSON = function(url,action,parameters) {
+    JSON.get(url,action,parameters).onSuccess(
+      function(response) {
+        for(var i in response.leaves) {
+          self.addJSON( response.leaves<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> );
+        }
+        paint();
+      }
+    ).go();
+  };
+  
+  self.deleteChild = function(node) {
+    for(var index in children) {
+      if(children<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/index"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/index does not exist. Click to create it.">index</a>.getId()===node.getId()) {
+        children.splice(index,1);
+        return this;
+      }
+    }
+    return this;
+  };
+
+  self.isExpanded = function() {
+    return expanded;
+  };
+  
+  self.expand = function() {
+    if(lazyLoad!==null) {
+      lazyLoad(self);
+      lazyLoad = null;
+      return this;
+    }
+    if(parent && parent.isExpanded()===false) {
+      parent.expand();
+    }
+    expanded=true;
+    paint();
+    return this;
+  };
+  self.collapse = function() {
+    expanded=false;
+    paint();
+    return this;
+  };
+  self.toggle = function() {
+    expanded=!expand;
+    paint();
+    return this;
+  };
+  
+  self.render = function(depth) {
+    if(!depth) {
+      depth=0;
+    }
+    localDepth = depth;
+    var data = "";
+    data+="<span id='"+id+"' style='white-space: nowrap;'>";
+    for(var count=0;count<depth;count++) {
+      data+=SPACE;
+    }
+    if(children.length>0) {
+      if(expanded===false) {
+        data+="<a href='#' onClick='TreeNodes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/<br/>""+id+"<br/>""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/<br/>""+id+"<br/>" does not exist. Click to create it."><br/>""+id+"<br/>"</a>.expand();return false;'>"+
+          "<i  style='background: url(<br/>"/OpenForum/Images/icons/png/add.png<br/>") no-repeat scroll; min-width: 16px; min-height: 16px;	display: inline-block;'></i></a>";
+      } else {
+        data+="<a href='#' onClick='TreeNodes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/<br/>""+id+"<br/>""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/<br/>""+id+"<br/>" does not exist. Click to create it."><br/>""+id+"<br/>"</a>.collapse();return false;'>"+
+          "<i  style='background: url(<br/>"/OpenForum/Images/icons/png/accept.png<br/>") no-repeat scroll; min-width: 16px; min-height: 16px;	display: inline-block;'></i></a>";
+      }
+    } else {
+      data+="&nbsp;";
+    }
+    if(attributes && attributes.link) {
+
+      if(attributes.toolTip) {
+        data += "<a href=<br/>"" + attributes.link + "<br/>" title=<br/>""+ attributes.toolTip +"<br/>" target=<br/>"_pageView<br/>">";
+      } else {
+        data += "<a href=<br/>"" + attributes.link + "<br/>" target=<br/>"_pageView<br/>">";
+      }
+
+      if(attributes.icon) {
+        data += "<i style='background: url(<br/>"/OpenForum/Images/icons/png/"+attributes.icon+".png<br/>") no-repeat scroll; min-width: 16px; min-height: 16px;	display: inline-block;'></i>";
+      }
+      data += name;
+      data += "</a>";
+    } else {
+      if(attributes && attributes.icon) {
+        data += "<i style='background: url(<br/>"/OpenForum/Images/icons/png/"+attributes.icon+".png<br/>") no-repeat scroll; min-width: 16px; min-height: 16px;	display: inline-block;'></i>";
+      }
+      data += name;
+    }
+    if(attributes && attributes.actions) {
+      for(var actionIndex in attributes.actions) {
+        var actionConfig = attributes.actions<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/actionIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/actionIndex does not exist. Click to create it.">actionIndex</a>;
+        var action = new Action(actionConfig);
+        data+=action.render("TreeNodes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/<br/>""+id+"<br/>""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/<br/>""+id+"<br/>" does not exist. Click to create it."><br/>""+id+"<br/>"</a>");
+      }
+    }
+    data+="<br/>";
+    if(expanded===true) {
+      for(var childIndex in children) {
+        data+=children<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/childIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/childIndex does not exist. Click to create it.">childIndex</a>.render(depth+1);
+      }
+    }
+    data+="</span>";
+    return data;
+  };
+  self.getName = function() {
+    return name;
+  };
+  self.setName = function(newName) {
+    name = newName;
+  };
+  self.getAttribute = function(name) {
+    return attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/name"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/name does not exist. Click to create it.">name</a>;
+  };
+  self.applyToChildren = function( fn ) {
+    children.forEach( function(child) { fn(child); } );
+  };
+  self.getChildren = function() {
+    return children;
+  };
+}
+
+OpenForum.createFileTree = function(id,root) {
+  var tree = new Tree(id,"Loading...","");
+  JSON.get("/OpenForum/Javascript/Tree","getPageTree","pageName="+root).onSuccess(
+    function(result) {
+      tree.setJSON(result);
+      tree.render();
+      tree.getRoot().expand();
+      tree.init();
+    }
+  ).go();
+
+  return tree;
+};
+<!-- End of: /OpenForum/Javascript/Core/open-forum-tree.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-js-extensions.js-->
+//==============================================================================================================//
+//<hr/> String extra methods <hr/>
+String.prototype.contains = function(start) {
+  return (this.indexOf(start)!==-1);
+};
+
+String.prototype.startsWith = function(start) {
+  return (this.indexOf(start)===0);
+};
+
+String.prototype.between = function(start,end) {
+  if(!this.contains(start) || !this.contains(end)) return;
+  return this.substring(this.indexOf(start)+start.length,this.indexOf(end));
+};
+
+String.prototype.before = function (end) {
+  if(!this.contains(end)) return;
+  return this.substring(0,this.indexOf(end));
+};
+
+String.prototype.after = function (start) {
+  if(!this.contains(start)) return;
+  return this.substring(this.indexOf(start)+start.length);
+};
+
+String.prototype.replaceAll = function(find,replace) {
+  return this.replace( new RegExp(find,"g"), replace);
+};
+
+String.prototype.padBefore = function(padding,targetLength) {
+  var result = this;
+  while(this.length<targetLength) {
+    result = padding+result;
+  }
+  return result;
+};
+
+String.prototype.padAfter = function(padding) {
+    var result = this;
+  while(result.length<targetLength) {
+    result = result+padding;
+  }
+  return result;
+};
+
+//<hr/> Date extra methods
+Date.prototype.getDisplayString = function() {
+  return (""+this).substring(0,24);
+};
+
+Date.prototype.SECOND_IN_MILLIS = 1000;
+Date.prototype.MINUTE_IN_MILLIS = Date.prototype.SECOND_IN_MILLIS*60;
+Date.prototype.HOUR_IN_MILLIS = Date.prototype.MINUTE_IN_MILLIS*60;
+Date.prototype.DAY_IN_MILLIS = Date.prototype.HOUR_IN_MILLIS*24;
+
+Date.prototype.plusSeconds = function(seconds) {
+  this.setTime( this.getTime()+(this.SECOND_IN_MILLIS*seconds) );
+  return this;
+};
+Date.prototype.plusMinutes = function(minutes) {
+  this.setTime( this.getTime()+(this.HOUR_IN_MILLIS*minutes) );
+  return this;
+};
+Date.prototype.plusHours = function(hours) {
+  this.setTime( this.getTime()+(this.HOUR_IN_MILLIS*hours) );
+  return this;
+};
+Date.prototype.plusDays = function(days) {
+  this.setTime( this.getTime()+(this.DAY_IN_MILLIS*days) );
+  return this;
+};
+
+Date.prototype.plusMonths = function(months) {
+  this.setMonth( this.getMonth()+months );
+  return this;
+};
+
+Date.prototype.plusYears = function(years) {
+  this.setYear( this.getYears()+years );
+  return this;
+};
+
+Date.prototype.isAfter = function(date) {
+  return (this.getTime()>date.getTime());
+};
+
+Date.prototype.isBefore = function(date) {
+  return (this.getTime()<date.getTime());
+};
+
+//<hr/> Async processing helper
+function Process() {
+  var callFn;
+  var waitTest;
+  var thenFn;
+
+  var self = this;
+
+  self.call = function(newCallFn) {
+    callFn = newCallFn;
+    return self;
+  };
+
+  self.waitFor = function(newWaitTest) {
+    waitTest = newWaitTest;
+    return self;
+  };
+
+  self.then = function(newThenFn) {
+    thenFn = newThenFn;
+    return self;
+  };
+
+  var wait = function() {
+    if(waitTest()===false) {
+      setTimeout(wait,100);
+    } else {
+      if(thenFn) thenFn();
+    }
+  };
+  
+  self.run = function(data) {
+    if(callFn) callFn(data);
+    wait();
+  };
+}
+<!-- End of: /OpenForum/Javascript/Core/open-forum-js-extensions.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-object.js-->
+//==============================================================================================================//
+//<hr/> OpenForumObject <hr/>
+
+function OpenForumObject(objectId) {
+  var self = this;
+  var id = objectId;
+  var value = null;
+  var targets=<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var listeners=<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+
+  OpenForum.debug("INFO","Object " + id + " created");
+
+  var notifyListeners = function() {
+    for(var listenerIndex in listeners) {
+      var listener = listeners<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/listenerIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/listenerIndex does not exist. Click to create it.">listenerIndex</a>;
+      listener( self );
+
+      if(listener.getId) {
+        OpenForum.debug("INFO","Object " + id + " has notified " + listener.getId() + "of change");
+      }
+    }
+  };
+
+  self.getId = function() {
+    return id;
+  };
+
+  self.add = function(target) {
+    targets.push(target);
+
+    if(target.getId) {
+      OpenForum.debug("INFO","Object " + id + " has added new target " + target.getId());
+    } else {
+      OpenForum.debug("INFO","Object " + id + " has added new target " + target);
+    }
+  };
+
+  self.reset = function() {
+    value = null;
+  };
+
+  self.setValue = function(newValue,exclude,clone) {
+    if(OpenForum.isEqual(newValue,value)) {
+      return;
+    }
+
+    OpenForum.debug("INFO","Object " + id + " value set to " + newValue);
+
+    if(clone && typeof newValue == "object") {
+      value = OpenForum.clone(newValue);
+    } else {
+    	value = newValue;
+    }
+    for(var targetIndex in targets) {
+      var target = targets<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/targetIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/targetIndex does not exist. Click to create it.">targetIndex</a>;
+      if(target===null) {
+        continue;
+      }
+      if(exclude && exclude===target) {
+        continue;
+      }
+      if(typeof(target.type)!="undefined" && target.type=="checkbox") {
+        target.checked = value;
+      } else if(typeof(target.type)!="undefined" && target.type=="select-multiple") {
+        for(var i in target.options) {
+          target.options<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.selected=false;
+          for(var j in value) {
+            if(target.options<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.value==value<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/j"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/j does not exist. Click to create it.">j</a>) {
+              target.options<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.selected=true;
+            }
+          }
+        }
+        OpenForum.setGlobal(id,value);
+      } else if(typeof(target.value)!="undefined") {
+        target.value = value;
+      } else if(target.innerHTML) {
+        if(value==="") {
+          target.innerHTML = " "; 
+        } else {
+          target.innerHTML = ""+value;
+        }
+      }
+    }
+  };
+
+  self.getValue = function() {
+    return value;
+  };
+
+  self.scan = function() {
+    for(var targetIndex=0; targetIndex<targets.length; targetIndex++) {
+      try {
+        var target = targets<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/targetIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/targetIndex does not exist. Click to create it.">targetIndex</a>;
+        if(target===null) {
+          continue;
+        }
+
+        if(typeof(target.type)!="undefined" && target.type=="checkbox") {
+          
+          if(target.checked!==value) {
+			//If UI has been checked
+            self.setValue(target.checked,target,true);
+            OpenForum.setGlobal(id,target.checked);
+            OpenForum.debug("INFO","Object (checkbox) " + id + " value set to " + value);
+            notifyListeners();
+            return;
+          }
+        } else if(target.type=="select-multiple") {
+          var selected = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+          for(var i in target.options) {
+            if(target.options<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.selected) selected.push(target.options<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.value);
+          }
+          //If UI selection changes
+          if(OpenForum.isEqual(value,selected)==false) {
+            self.setValue(selected,target,true);
+
+            OpenForum.setGlobal(id,selected);
+            OpenForum.debug("INFO","Object (select-multiple) " + id + " value set to " + selected);
+            notifyListeners();
+            return;
+          }
+        } else if(typeof(target.value)!="undefined") {
+          //If UI value changes
+          if(target.value!=value) {
+            self.setValue(target.value,target,true);
+            OpenForum.setGlobal(id,value);
+            OpenForum.debug("INFO","Object " + id + " value set to " + value);
+            notifyListeners();
+            return;
+          }
+        }
+      } catch(e) {
+        OpenForum.debug("ERROR","Object " + id + " error in setting value (case 1).", e);
+      }
+    }
+    try{
+      var testId = id;
+      if( OpenForum.globalExists(testId) ) {
+        //If bound js variable changes
+        if( OpenForum.isEqual(value,OpenForum.getGlobal(testId))===false) {
+          self.setValue(OpenForum.getGlobal(testId),null,true);
+          notifyListeners();
+        }
+      } else {
+        OpenForum.setGlobal(testId,value,true);
+        OpenForum.debug("INFO","Global object created " + testId + " and value set to " + value);
+      }
+    } catch(e) {
+      OpenForum.debug("ERROR","Object " + id + " error in setting value (case 2).", e);
+    }
+
+  };
+
+  self.addListener = function(listener) {
+    listeners.push(listener);
+    if(listener.getId) {
+      OpenForum.debug("INFO","Object " + id + " has added new listener " + listener.getId());
+    } else {
+      OpenForum.debug("INFO","Object " + id + " has added new listener " + listener);
+    }
+  };
+
+  self.getId = function() {
+    return id;
+  };
+
+  self.getTargets = function() {
+    return targets;
+  };
+}
+
+<!-- End of: /OpenForum/Javascript/Core/open-forum-object.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-table.js-->
+//==============================================================================================================//
+//<hr/> OpenForumTable <hr/>
+
+function OpenForumTable(node) {
+  var self = this;
+  var rowNode = node;
+  var tableNode = node.parentNode;
+  var value;
+  var id;
+
+  if(tableNode.attributes && tableNode.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-id'"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-id' does not exist. Click to create it.">'of-id'</a>) {
+    id=tableNode.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-id'"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-id' does not exist. Click to create it.">'of-id'</a>.value;
+    <!--if( this.tableNode.value ) {
+      this.tableNode.value = eval(this.tableNode.id);
+      eval(this.tableNode.id+"=<br/>""+this.value+"<br/>";")
+    }-->
+  } else if(tableNode.id) {
+    id=tableNode.id;
+  } else {
+    id="OFTable"+OpenForum.getNextId();
+  } 
+
+  node.parentNode.removeChild(node);
+
+  var temp = document.createElement("table");
+  temp.appendChild(node);
+
+  var rowHTML = temp.innerHTML;
+  var repeatFor = node.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-repeatFor'"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-repeatFor' does not exist. Click to create it.">'of-repeatFor'</a>.value;
+  var target = repeatFor.substring(repeatFor.indexOf(" in ")+4);
+  var element = repeatFor.substring(0,repeatFor.indexOf(" in "));
+  var targetObject = OpenForum.getObject(target);
+  var targetObjectSignature = OpenForum.createObjectSignature( targetObject.getValue() );
+
+  if(id.indexOf("OFTable")===0) id += "_" + repeatFor.replaceAll(" ","_");
+
+  OpenForum.debug("INFO","Added OpenForum table " + repeatFor + " as " + id);
+
+  var tableTop = tableNode.innerHTML;
+  tableNode.id = id;
+
+  self.setTableNode = function(newTableNode) {
+    tableNode = newTableNode;
+  };
+
+  self.reset = function() {
+    targetObjectSignature = null;
+    value = null;
+  };
+
+  self.refresh = function() {
+
+    try {
+      if(tableNode.attributes && tableNode.attributes<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-id'"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/'of-id' does not exist. Click to create it.">'of-id'</a> && typeof tableNode.value != "undefined" ) {
+        //Not sure what the empty string was there for, but it stops select working
+        //if( this.tableNode.value!=this.value && this.value!="") {
+        if( tableNode.value!=value) {
+          value = tableNode.value;
+          OpenForum.setGlobal(tableNode.id,value);
+
+          OpenForum.debug("INFO","Table " + id + " value changed to " + value);
+        } else {
+          var newValue = OpenForum.getGlobal(tableNode.id);
+          if( typeof tableNode.value !== "undefined" && tableNode.value!=newValue && typeof newValue !== "undefined" && newValue !== null ) {
+            tableNode.value=newValue;
+            value = newValue;
+            if(tableNode.value === newValue) {
+              OpenForum.debug("INFO","Table " + id + " value changed to " + value);
+            }
+          }
+        }
+      }
+    } catch(e) {
+      OpenForum.debug("ERROR","Table " + id + " set value failed.", e);
+    }
+
+    //check if changed
+    var objectSignature = OpenForum.createObjectSignature( targetObject.getValue() );
+    if(objectSignature==targetObjectSignature) {
+      return;
+    }
+
+    var errors = false;
+    var tableData = tableTop;
+    var collection = targetObject.getValue();
+    for( var elementIndex in collection ) {
+      try {
+        var item = {};
+        item<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/element"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/element does not exist. Click to create it.">element</a>= collection<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/elementIndex"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/elementIndex does not exist. Click to create it.">elementIndex</a>;
+        item<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/element"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/element does not exist. Click to create it.">element</a>.index = elementIndex;
+
+        var data = ""+rowHTML;
+        while(data.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+          var name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
+          var rowValue;
+          if(name.indexOf(".")===-1) {
+            if(name==element) {
+              rowValue = item<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/element"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/element does not exist. Click to create it.">element</a>;
+            } else {
+              rowValue = OpenForum.getGlobal(name);
+            }
+          } else {
+            var parts = name.split(".");
+            rowValue = item;
+            for(var part in parts) {
+              if(parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/part"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/part does not exist. Click to create it.">part</a>.indexOf("(")!==-1) {
+                var fn = parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/part"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/part does not exist. Click to create it.">part</a>.substring(0,parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/part"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/part does not exist. Click to create it.">part</a>.indexOf("("));
+                var call = parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/part"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/part does not exist. Click to create it.">part</a>.substring(parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/part"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/part does not exist. Click to create it.">part</a>.indexOf("("),parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/part"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/part does not exist. Click to create it.">part</a>.indexOf(")")).split(",");
+                rowValue = rowValue<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/fn"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/fn does not exist. Click to create it.">fn</a>.apply( this,call );
+              } else {
+                rowValue = rowValue<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part"/>];
+              }
+            }
+          }
+
+          data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
+            rowValue+
+            data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
+
+
+          if( tableNode.type=="select-one") {
+            if(OpenForum.getGlobal(id) === rowValue ) {
+              data = data.replace("selected=<br/>"<br/>"","selected");
+
+              OpenForum.debug("INFO","Table " + id + " selected  = " + rowValue);
+            } else {
+              data = data.replace("selected=<br/>"<br/>"","");
+            }
+          }
+        }
+        tableData += data;
+  
+      } catch(e) {
+        OpenForum.debug("ERROR","Table " + id + " refresh failed.", e);
+        //Fail quietly
+        errors = true;
+      }
+    }
+    OpenForum.debug("INFO","Table " + id + " updated.");  
+    tableNode.innerHTML=tableData;
+    //Only update the signature once the data is in the view without errors
+    if(errors==false) {
+    	targetObjectSignature=objectSignature;
+    }
+  };
+
+  self.getId = function() {
+    return id;
+  };
+}
+<!-- End of: /OpenForum/Javascript/Core/open-forum-table.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-browser.js-->
+//==============================================================================================================//
+if(!OpenForum) {
+  OpenForum = {};
+}
+
+OpenForum.Browser={};
+
+OpenForum.Browser.download = function(fileName,data){
+  var hiddenElement = document.createElement('a');
+  hiddenElement.href = 'data:attachment/text,' + encodeURI(data);
+  hiddenElement.target = '_blank';
+  hiddenElement.style.display = "none";
+  hiddenElement.download = fileName;
+  document.body.appendChild(hiddenElement);
+  hiddenElement.click();
+};
+
+OpenForum.Browser.upload = function(callback,onError) {
+   var hiddenElement = document.createElement('input');
+  hiddenElement.type = "file";
+  hiddenElement.style.display = "none";
+  hiddenElement.onchange = function(event) {
+     var reader = new FileReader();
+
+    reader.onload = function(event) {
+          if(event.target.readyState != 2) return;
+          if(event.target.error) {
+            if(onError) {
+              onError('Error while reading file');
+            } else {
+              alert('Error while reading file');
+            }
+              return;
+          }
+          callback( event.target.result );
+      };
+      reader.readAsText(event.target.files<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0 does not exist. Click to create it.">0</a>);
+  };
+  document.body.appendChild(hiddenElement);
+  hiddenElement.click();
+};
+
+OpenForum.Browser.uploadDataUrl = function(callback,onError) {
+   var hiddenElement = document.createElement('input');
+  hiddenElement.type = "file";
+  hiddenElement.style.display = "none";
+  hiddenElement.onchange = function(event) {
+     var reader = new FileReader();
+
+    reader.onload = function(event) {
+          if(event.target.readyState != 2) return;
+          if(event.target.error) {
+            if(onError) {
+              onError('Error while reading file');
+            } else {
+              alert('Error while reading file');
+            }
+              return;
+          }
+          callback( event.target.result );
+      };
+      reader.readAsDataURL(event.target.files<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/0 does not exist. Click to create it.">0</a>);
+  };
+  document.body.appendChild(hiddenElement);
+  hiddenElement.click();
+};
+
+OpenForum.Browser.overrideSave = function(fn) {
+  $(document).bind('keydown', function(e) {
+  if(e.ctrlKey && (e.which == 83)) {
+    e.preventDefault();
+    fn();
+    return false;
+  }
+});
+};
+<!-- End of: /OpenForum/Javascript/Core/open-forum-browser.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-action.js-->
+//==============================================================================================================//
+OpenForum.action = {};
+OpenForum.action.copyPage = function(pageName,newPageName) {
+  window.open("/OpenForum/Actions/Copy?newPageName="+newPageName+"&pageName="+pageName);
+};
+
+OpenForum.action.movePage = function(pageName,newPageName) {
+  window.location = "/OpenForum/Actions/Move?newPageName="+newPageName+"&pageName="+pageName;
+};
+
+OpenForum.action.zipPage = function(pageName) {
+  window.location = "/OpenForum/Actions/Zip?action=zip&pageName="+pageName;
+};
+
+OpenForum.action.deletePage = function(pageName) {
+  window.location = "/OpenForum/Actions/Delete?pageName="+pageName;
+};
+
+<!-- End of: /OpenForum/Javascript/Core/open-forum-action.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-utils.js-->
+//==============================================================================================================//
+if(!OpenForum) {
+  OpenForum = {};
+}
+
+<!--<ul><li> Author: Nik Cross</li>
+<li> Description: A set of functions to help with manipulating doms and js objects</li>
+</ul>-->
+
+OpenForum.createObjectSignature = function(object) {
+  var cache = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  var signature = JSON.stringify(object, function(key, value) {
+    if (typeof value === 'object' && value !== null) {
+      if (cache.indexOf(value) !== -1) {
+        // Circular reference found, discard key
+        return;
+      }
+      // Store value in our collection
+      cache.push(value);
+    }
+    return value;
+  });
+  cache = null;
+  return signature;
+};
+
+OpenForum.copyElement = function(id) {
+  document.getElementById(id).select();
+  document.execCommand('copy');
+};
+
+OpenForum.copyData = function(data) {
+  var hiddenElement = document.createElement('textarea');
+  hiddenElement.value = data;
+  document.body.appendChild( hiddenElement );
+  hiddenElement.select();
+  document.execCommand('copy');
+  document.body.removeChild( hiddenElement );
+};
+
+OpenForum.setElement = function(id,content) {
+  document.getElementById(id).innerHTML = content;
+};
+
+OpenForum.appendToElement = function(id,content) {
+  document.getElementById(id).innerHTML += content;
+};
+
+OpenForum.showElement = function(id) {
+  document.getElementById(id).style.display = "block";
+};
+
+OpenForum.hideElement = function(id) {
+  document.getElementById(id).style.display = "none";
+};
+
+OpenForum.toggleElement = function(id) {
+  if(document.getElementById(id).style.display==="block") {
+    document.getElementById(id).style.display = "none";
+  } else {
+    document.getElementById(id).style.display = "block";
+  }
+};
+
+OpenForum.getParameter = function( name ) {
+  name = name.replace(/<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/<br/><a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>" alt="<br/><a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>" title="<br/><a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>"/>/g,"<br/><br/><br/><img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/").replace(/<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a><br/>" alt="").replace(/<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a><br/>" title="").replace(/<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a><br/>"/>]/g,"<br/><br/><br/>]");
+  var regexS = "<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/<br/><br/>?&"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/<br/><br/>?& does not exist. Click to create it."><br/><br/>?&</a>"+name+"=(<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/^&#"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/^&# does not exist. Click to create it.">^&#</a>*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results === null )
+    return "";
+  else
+    return results<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/1"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/1 does not exist. Click to create it.">1</a>;
+};
+
+OpenForum.getCookie = function(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++)
+  {
+    var c = ca<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>;
+    while (c.charAt(0)==' ')
+    {
+      c = c.substring(1,c.length);
+    }
+    if (c.indexOf(nameEQ) === 0)
+    {
+      return c.substring(nameEQ.length,c.length);
+    }
+  }
+  return null;
+};
+
+//Keep all the evil in one place
+OpenForum.evaluate = function(script) {
+  try{
+    return eval(script);
+  } catch (e) {
+    OpenForum.debug( "ERROR", "Exception evaluating '" + script + "'",e );
+    throw e;
+  }
+};
+
+OpenForum.globalExists = function( name ) {
+  name = name.replace(/<br/><a href="/OpenForum/Editor?pageName=/g,".").replace(/<br/>"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/g,".").replace(/<br/> does not exist. Click to create it.">/g,".").replace(/<br/></a>/g,"").replace(/'/g,"").replace(/<br/>(.*<br/>)/g,"");
+  var parts = name.split(".");
+  var obj = window;
+  for(var part in parts) {
+    if( typeof obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part"/>] === "undefined" ) return false;
+    obj = obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part"/>];
+  }
+
+  return true;
+};
+
+OpenForum.getGlobal = function( name ) {
+  name = name.replace(/<br/><a href="/OpenForum/Editor?pageName=/g,".").replace(/<br/>"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/g,".").replace(/<br/> does not exist. Click to create it.">/g,".").replace(/<br/></a>/g,"").replace(/'/g,"").replace(/<br/>(.*<br/>)/g,"");
+  var parts = name.split(".");
+  var obj = window;
+  for(var part in parts) obj = obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>part"/>];
+
+  if(typeof obj === "function") return obj();
+  else return obj;
+};
+
+OpenForum.setGlobal = function( name,value,create ) {
+  name = name.replace(/<br/><a href="/OpenForum/Editor?pageName=/g,".").replace(/<br/>"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/g,".").replace(/<br/> does not exist. Click to create it.">/g,".").replace(/<br/></a>/g,"").replace(/'/g,"");
+  var parts = name.split(".");
+  var obj = window;
+  var i=0;
+  for(i=0; i<parts.length-1; i++) {
+    if( typeof obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>] === "undefined" && create===true ) obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>] = {};
+    obj = obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>];
+  }
+
+  obj<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title="parts<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>] = value;
+};
+
+OpenForum.isEqual = function(a,b) {
+  if(typeof b === undefined || typeof a === undefined) return false;
+  if(b === null && a === null) return true;
+  if(b === null || a === null) return false;
+  if(typeof a !== typeof b) return false;
+
+  if( typeof a === "object" ) {
+    if(a.length) {
+      if(!b.length || a.length!==b.length) return false;
+    }
+    if(b.length) {
+      if(!a.length || a.length!==b.length) return false;
+    }
+    for(var i in a) {
+      if(typeof b<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> === "undefined") return false;
+
+      if( OpenForum.isEqual(a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>,b<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>)===false) return false;
+    }
+    return true;
+  } else {
+    return (a===b);
+  }
+};
+
+OpenForum.copyDifferencesFromTo = function(a,b,depth,minDepth,maxDepth) {
+  if(!minDepth) {
+    minDepth=1;
+  }
+  if(!maxDepth) {
+    maxDepth = 10;
+  }
+
+  if(!depth) {
+    depth=1;
+  }
+
+  if(depth>maxDepth) {
+    return null;
+  }
+
+  if( typeof a === "object" ) {
+    for(var i in a) {
+      if(!b<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>) {
+        //If it doesn't exist, create it
+        if(typeof a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> === "object") {
+          var value;
+          if(a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.length) value = OpenForum.copyDifferencesFromTo(a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>,<a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>,depth+1,minDepth,maxDepth);
+          else value = OpenForum.copyDifferencesFromTo(a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>,{},depth+1,minDepth,maxDepth);
+          if(value!=null) {
+            if(depth<=maxDepth) {
+              b<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> = a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>;
+            } else {
+              return null;
+            }
+          } else {
+            b<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> = value;
+          }
+        } else {
+          b<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> = a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>;
+        }
+      } else if( OpenForum.isEqual(a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>,b<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>)===false) {
+        //If it exists but is not equal, copy differences
+        var value = OpenForum.copyDifferencesFromTo(a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>,b<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>,depth,minDepth,maxDepth);
+        if(value!=null) {
+          if(depth<=maxDepth) {
+          	b<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> = a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>;
+          } else {
+            return null;
+          }
+        }
+      }
+    }
+
+    for(var i in b) {
+      if(!a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/b"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/b does not exist. Click to create it.">b</a>) {
+        delete b<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/a"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/a does not exist. Click to create it.">a</a>;
+      }
+    }
+  } else {
+    return a;
+  }
+  return b;
+};
+
+OpenForum.clone = function(a) {
+  var b = {};
+  if(a.length) b = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  OpenForum.copyDifferencesFromTo(a,b);
+  return b;
+};
+
+OpenForum.clean = function(a) {
+  if( typeof a === "object" ) {
+    for(var i in a) {
+      if(typeof a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> === "object") {
+        a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> = OpenForum.clean(a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>);
+      } else if(typeof a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> === "number") {
+        a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> = 0;
+      } else if(typeof a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> === "boolean") {
+        a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> = true;
+      } else {
+        a<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a> = "";
+      }
+    }
+  }
+  return a;
+};
+
+OpenForum.setInterval = function(fn,timePeriod,immediate,blocking,doesCallback) {
+  if(blocking) {
+    var blocked = false;
+    if(immediate) {
+      blocked = true;
+      try{
+        if(doesCallback) {
+        	fn( function() {blocked = false;} );
+        } else {
+        	fn();
+        	blocked = false;
+        }
+      } catch (e) {
+        blocked = false;
+      }
+    }
+    
+    return setInterval( function() {
+      if(blocked) return;
+      blocked = true;
+      try{
+        if(doesCallback) {
+        	fn( function() {blocked = false;} );
+        } else {
+        	fn();
+        	blocked = false;
+        }
+      } catch (e) {
+        blocked = false;
+      }
+    }, timePeriod );
+    
+  } else {
+    if(immediate) {
+      fn();
+      return setInterval(fn,timePeriod);
+    }
+  }
+};
+
+OpenForum.waitFor = function(test,callback,pause,timeout) {
+  if(!pause) pause=200;
+  if(!timeout) timeout = new Date().getTime()+30000;
+  else if( new Date().getTime()>timeout ) throw "Timeout waiting for " + test;
+
+  if(test()===true) {
+    callback();
+  } else {
+    setTimeout( 
+      function(test,callback,pause,timeout){ 
+        return function() { 
+          OpenForum.waitFor(test,callback,pause,timeout); 
+        }; 
+      }(
+        test,
+        callback,
+        pause
+      ),
+      pause
+    );
+  }
+};
+
+OpenForum.runAsync = function(fn) {
+  setTimeout( function() { fn(); },1 );
+};
+
+OpenForum.queue = function(process,supplyState) {
+  var test = OpenForum.queue.ready;
+  if(!test) test = function() { return true; };
+
+  OpenForum.queue.ready = function() { return (!OpenForum.processing); };
+  var state = {complete: false};
+  if(supplyState===true) {
+    OpenForum.queue.ready = function() { 
+      if(state.complete===true) delete OpenForum.processing;
+      return (state.complete); 
+    };
+  }
+
+  OpenForum.waitFor(
+    test,
+    function() {
+      OpenForum.processing = process;
+      process(state);
+      if(!supplyState) {
+        delete OpenForum.processing;
+      }
+    }
+  );
+};
+
+OpenForum.Table = {};
+
+OpenForum.Table.setCell = function(table,row,column,value) {
+  if(value) {
+  	table<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/row"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/row does not exist. Click to create it.">row</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/column"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/column does not exist. Click to create it.">column</a> = value;
+  } else {
+    //Is simple array so value is column
+  	table<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/row"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/row does not exist. Click to create it.">row</a> = column;
+  }
+};
+
+OpenForum.Table.editRow = function(table,index) {
+  for(var i in table) {
+    table<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.view = "display: block;";
+    table<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.edit = "display: none;";
+  }
+  table<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/index"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/index does not exist. Click to create it.">index</a>.edit = "display: block;";
+  table<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/index"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/index does not exist. Click to create it.">index</a>.view = "display: none;";
+};
+
+OpenForum.jsonToCsv = function(json,delimiter) {
+  if(!delimiter) delimiter = "<br/>t";
+  var csv = "";
+  if(Array.isArray(json)) {
+    for(var i in json) {
+      var row = json<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>;
+
+      //add column name row
+      if(csv.length===0) {
+        for (var c in row) {
+          if(csv.length>0) {
+            csv+=delimiter;
+          }
+          csv += c;
+        }
+        csv += "<br/>n";
+      }
+
+      //add row
+      var csvRow = "";
+      for (var r in row) {
+        if(csvRow.length>0) {
+          csvRow+=delimiter;
+        }
+        csvRow += row<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/r"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/r does not exist. Click to create it.">r</a>;
+      }
+      csv += csvRow +"<br/>n";
+    }
+  } else if(typeof json === "object") {
+    for(var name in json) {
+      csv += name + delimiter + json<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/name"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/name does not exist. Click to create it.">name</a> + "<br/>n";
+    }
+  }
+  return csv;
+};
+
+OpenForum.Table.closeTable = function(table) {
+  for(var i in table) {
+    table<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.view = "display: block;";
+    table<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>.edit = "display: none;";
+  }
+};
+
+OpenForum.Table.addRow = function(table) {
+  var newRow = OpenForum.clone( table<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/table.length-1"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/table.length-1 does not exist. Click to create it.">table.length-1</a> );
+  OpenForum.clean( newRow );
+  table.push( newRow );
+  OpenForum.Table.editRow(table,table.length-1);
+};
+
+OpenForum.Table.removeRow = function(table,index) {
+  var oldRow = table<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/index"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/index does not exist. Click to create it.">index</a>;
+  table.splice(index,1);
+  return oldRow;
+};
+
+<!-- End of: /OpenForum/Javascript/Core/open-forum-utils.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-storage.js-->
+//==============================================================================================================//
+if(!OpenForum) {
+  OpenForum = {};
+}
+OpenForum.Storage = {};
+
+OpenForum.Storage.get = function(key) {
+  return localStorage.getItem(key);
+};
+
+OpenForum.Storage.set = function(key,value) {
+  localStorage.setItem(key,value);
+};
+
+OpenForum.Storage.find = function(regex) {
+  var found = <a href="/OpenForum/Javascript/Help/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  for(var i in localStorage) {
+    if( i.match(regex)) {
+      found.push( {key: i, value: localStorage<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/i does not exist. Click to create it.">i</a>} );
+    }
+  }
+  return found;
+};
+<!-- End of: /OpenForum/Javascript/Core/open-forum-storage.js-->
+
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-ofx.js-->
+//==============================================================================================================//
+<!--<ul><li> Author: Nik Cross</li>
+<li> Description: A replacement for OpenForum JSON.get and JSON.post</li>
+</ul>-->
+var OFX = {
+  get: function(url) {
+    var GET = function(url) {
+      var self = this;
+      var action;
+      var data;
+      var callBack;
+      var callOnError;
+      
+      self.withAction = function(newAction) {
+        action = newAction;
+        return self;
+      };
+      
+      self.withData = function(newData) {
+        data = newData;
+        return self;
+      };
+      
+      self.onSuccess = function(newCallBack) {
+        callBack = newCallBack;
+        return self;
+      };
+      
+      self.onError = function(newCallOnError) {
+        callOnError = newCallOnError;
+        return self;
+      };
+      
+      self.go = function() {
+        if(action) {
+          if(data) {
+            if(typeof data == "object") {
+              var dataString = "";
+              for(var name in data) {
+                if(dataString.length>0) dataString += "&";
+                dataString += name + "="+ data<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/name"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/name does not exist. Click to create it.">name</a>;
+              }
+              data = dataString;
+            }
+          }
+        	var get = JSON.get(url,action,data);
+          if(callBack) {
+            get = get.onSuccess( callBack );
+          }
+          if(callOnError) {
+            get = get.onError(callOnError);
+          }
+          get.go();
+        } else {
+          JSON.loadFile(url,callBack);
+        }
+      };
+    };
+    return new GET(url);
+  },
+  
+  post: function(url) {
+    var POST = function(url) {
+      var self = this;
+      var action;
+      var data;
+      var callBack;
+      var callOnError;
+      
+      self.withAction = function(newAction) {
+        action = newAction;
+        return self;
+      };
+      
+      self.withData = function(newData) {
+        data = newData;
+        return self;
+      };
+      
+      self.onSuccess = function(newCallBack) {
+        callBack = newCallBack;
+        return self;
+      };
+      
+      self.onError = function(newCallOnError) {
+        callOnError = newCallOnError;
+        return self;
+      };
+      
+      self.go = function() {
+        if(action) {
+          if(data) {
+            if(typeof data == "object") {
+              var dataString = "";
+              for(var name in data) {
+                if(dataString.length>0) dataString += "&";
+                dataString += name + "="+ data<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Help/name"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Help/name does not exist. Click to create it.">name</a>;
+              }
+              data = dataString;
+            }
+          }
+        	var post = JSON.post(url,action,data);
+          if(callBack) {
+            post = post.onSuccess( callBack );
+          }
+          if(callOnError) {
+            post = post.onError(callOnError);
+          }
+          post.go();
+        } else {
+          JSON.saveFile(url,data);
+        }
+      };
+    };
+    return new POST(url);
+  }
+};
+<!-- End of: /OpenForum/Javascript/Core/open-forum-ofx.js-->
+
+//==============================================================================================================//
+</xmp> </div><!--OF insert (/OpenForum/Javascript/Core/open-forum.help.content) end -->

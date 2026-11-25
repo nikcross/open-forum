@@ -1,6 +1,20 @@
+--8<--
+
+((Creates a colored block with text and optional image))
+__Parameters__
+* text = Text content for the block
+* backgroundColor = Background color (e.g., "blueviolet")
+* textColor = Text color (e.g., "white")
+* imageURL = URL of image to display
+* imageRight = Position image on right side ("true" or "false")
+
+{{{
+[{ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false"}]
+}}}
+-->8--
+
 <div class="row">
 !!ContrastBlock v0.0.1
-{{{ [{ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false"}] }}}
 [{ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false"}]
 \\
 [{ActionButton text="Add ContrastBlock Block type to Content Editor" action="addToContentEditor"}]

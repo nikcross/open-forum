@@ -1,11 +1,17 @@
-<div class="row">
 --8<--
 
-((Renders [mark down|https://raw.githubusercontent.com/wiki/adam-p/markdown-here/Markdown-Here-Cheatsheet.md] formatted text in a page.))
+((Renders [markdown|https://raw.githubusercontent.com/wiki/adam-p/markdown-here/Markdown-Here-Cheatsheet.md] formatted text in a page))
+__Parameters__
+* pageName = Page where markdown file is attached (optional)
+* fileName = Name of markdown file to render
+* url = Alternative: URL of remote markdown file
+
 {{{
 [{MarkDown pageName="/OpenForum/Extensions/MarkDown" fileName="example.md"}]
 }}}
 -->8--
+
+<div class="row">
 [{MarkDown pageName="/OpenForum/Extensions/MarkDown" fileName="example.md"}]
 
 !!Example using remote source
@@ -13,4 +19,4 @@
 [{MarkDown url="https://raw.githubusercontent.com/wiki/adam-p/markdown-here/Markdown-Here-Cheatsheet.md"}]
 }}}
 [{MarkDown url="https://raw.githubusercontent.com/wiki/adam-p/markdown-here/Markdown-Here-Cheatsheet.md"}]
-  </div>
+</div>

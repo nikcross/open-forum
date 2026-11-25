@@ -1,3 +1,26 @@
+--8<--
+       
+((Get history of file changes for a page))
+
+__Get parameters__
+* action = "list"
+* pageName = Page to get history for
+* fileName = Optional specific file to get history for
+
+__Get examples:__
+{{{
+// Simple URL - get all page history
+/OpenForum/Actions/History?action=list&pageName=/MyPage
+
+// Using JSON.get - get specific file history
+JSON.get('/OpenForum/Actions/History', 'list', 'pageName=/MyPage&fileName=page.js')
+  .onSuccess(function(result) {
+    console.log('History:', result.data);
+  }).go();
+}}}
+
+-->8--
+
 !!History for {{pageName}}
 
 !!Page History

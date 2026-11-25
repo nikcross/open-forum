@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Javascript/JavaWrapper/Wiki",
-    "title": " Wiki"
+    "pageName": "/OpenForum/Javascript/JavaWrapper/Wiki",
+    "title": "Wiki",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

@@ -1,21 +1,31 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Renders Wiki Data to HTML
-<hr/>
-<h3>Parameters</h3>
-<ul><li>pageName</li>
-<li>data</li>
-or<li>sourcePageName</li>
-<li>fileName</li>
-<hr/>
-<h3>Usage:</h3>
+       
+<p>Renders wiki markup data to HTML</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page context for rendering</li>
+<li> data = Wiki markup data to render (optional if using sourcePageName/fileName)</li>
+<li> sourcePageName = Source page containing file to render (optional)</li>
+<li> fileName = File containing wiki markup to render (optional)</li>
+</ul>
+<b>Get examples:</b>
 <xmp class="panel" of-exclude="true">
-RenderWikiData?pageName=PageName&data=WikiData
-or
-RenderWikiData?pageName=PageName&sourcePageName=PageName&fileName=FileName
+// Simple URL - render inline data
+/OpenForum/Actions/RenderWikiData?pageName=/MyPage&data=<h3>Title</h3>
+
+// Using JSON.get - render from file
+JSON.get('/OpenForum/Actions/RenderWikiData', null, 
+  'pageName=/MyPage&sourcePageName=/Source&fileName=content.wiki')
+  .onSuccess(function(html) {
+    console.log('Rendered HTML:', html);
+  }).go();
 </xmp>
 
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
+
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel" of-exclude="true"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
@@ -32,4 +42,4 @@ else
 
   html = wiki.renderWikiData(pageName,data);
   transaction.sendPage(html);
-} </xmp></ul>
+} </xmp>

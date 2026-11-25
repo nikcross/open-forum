@@ -2,7 +2,7 @@ try{
   
 targetPage = extension.getAttribute("pageName");
 matching = extension.getAttribute("matching");
-actions = extension.getAttribute("actions");
+action = extension.getAttribute("action");
 includePage = true;
 if(targetPage===null)
 {
@@ -37,9 +37,10 @@ while(iterator.hasNext())
   }
 
   var actionsText = "";
-  if(actions!=null) {
+  if(action!=null) {
     var link = targetPage+"/"+item;
-    actionsText = actions.replace("{{pageName}}",targetPage).replace("{{fileName}}",item);
+    //actionsText = actions.replace("{{pageName}}",targetPage).replace("{{fileName}}",item);
+    actionsText = "&nbsp;&nbsp;&nbsp;&nbsp;<a class='button tiny round success' onClick='"+action+"( \""+link+"\" ); return false;'>Select</a>";
   }
   
   if(includePage===true)

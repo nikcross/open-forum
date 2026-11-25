@@ -1,10 +1,82 @@
-<h3>&title;</h3>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>lang</h3>
 
 <hr/>
 <h3>Child Pages</h3>
-
+<!--Extension ChildPagesList pageName="/OpenForum/Javascript/Alloy/alloy-editor/lang" --><ul><li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Alloy/alloy-editor/lang/alloy-editor"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Alloy/alloy-editor/lang/alloy-editor does not exist. Click to create it.">alloy-editor</a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum/Javascript/Alloy/alloy-editor/lang" -->
 
 <hr/>
 <h3>Attachments</h3>
-
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Extension AttachmentsList pageName="/OpenForum/Javascript/Alloy/alloy-editor/lang" matching=".*" --><ul><li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/eu.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/eu.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/page.content">/OpenForum/Javascript/Alloy/alloy-editor/lang/page.content</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/uk.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/uk.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/mn.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/mn.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/ko.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/ko.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/en-au.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/en-au.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/lv.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/lv.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/ug.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/ug.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/bg.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/bg.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/id.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/id.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/zh-cn.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/zh-cn.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/data.json">/OpenForum/Javascript/Alloy/alloy-editor/lang/data.json</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/th.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/th.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/it.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/it.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/page.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/page.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/fa.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/fa.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/fi.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/fi.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/sk.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/sk.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/en-ca.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/en-ca.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/bs.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/bs.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/pt-br.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/pt-br.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/ms.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/ms.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/hu.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/hu.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/pl.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/pl.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/ru.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/ru.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/gu.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/gu.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/mk.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/mk.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/pt.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/pt.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/et.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/et.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/ar.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/ar.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/tr.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/tr.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/gl.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/gl.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/cs.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/cs.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/fr-ca.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/fr-ca.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/el.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/el.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/sr.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/sr.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/sr-latn.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/sr-latn.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/he.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/he.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/af.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/af.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/bn.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/bn.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/hi.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/hi.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/sv.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/sv.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/hr.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/hr.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/km.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/km.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/ca.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/ca.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/nl.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/nl.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/lt.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/lt.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/vi.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/vi.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/es.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/es.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/eo.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/eo.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/sq.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/sq.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/ku.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/ku.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/no.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/no.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/page.html.fragment">/OpenForum/Javascript/Alloy/alloy-editor/lang/page.html.fragment</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/page.html">/OpenForum/Javascript/Alloy/alloy-editor/lang/page.html</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/fo.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/fo.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/ja.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/ja.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/ro.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/ro.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/si.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/si.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/cy.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/cy.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/en.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/en.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/zh.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/zh.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/tt.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/tt.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/is.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/is.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/ka.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/ka.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/da.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/da.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/nb.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/nb.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/sl.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/sl.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/de.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/de.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/fr.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/fr.js</a></li>
+<li> <a href="/OpenForum/Javascript/Alloy/alloy-editor/lang/en-gb.js">/OpenForum/Javascript/Alloy/alloy-editor/lang/en-gb.js</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/Javascript/Alloy/alloy-editor/lang" matching=".*" -->

@@ -8,7 +8,7 @@
 <p></p>
 
 <h3>Parameters</h3>
-<table><tr><td>Name</td><td>Description</td></tr>
+<tr><td>Name</td><td>Description</td></tr>
 <tr><td>tag (<i>required=false</i>)</td><td>{{parameter.description}}</td></tr>
 </table>
        
@@ -81,7 +81,7 @@
 
 <h3>Parameters</h3>
 <table><tr><td>Name</td><td>Description</td></tr>
-<tr><td>pageName (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<table><tr><td>pageName (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
 <tr><td>triggerFile (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
 </table>
        

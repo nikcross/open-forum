@@ -1,7 +1,25 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Checks if a page exists. Returns true or false
-----
-!!Parameters
-*pageName - The page to check for
+--8<--
+       
+((Checks if a page exists in the wiki))
+
+__Get parameters__
+* pageName = Page name to check
+
+__Get examples:__
+{{{
+// Simple URL
+/OpenForum/Actions/PageExists?pageName=/MyPage
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/PageExists', null, 'pageName=/MyPage')
+  .onSuccess(function(exists) {
+    console.log('Page exists:', exists);
+  }).go();
+}}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 ----
 !!Server Side Javascript for GET method

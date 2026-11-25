@@ -1,15 +1,25 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<div class="row">
-<h3>Banner v0.0.2</h3>
-<xmp class="panel" of-exclude="true"> <!--Extension Banner imageURL="" title="" text="" --><div style="background-repeat: no-repeat;
+
+<p>Creates a banner with image, title, and text</p>
+<b>Parameters</b>
+<ul><li> imageURL = URL of the banner image</li>
+<li> title = Banner title</li>
+<li> text = Banner text content</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Banner imageURL="/path/to/image.jpg" title="Welcome" text="Welcome to our site" --><div style="background-repeat: no-repeat;
   background-size: cover;
-  background-image: url();
+  background-image: url(/path/to/image.jpg);
   background-color: darkgreen;
   color: white;
   padding: 1em;">  
-	<h1 style="color: white !important;"></h1>
-	<p style="width: 40%"><b></b></p>
-</div><!--End Extension Banner imageURL="" title="" text="" --> </xmp>
+	<h1 style="color: white !important;">Welcome</h1>
+	<p style="width: 40%"><b>Welcome to our site</b></p>
+</div><!--End Extension Banner imageURL="/path/to/image.jpg" title="Welcome" text="Welcome to our site" -->
+</xmp>
+
+<div class="row">
+<h3>Banner v0.0.2</h3>
 <!--Extension Banner imageURL="" title="" text="" --><div style="background-repeat: no-repeat;
   background-size: cover;
   background-image: url();

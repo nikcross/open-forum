@@ -5,3 +5,11 @@ These icons are designed by Mark James at [http://www.famfamfam.com] and are lic
 \\\\
 
 [/OpenForum/Images/index_abc.png]
+
+----
+!!Extension Icon Input Field
+((To slow to use at the moment. Need to speed up loading all icons))
+{{{
+Example use:
+[{/OpenForum/Images/IconsIndex id="myIcon"}]
+}}}

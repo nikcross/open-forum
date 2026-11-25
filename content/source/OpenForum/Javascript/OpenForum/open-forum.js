@@ -1,6 +1,6 @@
 //==============================================================================================================//
-/* Version 1.17.5*/
-/* Built on Sun May 04 2025 11:57:09 GMT-0000 (GMT) */
+/* Version 1.17.21*/
+/* Built on Thu Jul 30 2026 09:23:43 GMT-0000 (GMT) */
 /* Built by OpenForum Javascript Builder.*/
 /* Do not edit as changes may be overwritten */
 //==============================================================================================================//
@@ -165,11 +165,11 @@ var OpenForum = new function(){
   self.interval = null;
 
   self.getVersion = function() {
-    return "1.17.5";
+    return "1.17.21";
   };
 
   self.getBuildDate = function() {
-    return "Sun May 04 2025 11:57:09 GMT-0000 (GMT)";
+    return "Thu Jul 30 2026 09:23:43 GMT-0000 (GMT)";
   };
 
   self.initDependencies = DependencyService.createNewDependency();
@@ -2533,9 +2533,9 @@ OpenForum.Browser.enableBrowserStorage = function() {
   }
 
   OpenForum.findBrowserFileTreeNode = function( pageName ) {
-    pageName = pageName.replace("browser:/","");
+    pageName = pageName.replace("browser://","");
 
-    var list = OpenForum.Storage.find("browserFS "+pageName+"*.");
+    var list = OpenForum.Storage.find(pageName+".*");
     var data = [];
 
     var found = {};
@@ -2569,7 +2569,7 @@ OpenForum.Browser.enableBrowserStorage = function() {
   OpenForum.remoteSave = OpenForum.saveFile;
   OpenForum.saveFile = function(fileName,data,callBack) {
     if(fileName.startsWith("browser://")) {
-      fileName = fileName.replace("browser:/","browserFS ");
+      fileName = fileName.replace("browser://","");
 
       OpenForum.Storage.set(fileName,data);
       if( isUndefined(OpenForum.inq) == false ) OpenForum.inq.send( { type: "browserFS", event: "fileChanged", fileName: fileName } );
@@ -2592,8 +2592,13 @@ OpenForum.Browser.enableBrowserStorage = function() {
 
   OpenForum.remoteDelete = OpenForum.deleteFile;
   OpenForum.deleteFile = function(pageName,fileName,callBack) {
-    if(fileName.startsWith("browser://")) {
-      fileName = fileName.replace("browser:/","browserFS ");
+    if(pageName.startsWith("browser://")) {
+      // fileName contains the actual path (pageName is just 'browser://')
+
+      console.log('[deleteFile] Deleting browser file:', fileName);
+
+      // Actually remove the item from storage
+      OpenForum.Storage.remove(fileName);
 
       OpenForum.findBrowserFileTreeNode( fileName, { deleted: true } );
 
@@ -2613,7 +2618,7 @@ OpenForum.Browser.enableBrowserStorage = function() {
   OpenForum.remoteLoad = OpenForum.loadFile;
   OpenForum.loadFile = function(fileName,callBack,noCache) {
     if(fileName.startsWith("browser://")) {
-      fileName = fileName.replace("browser:/","browserFS ");
+      fileName = fileName.replace("browser://","");
 
       var data = OpenForum.Storage.get(fileName);
 
@@ -2630,7 +2635,7 @@ OpenForum.Browser.enableBrowserStorage = function() {
   OpenForum.remoteAppend = OpenForum.appendFile;
   OpenForum.appendFile = function(fileName,data,callBack) {
     if(fileName.startsWith("browser://")) {
-      fileName = fileName.replace("browser:/","browserFS ");
+      fileName = fileName.replace("browser://","");
 
       var currentData = OpenForum.Storage.get(fileName);
 
@@ -2658,7 +2663,7 @@ OpenForum.Browser.enableBrowserStorage = function() {
   OpenForum.remoteCopy = OpenForum.copyFile;
   OpenForum.copyFile = function(fileName,toFileName,callBack) {
     if(fileName.startsWith("browser://")) {
-      fileName = fileName.replace("browser:/","browserFS ");
+      fileName = fileName.replace("browser://","");
 
       var data = OpenForum.Storage.get(fileName);
       OpenForum.saveFile(toFileName,data);
@@ -2677,7 +2682,7 @@ OpenForum.Browser.enableBrowserStorage = function() {
   OpenForum.remoteMove = OpenForum.moveFile;
   OpenForum.moveFile = function(fileName,toFileName,callBack) {
     if(fileName.startsWith("browser://")) {
-      fileName = fileName.replace("browser:/","browserFS ");
+      fileName = fileName.replace("browser://","");
 
       var data = OpenForum.Storage.get(fileName);
       OpenForum.saveFile(toFileName,data);
@@ -2697,7 +2702,7 @@ OpenForum.Browser.enableBrowserStorage = function() {
   OpenForum.remoteFileExists = OpenForum.fileExists;
   OpenForum.fileExists = function(fileName) {
     if(fileName.startsWith("browser://")) {
-      fileName = fileName.replace("browser:/","browserFS ");
+      fileName = fileName.replace("browser://","");
 
       return OpenForum.Storage.get(fileName) != null;
 
@@ -2709,9 +2714,13 @@ OpenForum.Browser.enableBrowserStorage = function() {
   OpenForum.remoteGetAttachments = OpenForum.getAttachments;
   OpenForum.getAttachments = function(pageName,callBack,matching,withMetaData) {
     if(pageName.startsWith("browser://")) {
-      pageName = pageName.replace("browser:/","browserFS ");
+      pageName = pageName.replace("browser://","");
 
-      var list = OpenForum.Storage.find(pageName+"*.");
+      console.log('[getAttachments] Original pageName:', pageName);
+
+      var list = OpenForum.Storage.find(".*");
+      console.log('[getAttachments] Total storage keys found:', list.length);
+
       var json = {
         attachments: [],
         length: 0,
@@ -2721,26 +2730,92 @@ OpenForum.Browser.enableBrowserStorage = function() {
         json.size = 0;
       }
 
-      for(var a in list) {
-        var fileName = list[a].key.substring( pageName.length+1 );
-        if(fileName.indexOf("/")!=-1) continue;
+      var prefix = pageName;
+      // Normalize prefix - remove leading slash for comparison
+      if(prefix && prefix.charAt(0) === '/') {
+        prefix = prefix.substring(1);
+      }
+      console.log('[getAttachments] Normalized prefix:', prefix);
+      var found = {};
 
+      for(var a in list) {
+        var key = list[a].key;
+
+        // Normalize key - remove leading slash
+        var normalizedKey = key;
+        if(normalizedKey.charAt(0) === '/') {
+          normalizedKey = normalizedKey.substring(1);
+        }
+
+        // Check if this key is within our path
+        var isInPath = false;
+        if(prefix === '') {
+          isInPath = true;
+        } else if(normalizedKey.indexOf(prefix + '/') === 0) {
+          isInPath = true;
+        }
+
+        if(!isInPath) continue;
+        console.log('[getAttachments] Matched key:', key, '-> normalized:', normalizedKey);
+
+        // Get the relative path
+        var relativePath = normalizedKey;
+        if(prefix) {
+          if(relativePath.indexOf(prefix + '/') === 0) {
+            relativePath = relativePath.substring(prefix.length + 1);
+          } else {
+            console.log('[getAttachments] Skipping - does not start with prefix + /');
+            continue;
+          }
+        }
+
+        console.log('[getAttachments] Before cleanup, relativePath:', relativePath);
+
+        // Clean up multiple slashes and leading slashes
+        relativePath = relativePath.replace(/\/+/g, '/');
+        while(relativePath.charAt(0) === '/') {
+          relativePath = relativePath.substring(1);
+        }
+
+        console.log('[getAttachments] After cleanup, relativePath:', relativePath);
+
+        if(!relativePath) continue;
+
+        // Skip if this is in a subfolder (we only want files at this level)
+        if(relativePath.indexOf('/') !== -1) {
+          // It's in a subfolder - mark folder with + prefix
+          var folderName = relativePath.substring(0, relativePath.indexOf('/'));
+          console.log('[getAttachments] Found subfolder:', folderName);
+          if(folderName && !found[folderName]) {
+            json.attachments.push({
+              fileName: '+' + folderName,
+              pageName: pageName
+            });
+            found[folderName] = true;
+          }
+          continue;
+        }
+
+        // It's a file at this level
+        console.log('[getAttachments] Found file at this level:', relativePath);
         var attachment = {
           pageName: pageName,
-          fileName: fileName
+          fileName: relativePath
         };
 
         if(withMetaData) {
-          attachment.size = list[a].value.length;
+          attachment.size = list[a].value ? list[a].value.length : 0;
           attachment.lastModified = 0;
-
           json.size += attachment.size;
+        } else {
+          attachment.size = list[a].value ? list[a].value.length : 0;
         }
 
         json.length ++;
-
         json.attachments.push( attachment );
       }
+
+      console.log('[getAttachments] Final result:', json);
 
       if(callBack) {
         callBack( json.attachments);
@@ -2755,19 +2830,73 @@ OpenForum.Browser.enableBrowserStorage = function() {
   OpenForum.remoteGetSubPages = OpenForum.getSubPages;
   OpenForum.getSubPages = function(pageName, callBack) {
     if(pageName.startsWith("browser://")) {
-      pageName = pageName.replace("browser:/","browserFS ");
+      pageName = pageName.replace("browser://","");
 
-      var list = OpenForum.Storage.find(pageName+"*.");
+      console.log('[getSubPages] Original pageName:', pageName);
+
+      var list = OpenForum.Storage.find(".*");
+      console.log('[getSubPages] Total storage keys found:', list.length);
+
       var json = [];
       var found = {};
+      var originalPrefix = pageName;
+      var prefix = pageName;
+      // Normalize prefix - remove leading slash for comparison
+      if(prefix && prefix.charAt(0) === '/') {
+        prefix = prefix.substring(1);
+      }
+      console.log('[getSubPages] Normalized prefix:', prefix, 'Original prefix:', originalPrefix);
 
       for(var a in list) {
-        var fileName = list[a].key.substring( pageName.length );
-        if(fileName.indexOf("/")!=-1) {
-          dataPageName = fileName.substring( 0, fileName.indexOf("/") );
-          if(typeof found[dataPageName] == "undefined") {
-            json.push(dataPageName);
-            found[dataPageName] = true;
+        var key = list[a].key;
+
+        // Normalize key - remove leading slash
+        var normalizedKey = key;
+        if(normalizedKey.charAt(0) === '/') {
+          normalizedKey = normalizedKey.substring(1);
+        }
+
+        // Check if this key is within our path
+        var isInPath = false;
+        if(prefix === '') {
+          isInPath = true;
+        } else if(normalizedKey.indexOf(prefix + '/') === 0) {
+          isInPath = true;
+        }
+
+        if(!isInPath) continue;
+
+        // Get the relative path
+        var relativePath = normalizedKey;
+        if(prefix) {
+          if(relativePath.indexOf(prefix + '/') === 0) {
+            relativePath = relativePath.substring(prefix.length + 1);
+          } else {
+            continue;
+          }
+        }
+
+        // Clean up multiple slashes and leading slashes
+        relativePath = relativePath.replace(/\/+/g, '/');
+        while(relativePath.charAt(0) === '/') {
+          relativePath = relativePath.substring(1);
+        }
+
+        if(!relativePath) continue;
+
+        // Check if this has a subfolder
+        if(relativePath.indexOf("/") !== -1) {
+          var folderName = relativePath.substring(0, relativePath.indexOf("/"));
+          if(folderName && typeof found[folderName] === "undefined") {
+            // Construct the full path for the subfolder preserving the original leading slash
+            var fullSubPath;
+            if(originalPrefix) {
+              fullSubPath = originalPrefix + (originalPrefix.endsWith('/') ? '' : '/') + folderName;
+            } else {
+              fullSubPath = '/' + folderName;
+            }
+            json.push(fullSubPath);
+            found[folderName] = true;
           }
         }
       }
@@ -2788,7 +2917,7 @@ OpenForum.Browser.enableBrowserStorage = function() {
 
       var tree = new Tree(id,"Loading...","",modifier);
 
-      var fsJson = OpenForum.findBrowserFileTreeNode( root.replace("browser:/","") );
+      var fsJson = OpenForum.findBrowserFileTreeNode( root.replace("browser://","") );
       //Copy
       //https://open-forum.onestonesoup.org/OpenForum/Javascript/Tree?action=getPageTree&pageName=/TheLab/Experiments/BrowserFileStorage
 
@@ -3506,12 +3635,12 @@ OpenForum.Table.sort = function(tableData,fieldName,ascending) {
 
 OpenForum.Table.hideRow = function(table,row) {
   var nodes = table.querySelectorAll('tbody tr:nth-child(' + row + ')');
-  nodes.item(0).style.display = "none";
+  if(nodes && nodes.length>0) nodes.item(0).style.display = "none";
 };
 
 OpenForum.Table.showRow = function(table,row) {
   var nodes = table.querySelectorAll('tbody tr:nth-child(' + row + ')');
-  nodes.item(0).style.display = "";
+  if(nodes && nodes.length>0) nodes.item(0).style.display = "";
 };
 
 OpenForum.Table.renderTable = function(tableName,tableData) {
@@ -3575,11 +3704,19 @@ OpenForum.Storage.set = function(key,value) {
   }
 };
 
+OpenForum.Storage.remove = function(key) {
+  try{
+    localStorage.removeItem(key);
+  } catch(e) {
+    console.log(e);
+  }
+};
+
 OpenForum.Storage.find = function(regex) {
   try{
     var found = [];
     for(var i in localStorage) {
-      if( i.match(regex)) {
+      if(localStorage.hasOwnProperty(i) && i.match(regex)) {
         found.push( {key: i, value: localStorage[i]} );
       }
     }
@@ -3811,155 +3948,176 @@ var OFX = {
 /* Source: /OpenForum/Javascript/Core/open-forum-intraq.js*/
 //==============================================================================================================//
 /*
-* Author: 
-* Description: 
-*/
-if(typeof OpenForum == "undefined") {
+ * Modernized OpenForum IntraQueue (IntraQ) and InQ
+ * using BroadcastChannel for instant same-origin messaging.
+ * Backwards-compatible with previous OpenForum APIs.
+ * Author: Nik Cross (updated version)
+ */
+
+if (typeof OpenForum === "undefined") {
   OpenForum = {};
 }
 
-OpenForum.IntraQ = function( queueName, types ) {
-  var self = this;
-  var tabId = "Tab:" + new Date().getTime() + ":" + Math.random();
-  var lastChecked = 0;
-  var listeners = [];
-  if( typeof types == "undefined" ) {
-    types = [];
-  }
+/* -------------------- IntraQ -------------------- */
+OpenForum.IntraQ = function (queueName, types) {
+  const self = this;
+  const tabId = "Tab:" + Date.now() + ":" + Math.random().toString(36).slice(2);
+  const channel = typeof BroadcastChannel !== "undefined" ? new BroadcastChannel(queueName) : null;
+  const listeners = [];
+  types = types || [];
 
-  self.registerAsType = function( type ) {
-    types.push( type );
+  self.registerAsType = function (type) {
+    if (!types.includes(type)) types.push(type);
   };
 
-  self.addListener = function(listener) {
-    listeners.push( listener );
+  self.addListener = function (listener) {
+    listeners.push(listener);
   };
 
-  var checkForMessages = function() {
-    var queue = JSON.parse( OpenForum.Storage.get("IntraQ."+queueName) );
-    var now = new Date().getTime();
-    var newQ = [];
-    for(var i in queue) {
-      var packet = queue[i];
-      if(packet.ts>lastChecked && packet.id != tabId) {
-        var typeMatch = false;
-        if(packet.data.types) {
-          for(var t in types) {
-            packet.data.types.includes( types[t] );
-            typeMatch = true;
-            break;
-          }
-        } else {
-          typeMatch = true;
-        }
-        if( typeMatch == true ) {
-          for(var l in listeners) {
-            listeners[l](packet.data);
-          }
-        }
-      }
-      if(now-packet.ts<5000) { //Messages that are older than 5 seconds are not included
-        newQ.push(packet);
-      }
-    }
-    lastChecked = now;
-
-    var owner = JSON.parse( OpenForum.Storage.get("IntraQ."+queueName+".owner") );
-    if(owner==null) {
-      owner = {id: tabId, ts: now};
-    }
-    if(owner.id == tabId) {
-      owner.ts = now;
-      OpenForum.Storage.set("IntraQ."+queueName+".owner", JSON.stringify(owner) );
-      OpenForum.Storage.set("IntraQ."+queueName, JSON.stringify(newQ) ); //Retire messages that are not new
-    } else if(now-owner.ts>5000) {
-      owner.id = tabId; // Take ownership if queue owner has gone
-      owner.ts = now;
-      OpenForum.Storage.set("IntraQ."+queueName+".owner", JSON.stringify(owner) );
-    }
-    setTimeout( checkForMessages, 500 );
-  };
-
-  self.getTabId = function() {
+  self.getTabId = function () {
     return tabId;
   };
 
-  self.send = function( data ) {
-    var queue = JSON.parse( OpenForum.Storage.get("IntraQ."+queueName) );
-    if(queue==null) queue = [];
-    queue.push( {data: data, ts: new Date().getTime(), id: tabId} );
-    OpenForum.Storage.set("IntraQ."+queueName, JSON.stringify(queue));
+  self.send = function (data) {
+    const packet = { data, id: tabId, ts: Date.now(), types: data.types || types };
+    if (channel) {
+      channel.postMessage(packet);
+    } else {
+      // Fallback: use localStorage if BroadcastChannel not supported
+      const key = "IntraQ." + queueName;
+      const queue = JSON.parse(localStorage.getItem(key) || "[]");
+      queue.push(packet);
+      localStorage.setItem(key, JSON.stringify(queue));
+    }
   };
 
-  self.send( { action: "joined", tabId: tabId, types: types } );
+  if (channel) {
+    channel.onmessage = function (event) {
+      const packet = event.data;
+      if (!packet || packet.id === tabId) return;
 
-  checkForMessages();
+      // Check type match
+      let typeMatch = false;
+      if (!packet.types || packet.types.length === 0) {
+        typeMatch = true;
+      } else {
+        for (const t of types) {
+          if (packet.types.includes(t)) {
+            typeMatch = true;
+            break;
+          }
+        }
+      }
+
+      if (typeMatch) {
+        for (const listener of listeners) {
+          try {
+            listener(packet.data);
+          } catch (e) {
+            console.error("IntraQ listener error:", e);
+          }
+        }
+      }
+    };
+  }
+
+  // Announce join
+  self.send({ action: "joined", tabId, types });
+
+  // Graceful shutdown
+  window.addEventListener("beforeunload", () => {
+    self.send({ action: "left", tabId });
+    if (channel) channel.close();
+  });
 };
 
-OpenForum.InQ = function() {
-  var self = this;
-  var inq = new OpenForum.IntraQ( "inq" );
+/* -------------------- InQ (High-level bus) -------------------- */
+OpenForum.InQ = function () {
+  const self = this;
+  const inq = new OpenForum.IntraQ("inq");
+  const listeners = [];
+  let ignoreNext = null;
 
-  //TODO Needs to handle lots of different objects and values
-  //Only ignore those that have just been set to stop a loop back condition
-  var ignore = null;
-  var listeners = [];
+  // Internal handler
+  inq.addListener(function (data) {
+    if (!data || data.tabId === inq.getTabId()) return;
 
-  inq.addListener( function( data) {
-    if(data.action && data.action=="run") {
-      OpenForum.evaluate( data.script );
-    } else if(data.action && data.action=="set") {
-      ignore = data.name;
-      OpenForum.evaluate( data.name + " = " + JSON.stringify( data.value ) );
-    } else if(data.action && data.action=="message") {
-      inq.notifyListeners( data.message );
+    switch (data.action) {
+      case "run":
+        try {
+          OpenForum.evaluate(data.script);
+        } catch (e) {
+          console.error("InQ run error:", e);
+        }
+        break;
+
+      case "set":
+        ignoreNext = data.name;
+        try {
+          OpenForum.evaluate(data.name + " = " + JSON.stringify(data.value));
+        } catch (e) {
+          console.error("InQ set error:", e);
+        }
+        break;
+
+      case "message":
+        notifyListeners(data.message);
+        break;
     }
   });
 
-  inq.notifyListeners = function(message) {
-    for( var l in listeners ) {
-      var listener = listeners[l];
-      if( listener.type == "*" || listener.type == message.type ) {
-        listener.fn( message );
-      }
-    }
-  };
-  
-  self.addMessageListener = function( listener, type ) {
-    listeners.push( {fn: listener, type: type} );
-  };
-  
-  self.send = function(message) {
-    inq.send( { action: "message",tabId: inq.getTabId(),"message": message } );
-  };
-  
-  self.run = function( script ) {
-    inq.send( { action: "run",tabId: inq.getTabId(),"script": script } );
+  // Broadcast a message
+  self.send = function (message) {
+    inq.send({ action: "message", tabId: inq.getTabId(), message });
   };
 
-  self.share = function( name) {
-    OpenForum.getObject( name ).addListener(
-      function( obj ) {
-        if( ignore != obj.getId() ) {
-          inq.send( { action: "set",tabId: inq.getTabId(),"name": obj.getId(), "value": obj.getValue() } );
-        } else {
-          ignore = null;
+  // Run code in all connected tabs
+  self.run = function (script) {
+    inq.send({ action: "run", tabId: inq.getTabId(), script });
+  };
+
+  // Share a bound OpenForum variable across tabs
+  self.share = function (name) {
+    OpenForum.getObject(name).addListener(function (obj) {
+      if (ignoreNext !== obj.getId()) {
+        inq.send({
+          action: "set",
+          tabId: inq.getTabId(),
+          name: obj.getId(),
+          value: obj.getValue(),
+        });
+      } else {
+        ignoreNext = null;
+      }
+    });
+  };
+
+  // Add listener for typed messages
+  self.addMessageListener = function (listener, type = "*") {
+    listeners.push({ fn: listener, type });
+  };
+
+  // Notify all matching listeners
+  function notifyListeners(message) {
+    for (const listener of listeners) {
+      if (listener.type === "*" || listener.type === message.type) {
+        try {
+          listener.fn(message);
+        } catch (e) {
+          console.error("InQ message listener error:", e);
         }
       }
-    );
-  };
+    }
+  }
 };
 
-OpenForum.addInitialiser( function() {
-  //inq default. Add ?inq=false to stop
-  if( OpenForum.getParameter("inq")=="false" == false ) {
-
+/* -------------------- Auto-enable InQ -------------------- */
+OpenForum.addInitialiser(function () {
+  if (OpenForum.getParameter("inq") == "false" == false) {
     OpenForum.inq = new OpenForum.InQ();
+    console.log("OpenForum.InQ initialized (BroadcastChannel mode)");
   }
 });
-
-
-
 /* End of: /OpenForum/Javascript/Core/open-forum-intraq.js*/
 
 //==============================================================================================================//
@@ -4335,36 +4493,51 @@ OpenForum.Input.fromDateTimeField = function ( value ) {
 //==============================================================================================================//
 /* Source: /OpenForum/Javascript/Core/open-forum-endless-scroll.js*/
 //==============================================================================================================//
-OpenForum.addEndlessScroll = function( getNewData, elementId ) {
-  
-  var count = 0;
-  while(count<10) {
-    var scrollSpaceBelowView = (document.body.scrollHeight - window.scrollY)-document.body.clientHeight;
+OpenForum.addEndlessScroll = function( getNewData, elementId, targetElementId ) {
+  var loading = false;
+  var finished = false;
 
-    if( scrollSpaceBelowView < (document.body.clientHeight/2)) {
-      var newData = getNewData();
-      if( newData==null || newData=="" ) break;
-      OpenForum.appendToElement(elementId, newData);
-    } else {
-      break;
+  var tryLoadMore = function() {
+    if(loading || finished) return;
+    loading = true;
+
+    try {
+      var safety = 0;
+      while(safety < 100) {
+        var scrollSpaceBelowView = (document.body.scrollHeight - window.scrollY) - document.body.clientHeight;
+        if( scrollSpaceBelowView >= document.body.clientHeight ) {
+          break;
+        }
+
+        var newData = getNewData(elementId);
+        if( newData == null || newData == "" ) {
+          finished = true;
+          break;
+        }
+
+        OpenForum.appendToElement(elementId, newData);
+        safety++;
+      }
+    } finally {
+      loading = false;
     }
-    count ++;
+  };
+
+  tryLoadMore();
+  
+  var target = document;
+  if( isUndefined( targetElementId ) == false ) {
+    target = document.getElementById( targetElementId );
   }
   
-  document.addEventListener("scroll", (event) => {
-
-    //document.body.scrollHeight = the total height of the current document
-    //window.scrollY = the top of the screen scrolling position
-    //document.body.clientHeight = visible height
-
-    var scrollSpaceBelowView = (document.body.scrollHeight - window.scrollY)-document.body.clientHeight;
-
-    if( scrollSpaceBelowView < document.body.clientHeight) {
-      var newData = getNewData();
-      OpenForum.appendToElement(elementId, newData);
+  target.addEventListener("scroll", (event) => {
+    var scrollSpaceBelowView = (document.body.scrollHeight - window.scrollY) - document.body.clientHeight;
+    if(scrollSpaceBelowView < document.body.clientHeight) {
+      tryLoadMore();
     }
   });
 };
+
 /* End of: /OpenForum/Javascript/Core/open-forum-endless-scroll.js*/
 
 //==============================================================================================================//

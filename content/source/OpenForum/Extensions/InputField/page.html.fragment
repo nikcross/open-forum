@@ -1,13 +1,21 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-Inserts a form input field.
+
+<p>Inserts a form input field</p>
+<b>Parameters</b>
+<ul><li> name = Field name</li>
+<li> value = Optional default value</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension InputField name="myField" --><input type='text' name='myField' id='myFieldField' of-id='myField' value='{{myField}}'  /><!--End Extension InputField name="myField" -->
+</xmp>
+
+<!--Extension InputField name="myField" --><input type='text' name='myField' id='myFieldField' of-id='myField' value='{{myField}}'  /><!--End Extension InputField name="myField" -->
+
 <hr/>
-<h3>Parameters</h3>
-name - the field name
-value - optional value
-<hr/>
-<h3>Usage:</h3>
-<xmp class="panel" of-exclude="true"><!--Extension InputField name="myField" --><input type='text' name='myField' id='myFieldField' of-id='myField' value='{{myField}}'  /><!--End Extension InputField name="myField" --></xmp>
-<a href="/OpenForum/Extensions/InputField/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a><!--Extension InputField name="myField" --><input type='text' name='myField' id='myFieldField' of-id='myField' value='{{myField}}'  /><!--End Extension InputField name="myField" -->
+<h3>Usage:</h3>
+<xmp class="panel" of-exclude="true">
+<!--Extension InputField name="myField" --><input type='text' name='myField' id='myFieldField' of-id='myField' value='{{myField}}'  /><!--End Extension InputField name="myField" -->
+</xmp>
 
 <hr/>
 

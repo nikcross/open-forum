@@ -1,6 +1,10 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<h3>Form</h3>
 
+<p>Creates a data-entry form with various field types</p>
+<b>Parameters</b>
+<ul><li> name = Form name identifier</li>
+<li> data = Field definitions with format "Label name" or "Type: Label name"</li>
+</ul>
 <xmp class="panel" of-exclude="true">
 <!--Extension Form name="myForm" data="
 Name name
@@ -52,6 +56,8 @@ Checkbox: Has Pet hasPet
 Table: todo Task task, Description description
 " -->
 </xmp>
+
+<h3>Form</h3>
 
 <!--Extension Form name="myForm" data="
 Name name
@@ -132,6 +138,9 @@ View: Area area</textarea></div><div class='columns large-2'><a href='#' title='
 
 <b>Text:</b>
 <p>This will provide a text box for multiline input</p>
+
+<b>Wysiwyg:</b>
+<p>This will provide a text box for styled text</p>
 
 <b>Checkbox:</b>
 <p>This will provide a checkbox that will have a value of true or false depending on whether it is checked</p>

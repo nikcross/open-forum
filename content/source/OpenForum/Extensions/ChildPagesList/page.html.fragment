@@ -1,8 +1,8 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-Creates a bulleted list of child pages
 
+<p>Creates a bulleted list of child pages</p>
 <b>Parameters</b>
-<ul><li>pageName - The page to list (optional. default = current page)</li>
+<ul><li> pageName = The page to list children of (optional, default = current page)</li>
 </ul>
 <xmp class="panel" of-exclude="true">
 <!--Extension ChildPagesList pageName="/OpenForum" --><ul><li> <a href="/OpenForum/About">About</a></li>
@@ -11,8 +11,10 @@ Creates a bulleted list of child pages
 <li> <a href="/OpenForum/AddOn">AddOn</a></li>
 <li> <a href="/OpenForum/Authentication">Authentication</a></li>
 <li> <a href="/OpenForum/Authorization">Authorization</a></li>
+<li> <a href="/OpenForum/CapabilityMap">CapabilityMap</a></li>
 <li> <a href="/OpenForum/Configuration">Configuration</a></li>
 <li> <a href="/OpenForum/DeletedPages">DeletedPages</a></li>
+<li> <a href="/OpenForum/Documentation">Documentation</a></li>
 <li> <a href="/OpenForum/Editor">Editor</a></li>
 <li> <a href="/OpenForum/ErrorPages">ErrorPages</a></li>
 <li> <a href="/OpenForum/Extensions">Extensions</a></li>
@@ -43,17 +45,18 @@ Creates a bulleted list of child pages
 <li> <a href="/OpenForum/Triggers">Triggers</a></li>
 <li> <a href="/OpenForum/Users">Users</a></li>
 </ul><!--End Extension ChildPagesList pageName="/OpenForum" -->
-       or
-<!--Extension ChildPagesList --><!--End Extension ChildPagesList -->
 </xmp>
+
 <!--Extension ChildPagesList pageName="/OpenForum" --><ul><li> <a href="/OpenForum/About">About</a></li>
 <li> <a href="/OpenForum/Access">Access</a></li>
 <li> <a href="/OpenForum/Actions">Actions</a></li>
 <li> <a href="/OpenForum/AddOn">AddOn</a></li>
 <li> <a href="/OpenForum/Authentication">Authentication</a></li>
 <li> <a href="/OpenForum/Authorization">Authorization</a></li>
+<li> <a href="/OpenForum/CapabilityMap">CapabilityMap</a></li>
 <li> <a href="/OpenForum/Configuration">Configuration</a></li>
 <li> <a href="/OpenForum/DeletedPages">DeletedPages</a></li>
+<li> <a href="/OpenForum/Documentation">Documentation</a></li>
 <li> <a href="/OpenForum/Editor">Editor</a></li>
 <li> <a href="/OpenForum/ErrorPages">ErrorPages</a></li>
 <li> <a href="/OpenForum/Extensions">Extensions</a></li>

@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/About/Credits",
-    "title": " Credits"
+    "pageName": "/OpenForum/About/Credits",
+    "title": "Credits",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

@@ -1,16 +1,29 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  -Description-
-<hr/>
-<h3>Parameters</h3>
-<hr/>
-<h3>Usage:</h3>
+       
+<p>Refreshes the JAR manager to reload Java libraries</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Any page name (required but not used)</li>
+</ul>
+<b>Get examples:</b>
 <xmp class="panel" of-exclude="true">
+// Simple URL
 /OpenForum/Actions/RefreshJarManager?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/RefreshJarManager', null, 'pageName=dummy')
+  .onSuccess(function(result) {
+    console.log('JAR manager refreshed:', result);
+  }).go();
 </xmp>
-<a href="/OpenForum/Actions/RefreshJarManager/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a><a href="/OpenForum/Actions/RefreshJarManager?pageName=dummy">/OpenForum/Actions/RefreshJarManager?pageName=dummy</a>
+
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
+
+<a href="/OpenForum/Actions/RefreshJarManager?pageName=dummy">/OpenForum/Actions/RefreshJarManager?pageName=dummy</a>
 
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel" of-exclude="true"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);

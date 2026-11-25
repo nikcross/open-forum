@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/About/License",
-    "title": " License"
+    "pageName": "/OpenForum/About/License",
+    "title": "License",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

@@ -1,16 +1,20 @@
-!!&title;
+--8<--
+
+((Creates an editable data table))
+__Parameters__
+* name = Name of the table
+* actions = Comma-separated list of actions (add, edit, move, remove)
+* data = Column definitions with format "Label columnName type"
 
 {{{
 [{Table name="myTable" actions="add,edit,move,remove" data="
 Site site
 Link url link
 "}]
-
-[{Table name="myTable" data="
-Site site
-Open openLink action
-"}]
 }}}
+-->8--
+
+!!&title;
 
 [{Table name="myTable" actions="add,edit,move,remove" data="
 Site site

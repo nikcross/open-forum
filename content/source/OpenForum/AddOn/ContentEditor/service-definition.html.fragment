@@ -51,7 +51,7 @@
 
 <h3>Parameters</h3>
 <table><tr><td>Name</td><td>Description</td></tr>
-<tr><td>targetPageName (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
+<table><tr><td>targetPageName (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
 </table>
        
 <h3>Example Get Request</h3>

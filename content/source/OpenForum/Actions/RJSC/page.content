@@ -1,12 +1,27 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Remote Javascript Call
-----
-!!Parameters
-*code
-----
-!!Usage:
+--8<--
+       
+((Remote JavaScript Call - executes server-side JavaScript code))
+
+__Get parameters__
+* code = JavaScript code to execute on the server
+* queueName = Optional queue name for output messages
+
+__Get examples:__
 {{{
-[/OpenForum/Actions/RJSC?code=transaction.getParameter("code");]
+// Simple URL
+/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/RJSC', null, 'code=wiki.getDateTimeStamp();')
+  .onSuccess(function(result) {
+    console.log('Result:', result);
+  }).go();
 }}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Remote Javascript Call
+
 [/OpenForum/Actions/RJSC?code=wiki.getDateTimeStamp();]
 
 ----

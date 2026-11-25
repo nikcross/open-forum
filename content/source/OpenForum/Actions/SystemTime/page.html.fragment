@@ -1,4 +1,23 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+       
+<p>Returns the current system time in milliseconds</p>
+
+<b>Get parameters</b>
+<ul><li> action = "getTime"</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/SystemTime?action=getTime
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/SystemTime', 'getTime', <i></i>
+  .onSuccess(function(result) {
+    console.log('System time:', result.time);
+  }).go();
+</xmp>
+
+
 <h3>SystemTime</h3>
 
 <a href="/OpenForum/Actions/SystemTime?action=getTime">/OpenForum/Actions/SystemTime?action=getTime</a>

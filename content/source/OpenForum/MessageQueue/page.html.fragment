@@ -1,10 +1,11 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <br/>
 <div class="row">
   <div class="large-2 columns">
     Queue Name:
   </div>
   <div class="large-6 columns">
-    <input type="text" of-id="queueName" id="queueName" size="50"/>
+    <input type="text" of-id="queueName" size="50"/>
   </div>
   <div class="large-2 columns">
     <a href="#" class="button tiny radius" onClick="startWatchingQueue();">Start Watching</a>
@@ -16,5 +17,3 @@
 <div class="row panel radius">
   <div id="queueData"></div>
 </div>
-
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->

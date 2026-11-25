@@ -1,2 +1,3 @@
-<script src="/OpenForum/Javascript/QRCode/qr-code.js"></script>
-Code: <div id="QRCode"></div>
+!!Moved to [/Development/OpenForum/AddOn/QRCode/Generator]
+
+Code: <div id="MyQRCode"></div>

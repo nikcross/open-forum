@@ -1,8 +1,27 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Returns a Page as an array of list entries
-----
-!!Get Parameters
-*pageName - Page to read as a list
-*varName - Name of Javascript array to return
+--8<--
+       
+((Returns a page as a JavaScript array of list entries))
+
+__Get parameters__
+* pageName = Page to read as a list
+* varName = Name of JavaScript array variable to return
+
+__Get examples:__
+{{{
+// Simple URL
+/OpenForum/Actions/GetPageAsList?pageName=/MyPage&varName=myList
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/GetPageAsList', null, 'pageName=/MyPage&varName=myList')
+  .onSuccess(function(jsArray) {
+    console.log('Array:', jsArray);
+    eval(jsArray); // Creates myList variable
+  }).go();
+}}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 ----
 !!Server Side Javascript for GET method

@@ -1,17 +1,28 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Returns the inherited path of at file
-<hr/>
-<h3>Parameters</h3>
-<ul><li>pageName - the name of the page to start at</li>
-<li>fileName - the name of the file to get the inherited path for</li>
-<hr/>
-<h3>Usage:</h3>
+       
+<p>Returns the inherited path of a file, searching up the page hierarchy</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to start searching from</li>
+<li> fileName = Name of the file to find the inherited path for</li>
+</ul>
+<b>Get examples:</b>
 <xmp class="panel" of-exclude="true">
-/OpenForum/Actions/GetInheritedFilePath?pageName=PageName&fileName=FileName
+// Simple URL
+/OpenForum/Actions/GetInheritedFilePath?pageName=/MyPage&fileName=page.js
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/GetInheritedFilePath', null, 'pageName=/MyPage&fileName=page.js')
+  .onSuccess(function(path) {
+    console.log('Inherited path:', path);
+  }).go();
 </xmp>
 
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
+
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel" of-exclude="true"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
@@ -26,4 +37,4 @@ else
   }
 
   transaction.sendPage( path );
-} </xmp></ul>
+} </xmp>

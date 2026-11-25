@@ -1,12 +1,21 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+
+<p>Lists attachments for a page with optional filtering</p>
+<b>Parameters</b>
+<ul><li> targetPage = Page name to list attachments from (blank for current page)</li>
+<li> matching = Filter pattern (e.g., ".txt" for text files)</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension AttachmentsList targetPage="" matching=".txt" --><ul><li> <a href="/OpenForum/Extensions/AttachmentsList/notes.txt">/OpenForum/Extensions/AttachmentsList/notes.txt</a></li>
+<li> <a href="/OpenForum/Extensions/AttachmentsList/example.txt">/OpenForum/Extensions/AttachmentsList/example.txt</a></li>
+</ul><!--End Extension AttachmentsList targetPage="" matching=".txt" -->
+</xmp>
+
 <div class="row">
 <h3>AttachmentsList v0.0.1</h3>
-<xmp class="panel" of-exclude="true"> <!--Extension AttachmentsList targetPage="" matching=".txt" actions="" --><ul><li> <a href="/OpenForum/Extensions/AttachmentsList/notes.txt">/OpenForum/Extensions/AttachmentsList/notes.txt</a></li>
+<!--Extension AttachmentsList targetPage="" matching=".txt" --><ul><li> <a href="/OpenForum/Extensions/AttachmentsList/notes.txt">/OpenForum/Extensions/AttachmentsList/notes.txt</a></li>
 <li> <a href="/OpenForum/Extensions/AttachmentsList/example.txt">/OpenForum/Extensions/AttachmentsList/example.txt</a></li>
-</ul><!--End Extension AttachmentsList targetPage="" matching=".txt" actions="" --> </xmp>
-<!--Extension AttachmentsList targetPage="" matching=".txt" actions="" --><ul><li> <a href="/OpenForum/Extensions/AttachmentsList/notes.txt">/OpenForum/Extensions/AttachmentsList/notes.txt</a></li>
-<li> <a href="/OpenForum/Extensions/AttachmentsList/example.txt">/OpenForum/Extensions/AttachmentsList/example.txt</a></li>
-</ul><!--End Extension AttachmentsList targetPage="" matching=".txt" actions="" -->
+</ul><!--End Extension AttachmentsList targetPage="" matching=".txt" -->
 <br/><br/>
 <!--Extension ActionButton text="Add AttachmentsList Block type to Content Editor" action="addToContentEditor" --><a  class='button radius tiny' href='#' onclick='addToContentEditor(); return false;'>Add AttachmentsList Block type to Content Editor</a> <!--End Extension ActionButton text="Add AttachmentsList Block type to Content Editor" action="addToContentEditor" -->
 </div>

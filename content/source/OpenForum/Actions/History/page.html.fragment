@@ -1,4 +1,25 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+       
+<p>Get history of file changes for a page</p>
+
+<b>Get parameters</b>
+<ul><li> action = "list"</li>
+<li> pageName = Page to get history for</li>
+<li> fileName = Optional specific file to get history for</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL - get all page history
+/OpenForum/Actions/History?action=list&pageName=/MyPage
+
+// Using JSON.get - get specific file history
+JSON.get('/OpenForum/Actions/History', 'list', 'pageName=/MyPage&fileName=page.js')
+  .onSuccess(function(result) {
+    console.log('History:', result.data);
+  }).go();
+</xmp>
+
+
 <h3>History for {{pageName}}</h3>
 
 <h3>Page History</h3>

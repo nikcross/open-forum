@@ -1,16 +1,21 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-A button that checks you are not a robot
-<hr/>
-<h3>Parameters</h3>
+
+<p>A button that checks you are not a robot using reCAPTCHA</p>
+<b>Parameters</b>
 <ul><li> action = Button javascript function name</li>
 <li> text = Button text</li>
 </ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" --><b>Missing configuration value for recaptcha-key</b><!--End Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" -->
+</xmp>
+
+<!--Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" --><b>Missing configuration value for recaptcha-key</b><!--End Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" -->
+
 <hr/>
 <h3>Usage:</h3>
 <xmp class="panel" of-exclude="true">
-<!--Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" --><script src="https://www.google.com/recaptcha/api.js"></script><button  class="g-recaptcha button"  data-sitekey="6LdxaaofAAAAAOhD2TZLh5yedBGjixR3NeWVKnQM"  data-callback="alertMe">Am I A Robot ?</button><!--End Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" -->
+<!--Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" --><b>Missing configuration value for recaptcha-key</b><!--End Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" -->
 </xmp>
-<!--Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" --><script src="https://www.google.com/recaptcha/api.js"></script><button  class="g-recaptcha button"  data-sitekey="6LdxaaofAAAAAOhD2TZLh5yedBGjixR3NeWVKnQM"  data-callback="alertMe">Am I A Robot ?</button><!--End Extension RecaptchaButton action="alertMe" text="Am I A Robot ?" -->
 
 <hr/>
 

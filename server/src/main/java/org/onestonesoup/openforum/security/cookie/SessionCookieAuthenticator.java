@@ -84,7 +84,7 @@ public class SessionCookieAuthenticator implements Authenticator {
 	private void sendJSONResponse(EntityTree httpHeader, ClientConnectionInterface connection, String data, String sessionId) throws IOException {
 		HttpResponseHeader responseHeader = new HttpResponseHeader(httpHeader, "application/json", 200, connection);
 		if(sessionId != null) {
-			responseHeader.addParameter("Set-Cookie", "openForumSession=" + sessionId + "; Path=/");
+			responseHeader.addParameter("Set-Cookie", buildSessionCookie(sessionId));
 		}
 
 		long modified = System.currentTimeMillis();
@@ -131,7 +131,7 @@ public class SessionCookieAuthenticator implements Authenticator {
 					this.sendJSONResponse(httpHeader, connection, "{result:\"ok\"}", login.getSessionId());
 				} else {
 					responseHeader = new HttpResponseHeader(httpHeader, "text/html", 302, connection);
-					responseHeader.addParameter("Set-Cookie", "openForumSession=" + login.getSessionId() + "; Path=/");
+					responseHeader.addParameter("Set-Cookie", buildSessionCookie(login.getSessionId()));
 					responseHeader.addParameter("location", "/OpenForum/Access/SignedIn?message=Signed in as " + userId);
 				}
 
@@ -141,7 +141,6 @@ public class SessionCookieAuthenticator implements Authenticator {
 					this.sendJSONResponse(httpHeader, connection, "{result:\"error\"}", login.getSessionId());
 				} else {
 					responseHeader = new HttpResponseHeader(httpHeader, "text/html", 302, connection);
-					responseHeader.addParameter("Set-Cookie", "openForumSession=" + login.getSessionId() + "; Path=/");
 					responseHeader.addParameter("location", "/OpenForum/Access/SignIn?message=Sign in failed for " + userId);
 				}
 
@@ -152,6 +151,10 @@ public class SessionCookieAuthenticator implements Authenticator {
 		} catch (Throwable var12) {
 			throw new IOException(var12);
 		}
+	}
+
+	private String buildSessionCookie(String sessionId) {
+		return "openForumSession=" + sessionId + "; Path=/; Max-Age=" + SessionStore.getTimeoutSeconds() + "; SameSite=Lax; HttpOnly";
 	}
 
 	private String getSessionId(HttpHeader httpHeader) {

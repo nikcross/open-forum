@@ -1,4 +1,14 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+
+<p>Deprecated - Use <a href="/OpenForum/Extensions/ActionButton">/OpenForum/Extensions/ActionButton</a> instead</p>
+<b>Parameters</b>
+<ul><li> title = Button text</li>
+<li> function = JavaScript function to call</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Button title="Do Action" function="doAction" --><a class="button tiny" onClick="doAction(); return false;">Do Action</a><!--End Extension Button title="Do Action" function="doAction" -->
+</xmp>
+
 <h3>Deprecated - Use <a href="/OpenForum/Extensions/ActionButton">/OpenForum/Extensions/ActionButton</a></h3>
 
 <h3>Example</h3>

@@ -11,7 +11,7 @@
     [{Button title="Get Update Info" function="getUpdateInfo"}]
     [{Button title="Get Update" function="getUpdate"}]
   </div>
-  <div class="row">
+  <div class="row"> 
 * Page Name: {{release.pagename}}
 * Version: {{release.version}}
 * Released: {{release.releaseTime}}

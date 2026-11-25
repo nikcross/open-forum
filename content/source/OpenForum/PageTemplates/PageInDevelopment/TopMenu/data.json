@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/PageTemplates/PageInDevelopment/TopMenu",
-    "title": " Top Menu"
+    "pageName": "/OpenForum/PageTemplates/PageInDevelopment/TopMenu",
+    "title": "TopMenu",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

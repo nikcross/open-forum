@@ -1,13 +1,21 @@
-Creates a content page for child pages
-----
-!!Parameters
-*pageName - The page to list children of (optional. default = current page)
+--8<--
+
+((Creates a content page showing the contents section from each child page))
+__Parameters__
+* pageName = The page to list children of (optional, default = current page)
+
+{{{
+[{ChildrenContentsPage pageName="/OpenForum"}]
+}}}
+-->8--
+
+[{ChildrenContentsPage pageName="/OpenForum"}]
+
 ----
 !!Usage:
 {{{
 [{ChildrenContentsPage pageName="/OpenForum"}]
 }}}
-[{ChildrenContentsPage pageName="/OpenForum"}]
 
 ----
 !!renderer.sjs

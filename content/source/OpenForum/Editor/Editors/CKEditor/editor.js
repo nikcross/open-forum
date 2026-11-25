@@ -15,9 +15,9 @@ function CKEditor(editorIndex,pageName,fileName) {
     OpenForum.setElement("editor"+editorIndex,content);
 
     //load source if exists
-    if(OpenForum.fileExists(pageName+"/"+fileName)==true) {
+    if(OpenForum.file.attachmentExists(pageName,fileName)==="true") {
       source = OpenForum.loadFile(pageName+"/"+fileName,null,true);
-    } else if(OpenForum.fileExists("/OpenForum/FileTemplates/html/"+fileName+".default")==true) {
+    } else if(OpenForum.file.attachmentExists("/OpenForum/FileTemplates/html",fileName+".default")==="true") {
       source = OpenForum.loadFile("/OpenForum/FileTemplates/html/"+fileName+".default");
     } else {
       source = OpenForum.loadFile("/OpenForum/FileTemplates/html/default.html");

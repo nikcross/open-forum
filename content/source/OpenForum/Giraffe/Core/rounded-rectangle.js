@@ -12,7 +12,7 @@
  * @param height (number) the height of the rectangle
  * @param radius (number) the radius of the rectangle corners
  */
-function RoundedRectangle(x,y,width,height,radius)
+Giraffe.RoundedRectangle = function(x,y,width,height,radius)
 {
 	  /**#@+
 	   * @memberOf Rectangle
@@ -22,6 +22,7 @@ function RoundedRectangle(x,y,width,height,radius)
   this.width=width;
   this.height=height;
   this.radius=radius;
+  this.type="RoundedRectangle";
 
   /**
    * Checks to see if a given point lies inside the rectangle.
@@ -30,22 +31,24 @@ function RoundedRectangle(x,y,width,height,radius)
    * @returns true if the point lies within the Rectangle
    */
   this.isInside = function(posX,posY) {
-	if(
-		posX-this.x>0 &&
-		posX-this.x<this.width &&
-		posY-this.y>0 &&
-		posY-this.y<this.height
-		){ return true; } else { return false; }
+    var rPos = this.getRelativePosition(posX,posY);
+    posX = rPos.x;
+    posY = rPos.y;
+
+    if(
+      posX>0 &&
+      posX<this.width &&
+      posY>0 &&
+      posY<this.height
+    ){ return true; } else { return false; }
   };
   
   /**
    * @private
    */
-  this.draw = function()
-  {
+  this.draw = function() {
     this.canvas.beginPath();
-    if(this.fillColor!==null)
-    {
+    if(this.fillColor!==null) {
       this.canvas.fillStyle = this.fillColor;
     }
     this.canvas.strokeStyle = this.color;
@@ -56,11 +59,14 @@ function RoundedRectangle(x,y,width,height,radius)
   this.canvas.arcTo(0,   this.height, 0,   0,   this.radius);
   this.canvas.arcTo(0,   0,   this.width, 0,   this.radius);
     
-    if(this.fillColor!==null)
-    {
+    if(this.fillColor!==null) {
       this.canvas.fill();
     }
     this.canvas.stroke(); 
   };
-}
-RoundedRectangle.prototype = new GraphicsObject();
+};
+
+Giraffe.RoundedRectangle.prototype = new Giraffe.GraphicsObject();
+
+//Deprecated
+RoundedRectangle = Giraffe.RoundedRectangle;

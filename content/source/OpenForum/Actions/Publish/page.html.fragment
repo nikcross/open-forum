@@ -1,17 +1,28 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Publishes a page to a remote site
-<hr/>
-<h3>Parameters</h3>
-<ul><li> pageName - the name of the page to publish</li>
-<hr/>
-<h3>Usage:</h3>
+       
+<p>Publishes a page to a remote OpenForum site</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to publish</li>
+<li> newPageName = Destination page name on remote site</li>
+</ul>
+<b>Get examples:</b>
 <xmp class="panel" of-exclude="true">
-/OpenForum/Actions/Publish?pageName=MyPage
+// Simple URL
+/OpenForum/Actions/Publish?pageName=/MyPage&newPageName=/PublishedPage
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Publish', null, 'pageName=/MyPage&newPageName=/PublishedPage')
+  .onSuccess(function(result) {
+    console.log('Published:', result);
+  }).go();
 </xmp>
 
 
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
+
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <!--Extension InsertSourceFile fileName="get.sjs" --><a href="//OpenForum/Actions/Publish/get.sjs">//OpenForum/Actions/Publish/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Publish&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
@@ -45,4 +56,4 @@ external.getData(remoteSite+"/OpenForum/Actions/RefreshPage?pageName="+newPageNa
 
   htmlData = wiki.buildPage("/OpenForum/Actions/Publish","Published <a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Publish/"+remoteSite+"/"+newPageName+""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Actions/Publish/"+remoteSite+"/"+newPageName+" does not exist. Click to create it.">"+remoteSite+"/"+newPageName+"</a>",true);
   transaction.sendPage(htmlData);
-}</xmp><!--End Extension InsertSourceFile fileName="get.sjs" --></ul>
+}</xmp><!--End Extension InsertSourceFile fileName="get.sjs" -->

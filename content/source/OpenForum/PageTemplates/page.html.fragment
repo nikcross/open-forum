@@ -1,14 +1,109 @@
-<ul><li> <a href="/OpenForum/PageTemplates/Alloy-WYSIWYG">Alloy-WYSIWYG</a></li>
-<li> <a href="/OpenForum/PageTemplates/Blank">Blank</a></li>
-<li> <a href="/OpenForum/PageTemplates/Branding">Branding</a></li>
-<li> <a href="/OpenForum/PageTemplates/CommonElements">CommonElements</a></li>
-<li> <a href="/OpenForum/PageTemplates/Default">Default</a></li>
-<li> <a href="/OpenForum/PageTemplates/EditorApp">EditorApp</a></li>
-<li> <a href="/OpenForum/PageTemplates/Example">Example</a></li>
-<li> <a href="/OpenForum/PageTemplates/Frameworks">Frameworks</a></li>
-<li> <a href="/OpenForum/PageTemplates/Html">Html</a></li>
-<li> <a href="/OpenForum/PageTemplates/MarkDown">MarkDown</a></li>
-<li> <a href="/OpenForum/PageTemplates/PageInDevelopment">PageInDevelopment</a></li>
-<li> <a href="/OpenForum/PageTemplates/PublishedPage">PublishedPage</a></li>
-</ul>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Extension ChildrenContentsPage --><div class="row">
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/Alloy-WYSIWYG">Alloy-WYSIWYG</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/Alloy-WYSIWYG" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/Alloy-WYSIWYG" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/Application">Application</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/Application" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/Application" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/Blank">Blank</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/Blank" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/Blank" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/Branding">Branding</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/Branding" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/Branding" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/CommonElements">CommonElements</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/CommonElements" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/CommonElements" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/Default">Default</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/Default" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/Default" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/EditorApp">EditorApp</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/EditorApp" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/EditorApp" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/Example">Example</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/Example" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/Example" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/Footer">Footer</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/Footer" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/Footer" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/Frameworks">Frameworks</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/Frameworks" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/Frameworks" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/Html">Html</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/Html" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/Html" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/MarkDown">MarkDown</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/MarkDown" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/MarkDown" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/PageInDevelopment">PageInDevelopment</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/PageInDevelopment" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/PageInDevelopment" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/PublishedPage">PublishedPage</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/PublishedPage" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/PublishedPage" section="1" --><br />
+
+
+<hr/>
+
+ <h3> <a href="/OpenForum/PageTemplates/TechnicalDocument">TechnicalDocument</a> </h3>
+
+ <!--Extension InsertPage page="/OpenForum/PageTemplates/TechnicalDocument" section="1" --><!--End Extension InsertPage page="/OpenForum/PageTemplates/TechnicalDocument" section="1" --><br />
+
+</div><!--End Extension ChildrenContentsPage -->

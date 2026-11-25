@@ -19,7 +19,7 @@ public class RtspGrabber {
     private String ipAddress = null;
 
     public static void main(String[] args) throws Exception {
-        new RtspGrabber().createGrabber("admin007", "01264738020", "192.168.1.15")
+        new RtspGrabber().createGrabber("admin007", "01264738020", "192.168.86.241")
                 .getImage(
                         "/home/nik/os-git/open-forum/addons/rtsp/output/",
                 "test-frame"
@@ -38,7 +38,7 @@ public class RtspGrabber {
         this.ipAddress = ipAddress;
     }
     public void getImage(String pathName, String fileName) throws Exception {
-        rtsp = "rtsp:" + user + ":" + password + "@" +ipAddress+ "/stream2";
+        rtsp = "rtsp://" + user + ":" + password + "@" +ipAddress+ "/stream2";
 
 
         System.out.println("Creating FFmpegFrameGrabber for " + rtsp);

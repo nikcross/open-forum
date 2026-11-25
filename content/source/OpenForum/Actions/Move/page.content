@@ -1,1 +1,26 @@
+--8<--
+       
+((Move a file or entire page to a new location))
+
+__Get parameters__
+* pageName = Source page name
+* newPageName = Destination page name (optional, defaults to pageName)
+* fileName = File to move (optional - if not specified, moves entire page)
+* newFileName = Destination filename (optional, defaults to fileName)
+* returnType = Response type: "json" for JSON response, otherwise redirects to Editor
+
+__Get examples:__
+{{{
+// Simple URL - move a file
+/OpenForum/Actions/Move?pageName=/OldPage&newPageName=/NewPage&fileName=file.txt
+
+// Using JSON.get - move a page
+JSON.get('/OpenForum/Actions/Move', null, 'pageName=/OldPage&newPageName=/NewPage&returnType=json')
+  .onSuccess(function(result) {
+    console.log('Moved:', result);
+  }).go();
+}}}
+
+-->8--
+
 [{InsertSourceFile fileName="get.sjs"}]

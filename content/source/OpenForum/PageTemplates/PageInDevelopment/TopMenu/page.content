@@ -30,9 +30,22 @@
     <li class="divider"></li>
 
     <li class="has-dropdown">
+      <a href="#">Access</a>
+      <ul class="dropdown">
+        <li of-repeatFor="reader in pageAccess.readers"><a href="[{Hash}]" onClick="return false;">{{reader}}</a></li>
+      </ul>
+      <script>
+        var pageAccess = {};
+        JSON.get("/OpenForum/Actions/Access","getAccess","pageName=&pageName;").onSuccess( function(response) {
+          pageAccess = response;
+        }).go();
+      </script>
+    </li>
+    
+    <li class="has-dropdown">
       <a href="#">Favourite Pages</a>
       <ul class="dropdown">
-        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="/{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
+        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
       </ul>
     </li>
 
@@ -59,6 +72,7 @@
             OpenForum.Access.showPopup();
           };
         </script>
+        {{currentUserExtraOptions}}
       </ul>
     </li>
   </ul>
@@ -77,7 +91,7 @@
 <div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
   <h2>Move Page</h2>
   <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
-  <p><a href="#" onClick="OpenForum.action.movePage('&pageName;',OpenForumCopyPage);return false;" class="secondary button">Move Page</a></p>
+  <p><a href="#" onClick="OpenForum.action.movePage('&pageName;',OpenForumMovePage);return false;" class="secondary button">Move Page</a></p>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
   <script>
     OpenForumMovePage = "&pageName;";

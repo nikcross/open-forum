@@ -1,26 +1,91 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Extension InsertSourceFile fileName="page.js" --><a href="//OpenForum/Javascript/Sound/page.js">//OpenForum/Javascript/Sound/page.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound&fileName=page.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">OpenForum.loadScript("/OpenForum/Javascript/Sound/SoundPlayer.js");
+
+OpenForum.init = function() {
+  OpenForum.SoundPlayer.addSound("/OpenForum/Javascript/Sound/torpedo-1.mp3","sound1");
+  OpenForum.SoundPlayer.addSound("/OpenForum/Javascript/Sound/torpedo-2.mp3","sound2");
+};</xmp><!--End Extension InsertSourceFile fileName="page.js" -->
+
+<!--Extension InsertSourceFile fileName="page.content" --><a href="//OpenForum/Javascript/Sound/page.content">//OpenForum/Javascript/Sound/page.content</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound&fileName=page.content" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel"><!--Extension InsertSourceFile fileName="page.js" --><a href="//OpenForum/Javascript/Sound/page.js">//OpenForum/Javascript/Sound/page.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound&fileName=page.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">OpenForum.loadScript("/OpenForum/Javascript/Sound/SoundPlayer.js");
+
+OpenForum.init = function() {
+  OpenForum.SoundPlayer.addSound("/OpenForum/Javascript/Sound/torpedo-1.mp3","sound1");
+  OpenForum.SoundPlayer.addSound("/OpenForum/Javascript/Sound/torpedo-2.mp3","sound2");
+};</xmp><!--End Extension InsertSourceFile fileName="page.js" -->
+
+<!--Extension InsertSourceFile fileName="page.content" --><a href="//OpenForum/Javascript/Sound/page.content">//OpenForum/Javascript/Sound/page.content</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound&fileName=page.content" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">[{InsertSourceFile fileName="page.js"}]
+
+[{InsertSourceFile fileName="page.content"}]
+
 <button onClick="OpenForum.SoundPlayer.playSound('sound1')">Play Sound 1</button>
 <button onClick="OpenForum.SoundPlayer.playSound('sound2')">Play Sound 2</button>
 <br/>
-<a href="//OpenForum/Javascript/Sound/SoundPlayer.js">//OpenForum/Javascript/Sound/SoundPlayer.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound&fileName=SoundPlayer.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
+[{InsertSourceFile fileName="SoundPlayer.js"}]</xmp><!--End Extension InsertSourceFile fileName="page.content" -->
+
+<button onClick="OpenForum.SoundPlayer.playSound('sound1')">Play Sound 1</button>
+<button onClick="OpenForum.SoundPlayer.playSound('sound2')">Play Sound 2</button>
+<br/>
+<!--Extension InsertSourceFile fileName="SoundPlayer.js" --><a href="//OpenForum/Javascript/Sound/SoundPlayer.js">//OpenForum/Javascript/Sound/SoundPlayer.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound&fileName=SoundPlayer.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
   OpenForum = {};
 }
-OpenForum.SoundPlayer = new function() {
-  var sounds = [];
+if(!OpenForum.SoundPlayer) {
+  OpenForum.SoundPlayer = new function() {
+    var sounds = [];
+    
+    this.addSound = function(source,id) {
+      var sound = document.createElement('audio');
+      sound.src = source;
+      sounds[id] = {source: source,sound: sound};
+    };
 
-  this.addSound = function(source,id) {
-    sound = document.createElement('audio');
-    sound.src = source;
-    sounds[id] = [source,sound];
-  };
+    this.playSound = function(id,onEndCallBack) {
+      if(onEndCallBack) sounds[id].sound.onended = onEndCallBack;
+      sounds[id].sound.loop=false;
+      sounds[id].sound.play();
+    };
 
-  this.playSound = function(id) {
-    sounds[id][1].loop=false;
-    sounds[id][1].play();
+    this.loopSound = function(id) {
+      sounds[id].sound.loop=true;
+      sounds[id].sound.play();
+    };
+    
+    this.stopSound = function(id) {
+      sounds[id].sound.loop=false;
+      sounds[id].sound.pause();
+    };
   };
+}</xmp><!--End Extension InsertSourceFile fileName="SoundPlayer.js" --></xmp><!--End Extension InsertSourceFile fileName="page.content" -->
 
-  this.loopSound = function(id) {
-    sounds[id][1].loop=true;
-    sounds[id][1].play();
+<button onClick="OpenForum.SoundPlayer.playSound('sound1')">Play Sound 1</button>
+<button onClick="OpenForum.SoundPlayer.playSound('sound2')">Play Sound 2</button>
+<br/>
+<!--Extension InsertSourceFile fileName="SoundPlayer.js" --><a href="//OpenForum/Javascript/Sound/SoundPlayer.js">//OpenForum/Javascript/Sound/SoundPlayer.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound&fileName=SoundPlayer.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(!OpenForum) {
+  OpenForum = {};
+}
+if(!OpenForum.SoundPlayer) {
+  OpenForum.SoundPlayer = new function() {
+    var sounds = <a href="/OpenForum/Javascript/Sound/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+    
+    this.addSound = function(source,id) {
+      var sound = document.createElement('audio');
+      sound.src = source;
+      sounds<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id does not exist. Click to create it.">id</a> = {source: source,sound: sound};
+    };
+
+    this.playSound = function(id,onEndCallBack) {
+      if(onEndCallBack) sounds<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id does not exist. Click to create it.">id</a>.sound.onended = onEndCallBack;
+      sounds<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id does not exist. Click to create it.">id</a>.sound.loop=false;
+      sounds<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id does not exist. Click to create it.">id</a>.sound.play();
+    };
+
+    this.loopSound = function(id) {
+      sounds<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id does not exist. Click to create it.">id</a>.sound.loop=true;
+      sounds<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id does not exist. Click to create it.">id</a>.sound.play();
+    };
+    
+    this.stopSound = function(id) {
+      sounds<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id does not exist. Click to create it.">id</a>.sound.loop=false;
+      sounds<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/Sound/id does not exist. Click to create it.">id</a>.sound.pause();
+    };
   };
-};</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+}</xmp><!--End Extension InsertSourceFile fileName="SoundPlayer.js" -->

@@ -1,107 +1,122 @@
-<div class="row">
-!!&title;
+!!SQL Quick Reference
 
-----
-!!!Server Side
-((Include DB.sjs on your sjs file))
+--8<--
+
+((Database access and SQL query builder for OpenForum))
+
+__Key Features__
+* Execute SQL queries from server-side JavaScript
+* Built-in SQL query builder
+* Support for SELECT, INSERT, UPDATE, DELETE, UPSERT operations
+* Parameterized queries to prevent SQL injection
+* Multiple database connection support via aliases
+* Interactive SQL editor with syntax highlighting
+* Database inspector with table/column browser
+* Query history tracking
+* Code generator for SQL and JavaScript
+
+-->8--
+
+__Server-Side Usage:__
 {{{
-	var DB = js.getObject("/OpenForum/AddOn/SQL","DB.sjs");
-	DB.setAlias("your database name");
-    // Create a new DB object for each database you need access to
+// Include DB.sjs on your sjs file
+var DB = js.getObject("/OpenForum/AddOn/SQL","DB.sjs");
+DB.setAlias("your database name");
+// Create a new DB object for each database you need access to
 }}}
 
-!!Create a Simple DB Select
+__Simple DB Select__
 {{{
-	var sql = {
-		action: "select",
-		table: "my_table",
-		columns: [
-			"column_a", "column_b"
-		]
-	};
-	var rows = DB.execute( SQL );
+var sql = {
+  action: "select",
+  table: "my_table",
+  columns: ["column_a", "column_b"]
+};
+var rows = DB.execute(sql);
 }}}
 
-!!Create a DB Select that returns all columns
+__DB Select - All Columns__
 {{{
-	var sql = {
-		action: "select",
-		table: "my_table"
-	};
-	var rows = DB.execute( SQL );
+var sql = {
+  action: "select",
+  table: "my_table"
+};
+var rows = DB.execute(sql);
 }}}
 
-!!Create a Simple DB Insert
+__Simple DB Insert__
 {{{
-	var sql = {
-		action: "insert",
-		table: "my_table",
-		data: {
-			column_a: "value a",
-			column_b: "value b"
-		}
-	};
-	DB.execute( SQL );
+var sql = {
+  action: "insert",
+  table: "my_table",
+  data: {
+    column_a: "value a",
+    column_b: "value b"
+  }
+};
+DB.execute(sql);
 }}}
 
-!!Create a Simple DB Insert that returns a column
+__DB Insert with Return Column__
 {{{
-	var sql = {
-		action: "insert",
-		table: "my_table",
-		data: {
-			column_a: "value a",
-			column_b: "value b"
-		},
-		returnColumn: "column_c"
-	};
-	var returnedColumn = DB.execute( SQL );
-	
+var sql = {
+  action: "insert",
+  table: "my_table",
+  data: {
+    column_a: "value a",
+    column_b: "value b"
+  },
+  returnColumn: "column_c"
+};
+var returnedColumn = DB.execute(sql);
 }}}
 
-!!Create a Simple DB Delete
+__Simple DB Delete__
 {{{
-	var sql = {
-		action: "delete",
-		table: "my_table",
-		where: {
-			column_a: "value a",
-			column_b: "value b"
-		}
-	};
-	DB.execute( SQL );
-}}}
-  
-!!Create a Simple DB Upsert
-{{{
-	var sql = {
-		action: "upsert",
-		table: "my_table",
-  		data: {
-			column_a: "value a",
-			column_b: "value b",
-			column_c: "value c",
-			column_d: "value d"
-		},
-		where: {
-			column_a: "value a",
-			column_b: "value b"
-		}
-	};
-	DB.execute( SQL );
-}}}
-  
-!!Create a Simple DB Query
-{{{
-	var sql = {
-		query: "select column_c, column_d from my_table where a = { {valueA} } and b = { {valueB} }
-		data: {
-			valueA: "value a",
-			valueB: "value b"
-		}
-	};
-	DB.execute( SQL );
+var sql = {
+  action: "delete",
+  table: "my_table",
+  where: {
+    column_a: "value a",
+    column_b: "value b"
+  }
+};
+DB.execute(sql);
 }}}
 
+__Simple DB Upsert__
+{{{
+var sql = {
+  action: "upsert",
+  table: "my_table",
+  data: {
+    column_a: "value a",
+    column_b: "value b",
+    column_c: "value c",
+    column_d: "value d"
+  },
+  where: {
+    column_a: "value a",
+    column_b: "value b"
+  }
+};
+DB.execute(sql);
+}}}
 
-</div>
+__Simple DB Query with Parameters__
+{{{
+var sql = {
+  query: "select column_c, column_d from my_table where a = {{valueA}} and b = {{valueB}}",
+  data: {
+    valueA: "value a",
+    valueB: "value b"
+  }
+};
+var rows = DB.execute(sql);
+}}}
+
+__Configuration__
+* Database aliases configured in AddOn settings
+* Connection pooling
+* Query timeout settings
+* Transaction support

@@ -1,8 +1,12 @@
 --8<--
-((Displays a page hierachy trail))
+
+((Displays a page hierarchy breadcrumb trail))
+__Parameters__
+* None
 
 {{{
 [{CrumbTrail}]
 }}}
 -->8--
+
 [{CrumbTrail}]

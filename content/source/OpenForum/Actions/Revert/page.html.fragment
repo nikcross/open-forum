@@ -1,12 +1,29 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Reverts a page to a specific version
-<hr/>
-<h3>Get Parameters</h3>
-<ul><li>pageName -  The name of the page to revert</li>
-<li>version - The version to revert to</li>
+       
+<p>Reverts a page to a specific historical version</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to revert</li>
+<li> version = Version identifier to revert to</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL
+/OpenForum/Actions/Revert?pageName=/MyPage&version=2022-11-17-07-32-56-0380
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Revert', null, 
+  'pageName=/MyPage&version=2022-11-17-07-32-56-0380')
+  .onSuccess(function(result) {
+    console.log('Page reverted');
+  }).go();
+</xmp>
+
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
 
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel" of-exclude="true"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
@@ -17,4 +34,4 @@ else
 	wiki.revert(pageName,version);
 
 	transaction.goToPage(pageName);
-} </xmp></ul>
+} </xmp>

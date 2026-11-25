@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Giraffe",
-    "title": " Giraffe"
+    "pageName": "/OpenForum/Giraffe",
+    "title": "Giraffe",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

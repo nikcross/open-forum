@@ -1,14 +1,26 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<div class="row">
-<h3>ContrastBlock v0.0.1</h3>
-<xmp class="panel" of-exclude="true"> <!--Extension ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false" --><div class="row" style="background-color: blueviolet;">
+
+<p>Creates a colored block with text and optional image</p>
+<b>Parameters</b>
+<ul><li> text = Text content for the block</li>
+<li> backgroundColor = Background color (e.g., "blueviolet")</li>
+<li> textColor = Text color (e.g., "white")</li>
+<li> imageURL = URL of image to display</li>
+<li> imageRight = Position image on right side ("true" or "false")</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false" --><div class="row" style="background-color: blueviolet;">
   <div class="columns large-6" style="padding: 0px;">
     <img src="/OpenForum/Images/open-forum-dog.png" />
   </div>
   <div class="columns large-6" style="padding: 0px;">
     <h2 style="color: white; padding: 1em; text-align: center;">Some text in here</h2>
   </div>
-</div><!--End Extension ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false" --> </xmp>
+</div><!--End Extension ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false" -->
+</xmp>
+
+<div class="row">
+<h3>ContrastBlock v0.0.1</h3>
 <!--Extension ContrastBlock text="Some text in here" backgroundColor="blueviolet" textColor="white" imageURL="/OpenForum/Images/open-forum-dog.png" imageRight="false" --><div class="row" style="background-color: blueviolet;">
   <div class="columns large-6" style="padding: 0px;">
     <img src="/OpenForum/Images/open-forum-dog.png" />

@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/PageTemplates/EditorApp",
-    "title": " Editor App"
+    "pageName": "/OpenForum/PageTemplates/EditorApp",
+    "title": "EditorApp",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

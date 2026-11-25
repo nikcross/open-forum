@@ -1,19 +1,33 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<div class="row">
-<h3>OpeningTimes v0.1.34</h3>
-<xmp class="panel" of-exclude="true"> <!--Extension OpeningTimes mondayOpen="mondayOpen" mondayClose="mondayClose" tuesdayOpen="tuesdayOpen" tuesdayClose="tuesdayClose" wednesdayOpen="wednesdayOpen" wednesdayClose="wednesdayClose" thursdayOpen="thursdayOpen" thursdayClose="thursdayClose" fridayOpen="fridayOpen" fridayClose="fridayClose" saturdayOpen="saturdayOpen" saturdayClose="saturdayClose" sundayOpen="sundayOpen" sundayClose="sundayClose" -->    <div class="eventBox">
+
+<p>Creates a weekly opening times schedule display</p>
+<b>Parameters</b>
+<ul><li> mondayOpen, mondayClose = Monday opening and closing times</li>
+<li> tuesdayOpen, tuesdayClose = Tuesday opening and closing times</li>
+<li> wednesdayOpen, wednesdayClose = Wednesday opening and closing times</li>
+<li> thursdayOpen, thursdayClose = Thursday opening and closing times</li>
+<li> fridayOpen, fridayClose = Friday opening and closing times</li>
+<li> saturdayOpen, saturdayClose = Saturday opening and closing times</li>
+<li> sundayOpen, sundayClose = Sunday opening and closing times</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension OpeningTimes mondayOpen="09:00" mondayClose="17:00" tuesdayOpen="09:00" tuesdayClose="17:00" -->    <div class="eventBox">
       <h3>Opening Times</h3>
       <br/>
       <center><table>
-        <tr><td>Monday</td><td class="eventTime">mondayOpen - mondayClose</td></tr>
-        <tr><td>Tuesday</td><td class="eventTime">tuesdayOpen - tuesdayClose</td></tr>
-        <tr><td>Wednesday</td><td class="eventTime">wednesdayOpen - wednesdayClose</td></tr>
-        <tr><td>Thursday</td><td class="eventTime">thursdayOpen - thursdayClose</td></tr>
-        <tr><td>Friday</td><td class="eventTime">fridayOpen - fridayClose</td></tr>
-        <tr><td>Saturday</td><td class="eventTime">saturdayOpen - saturdayClose</td></tr>
-        <tr><td>Sunday</td><td class="eventTime">sundayOpen - sundayClose</td></tr>
+        <tr><td>Monday</td><td class="eventTime">09:00 - 17:00</td></tr>
+        <tr><td>Tuesday</td><td class="eventTime">09:00 - 17:00</td></tr>
+        <tr><td>Wednesday</td><td class="eventTime">undefined - undefined</td></tr>
+        <tr><td>Thursday</td><td class="eventTime">undefined - undefined</td></tr>
+        <tr><td>Friday</td><td class="eventTime">undefined - undefined</td></tr>
+        <tr><td>Saturday</td><td class="eventTime">undefined - undefined</td></tr>
+        <tr><td>Sunday</td><td class="eventTime">undefined - undefined</td></tr>
         </table></center>
-    </div><!--End Extension OpeningTimes mondayOpen="mondayOpen" mondayClose="mondayClose" tuesdayOpen="tuesdayOpen" tuesdayClose="tuesdayClose" wednesdayOpen="wednesdayOpen" wednesdayClose="wednesdayClose" thursdayOpen="thursdayOpen" thursdayClose="thursdayClose" fridayOpen="fridayOpen" fridayClose="fridayClose" saturdayOpen="saturdayOpen" saturdayClose="saturdayClose" sundayOpen="sundayOpen" sundayClose="sundayClose" --> </xmp>
+    </div><!--End Extension OpeningTimes mondayOpen="09:00" mondayClose="17:00" tuesdayOpen="09:00" tuesdayClose="17:00" -->
+</xmp>
+
+<div class="row">
+<h3>OpeningTimes v0.1.34</h3>
 <!--Extension OpeningTimes mondayOpen="mondayOpen" mondayClose="mondayClose" tuesdayOpen="tuesdayOpen" tuesdayClose="tuesdayClose" wednesdayOpen="wednesdayOpen" wednesdayClose="wednesdayClose" thursdayOpen="thursdayOpen" thursdayClose="thursdayClose" fridayOpen="fridayOpen" fridayClose="fridayClose" saturdayOpen="saturdayOpen" saturdayClose="saturdayClose" sundayOpen="sundayOpen" sundayClose="sundayClose" -->    <div class="eventBox">
       <h3>Opening Times</h3>
       <br/>

@@ -1,4 +1,9 @@
-!!&title;
+--8<--
+
+((Creates a data-entry form with various field types))
+__Parameters__
+* name = Form name identifier
+* data = Field definitions with format "Label name" or "Type: Label name"
 
 {{{
 [{Form name="myForm" data="
@@ -10,6 +15,9 @@ Checkbox: Has Pet hasPet
 Table: todo Task task, Description description
 "}]
 }}}
+-->8--
+
+!!&title;
 
 [{Form name="myForm" data="
 Name name

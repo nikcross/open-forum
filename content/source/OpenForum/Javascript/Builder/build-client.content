@@ -11,16 +11,27 @@
   </li>
 </ol>
 
-[{Button title="Save" function="saveBuildScript"}] [{Button title="Build" function="runBuildScript"}]
+[{Button title="Build" function="runBuildScript"}]
 
+----
+
+!!Output
+
+<xmp>
+  {{buildScript.script}}
+</xmp>
 
 ----
 
  !!Versions
 
- [{AttachmentsList pageName="&pageName;/Version" matching=".js"}]
+ [{AttachmentsList pageName="&pageName;/Versions" matching=".js"}]
 
 <div id="statusModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
   <h2 id="modalTitle">{{popupStatus}}</h2>
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 </div>
+
+[{Popup id="statusModal" title="{{popupStatus}}" content=""}]
+
+[{Popup id="buildScriptModal" title="Build Script" sourceFileName="build-script-form.wiki" sourcePageName="/OpenForum/Javascript/Builder"}]

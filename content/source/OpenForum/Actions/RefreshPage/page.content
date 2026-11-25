@@ -1,7 +1,25 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Refreshes the page from it's Wiki Markup
-----
-!!Get Parameters
-*pageName - The page to refresh
+--8<--
+       
+((Refreshes a page by regenerating HTML from its wiki markup))
+
+__Get parameters__
+* pageName = Page name to refresh
+
+__Get examples:__
+{{{
+// Simple URL
+/OpenForum/Actions/RefreshPage?pageName=/MyPage
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/RefreshPage', null, 'pageName=/MyPage')
+  .onSuccess(function(result) {
+    console.log('Page refreshed');
+  }).go();
+}}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 ----
 !!Server Side Javascript for GET method

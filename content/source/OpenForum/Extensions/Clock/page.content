@@ -1,7 +1,17 @@
+--8<--
+
+((Displays a live clock))
+__Parameters__
+* None
+
+{{{
+[{Clock}]
+}}}
+-->8--
+
 <div class="row">
 !!Clock v0.0.0
-{{{ [{Clock }] }}}
-[{Clock }]
+[{Clock}]
 \\
 [{ActionButton text="Add Clock Block type to Content Editor" action="addToContentEditor"}]
 </div>

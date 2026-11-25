@@ -28,16 +28,16 @@ var MockFile = function() {
                   
                   this.hasNext = function() {
                     return index<list.length;
-                  }
+                  };
                   this.next = function() {
                     return list[index++];
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
+                  };
+                };
+              };
+            };
+          };
+        };
+      };
 
       self.attachmentExists= function(pageName,fileName) {  };
 
@@ -70,6 +70,6 @@ var MockFile = function() {
       var getFileAge = function(pageName,fileName) {
         return mockDataTS[pageName+"/"+fileName];
       };
-    }
+    };
   }
 }

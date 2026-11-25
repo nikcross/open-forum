@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Javascript/OpenForumServer/File",
-    "title": " File"
+    "pageName": "/OpenForum/Javascript/OpenForumServer/File",
+    "title": "File",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

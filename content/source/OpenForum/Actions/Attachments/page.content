@@ -1,1 +1,25 @@
+--8<--
+       
+((Get list of attachments for a page with optional metadata))
+
+__Get parameters__
+* pageName = Page name to list attachments from
+* matching = Optional filter pattern (regex)
+* metaData = Optional flag to include file size and timestamp
+
+__Get examples:__
+{{{
+// Simple URL
+/OpenForum/Actions/Attachments?pageName=/MyPage&matching=.*.txt
+
+// Using JSON.get with metadata
+JSON.get('/OpenForum/Actions/Attachments', null, 'pageName=/MyPage&metaData=true')
+  .onSuccess(function(result) {
+    console.log('Attachments:', result.attachments);
+    console.log('Total size:', result.size);
+  }).go();
+}}}
+
+-->8--
+
 [{InsertSourceFile fileName="get.sjs"}]

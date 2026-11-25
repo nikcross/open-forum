@@ -1,7 +1,25 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+       
+<p>Throws a server-side JavaScript error to test error reporting</p>
+
+<b>Post parameters</b>
+<ul><li> None</li>
+</ul>
+<b>Post example:</b>
+<xmp class="panel" of-exclude="true">
+// Using JSON.post
+JSON.post('/OpenForum/Actions/CauseError', null, <i></i>
+  .onSuccess(function(result) {
+    console.log('This should not succeed');
+  })
+  .onError(function(error) {
+    console.log('Error caught:', error);
+  }).go();
+</xmp>
+
+
 Throws a Server Side Javascript Error to test error reporting.
 <hr/>
 
-
-<h3>post.sjs</h3>
-<xmp class="panel" of-exclude="true">doesNotExist += cheese</xmp>
+<h3>post.sjs</h3>
+<xmp class="panel" of-exclude="true">doesNotExist  = cheese</xmp>

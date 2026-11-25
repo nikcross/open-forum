@@ -1,7 +1,124 @@
-<center>
-!!!!Open Forum Release 2.2 Build 005
+<div class="row">
+!! OpenForum Server — What it offers
 
-!!brought to you by [One Stone Soup|http://www.onestonesoup.org]
+((OpenForum is a browser‑editable web application server: like a wiki that can also host and run web services. Authorized editors work entirely in the browser, creating content and server endpoints without restarting the server. It ships with an integrated web server and authentication, supports real‑time + static content, and can integrate with databases/REST/XML. Pages are hierarchical and inherit templates. See [Introduction|/OpenForum/Documentation/Introduction] and [Architecture|/OpenForum/Documentation/Architecture].))
 
-!![Release Notes|/OpenForum/ReleaseNotes/Version2.2Build005]
-</center>
+----
+
+!!! 1) Core idea & page architecture
+
+((Each page is a folder with well‑known files that define its content and behavior.))
+
+* __page.content__ → source (OpenForum wiki + HTML). Saved content is compiled to __page.html__ and __page.html.fragment__.
+* __page.html.template__ (inherited or linked via `.link`) → the wrapper/layout; usually loads __page.js__.
+* __page.js__ → client‑side script; OpenForum’s library (`open-forum.js`) is also loaded and `OpenForum.init()` commonly boots the page.
+* __access.json__ (optional, inherited) → per‑page read/update/delete permissions for users/groups.
+* __get.sjs / post.sjs__ (optional) → add server‑side JavaScript services for GET/POST.
+* __data.json__ (generated) → page metadata.
+* __page.build.js__ (optional) → override the page build process.
+
+((Useful background: [Architecture|/OpenForum/Documentation/Architecture].))
+
+----
+
+!!! 2) Special “system” pages & built‑ins
+
+* [Special Pages|/OpenForum/Documentation/SpecialPages] (configuration, templates, authentication, authorization, users/groups, deleted pages, history).
+* __Editor & Content Editor__ for in‑browser authoring ([Content Editor|/OpenForum/Documentation/Contenteditor], [Editor|/OpenForum/Documentation/Editor]).
+* __Triggers__ (start / 10‑second timer / page‑change / rebuild).
+* __Message Queue__ (transient), __Spider__ (iterate pages), __System Monitor__ (runtime metrics & logs).
+* __Error Pages__, __Page Templates__, __File Templates__.
+* __Actions__ (server APIs) at [/OpenForum/Actions](/OpenForum/Actions).
+
+----
+
+!!! 3) Editing experience
+
+((The Content Editor is a two‑pane, block‑based editor focused on content pages (text/images). Left: overview + pages + image library. Right: sectioned WYSIWYG editing with add/move controls. You can drag images from the library, use __Preview__ (updates on save), then __Publish__ to go live. You can also create new pages and choose a category. See [Content Editor|/OpenForum/Documentation/Contenteditor].))
+
+((The Advanced Editor exposes an overview, editors, plugins, and actions ([Editor|/OpenForum/Documentation/Editor]).))
+
+----
+
+!!! 4) Markup & templating
+
+* __Standard wiki syntax__ (links, images, code, lists, headings, boxes, rules, tables): [Kitchen Sink|/OpenForum/Documentation/OpenForumMarkup/KitchenSink].
+* __Extended wiki markup__ short‑codes such as __ScriptClip__, __ChildPagesList__, __Icon__, __HttpsOnly__, __CrumbTrail__, __Bookmarklet__, __MarkDown__, __InsertPage__, etc.: [Extended Markup|/OpenForum/Documentation/OpenForumMarkup/ExtendedWikiMarkup].
+* __Front‑end framework__: ZURB Foundation v5.5.3 is bundled to speed layout: [Foundation|/OpenForum/Documentation/Foundation].
+
+----
+
+!!! 5) Client‑side JavaScript (OpenForum JS)
+
+((A built‑in JS library provides high‑level primitives: dependency management and DOM scanning/binding; file/storage APIs (load/save/append/list), JSON/AJAX helpers (`JSON.get/post`), an offline‑aware OFX layer, table helpers, UI utilities, async helpers, and inter‑tab collaboration (IntraQ). See [Open Forum Javascript|/OpenForum/Documentation/OpenForumJavascript].))
+
+* Dependency loading: `OpenForum.includeScript`, `OpenForum.addScript`
+* DOM & binding: `OpenForum.scan`, `OpenForum.getObject`, `OpenForum.bind`
+* Files/storage: `OpenForum.saveFile`, `OpenForum.getAttachments`, `OpenForum.Storage`
+* AJAX/JSON: `JSON.get`, `JSON.post`, `OFX.get/post`
+* Tables/UI/async: `OpenForum.Table.*`, `OpenForum.setTitle`, `OpenForum.setInterval`
+* Collaboration: `OpenForum.IntraQ` (message bus)
+
+----
+
+!!! 6) Server‑side JavaScript & Actions
+
+((Add a __get.sjs__ or __post.sjs__ file to a page to turn it into an API endpoint. Server‑side code can call helper services (transaction/wiki/file/js) and Java APIs. A rich catalog of reusable endpoints lives under [/OpenForum/Actions](/OpenForum/Actions) (e.g., __Save__, __SaveImage__, __GetAttachments__, __Rebuild__, __SystemTime__, __Copy/Move/Delete__, __Pages__, __Publish__, __Zip__).))
+
+[[ Example: save text to an attachment via the __Save__ action ]]
+{{{
+POST /OpenForum/Actions/Save
+Parameters: pageName, fileName, data
+}}}
+
+[[ Example: save a canvas image via __SaveImage__ from the browser ]]
+{{{
+function saveCanvas(pageName,fileName,canvas){
+  var data = canvas.toDataURL().substring(22);
+  var post = new Post();
+  post.addItem("data",data).addItem("fileName",fileName).addItem("pageName",pageName);
+  JSON.post("/OpenForum/Actions/SaveImage","save",post.getData()).go();
+}
+}}}
+
+((More: [Open Forum Server Side Javascript|/OpenForum/Documentation/OpenForumServerSideJavascript] and [Actions|/OpenForum/Actions].))
+
+----
+
+!!! 7) Graphics (Giraffe)
+
+((Giraffe is an integrated canvas graphics engine for 2D objects, animation and interaction.))
+
+{{{
+OpenForum.includeScript("/OpenForum/Giraffe/giraffe.js");
+var giraffeCanvas;
+OpenForum.init = function() {
+  giraffeCanvas = Giraffe.quickStart("canvas");
+  giraffeCanvas.add(new Giraffe.Line(100,100,130,150));
+};
+}}}
+
+((See [Giraffe|/OpenForum/Documentation/Giraffe] for objects, animation, and interaction.))
+
+----
+
+!!! 8) Deployment & operations
+
+* __Docker (recommended)__ and __Zip install (Jetty bundled)__: [Installation|/OpenForum/Documentation/Installation].
+* __System Monitor__, __Error Pages__, __Deleted Pages__, __history__, __Triggers__, __Spider__: [Special Pages|/OpenForum/Documentation/SpecialPages].
+
+----
+
+!!! 9) Standard JavaScript reference
+
+((Quick references to core JS objects (Array, Date, Global, JSON, String) are bundled under [Standard Javascript|/OpenForum/Documentation/StandardJavascript].))
+
+----
+
+!!! TL;DR
+
+* __Build dynamic sites and small apps in the browser__ with page‑scoped code and services.
+* __Compose UIs quickly__ using wiki markup + extensions, ZURB Foundation, and the OpenForum JS API.
+* __Add server endpoints__ with per‑page `.sjs` or call built‑in Actions; automate with triggers and the transient message queue.
+* __Deploy fast__ via Docker or a Jetty zip.
+</div>

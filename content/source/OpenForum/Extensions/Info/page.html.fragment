@@ -1,4 +1,17 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+
+<p>Creates an info popup icon</p>
+<b>Parameters</b>
+<ul><li> id = Unique identifier for the info popup</li>
+<li> sourceFileName = File containing info content</li>
+<li> sourcePageName = Page where info content is located</li>
+<li> title = Optional title for the info popup</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Info id="test" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" --><div id="test" class="reveal-modal" data-reveal aria-labelledby="testModalTitle" aria-hidden="true" role="dialog"><h3>One Time Popup</h3>
+<p>This is a popup that can be supressed</p>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Info id="test" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" -->
+</xmp>
+
 <h3>Info</h3>
 <hr/>
 

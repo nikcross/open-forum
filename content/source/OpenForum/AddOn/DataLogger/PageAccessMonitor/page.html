@@ -6,19 +6,19 @@
     <title>PageAccessMonitor</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1699285287540"></script>
-    <script type="text/javascript" src="/OpenForum/AddOn/DataLogger/PageAccessMonitor/page.js?ts=1699285287540"></script>
-    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1699285287540" />
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1794835592000"></script>
+    <script type="text/javascript" src="/OpenForum/AddOn/DataLogger/PageAccessMonitor/page.js?ts=1794835592000"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1794835592000" />
     <!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) start --><link rel="icon" href="/OpenForum/Images/open-forum-dog-small.png" /><!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) end --> 
 
     <!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start --><script>
   var pageName = "/OpenForum/AddOn/DataLogger/PageAccessMonitor";
   var author = "unknown";
-  var time = "1699285287540";
+  var time = "1794835592000";
   var currentUser = "";
   var user = {};
   var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
-  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data.data;  } ).go();
+  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data;  } ).go();
   JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
     function (response) {
       user.profile = response.data;
@@ -156,8 +156,8 @@
 <li> <a href="/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-10.txt">/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-10.txt</a></li>
 <li> <a href="/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-5.txt">/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-5.txt</a></li>
 <li> <a href="/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-4.txt">/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-4.txt</a></li>
-<li> <a href="/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-16.txt">/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-16.txt</a></li>
 <li> <a href="/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-22.txt">/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-22.txt</a></li>
+<li> <a href="/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-16.txt">/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-16.txt</a></li>
 <li> <a href="/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-21.txt">/OpenForum/AddOn/DataLogger/PageAccessMonitor/log-hr-21.txt</a></li>
 </ul><!--End Extension AttachmentsList pageName="/OpenForum/AddOn/DataLogger/PageAccessMonitor" matching=".*\.txt" -->
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->

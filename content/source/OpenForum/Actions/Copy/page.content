@@ -1,14 +1,43 @@
-__[Post Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ Copy one page to another
-----
-!!Get parameters
-* newPageName
+--8<--
+       
+((Copy a file attachment or entire page to another location))
+
+__Get parameters__
+* pageName = Source page name
+* newPageName = Destination page name (optional, defaults to pageName)
+* fileName = File to copy (optional - if not specified, copies entire page)
+* newFileName = Destination filename (optional, defaults to fileName)
+* returnType = Response type: "json" for JSON response, otherwise redirects to Editor
+
+__Get examples:__
+{{{
+// Simple URL
+/OpenForum/Actions/Copy?pageName=/Source&newPageName=/Destination&fileName=file.txt
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Copy', null, 
+  'pageName=/Source&newPageName=/Destination&fileName=file.txt&returnType=json')
+  .onSuccess(function(result) {
+    console.log('Copied:', result);
+  }).go();
+}}}
+
+__Post parameters (deprecated)__
 * sourcePageName
-* listPageName
-----
-!!Post parameters
 * newPageName
-* sourcePageName
 * listPageName
+
+__Post example:__
+{{{
+// Using JSON.post
+JSON.post('/OpenForum/Actions/Copy', null, 
+  'sourcePageName=/OldPage&newPageName=/NewPage')
+  .onSuccess(function(result) {
+    console.log('Copied!');
+  }).go();
+}}}
+
+-->8--
 ----
 !!get.sjs
 <xmp class="example">[{InsertFile fileName="get.sjs"}]</xmp>
@@ -28,4 +57,4 @@ if(listPageName!=null)
 
 wiki.copyPage(sourcePageName,newPageName,listPageName);
 	
-transaction.goToPage("/OpenForum/Actions/Edit?pageName="+newPageName); }}}
+transaction.goToPage("/OpenForum/Actions/Edit?pageName=" newPageName); }}}

@@ -7,6 +7,20 @@
             "view": "display: block;",
             "edit": "display: none;",
             "pageName": "/OpenForum/AddOn/ContentEditor"
+        },
+        {
+            "name": "ContentPages",
+            "fileName": "ContentPages.sjs",
+            "view": "display: block;",
+            "edit": "display: none;",
+            "pageName": "/OpenForum/AddOn/ContentEditor"
+        },
+        {
+            "name": "SiteLibrary",
+            "fileName": "SiteLibrary.sjs",
+            "view": "display: block;",
+            "edit": "display: none;",
+            "pageName": "/OpenForum/AddOn/ContentEditor"
         }
     ],
     "parameters": [],
@@ -58,6 +72,322 @@
             "libraries": [],
             "method": "get",
             "action": "convertHTMLPage"
+        },
+        {
+            "name": "listContentPages",
+            "call": "ContentPages.listContentPages();",
+            "parameters": [],
+            "libraries": [],
+            "method": "get",
+            "description": "List the content editor's saved pages (CON-T-024)",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "listContentPages"
+        },
+        {
+            "name": "readContentPage",
+            "call": "ContentPages.readContentPage(pageId);",
+            "parameters": [
+                {
+                    "name": "pageId",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "description": "Read a saved page's index and its draft revision (CON-T-024)",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "readContentPage"
+        },
+        {
+            "name": "listContentPageRevisions",
+            "call": "ContentPages.listContentPageRevisions(pageId);",
+            "parameters": [
+                {
+                    "name": "pageId",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "description": "List a saved page's revisions (CON-T-024)",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "listContentPageRevisions"
+        },
+        {
+            "name": "readContentPageRevision",
+            "call": "ContentPages.readContentPageRevision(pageId,revisionId);",
+            "parameters": [
+                {
+                    "name": "pageId",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "revisionId",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "description": "Read one immutable revision (CON-T-024)",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "readContentPageRevision"
+        },
+        {
+            "name": "checkContentPagePublication",
+            "call": "ContentPages.checkContentPagePublication(pageId,revisionId);",
+            "parameters": [
+                {
+                    "name": "pageId",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "revisionId",
+                    "required": false,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "description": "Run the publication checks on one saved revision, the draft if revisionId is empty (CON-T-029). Writes nothing.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "checkContentPagePublication"
+        },
+        {
+            "name": "previewContentPageImport",
+            "call": "ContentPages.previewContentPageImport(sourcePage,templateId);",
+            "parameters": [
+                {
+                    "name": "sourcePage",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "templateId",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "description": "Convert an existing /Development page to a Content Editor template without writing anything (PageConverter).",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "previewContentPageImport"
+        },
+        {
+            "name": "listLibrary",
+            "call": "SiteLibrary.listLibrary(kind);",
+            "parameters": [
+                {
+                    "name": "kind",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "description": "List the site library's components, layouts or styles (kind), each with its latest version (CON-T-045).",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "listLibrary"
+        },
+        {
+            "name": "readLibraryEntry",
+            "call": "SiteLibrary.readLibraryEntry(kind,id,version);",
+            "parameters": [
+                {
+                    "name": "kind",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "id",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "version",
+                    "required": false,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "description": "Read one library entry, at its latest or a given version.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "readLibraryEntry"
+        },
+        {
+            "name": "libraryUsage",
+            "call": "SiteLibrary.libraryUsage(kind,id);",
+            "parameters": [
+                {
+                    "name": "kind",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "id",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "description": "Where a component is used: page drafts, other components and layouts.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "libraryUsage"
+        },
+        {
+            "name": "listLinkedImages",
+            "call": "SiteLibrary.listLinkedImages();",
+            "parameters": [],
+            "libraries": [],
+            "method": "get",
+            "description": "The site's linked (https) images (CON-T-049).",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "listLinkedImages"
+        },
+        {
+            "name": "planContentPageMove",
+            "call": "ContentPages.planContentPageMove(pageId,path);",
+            "parameters": [
+                {
+                    "name": "pageId",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "path",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "description": "What moving a page's Development copy would do: problems, warnings and the pages and library items that link to it (CON-T-051). Writes nothing.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "planContentPageMove"
+        },
+        {
+            "name": "listOtherDevelopmentPages",
+            "call": "ContentPages.listOtherDevelopmentPages(folder);",
+            "parameters": [
+                {
+                    "name": "folder",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "description": "Development pages directly below a site folder that are not in the Content Editor.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "listOtherDevelopmentPages"
+        },
+        {
+            "name": "listImageSources",
+            "call": "SiteLibrary.listImageSources();",
+            "parameters": [],
+            "libraries": [],
+            "method": "get",
+            "description": "The pages the image library shows: /Images and /Images, then any added sources (CON-T-049).",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "listImageSources"
+        },
+        {
+            "name": "imageDetails",
+            "call": "SiteLibrary.imageDetails(pageName,fileName);",
+            "parameters": [
+                {
+                    "name": "pageName",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "fileName",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "get",
+            "description": "An image's type, pixel size, file size, checksum, record and where it is used (CON-T-023).",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "imageDetails"
+        },
+        {
+            "name": "listSitePages",
+            "call": "ContentPages.listSitePages();",
+            "parameters": [],
+            "libraries": [],
+            "method": "get",
+            "description": "The site's own pages from their /Development copies (not /OpenForum or support folders), with whether each is in the editor (PHW-T-003).",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "listSitePages"
         }
     ],
     "method": "get",

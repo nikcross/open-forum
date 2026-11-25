@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Javascript/CodeMirror/addon/merge",
-    "title": "merge"
+    "pageName": "/OpenForum/Javascript/CodeMirror/addon/merge",
+    "title": "merge",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

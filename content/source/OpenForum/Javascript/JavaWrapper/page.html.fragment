@@ -1,6 +1,7 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <h2>Moved to <a href="/OpenForum/AddOn/ServiceBuilder">/OpenForum/AddOn/ServiceBuilder</a></h2>
 
-<a href="//OpenForum/Javascript/JavaWrapper/get.sjs">//OpenForum/Javascript/JavaWrapper/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Version 0.1
+<!--Extension InsertSourceFile fileName="get.sjs" --><a href="//OpenForum/Javascript/JavaWrapper/get.sjs">//OpenForum/Javascript/JavaWrapper/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">//Version 0.1
 var action = transaction.getParameter("action");
 
 if(action===null) {
@@ -8,31 +9,31 @@ if(action===null) {
   return;
 }
 
-//Moved to /OpenForum/AddOn/ServiceBuilder</xmp>
+//Moved to /OpenForum/AddOn/ServiceBuilder</xmp><!--End Extension InsertSourceFile fileName="get.sjs" -->
 
 <h3>Javascript introspection</h3>
-<xmp class="panel">
+<xmp class="panel" of-exclude="true">
 Obj = {
   fnA: function(a,b,c) {return 5;},
   fnB: function(d,e) {return 6;}
 };
 
 for(var i in Obj) {
-  if(typeof(Obj[i])=="function") {
+  if(typeof(Obj<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper/i does not exist. Click to create it.">i</a>)=="function") {
     
-    console.log("? "+typeof(Obj[i])+" "+i+" a:"+Obj[i].length);
+    console.log("? "+typeof(Obj<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper/i does not exist. Click to create it.">i</a>)+" "+i+" a:"+Obj<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper/i does not exist. Click to create it.">i</a>.length);
   }
 }
 </xmp>
 
 <h3>Start of server side code</h3>
-<xmp class="panel">
+<xmp class="panel" of-exclude="true">
 println(file.getClass().getName());
 
 var clas = file.getClass();
-var clasJSON = { methods: [] };
+var clasJSON = { methods: <a href="/OpenForum/Javascript/JavaWrapper/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a> };
 for(var methodI in clas.getDeclaredMethods()) {
-  var method = clas.getDeclaredMethods()[methodI];
+  var method = clas.getDeclaredMethods()<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper/methodI"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper/methodI does not exist. Click to create it.">methodI</a>;
   println("m:"+method.getName());
   var methodName = method.getName();
   
@@ -40,7 +41,7 @@ for(var methodI in clas.getDeclaredMethods()) {
   var methodJSON = {name: methodName};
   
   for(var argI in method.getParameterTypes()) {
-    var arg = method.getParameterTypes()[argI];
+    var arg = method.getParameterTypes()<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper/argI"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper/argI does not exist. Click to create it.">argI</a>;
     println(" a:"+arg.getName());
     
     if(arg.getClass().isPrimitive()===false) {
@@ -56,24 +57,24 @@ for(var methodI in clas.getDeclaredMethods()) {
   }
 }
 
-/*
+<!--
 Server side javascript wrapper
-*/
+-->
 
-/*
+<!--
 Service code template
 if(action==="methodName") {
 	var arg0 = transaction.getParameter("arg0");
     
     return file.methodName(arg0);
 }
-*/
+-->
 
-/*
+<!--
 Service documentation template
-*/
+-->
 
-/*
+<!--
 Client code template
 file: {
 	methodName: function(arg0,successFn) {
@@ -84,15 +85,15 @@ file: {
         }
     }
 }
-*/
+-->
 
-/*
+<!--
 Client code documentation template
-*/
+-->
 </xmp>
 
 <h3>Old Code</h3>
-<a href="//OpenForum/Javascript/JavaWrapper/java-wrapper.sjs">//OpenForum/Javascript/JavaWrapper/java-wrapper.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper&fileName=java-wrapper.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">/*function wrap(instance) {
+<!--Extension InsertSourceFile fileName="java-wrapper.sjs" --><a href="//OpenForum/Javascript/JavaWrapper/java-wrapper.sjs">//OpenForum/Javascript/JavaWrapper/java-wrapper.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper&fileName=java-wrapper.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel"><!--function wrap(instance) {
   //if primative, convert to javascript type
   if(instance instanceof String) {
     return ""+instance;
@@ -111,13 +112,12 @@ Client code documentation template
     }
   }
   return jsWapper;
-}*/
+}-->
 
 function wrap(instance) {
   for(var fn in instance) {
-    println(instance[fn]);
+    println(instance<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper/fn"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/JavaWrapper/fn does not exist. Click to create it.">fn</a>);
   }
 }
 
-wrap(js);</xmp>
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+wrap(js);</xmp><!--End Extension InsertSourceFile fileName="java-wrapper.sjs" -->

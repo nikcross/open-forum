@@ -1,15 +1,31 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Moves a page or file to the <a href="/OpenForum/DeletedPages">Deleted</a> page
-<hr/>
-<h3>Get Parameters</h3>
-<ul><li> pageName - The page name to delete</li>
-<li> fileName - Optional file to delete. If set then the page is not deleted</li>
+       
+<p>Deletes a page or file, moving it to <a href="/OpenForum/DeletedPages">/OpenForum/DeletedPages</a></p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to delete (or page containing file if fileName is specified)</li>
+<li> fileName = Optional file to delete (if omitted, entire page is deleted)</li>
+<li> returnType = Response type: "json" for JSON response, otherwise redirects</li>
 </ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL - delete a file
+/OpenForum/Actions/Delete?pageName=/MyPage&fileName=file.txt
+
+// Using JSON.get - delete a page
+JSON.get('/OpenForum/Actions/Delete', null, 'pageName=/MyPage&returnType=json')
+  .onSuccess(function(result) {
+    console.log('Deleted:', result);
+  }).go();
+</xmp>
+
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
+
 <hr/>
 <h3>Server Side Javascript for GET method</h3>
 
-
-<a href="/OpenForum/Actions/Move?pageName=/OpenForum/DeletedPages/"+pageName+"&newPageName="+pageName+""><!--Extension InsertSourceFile pageName="/OpenForum/Actions/Delete" fileName="get.sjs" --><a href="//OpenForum/Actions/Delete/get.sjs">//OpenForum/Actions/Delete/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Delete&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
+<!--Extension InsertSourceFile pageName="/OpenForum/Actions/Delete" fileName="get.sjs" --><a href="//OpenForum/Actions/Delete/get.sjs">//OpenForum/Actions/Delete/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Delete&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined")
 {
   transaction.setResult(transaction.SHOW_PAGE);
   return;
@@ -37,7 +53,7 @@ try {
     if(deleted) {
       //TODO Handle pages deleted from /OpenForum/DeletedPages
       data = file.getAttachment("/OpenForum/DeletedPages","page.content");
-      data = data + "<br/>n*<a href="/OpenForum/Actions/Delete/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>Undelete "+pageName+"</a>";
+      data = data + "<br/>n*<a href="/OpenForum/Actions/Move?pageName=/OpenForum/DeletedPages/"+pageName+"&newPageName="+pageName+"">Undelete "+pageName+"</a>";
       file.saveAttachment("/OpenForum/DeletedPages","page.content",data);
       openForum.refreshPage("/OpenForum/DeletedPages");
 

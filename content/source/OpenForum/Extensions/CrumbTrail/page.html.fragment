@@ -1,7 +1,11 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-(<p>Displays a page hierachy trail</p>
 
+<p>Displays a page hierarchy breadcrumb trail</p>
+<b>Parameters</b>
+<ul><li> None</li>
+</ul>
 <xmp class="panel" of-exclude="true">
 <!--Extension CrumbTrail --><nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">CrumbTrail</a></li></nav><!--End Extension CrumbTrail -->
 </xmp>
+
 <!--Extension CrumbTrail --><nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Extensions">Extensions</a></li><li role="menuitem" class="current"><a href="/OpenForum/Extensions">CrumbTrail</a></li></nav><!--End Extension CrumbTrail -->

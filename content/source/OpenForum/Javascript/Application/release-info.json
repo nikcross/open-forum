@@ -1,7 +1,6 @@
 {
-    "version": "0.0.17",
+    "version": "0.0.21",
     "extra": {
         "notes": "Added table editor extension"
-    },
-    "installedDate": 1759495411722
+    }
 }

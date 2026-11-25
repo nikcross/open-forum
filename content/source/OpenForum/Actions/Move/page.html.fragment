@@ -1,4 +1,27 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+       
+<p>Move a file or entire page to a new location</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Source page name</li>
+<li> newPageName = Destination page name (optional, defaults to pageName)</li>
+<li> fileName = File to move (optional - if not specified, moves entire page)</li>
+<li> newFileName = Destination filename (optional, defaults to fileName)</li>
+<li> returnType = Response type: "json" for JSON response, otherwise redirects to Editor</li>
+</ul>
+<b>Get examples:</b>
+<xmp class="panel" of-exclude="true">
+// Simple URL - move a file
+/OpenForum/Actions/Move?pageName=/OldPage&newPageName=/NewPage&fileName=file.txt
+
+// Using JSON.get - move a page
+JSON.get('/OpenForum/Actions/Move', null, 'pageName=/OldPage&newPageName=/NewPage&returnType=json')
+  .onSuccess(function(result) {
+    console.log('Moved:', result);
+  }).go();
+</xmp>
+
+
 <!--Extension InsertSourceFile fileName="get.sjs" --><a href="//OpenForum/Actions/Move/get.sjs">//OpenForum/Actions/Move/get.sjs</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/Move&fileName=get.sjs" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">if(typeof(pageName)=="undefined") {
   transaction.setResult(transaction.SHOW_PAGE);
   return;

@@ -1,11 +1,29 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  Moves a page or file to the [Deleted|/OpenForum/DeletedPages] page
-----
-!!Get Parameters
-* pageName - The page name to delete
-* fileName - Optional file to delete. If set then the page is not deleted
+--8<--
+       
+((Deletes a page or file, moving it to [/OpenForum/DeletedPages]))
+
+__Get parameters__
+* pageName = Page name to delete (or page containing file if fileName is specified)
+* fileName = Optional file to delete (if omitted, entire page is deleted)
+* returnType = Response type: "json" for JSON response, otherwise redirects
+
+__Get examples:__
+{{{
+// Simple URL - delete a file
+/OpenForum/Actions/Delete?pageName=/MyPage&fileName=file.txt
+
+// Using JSON.get - delete a page
+JSON.get('/OpenForum/Actions/Delete', null, 'pageName=/MyPage&returnType=json')
+  .onSuccess(function(result) {
+    console.log('Deleted:', result);
+  }).go();
+}}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 ----
 !!Server Side Javascript for GET method
-
 
 [{InsertSourceFile pageName="/OpenForum/Actions/Delete" fileName="get.sjs"}]

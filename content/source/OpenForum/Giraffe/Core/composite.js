@@ -9,156 +9,191 @@
  * @param x {number} the position that the ... is to be drawn on the x axis
  * @param y {number} the position that the ... is to be drawn on the y axis
  */
-function Composite(x,y,rotation)
-{
-  /**#@+
-	   * @memberOf Composite
-	   */
-  this.x=x;
-  this.y=y;
-  this.rotation=rotation;
-  this.parts = [];
-  this.masked = false;
+Giraffe.Composite = function(x,y,rotation) {
+  var self = this;
+  if(typeof rotation == "undefined") rotation = 0;
+  self.rotation = rotation;
+  self.x=x;
+  self.y=y;
+  self.parts = [];
+  self.masked = false;
+  self.type = "Composite";
+  self.excludeFromSave=false;
 
-  this.add = function( part )
-  {
-    if(part.canvasParent!=null)
-    {
-      return;
+  var superToJson = self.toJson;
+  self.toJson = function() {
+    var json = superToJson(self);
+    json.parts = [];
+    
+    if(self.excludeFromSave == true) return json;
+    
+    for(var p=0;p<self.parts.length;p++) {
+      json.parts.push( self.parts[p].toJson() );
     }
-    part.canvasParent = this.canvasParent;
-    this.parts[this.parts.length] = part;
-    return this;
+    return json;
   };
 
-  this.remove = function( part ) {
-    for(this.loop=0;this.loop<this.parts.length;this.loop++)
-    {
-      if(this.parts[this.loop]==part) {
-        part.canvasParent=null;
-        this.parts.splice(this.loop,1);
+  var superFromJson = self.fromJson;
+  self.fromJson = function(json,canvas) {
+    superFromJson( json, canvas, self );
+    if(json.parts) {
+      for(var p=0;p<json.parts.length;p++) {
+        self.add( canvas.fromJson(json.parts[p],canvas) );
       }
     }
   };
 
-  this.deconstruct = function() {
-    for(this.loop=0;this.loop<this.parts.length;this.loop++)
-    {
-      var part = this.parts[this.loop];
-      part.x += this.x;
-      part.y += this.y;
-      part.onMouseOver = this.onMouseOver;
-      part.onMouseOut = this.onMouseOut;
-      part.onMousePressed = this.onMousePressed;
-      part.onMouseReleased = this.onMouseReleased;
-      part.onClick = this.onClick;
-      part.rotation += this.rotation;
-      part.canvasParent=null;
-      this.canvasParent.add( part );
+  var setParent = function( composite, canvasParent ) {
+    if(!composite.parts) return;
+    composite.canvasParent = canvasParent;
+    
+    for(var p in composite.parts) {
+      composite.parts[p].canvasParent = canvasParent;
+      if( composite.parts[p].parts ) {
+        setParent( composite.parts[p], canvasParent );
+      }
     }
-    this.parts = new Array();
+  };
+  
+  self.add = function( part,id ) {
+    if(part.canvasParent!=null) {
+      return;
+    }
+
+    if(id) {
+      self[id] = part;
+      part.id = id;
+    } else if(part.id) {
+      self[id] = part.id;
+    }
+
+    if( self.canvasParent ) {
+    	setParent( part, self.canvasParent );
+    }
+    
+    part.parent = this;
+    self.parts.push(part);
+    return self;
+  };
+  
+  self.remove = function( part ) {
+    for(var i=0;i<self.parts.length;i++) {
+      if(self.parts[i]==part) {
+        part.canvasParent=null;
+        part.parent = null;
+        self.parts.splice(i,1);
+      }
+    }
+  };
+
+  self.deconstruct = function() {
+    for(var i=0;i<self.parts.length;i++) {
+      var part = self.parts[i];
+      part.x += self.x;
+      part.y += self.y;
+      part.onMouseOver = self.onMouseOver;
+      part.onMouseOut = self.onMouseOut;
+      part.onMousePressed = self.onMousePressed;
+      part.onMouseReleased = self.onMouseReleased;
+      part.onClick = self.onClick;
+      part.rotation += self.rotation;
+      part.canvasParent=null;
+      part.parent = null;
+      self.canvasParent.add( part );
+    }
+    self.parts = [];
   };
   /**
    * @private
    */  
-  this.draw = function()
-  {
+  self.draw = function() {
     var hasMask = false;
-    for(this.loop=0;this.loop<this.parts.length;this.loop++)
-    {
-      if(this.parts[this.loop].canvasParent==null)
-      {
-        this.parts[this.loop].canvasParent=this.canvasParent;
-        this.parts[this.loop].canvas=this.canvas;
+    for(var i=0;i<self.parts.length;i++) {
+      if(self.parts[i].canvasParent==null) {
+        self.parts[i].canvasParent=self.canvasParent;
+        self.parts[i].canvas=self.canvas;
       }
-      if(this.parts[this.loop].visible==true) {
-        this.parts[this.loop]._repaint();
+      if(self.parts[i].visible==true) {
+        self.parts[i]._repaint();
 
-        if(this.loop==0 && this.masked==true) {
+        if(i==0 && self.masked==true) {
           hasMask = true;
-          this.canvasParent._store();
-          this.canvas.clip();
+          self.canvasParent._store();
+          self.canvas.clip();
         }
       }
     }
     if(hasMask) {
-    	this.canvasParent._restore();
+      self.canvasParent._restore();
     }
   };
 
-  this.animate = function(frame) {
-    for(this.loop=0;this.loop<this.parts.length;this.loop++)
-    {    
-      this.parts[this.loop].animate(frame);
+  self.animate = function(frame) {
+    for(var i=0;i<self.parts.length;i++) {    
+      self.parts[i].animate(frame);
     }
   };
   
-  this.isInside = function(posX,posY) {
-    var relativePosX = (posX-this.x) / this.scaleX;
-    var relativePosY = (posY-this.y) / this.scaleY;
-    
-    for(this.loop=0;this.loop<this.parts.length;this.loop++)
-    {    
-      if(this.parts[this.loop].visible===true && this.parts[this.loop].isInside(relativePosX,relativePosY)) {
+  self.isInside = function(posX,posY) {
+    var rPos = self.getRelativePosition(posX,posY);
+    posX = rPos.x;
+    posY = rPos.y;
+
+    for(var i=self.parts.length-1;i>=0;i--) {    
+      if(self.parts[i].visible===true && self.parts[i].isInside(posX,posY)) {
         return true;
       }
     }
     return false;
   };
 
-  this.onClick = function(posX,posY) {
-    var relativePosX = (posX-this.x) / this.scaleX;
-    var relativePosY = (posY-this.y) / this.scaleY;
-    for(this.loop=0;this.loop<this.parts.length;this.loop++)
+  self.onClick = function(posX,posY) {
+    var relativePos = self.getRelativePosition(posX,posY);
+    for(var i=0;i<self.parts.length;i++)
     {    
-      if(this.parts[this.loop].visible===true && this.parts[this.loop].isInside(relativePosX,relativePosY)) {
-        this.parts[this.loop].onClick(relativePosX,relativePosY);
+      if(self.parts[i].visible===true && self.parts[i].isInside(relativePos.x,relativePos.y)) {
+        self.parts[i].onClick(relativePos.x,relativePos.y);
       }
     }
     return false;
   };
-  this.onMouseOver = function(posX,posY) {
-    var relativePosX = (posX-this.x) / this.scaleX;
-    var relativePosY = (posY-this.y) / this.scaleY;
-    for(this.loop=0;this.loop<this.parts.length;this.loop++)
-    {
-      if(this.parts[this.loop].visible===true && this.parts[this.loop].isInside(relativePosX,relativePosY)) {    
-        this.parts[this.loop].onMouseOver(relativePosX,relativePosY);
-        this.parts[this.loop].mouseOver=true;
-      } else if(this.parts[this.loop].mouseOver==true) {
-        this.parts[this.loop].mouseOver=false;
-        this.parts[this.loop].onMouseOut(relativePosX,relativePosY);
+  self.onMouseOver = function(posX,posY) {
+    var relativePos = self.getRelativePosition(posX,posY);
+    for(var i=0;i<self.parts.length;i++) {
+      if(self.parts[i].visible===true && self.parts[i].isInside(relativePos.x,relativePos.y)) { 
+        self.parts[i].onMouseOver(relativePos.x,relativePos.y);
+        self.parts[i].mouseOver=true;
+      } else if(self.parts[i].mouseOver==true) {
+        self.parts[i].mouseOver=false;
+        self.parts[i].onMouseOut(relativePos.x,relativePos.y);
       }
     }
   };
-  this.onMouseOut = function(posX,posY) {
-    var relativePosX = (posX-this.x) / this.scaleX;
-    var relativePosY = (posY-this.y) / this.scaleY;
-    for(this.loop=0;this.loop<this.parts.length;this.loop++)
-    {
-      if(this.parts[this.loop].mouseOver==true) {
-        this.parts[this.loop].mouseOver=false;
-        this.parts[this.loop].onMouseOut(relativePosX,relativePosY);
+  self.onMouseOut = function(posX,posY) {
+    var relativePos = self.getRelativePosition(posX,posY);
+    for(var i=0;i<self.parts.length;i++) {
+      if(self.parts[i].mouseOver==true) {
+        self.parts[i].mouseOver=false;
+        self.parts[i].onMouseOut(relativePos.x,relativePos.y);
       }
     }
   };
-  this.onMousePressed = function(posX,posY) {
-    var relativePosX = (posX-this.x) / this.scaleX;
-    var relativePosY = (posY-this.y) / this.scaleY;
-    for(this.loop=0;this.loop<this.parts.length;this.loop++)
-    {    
-      if(this.parts[this.loop].visible===true && this.parts[this.loop].isInside(relativePosX,relativePosY)) {  
-        this.parts[this.loop].onMousePressed(relativePosX,relativePosY);
+  self.onMousePressed = function(posX,posY) {
+    var relativePos = self.getRelativePosition(posX,posY);
+    for(var i=0;i<self.parts.length;i++) {    
+      if(self.parts[i].visible===true && self.parts[i].isInside(relativePos.x,relativePos.y)) {  
+        self.parts[i].onMousePressed(relativePos.x,relativePos.y);
       }
     }
   };
-  this.onMouseReleased = function(posX,posY) {
-    var relativePosX = (posX-this.x) / this.scaleX;
-    var relativePosY = (posY-this.y) / this.scaleY;
-    for(this.loop=0;this.loop<this.parts.length;this.loop++)
-    {    
-      this.parts[this.loop].onMouseReleased(relativePosX,relativePosY);
+  self.onMouseReleased = function(posX,posY) {
+    var relativePos = self.getRelativePosition(posX,posY);
+    for(var i=0;i<self.parts.length;i++) {    
+      self.parts[i].onMouseReleased(relativePos.x,relativePos.y);
     }
   };
-}
-Composite.prototype = new GraphicsObject();
+};
+Giraffe.Composite.prototype = new Giraffe.GraphicsObject();
+
+//Deprecated
+Composite = Giraffe.Composite;

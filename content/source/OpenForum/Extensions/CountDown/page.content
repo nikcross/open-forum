@@ -1,6 +1,18 @@
+--8<--
+
+((Creates a countdown timer that triggers an action))
+__Parameters__
+* counter = Name/label for the counter
+* action = JavaScript action to call when countdown completes
+* period = Time period in seconds
+
+{{{
+[{CountDown counter="Alerts" action="doAction" period="10"}]
+}}}
+-->8--
+
 <div class="row">
 !!CountDown v0.0.1
-{{{ [{CountDown counter="Alerts" action="doAction" period="10"}] }}}
 [{CountDown counter="Alerts" action="doAction" period="10"}]
 \\
 [{ActionButton text="Add CountDown Block type to Content Editor" action="addToContentEditor"}]

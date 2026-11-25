@@ -1,24 +1,35 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Creates a page view of a folder
-<hr/>
-<h3>Parameters</h3>
-<ul><li> pageName - Name of the page to view as a folder</li>
-<hr/>
-<h3>Usage:</h3>
+       
+<p>Creates a page view of a folder showing its contents</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Page name to view as a folder</li>
+</ul>
+<b>Get examples:</b>
 <xmp class="panel" of-exclude="true">
-/OpenForum/Actions/ViewFolder?folderName=Folder to View
+// Simple URL
+/OpenForum/Actions/ViewFolder?pageName=/OpenForum/Actions
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/ViewFolder', null, 'pageName=/MyFolder')
+  .onSuccess(function(page) {
+    console.log('Folder view:', page);
+  }).go();
 </xmp>
+
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
 
 <a href="/OpenForum/Actions/ViewFolder?pageName=/OpenForum/Actions/ViewFolder">/OpenForum/Actions/ViewFolder?pageName=/OpenForum/Actions/ViewFolder</a>
 
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel" of-exclude="true"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
 }
 else
 {
-  page = wiki.buildPage(pageName,"<h3>Folder: "+pageName,true);</h3>
+  page = wiki.buildPage(pageName,"<h3>Folder: " pageName,true);</h3>
   transaction.sendPage( page );
-} </xmp></ul>
+} </xmp>

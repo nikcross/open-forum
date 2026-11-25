@@ -1,15 +1,14 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<h3>MarkPage</h3>
 
-
-
-<p>Mark a point in a page that can be referenced</p>
+<p>Marks a point in a page that can be referenced</p>
 <b>Parameters</b>
-<ul><li> name - the name of the mark</li>
+<ul><li> name = Name of the mark</li>
 </ul>
 <xmp class="panel" of-exclude="true">
 <!--Extension Mark name="TestMark" -->undefined<!--End Extension Mark name="TestMark" --> Some text to reference
 </xmp>
+
+<h3>MarkPage</h3>
 
 <!--Extension Mark name="TestMark" -->undefined<!--End Extension Mark name="TestMark" --> Some text to reference<br/><br/>
 See: <a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/GoToMark"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Extensions/GoToMark does not exist. Click to create it.">GoToMark</a> for an example of using this mark

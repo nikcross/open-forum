@@ -1,3 +1,25 @@
+--8<--
+       
+((Get access permissions for a page))
+
+__Get parameters__
+* action = "getAccess"
+* pageName = Page name to get access permissions for
+
+__Get examples:__
+{{{
+// Simple URL
+/OpenForum/Actions/Access?action=getAccess&pageName=/OpenForum/Actions/Access
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/Access', 'getAccess', 'pageName=/OpenForum/Actions/Access')
+  .onSuccess(function(result) {
+    console.log('Access:', result);
+  }).go();
+}}}
+
+-->8--
+
 !!&title;
 
 ----

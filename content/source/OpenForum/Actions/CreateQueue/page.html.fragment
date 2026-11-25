@@ -1,16 +1,27 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b>  Creates a new Queue with a unique name and returns it's name.
-<hr/>
-<h3>Parameters</h3>
-<ul><li> pageName</li>
-<hr/>
-<h3>Usage:</h3>
+       
+<p>Creates a new queue with a unique name and returns the queue name</p>
+
+<b>Get parameters</b>
+<ul><li> pageName = Any page name (required but not used)</li>
+</ul>
+<b>Get examples:</b>
 <xmp class="panel" of-exclude="true">
+// Simple URL
 /OpenForum/Actions/CreateQueue?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/CreateQueue', null, 'pageName=dummy')
+  .onSuccess(function(queueName) {
+    console.log('Queue created:', queueName);
+  }).go();
 </xmp>
 
+
+<b><a href="http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions" target="external_page">Get Action</a></b> 
+
 <hr/>
-<h3>Server Side Javascript for GET method</h3>
+<h3>Server Side Javascript for GET method</h3>
 <xmp class="panel" of-exclude="true"> if(typeof(pageName)=="undefined")
 {
 	transaction.setResult(transaction.SHOW_PAGE);
@@ -20,4 +31,4 @@ else
   queueName = wiki.createQueue();
 
   transaction.sendPage(queueName);
-} </xmp></ul>
+} </xmp>

@@ -1,3 +1,24 @@
+--8<--
+       
+((Saves a base64-encoded image as an attachment))
+
+__Post parameters__
+* pageName = Page name to save image to
+* fileName = Image file name
+* data = Base64-encoded image data
+
+__Post example:__
+{{{
+// Using JSON.post with base64 image data
+JSON.post('/OpenForum/Actions/SaveImage', null, 
+  'pageName=/MyPage&fileName=image.png&data='   base64ImageData)
+  .onSuccess(function(result) {
+    console.log('Image saved:', result);
+  }).go();
+}}}
+
+-->8--
+
 [{InsertSourceFile fileName="save-canvas.js"}]
 
 [{InsertSourceFile fileName="post.sjs"}]

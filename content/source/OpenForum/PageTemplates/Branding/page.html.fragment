@@ -1,6 +1,15 @@
-<h3>&title;</h3>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>Branding</h3>
 
-<hr/>
+<hr/> 
 <h3>Attachments</h3>
-
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+<!--Extension AttachmentsList pageName="/OpenForum/PageTemplates/Branding" matching=".*" --><ul><li> <a href="/OpenForum/PageTemplates/Branding/footer.page.content">/OpenForum/PageTemplates/Branding/footer.page.content</a></li>
+<li> <a href="/OpenForum/PageTemplates/Branding/page.js">/OpenForum/PageTemplates/Branding/page.js</a></li>
+<li> <a href="/OpenForum/PageTemplates/Branding/page.content">/OpenForum/PageTemplates/Branding/page.content</a></li>
+<li> <a href="/OpenForum/PageTemplates/Branding/top-left-logo.page.content">/OpenForum/PageTemplates/Branding/top-left-logo.page.content</a></li>
+<li> <a href="/OpenForum/PageTemplates/Branding/icon.html">/OpenForum/PageTemplates/Branding/icon.html</a></li>
+<li> <a href="/OpenForum/PageTemplates/Branding/page.html.fragment">/OpenForum/PageTemplates/Branding/page.html.fragment</a></li>
+<li> <a href="/OpenForum/PageTemplates/Branding/data.json">/OpenForum/PageTemplates/Branding/data.json</a></li>
+<li> <a href="/OpenForum/PageTemplates/Branding/page.html">/OpenForum/PageTemplates/Branding/page.html</a></li>
+<li> <a href="/OpenForum/PageTemplates/Branding/branding.css">/OpenForum/PageTemplates/Branding/branding.css</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/PageTemplates/Branding" matching=".*" -->

@@ -1,10 +1,25 @@
+--8<--
+
+((Creates a popup modal dialog))
+__Parameters__
+* id = Unique identifier for the popup
+* sourceFileName = File containing popup content (optional)
+* sourcePageName = Page where popup content is located (optional)
+* content = Inline content for the popup (optional)
+* title = Title for popup button (optional)
+
+{{{
+[{Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup"}]
+}}}
+-->8--
+
 !!&title;
 ----
 !!Popup
 {{{[{Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup"}]}}}
 [{Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup"}]
 
-{{{[{Popup id="test2" content="some content"]}}}
+{{{[{Popup id="test2" content="some content"}]}}}
 [{Popup id="test2" content="some content"}]
 
 ----

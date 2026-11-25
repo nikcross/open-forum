@@ -1,15 +1,22 @@
-A button that fires an [OpenForum GET action|/OpenForum/Actions]
-----
-!!Parameters
+--8<--
+
+((An input field that fires an [OpenForum GET action|/OpenForum/Actions]))
+__Parameters__
 * action = Action Name
-* text = Action button text
+* parameters = Optional parameters to pass to the action
+
+{{{
+[{ActionInput action="alert" parameters="pageName=Home"}]
+}}}
+-->8--
+
+[{ActionInput action="alert" parameters="pageName=Home"}]
 
 ----
 !!Usage:
 {{{
 [{ActionInput action="alert" parameters="pageName=Home"}]
 }}}
-[{ActionInput action="alert" parameters="pageName=Home"}]
 
 ----
 

@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Images/IconsIndex",
-    "title": " Icons Index"
+    "pageName": "/OpenForum/Images/IconsIndex",
+    "title": "IconsIndex",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

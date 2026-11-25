@@ -1,3 +1,28 @@
+--8<--
+       
+((Upload and attach a file to a page))
+
+__Post parameters__
+* page = Target page name
+* fileName = Name of the file being uploaded
+* (file data) = Multipart form data with file content
+
+__Post example:__
+{{{
+// Using FormData and fetch
+var formData = new FormData();
+formData.append('file', fileInput.files[0]);
+formData.append('fileName', 'myfile.txt');
+
+fetch('/OpenForum/Actions/Attach?page=/MyPage', {
+  method: 'POST',
+  body: formData
+}).then(response => response.json())
+  .then(result => console.log('Uploaded:', result));
+}}}
+
+-->8--
+
 __[Post Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 ----

@@ -1,7 +1,11 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<div class="row">
 
-<p>Renders <a href="https://raw.githubusercontent.com/wiki/adam-p/markdown-here/Markdown-Here-Cheatsheet.md" target="external_page">mark down</a> formatted text in a page.</p>
+<p>Renders <a href="https://raw.githubusercontent.com/wiki/adam-p/markdown-here/Markdown-Here-Cheatsheet.md" target="external_page">markdown</a> formatted text in a page</p>
+<b>Parameters</b>
+<ul><li> pageName = Page where markdown file is attached (optional)</li>
+<li> fileName = Name of markdown file to render</li>
+<li> url = Alternative: URL of remote markdown file</li>
+</ul>
 <xmp class="panel" of-exclude="true">
 <!--Extension MarkDown pageName="/OpenForum/Extensions/MarkDown" fileName="example.md" --><h1 id="open-forum">open-forum</h1>
 <p> is a free and open source application providing an integrated web server and Wiki.</p>
@@ -20,6 +24,8 @@ web services as well as act as a source of information to other applications.</p
 with hierarchical templates and access control.</p>
 <!--End Extension MarkDown pageName="/OpenForum/Extensions/MarkDown" fileName="example.md" -->
 </xmp>
+
+<div class="row">
 <!--Extension MarkDown pageName="/OpenForum/Extensions/MarkDown" fileName="example.md" --><h1 id="open-forum">open-forum</h1>
 <p> is a free and open source application providing an integrated web server and Wiki.</p>
 <p>In addition to the standard Wiki functions of page editing,
@@ -89,9 +95,9 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 <h2 id="lists">Lists</h2>
 <pre><code class="lang-no-highlight">1. First ordered list item
 2. Another item
-  * Unordered sub-list. 
+    * Unordered sub-list. 
 1. Actual numbers don&#39;t matter, just that it&#39;s a number
-  1. Ordered sub-list
+    1. Ordered sub-list
 4. And another item.  
 
    Some text that should be aligned with the above item.
@@ -166,7 +172,7 @@ Reference-style:
 <img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="Logo Title Text 2"></p>
 <p><a name="code"/></p>
 <h2 id="code-and-syntax-highlighting">Code and Syntax Highlighting</h2>
-<p>Code blocks are part of the Markdown spec, but syntax highlighting isn&#39;t. However, many renderers -- like Github&#39;s and <em>Markdown Here</em> -- support syntax highlighting. <em>Markdown Here</em> supports highlighting for dozens of languages (and not-really-languages, like diffs and HTTP headers); to see the complete list, and how to write the language names, see the <a href="http://softwaremaniacs.org/media/soft/highlight/test.html">highlight.js demo page</a>.</p>
+<p>Code blocks are part of the Markdown spec, but syntax highlighting isn&#39;t. However, many renderers -- like Github&#39;s and <em>Markdown Here</em> -- support syntax highlighting. <em>Markdown Here</em> supports highlighting for dozens of languages (and not-really-languages, like diffs and HTTP headers); to see the complete list, and how to write the language names, see the <a href="https://highlightjs.org/demo">highlight.js demo page</a>.</p>
 <pre><code class="lang-no-highlight">Inline `code` has `back-ticks around` it.
 </code></pre>
 <p>Inline <code>code</code> has <code>back-ticks around</code> it.</p>
@@ -407,7 +413,7 @@ Strikethrough uses two tildes. <strike>Scratch this.</strike>
 <pre><code class="lang-no-highlight">1. First ordered list item
 2. Another item<ul><li> Unordered sub-list. </li>
 1. Actual numbers don&#39;t matter, just that it&#39;s a number
-  1. Ordered sub-list
+    1. Ordered sub-list
 4. And another item.  
 
    Some text that should be aligned with the above item.<li> Unordered list can use asterisks</li>
@@ -480,7 +486,7 @@ Reference-style:
 <img src="https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png" alt="alt text" title="Logo Title Text 2"></p>
 <p><a name="code"/></p>
 <h2 id="code-and-syntax-highlighting">Code and Syntax Highlighting</h2>
-<p>Code blocks are part of the Markdown spec, but syntax highlighting isn&#39;t. However, many renderers -- like Github&#39;s and <em>Markdown Here</em> -- support syntax highlighting. <em>Markdown Here</em> supports highlighting for dozens of languages (and not-really-languages, like diffs and HTTP headers); to see the complete list, and how to write the language names, see the <a href="http://softwaremaniacs.org/media/soft/highlight/test.html">highlight.js demo page</a>.</p>
+<p>Code blocks are part of the Markdown spec, but syntax highlighting isn&#39;t. However, many renderers -- like Github&#39;s and <em>Markdown Here</em> -- support syntax highlighting. <em>Markdown Here</em> supports highlighting for dozens of languages (and not-really-languages, like diffs and HTTP headers); to see the complete list, and how to write the language names, see the <a href="https://highlightjs.org/demo">highlight.js demo page</a>.</p>
 <pre><code class="lang-no-highlight">Inline `code` has `back-ticks around` it.
 </code></pre>
 <p>Inline <code>code</code> has <code>back-ticks around</code> it.</p>
@@ -665,4 +671,4 @@ $x = a_0 + <br/>frac{1}{a_1 + <br/>frac{1}{a_2 + <br/>frac{1}{a_3 + a_4}}}$
 $<br/>forall x <br/>in X, <br/>quad <br/>exists y <br/>leq <br/>epsilon$
 </code></pre><p>The beginning and ending dollar signs (<code>$</code>) are the delimiters for the TeX markup.</p>
 <!--End Extension MarkDown url="https://raw.githubusercontent.com/wiki/adam-p/markdown-here/Markdown-Here-Cheatsheet.md" -->
-  </div>
+</div>

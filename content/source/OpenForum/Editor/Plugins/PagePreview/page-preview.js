@@ -19,7 +19,7 @@ var PagePreview = function() {
 
     document.getElementById("preview-status").innerHTML = status;
     
-    generateQRCode( "https://open-forum.onestonesoup.org/OpenForum/Editor/Plugins/PagePreview?pageName="+pagePreview.pageToWatch );
+    generateQRCode( window.location.origin + "/OpenForum/Editor/Plugins/PagePreview?pageName=" + pagePreview.pageToWatch );
   };
   
   var generateQRCode = function( text ) {

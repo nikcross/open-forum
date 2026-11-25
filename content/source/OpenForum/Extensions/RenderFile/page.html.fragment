@@ -1,4 +1,16 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+
+<p>Renders a file fragment into the page</p>
+<b>Parameters</b>
+<ul><li> pageName = Page where the file is attached (optional, default = current page)</li>
+<li> fileName = Name of the fragment file to render</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension RenderFile pageName="/OpenForum/Extensions/RenderFile" fileName="example-list.fragment" --><ul><li> One</li>
+<li> Two</li>
+<li> Three</li></ul><!--End Extension RenderFile pageName="/OpenForum/Extensions/RenderFile" fileName="example-list.fragment" -->
+</xmp>
+
 <div class="row">
   <h3>RenderFile</h3>
 

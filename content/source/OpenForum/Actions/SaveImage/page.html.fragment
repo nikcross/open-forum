@@ -1,4 +1,23 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+       
+<p>Saves a base64-encoded image as an attachment</p>
+
+<b>Post parameters</b>
+<ul><li> pageName = Page name to save image to</li>
+<li> fileName = Image file name</li>
+<li> data = Base64-encoded image data</li>
+</ul>
+<b>Post example:</b>
+<xmp class="panel" of-exclude="true">
+// Using JSON.post with base64 image data
+JSON.post('/OpenForum/Actions/SaveImage', null, 
+  'pageName=/MyPage&fileName=image.png&data='   base64ImageData)
+  .onSuccess(function(result) {
+    console.log('Image saved:', result);
+  }).go();
+</xmp>
+
+
 <!--Extension InsertSourceFile fileName="save-canvas.js" --><a href="//OpenForum/Actions/SaveImage/save-canvas.js">//OpenForum/Actions/SaveImage/save-canvas.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Actions/SaveImage&fileName=save-canvas.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">function saveCanvas(pageName,fileName,canvas) {
 	var data = canvas.toDataURL();
       data = data.substring(22);

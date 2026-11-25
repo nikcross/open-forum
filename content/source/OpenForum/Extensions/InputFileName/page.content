@@ -1,7 +1,14 @@
-!!&title;
+--8<--
+
+((Creates a filename input field with validation))
+__Parameters__
+* id = Variable name for data binding
 
 {{{
 [{InputFileName id="myPage"}]
 }}}
+-->8--
+
+!!&title;
 
 *Page [{InputFileName id="myPage"}]

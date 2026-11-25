@@ -8,8 +8,8 @@
 <p>Get a list of all page file changes</p>
 
 <h3>Parameters</h3>
-<table><tr><td>Name</td><td>Description</td></tr>
-<tr><td>pageName (<i>required=true</i>)</td><td>The page to get a history of</td></tr>
+<tr><td>Name</td><td>Description</td></tr>
+<table><tr><td>pageName (<i>required=true</i>)</td><td>The page to get a history of</td></tr>
 <tr><td>fileName (<i>required=false</i>)</td><td>The file to get a history of</td></tr>
 </table>
        

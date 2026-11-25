@@ -1,2 +1,1 @@
-<a class="button" onClick="runTest(); return false;">Run Tests</a>
-<xmp id="queueData"></xmp>
+!! Moved to [/OpenForum/AddOn/Tester]

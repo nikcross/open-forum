@@ -1,7 +1,15 @@
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
-<div class="row">
-<h3>CTABanner v0.0.3</h3>
-<xmp class="panel" of-exclude="true"> <!--Extension CTABanner imageURL="/OpenForum/Images/open-forum-dog-small.png" title="Call To Action" text="A description of the CTA" ctaText="Click Me" ctaURL="http://www.bbc.co.uk" --><script>
+
+<p>Creates a call-to-action banner with image, title, text, and button</p>
+<b>Parameters</b>
+<ul><li> imageURL = URL of the banner image</li>
+<li> title = Banner title</li>
+<li> text = Description text for the CTA</li>
+<li> ctaText = Text for the call-to-action button</li>
+<li> ctaURL = URL the button links to</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension CTABanner imageURL="/OpenForum/Images/open-forum-dog-small.png" title="Call To Action" text="A description of the CTA" ctaText="Click Me" ctaURL="http://www.bbc.co.uk" --><script>
   var ctaCSSLoaded = false;
   if(ctaCSSLoaded == false) {
     ctaCSSLoaded= true;
@@ -12,7 +20,11 @@
 	<h1 style="color: white !important;">Call To Action</h1>
 	<p style="width: 40%"><b>A description of the CTA</b></p>
   <a href='http://www.bbc.co.uk' class='ctaButton'>Click Me</a>
-</div><!--End Extension CTABanner imageURL="/OpenForum/Images/open-forum-dog-small.png" title="Call To Action" text="A description of the CTA" ctaText="Click Me" ctaURL="http://www.bbc.co.uk" --> </xmp>
+</div><!--End Extension CTABanner imageURL="/OpenForum/Images/open-forum-dog-small.png" title="Call To Action" text="A description of the CTA" ctaText="Click Me" ctaURL="http://www.bbc.co.uk" -->
+</xmp>
+
+<div class="row">
+<h3>CTABanner v0.0.3</h3>
 <!--Extension CTABanner imageURL="/OpenForum/Images/open-forum-dog-small.png" title="Call To Action" text="A description of the CTA" ctaText="Click Me" ctaURL="http://www.bbc.co.uk" --><script>
   var ctaCSSLoaded = false;
   if(ctaCSSLoaded == false) {

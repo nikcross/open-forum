@@ -37,6 +37,6 @@ var MockLog = function() {
       self.getDebugMessage = function() {
         return debugMessage;
       };
-    }
+    };
   };
 };

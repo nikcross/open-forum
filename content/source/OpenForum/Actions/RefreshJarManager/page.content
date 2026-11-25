@@ -1,11 +1,26 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  -Description-
-----
-!!Parameters
-----
-!!Usage:
+--8<--
+       
+((Refreshes the JAR manager to reload Java libraries))
+
+__Get parameters__
+* pageName = Any page name (required but not used)
+
+__Get examples:__
 {{{
+// Simple URL
 /OpenForum/Actions/RefreshJarManager?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/RefreshJarManager', null, 'pageName=dummy')
+  .onSuccess(function(result) {
+    console.log('JAR manager refreshed:', result);
+  }).go();
 }}}
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
+
 [/OpenForum/Actions/RefreshJarManager?pageName=dummy]
 
 ----

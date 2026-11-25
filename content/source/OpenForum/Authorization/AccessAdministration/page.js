@@ -1,8 +1,26 @@
 var pageName = "/OpenForum/PageTemplates/Default";
-var accessView = {};
 
 var users = [];
 var groups = [];
+
+var accessView = {
+    "readAccess": {
+        "users": [],
+        "groups": []
+    },
+    "callAccess": {
+        "users": [],
+        "groups": []
+    },
+    "updateAccess": {
+        "users": [],
+        "groups": []
+    },
+    "deleteAccess": {
+        "users": [],
+        "groups": []
+    }
+};
 
 var editMode;
 var editingUser = " ";
@@ -62,13 +80,13 @@ function saveChanges() {
       read: toAccessList(accessView.readAccess.users),
       call: toAccessList(accessView.callAccess.users),
       update: toAccessList(accessView.updateAccess.users),
-      delete: toAccessList(accessView.deleteAccess.users)
+      "delete": toAccessList(accessView.deleteAccess.users)
     },
     groupAccess: {
       read: toAccessList(accessView.readAccess.groups),
       call: toAccessList(accessView.callAccess.groups),
       update: toAccessList(accessView.updateAccess.groups),
-      delete: toAccessList(accessView.deleteAccess.groups)
+      "delete": toAccessList(accessView.deleteAccess.groups)
     }
   };
   
@@ -112,8 +130,8 @@ function convertToAccessView(access) {
         accessView.updateAccess.users.push(user);
       }
     }
-    if(access.userAccess.delete) {
-      for(user in access.userAccess.delete) {
+    if(access.userAccess["delete"]) {
+      for(user in access.userAccess["delete"]) {
         accessView.deleteAccess.users.push(user);
       }
     }
@@ -135,8 +153,8 @@ function convertToAccessView(access) {
         accessView.updateAccess.groups.push(group);
       }
     }
-    if(access.groupAccess.delete) {
-      for(group in access.groupAccess.delete) {
+    if(access.groupAccess["delete"]) {
+      for(group in access.groupAccess["delete"]) {
         accessView.deleteAccess.groups.push(group);
       }
     }
@@ -273,7 +291,7 @@ function getSet(set,create) {
   if(typeof set === "object") return set;
   if(typeof set === "string") {
     var parts = set.split(".");
-    var newSet = eval(parts[0]);
+    var newSet = OpenForum.evaluate(parts[0]);
     var el = newSet;
     for(var i =1; i<parts.length; i++) {
       if(!el[parts[i]]) {

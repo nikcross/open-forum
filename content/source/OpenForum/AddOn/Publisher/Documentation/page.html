@@ -6,19 +6,19 @@
     <title>Documentation</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1668633808000"></script>
-    <script type="text/javascript" src="/OpenForum/AddOn/Publisher/Documentation/page.js?ts=1668633808000"></script>
-    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1668633808000" />
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1794835592000"></script>
+    <script type="text/javascript" src="/OpenForum/AddOn/Publisher/Documentation/page.js?ts=1794835592000"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1794835592000" />
     <!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) start --><link rel="icon" href="/OpenForum/Images/open-forum-dog-small.png" /><!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) end --> 
 
     <!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start --><script>
   var pageName = "/OpenForum/AddOn/Publisher/Documentation";
   var author = "unknown";
-  var time = "1668633808000";
+  var time = "1794835592000";
   var currentUser = "";
   var user = {};
   var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
-  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data.data;  } ).go();
+  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data;  } ).go();
   JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
     function (response) {
       user.profile = response.data;
@@ -127,16 +127,44 @@
     <!--PageContent Start-->
 <h3>Documentation</h3>
 
-<p>The Publisher add on adds the ability to have a development area in your OpenForum server where you can work on pages and services before they are published.</p>
-<p>On publishing a page from the development area, all references to Development are removed, and the pages contents are copied to the production area of your web site and the page rebuilt.</p>
+<p>Publisher lets you build safely under `/...` and then promote those pages to the live tree by copying them without the `/Development` prefix. During a publish run, every text attachment is rewritten, optional per-page translators run, and the target page is refreshed so editors see the new content immediately.</p>
+<p>Use practice mode any time you want to dry-run the release process—the same checks execute, but no files are copied until you run a real publish.</p>
 <hr/>
-<h3>Excluding a Page</h3>
-<p>Add a file do-not-release.txt to stop a page being published.</p>
+<h3>Publishing workflow</h3>
+<ol><li> Select the `/...` page you want to promote and use <b>Check for Page Differences</b> to see what changed since the last release.</li>
+<li> Run <b>Publish Page (practice)</b> to generate release notes, confirm that path replacements and translation scripts behave as expected, and review the deletions script that will be produced.</li>
+<li> If everything looks correct, run <b>Publish Page (for real)</b> to copy files, rewrite `/` references, refresh the live page, and append any deletions to `process-deletions.sjs`.</li>
+<li> Review `release-notes.html.fragment` (kept under the dev page) and keep `process-deletions.sjs` for auditing before you execute the deletions script manually.</li>
 <hr/>
-<h3>Per Page Translation</h3>
-<p>During the publish process, a translation script can be supplied as a file called development-translation.sjs.
-This script will be passed each files data to apply the translation to.</p>
+<h3>Action buttons and services</h3>
+<table><tr><td>Action</td><td>Description</td><td></td></tr>
+<tr><td>Check for Page Differences</td><td>Walks the dev and live trees, showing files whose timestamps or MD5 hashes differ so you can review pending changes before publishing.</td><td></td></tr>
+<tr><td>Publish Page (practice)</td><td>Runs the full pipeline (copy log, path replacement, translation, TODO/service scans, deletions calculation) but does not touch the live tree.</td><td></td></tr>
+<tr><td>Publish Page (for real)</td><td>Copies attachments to the live location, rewrites `/` references, ensures a template link is set, refreshes the page, and produces release notes.</td><td></td></tr>
+<tr><td>Reverse Publish</td><td>Copies the live page back into `/...` so you can bring hotfixes or emergency edits under source control.</td><td></td></tr>
 <hr/>
+<h3>File translation and rewriting</h3>
+<ul><li> Text-based attachments (`.content`, `.js`, `.sjs`, `.html`, `.json`, etc.) have `/` segments removed automatically before being saved to the live page.</li>
+<li> If `development-translation.sjs` exists in the dev page, it is executed once per text file, receiving the file contents as `data` and returning the transformed string.</li>
+<li> Binary files are copied as-is, while derived files (`page.html`, `page.html.fragment`) are regenerated on the live side instead of copied.</li>
+<hr/>
+<h3>Special files and configuration</h3>
+<li> <b>publish-config.json</b> – Extends the exclusion list with `excludedFiles` and can hold future toggles; place it alongside the dev page you publish.</li>
+<li> <b>development-translation.sjs</b> – Optional per-page hook to perform extra string replacements or localization steps.</li>
+<li> <b>do-not-release.txt</b> – Acts as a guardrail; publishing aborts with its message until the file is removed.</li>
+<li> <b>release-notes.html.fragment</b> – Stores the accordion-formatted log of each publish run under the dev page; great for audits.</li>
+<li> <b>process-deletions.sjs</b> – Autogenerated commands to remove files that no longer exist in dev; keep it under version control and run manually once reviewed.</li>
+<hr/>
+<h3>Deletions pipeline</h3>
+<p>Publisher never deletes files immediately. Instead it compares the live attachments with the dev set, and everything that disappears is appended as `file.deleteAttachmentNoBackup(...)` statements inside `process-deletions.sjs`. This gives you a chance to run the deletions in a maintenance window and provides a paper trail of removals.</p>
+<hr/>
+<h3>Troubleshooting tips</h3>
+<li> Ensure references inside your content point to the post-publish path (e.g. `/OpenForum/Documentation/...`) rather than `/...` so inserts resolve after deployment.</li>
+<li> If release notes mention missing services, publish those service pages as well or adjust the calls to non-development paths.</li>
+<li> Use <b>Reverse Publish</b> when an emergency live edit occurs so you can pull it back into `/Development` before the next release.</li>
+<li> When translation scripts produce unexpected output, re-run practice mode and inspect the logged "Applying transform script" entries to see which file caused the issue.</li>
+<hr/>
+<h3>Service definition</h3>
 <div class="row">
   <!--OF insert (/OpenForum/AddOn/Publisher/service-definition.wiki.fragment) start --><h3>/OpenForum/AddOn/Publisher Sevice API Version 1.1.1</h3>
 
@@ -148,7 +176,7 @@ This script will be passed each files data to apply the translation to.</p>
 <p></p>
 
 <h3>Parameters</h3>
-<table><tr><td>Name</td><td>Description</td></tr>
+<tr><td>Name</td><td>Description</td></tr>
 <tr><td>pageName (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
 <tr><td>practice (<i>required=true</i>)</td><td>{{parameter.description}}</td></tr>
 <tr><td>debug (<i>required=false</i>)</td><td>{{parameter.description}}</td></tr>
@@ -238,6 +266,8 @@ This script will be passed each files data to apply the translation to.</p>
 <h3>Post Actions</h3>
 <!--OF insert (/OpenForum/AddOn/Publisher/service-definition.wiki.fragment) end -->
 </div>
+
+
 <!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
 <!--Page Content End-->
     </div>
@@ -285,3 +315,4 @@ This script will be passed each files data to apply the translation to.</p>
     </script>
   </body>
 </html>
+</ul></ol>

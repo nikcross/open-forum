@@ -2,6 +2,15 @@
 * Author: 
 */
 
-      .top-bar {
-        background: #000000;
-      }
+.top-bar {
+  background: #000000;
+}
+
+footer {
+  z-index: 9999;
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+  background-color: white;
+  border-top: solid 1px grey;
+}

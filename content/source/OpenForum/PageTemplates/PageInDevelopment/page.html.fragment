@@ -1,4 +1,5 @@
-Lorem ipsum dolor sit amet,
+<!--Content built using /OpenForum/PageTemplates/PageInDevelopment/page.build.js x0.0.4 February Promise builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Extension InsertPage page='/OpenForum/PageTemplates/Example' -->Lorem ipsum dolor sit amet,
  consectetur adipiscing elit. Maecenas venenatis elit nibh,
  at molestie eros lacinia quis. Donec sed tortor massa. Maecenas dignissim neque et massa iaculis,
  in pretium quam tincidunt. Cras interdum purus ut ante interdum,
@@ -9,5 +10,4 @@ Lorem ipsum dolor sit amet,
  bibendum volutpat erat. Cras posuere malesuada arcu in tempus. Donec id libero ut nulla finibus egestas. Vestibulum elementum,
  erat sit amet rhoncus vestibulum,
  lectus tortor tempor lorem,
- vitae luctus quam ipsum at elit. 
-<!--Content built using default builder and renderer DefaultRenderer v1.03 Clean and smooth-->
+ vitae luctus quam ipsum at elit.<!--End Extension InsertPage page='/OpenForum/PageTemplates/Example' -->

@@ -1,4 +1,5 @@
 {
-    "pageName": "//OpenForum/Spider",
-    "title": " Spider"
+    "pageName": "/OpenForum/Spider",
+    "title": "Spider",
+    "pageParent": "https://open-forum.onestonesoup.org"
 }

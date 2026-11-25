@@ -1,10 +1,10 @@
 OpenForum.action = {};
 OpenForum.action.copyPage = function(pageName,newPageName) {
-  OpenForum.loadFile("/OpenForum/Actions/Copy?newPageName="+newPageName+"&pageName="+pageName);
+  window.open("/OpenForum/Actions/Copy?newPageName="+newPageName+"&pageName="+pageName);
 };
 
 OpenForum.action.movePage = function(pageName,newPageName) {
-  OpenForum.loadFile("/OpenForum/Actions/Copy?newPageName="+newPageName+"&pageName="+pageName);
+  window.location = "/OpenForum/Actions/Move?newPageName="+newPageName+"&pageName="+pageName;
 };
 
 OpenForum.action.zipPage = function(pageName) {
@@ -12,5 +12,5 @@ OpenForum.action.zipPage = function(pageName) {
 };
 
 OpenForum.action.deletePage = function(pageName) {
-  OpenForum.loadFile(window.location = "/OpenForum/Actions/Delete?pageName="+pageName);
+  window.location = "/OpenForum/Actions/Delete?pageName="+pageName;
 };

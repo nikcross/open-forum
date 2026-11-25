@@ -10,7 +10,7 @@ try{
   wiki.addJournalEntry("File ["+pageName+"/"+fileName+"] added to Page ["+pageName+"] by "+user);
   page = wiki.buildPage(pageName);
   //transaction.goToPage(pageName);
-  transaction.sendJSON( JSON.stringify({result: "ok",message: "Uploaded: "+fileName}));
+  transaction.sendJSON( JSON.stringify({result: "ok",message: "Uploaded: "+fileName, pageName: pageName, fileName: fileName}));
 } catch(e) {
     transaction.sendJSON( JSON.stringify({result: "error",message: "Error: "+e}));
 }

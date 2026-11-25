@@ -2,11 +2,14 @@
 <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>&title;</title>
     <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
     <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
-    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js"></script>
-    <script type="text/javascript" src="&pageName;/page.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=&time;"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1612515763000" />
+    <script type="text/javascript" src="&pageName;/page.js?ts=&time;"></script>
+    &insert:/OpenForum/PageTemplates/Branding/icon.html; 
 
     &insert:/OpenForum/PageTemplates/CommonElements/header-script.common.html;
 
@@ -19,6 +22,7 @@
             <img src="/OpenForum/Images/open-forum-dog-small.png" />
           </h1>
         </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
       <ul class="title-area">
         <li class="name">
@@ -31,8 +35,10 @@
     </nav>
     [{CrumbTrail}]
 
+    <div style="padding-bottom: 100px;">
     <!--PageContent Start-->&content;<!--Page Content End-->
-
+    </div>
+      
     &insert:/OpenForum/PageTemplates/Branding/footer.page.content;
 
     &insert:/OpenForum/PageTemplates/CommonElements/error-alert.common.html;

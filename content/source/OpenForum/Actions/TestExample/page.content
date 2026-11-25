@@ -1,12 +1,25 @@
-__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__  -Description-
-----
-!!Parameters
-----
-!!Usage:
+--8<--
+       
+((Example action template for testing purposes))
+
+__Get parameters__
+* pageName = Any page name (required but not used)
+
+__Get examples:__
 {{{
--Example-
+// Simple URL
+/OpenForum/Actions/TestExample?pageName=dummy
+
+// Using JSON.get
+JSON.get('/OpenForum/Actions/TestExample', null, 'pageName=dummy')
+  .onSuccess(function(result) {
+    console.log('Result:', result);
+  }).go();
 }}}
--Example-
+
+-->8--
+
+__[Get Action|http://open-forum.onestonesoup.org/OpenForum/Documentation/Reference/UsingWikiActions]__ 
 
 ----
 !!Server Side Javascript for GET method
