@@ -1,0 +1,8 @@
+{
+    "pageName": "/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor",
+    "title": "WYSIWYGMarkDownEditor",
+    "description": "WYSIWYG Markdown editor for StandaloneEditor (flavour WYSIWYGMarkDown). Edits visually, saves plain Markdown.",
+    "author": "Admin.Claude",
+    "pageParent": "https://open-forum.onestonesoup.org",
+    "editorConfig": "/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor/editor-config.json"
+}

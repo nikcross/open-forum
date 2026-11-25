@@ -1,0 +1,114 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<!--OF insert (/OpenForum/Documentation/OpenForumServerSideJavascript/file.page.content) start --><h3>Documentation for file</h3>
+
+<hr/>
+
+<p>Delete a file attached to a page without backing it up in history</p>boolean file.deleteAttachmentNoBackup( {string pageName} , {string fileName} )
+
+<hr/>
+
+<p>Append data to file</p>void file.appendToPageSource( {string pageName}, {string dataToAppend})
+
+<hr/>
+
+<p>Get the time since a file's last modification</p>integer file.getAttachmentTimestamp( {string pageName} , {string fileName} )
+
+<hr/>
+
+string file.getAttachment( {string pageName} , {string fileName} , {boolean resolveLinks} )
+
+<hr/>
+
+string file.getAttachment( {string pageName} , {string fileName} )
+
+<hr/>
+
+boolean file.pageExists( {string pageName} )
+
+<hr/>
+
+string file.getPageInheritedFileAsString( {string pageName} , {string fileName} )
+
+<hr/>
+
+void file.appendStringToFile( {string pageName} , {string fileName} , {string dataToAppend} )
+
+<hr/>
+
+void file.copyAttachment( {string fromPageName} , {string fromFileName} , {string toPageName} , {string toFileName} )
+
+<hr/>
+
+boolean file.attachmentExists( {string pageName} , {string fileName} )
+
+<hr/>
+
+integer file.getAttachmentSize( {string pageName} , {string fileName} )
+
+<hr/>
+
+InputStream file.getAttachmentInputStream( {string pageName} , {string fileName} )
+
+<hr/>
+
+string file.getPageInheritedFilePath( {string pageName} , {string fileName} )
+
+<hr/>
+
+void file.zipPage( {string pageName} )
+
+<hr/>
+
+OutputStream file.getAttachmentOutputStream( {string pageName} , {string fileName} )
+
+<hr/>
+
+void file.saveAttachment( {string pageName} , {string fileName} , {string data} )
+
+<hr/>
+
+void file.saveAttachmentNoBackup( {string pageName} , {string fileName} , {string dataToAppend} )
+
+<hr/>
+
+void file.unZipAttachment( {string pageName} , {string fileName} )
+
+<hr/>
+
+void file.appendStringToFileNoBackup( {string pageName} , {string fileName} , {string dataToAppend} )
+
+<hr/>
+
+Map file.getAttachmentsForPage( {string pageName} )
+
+<b>Example:</b>
+<xmp class="panel" of-exclude="true">
+var attachments=<a href="/OpenForum/Documentation/OpenForumServerSideJavascript/File/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+var pageName = "/Sandbox";
+var matching = ".*"; //Regex include all
+
+var list = file.getAttachmentsForPage( pageName );
+if(pageName.charAt(0)!='/')
+{
+  pageName = "/"+pageName;
+}
+
+var iterator= list.keySet().iterator();
+while(iterator.hasNext())
+{
+  var key = ""+iterator.next();
+  var item;
+  if(key.charAt(0)==='+') { // ignore sub pages
+    continue;
+  } else if(matching!==null && key.search( ""+matching )==-1 ) {
+    continue;
+  } else {
+    item = key;
+  }
+
+  attachments.push( {pageName: pageName, fileName: item} );
+
+}
+</xmp><!--OF insert (/OpenForum/Documentation/OpenForumServerSideJavascript/file.page.content) end -->
+</div>

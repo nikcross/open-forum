@@ -1,0 +1,16 @@
+{
+    "editors": [
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/YAMLEditor",
+            "fileName": "editor.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/YAMLEditor",
+            "fileName": "page.content"
+        }
+    ],
+    "pageName": "/OpenForum/Editor/Editors/YAMLEditor",
+    "fileName": "editor-config.json"
+}

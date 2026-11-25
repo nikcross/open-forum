@@ -1,0 +1,41 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>IntraQExample QID: {{queueId}}</h3>
+<div class="row">
+  <a href="/OpenForum/Javascript/IntraQExample?inq=true" id="link" target="newQTab">Open new IntraQ Example Tab</a>
+
+  <form>
+    <div class='row'>
+      <div class='large-6 columns'>
+        <label>Message</label> <input type='text' id='messageField' of-id='message' placeholder=' ' />
+      </div>
+      <div class='large-6 columns'>
+        <!--Extension ActionButton text="Send" action="sendMessage" --><a  class='button radius tiny' href='#' onclick='sendMessage(); return false;'>Send</a> <!--End Extension ActionButton text="Send" action="sendMessage" -->
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="row">
+  {{messages}}
+</div>
+
+<div class="row">
+  <h3>Shared Data</h3>
+  {{sharedData}}
+</div>
+
+<hr/>
+
+<div class="row">
+<h3>IntraQ inq</h3>
+<i>Run javascript in other tabs</i>
+  <form>
+    <div class='row'>
+        <!--Extension ActionButton text="Open Alert" action="sendAlert" --><a  class='button radius tiny' href='#' onclick='sendAlert(); return false;'>Open Alert</a> <!--End Extension ActionButton text="Open Alert" action="sendAlert" -->
+        <!--Extension ActionButton text="Set Field" action="setField" --><a  class='button radius tiny' href='#' onclick='setField(); return false;'>Set Field</a> <!--End Extension ActionButton text="Set Field" action="setField" -->
+        <!--Extension ActionButton text="Reload Page" action="reloadPage" --><a  class='button radius tiny' href='#' onclick='reloadPage(); return false;'>Reload Page</a> <!--End Extension ActionButton text="Reload Page" action="reloadPage" -->
+        <!--Extension ActionButton text="Set shared data" action="setSharedData" --><a  class='button radius tiny' href='#' onclick='setSharedData(); return false;'>Set shared data</a> <!--End Extension ActionButton text="Set shared data" action="setSharedData" -->
+    </div>
+  </form>
+  {{inqMessages}}
+</div>

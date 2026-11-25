@@ -1,0 +1,33 @@
+--8<----main--
+<div class="columns medium-3">
+    <div class="infoPanel">
+      <div class="title">
+        <h2 style="color: white;">{{title}}</h2>
+      </div>
+      <div class="diagonal">
+        &nbsp;
+      </div>
+{{infoTables}}
+  </div>
+-->8--
+--8<----table--
+      <table class="infoTable">
+        <thead>
+          <tr>
+            <td>PRODUCTION</td>
+            <td></td>
+            <td>mPt</td>
+          </tr>
+        </thead>
+        <tbody>
+{{infoRows}}
+        </tbody>
+      </table>
+-->8--
+--8<----row--
+          <tr>
+            <td><span>{{material}}</span></td>
+            <td><span>{{units}}</span></td>
+            <td class="infoValue"><span>{{mpt}}</span></td>
+          </tr>
+-->8--

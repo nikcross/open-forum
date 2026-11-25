@@ -1,0 +1,15 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+  <div class="columns large-12">
+    <h3>Build ATree UI</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns large-5">
+    <div id="tree"></div>
+  </div>
+  <div class="columns large-7">
+    <!--Extension InsertSourceFile pageName="/OpenForumDocumentation/CookBook/BuildATreeUI" fileName="page.js" --><a href="/OpenForum/Editor?pageName=//OpenForumDocumentation/CookBook/BuildATreeUI/page.js"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=//OpenForumDocumentation/CookBook/BuildATreeUI/page.js does not exist. Click to create it.">//OpenForumDocumentation/CookBook/BuildATreeUI/page.js</a><a href="/OpenForum/Editor?pageName=/OpenForumDocumentation/CookBook/BuildATreeUI&fileName=page.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">null</xmp><!--End Extension InsertSourceFile pageName="/OpenForumDocumentation/CookBook/BuildATreeUI" fileName="page.js" -->
+  </div>
+</div>

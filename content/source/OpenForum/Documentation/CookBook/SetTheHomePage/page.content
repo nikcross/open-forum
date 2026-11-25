@@ -1,0 +1,10 @@
+
+# Edit the Configuration page
+# Edit the file trigger.sjs
+# Set the content
+{{{
+openForum.setHomePage("my-home-page-path");
+}}}
+# Open the Server Side Javascript Console plugin
+# Type {{{run:trigger.sjs}}} and press return
+# Click Actions -> Save All

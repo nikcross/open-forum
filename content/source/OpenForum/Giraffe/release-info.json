@@ -1,0 +1,7 @@
+{
+    "version": "0.0.41",
+    "extra": {
+        "notes": "Scaled dragging added\nFixed graph labels\nAdded Giraffe logo from Sephy\nThu Nov 03 2022 10:25:29 GMT+0000 (Greenwich Mean Time)\nAdd to giraffe.toJson\n\nmethod to add bucket json data from data element\nspecial element VIEW gets replaced with this on fromJson\n\nJSON.stringify ( giraffe.canvas.graphicsObjects[0].parts[0].data, \nfunction(key,value) { if(key==\"VIEW\") return \"this\"; else return value; });\n"
+    },
+    "installedDate": 1742927332516
+}

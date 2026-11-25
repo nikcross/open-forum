@@ -1,0 +1,161 @@
+!!Documentation for openForum
+
+----
+
+string openForum.getVersion()
+
+----
+
+string openForum.wikiToTitleName( {string title} )
+
+----
+
+string[] openForum.findStoreKeys( {string keyMatchRegex} )
+
+----
+
+void openForum.storeValue( {string key} , {string value} )
+
+----
+
+string openForum.retrieveValue( {string key} )
+
+----
+
+void openForum.storeObject( {string key} , {object} )
+
+----
+
+object openForum.retrieveObject( {string key} )
+
+----
+
+object openForum.removeObject( {string key} )
+
+----
+
+void openForum.refreshPage( {string pageName} )
+
+----
+
+void openForum.postMessageToQueue( {string queueName} , {string message} )
+
+----
+
+integer openForum.getTimeStamp()
+
+----
+
+boolean openForum.rebuild( {boolean forceBuildNow} )
+
+----
+
+boolean openForum.rebuild()
+
+----
+
+string openForum.getDateTimeStamp()
+
+----
+
+string openForum.getDateTimeStamp( {string pageName} )
+
+----
+
+void openForum.addJournalEntry( {string journalEntry} )
+
+----
+
+boolean openForum.pageExists( {string pageName} )
+
+----
+
+string openForum.buildPage( {string pageName} , {string pageSource} )
+
+----
+
+string openForum.buildPage( {string pageName} , {string pageSource}  , {boolean isWikiData} )
+
+----
+
+string openForum.buildPage( {string pageName}, {boolean buildRefersTo} )
+
+----
+
+string openForum.buildPage( {string pageName} )
+
+----
+
+string openForum.renderWikiData( {string name} , {string data} )
+
+----
+
+JavascriptEngine openForum.getJavascriptEngine()
+
+----
+
+string openForum.titleToWikiName( {string title} )
+
+----
+
+void openForum.deletePage( {string pageName} )
+
+----
+
+void openForum.deleteAttachment( {string pageName} , {string fileName} )
+
+----
+
+void openForum.copyPage( {string pageName} , {string fileName} , {string listPageName} )
+
+----
+
+void openForum.addToListPage( {string listPageName}, {string pageName} )
+
+----
+
+((Deprecated - Use JavascriptFileHelper.saveAttachment))void openForum.saveAsAttachment( {string pageName} , {string fileName} , {string data} , {string user} )
+
+----
+TODO
+{{{string[][] openForum.getPageAsList( {string pageName} )}}}
+
+----
+
+void openForum.setHomePage( {string pageName} )
+
+----
+
+string openForum.generateUniqueId()
+
+----
+
+void openForum.revert( {string pageName} , {string version} )
+
+----
+
+void openForum.signOut( {transaction} )
+
+----
+
+void openForum.cleanUpQueues()
+
+----
+
+boolean openForum.signIn( {transaction} )
+
+----
+
+string openForum.validateWikiTitle( {string title} )
+
+----
+
+Map openForum.getPageAsTable( {string pageName} )
+
+----
+
+string[] openForum.getMessagesSince( {string queueName} , {string time} )
+
+----
+
+string openForum.createQueue()

@@ -1,0 +1,7 @@
+{
+  "script": "/OpenForum/Javascript/VirtualAssistant/context.js",
+  "speech": [
+    {"command": "yes", "reply": "js:Context.yes", "replyTemplate": "ok"},
+    {"command": "no", "reply": "js:Context.no", "replyTemplate": "ok"}
+ ]
+}

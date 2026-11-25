@@ -1,0 +1,17 @@
+<section class="ce-app-view" aria-labelledby="ce-layouts-title">
+  <div class="ce-view-head">
+    <div>
+      <p class="ce-panel-label">Site library</p>
+      <h1 id="ce-layouts-title">Page layouts</h1>
+      <p class="ce-view-intro">Named page frames built from components around the place where each page's own content goes. Every saved version is written as an OpenForum page.html.template, and a page links to it, copies it, or has no template.</p>
+    </div>
+    <div class="ce-view-actions"><button class="ce-btn ce-primary" type="button" id="ce-layouts-new">New layout</button></div>
+  </div>
+  <div id="ce-layouts-new-form"></div>
+  <div id="ce-layouts-archived" class="ce-view-filter"></div>
+  <div class="ce-card-grid ce-component-grid" id="ce-layouts-library"><p class="ce-app-loading">Loading...</p></div>
+  <h2 class="ce-view-subhead">Site default</h2>
+  <div class="ce-card-grid" id="ce-layouts-default"></div>
+  <h2 class="ce-view-subhead">Page types (the body inside a layout)</h2>
+  <div class="ce-card-grid" id="ce-layouts-list"><p class="ce-app-loading">Loading...</p></div>
+</section>

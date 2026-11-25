@@ -1,0 +1,91 @@
+<div class="row">
+!! OpenForum Server — Capability Map
+
+((A quick “who uses what” guide to the platform. Link targets open pages in this server’s docs.))
+
+<table>
+  <thead>
+    <tr>
+      <th>Persona</th>
+      <th>Goals / Typical Tasks</th>
+      <th>Primary Features</th>
+      <th>Where to Start</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Content Author / Publisher</td>
+      <td>Create and edit pages, insert images, preview, publish</td>
+      <td>Content Editor, image library, wiki markup, templates</td>
+      <td>
+        <a href="/OpenForum/Documentation/Contenteditor">Content Editor</a>,
+        <a href="/OpenForum/Documentation/OpenForumMarkup/KitchenSink">Markup: Kitchen Sink</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Front‑end Page Builder</td>
+      <td>Layout pages, reuse sections, embed content, style UI</td>
+      <td>page.html.template, InsertPage, Extended Markup, Foundation</td>
+      <td>
+        <a href="/OpenForum/Documentation/OpenForumMarkup">OpenForum Markup</a>,
+        <a href="/OpenForum/Documentation/OpenForumMarkup/ExtendedWikiMarkup">Extended Markup</a>,
+        <a href="/OpenForum/Documentation/Foundation">Foundation</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Client‑side Developer</td>
+      <td>Add interactivity, bind data, call services, handle offline</td>
+      <td>OpenForum JS (DOM binding, JSON/OFX, Table helpers, IntraQ)</td>
+      <td><a href="/OpenForum/Documentation/OpenForumJavascript">OpenForum Javascript</a></td>
+    </tr>
+    <tr>
+      <td>Service / API Developer</td>
+      <td>Expose GET/POST endpoints, compose server logic, reuse actions</td>
+      <td>get.sjs/post.sjs, Actions, Triggers, Message Queue, Spider</td>
+      <td>
+        <a href="/OpenForum/Documentation/OpenForumServerSideJavascript">Server‑side JS</a>,
+        <a href="/OpenForum/Actions">Actions</a>,
+        <a href="/OpenForum/Documentation/SpecialPages">Special Pages</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Data Integrator</td>
+      <td>Call external REST/XML, read/write files, SQL integration</td>
+      <td>external/file helpers in server‑side JS, JSON/OFX, SQL</td>
+      <td>
+        <a href="/OpenForum/Documentation/OpenForumServerSideJavascript">Server‑side JS</a>,
+        <a href="/OpenForum/Documentation/SpecialPages">SQL (Special Pages)</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Operator / DevOps</td>
+      <td>Install/upgrade, monitor health, logs, manage errors</td>
+      <td>Docker/Jetty, System Monitor, Error Pages</td>
+      <td>
+        <a href="/OpenForum/Documentation/Installation">Installation</a>,
+        <a href="/OpenForum/Documentation/SpecialPages">System Monitor & Error Pages</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Administrator</td>
+      <td>Manage users, groups, access; recover deletes; audit history</td>
+      <td>Authentication, Authorization, Users/Groups, Deleted Pages, history</td>
+      <td><a href="/OpenForum/Documentation/SpecialPages">Special Pages</a></td>
+    </tr>
+    <tr>
+      <td>Graphics / Data‑viz</td>
+      <td>Canvas graphics, animation, interactive diagrams</td>
+      <td>Giraffe (graphics engine)</td>
+      <td><a href="/OpenForum/Documentation/Giraffe">Giraffe</a></td>
+    </tr>
+  </tbody>
+</table>
+
+!!! Suggested first steps
+
+# Install with Docker (or Zip)
+# Create a page and edit content (WYSIWYG or wiki)
+# Add an endpoint (add <code>get.sjs</code> or use an Action)
+# Enhance UI with Foundation/JS; Preview → Publish
+
+</div>

@@ -1,0 +1,14 @@
+{
+  "debug": true,
+  "notUnderstand": "Sorry, I did not understand that",
+  "speech": [
+    {"startCommand": "Bob", "reply": "Hello. How can I help you today"},
+    {"stopCommand": "Stand down", "reply": "standing down"},
+    {"command": "*","reply":"js:doCheck"},
+    {"command": "Hello", "aliases": ["hi"], "reply": {"first":"Hello. How can I help you today", "subsequent": ["hi","hello"]}},
+    {"command": "What is * times *", "reply": "js:multiply", "replyTemplate": "* times * is *", "aliases": ["what is * x *","what's * x *"]},
+    {"command": "Thank you","reply": ["You're welcome","No problem","That's ok"]},
+    {"command": "shut up","reply":"how rude"},
+    {"command": "*","reply":"js:doCatch"}
+    ]
+}

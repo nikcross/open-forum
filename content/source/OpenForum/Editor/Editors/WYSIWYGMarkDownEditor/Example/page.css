@@ -1,0 +1,19 @@
+.wmd-example-bar {
+  align-items: center;
+  background: #2b2620;
+  border-radius: 6px 6px 0 0;
+  color: #d4cfc5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  padding: 0.5rem 0.8rem;
+}
+
+.wmd-example-status {
+  flex: 1;
+  font-size: 0.85rem;
+}
+
+.wmd-example-words {
+  font-size: 0.85rem;
+}

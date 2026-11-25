@@ -1,0 +1,7 @@
+{
+    "pageName": "/OpenForum/Editor/Editors/SimpleHTMLEditor",
+    "title": "SimpleHTMLEditor",
+    "pageParent": "https://open-forum.onestonesoup.org",
+    "editorConfig": "/OpenForum/Editor/Editors/SimpleHTMLEditor/editor-config.json"
+}
+

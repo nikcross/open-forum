@@ -1,0 +1,25 @@
+{
+    "script": "/OpenForum/Javascript/VirtualAssistant/disk-space.js",
+    "speech": [
+        {
+            "speechPack": "/OpenForum/Javascript/VirtualAssistant/context.json"
+        },
+        {
+            "command": "How much disk space",
+            "aliases": [
+                "what disk space is [left|there]"
+            ],
+            "reply": "js:DiskSpace.getDiskSpace",
+            "replyTemplate": {
+                "main": "There is a total of * giga bytes of which * giga bytes are free.",
+                "question": "Would you like that as a percentage ?",
+                "percentage": "That is * percent disk space free."
+            }
+        },
+        {
+            "command": "what percentage is left",
+            "reply": "js:DiskSpace.getDiskSpacePercentage",
+            "replyTemplate": "There is * percent disk space left."
+        }
+    ]
+}

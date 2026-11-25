@@ -1,0 +1,29 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<!--OF insert (/OpenForum/Documentation/OpenForumServerSideJavascript/external.page.content) start --><h3>Documentation for external</h3>
+
+<hr/>
+
+<p>Retrieves a url as a file attached to a page</p>void external.getURLAsFile( {string url} , {string user} , {string password} , {string pageName} , {string fileName} )
+
+<hr/>
+
+<p>Retrieves a url as a file attached to a page using Http authentication to sign in</p>void external.getURLAsFile( {string url} , {string pageName} , {string fileName} )
+
+<hr/>
+
+<p>Post data to a url using Http authentication to sign in</p>string external.postURLAsString( {string url} , {string user} , {string password} , {string data} )
+
+<hr/>
+
+<p>Post data to a url</p>string external.postURLAsString( {string url} , {string data} )
+
+<hr/>
+
+<p>Retrieves a url as a string using Http authentication to sign in</p>string external.getURLAsString( {string url} , {string user} , {string password} )
+
+<hr/>
+
+<p>Retrieves a url as a string</p>string external.getURLAsString( {string url} )
+<!--OF insert (/OpenForum/Documentation/OpenForumServerSideJavascript/external.page.content) end -->
+</div>

@@ -1,0 +1,45 @@
+{
+    "pageName": "/OpenForum/PageTemplates/Footer",
+    "title": "Footer",
+    "block": "page",
+    "raw": "true",
+    "content": [
+        {
+            "block": "raw",
+            "data": {
+                "text": "<footer style=\"background-color: black; padding-left: 50px;\">\n  <div>\n    <div>\n    <ul class=\"inline-list\">\n      <li><a href=\"https://open-forum.onestonesoup.org/OpenForum\" style=\"color:white\">About</a></li>\n      <li>|</li>\n      <li><a href=\"https://open-forum.onestonesoup.org\" style=\"color:white\">Open Forum @ OneStoneSoup.org</a></li>\n      <li>|</li>\n      <li><a href=\"https://open-forum.onestonesoup.org/OpenForumDocumentation/Introduction\" style=\"color:white\">Developers</a></li>\n      <li class=\"right\"><a href=\"https://open-forum.onestonesoup.org\" style=\"color:white\"><img src=\"/OpenForum/Images/powered-by.png\" border=\"0\"></a></li>\n    </ul>\n    </div>\n  </div>\n</footer>"
+            },
+            "elementId": "BK0_11859082296586611633522708520",
+            "editor": {},
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_11859082296586611633522708520_content' title='Text Block' onmouseover='highlight( \"BK0_11859082296586611633522708520_content\", true );' onmouseout='highlight( \"BK0_11859082296586611633522708520_content\", false );'><b>Raw Html Block</b></a>",
+                "attributes": {
+                    "icon": "page_white_edit"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        }
+    ],
+    "editor": "/OpenForum/AddOn/ContentEditor",
+    "blockEditor": {},
+    "treeNode": {
+        "name": "<a href='#pageEditor_content' title='Page' onmouseover='highlight( \"pageEditor_content\", true );' onmouseout='highlight( \"pageEditor_content\", false );'><b>Page</b></a>",
+        "attributes": {
+            "icon": "page"
+        },
+        "leaves": [
+            {
+                "name": "<a href='#BK0_11859082296586611633522708520_content' title='Text Block' onmouseover='highlight( \"BK0_11859082296586611633522708520_content\", true );' onmouseout='highlight( \"BK0_11859082296586611633522708520_content\", false );'><b>Raw Html Block</b></a>",
+                "attributes": {
+                    "icon": "page_white_edit"
+                },
+                "leaves": []
+            }
+        ]
+    },
+    "elementId": "pageEditor",
+    "parentId": "pageEditor",
+    "pageParent": "https://open-forum.onestonesoup.org"
+}

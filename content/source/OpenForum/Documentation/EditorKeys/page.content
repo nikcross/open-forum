@@ -1,0 +1,10 @@
+!!Editor Keys
+
+|<kbd>CTRL + S</kbd>|Save
+|<kbd>Shift + CTRL + S</kbd>|Save All
+|<kbd>CTRL + F</kbd>|Start Searching
+|<kbd>CTRL + G</kbd>|Find Next
+|<kbd>Shift + Ctrl + G</kbd>|Find Previous
+|<kbd>Shift + Ctrl + F</kbd>|Replace
+|<kbd>Shift + Ctrl + R</kbd>|Replace All
+|<kbd>SHIFT + Tab</kbd>|Format Selected Text

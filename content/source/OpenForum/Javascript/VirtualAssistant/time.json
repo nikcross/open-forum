@@ -1,0 +1,7 @@
+{
+  "script": "/OpenForum/Javascript/VirtualAssistant/time.js",
+  "speech": [
+    {"command": "js:Time.watchTime","reply":"js:Time.sayTime", "replyTemplate": "The time is now *"},
+    {"command": "what is the time","reply":"js:Time.sayTime", "replyTemplate": "The time is *", "aliases": ["[what's|what is] the time [now|]","what time is it"]}
+  ]
+}

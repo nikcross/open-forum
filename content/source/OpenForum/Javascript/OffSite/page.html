@@ -1,0 +1,482 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OffSite</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1669127576000"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1612515763000" />
+    <script type="text/javascript" src="/OpenForum/Javascript/OffSite/page.js?ts=1669127576000"></script>
+    <!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) start --><link rel="icon" href="/OpenForum/Images/open-forum-dog-small.png" /><!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) end --> 
+
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start --><script>
+  var pageName = "/OpenForum/Javascript/OffSite";
+  var author = "unknown";
+  var time = "1669127576000";
+  var currentUser = "";
+  var user = {};
+  var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
+  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data;  } ).go();
+  JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
+    function (response) {
+      user.profile = response.data;
+      if(response.data.avatar) {
+        avatar = "<img src='" + response.data.avatar + "' style='width: 24px; height: 24px;' />";
+      }
+      if(response.data.privateProfile && response.data.privateProfile.extraOptions) {
+        currentUserExtraOptions = response.data.privateProfile.extraOptions
+      }
+    }
+  ).go();
+
+  window.onerror = function(errorMsg, url, lineNumber) {
+    OpenForum.error = errorMsg+" url:"+url+" line number:"+lineNumber;
+    OpenForum.errorMessage = "Woops";
+    $('#ofErrorMessage').foundation('reveal', 'open');
+
+    OFX.post( 'https://open-forum.onestonesoup.org/OpenForum/AddOn/DataLogger/BrowserErrorLogger' )
+      .withAction( 'logError' )
+      .withData( {origin: window.location.origin, page: pageName, error: errorMsg+" lineNumber:"+lineNumber, userAgent: navigator.userAgent}).go();
+  };
+
+  window.alert = function(message,title) {
+    if(!title) {
+      title = "Open Forum";
+    }
+    OpenForum.alert = { message: message, title: title};
+    $('#ofAlertMessage').foundation('reveal', 'open');
+  };
+</script><!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) end -->
+
+  </head>
+  <body>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <img src="/OpenForum/Images/open-forum-dog-small.png" />
+          </h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <a href="#" title="OffSite"> Off Site</a>
+          </h1>
+        </li>
+      </ul>
+      <!--OF insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) start --><section class="top-bar-section">
+  <ul class="right">
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Actions</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite">Edit</a></li>
+        <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Javascript/OffSite">Refresh Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewPageModal">Create New Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewChildPageModal">Create New Child Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
+        <li><a href="/Development?action=publish&pageName=/OpenForum/Javascript/OffSite">Publish Page</a></li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Sub Pages</a>
+      <ul class="dropdown"><li>
+        <!--Extension ChildPagesList --><ul><li> <a href="/OpenForum/Javascript/OffSite/Version">Version</a></li>
+</ul><!--End Extension ChildPagesList -->
+        </li></ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Attachments</a>
+      <ul class="dropdown"><li>
+        <!--Extension AttachmentsList --><!--End Extension AttachmentsList -->
+        </li></ul>
+    </li>
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="#">Access</a>
+      <ul class="dropdown">
+        <li of-repeatFor="reader in pageAccess.readers"><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onClick="return false;">{{reader}}</a></li>
+      </ul>
+      <script>
+        var pageAccess = {};
+        JSON.get("/OpenForum/Actions/Access","getAccess","pageName=/OpenForum/Javascript/OffSite").onSuccess( function(response) {
+          pageAccess = response;
+        }).go();
+      </script>
+    </li>
+    
+    <li class="has-dropdown">
+      <a href="#">Favourite Pages</a>
+      <ul class="dropdown">
+        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
+      </ul>
+    </li>
+
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="<!--Extension Hash -->undefined<!--End Extension Hash -->">Signed in as {{currentUser}} {{avatar}}</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+        <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+        <script>
+          var accessLoading = false;
+          function doSignIn() {
+
+            if(!OpenForum.Access) {
+              if(!accessLoading) {
+                OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+                accessLoading=true;
+              }
+              setTimeout(doSignIn,1000);
+              return;
+            }
+
+            OpenForum.Access.showPopup();
+          };
+        </script>
+        {{currentUserExtraOptions}}
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Page</h2>
+  <p>Copy this page to <input type="text" of-id="OpenForumCopyPage"/></p>
+  <p><a href="#" onClick="OpenForum.action.copyPage('/OpenForum/Javascript/OffSite',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumCopyPage = "/OpenForum/Javascript/OffSite";
+  </script>
+</div>
+
+<div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Move Page</h2>
+  <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
+  <p><a href="#" onClick="OpenForum.action.movePage('/OpenForum/Javascript/OffSite',OpenForumMovePage);return false;" class="secondary button">Move Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumMovePage = "/OpenForum/Javascript/OffSite";
+  </script>
+</div>
+
+<div id="OpenForumNewPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Page</h2>
+  <p>New page to create <input type="text" of-id="OpenForumNewPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewPage = "/";
+  </script>
+</div>
+
+<div id="OpenForumNewChildPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Child Page</h2>
+  <p>New child page to create <input type="text" of-id="OpenForumNewChildPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewChildPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewChildPage = "/OpenForum/Javascript/OffSite/";
+  </script>
+</div>
+<!--OF insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) end -->
+    </nav>
+    <!--Extension CrumbTrail --><nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Javascript">Javascript</a></li><li role="menuitem" class="current"><a href="/OpenForum/Javascript">OffSite</a></li></nav><!--End Extension CrumbTrail -->
+
+    <div style="padding-bottom: 100px;">
+    <!--PageContent Start-->
+<h3>OffSite</h3>
+
+<h2>OpenForum OffSite Javascript {{version}}</h2>
+<h3>Latest build {{buildDate}}</h3>
+<ul><li> Lines of code {{lines}}</li>
+<li> Size {{size}} KB</li>
+</ul>
+<xmp>
+<!--Extension InsertFile pageName="/OpenForum/Javascript/OffSite" fileName="OpenForumOffSite.js" -->//==============================================================================================================//
+<!-- Version 0.0.1-->
+<!-- Built on Mon Nov 21 2022 11:55:22 GMT-0000 (GMT) -->
+<!-- Built by OpenForum Javascript Builder.-->
+<!-- Do not edit as changes may be overwritten -->
+//==============================================================================================================//
+//==============================================================================================================//
+<!-- Source: /OpenForum/Javascript/Core/open-forum-testing.js-->
+//==============================================================================================================//
+<!--<ul><li> Author: </li>
+<li> Description: </li>
+</ul>-->
+if(typeof OpenForum == "undefined") {
+  OpenForum = { testing: {} };
+}
+
+OpenForum.testing.showComments = function() {
+  var filterNone = function() {
+    return NodeFilter.FILTER_ACCEPT;
+  };
+
+  var iterator = document.createNodeIterator(document.body, NodeFilter.SHOW_COMMENT, filterNone);
+
+  var currentNode;
+  while ( currentNode = iterator.nextNode() ) {
+    try{
+      
+      var e =  document.createElement("div");
+      
+      //if(currentNode.nextElementSibling.offsetParent!=null) {
+      var x = currentNode.nextElementSibling.offsetTop;
+      var y = currentNode.nextElementSibling.offsetLeft;
+      	e.style.position = "absolute";
+      	e.style.top = x;
+      	e.style.left = y;
+      	e.style.color = "black";
+      	e.style.backgroundColor = "white";
+      	e.style.border = "solid 1px black";
+      	e.style.borderRadius = "8px";
+      	e.style.padding = "2px";
+      	e.style.zIndex = "9999";
+      //}
+      e.innerHTML = "comment";
+      e.title = currentNode.nodeValue;
+
+      currentNode.nextElementSibling.insertAdjacentElement('beforeBegin',e);
+
+      console.log("Displaying comment " + currentNode.nodeValue);
+    } catch (ex) {
+      console.log("Error displaying comment " + ex);
+    }
+  }
+
+};
+
+OpenForum.testing.showIds = function() {
+  var filterNone = function() {
+    return NodeFilter.FILTER_ACCEPT;
+  };
+
+  var iterator = document.createNodeIterator(document.body, NodeFilter.SHOW_ALL, filterNone);
+
+  var currentNode;
+  while ( currentNode = iterator.nextNode() ) {
+    try{
+      if(typeof currentNode.id == "undefined" || currentNode.id == "") continue;
+      
+      var e =  document.createElement("div");
+      
+      //if(currentNode.nextElementSibling.offsetParent!=null) {
+      var x = currentNode.offsetTop;
+      var y = currentNode.offsetLeft;
+      	e.style.position = "absolute";
+      	e.style.top = x;
+      	e.style.left = y;
+      	e.style.color = "black";
+      	e.style.backgroundColor = "cyan";
+      	e.style.border = "solid 1px black";
+      	e.style.borderRadius = "2px";
+      	e.style.padding = "2px";
+      	e.style.zIndex = "9999";
+      //}
+      e.innerHTML = "id";
+      e.title = currentNode.id;
+
+      currentNode.insertAdjacentElement('beforeBegin',e);
+
+      console.log("Displaying id " + currentNode.id);
+    } catch (ex) {
+      console.log("Error displaying id " + ex + " for " +currentNode.id);
+    }
+  }
+
+};
+
+OpenForum.testing.showNames = function() {
+  var filterNone = function() {
+    return NodeFilter.FILTER_ACCEPT;
+  };
+
+  var iterator = document.createNodeIterator(document.body, NodeFilter.SHOW_ALL, filterNone);
+
+  var currentNode;
+  while ( currentNode = iterator.nextNode() ) {
+    try{
+      if(typeof currentNode.name == "undefined" || currentNode.name == "") continue;
+      
+      var e =  document.createElement("div");
+      
+      //if(currentNode.nextElementSibling.offsetParent!=null) {
+      var x = currentNode.offsetTop;
+      var y = currentNode.offsetLeft;
+      	e.style.position = "absolute";
+      	e.style.top = x;
+      	e.style.left = y;
+      	e.style.color = "white";
+      	e.style.backgroundColor = "black";
+      	e.style.border = "solid 1px white";
+      	e.style.borderRadius = "2px";
+      	e.style.padding = "2px";
+      	e.style.zIndex = "9999";
+      //}
+      e.innerHTML = "name";
+      e.title = currentNode.name;
+
+      currentNode.insertAdjacentElement('beforeBegin',e);
+
+      console.log("Displaying id " + currentNode.id);
+    } catch (ex) {
+      console.log("Error displaying id " + ex + " for " +currentNode.id);
+    }
+  }
+
+};
+
+OpenForum.testing.readForm = function() {
+  var data = {};
+  var is = document.getElementsByTagName("input");
+  for( var i in is ) {
+    if( is<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>.id ) {
+      if(is<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>.type == "radio") {
+        data<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/ is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt=" is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title=" is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>.id ] =  is<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>.checked;
+      } else {
+        data<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/ is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt=" is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title=" is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>.id ] =  is<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>.value;
+      }
+    } else if( is<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>.name ) {
+      if(is<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>.type == "radio") {
+        data<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/ is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt=" is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title=" is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>.name ] =  is<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>.checked;
+      } else {
+        data<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/ is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt=" is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title=" is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>.name ] =  is<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>.value;
+      }
+    }
+  }
+
+  is = document.getElementsByTagName("select");
+  for( var i in is ) {
+    if( is<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>.id ) {
+      data<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/ is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt=" is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title=" is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>.id ] =  is<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>.value;
+    } else if( is<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>.name ) {
+      data<img src="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/ is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" alt=" is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i" title=" is<a href="/OpenForum/Javascript/OffSite/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>i"/>.name ] =  is<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>.value;
+    }
+  }
+
+  return data;
+};
+
+OpenForum.testing.writeToForm = function(data) {
+  for(var i in data) {
+    try{
+      var el = document.getElementById(i);
+      if(typeof el == "undefined") {
+        el = document.getElementsByName(i)<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/0 does not exist. Click to create it.">0</a>;
+      }
+      if(el.type=="radio") {
+        if(data<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>==true) {
+          el.checked=true;
+          console.log( i + ".checked = true" );
+        } else {
+          el.checked=false;
+          console.log( i + ".checked = false" );
+        }
+      } else {
+        el.value = data<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/OffSite/i does not exist. Click to create it.">i</a>;
+        console.log( i + ".value set to " + el.value );
+      }
+
+    } catch(e) {
+      console.log("In "+i);
+      console.log("Ex:" + e);
+    }
+  }
+};
+
+<!-- End of: /OpenForum/Javascript/Core/open-forum-testing.js-->
+
+//==============================================================================================================//
+<!--End Extension InsertFile pageName="/OpenForum/Javascript/OffSite" fileName="OpenForumOffSite.js" -->
+</xmp>
+  
+<hr/>
+<h3>Child Pages</h3>
+<!--Extension ChildPagesList pageName="/OpenForum/Javascript/OffSite" --><ul><li> <a href="/OpenForum/Javascript/OffSite/Version">Version</a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum/Javascript/OffSite" -->
+
+<hr/>
+<h3>Build Script</h3>
+<xmp>
+<!--Extension InsertFile pageName="/OpenForum/Javascript/OffSite" fileName="script.build.json" -->{
+    "version": "0.0.1",
+    "targetFile": "/OpenForum/Javascript/OffSite/OpenForumOffSite.js",
+    "versionFile": "/OpenForum/Javascript/OffSite/Version/OpenForumOffSite.js",
+    "steps": <a href="
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-testing.js",
+            "index": "0",
+            "searchFor": "",
+            "replaceWith": "",
+            "data": ""
+        }
+    " target="external_page">
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-testing.js",
+            "index": "0",
+            "searchFor": "",
+            "replaceWith": "",
+            "data": ""
+        }
+    </a>
+}<!--End Extension InsertFile pageName="/OpenForum/Javascript/OffSite" fileName="script.build.json" -->
+</xmp>
+
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Page Content End-->
+    </div>
+      
+    <!--OF insert (/OpenForum/PageTemplates/Branding/footer.page.content) start --><footer>
+  <div>
+    <div>
+    <ul class="inline-list">
+      <li><a href="https://open-forum.onestonesoup.org/OpenForum/About">About</a></li>
+      <li>|</li>
+      <li><a href="https://open-forum.onestonesoup.org">Open Forum @ OneStoneSoup.org</a></li>
+      <li>|</li>
+      <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/Introduction">Developers</a></li>
+      <li class="right"><a href="https://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+    </ul>
+    </div>
+  </div>
+</footer><!--OF insert (/OpenForum/PageTemplates/Branding/footer.page.content) end -->
+
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
+  <p>{{OpenForum.errorMessage}}</p>
+  <p><a href="#" data-reveal-id="ofErrorDetails" class="secondary button">See technical details</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="ofErrorDetails" class="reveal-modal" data-reveal aria-labelledby="ofErrorModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorModalTitle">Error details.</h2>
+  <p>{{OpenForum.error}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div><!--OF insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) end -->
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) start --><div id="ofAlertMessage" class="reveal-modal" data-reveal aria-labelledby="ofAlertMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofAlertMessageModalTitle" class="alert-box success round">{{OpenForum.alert.title}}</h2>
+  <p>{{OpenForum.alert.message}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<!--OF insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) end -->
+    
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>AudioPlayer</h3>
+
+<div class="row panel callout radius">
+  <div class="columns large-2">
+    <a href="http://xenetwork.org/ets/feed/podcast" title="Subscribe to podcast"><img src="/OpenForum/Javascript/AudioPlayer/logo.jpg" ></a>
+  </div>
+  <div class="columns large-10">
+    <audio id="podcast">
+      <source src="https://xenetwork.org/assets/podcasts/energytransitionshow/ETS-98-transmissionhard-mini.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+    </audio>
+    <div class="row">
+      <div class="radius progress success large-10" onMouseDown="gotoAudio(this,event); return false;"><span id="progressBar" class="meter" style="width: 50%"></span></div>
+      <div >{{pcText}}</div>
+      <div >&nbsp;</div>
+    </div>
+
+    <div class="row">
+    <!--Extension ActionButton action="podcast.skip" parameters="-30" text="Skip Back 30s" --><a  class='button radius tiny' href='#' onclick='podcast.skip("-30"); return false;'>Skip Back 30s</a> <!--End Extension ActionButton action="podcast.skip" parameters="-30" text="Skip Back 30s" -->
+    <!--Extension ActionButton action="podcast.playToggle" text="Play" id="playPause" --><a id = 'playPause' class='button radius tiny' href='#' onclick='podcast.playToggle(); return false;'>Play</a> <!--End Extension ActionButton action="podcast.playToggle" text="Play" id="playPause" -->
+    <!--Extension ActionButton action="podcast.skip" parameters="30" text="Skip Forward 30s" --><a  class='button radius tiny' href='#' onclick='podcast.skip("30"); return false;'>Skip Forward 30s</a> <!--End Extension ActionButton action="podcast.skip" parameters="30" text="Skip Forward 30s" -->
+    <a class="button radius tiny" href="https://audioboom.com/posts/7236132.mp3">Download</a>
+    </div>
+  </div>
+</div>

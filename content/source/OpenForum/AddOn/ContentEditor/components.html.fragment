@@ -1,0 +1,16 @@
+<section class="ce-app-view" aria-labelledby="ce-components-title">
+  <div class="ce-view-head">
+    <div>
+      <p class="ce-panel-label">Site library</p>
+      <h1 id="ce-components-title">Page components</h1>
+      <p class="ce-view-intro">Named, reusable parts of a page, such as a header, a card or a call to action. A component can be made from other components, and placed in page layouts and in pages. Saving a component adds a new version; what is already placed keeps its version until it is updated.</p>
+    </div>
+    <div class="ce-view-actions"><button class="ce-btn ce-primary" type="button" id="ce-components-new">New component</button></div>
+  </div>
+  <div id="ce-shared-parts"></div>
+  <div id="ce-components-new-form"></div>
+  <div id="ce-components-archived" class="ce-view-filter"></div>
+  <div class="ce-card-grid ce-component-grid" id="ce-components-list"><p class="ce-app-loading">Loading...</p></div>
+  <h2 class="ce-view-subhead">Building blocks components are made from</h2>
+  <div class="ce-card-grid" id="ce-components-blocks"></div>
+</section>

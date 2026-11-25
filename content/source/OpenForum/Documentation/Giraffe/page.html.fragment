@@ -1,0 +1,39 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3><a href="/OpenForum/Editor?pageName=/OpenForumDocumentation/Giraffe/QuickReference"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForumDocumentation/Giraffe/QuickReference does not exist. Click to create it.">Getting Started Quick Reference</a></h3>
+  <div class="large-3 columns">
+    <h3>Basic</h3>
+    <ul>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/circle');">Circle</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/arc');">Arc</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/rectangle');">Rectangle</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/line');">Line</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/text');">Text</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/polygon');">Polygon</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/picture');">Picture</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/line-style');">Line Style</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/text-width');">Text Width</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/gradient-color');">Color Gradient</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/radial-color');">Radial Color</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/composite');">Composite</a></li>
+    </ul>
+    <h3>Animation</h3>
+    <ul>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/animation-flip');">Flip</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/animation-loops');">Loops</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/animation-sequences');">Sequences</a></li>
+    </ul>
+    <h3>Interactive</h3>
+    <ul>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/drag-and-drop');">Drag and Drop</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/draggable-line');">Draggable Line</a></li>
+      <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onclick="return loadExample('Giraffe/examples/draggable-objects');">Draggable Objects</a></li>
+    </ul>
+  </div>
+  <div class="large-3 columns">
+    <canvas id="exampleCanvas" width="400" height="400" style="border: solid 1px;"></canvas>
+  </div>
+
+  <div class="large-3 columns">
+    <textarea id="exampleScript" cols="120" rows="50"></textarea>
+  </div>
+

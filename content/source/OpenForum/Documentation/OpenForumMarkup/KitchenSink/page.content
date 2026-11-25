@@ -1,0 +1,157 @@
+!!Kitchen Sink
+
+<div class="row">
+  <div class="large-6 columns">
+((The following list shows all the standard Wiki Markup character combinations used in OpenForum.
+    OpenForum also has a set of extended Wiki Markup combinations that are listed [here|/OpenForum/Documentation/OpenForumMarkup/ExtendedWikiMarkup=]
+    and you can define your own Wiki Markup using extensions which is described [here|/OpenForum/Documentation/OpenForumMarkup/ExtendingWikiMarkup=]))
+
+Wiki Page Link
+{{{ [/OpenForum/HomePage] }}}
+[/OpenForum/HomePage]
+
+{{{ [The Home Page|/OpenForum/HomePage] }}}
+    [The Home Page|/OpenForum/HomePage]
+
+{{{ [/OpenForum/Images/open-forum.png] }}}
+[/OpenForum/Images/open-forum.png]
+
+{{{ [http://www.bbc.co.uk]
+[BBC|http://www.bbc.co.uk] }}}
+    
+[http://www.bbc.co.uk]
+[BBC|http://www.bbc.co.uk]
+
+{{{ [Wiki|Wikipedia:Wiki] }}}
+[Wiki|Wikipedia:Wiki]
+
+----
+{{{Code Example}}}
+
+{{{
+{ { {Code Example} } }
+}}} ''without the spaces between the brackets''
+    
+----
+Forced Line Break
+
+{{{Line 1\\
+Line 2\\
+Line 3}}}
+    
+Line 1\\
+Line 2\\
+Line 3
+
+----
+{{{[[
+A box of stuff
+]]}}}
+    
+[[box
+A box of stuff
+]]
+
+----
+Horizontal Rule
+{{{----}}}
+
+----
+__Bold__
+{{{__bold__}}}
+    
+----
+''Italics''
+{{{''italics''}}}
+
+----
+Paragraph
+{{{((Lorem ipsum dolor sit amet, consectetur...))}}}
+((Lorem ipsum dolor sit amet, consectetur...))
+
+
+  </div>
+  <div class="large-6 columns">
+----
+Bulleted list
+{{{* Bullet 1
+* Bullet 2
+* Bullet 3}}}
+* Bullet 1
+* Bullet 2
+* Bullet 3
+
+----
+Numbered list
+{{{# Bullet 1
+# Bullet 2
+# Bullet 3}}}
+# Bullet 1
+# Bullet 2
+# Bullet 3
+
+----
+Headings
+{{{!!Heading 1
+!!!Heading 2
+!!!!Heading 3}}}
+!!Heading 1
+!!!Heading 2
+!!!!Heading 3
+
+----
+--8<!--
+       Section
+-->8--
+{{{
+--8<!--
+           Section
+-->8--}}}
+    
+----
+~~Strike Through~~
+{{{~~Strike Through~~}}}
+
+----
+==Center==
+{{{==Center==}}}
+
+----
+This is ^^Super Script^^
+{{{This is ^^Super Script^^}}}
+
+----
+Invisible Comment
+{{{/* My comments in here */}}}
+                 
+----
+!!!Table (has bug so will not close)
+{{{|column 1|column 2| column 3
+|cell 1|cell 2|cell 3
+|cell 1|cell 2|cell 3
+|cell 1|cell 2|cell 3}}}
+
+                 </div>
+  </div>
+<div class="row">
+  
+!!!! AI Prompt
+{{{
+You are an assistant that writes and edits text in OpenForum markup.
+
+When formatting content:
+* Use !!!!, !!!, !!, ! for headings.
+* Use * and ** for bulleted lists, # and ## for numbered lists.
+* Use __bold__, ''italic'', ~~strikethrough~~, ^^superscript^^, ==center== for styles.
+* Use (( ... )) for paragraphs, [[ ... ]] for boxes.
+* Use { { { ... } } } (without the spaces) for code blocks or to show markup literally.
+* Use [LinkText|/Path] or [http://url] for links, [/path/to/image.png] for images.
+* Use |col1|col2|col3| for tables.
+* Use ---- for a horizontal rule.
+
+Do not use Markdown unless explicitly asked.
+You can include HTML as well
+Always produce output directly in OpenForum wiki markup.
+}}}
+  
+</div>

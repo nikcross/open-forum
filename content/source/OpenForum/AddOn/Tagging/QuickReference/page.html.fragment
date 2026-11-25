@@ -1,0 +1,92 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>Tagging Quick Reference</h3>
+
+
+
+<p>Tag and categorize OpenForum pages for better organization and discovery</p>
+
+<b>Key Features</b>
+<ul><li> Add tags to pages</li>
+<li> List all tags</li>
+<li> Find pages by tag</li>
+<li> Tag cloud generation</li>
+<li> Remove tags from pages</li>
+<li> Tag management interface</li>
+<li> Search by multiple tags</li>
+</ul>
+
+<b>Server-Side Usage:</b>
+<xmp class="panel" of-exclude="true">
+// Get the Tagging API
+var Tagging = js.getObject("/OpenForum/AddOn/Tagging","Tagging.sjs");
+
+// Add tag to page
+Tagging.addTag("/MyPage", "tutorial");
+
+// Add multiple tags
+Tagging.addTags("/MyPage", <a href="/OpenForum/Editor?pageName=/OpenForum/AddOn/Tagging/QuickReference/"tutorial", "beginner", "javascript""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/AddOn/Tagging/QuickReference/"tutorial", "beginner", "javascript" does not exist. Click to create it.">"tutorial", "beginner", "javascript"</a>);
+
+// Remove tag from page
+Tagging.removeTag("/MyPage", "tutorial");
+
+// Get all tags for a page
+var tags = Tagging.getTags("/MyPage");
+
+// Find pages with tag
+var pages = Tagging.findPagesWithTag("tutorial");
+
+// Get all tags in system
+var allTags = Tagging.getAllTags();
+
+// Get tag cloud (tags with counts)
+var tagCloud = Tagging.getTagCloud();
+</xmp>
+
+<b>Client-Side Usage:</b>
+<xmp class="panel" of-exclude="true">
+// Add tag to page
+JSON.post('/OpenForum/AddOn/Tagging/Add', null, 
+  'pageName=/MyPage&tag=tutorial')
+  .onSuccess(function(result) {
+    console.log('Tag added');
+  }).go();
+
+// Get tags for page
+JSON.get('/OpenForum/AddOn/Tagging/Get', null, 
+  'pageName=/MyPage')
+  .onSuccess(function(tags) {
+    console.log('Tags:', tags);
+  }).go();
+
+// Find pages by tag
+JSON.get('/OpenForum/AddOn/Tagging/Find', null, 
+  'tag=tutorial')
+  .onSuccess(function(pages) {
+    console.log('Pages with tag:', pages);
+  }).go();
+
+// Get tag cloud
+JSON.get('/OpenForum/AddOn/Tagging/Cloud')
+  .onSuccess(function(tagCloud) {
+    console.log('Tag cloud:', tagCloud);
+  }).go();
+</xmp>
+
+<b>Tag Cloud Format</b>
+<xmp class="panel" of-exclude="true">
+<a href="
+  {tag: "tutorial", count: 15},
+  {tag: "javascript", count: 12},
+  {tag: "beginner", count: 8}
+" target="external_page">
+  {tag: "tutorial", count: 15},
+  {tag: "javascript", count: 12},
+  {tag: "beginner", count: 8}
+</a>
+</xmp>
+
+<b>Configuration</b>
+<ul><li> Tag storage location</li>
+<li> Maximum tags per page</li>
+<li> Tag naming conventions</li>
+<li> Tag search options</li></ul>

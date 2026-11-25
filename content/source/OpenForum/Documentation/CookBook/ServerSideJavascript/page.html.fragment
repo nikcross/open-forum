@@ -1,0 +1,8 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row"><div class="large-12 columns">
+<!--Extension ChildPagesList --><ul><li> <a href="/OpenForum/Documentation/CookBook/ServerSideJavascript/HowToBuildAPageWithAPostService">HowToBuildAPageWithAPostService</a></li>
+<li> <a href="/OpenForum/Documentation/CookBook/ServerSideJavascript/HowToBuildASimpleService">HowToBuildASimpleService</a></li>
+<li> <a href="/OpenForum/Documentation/CookBook/ServerSideJavascript/HowToCreateAMarkupExtennsion">HowToCreateAMarkupExtennsion</a></li>
+<li> <a href="/OpenForum/Documentation/CookBook/ServerSideJavascript/HowToReferenceAnotherJavascript">HowToReferenceAnotherJavascript</a></li>
+</ul><!--End Extension ChildPagesList -->
+  </div></div>

@@ -1,0 +1,180 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h2>Giraffe Graphics Objects - Quick Reference</h2>
+
+<hr/>
+<h3>Quick Start Example: (within OpenForum framework)</h3>
+<xmp class="panel" of-exclude="true">
+OpenForum.includeScript("/OpenForum/Giraffe/giraffe.js");
+
+var giraffeCanvas;
+
+OpenForum.init = function() {
+          giraffeCanvas = Giraffe.quickStart( "canvas" );
+  
+          //Add some graphics object to be drawn
+          giraffeCanvas.add(new Giraffe.Line(100,100,130,150));
+};
+</xmp>
+<hr/>
+<h3>Line</h3>
+<xmp class="panel" of-exclude="true">
+var line = new Giraffe.?(x,y,x2,y2);
+Example: var line = new Giraffe.Line(100,100,130,150);
+</xmp>
+
+<hr/>
+<h3>Rectangle</h3>
+<xmp class="panel" of-exclude="true">
+var rectangle = new Giraffe.Rectangle(x,y,width,height);
+Example: var rectangle = new Giraffe.Rectangle(100,100,50,90);
+</xmp>
+
+<hr/>
+<h3>RoundedRectangle</h3>
+<xmp class="panel" of-exclude="true">
+var rectangle = new Giraffe.RoundedRectangle(x,y,width,height,radius);
+Example: var rectangle = new Giraffe.RoundedRectangle(100,100,50,90,10);
+</xmp>
+
+<hr/>
+<h3>Circle</h3>
+<xmp class="panel" of-exclude="true">
+var circle = new Giraffe.Circle(x,y,radius);
+Example: var circle = new Giraffe.Circle(100,100,20);
+</xmp>
+
+<hr/>
+<h3>Arc </h3>
+<xmp class="panel" of-exclude="true">
+var arc = new Giraffe.Arc(x,y,startAngle,sweepAngle,radius);
+Example: var arc = new Giraffe.Arc(100,100,45,180,20);
+</xmp>
+
+<hr/>
+<h3>Picture</h3>
+<xmp class="panel" of-exclude="true">
+var picture = new Giraffe.Picture(x,y,src);
+Example: var picture = new Giraffe.Picture(100,100,"https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg");
+  var width = picture.img.width;
+  var height = picture.img.height;
+  picture.img.src = "https://upload.wikimedia.org/wikipedia/en/a/a9/Example.jpg";
+</xmp>
+
+<hr/>
+<h3></h3>
+<xmp class="panel" of-exclude="true">
+var picture = new Giraffe.PixelCanvas(x,y,width,height);
+picture.setPixel(x,y,r,g,b,a);
+
+Example: var picture = new Giraffe.PixelCanvas(100,100,200,100);
+picture.setPixel(20,30,200,100,100,0.5);
+</xmp>
+<hr/>
+<h3>Polygon</h3>
+<xmp class="panel" of-exclude="true">
+var polygon = new Giraffe.Polygon(x,y);
+Example: var polygon = new Giraffe.Polygon(100,100);
+polygon.addPoint(0,0);
+polygon.addPoint(100,80);
+polygon.addPoint(-100,80);
+polygon.closed = true;
+polygon.smooth = false;
+</xmp>
+
+<hr/>
+<h3>Text</h3>
+<xmp class="panel" of-exclude="true">
+var text = new Giraffe.Text(x,y,text,textSize,font);
+Example: var text = new Giraffe.Text(100,100,"My Message",20,"Arial");
+</xmp>
+
+<hr/>
+<h3>TextBlock</h3>
+<xmp class="panel" of-exclude="true">
+var textBlock = new Giraffe.TextBlock(x,y,text,textSize,font,alignment);
+Example: var textBlock = new Giraffe.TextBlock(50,50,"Line 1<br/>nLine 2",18,"Arial","center");
+textBlock.setLineHeight(24).setAlignment("right");
+</xmp>
+
+<hr/>
+<h3>Composite</h3>
+<xmp class="panel" of-exclude="true">
+var composite = new Giraffe.Composite(x,y,rotation);
+Example: var composite = new Giraffe.Composite(100,100,Math.PI);
+composite.add(circle);
+composite.add(rectangle);
+composite.remove(rectangle);
+composite.deconstruct();
+</xmp>
+
+<hr/>
+<h3>Shared by all Giraffe Graphics Objects</h3>
+<xmp class="panel" of-exclude="true">
+var graphicsObject = new Rectangle(100,100,50,90); 
+
+graphicsObject.setCSSClass(className);
+Example: graphicsObject.setCSSClass("myCSSClass"); //Takes color as giraffe color and backgroundColor as giraffe fillColor
+
+graphicsObject.setColor(color);
+Example: graphicsObject.setColor("red").setFillColor("green");
+Example: graphicsObject.setColor("rgba(200,100,50,0.5)");
+
+graphicsObject.setFillColor(color);
+Example: graphicsObject.setFillColor("red").setColor("blue");
+Example: graphicsObject.setFillColor("rgba(200,100,50,0.5)");
+
+Giraffe.RadialColor(canvas,color1,color2,x,y,radius)
+Example: graphicsObject.setFillColor( new Giraffe.RadialColor(giraffe.canvas,"red","green",120,150,50) );
+  
+GradientColor(canvas,color1,color2,x1,y1,x2,y2)
+Example: graphicsObject.setFillColor( new GradientColor(giraffe.canvas,"red","green",120,150,130,170) );
+  
+graphicsObject.setShadow( new Giraffe.Shadow() );
+Example: shadow = new Giraffe.Shadow();
+  shadow.color = '#999';
+  shadow.blur = 20;
+  shadow.offsetX = 15;
+  shadow.offsetY = 15;
+  graphicsObject.setShadow(shadow);
+
+graphicsObject.setLineStyle(new Giraffe.LineStyle() );
+Example: lineStyle = new Giraffe.LineStyle().setThickness(1.5).setEndCap("round"); //valid end caps: butt , round or square
+	graphicsObject.setLineStyle(lineStyle);
+
+graphicsObject.setRotation(rotation);
+Example: graphicsObject.setRotation(Math.PI/3);
+
+graphicsObject.isInside(x,y);
+Example: if( graphicsObject.isInside(100,100) ) { 
+  //x,y is inside the object
+  doStuff();
+  }
+  
+graphicsObject.visible = true;
+  
+graphicsObject.scaleX = 0.5;
+  
+graphicsObject.scaleY = 0.8;
+</xmp>
+<h3>Methods that can be overridden</h3>
+<xmp class="panel" of-exclude="true">
+
+graphicsObject.onClick = function(x,y){ <!-- Mouse had clicked. Do stuff. --> };
+
+graphicsObject.onMouseOver = function(x,y){ <!-- Mouse is over. Do stuff. -->};
+
+graphicsObject.onMouseOut = function(x,y){ <!-- Mouse is no longer over. Do stuff. --> };
+
+graphicsObject.onMousePressed = function(x,y){ <!-- Mouse is over and has been pressed. Do stuff. --> };
+
+graphicsObject.onMouseReleased = function(x,y) { <!-- Mouse is over and has been released. Do stuff. -->};
+
+graphicsObject.animate = function(frame){ <!-- Frame {frame} is rendering. Make changes now. -->};
+
+</xmp>
+  
+<hr/>
+<h3>Transitions - ToDo</h3>
+  
+</div>

@@ -1,0 +1,5 @@
+!!JSYaml
+
+((js-yaml 4.1.0 by Vitaly Puzrin and others, MIT licence, from https://github.com/nodeca/js-yaml . The browser build js-yaml.min.js defines the global jsyaml with load, loadAll and dump. Used by the YAMLEditor in /OpenForum/Editor/Editors/YAMLEditor.))
+
+[{AttachmentsList pageName="&pageName;" matching=".*"}]

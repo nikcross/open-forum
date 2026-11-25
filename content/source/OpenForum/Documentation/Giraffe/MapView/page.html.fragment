@@ -1,0 +1,6 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<center>
+	<input type="button" value="Zoom In" onClick="zoomIn();return false;">
+	<input type="button" value="Zoom Out" onClick="zoomOut();return false;">
+</center>
+<canvas id="canvas" width="768" height="768" style="border: solid 1px;"></canvas>

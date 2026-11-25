@@ -1,0 +1,6 @@
+DependencyService<br/>
+* function createNewDependency() <br/>
+* function addScriptToLoad(arg0) <br/>
+* function loadScripts() <br/>
+* function scriptLoaded(arg0) <br/>
+* function isLoaded(arg0) <br/>

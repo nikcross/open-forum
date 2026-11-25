@@ -1,0 +1,70 @@
+<div class="simple-html-editor" id="simpleHtmlEditor{{editorIndex}}">
+  <div class="simple-html-toolbar">
+    <button type="button" class="simple-html-button simple-html-button-wide" data-simple-command="bold" data-simple-state="bold" title="Bold"><span class="simple-html-label" style="font-weight:700">B</span></button>
+    <button type="button" class="simple-html-button simple-html-button-wide" data-simple-command="italic" data-simple-state="italic" title="Italic"><span class="simple-html-label" style="font-style:italic;font-family:'Lora',serif">I</span></button>
+    <button type="button" class="simple-html-button simple-html-button-wide" data-simple-command="underline" data-simple-state="underline" title="Underline"><span class="simple-html-label" style="text-decoration:underline">U</span></button>
+
+    <span class="simple-html-separator"></span>
+
+    <button type="button" class="simple-html-button simple-html-button-wide" data-simple-heading="1" title="Heading 1"><span class="simple-html-label">H1</span></button>
+    <button type="button" class="simple-html-button simple-html-button-wide" data-simple-heading="2" title="Heading 2"><span class="simple-html-label">H2</span></button>
+    <button type="button" class="simple-html-button simple-html-button-wide" data-simple-heading="3" title="Heading 3"><span class="simple-html-label">H3</span></button>
+
+    <span class="simple-html-separator"></span>
+
+    <button type="button" class="simple-html-button" data-simple-command="insertUnorderedList" data-simple-state="insertUnorderedList" title="Bullet list">
+      <svg viewBox="0 0 24 24"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="4" cy="6" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1.5" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1.5" fill="currentColor" stroke="none"/></svg>
+    </button>
+    <button type="button" class="simple-html-button" data-simple-command="insertOrderedList" data-simple-state="insertOrderedList" title="Numbered list">
+      <svg viewBox="0 0 24 24"><line x1="10" y1="6" x2="20" y2="6"/><line x1="10" y1="12" x2="20" y2="12"/><line x1="10" y1="18" x2="20" y2="18"/><text x="2" y="8" font-size="7" fill="currentColor" stroke="none" font-family="monospace">1.</text><text x="2" y="14" font-size="7" fill="currentColor" stroke="none" font-family="monospace">2.</text><text x="2" y="20" font-size="7" fill="currentColor" stroke="none" font-family="monospace">3.</text></svg>
+    </button>
+
+    <span class="simple-html-separator"></span>
+
+    <button type="button" class="simple-html-button" data-simple-action="quote" title="Blockquote">
+      <svg viewBox="0 0 24 24"><path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/><path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/></svg>
+    </button>
+    <button type="button" class="simple-html-button" data-simple-action="hr" title="Horizontal rule">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12" stroke-width="2.5"/><line x1="3" y1="6" x2="6" y2="6" stroke-width="1.5" opacity="0.4"/><line x1="18" y1="6" x2="21" y2="6" stroke-width="1.5" opacity="0.4"/><line x1="3" y1="18" x2="6" y2="18" stroke-width="1.5" opacity="0.4"/><line x1="18" y1="18" x2="21" y2="18" stroke-width="1.5" opacity="0.4"/></svg>
+    </button>
+
+    <span class="simple-html-separator"></span>
+
+    <button type="button" class="simple-html-button" data-simple-action="link" title="Insert link">
+      <svg viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+    </button>
+    <button type="button" class="simple-html-button" data-simple-action="image-url" title="Insert image URL">
+      <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+    </button>
+    <button type="button" class="simple-html-button" data-simple-action="image-upload" title="Upload image">
+      <svg viewBox="0 0 24 24"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3"/></svg>
+    </button>
+    <button type="button" class="simple-html-button" data-simple-action="capture-photo" title="Capture photo from camera">
+      <svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="2"/><circle cx="12" cy="12" r="3.5"/><path d="M9 6l1.2-2h3.6L15 6"/></svg>
+    </button>
+    <input type="file" id="simpleHtmlEditor{{editorIndex}}FileInput" accept="image/*" style="display:none" />
+  </div>
+
+  <div id="simpleHtmlEditor{{editorIndex}}Surface" class="simple-html-surface" contenteditable="true" data-placeholder="Begin writing…" spellcheck="true"></div>
+</div>
+
+<div id="simpleHtmlEditor{{editorIndex}}PhotoModal" class="reveal-modal simple-html-photo-modal" data-reveal aria-labelledby="simpleHtmlEditor{{editorIndex}}PhotoTitle" aria-hidden="true" role="dialog">
+  <h3 id="simpleHtmlEditor{{editorIndex}}PhotoTitle">Capture Photo</h3>
+  <p class="simple-html-photo-help">Use the live camera preview, capture a frame, then insert it into the editor.</p>
+  <div class="simple-html-photo-controls">
+    <label for="simpleHtmlEditor{{editorIndex}}PhotoFacing">Camera</label>
+    <select id="simpleHtmlEditor{{editorIndex}}PhotoFacing" onchange="SimpleHTMLEditorInstances['{{editorIndex}}'].changePhotoFacing(this.value); return false;">
+      <option value="environment">Rear camera</option>
+      <option value="user">Front camera</option>
+    </select>
+  </div>
+  <div class="simple-html-photo-stage">
+    <canvas id="simpleHtmlEditor{{editorIndex}}PhotoCanvas" width="1000" height="1000"></canvas>
+  </div>
+  <div class="simple-html-photo-actions">
+    <button type="button" class="simple-html-button secondary" id="simpleHtmlEditor{{editorIndex}}CapturePhotoButton" onclick="SimpleHTMLEditorInstances['{{editorIndex}}'].togglePhotoCapture(); return false;">Capture</button>
+    <button type="button" class="simple-html-button" id="simpleHtmlEditor{{editorIndex}}InsertPhotoButton" onclick="SimpleHTMLEditorInstances['{{editorIndex}}'].insertCapturedPhoto(); return false;" disabled>Insert Photo</button>
+    <button type="button" class="simple-html-button secondary" onclick="SimpleHTMLEditorInstances['{{editorIndex}}'].closePhotoCapture(); return false;">Cancel</button>
+  </div>
+  <a class="close-reveal-modal" aria-label="Close" onclick="SimpleHTMLEditorInstances['{{editorIndex}}'].closePhotoCapture(); return false;">&#215;</a>
+</div>

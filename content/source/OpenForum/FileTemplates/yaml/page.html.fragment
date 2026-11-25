@@ -1,0 +1,18 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>yaml</h3>
+
+<hr/>
+<h3>Child Pages</h3>
+<!--Extension ChildPagesList pageName="/OpenForum/FileTemplates/yaml" --><!--End Extension ChildPagesList pageName="/OpenForum/FileTemplates/yaml" -->
+
+<hr/>
+<h3>Attachments</h3>
+<!--Extension AttachmentsList pageName="/OpenForum/FileTemplates/yaml" matching=".*" --><ul><li> <a href="/OpenForum/FileTemplates/yaml/page.js">/OpenForum/FileTemplates/yaml/page.js</a></li>
+<li> <a href="/OpenForum/FileTemplates/yaml/page.content">/OpenForum/FileTemplates/yaml/page.content</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/yaml/page.html.template.link"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/yaml/page.html.template.link does not exist. Click to create it.">/OpenForum/FileTemplates/yaml/page.html.template.link</a></li>
+<li> <a href="/OpenForum/FileTemplates/yaml/default.yaml">/OpenForum/FileTemplates/yaml/default.yaml</a></li>
+<li> <a href="/OpenForum/FileTemplates/yaml/page.html.fragment">/OpenForum/FileTemplates/yaml/page.html.fragment</a></li>
+<li> <a href="/OpenForum/FileTemplates/yaml/data.json">/OpenForum/FileTemplates/yaml/data.json</a></li>
+<li> <a href="/OpenForum/FileTemplates/yaml/page.html">/OpenForum/FileTemplates/yaml/page.html</a></li>
+<li> <a href="/OpenForum/FileTemplates/yaml/process-deletions.sjs">/OpenForum/FileTemplates/yaml/process-deletions.sjs</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/FileTemplates/yaml" matching=".*" -->

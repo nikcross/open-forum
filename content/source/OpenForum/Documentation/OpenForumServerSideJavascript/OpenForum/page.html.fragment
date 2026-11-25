@@ -1,0 +1,165 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<!--OF insert (/OpenForum/Documentation/OpenForumServerSideJavascript/openForum.page.content) start --><h3>Documentation for openForum</h3>
+
+<hr/>
+
+string openForum.getVersion()
+
+<hr/>
+
+string openForum.wikiToTitleName( {string title} )
+
+<hr/>
+
+string<a href="/OpenForum/Documentation/OpenForumServerSideJavascript/OpenForum/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a> openForum.findStoreKeys( {string keyMatchRegex} )
+
+<hr/>
+
+void openForum.storeValue( {string key} , {string value} )
+
+<hr/>
+
+string openForum.retrieveValue( {string key} )
+
+<hr/>
+
+void openForum.storeObject( {string key} , {object} )
+
+<hr/>
+
+object openForum.retrieveObject( {string key} )
+
+<hr/>
+
+object openForum.removeObject( {string key} )
+
+<hr/>
+
+void openForum.refreshPage( {string pageName} )
+
+<hr/>
+
+void openForum.postMessageToQueue( {string queueName} , {string message} )
+
+<hr/>
+
+integer openForum.getTimeStamp()
+
+<hr/>
+
+boolean openForum.rebuild( {boolean forceBuildNow} )
+
+<hr/>
+
+boolean openForum.rebuild()
+
+<hr/>
+
+string openForum.getDateTimeStamp()
+
+<hr/>
+
+string openForum.getDateTimeStamp( {string pageName} )
+
+<hr/>
+
+void openForum.addJournalEntry( {string journalEntry} )
+
+<hr/>
+
+boolean openForum.pageExists( {string pageName} )
+
+<hr/>
+
+string openForum.buildPage( {string pageName} , {string pageSource} )
+
+<hr/>
+
+string openForum.buildPage( {string pageName} , {string pageSource}  , {boolean isWikiData} )
+
+<hr/>
+
+string openForum.buildPage( {string pageName}, {boolean buildRefersTo} )
+
+<hr/>
+
+string openForum.buildPage( {string pageName} )
+
+<hr/>
+
+string openForum.renderWikiData( {string name} , {string data} )
+
+<hr/>
+
+JavascriptEngine openForum.getJavascriptEngine()
+
+<hr/>
+
+string openForum.titleToWikiName( {string title} )
+
+<hr/>
+
+void openForum.deletePage( {string pageName} )
+
+<hr/>
+
+void openForum.deleteAttachment( {string pageName} , {string fileName} )
+
+<hr/>
+
+void openForum.copyPage( {string pageName} , {string fileName} , {string listPageName} )
+
+<hr/>
+
+void openForum.addToListPage( {string listPageName}, {string pageName} )
+
+<hr/>
+
+<p>Deprecated - Use JavascriptFileHelper.saveAttachment</p>void openForum.saveAsAttachment( {string pageName} , {string fileName} , {string data} , {string user} )
+
+<hr/>
+TODO
+<xmp class="panel" of-exclude="true">string<a href="/OpenForum/Documentation/OpenForumServerSideJavascript/OpenForum/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a><a href="/OpenForum/Documentation/OpenForumServerSideJavascript/OpenForum/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a> openForum.getPageAsList( {string pageName} )</xmp>
+
+<hr/>
+
+void openForum.setHomePage( {string pageName} )
+
+<hr/>
+
+string openForum.generateUniqueId()
+
+<hr/>
+
+void openForum.revert( {string pageName} , {string version} )
+
+<hr/>
+
+void openForum.signOut( {transaction} )
+
+<hr/>
+
+void openForum.cleanUpQueues()
+
+<hr/>
+
+boolean openForum.signIn( {transaction} )
+
+<hr/>
+
+string openForum.validateWikiTitle( {string title} )
+
+<hr/>
+
+Map openForum.getPageAsTable( {string pageName} )
+
+<hr/>
+
+string<a href="/OpenForum/Documentation/OpenForumServerSideJavascript/OpenForum/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a> openForum.getMessagesSince( {string queueName} , {string time} )
+
+<hr/>
+
+string openForum.createQueue()
+<!--OF insert (/OpenForum/Documentation/OpenForumServerSideJavascript/openForum.page.content) end -->
+</div>

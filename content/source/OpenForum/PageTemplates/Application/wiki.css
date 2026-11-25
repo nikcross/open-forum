@@ -1,0 +1,301 @@
+@import url("/OpenForum/Styles/tree.css");
+
+.imageBar {
+	overflow: auto;
+	overflow-x: visible;
+	margin: 0px;
+	padding: 0px;
+	height: 230px;
+	width: 800px;
+	background-color: #505050;
+	align: center;
+}
+
+.imageBox {
+	margin-top: 0px;
+	padding: 0px;
+	border-top: solid 1px #a0a0a0;
+	border-right: solid 1px #a0a0a0;
+	border-left: solid 1px #a0a0a0;
+	border-bottom: solid 1px #a0a0a0;
+}
+
+.content {
+	font-family: Verdana;
+	font-size: 10pt;
+	background-color: #FFFFFF;
+	color: #000000;
+	margin: 0px;
+	padding: 10px;
+	height: 200px;
+	vertical-align: top;
+}
+.author {
+	font-family: Arial;
+	font-size: 8pt;
+	font-weight: bold;
+	color: #000000;
+}
+.footer {
+	font: 10pt tahoma;
+	background-color: #A0A0A0;
+	color: #FFFFFF;
+	margin: 10px;
+	padding: 10px;
+	width: 800px;
+	vertical-align: top;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #505050;
+}
+
+a {
+	font-weight: bold;
+	font-family: Arial;
+	text-align: left;
+	color: #FFFFFF;
+}
+
+p:first-letter {
+	font-family: Verdana;
+	font-size: 12pt;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+
+p {
+	text-indent: 5px;
+}
+
+h3 {
+	font-family: Arial;
+	font-size: 12pt;
+	font-weigth: bold;
+	color: #F0F0FF;
+}
+
+h2 {
+	font-family: Arial;
+	font-size: 14pt;
+	font-weigth: bold;
+	color: #F0F0FF;
+}
+
+h1 {
+	font-family: Arial;
+	font-size: 20pt;
+	font-weigth: bold;
+	color: #F0F0FF;
+}
+
+.box {
+	border: solid;
+	border-width: 1px;
+	border-color: #A0A0A0;
+	background-color: #707090;
+	color: #FFFFFF;
+	padding: 2px;
+	margin: 10px;
+}
+
+.box a {
+	border: solid;
+	border-width: 1px;
+	border-color: #A0A0A0;
+	background-color: #707090;
+	color: #FFFFFF;
+	padding: 2px;
+	margin: 10px;
+}
+
+.blog {
+	border: solid;
+	border-width: 1px;
+	border-color: #A0A0A0;
+	background-color: #709090;
+	
+	font-family: Verdana;
+	font-size: 10pt;
+	font-weigth: bold;
+	
+	color: #FFFFFF;
+	padding: 2px;
+	margin: 10px;
+}
+
+.blog a {
+	border: solid;
+	border-width: 1px;
+	border-color: #A0A0A0;
+	background-color: #709090;
+	
+	font-family: Verdana;
+	font-size: 10pt;
+	font-weigth: bold;
+	
+	color: #FFFFFF;
+	padding: 2px;
+	margin: 10px;
+}
+
+.shadowTopRight {
+	background: url(/OpenForum/Styles/Classical/Shadow/top-right-shadow.png) bottom left no-repeat;
+	width: 50px;
+	height: 50px;
+}
+.shadowTopLeft {
+	background: url(/OpenForum/Styles/Classical/Shadow/top-left-shadow.png) bottom right no-repeat;
+	width: 50px;
+	height: 50px;
+}
+.shadowRight {
+	background: url(/OpenForum/Styles/Classical/Shadow/right-shadow.png) repeat;
+	width: 50px;
+}
+.shadowLeft {
+	background: url(/OpenForum/Styles/Classical/Shadow/left-shadow.png) bottom right repeat;
+	width: 50px;
+}
+.shadowBottomRight {
+	background: url(/OpenForum/Styles/Classical/Shadow/bottom-right-shadow.png) top left no-repeat;
+	width: 50px;
+	height: 50px;
+}
+.shadowBottomLeft {
+	background: url(/OpenForum/Styles/Classical/Shadow/bottom-left-shadow.png) top right no-repeat;
+	width: 50px;
+	height: 50px;
+}
+.shadowBottom {
+	background: url(/OpenForum/Styles/Classical/Shadow/bottom-shadow.png) repeat-x;
+	height: 50px;
+}
+
+xmp {
+	overflow: auto;
+	overflow-y: visible;
+	font: 8pt courier;
+	text-align: left;
+	margin-bottom: 0px;
+	padding: 1em;
+	border: 1px dashed #2f6fab;
+	color: black;
+	background-color: #C0C0F0;
+	line-height: 1.1em;
+	}
+
+.wikiTable {
+	border: 1px solid #000000;
+	background-color: #C0C0C0;
+	margin: 1px;
+	padding: 6px;
+	border-spacing: 0px 0px;
+	border-padding: 0px 0px;
+	border-collapse: collapse;
+}
+
+.wikiTableTitle {
+	font-size: 8pt;
+	font-family: Tahoma;
+	font-weight: bold;
+	border: 1px solid #000000;
+}
+
+.wikiTableCell {
+	font-size: 8pt;
+	font-family: Tahoma;
+	border: 1px solid #505050;
+	padding: 2px 4px;
+}
+
+.wikiTableEvenRow {
+	font-size: 8pt;
+	font-family: Tahoma;
+	background-color: #A0F0A0;
+	padding: 6px;
+}
+
+.wikiTableOddRow {
+	font-size: 8pt;
+	font-family: Tahoma;
+	background-color: #A0A0F0;
+	padding: 6px;
+}
+
+.menuTop {
+	background-color: #A0A0F0;
+	border: 1px solid #000000;
+	color: #FFFFFF;
+	font-size: 12;
+	font-weight: bold;
+	font-family: Arial;
+}
+
+.menuItem{
+	text-decoration: none;
+	margin: 2px;
+	display: block;
+	color: #000000;
+	font-size: 12;
+	font-weight: bold;
+	font-family: Arial;
+}
+
+.menuBar {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.menuBar a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+.prompt h1{ 
+	font: italic bold 16pt arial;  
+	text-align: center;
+	margin: 0px; 
+	padding: 5px;
+	color: #0000A0;
+}
+
+.prompt{ 
+	font: italic bold 12pt arial;  
+	text-align: center;
+	margin: 0px; 
+	padding: 5px;
+	color: #000050;
+}
+
+.differencesNone {
+	overflow: normal;
+	font: 8pt courier;
+	text-align: left;
+	margin-bottom: 0px;
+	padding: 0px;
+	border: 0px;
+	color: black;
+	background-color: #FFFFFF;
+}
+
+.differencesAdd {
+	overflow: normal;
+	font: 8pt courier;
+	text-align: left;
+	margin-bottom: 0px;
+	padding: 0px;
+	border: 0px;
+	color: black;
+	background-color: #A0FFA0;
+}
+
+.differencesSub {
+	overflow: normal;
+	font: 8pt courier;
+	text-align: left;
+	margin-bottom: 0px;
+	padding: 0px;
+	border: 0px;
+	color: black;
+	background-color: #FFA0A0;
+}

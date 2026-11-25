@@ -1,0 +1,614 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Open Forum Javascript</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1762884955818"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1612515763000" />
+    <script type="text/javascript" src="/OpenForum/Documentation/OpenForumJavascript/page.js?ts=1762884955818"></script>
+    <!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) start --><link rel="icon" href="/OpenForum/Images/open-forum-dog-small.png" /><!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) end --> 
+
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start --><script>
+  var pageName = "/OpenForum/Documentation/OpenForumJavascript";
+  var author = "unknown";
+  var time = "1762884955818";
+  var currentUser = "";
+  var user = {};
+  var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
+  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data;  } ).go();
+  JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
+    function (response) {
+      user.profile = response.data;
+      if(response.data.avatar) {
+        avatar = "<img src='" + response.data.avatar + "' style='width: 24px; height: 24px;' />";
+      }
+      if(response.data.privateProfile && response.data.privateProfile.extraOptions) {
+        currentUserExtraOptions = response.data.privateProfile.extraOptions
+      }
+    }
+  ).go();
+
+  window.onerror = function(errorMsg, url, lineNumber) {
+    OpenForum.error = errorMsg+" url:"+url+" line number:"+lineNumber;
+    OpenForum.errorMessage = "Woops";
+    $('#ofErrorMessage').foundation('reveal', 'open');
+
+    OFX.post( 'https://open-forum.onestonesoup.org/OpenForum/AddOn/DataLogger/BrowserErrorLogger' )
+      .withAction( 'logError' )
+      .withData( {origin: window.location.origin, page: pageName, error: errorMsg+" lineNumber:"+lineNumber, userAgent: navigator.userAgent}).go();
+  };
+
+  window.alert = function(message,title) {
+    if(!title) {
+      title = "Open Forum";
+    }
+    OpenForum.alert = { message: message, title: title};
+    $('#ofAlertMessage').foundation('reveal', 'open');
+  };
+</script><!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) end -->
+
+  </head>
+  <body>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <img src="/OpenForum/Images/open-forum-dog-small.png" />
+          </h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <a href="#" title="Open Forum Javascript"> Open Forum Javascript</a>
+          </h1>
+        </li>
+      </ul>
+      <!--OF insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) start --><section class="top-bar-section">
+  <ul class="right">
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Actions</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumJavascript">Edit</a></li>
+        <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Documentation/OpenForumJavascript">Refresh Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewPageModal">Create New Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewChildPageModal">Create New Child Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
+        <li><a href="/Development?action=publish&pageName=/OpenForum/Documentation/OpenForumJavascript">Publish Page</a></li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Sub Pages</a>
+      <ul class="dropdown"><li>
+        <!--Extension ChildPagesList --><ul><li> <a href="/OpenForum/Documentation/OpenForumJavascript/DependencyService">DependencyService</a></li>
+<li> <a href="/OpenForum/Documentation/OpenForumJavascript/Giraffe">Giraffe</a></li>
+<li> <a href="/OpenForum/Documentation/OpenForumJavascript/JSON">JSON</a></li>
+<li> <a href="/OpenForum/Documentation/OpenForumJavascript/KitchenSink">KitchenSink</a></li>
+<li> <a href="/OpenForum/Documentation/OpenForumJavascript/OFX">OFX</a></li>
+<li> <a href="/OpenForum/Documentation/OpenForumJavascript/Overview">Overview</a></li>
+<li> <a href="/OpenForum/Documentation/OpenForumJavascript/Tree">Tree</a></li>
+</ul><!--End Extension ChildPagesList -->
+        </li></ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Attachments</a>
+      <ul class="dropdown"><li>
+        <!--Extension AttachmentsList --><!--End Extension AttachmentsList -->
+        </li></ul>
+    </li>
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="#">Access</a>
+      <ul class="dropdown">
+        <li of-repeatFor="reader in pageAccess.readers"><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onClick="return false;">{{reader}}</a></li>
+      </ul>
+      <script>
+        var pageAccess = {};
+        JSON.get("/OpenForum/Actions/Access","getAccess","pageName=/OpenForum/Documentation/OpenForumJavascript").onSuccess( function(response) {
+          pageAccess = response;
+        }).go();
+      </script>
+    </li>
+    
+    <li class="has-dropdown">
+      <a href="#">Favourite Pages</a>
+      <ul class="dropdown">
+        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
+      </ul>
+    </li>
+
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="<!--Extension Hash -->undefined<!--End Extension Hash -->">Signed in as {{currentUser}} {{avatar}}</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+        <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+        <script>
+          var accessLoading = false;
+          function doSignIn() {
+
+            if(!OpenForum.Access) {
+              if(!accessLoading) {
+                OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+                accessLoading=true;
+              }
+              setTimeout(doSignIn,1000);
+              return;
+            }
+
+            OpenForum.Access.showPopup();
+          };
+        </script>
+        {{currentUserExtraOptions}}
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Page</h2>
+  <p>Copy this page to <input type="text" of-id="OpenForumCopyPage"/></p>
+  <p><a href="#" onClick="OpenForum.action.copyPage('/OpenForum/Documentation/OpenForumJavascript',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumCopyPage = "/OpenForum/Documentation/OpenForumJavascript";
+  </script>
+</div>
+
+<div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Move Page</h2>
+  <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
+  <p><a href="#" onClick="OpenForum.action.movePage('/OpenForum/Documentation/OpenForumJavascript',OpenForumMovePage);return false;" class="secondary button">Move Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumMovePage = "/OpenForum/Documentation/OpenForumJavascript";
+  </script>
+</div>
+
+<div id="OpenForumNewPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Page</h2>
+  <p>New page to create <input type="text" of-id="OpenForumNewPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewPage = "/";
+  </script>
+</div>
+
+<div id="OpenForumNewChildPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Child Page</h2>
+  <p>New child page to create <input type="text" of-id="OpenForumNewChildPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewChildPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewChildPage = "/OpenForum/Documentation/OpenForumJavascript/";
+  </script>
+</div>
+<!--OF insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) end -->
+    </nav>
+    <!--Extension CrumbTrail --><nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Documentation">Documentation</a></li><li role="menuitem" class="current"><a href="/OpenForum/Documentation">OpenForumJavascript</a></li></nav><!--End Extension CrumbTrail -->
+
+    <div style="padding-bottom: 100px;">
+    <!--PageContent Start-->
+<!--Extension ChildPagesList --><ul><li> <a href="/OpenForum/Documentation/OpenForumJavascript/DependencyService">DependencyService</a></li>
+<li> <a href="/OpenForum/Documentation/OpenForumJavascript/Giraffe">Giraffe</a></li>
+<li> <a href="/OpenForum/Documentation/OpenForumJavascript/JSON">JSON</a></li>
+<li> <a href="/OpenForum/Documentation/OpenForumJavascript/KitchenSink">KitchenSink</a></li>
+<li> <a href="/OpenForum/Documentation/OpenForumJavascript/OFX">OFX</a></li>
+<li> <a href="/OpenForum/Documentation/OpenForumJavascript/Overview">Overview</a></li>
+<li> <a href="/OpenForum/Documentation/OpenForumJavascript/Tree">Tree</a></li>
+</ul><!--End Extension ChildPagesList -->
+
+<a href="/OpenForum/Javascript/Core/QuickReference" target="newTab">QuickReference<img src='/OpenForum/Images/icons/png/link_go.png' /></a>
+
+<hr/>
+<div class="row">
+<hr/>
+<h1> OpenForum JavaScript API Reference</h1>
+
+<hr/>  
+<h2> 📦 Dependency Management</h2>
+<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Example</td><td>Description</td><td></td></tr>
+<tr><td>OpenForum.includeScript</td><td>scriptName: string</td><td>void</td><td><xmp class="panel" of-exclude="true">OpenForum.includeScript("/MyLib.js");</xmp></td><td>Mark a script as required</td><td></td></tr>
+<tr><td>OpenForum.addScript</td><td>url: string</td><td>fluent API</td><td><xmp class="panel" of-exclude="true">OpenForum.addScript("a.js").addScript("b.js").then(()=&gt;console.log("ready"));</xmp></td><td>Queue multiple scripts then run code</td><td></td></tr>
+<tr><td>OpenForum.loadScript</td><td>url: string</td><td>void</td><td><xmp class="panel" of-exclude="true">OpenForum.loadScript("/scripts/x.js");</xmp></td><td>Dynamically insert &lt;script&gt;</td><td></td></tr>
+<tr><td>OpenForum.loadCSS</td><td>url: string</td><td>void</td><td><xmp class="panel" of-exclude="true">OpenForum.loadCSS("/style.css");</xmp></td><td>Dynamically insert &lt;link&gt;</td><td></td></tr>
+</table>
+<h2> ⚙️ DependencyService</h2>
+
+<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>DependencyService.createNewDependency</td><td>—</td><td>Dependency object</td><td>Create a new dependency set. Each set manages required scripts and triggers a callback once they’re loaded.</td><td></td></tr>
+<tr><td>dependency.addDependency</td><td>script: string</td><td>self (chainable)</td><td>Add a script URL/name to the dependency list. If already loaded, ignored.</td><td></td></tr>
+<tr><td>dependency.setOnLoadTrigger</td><td>fn: function</td><td>self (chainable)</td><td>Set function to run once all required scripts are loaded.</td><td></td></tr>
+<tr><td>dependency.loadDependencies</td><td>—</td><td>void</td><td>Start loading all required scripts (inserts `&lt;script&gt;` tags).</td><td></td></tr>
+<tr><td>dependency.checkLoaded</td><td>—</td><td>boolean</td><td>Check if all required scripts have finished loading.</td><td></td></tr>
+<tr><td>dependency.setLoaded</td><td>—</td><td>void</td><td>Mark dependency as loaded and trigger callback.</td><td></td></tr>
+<tr><td>dependency.getScriptsToLoad</td><td>—</td><td>array of strings</td><td>List of scripts pending load.</td><td></td></tr>
+<tr><td>DependencyService.dependencyLoaded</td><td>id: number</td><td>void</td><td>Called internally when a set of scripts has loaded; marks them as available.</td><td></td></tr>
+</table>
+Example:
+
+<xmp class="panel" of-exclude="true">
+var dep = DependencyService.createNewDependency();
+dep.addDependency("/scripts/mylib.js")
+   .addDependency("/scripts/otherlib.js")
+   .setOnLoadTrigger(function() {
+       console.log("All dependencies are loaded.");
+   })
+   .loadDependencies();
+</xmp>
+
+<hr/>  
+<h2> 🖼️ Page & DOM Scanning</h2>
+<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Example</td><td>Description</td><td></td></tr>
+<tr><td>OpenForum.scan</td><td>firstTime: bool</td><td>void</td><td><xmp class="panel" of-exclude="true">OpenForum.scan(true);</xmp></td><td>Scan DOM and refresh bindings</td><td></td></tr>
+<tr><td>OpenForum.preparePage</td><td>node</td><td>void</td><td><xmp class="panel" of-exclude="true">OpenForum.preparePage(document.body);</xmp></td><td>Process ofa-* attributes</td><td></td></tr>
+<tr><td>OpenForum.crawl</td><td>node</td><td>void</td><td>—</td><td>Walk DOM to wire bindings</td><td></td></tr>
+<tr><td>OpenForum.addNodeProcessor</td><td>fn(node)</td><td>void</td><td>—</td><td>Add custom DOM processor</td><td></td></tr>
+<tr><td>OpenForum.addScanner</td><td>fn()</td><td>void</td><td>—</td><td>Add function to run each scan</td><td></td></tr>
+<tr><td>OpenForum.addInitialiser</td><td>fn()</td><td>void</td><td>—</td><td>Runs after dependencies</td><td></td></tr>
+</table>
+<hr/>  
+<h2> 📊 Data Binding</h2>
+<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Example</td><td>Description</td><td></td></tr>
+<tr><td>OpenForum.getObject</td><td>id: string</td><td>OpenForumObject</td><td><xmp class="panel" of-exclude="true">OpenForum.getObject("username").setValue("Bob");</xmp></td><td>Get or create a bound object</td><td></td></tr>
+<tr><td>OpenForum.persistObject</td><td>id: string</td><td>void</td><td>—</td><td>Mark object state to persist</td><td></td></tr>
+<tr><td>OpenForum.storePersistentState</td><td>key?</td><td>void</td><td>—</td><td>Save persisted object values</td><td></td></tr>
+<tr><td>OpenForum.restorePersistentState</td><td>key?</td><td>void</td><td>—</td><td>Restore persisted values</td><td></td></tr>
+<tr><td>OpenForum.addListener</td><td>id, fn</td><td>void</td><td>—</td><td>React to object changes</td><td></td></tr>
+<tr><td>OpenForum.bind</td><td>a, b</td><td>void</td><td>—</td><td>Bind two objects or object→fn</td><td></td></tr>
+</table>
+<hr/>  
+<h2> 🗂️ File & Storage APIs</h2>
+<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>OpenForum.loadFile</td><td>url, cb?, noCache?</td><td>string or void</td><td>Load text file</td><td></td></tr>
+<tr><td>OpenForum.loadJSON</td><td>url, cb?</td><td>object</td><td>Load JSON file</td><td></td></tr>
+<tr><td>OpenForum.saveFile</td><td>file, data, cb?</td><td>object</td><td>Save raw file</td><td></td></tr>
+<tr><td>OpenForum.saveJSON</td><td>file, obj, cb?</td><td>object</td><td>Save as JSON</td><td></td></tr>
+<tr><td>OpenForum.appendFile</td><td>file, data, cb?</td><td>object</td><td>Append data</td><td></td></tr>
+<tr><td>OpenForum.deleteFile</td><td>page, file, cb?</td><td>bool</td><td>Delete file</td><td></td></tr>
+<tr><td>OpenForum.copyFile</td><td>src, dest, cb?</td><td>object</td><td>Copy file</td><td></td></tr>
+<tr><td>OpenForum.moveFile</td><td>src, dest, cb?</td><td>object</td><td>Move file</td><td></td></tr>
+<tr><td>OpenForum.fileExists</td><td>file</td><td>string</td><td>Check existence</td><td></td></tr>
+<tr><td>OpenForum.getAttachments</td><td>page, cb?</td><td>array</td><td>List attachments</td><td></td></tr>
+<tr><td>OpenForum.getSubPages</td><td>page, cb?</td><td>array</td><td>List subpages</td><td></td></tr>
+<tr><td>OpenForum.Storage.get/set/find</td><td>key</td><td>string/array</td><td>Local storage wrappers</td><td></td></tr>
+<tr><td>OpenForum.Browser.enableBrowserStorage</td><td>—</td><td>void</td><td>Use browser:// for offline</td><td></td></tr>
+</table>
+<hr/>  
+<h2> 🔗 AJAX & JSON</h2>
+<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Example</td><td>Description</td><td></td></tr>
+<tr><td>JSON.get</td><td>page, action, params</td><td>chainable</td><td><xmp class="panel" of-exclude="true">JSON.get("/api","getUser","id=1").onSuccess(console.log).go();</xmp></td><td>AJAX GET wrapper</td><td></td></tr>
+<tr><td>JSON.post</td><td>page, action, params</td><td>chainable</td><td><xmp class="panel" of-exclude="true">JSON.post("/api","save","x=1").go();</xmp></td><td>AJAX POST wrapper</td><td></td></tr>
+<tr><td>JSON.findPath</td><td>json, "a.b.c"</td><td>any</td><td>—</td><td>Navigate nested JSON</td><td></td></tr>
+<tr><td>JSON.createPath</td><td>json, "a.b.c"</td><td>object</td><td>—</td><td>Ensure nested path</td><td></td></tr>
+<tr><td>OFX.get / OFX.post</td><td>url</td><td>chainable</td><td><xmp class="panel" of-exclude="true">OFX.post("/save").withData({x:1}).go(true);</xmp></td><td>Offline-aware JSON with cache</td><td></td></tr>
+</table>
+<hr/>  
+<h2> 📋 Table Helpers</h2>
+<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>OpenForum.Table.addRow</td><td>table, template?, clean?</td><td>void</td><td>Add row</td><td></td></tr>
+<tr><td>OpenForum.Table.removeRow</td><td>table, index</td><td>row</td><td>Remove row</td><td></td></tr>
+<tr><td>OpenForum.Table.moveRowUp/Down</td><td>table, index</td><td>void</td><td>Reorder rows</td><td></td></tr>
+<tr><td>OpenForum.Table.applyRowFilter</td><td>tableId, data, field, filter</td><td>void</td><td>Show/hide rows</td><td></td></tr>
+<tr><td>OpenForum.Table.sort</td><td>data, field, ascending</td><td>void</td><td>Sort rows</td><td></td></tr>
+<tr><td>OpenForum.jsonToCsv</td><td>json, delimiter?</td><td>string</td><td>Export JSON as CSV</td><td></td></tr>
+</table>
+<hr/>  
+<h2> �� UI & Input</h2>
+<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>OpenForum.setElement</td><td>id, html</td><td>void</td><td>Replace element HTML</td><td></td></tr>
+<tr><td>OpenForum.appendToElement</td><td>id, html</td><td>void</td><td>Append child</td><td></td></tr>
+<tr><td>OpenForum.showElement / hideElement / toggleElement</td><td>id</td><td>void</td><td>Control visibility</td><td></td></tr>
+<tr><td>OpenForum.setTitle</td><td>title</td><td>void</td><td>Set document title</td><td></td></tr>
+<tr><td>OpenForum.setCursor</td><td>cursor</td><td>void</td><td>Change cursor</td><td></td></tr>
+<tr><td>OpenForum.setTabIcon</td><td>icon</td><td>void</td><td>Change favicon</td><td></td></tr>
+<tr><td>OpenForum.addEndlessScroll</td><td>getFn, elementId, targetId?</td><td>void</td><td>Auto-load on scroll</td><td></td></tr>
+<tr><td>OpenForum.Input.getText</td><td>getText(id)</td><td>string</td><td>Get text field value</td><td></td></tr>
+<tr><td>OpenForum.Input.wrapSelectedText</td><td>id, start, end</td><td>void</td><td>Wrap selected text</td><td></td></tr>
+<tr><td>OpenForum.Input.toDateField</td><td>date</td><td>string</td><td>Format date for &lt;input type=date&gt;</td><td></td></tr>
+<tr><td>OpenForum.Input.fromDateField</td><td>value</td><td>Date</td><td>Parse yyyy-mm-dd</td><td></td></tr>
+</table>
+<hr/>  
+<h2> ⏱️ Async Utilities</h2>
+<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>OpenForum.setInterval</td><td>fn, ms, immediate?, blocking?</td><td>timerId</td><td>Smarter interval</td><td></td></tr>
+<tr><td>OpenForum.waitFor</td><td>testFn, callback, pause?, timeout?</td><td>void</td><td>Poll until ready</td><td></td></tr>
+<tr><td>OpenForum.runAsync</td><td>fn</td><td>void</td><td>Run async</td><td></td></tr>
+<tr><td>OpenForum.queue</td><td>fn, supplyState?</td><td>void</td><td>Queue tasks sequentially</td><td></td></tr>
+</table>
+<hr/>  
+<h2> 👥 Collaboration (IntraQ)</h2>
+<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>new OpenForum.IntraQ</td><td>queueName, types?</td><td>IntraQ</td><td>Inter-tab message bus</td><td></td></tr>
+<tr><td>IntraQ.addListener</td><td>fn</td><td>—</td><td>Receive messages</td><td></td></tr>
+<tr><td>IntraQ.send</td><td>data</td><td>—</td><td>Broadcast message</td><td></td></tr>
+<tr><td>OpenForum.InQ</td><td>—</td><td>InQ</td><td>Default shared queue</td><td></td></tr>
+<tr><td>inq.addMessageListener</td><td>fn,type</td><td>—</td><td>Listen by type</td><td></td></tr>
+<tr><td>inq.run</td><td>script</td><td>—</td><td>Broadcast eval</td><td></td></tr>
+<tr><td>inq.share</td><td>objectId</td><td>—</td><td>Sync object across tabs</td><td></td></tr>
+</table>
+<hr/>  
+<h2> 🔧 Debugging & Testing</h2>
+<ul><li> <b>OpenForum.setDebugToConsole(true)</b> – enable logging  </li>
+<li> <b>OpenForum.testing.showComments()</b> – overlay comments  </li>
+<li> <b>OpenForum.testing.showIds()</b> – overlay IDs  </li>
+<li> <b>OpenForum.testing.showNames()</b> – overlay names  </li>
+<li> <b>OpenForum.testing.readForm() / writeToForm(data)</b> – form helpers  </li>
+</ul>
+<hr/>  
+<h2> 🔑 Miscellaneous</h2>
+<ul><li> <b>OpenForum.getSystemTime(cb?)</b> – get server system time  </li>
+<li> <b>OpenForum.getUserReference()</b> – persistent user ID  </li>
+<li> <b>OpenForum.loadGoogleFont(family, weight?)</b> – add Google font  </li>
+</ul>
+  <h2> 📦 OpenForumObject</h2>
+
+Represents a data-bound value in OpenForum. Objects can be attached to DOM elements, listened to, and synced with global JS variables.<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>new OpenForumObject(id)</td><td>id: string</td><td>OpenForumObject</td><td>Create a new bound object with a unique identifier. Usually created via OpenForum.getObject().</td><td></td></tr>
+<tr><td>getId</td><td>—</td><td>string</td><td>Return the object ID.</td><td></td></tr>
+<tr><td>add(target)</td><td>HTMLElement</td><td>self</td><td>Attach a DOM node (input, span, etc.) so the object’s value syncs with it.</td><td></td></tr>
+<tr><td>reset</td><td>—</td><td>void</td><td>Reset internal value to null.</td><td></td></tr>
+<tr><td>setValue(newValue, exclude?, clone?)</td><td>any, HTMLElement?, bool?</td><td>void</td><td>Set the object’s value and propagate to all targets.</td><td></td></tr>
+<tr><td>setValueQuietly(newValue)</td><td>any</td><td>void</td><td>Set value without notifying listeners.</td><td></td></tr>
+<tr><td>getValue</td><td>—</td><td>any</td><td>Get the current value.</td><td></td></tr>
+<tr><td>scan</td><td>—</td><td>void</td><td>Check all targets and globals for changes; update value if needed.</td><td></td></tr>
+<tr><td>addListener(listener)</td><td>fn(OpenForumObject)</td><td>void</td><td>Add a listener function that fires on value change.</td><td></td></tr>
+<tr><td>removeListener(listener)</td><td>fn(OpenForumObject)</td><td>void</td><td>Remove a previously added listener.</td><td></td></tr>
+<tr><td>getTargets</td><td>—</td><td>array</td><td>Return DOM nodes bound to this object.</td><td></td></tr>
+</table>
+Example:
+
+<xmp class="panel" of-exclude="true">
+var user = OpenForum.getObject("username");
+user.setValue("Alice");
+user.addListener(function(obj) {
+  console.log("New value:", obj.getValue());
+});
+</xmp>
+
+<hr/>
+  
+<h2> 📋 OpenForumTable</h2>
+
+Provides dynamic binding between JavaScript arrays and HTML tables using the `of-repeatFor` attribute.<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>new OpenForumTable(node)</td><td>node: HTMLElement</td><td>OpenForumTable</td><td>Create a bound table for a given template row. Usually constructed internally by OpenForum.crawlTables().</td><td></td></tr>
+<tr><td>setTableNode</td><td>tableNode: HTMLElement</td><td>void</td><td>Replace the table node (used when re-rendering).</td><td></td></tr>
+<tr><td>reset</td><td>—</td><td>void</td><td>Clear cached signatures so table will refresh next scan.</td><td></td></tr>
+<tr><td>updateQuietly</td><td>—</td><td>void</td><td>Update object signature without redrawing (used after silent changes).</td><td></td></tr>
+<tr><td>refresh</td><td>—</td><td>void</td><td>Re-render the table if the underlying array has changed.</td><td></td></tr>
+<tr><td>getId</td><td>—</td><td>string</td><td>Return the table’s ID.</td><td></td></tr>
+</table>
+Example:
+
+<xmp class="panel" of-exclude="true">
+<table of-id="usersTable">
+  <tr of-repeatFor="user in users">
+    <td>{{user.name}}</td>
+    <td>{{user.email}}</td>
+  </tr>
+</table>
+
+<script>
+  OpenForum.getObject("users").setValue([
+    {name:"Alice", email:"a@test.com"},
+    {name:"Bob", email:"b@test.com"}
+  ]);
+</script>
+</xmp>
+
+<h2> 🌳 Tree / TreeNode / Action</h2>
+
+A dynamic tree widget for representing hierarchical data (such as file systems).  
+Each `Tree` has a root `TreeNode`, and nodes can contain children, actions, and attributes.<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>new Tree(elementId, name, attributes?, modifierFn?)</td><td>elementId: string, name: string, attributes?: object, modifierFn?: fn</td><td>Tree</td><td>Create a new tree bound to a DOM element.</td><td></td></tr>
+<tr><td>tree.render</td><td>—</td><td>Tree</td><td>Render the tree into the target element.</td><td></td></tr>
+<tr><td>tree.addChild(name, attributes)</td><td>string, object</td><td>TreeNode</td><td>Add a child node under root.</td><td></td></tr>
+<tr><td>tree.addJSON(node)</td><td>object</td><td>TreeNode</td><td>Add a child from a JSON object.</td><td></td></tr>
+<tr><td>tree.setJSON(node)</td><td>object</td><td>TreeNode</td><td>Replace root with JSON object.</td><td></td></tr>
+<tr><td>tree.toJSON</td><td>—</td><td>object</td><td>Serialize the tree to JSON.</td><td></td></tr>
+<tr><td>tree.expandAll / collapseAll</td><td>—</td><td>Tree</td><td>Expand or collapse all nodes.</td><td></td></tr>
+<tr><td>tree.deleteChild(node)</td><td>TreeNode</td><td>Tree</td><td>Remove a child node.</td><td></td></tr>
+<tr><td>tree.expandPath(path)</td><td>string ("/a/b/c")</td><td>boolean</td><td>Expand nodes along a given path.</td><td></td></tr>
+<tr><td>tree.findNode(path)</td><td>string ("/a/b/c")</td><td>array of TreeNodes or null</td><td>Return path of nodes if found.</td><td></td></tr>
+<tr><td>tree.getRoot</td><td>—</td><td>TreeNode</td><td>Get root node.</td><td></td></tr>
+</table>
+<hr/>
+
+<h2> 🌲 TreeNode</h2>
+
+<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>getId</td><td>—</td><td>string</td><td>Return unique node ID.</td><td></td></tr>
+<tr><td>setLazyLoad(fn)</td><td>fn(TreeNode)</td><td>TreeNode</td><td>Set a lazy-load function called when expanded.</td><td></td></tr>
+<tr><td>getParent / setParent</td><td>TreeNode</td><td>void</td><td>Get or set parent node.</td><td></td></tr>
+<tr><td>addChild(name, attributes)</td><td>string, object</td><td>TreeNode</td><td>Add a child node.</td><td></td></tr>
+<tr><td>addJSON(node)</td><td>object</td><td>TreeNode</td><td>Add children from JSON.</td><td></td></tr>
+<tr><td>importJSON(url, action, params)</td><td>string, string, string</td><td>void</td><td>Load JSON via AJAX and add children.</td><td></td></tr>
+<tr><td>toJSON</td><td>—</td><td>object</td><td>Serialize node and children to JSON.</td><td></td></tr>
+<tr><td>deleteChild(node)</td><td>TreeNode</td><td>TreeNode</td><td>Remove a child node.</td><td></td></tr>
+<tr><td>isExpanded</td><td>—</td><td>bool</td><td>Check if node is expanded.</td><td></td></tr>
+<tr><td>expand / collapse / toggle</td><td>—</td><td>TreeNode</td><td>Expand/collapse/toggle node.</td><td></td></tr>
+<tr><td>render(depth?)</td><td>number</td><td>string (HTML)</td><td>Render node to HTML string.</td><td></td></tr>
+<tr><td>getName / setName</td><td>string</td><td>string/void</td><td>Get or set node name.</td><td></td></tr>
+<tr><td>getAttribute / setAttribute</td><td>string, any</td><td>any/void</td><td>Access or modify node attributes.</td><td></td></tr>
+<tr><td>getChildren</td><td>—</td><td>array<TreeNode></td><td>List child nodes.</td><td></td></tr>
+<tr><td>applyToChildren(fn)</td><td>fn(TreeNode)</td><td>void</td><td>Apply function to each child.</td><td></td></tr>
+</table>
+<hr/>
+
+<h2> ⚡ Action</h2>
+
+Actions add clickable icons (buttons) to tree nodes.<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>new Action(config)</td><td>config: {fn, icon, toolTip}</td><td>Action</td><td>Create an action from a function, icon, and tooltip.</td><td></td></tr>
+<tr><td>action.call(node)</td><td>TreeNode</td><td>void</td><td>Run the action on a node.</td><td></td></tr>
+<tr><td>action.render(target)</td><td>string</td><td>HTML string</td><td>Render the action icon as clickable HTML.</td><td></td></tr>
+</table>
+<hr/>
+
+Example:
+
+<xmp class="panel" of-exclude="true">
+<div id="fileTree"></div>
+
+<script>
+  var tree = new Tree("fileTree","Root",{icon:"book"});
+  var docs = tree.addChild("Documents",{icon:"page"});
+  docs.addChild("Resume.docx",{icon:"attach"});
+  tree.render();
+  tree.getRoot().expand();
+</script>
+</xmp>
+
+<hr/>
+  
+<h2> 🔗 Ajax / AjaxRequest / Post</h2>
+
+These APIs provide low-level AJAX utilities in OpenForum.  
+They are usually used internally by higher-level helpers (`JSON.get/post`, `OFX`, `OpenForum.loadFile`),  
+but can be used directly when fine-grained control is needed.
+
+<hr/>
+
+<h2> ⚙️ AjaxRequest</h2>
+
+Represents a single HTTP request.<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>new AjaxRequest(method, url, request, data, onSuccess, onError, async)</td><td>method: "GET"/"POST", url: string, request: string, data: string, onSuccess: fn, onError: fn, async: bool</td><td>AjaxRequest</td><td>Create a new request object.</td><td></td></tr>
+<tr><td>processTransactionStateChange(ev)</td><td>Event</td><td>void</td><td>Called when readyState changes; triggers success/error callbacks.</td><td></td></tr>
+</table>
+<hr/>
+
+<h2> 🌐 Ajax</h2>
+
+A static helper to send `AjaxRequest` objects.<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>Ajax.sendRequest(request)</td><td>request: AjaxRequest</td><td>string (response if sync)</td><td>Send the request. If `asynchronous = true`, callbacks are invoked; if false, responseText is returned directly.</td><td></td></tr>
+</table>
+<hr/>
+
+<h2> 📨 Post</h2>
+
+Helper for building `application/x-www-form-urlencoded` payloads.<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>new Post()</td><td>—</td><td>Post</td><td>Create a new post builder.</td><td></td></tr>
+<tr><td>addItem(name, value)</td><td>string, string</td><td>self</td><td>Add a key/value pair.</td><td></td></tr>
+<tr><td>addForm(formId)</td><td>formId: string</td><td>self</td><td>Add all fields from a form.</td><td></td></tr>
+<tr><td>getData</td><td>—</td><td>string</td><td>Return built parameter string (e.g., `"key=value&key2=value2"`).</td><td></td></tr>
+</table>
+<hr/>
+
+Example:
+
+<xmp class="panel" of-exclude="true">
+var post = new Post()
+   .addItem("username","alice")
+   .addItem("password","secret");
+
+var req = new AjaxRequest(
+   "POST",
+   "/OpenForum/Login",
+   "",
+   post.getData(),
+   function(response) { console.log("Logged in:", response); },
+   function(err) { console.error("Error:", err); },
+   true
+);
+
+Ajax.sendRequest(req);
+</xmp>
+
+<hr/>
+<h2> 🌐 OpenForum.Browser</h2>
+
+Provides browser-side file handling and keyboard overrides.  
+Includes download, upload, and an optional in-browser file system (browserFS).<table><tr><td>Function</td><td>Parameters</td><td>Returns</td><td>Description</td><td></td></tr>
+<tr><td>OpenForum.Browser.download</td><td>fileName: string, data: string</td><td>void</td><td>Trigger a client-side download of text data as a file.</td><td></td></tr>
+<tr><td>OpenForum.Browser.upload</td><td>callback: fn(data), onError?: fn(msg)</td><td>void</td><td>Open a hidden file input, read file as text, and pass contents to callback.</td><td></td></tr>
+<tr><td>OpenForum.Browser.uploadDataUrl</td><td>callback: fn(dataUrl), onError?: fn(msg)</td><td>void</td><td>Open a hidden file input, read file as DataURL (e.g., base64-encoded).</td><td></td></tr>
+<tr><td>OpenForum.Browser.overrideSave</td><td>fn: function</td><td>void</td><td>Override `Ctrl+S` / `Cmd+S` in the browser to run a custom save function.</td><td></td></tr>
+<tr><td>OpenForum.Browser.isBrowserStorageEnabled</td><td>—</td><td>bool</td><td>Check if the browserFS system is enabled.</td><td></td></tr>
+<tr><td>OpenForum.Browser.enableBrowserStorage</td><td>—</td><td>void</td><td>Enable browserFS. Redirects `saveFile`, `deleteFile`, `loadFile`, etc. to use `localStorage` with `browser://` paths.</td><td></td></tr>
+</table>
+<hr/>
+
+Example: client-side file download
+
+<xmp class="panel" of-exclude="true">
+OpenForum.Browser.download("example.txt","Hello, OpenForum!");
+</xmp>
+
+Example: client-side file upload
+
+<xmp class="panel" of-exclude="true">
+OpenForum.Browser.upload(function(data) {
+   console.log("File contents:", data);
+});
+</xmp>
+
+Example: browserFS usage
+
+<xmp class="panel" of-exclude="true">
+OpenForum.Browser.enableBrowserStorage();
+
+// Save to browserFS
+OpenForum.saveFile("browser://MyPage/test.txt","Hello World");
+
+// Load from browserFS
+var data = OpenForum.loadFile("browser://MyPage/test.txt");
+console.log(data);
+</xmp>
+
+  
+</div>
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Page Content End-->
+    </div>
+      
+    <!--OF insert (/OpenForum/PageTemplates/Branding/footer.page.content) start --><footer>
+  <div>
+    <div>
+    <ul class="inline-list">
+      <li><a href="https://open-forum.onestonesoup.org/OpenForum/About">About</a></li>
+      <li>|</li>
+      <li><a href="https://open-forum.onestonesoup.org">Open Forum @ OneStoneSoup.org</a></li>
+      <li>|</li>
+      <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/Introduction">Developers</a></li>
+      <li class="right"><a href="https://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+    </ul>
+    </div>
+  </div>
+</footer><!--OF insert (/OpenForum/PageTemplates/Branding/footer.page.content) end -->
+
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
+  <p>{{OpenForum.errorMessage}}</p>
+  <p><a href="#" data-reveal-id="ofErrorDetails" class="secondary button">See technical details</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="ofErrorDetails" class="reveal-modal" data-reveal aria-labelledby="ofErrorModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorModalTitle">Error details.</h2>
+  <p>{{OpenForum.error}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div><!--OF insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) end -->
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) start --><div id="ofAlertMessage" class="reveal-modal" data-reveal aria-labelledby="ofAlertMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofAlertMessageModalTitle" class="alert-box success round">{{OpenForum.alert.title}}</h2>
+  <p>{{OpenForum.alert.message}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<!--OF insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) end -->
+    
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

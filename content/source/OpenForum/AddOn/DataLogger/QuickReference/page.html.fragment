@@ -1,0 +1,33 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>DataLogger Quick Reference</h3>
+
+
+
+<p>Log and store data events and messages</p>
+
+<b>Key Features</b>
+<ul><li> Data logging to message queue</li>
+<li> Data storage functionality</li>
+<li> Log message viewing</li>
+<li> Test interface for debugging</li>
+</ul>
+
+<b>Server-Side Usage:</b>
+<xmp class="panel" of-exclude="true">
+// Get DataLogger API
+var DataLogger = js.getObject("/OpenForum/AddOn/DataLogger","DataLogger.sjs");
+
+// Log data
+DataLogger.log("Event message", dataObject);
+
+// Store data
+DataLogger.store("dataKey", dataObject);
+</xmp>
+
+<b>Use Cases</b>
+<ul><li> Event logging</li>
+<li> Data persistence</li>
+<li> Debug logging</li>
+<li> Message tracking</li>
+</ul>
+<!--Extension ChildPagesList --><!--End Extension ChildPagesList -->

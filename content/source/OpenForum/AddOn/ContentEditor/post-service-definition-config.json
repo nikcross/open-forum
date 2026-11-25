@@ -1,0 +1,482 @@
+{
+    "version": "0.1.4",
+    "libraries": [
+        {
+            "name": "ContentPages",
+            "fileName": "ContentPages.sjs",
+            "view": "display: block;",
+            "edit": "display: none;",
+            "pageName": "/OpenForum/AddOn/ContentEditor"
+        },
+        {
+            "name": "SiteLibrary",
+            "fileName": "SiteLibrary.sjs",
+            "view": "display: block;",
+            "edit": "display: none;",
+            "pageName": "/OpenForum/AddOn/ContentEditor"
+        }
+    ],
+    "parameters": [],
+    "actions": [
+        {
+            "name": "createContentPage",
+            "call": "ContentPages.createContentPage(user,authorise,page,message,folder);",
+            "parameters": [
+                {
+                    "name": "page",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "folder",
+                    "required": false,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Create a saved page at /(public path) with revision r0001 (CON-T-024)",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "createContentPage"
+        },
+        {
+            "name": "saveContentPage",
+            "call": "ContentPages.saveContentPage(user,authorise,pageId,baseRevision,page,message);",
+            "parameters": [
+                {
+                    "name": "pageId",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "baseRevision",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "page",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Save a new revision if baseRevision is still the draft, otherwise reply conflict (CON-T-025)",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "saveContentPage"
+        },
+        {
+            "name": "setContentPageArchived",
+            "call": "ContentPages.setContentPageArchived(user,authorise,pageId,archived);",
+            "parameters": [
+                {
+                    "name": "pageId",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "archived",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Archive or restore a saved page (CON-T-024)",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "setContentPageArchived"
+        },
+        {
+            "name": "publishContentPage",
+            "call": "ContentPages.publishContentPage(user,authorise,pageId,revisionId,practice);",
+            "parameters": [
+                {
+                    "name": "pageId",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "revisionId",
+                    "required": false,
+                    "type": "string"
+                },
+                {
+                    "name": "practice",
+                    "required": false,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Check, stage and release one saved revision with the Publisher (CON-T-030). A practice run unless practice is false. Publishing an older revision rolls back.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "publishContentPage"
+        },
+        {
+            "name": "importContentPage",
+            "call": "ContentPages.importContentPage(user,authorise,sourcePage,templateId);",
+            "parameters": [
+                {
+                    "name": "sourcePage",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "templateId",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Import an existing /Development page into the Content Editor as revision r0001 at the same path; its originals are kept as imported-page.content and imported-data.json (PageConverter).",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "importContentPage"
+        },
+        {
+            "name": "createLibraryEntry",
+            "call": "SiteLibrary.createLibraryEntry(user,authorise,kind,name,content,message);",
+            "parameters": [
+                {
+                    "name": "kind",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "name",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "content",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "message",
+                    "required": false,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Create a named library entry as version 1 (CON-T-045).",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "createLibraryEntry"
+        },
+        {
+            "name": "saveLibraryEntry",
+            "call": "SiteLibrary.saveLibraryEntry(user,authorise,kind,id,baseVersion,content,message);",
+            "parameters": [
+                {
+                    "name": "kind",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "id",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "baseVersion",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "content",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "message",
+                    "required": false,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Add a version to a library entry; a conflict if baseVersion is not the latest.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "saveLibraryEntry"
+        },
+        {
+            "name": "updateLibraryEntry",
+            "call": "SiteLibrary.updateLibraryEntry(user,authorise,kind,id,name,archived);",
+            "parameters": [
+                {
+                    "name": "kind",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "id",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "name",
+                    "required": false,
+                    "type": "string"
+                },
+                {
+                    "name": "archived",
+                    "required": false,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Rename, archive or restore a library entry.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "updateLibraryEntry"
+        },
+        {
+            "name": "duplicateLibraryEntry",
+            "call": "SiteLibrary.duplicateLibraryEntry(user,authorise,kind,id,name);",
+            "parameters": [
+                {
+                    "name": "kind",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "id",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "name",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Copy a library entry's latest version as a new entry.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "duplicateLibraryEntry"
+        },
+        {
+            "name": "uploadImage",
+            "call": "SiteLibrary.uploadImage(user,authorise,fileName,data);",
+            "parameters": [
+                {
+                    "name": "fileName",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "data",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Upload a PNG, JPEG, GIF or WebP (checked by its first bytes, at most 4MB) to /Images (CON-T-049).",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "uploadImage"
+        },
+        {
+            "name": "addLinkedImage",
+            "call": "SiteLibrary.addLinkedImage(user,authorise,url,name);",
+            "parameters": [
+                {
+                    "name": "url",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "name",
+                    "required": false,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Add an https image address to the image library.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "addLinkedImage"
+        },
+        {
+            "name": "updateLinkedImage",
+            "call": "SiteLibrary.updateLinkedImage(user,authorise,id,archived);",
+            "parameters": [
+                {
+                    "name": "id",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "archived",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Remove (archive) or restore a linked image.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "updateLinkedImage"
+        },
+        {
+            "name": "moveContentPage",
+            "call": "ContentPages.moveContentPage(user,authorise,pageId,path);",
+            "parameters": [
+                {
+                    "name": "pageId",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "path",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Move a page's Development copy to a new site path; the old Development page goes to /OpenForum/DeletedPages and live pages are not touched (CON-T-051).",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "moveContentPage"
+        },
+        {
+            "name": "addImageSource",
+            "call": "SiteLibrary.addImageSource(user,authorise,pageName);",
+            "parameters": [
+                {
+                    "name": "pageName",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Add a page as an extra image library source.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "addImageSource"
+        },
+        {
+            "name": "removeImageSource",
+            "call": "SiteLibrary.removeImageSource(user,authorise,id);",
+            "parameters": [
+                {
+                    "name": "id",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Remove an added image library source; its images are not changed.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "removeImageSource"
+        },
+        {
+            "name": "replaceImage",
+            "call": "SiteLibrary.replaceImage(user,authorise,fileName,data);",
+            "parameters": [
+                {
+                    "name": "fileName",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "name": "data",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Replace an uploaded image, keeping its address; the old file is kept aside.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "replaceImage"
+        },
+        {
+            "name": "removeImage",
+            "call": "SiteLibrary.removeImage(user,authorise,fileName);",
+            "parameters": [
+                {
+                    "name": "fileName",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "libraries": [],
+            "method": "post",
+            "description": "Remove an uploaded image nothing uses; it is kept aside under a new name.",
+            "example": {
+                "request": "",
+                "response": "",
+                "errorResponse": ""
+            },
+            "action": "removeImage"
+        }
+    ]
+}

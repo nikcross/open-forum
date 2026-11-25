@@ -1,0 +1,13 @@
+<section class="ce-app-view" aria-labelledby="ce-style-title">
+  <div class="ce-view-head">
+    <div>
+      <p class="ce-panel-label">Site</p>
+      <h1 id="ce-style-title">Site style</h1>
+      <p class="ce-view-intro">The colours, fonts and icon every layout, component and page on this site uses. Saving builds a new version and its CSS file. New pages use the newest version; existing pages and layouts keep theirs until they are switched.</p>
+    </div>
+    <div class="ce-view-actions">
+      <button class="ce-btn ce-primary" type="button" id="ce-style-save" disabled>Save and build CSS</button>
+    </div>
+  </div>
+  <div id="ce-style-body"><p class="ce-app-loading">Loading...</p></div>
+</section>

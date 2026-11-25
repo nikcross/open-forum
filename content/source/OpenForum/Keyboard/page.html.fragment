@@ -1,0 +1,13 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+  <h2><span id="typed"></span><span id="cursor"></span></h2>
+</div>
+<div class="row">
+  <div id="keyboard" class="large-12 columns"></div>
+</div>
+<div class="row">
+  <div id="numberPad" class="large-12 columns"></div>
+</div>
+<div class="row">
+  <div id="multiPad" class="large-12 columns"></div>
+</div>

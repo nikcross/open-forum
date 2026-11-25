@@ -1,0 +1,70 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<hr/>
+<h3>Prerequisites</h3>
+
+<ul><li>Docker installed</li>
+<li>Thats about it</li>
+</ul>
+
+-<hr/>
+
+<ol><li>Create a docker folder</li>
+<li>Create a file named Dockerfile</li>
+<li>Contents of file </li>
+<xmp class="panel" of-exclude="true">
+FROM nikcross/openforum
+</xmp>
+<li>Run <xmp class="panel" of-exclude="true">docker build -t openforum:test .</xmp></li>
+<li>Create a file named run.sh</li>
+<li>Make executable</li>
+<li>Contents of file </li>
+<xmp class="panel" of-exclude="true">
+docker run -d <br/>
+-p localhost:1234:1234 <br/>
+-v /<persistent path>:/web/changes <br/>
+ openforum:test
+</xmp>
+
+<hr/>
+<h3>Running with an ssh certificate</h3>
+
+<ul><li> Create a directory ssl and place your keystore file in it</li>
+<li> Create a file domains.xml</li>
+<xmp class="panel" of-exclude="true">
+<domains>
+    <domain>
+      <name>Default</name>
+      <host>default</host>
+      <root>/web/content/default</root>
+    </domain>
+    <domain>
+      <name>{Server Title}</name>
+      <host>{domain address regex matcher}</host>
+      <root>/web/content/{path to content}</root>
+    </domain>
+</domains>
+</xmp>
+<li> Create a file Dockerfile</li>
+<xmp class="panel" of-exclude="true">
+FROM nikcross/openforum:latest
+
+COPY ./ssl/keystore /web/jetty/etc/keystore
+
+COPY ./domains.xml /web/jetty/webapps/root/WEB-INF/domains.xml
+ADD entrypoint.sh /opt/entrypoint.sh
+RUN chmod +x /opt/entrypoint.sh
+CMD /opt/entrypoint.sh
+
+</xmp>
+<li> Create a file entrypoint.sh (uncomment the mode you want to start in - with or without debug)</li>
+<xmp class="panel" of-exclude="true"><ol><li>!/bin/sh</li>
+</ol>
+cd /web/jetty
+
+java -jar start.jar --add-to-start=https,http2<ol><li> With remote debug and suspend until remote debugger connected</li>
+<li>java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=1066 -jar start.jar jetty.sslContext.keyStorePath=/etc/keystore jetty.sslContext.keyStorePassword={password} jetty.sslContext.keyStoreManagerPassword={password}</li>
+</ol>
+<ol><li> With remote debug</li>
+java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1066 -jar start.jar jetty.sslContext.keyStorePath=/etc/keystore jetty.sslContext.keyStorePassword={password} jetty.sslContext.keyStoreManagerPassword={password}<li> Without remote debug</li>
+<li>java -jar start.jar jetty.sslContext.keyStorePath=/etc/keystore jetty.sslContext.keyStorePassword={password} jetty.sslContext.keyStoreManagerPassword={password}</li>
+</xmp></ul></ol></ol>

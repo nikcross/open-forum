@@ -1,0 +1,21 @@
+!!Developer Quick Reference
+
+--8<--
+
+((Manage developer resource links and file references))
+
+__Key Features__
+* Store and manage developer file references
+* Link storage pages to target pages
+* File name tracking
+* Editable table interface
+
+-->8--
+
+__Use Cases__
+* Developer resource management
+* File reference tracking
+* Quick access to development files
+* Cross-page file linking
+
+[{InsertSourceFile fileName="page.js"}]

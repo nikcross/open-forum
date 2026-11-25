@@ -1,0 +1,51 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>&title;</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=&time;"></script>
+    <script type="text/javascript" src="&pageName;/page.js?ts=&time;"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=&time;" />
+
+    &insert:/OpenForum/PageTemplates/CommonElements/header-script.common.html;
+
+  </head>
+  <body>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            &insert:/OpenForum/PageTemplates/Branding/top-left-logo.page.content;
+          </h1>
+        </li>
+      </ul>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <a href="#" title="&title;">&shortTitle;</a>
+          </h1>
+        </li>
+      </ul>
+      &insert:/OpenForum/PageTemplates/CommonElements/signin.common.html;
+    </nav>
+    [{CrumbTrail}]
+
+    <div style="padding-bottom: 100px;">
+    <!--PageContent Start-->
+      <h2>Don't look here, look at the footer.</h2><!--Page Content End-->
+    </div>
+
+    &content;
+    
+    &insert:/OpenForum/PageTemplates/CommonElements/error-alert.common.html;
+    &insert:/OpenForum/PageTemplates/CommonElements/alert.common.html;
+
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

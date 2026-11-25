@@ -1,0 +1,58 @@
+@RENDERER
+<br/>
+<div class="row">
+  <div class="columns large-4">
+[[
+  !!Site Administration 
+        [{ChildPagesList pageName="/OpenForum/Configuration" newTab="true"}]
+*[/OpenForum/DeletedPages=]
+*[/OpenForum/MissingPages=]
+*[/OpenForum/ErrorPages=]
+*[/OpenForum/HomePage=]
+*[/OpenForum/Images=]
+*[/OpenForum/SiteExplorer=]
+*[/OpenForum/Journal=]
+*[/OpenForum/PublishingJournal=]
+*[/OpenForum/ReleasedPackages=]
+  ]]
+      [[
+        !!File Editors
+        [{ChildPagesList pageName="/OpenForum/Editor/Editors" newTab="true"}]
+        ]]
+      [[
+        !!File Editor Plugins
+        [{ChildPagesList pageName="/OpenForum/Editor/Plugins" newTab="true"}]
+        ]]
+  </div>
+  <div class="columns large-4">
+    [[
+        !!File Templates
+        [{ChildPagesList pageName="/OpenForum/FileTemplates" newTab="true"}]
+        ]]
+  [[
+        !!Page Templates
+        [{ChildPagesList pageName="/OpenForum/PageTemplates" newTab="true"}]
+    ]]
+  </div>
+  <div class="columns large-4">
+    [[
+        !!Services
+*[/OpenForum/Giraffe=]
+*[/OpenForum/MessageQueue=]
+*[/OpenForum/Processor=]
+  ]]
+     [[
+        !!Server
+*[/OpenForum/SystemMonitor]  
+        [{ChildPagesList pageName="/OpenForum/SystemMonitor" newTab="true"}]
+]]
+     [[
+       !!Triggers
+          [{ChildPagesList pageName="/OpenForum/Triggers" newTab="true"}]
+       ]]
+     [[
+          !!Site Spider
+*[/OpenForum/Spider=]
+       ]]
+  </div>
+</div>

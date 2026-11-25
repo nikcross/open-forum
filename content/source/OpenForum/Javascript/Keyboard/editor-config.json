@@ -1,0 +1,21 @@
+{
+    "editors": [
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Javascript/Keyboard",
+            "fileName": "page.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Javascript/Keyboard",
+            "fileName": "page.content"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Javascript/Keyboard",
+            "fileName": "Keyboard.js"
+        }
+    ],
+    "pageName": "/OpenForum/Javascript/Keyboard",
+    "fileName": "editor-config.json"
+}

@@ -1,0 +1,46 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<br/>
+<hr/><br/>
+ Giraffe<br/><ul><li> function getCssValue(arg0,arg1) <br/></li>
+<li> function setAnimated(arg0) <br/></li>
+<li> function Transition(arg0,arg1) <br/></li>
+<li> function FlipOutX(arg0,arg1) <br/></li>
+<li> function FlipInX(arg0,arg1) <br/></li>
+<li> function FlipOutY(arg0,arg1) <br/></li>
+<li> function FlipInY(arg0,arg1) <br/></li>
+<li> function MoveSequence(arg0,arg1,arg2) <br/></li>
+<li> function RotationSequence(arg0,arg1,arg2) <br/></li>
+<li> function ExplodeSequence(arg0,arg1) <br/></li>
+<hr/><br/>
+Circle<br/><li> function draw() <br/></li>
+<li> function isInside(arg0,arg1) <br/></li>
+<li> function _repaint() <br/></li>
+<li> function setCSSClass(arg0) <br/></li>
+<li> function setColor(arg0) <br/></li>
+<li> function setShadow(arg0) <br/></li>
+<li> function setLineStyle(arg0) <br/></li>
+<li> function setFillColor(arg0) <br/></li>
+<li> function setRotation(arg0) <br/></li>
+<li> function onClick(arg0,arg1) <br/></li>
+<li> function onMouseOver(arg0,arg1) <br/></li>
+<li> function onMouseOut(arg0,arg1) <br/></li>
+<li> function onMousePressed(arg0,arg1) <br/></li>
+<li> function onMouseReleased(arg0,arg1) <br/></li>
+<li> function animate(arg0) <br/></li>
+<hr/><br/>
+Rectangle<br/><li> function isInside(arg0,arg1) <br/></li>
+<li> function draw() <br/></li>
+<li> function _repaint() <br/></li>
+<li> function setCSSClass(arg0) <br/></li>
+<li> function setColor(arg0) <br/></li>
+<li> function setShadow(arg0) <br/></li>
+<li> function setLineStyle(arg0) <br/></li>
+<li> function setFillColor(arg0) <br/></li>
+<li> function setRotation(arg0) <br/></li>
+<li> function onClick(arg0,arg1) <br/></li>
+<li> function onMouseOver(arg0,arg1) <br/></li>
+<li> function onMouseOut(arg0,arg1) <br/></li>
+<li> function onMousePressed(arg0,arg1) <br/></li>
+<li> function onMouseReleased(arg0,arg1) <br/></li>
+<li> function animate(arg0) <br/></li>
+</ul>

@@ -1,0 +1,26 @@
+<div id="statusModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h2 id="modalTitle">{{status}}</h2>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+{{status}}
+<div class="large-12 columns">
+  <div id="editor0">Editor Loading...</div>
+</div>
+
+<div class="row">
+  <div class="large-2 columns">
+    <a class="button tiny" onClick="save(); return false;">Save</a>
+  </div>
+  <div class="large-2 columns">
+    <div class="switch">
+      Autosave
+      <input id="autoSaveSwitch" type="checkbox"  of-id="autoSave">
+      <label for="autoSaveSwitch"></label>
+    </div> 
+  </div>
+  <div class="large-8 columns">
+    <a class="button tiny" onClick="upload(); return false;" title="Upload a Javascript document to your browser.">Upload</a>
+    <a class="button tiny" onClick="download(); return false;" title="Download the current Javascript document">Download {{editingFileName}}</a>
+  </div>
+</div>

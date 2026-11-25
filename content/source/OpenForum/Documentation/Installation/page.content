@@ -1,0 +1,41 @@
+<div class="row">
+  <div class="large-6 columns">
+    !!As A Docker Container (recommended)
+    ((This is the simplest and recommended way to install OpenForum))
+ * Create docker folder and create Dockerfile
+ * Edit Dockerfile
+ * docker run ...
+
+
+  </div>
+  <div class="large-6 columns">
+    !!As A Zip File
+    ((This process is required where Docker is not available such as on 32 bit operating systems or other unsupported hardware.))
+
+    ((Download the latest version. This will include the Jetty web server
+    {{{
+    wget http://open-forum.onestonesoup.org/Releases/Latest/OpenForum.zip
+    }}}
+    ))
+
+    ((Create a directory for open-forum then unzip the file to the new directory    
+    {{{
+    unzip OpenForum.zip
+
+    Structure:
+    	changes
+    	jetty
+    	source
+    }}}
+    ))
+
+    ((Start the OpenForum server
+    {{{
+    cd jetty
+    java -jar start.jar
+    }}}
+    ))
+
+    ((Open OpenForum in a browser. [http://localhost:1234]))
+  </div>
+</div>

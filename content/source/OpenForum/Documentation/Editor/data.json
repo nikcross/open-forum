@@ -1,0 +1,160 @@
+{
+    "pageName": "/OpenForum/Documentation/Editor",
+    "title": "Editor",
+    "block": "page",
+    "content": [
+        {
+            "block": "pageTitle",
+            "elementId": "BK0_33150677150868591631625754760",
+            "editor": {},
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_33150677150868591631625754760_content' title='Page' onmouseover='highlight( \"BK0_33150677150868591631625754760_content\", true );' onmouseout='highlight( \"BK0_33150677150868591631625754760_content\", false );'><b>Page Title</b></a>",
+                "attributes": {
+                    "icon": "textfield"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        },
+        {
+            "block": "WYSIWYG",
+            "data": {
+                "text": "<h3>The Editor</h3>"
+            },
+            "elementId": "BK0_82821459418397781631625754760",
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_82821459418397781631625754760_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_82821459418397781631625754760_edit\", true );' onmouseout='highlight( \"BK0_82821459418397781631625754760_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        },
+        {
+            "block": "WYSIWYG",
+            "data": {
+                "text": "<h4>Overview Tab</h4><p>&nbsp;</p>"
+            },
+            "elementId": "BK0_84824149030900361631625754760",
+            "editor": {},
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_84824149030900361631625754760_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_84824149030900361631625754760_edit\", true );' onmouseout='highlight( \"BK0_84824149030900361631625754760_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        },
+        {
+            "block": "WYSIWYG",
+            "data": {
+                "text": "<h4>Editors</h4>"
+            },
+            "elementId": "BK0_66436632312327841631625754760",
+            "editor": {},
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_66436632312327841631625754760_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_66436632312327841631625754760_edit\", true );' onmouseout='highlight( \"BK0_66436632312327841631625754760_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        },
+        {
+            "block": "WYSIWYG",
+            "data": {
+                "text": "<h4>Plugins</h4>"
+            },
+            "elementId": "BK0_97647351529964041631625754760",
+            "editor": {},
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_97647351529964041631625754760_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_97647351529964041631625754760_edit\", true );' onmouseout='highlight( \"BK0_97647351529964041631625754760_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        },
+        {
+            "block": "WYSIWYG",
+            "data": {
+                "text": "<h4>Actions</h4>"
+            },
+            "elementId": "BK0_59252938830816571631625754760",
+            "editor": {},
+            "blockEditor": {},
+            "treeNode": {
+                "name": "<a href='#BK0_59252938830816571631625754760_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_59252938830816571631625754760_edit\", true );' onmouseout='highlight( \"BK0_59252938830816571631625754760_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            },
+            "parentId": "pageEditor"
+        }
+    ],
+    "editor": "/OpenForum/AddOn/ContentEditor",
+    "blockEditor": {},
+    "treeNode": {
+        "name": "<a href='#pageEditor_content' title='Page' onmouseover='highlight( \"pageEditor_content\", true );' onmouseout='highlight( \"pageEditor_content\", false );'><b>Page</b></a>",
+        "attributes": {
+            "icon": "page"
+        },
+        "leaves": [
+            {
+                "name": "<a href='#BK0_33150677150868591631625754760_content' title='Page' onmouseover='highlight( \"BK0_33150677150868591631625754760_content\", true );' onmouseout='highlight( \"BK0_33150677150868591631625754760_content\", false );'><b>Page Title</b></a>",
+                "attributes": {
+                    "icon": "textfield"
+                },
+                "leaves": []
+            },
+            {
+                "name": "<a href='#BK0_82821459418397781631625754760_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_82821459418397781631625754760_edit\", true );' onmouseout='highlight( \"BK0_82821459418397781631625754760_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            },
+            {
+                "name": "<a href='#BK0_84824149030900361631625754760_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_84824149030900361631625754760_edit\", true );' onmouseout='highlight( \"BK0_84824149030900361631625754760_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            },
+            {
+                "name": "<a href='#BK0_66436632312327841631625754760_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_66436632312327841631625754760_edit\", true );' onmouseout='highlight( \"BK0_66436632312327841631625754760_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            },
+            {
+                "name": "<a href='#BK0_97647351529964041631625754760_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_97647351529964041631625754760_edit\", true );' onmouseout='highlight( \"BK0_97647351529964041631625754760_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            },
+            {
+                "name": "<a href='#BK0_59252938830816571631625754760_edit' title='WYSIWYG Block' onmouseover='highlight( \"BK0_59252938830816571631625754760_edit\", true );' onmouseout='highlight( \"BK0_59252938830816571631625754760_edit\", false );'><b>WYSIWYG Block</b></a>",
+                "attributes": {
+                    "icon": "page_edit"
+                },
+                "leaves": []
+            }
+        ]
+    },
+    "elementId": "pageEditor",
+    "parentId": "pageEditor",
+    "pageParent": "https://open-forum.onestonesoup.org"
+}

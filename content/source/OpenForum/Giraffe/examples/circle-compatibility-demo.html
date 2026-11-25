@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Giraffe Circle - Both Usage Patterns</title>
+</head>
+<body>
+    <h1>Giraffe Circle Compatibility Demo</h1>
+    
+    <h2>Using Traditional Script Tag (Current Pattern)</h2>
+    <canvas id="traditional-canvas" width="400" height="200" style="border: 1px solid #ccc;"></canvas>
+    
+    <h2>Using ES6 Modules (New Pattern)</h2>
+    <canvas id="modern-canvas" width="400" height="200" style="border: 1px solid #ccc;"></canvas>
+
+    <!-- Traditional usage -->
+    <script src="../giraffe.js"></script>
+    <script>
+        // Old pattern - still works exactly as before
+        const canvas1 = new Canvas('traditional-canvas');
+        Giraffe.Interactive.setInteractive(canvas1);
+        
+        const circle1 = new Giraffe.Circle(100, 100, 50)
+            .setColor('red')
+            .setFillColor('pink');
+            
+        const circle2 = new Circle(300, 100, 30)  // Deprecated but works
+            .setColor('blue')
+            .setFillColor('lightblue');
+            
+        canvas1.add(circle1);
+        canvas1.add(circle2);
+        canvas1.repaint();
+        
+        console.log('Traditional: Circle1 area =', Math.PI * circle1.radius * circle1.radius);
+    </script>
+
+    <!-- Modern ES6 modules -->
+    <script type="module">
+        import { Canvas } from '../Core/canvas.modern.js';
+        import { Circle } from '../Core/circle.modern.js';
+        
+        // New pattern - cleaner, more powerful
+        const canvas2 = new Canvas('modern-canvas');
+        
+        const circle3 = new Circle(100, 100, 50)
+            .setColor('green')
+            .setFillColor('lightgreen');
+            
+        const circle4 = Circle.create(300, 100, 30)  // Static factory method
+            .setColor('purple')
+            .setFillColor('lavender');
+            
+        canvas2.add(circle3);
+        canvas2.add(circle4);
+        canvas2.repaint();
+        
+        // New methods available
+        console.log('Modern: Circle3 area =', circle3.getArea());
+        console.log('Modern: Circle4 circumference =', circle4.getCircumference());
+        
+        // Fluent interface
+        circle3.setRadius(60).setColor('darkgreen');
+        canvas2.repaint();
+    </script>
+    
+    <h2>Code Comparison</h2>
+    <div style="display: flex; gap: 20px;">
+        <div style="flex: 1;">
+            <h3>Traditional (Still Works)</h3>
+            <pre><code>// Current pattern
+const canvas = new Canvas('myCanvas');
+const circle = new Giraffe.Circle(100, 100, 50)
+    .setColor('red')
+    .setFillColor('pink');
+canvas.add(circle);
+canvas.repaint();</code></pre>
+        </div>
+        
+        <div style="flex: 1;">
+            <h3>Modern ES6 (New Option)</h3>
+            <pre><code>// New pattern
+import { Canvas, Circle } from 'giraffe';
+
+const canvas = new Canvas('myCanvas');
+const circle = new Circle(100, 100, 50)
+    .setColor('red')
+    .setFillColor('pink');
+    
+// New methods
+console.log('Area:', circle.getArea());
+
+canvas.add(circle);
+canvas.repaint();</code></pre>
+        </div>
+    </div>
+</body>
+</html>

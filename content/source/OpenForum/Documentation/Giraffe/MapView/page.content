@@ -1,0 +1,5 @@
+<center>
+	<input type="button" value="Zoom In" onClick="zoomIn();return false;">
+	<input type="button" value="Zoom Out" onClick="zoomOut();return false;">
+</center>
+<canvas id="canvas" width="768" height="768" style="border: solid 1px;"></canvas>

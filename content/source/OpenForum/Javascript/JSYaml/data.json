@@ -1,0 +1,12 @@
+{
+  "pageName": "/OpenForum/Javascript/JSYaml",
+  "title": "JSYaml",
+  "author": "Admin.Claude",
+  "description": "js-yaml 4.1.0 YAML parser and dumper (MIT), used by the YAMLEditor (OFS-R-001)",
+  "keywords": "OpenForum,MCP service,generated",
+  "created": "2026-10-26",
+  "modified": "2026-10-26",
+  "version": "1.0.0",
+  "category": "Generated",
+  "public": true
+}

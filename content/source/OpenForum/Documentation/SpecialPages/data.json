@@ -1,0 +1,29 @@
+{
+    "pageName": "/OpenForum/Documentation/SpecialPages",
+    "title": "Special Pages",
+    "block": "page",
+    "content": [
+        {
+            "block": "WYSIWYG",
+            "data": {
+                "text": "<h3>Special Pages</h3><p>OpenForum has a number of special pages that perform special functions and hold configuration data. These pages are all children of the <a href=\"/OpenForum/Editor?pageName=/OpenForumDocumentation/SpecialPages/OpenForum\">OpenForum</a> page.</p><p>Below is a list of each of these pages, each with a short description of what they do and, where appropriate, a link to further information.</p><h3>Configuration Pages</h3><p>There are three configuration pages...</p><h3>Page Templates</h3><p>Page templates describe the format of pages excluding their core content.</p><p>The template page Default has special significance as it also defines the default access settings for all pages and is the default page template.</p><h3>File Templates</h3><p>There is a folder for each kind of file that OpenForum uses. In the folder cam be any number of default files of that type that are used in the editor when a new file is requested for a page.</p><h3>Authentication</h3><p>Authentication relates to users signing in. The service defined here decides how OpenForum knows who a user is.</p><h3>Authorisation</h3><p>The authorisation service decides what a user is allowed to do on any page of the site.</p><h3>Actions</h3><p>OpenForum comes with a set of web services built in. They are defined as child pages of the <a href=\"/OpenForum/Actions\">/OpenForum/Actions</a> page</p><h3>Extensions</h3><p>OpenForum comes with a number of elements that can be used in a page as short cuts to complex page elements.</p><h3>Javascript</h3><p>OpenForum has a standard javascript library that allows javascript data to be embeded and bound to a page in a simple way...</p><h3>Deleted Pages</h3><p>When a page is deleted in OpenForum, it is copied to the page <a href=\"/OpenForum/DeletedPages\">/OpenForum/DeletedPages</a>. From here the pages can be undeleted or purged at a later date.</p><h3>Page History</h3><p>Each page keeps a history of all changes to content and resources in a subdirectory of the page named history. You can access the page history from within the editor using the page history plugin.</p><h3>Site Explorer</h3><p>Site explorer gives a view of the entire site content in a convinient tree format. For this view you can navigate to pages, edit and delete them.</p><h3>Page Editor</h3><p>The page editor is opened when a page is edited and makes all of the pages resource files available to edit. From here you can also create new resources, upload files, copy, move or delete the page. Plugins make more features available such as running javascript or viewing the page history</p><h3>Error Pages</h3><p>When the OpenForum server encounters an error, it will display one of the error pages to the user. The functionality and content of these pages is defined as a set of templates under the error pages page.</p><h3>System Monitor</h3><p>The system monitor enables the monitoring and viewing of the server state, from drive space to memory use and processor load. Child pages give access to live log feeds and the list of users currently logged in.</p><h3>Message Queue</h3><p>The message queue is a service used extensively in OpenForum to make live data available to users and services. It is a transient queue, with messages posted to it only persisting for a couple of minutes.</p><h3>Spider</h3><p>The spider enables a service to process every page in the application server asynchronously.</p><h3>Users and Groups</h3><p>The Users and Groups pages list users and groups and contain private information about them like passwords and email addresses</p><h3>Triggers</h3><p>There are four trigger types in OpenForum:</p><ul><li>The start trigger - Fired when the server starts</li><li>The timer trigger - Fired every 10 seconds</li><li>The page change trigger - Fired when any of a pages resources are changed</li><li>The rebuild trigger - Fired when the full set of OpenForum pages as been refreshed</li></ul><h3>Add Ons</h3><p>OpenForum has many extended features available that can be added such as email support.</p><h3>Temporary</h3><p>This page is just used to hold uploaded files before they are moved to their intended pages. It is regularly purged.</p><h3>SQL</h3><p>OpenForum has built in support for relational database integration.</p><h3>Giraffe</h3><p>Giraffe is OpenForum's graphics engine. It enables the inclusion of animated graphics for graphs, dials games etc.</p><h3>Jounal</h3><p>The Jounal keeps a list of all page chnages and when they are made.</p>"
+            },
+            "elementId": "BK0_187555136201009281630070437837",
+            "blockEditor": {},
+            "treeNode": {
+                "parent": {
+                    "parent": {}
+                }
+            },
+            "parentId": "pageEditor"
+        }
+    ],
+    "editor": "/OpenForum/AddOn/ContentEditor",
+    "blockEditor": {},
+    "treeNode": {
+        "parent": {}
+    },
+    "elementId": "pageEditor",
+    "parentId": "pageEditor",
+    "pageParent": "https://open-forum.onestonesoup.org"
+}

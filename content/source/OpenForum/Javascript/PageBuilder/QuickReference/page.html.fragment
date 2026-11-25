@@ -1,0 +1,8 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>QuickReference</h3>
+
+<p>The page builder script builds the elements of a page when an element in the page is changed. It can be overriden by including a file page.build.js in the page, in which case that file will be run when a page needs building.</p>
+
+<p>The default page builder script converts the page.content file into a page.html and page.html.fragment file. The page.html file is served when a page is requested, so opening a page /OpenForum will cause the file /OpenForum/page.html to be served.</p>
+
+<p>The default page builder makes use of the page renderer script. This converts OpenForum's wiki markup into html. You can read about it <a href="/OpenForum/Javascript/Renderer/QuickReference">here</a>.</p>

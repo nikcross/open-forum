@@ -1,0 +1,280 @@
+/* WYSIWYG Markdown editor. Builds on /OpenForum/Editor/Editors/SimpleHTMLEditor/page.css */
+
+.wmd-editor {
+  position: relative;
+}
+
+.wmd-toolbar .simple-html-button:focus-visible,
+.wmd-table-bar .simple-html-button:focus-visible,
+.wmd-dialog .simple-html-button:focus-visible {
+  outline: 2px solid #f0ddd4;
+  outline-offset: 1px;
+}
+
+.wmd-table-bar {
+  align-items: center;
+  background: #3d3630;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 0.35rem 0.6rem;
+}
+
+.wmd-table-bar[hidden],
+.wmd-editor .simple-html-button[hidden] {
+  display: none;
+}
+
+.wmd-table-bar-label {
+  color: #d4cfc5;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.8rem;
+  margin-right: 0.4rem;
+}
+
+.wmd-table-bar .simple-html-button {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.78rem;
+  height: 28px;
+}
+
+/* Placeholder: the surface keeps an empty paragraph, so :empty no longer applies */
+.wmd-visual-pane {
+  position: relative;
+}
+
+.wmd-surface.wmd-empty::before {
+  color: #c8c4ba;
+  content: attr(data-placeholder);
+  font-style: italic;
+  left: 2.5rem;
+  pointer-events: none;
+  position: absolute;
+  top: 2rem;
+}
+
+.wmd-surface:focus-visible {
+  box-shadow: inset 0 0 0 2px #f0ddd4;
+}
+
+.wmd-surface h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0.8rem 0 0.3rem;
+}
+
+.wmd-surface s,
+.wmd-surface strike,
+.wmd-surface del {
+  color: #6b6358;
+}
+
+.wmd-surface code {
+  background: #f1ece3;
+  border: none;
+  border-radius: 3px;
+  color: #1a1814;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.9em;
+  padding: 0.1em 0.3em;
+}
+
+.wmd-surface pre {
+  background: #2b2620;
+  border-radius: 4px;
+  color: #f1ece3;
+  line-height: 1.5;
+  margin: 0.8rem 0;
+  overflow-x: auto;
+  padding: 0.8rem 1rem;
+  white-space: pre;
+}
+
+.wmd-surface pre code {
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+  display: block;
+  font-size: 0.88rem;
+  padding: 0;
+}
+
+.wmd-surface pre code[class*="language-"]::before {
+  color: #b8ae9e;
+  content: attr(class);
+  display: block;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.7rem;
+  margin-bottom: 0.3rem;
+}
+
+.wmd-surface table {
+  border-collapse: collapse;
+  margin: 0.8rem 0;
+  max-width: 100%;
+}
+
+.wmd-surface th,
+.wmd-surface td {
+  border: 1px solid #d8d2c6;
+  min-width: 4rem;
+  padding: 0.3rem 0.6rem;
+  vertical-align: top;
+}
+
+.wmd-surface th {
+  background: #f1ece3;
+  font-weight: 600;
+  text-align: left;
+}
+
+.wmd-mode-group {
+  display: inline-flex;
+  gap: 3px;
+  margin-left: auto;
+}
+
+.wmd-toolbar .simple-html-button:disabled {
+  cursor: default;
+  opacity: 0.35;
+}
+
+/* Views: visual (default), source, and split (source and visual side by side) */
+.wmd-source-pane {
+  display: none;
+}
+
+.wmd-editor[data-wmd-mode="source"] .wmd-visual-pane,
+.wmd-editor[data-wmd-mode="source"] .wmd-table-bar {
+  display: none;
+}
+
+.wmd-editor[data-wmd-mode="source"] .wmd-source-pane,
+.wmd-editor[data-wmd-mode="split"] .wmd-source-pane {
+  display: block;
+}
+
+.wmd-editor[data-wmd-mode="split"] .wmd-panes {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.wmd-editor[data-wmd-mode="split"] .wmd-visual-pane {
+  border-left: 1.5px solid #2b2620;
+  min-width: 0;
+}
+
+.wmd-source-host .CodeMirror {
+  font-size: 0.9rem;
+  height: auto;
+  min-height: 520px;
+}
+
+.wmd-status-info {
+  background: #f1ece3;
+  color: #4a4642;
+}
+
+.wmd-status-warning {
+  background: #f8e3da;
+  color: #8a2f12;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .wmd-editor[data-wmd-mode="split"] .wmd-panes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .wmd-editor[data-wmd-mode="split"] .wmd-visual-pane {
+    border-left: none;
+    border-top: 1.5px solid #2b2620;
+  }
+}
+
+.wmd-status {
+  color: #6b6358;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.8rem;
+  min-height: 1.2rem;
+  padding: 0.25rem 0.8rem;
+}
+
+.wmd-dialog-backdrop {
+  align-items: flex-start;
+  background: rgba(26, 24, 20, 0.35);
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  padding-top: 4rem;
+  position: absolute;
+  z-index: 20;
+}
+
+.wmd-dialog-backdrop[hidden] {
+  display: none;
+}
+
+.wmd-dialog {
+  background: #f6f0e8;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  color: #1a1814;
+  max-width: calc(100% - 2rem);
+  padding: 1.2rem 1.4rem;
+  width: 26rem;
+}
+
+.wmd-dialog h3 {
+  color: #1a1814;
+  font-size: 1.1rem;
+  margin: 0 0 0.8rem;
+}
+
+.wmd-dialog label {
+  color: #1a1814;
+  display: block;
+  font-size: 0.85rem;
+  margin: 0.4rem 0 0.2rem;
+}
+
+.wmd-dialog input {
+  margin-bottom: 0.4rem;
+  width: 100%;
+}
+
+.wmd-dialog-actions {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 0.8rem;
+}
+
+.wmd-dialog-actions .simple-html-button {
+  font-family: "Outfit", sans-serif;
+}
+
+.wmd-dialog-spacer {
+  flex: 1;
+}
+
+@media (max-width: 640px) {
+  .wmd-surface {
+    padding: 1rem;
+  }
+
+  .wmd-surface.wmd-empty::before {
+    left: 1rem;
+    top: 1rem;
+  }
+
+  .wmd-toolbar .simple-html-separator {
+    display: none;
+  }
+
+  .wmd-dialog-backdrop {
+    padding-top: 1rem;
+  }
+}

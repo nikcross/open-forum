@@ -1,0 +1,35 @@
+<section class="ce-app-view" aria-labelledby="ce-images-title">
+  <div class="ce-view-head">
+    <div>
+      <p class="ce-panel-label">Site library</p>
+      <h1 id="ce-images-title">Images</h1>
+      <p class="ce-view-intro">Every image the site can use: the image source pages (the site's own uploads and /Images, plus any you add) and images linked from other sites. Pages and components choose from here with "Choose from the image library".</p>
+    </div>
+    <div class="ce-view-actions">
+      <input class="ce-search" id="ce-images-search" type="search" placeholder="Search images" aria-label="Search images"/>
+    </div>
+  </div>
+  <div class="ce-image-actions">
+    <form id="ce-images-upload" class="ce-name-form">
+      <label class="ce-label" for="ce-images-file">Upload to /Images</label>
+      <input id="ce-images-file" type="file" accept="image/png,image/jpeg,image/gif,image/webp"/>
+      <button type="submit" class="ce-btn ce-primary">Upload</button>
+      <small>PNG, JPEG, GIF or WebP, at most 4MB. Checked by what the file is, not just its name.</small>
+    </form>
+    <form id="ce-images-link" class="ce-name-form">
+      <label class="ce-label" for="ce-images-url">Link an image</label>
+      <input id="ce-images-url" type="url" placeholder="https://example.org/picture.jpg"/>
+      <input id="ce-images-name" type="text" maxlength="80" placeholder="Name (optional)" aria-label="Image name"/>
+      <button type="submit" class="ce-btn">Link</button>
+    </form>
+    <form id="ce-images-add-source" class="ce-name-form">
+      <label class="ce-label" for="ce-images-source">Add an image source</label>
+      <input id="ce-images-source" type="text" maxlength="200" placeholder="/OpenForum/Images"/>
+      <button type="submit" class="ce-btn">Add</button>
+      <small>Image sources: <span id="ce-images-sources" class="ce-source-list"></span></small>
+    </form>
+  </div>
+  <section id="ce-image-details" class="ce-image-details" aria-label="Image details" hidden></section>
+  <div id="ce-images-groups"><p class="ce-app-loading">Loading...</p></div>
+</section>
+

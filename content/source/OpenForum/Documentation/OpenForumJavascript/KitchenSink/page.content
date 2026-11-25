@@ -1,0 +1,31 @@
+!!Kitchen Sink
+
+[{InsertSourceFile fileName="page.js"}]
+
+<xmp of-exclude="true">
+{{boundValue}}
+
+<input type="text" of-id="boundValue"/>
+
+<table>
+  <tr><td>Name</td><td>Age</td></tr>
+  <tr of-repeatFor="beatle in boundList"><td>{{beatle.name}}</td><td>{{beatle.age}}</td></tr>
+</table>
+</xmp>
+
+<xmp of-exclude="true">
+{{boundValue}}
+</xmp>
+
+{{boundValue}}
+
+<input type="text" of-id="boundValue"/>
+
+<table>
+  <tr><td>Name</td><td>Age</td></tr>
+  <tr of-repeatFor="beatle in boundList"><td>{{beatle.name}}</td><td>{{beatle.age}}</td></tr>
+</table>
+
+<select of-id="boundValue">
+  <option of-repeatFor="beatle in boundList">{{beatle.name}}</option>
+</select>

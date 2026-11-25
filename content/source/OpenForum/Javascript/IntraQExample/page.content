@@ -1,0 +1,40 @@
+!!&title; QID: {{queueId}}
+<div class="row">
+  <a href="/OpenForum/Javascript/IntraQExample?inq=true" id="link" target="newQTab">Open new IntraQ Example Tab</a>
+
+  <form>
+    <div class='row'>
+      <div class='large-6 columns'>
+        <label>Message</label> <input type='text' id='messageField' of-id='message' placeholder=' ' />
+      </div>
+      <div class='large-6 columns'>
+        [{ActionButton text="Send" action="sendMessage"}]
+      </div>
+    </div>
+  </form>
+</div>
+
+<div class="row">
+  {{messages}}
+</div>
+
+<div class="row">
+  !!Shared Data
+  {{sharedData}}
+</div>
+
+----
+
+<div class="row">
+!!IntraQ inq
+''Run javascript in other tabs''
+  <form>
+    <div class='row'>
+        [{ActionButton text="Open Alert" action="sendAlert"}]
+        [{ActionButton text="Set Field" action="setField"}]
+        [{ActionButton text="Reload Page" action="reloadPage"}]
+        [{ActionButton text="Set shared data" action="setSharedData"}]
+    </div>
+  </form>
+  {{inqMessages}}
+</div>

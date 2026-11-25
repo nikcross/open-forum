@@ -1,0 +1,41 @@
+<h1 class="ce-visually-hidden">Content editor</h1>
+<div class="ce-visually-hidden" id="ce-announce" aria-live="polite"></div>
+<header class="ce-top">
+  <div class="ce-top-title"><strong id="ce-header-title">Content Editor</strong><small id="ce-header-type"></small></div>
+  <div class="ce-top-right">
+    <button class="ce-btn ce-rail-toggle" id="ce-rail-toggle" type="button" aria-controls="ce-rail" aria-expanded="false" aria-label="Pages and parts">☰</button>
+    <span class="ce-save-state" id="ce-save-state" role="status">No changes</span>
+    <button class="ce-btn ce-icon" id="ce-undo" type="button" title="Undo (Ctrl+Z)" aria-label="Undo">↶</button>
+    <button class="ce-btn ce-icon" id="ce-redo" type="button" title="Redo (Ctrl+Shift+Z)" aria-label="Redo">↷</button>
+    <button class="ce-btn" id="ce-save" type="button">Save draft</button>
+    <button class="ce-btn" id="ce-publish" type="button">Publish…</button>
+    <button class="ce-btn ce-primary" id="ce-preview" type="button">Preview ↗</button>
+  </div>
+</header>
+<div class="ce-workspace" id="ce-workspace">
+  <aside class="ce-rail" id="ce-rail" aria-label="Editor navigation"></aside>
+  <main class="ce-main">
+    <div class="ce-main-width">
+      <div class="ce-mode-row">
+        <div class="ce-tabs" role="tablist" aria-label="Editor view">
+          <button id="ce-edit-tab" type="button" role="tab" aria-selected="true">Edit</button>
+          <button id="ce-preview-tab" type="button" role="tab" aria-selected="false">Preview</button>
+        </div>
+        <div class="ce-tabs" aria-label="Page width">
+          <button type="button" data-device="desktop" aria-pressed="true">Desktop</button>
+          <button type="button" data-device="tablet" aria-pressed="false">Tablet</button>
+          <button type="button" data-device="phone" aria-pressed="false">Phone</button>
+        </div>
+        <p id="ce-mode-help"></p>
+      </div>
+      <section class="ce-paper" aria-label="Page canvas">
+        <div class="ce-toolbar" id="ce-toolbar" role="toolbar" aria-label="Text formatting"></div>
+        <div class="ce-stage desktop" id="ce-stage"><iframe id="editorCanvas" title="Page being edited" sandbox=""></iframe></div>
+        <div class="ce-paper-foot"><span id="ce-word-count"></span><span class="ce-foot-status" id="ce-foot-status"></span></div>
+      </section>
+      <p class="ce-status"><span>{{statusMessage}}</span> <span id="ce-connection"></span></p>
+    </div>
+  </main>
+  <aside class="ce-inspector" id="ce-inspector" aria-label="Settings"></aside>
+</div>
+<div class="ce-toast" id="ce-toast" hidden role="status" aria-live="polite"></div>

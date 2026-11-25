@@ -1,0 +1,108 @@
+!!OpenForum - Quick Reference
+
+----
+!!!Quick Start
+!!In page.js
+{{{
+OpenForum.init() {
+}
+}}}
+
+!!Include script
+{{{
+OpenForum.includeScript("");
+}}}
+
+!!In page.content
+{{{
+	Name: {{currentPerson.name}}
+}}}
+Tables
+{{{
+	<table>
+      <tr of-repeatFor="person in people">
+        <td>{{person.name}}</td>
+        <td>{{person.age}}</td>
+      </tr>
+	</table>
+}}}
+!!Input Fields
+{{{
+	<input type="text" of-id="currentPerson.name"/>
+}}}
+
+!!Watch a variable
+{{{
+	OpenForum.addListener("currentPerson.name",function(object) { message = "Current Person's Name Changed to " + object.getValue() });
+}}}
+
+
+!!Call a service
+{{{
+	OFX.get("/PeopleServicePage").withAction("getPeople").onSuccess(
+		function(response) {
+			people = response.people;
+			currentPerson = people[0];
+		}
+	).go();
+}}}
+
+!!Force update
+{{{
+	OpenForum.scan();
+}}}
+
+----
+!!Saving and Loading
+
+----
+!!Debugging and Testing
+
+----
+!!Asycnchronous Processing
+
+----
+!!OFX - Getting and Posting
+
+((OFX is a wrapper that makes calling services as easy as possible. It currently includes making get and post calls to the server.))
+
+{{{
+OFX.get("path to my service")
+// or
+OFX.post("path to my service")
+  .withAction("myAction") //Optional
+  .withData({name: "myName"}) //Optional
+  .onSuccess( //Optional
+	function(response) {
+		//process the response
+	}
+	)
+  .onSuccess( //Optional
+	function(response) {
+		//process the response
+	}
+	)
+  .onError( //Optional
+	function(response) {
+		//process the response
+	}
+	)
+  .go();
+}}}
+
+----
+!!More
+* Application
+* Giraffe
+* Message Queue
+
+!!Add Ons
+* ...
+
+----
+!!Full Reference
+
+&insert:/OpenForum/Javascript/Core/open-forum.help.content;
+
+
+

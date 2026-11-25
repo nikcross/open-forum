@@ -1,0 +1,13 @@
+.node {
+	font-weight: bold;
+	font-family: Tahoma;
+	white-space: nowrap;
+	text-decoration: none; 
+	font-size: 8pt;
+	padding: 0px;
+	margin: 0px;
+}
+
+.nodeImg {
+	margin: 0px;
+}

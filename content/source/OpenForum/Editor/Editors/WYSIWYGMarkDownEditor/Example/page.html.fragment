@@ -1,0 +1,10 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<link rel="stylesheet" href="/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor/Example/page.css">
+
+<div style="max-width: 60rem; margin: 1.5rem auto; padding: 0 1rem;">
+<h2>WYSIWYG Markdown editor: embedding example</h2>
+<p>This page embeds the WYSIWYG Markdown editor in its own interface, the way an app such as the Journal embeds an editor. It uses a custom page fragment (example-ui.html.fragment) instead of the standard File, Desktop and Actions bar, saves automatically, and shows a live word count. The full guide is on the editor's own page under "Embedding in your own app".</p>
+<p>Files: page.js (the StandaloneEditor configuration), example-ui.html.fragment (the custom interface) and example.md (the document being edited).</p>
+<div id="ExampleEditor">Loading...</div>
+</div>
+

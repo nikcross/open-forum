@@ -1,0 +1,398 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kitchen Sink</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1762884962410"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1612515763000" />
+    <script type="text/javascript" src="/OpenForum/Documentation/OpenForumMarkup/KitchenSink/page.js?ts=1762884962410"></script>
+    <!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) start --><link rel="icon" href="/OpenForum/Images/open-forum-dog-small.png" /><!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) end --> 
+
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start --><script>
+  var pageName = "/OpenForum/Documentation/OpenForumMarkup/KitchenSink";
+  var author = "unknown";
+  var time = "1762884962410";
+  var currentUser = "";
+  var user = {};
+  var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
+  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data;  } ).go();
+  JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
+    function (response) {
+      user.profile = response.data;
+      if(response.data.avatar) {
+        avatar = "<img src='" + response.data.avatar + "' style='width: 24px; height: 24px;' />";
+      }
+      if(response.data.privateProfile && response.data.privateProfile.extraOptions) {
+        currentUserExtraOptions = response.data.privateProfile.extraOptions
+      }
+    }
+  ).go();
+
+  window.onerror = function(errorMsg, url, lineNumber) {
+    OpenForum.error = errorMsg+" url:"+url+" line number:"+lineNumber;
+    OpenForum.errorMessage = "Woops";
+    $('#ofErrorMessage').foundation('reveal', 'open');
+
+    OFX.post( 'https://open-forum.onestonesoup.org/OpenForum/AddOn/DataLogger/BrowserErrorLogger' )
+      .withAction( 'logError' )
+      .withData( {origin: window.location.origin, page: pageName, error: errorMsg+" lineNumber:"+lineNumber, userAgent: navigator.userAgent}).go();
+  };
+
+  window.alert = function(message,title) {
+    if(!title) {
+      title = "Open Forum";
+    }
+    OpenForum.alert = { message: message, title: title};
+    $('#ofAlertMessage').foundation('reveal', 'open');
+  };
+</script><!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) end -->
+
+  </head>
+  <body>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <img src="/OpenForum/Images/open-forum-dog-small.png" />
+          </h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <a href="#" title="Kitchen Sink"> Kitchen Sink</a>
+          </h1>
+        </li>
+      </ul>
+      <!--OF insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) start --><section class="top-bar-section">
+  <ul class="right">
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Actions</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumMarkup/KitchenSink">Edit</a></li>
+        <li><a href="/OpenForum/Actions/RefreshPage?pageName=/OpenForum/Documentation/OpenForumMarkup/KitchenSink">Refresh Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewPageModal">Create New Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumNewChildPageModal">Create New Child Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumCopyModal">Copy Page</a></li>
+        <li><a href="#" data-reveal-id="OpenForumMoveModal">Move Page</a></li>
+        <li><a href="/Development?action=publish&pageName=/OpenForum/Documentation/OpenForumMarkup/KitchenSink">Publish Page</a></li>
+      </ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Sub Pages</a>
+      <ul class="dropdown"><li>
+        <!--Extension ChildPagesList --><!--End Extension ChildPagesList -->
+        </li></ul>
+    </li>
+    <li class="divider"></li>
+    <li class="has-dropdown">
+      <a href="#">Attachments</a>
+      <ul class="dropdown"><li>
+        <!--Extension AttachmentsList --><!--End Extension AttachmentsList -->
+        </li></ul>
+    </li>
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="#">Access</a>
+      <ul class="dropdown">
+        <li of-repeatFor="reader in pageAccess.readers"><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onClick="return false;">{{reader}}</a></li>
+      </ul>
+      <script>
+        var pageAccess = {};
+        JSON.get("/OpenForum/Actions/Access","getAccess","pageName=/OpenForum/Documentation/OpenForumMarkup/KitchenSink").onSuccess( function(response) {
+          pageAccess = response;
+        }).go();
+      </script>
+    </li>
+    
+    <li class="has-dropdown">
+      <a href="#">Favourite Pages</a>
+      <ul class="dropdown">
+        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
+      </ul>
+    </li>
+
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="<!--Extension Hash -->undefined<!--End Extension Hash -->">Signed in as {{currentUser}} {{avatar}}</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+        <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+        <script>
+          var accessLoading = false;
+          function doSignIn() {
+
+            if(!OpenForum.Access) {
+              if(!accessLoading) {
+                OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+                accessLoading=true;
+              }
+              setTimeout(doSignIn,1000);
+              return;
+            }
+
+            OpenForum.Access.showPopup();
+          };
+        </script>
+        {{currentUserExtraOptions}}
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<div id="OpenForumCopyModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Copy Page</h2>
+  <p>Copy this page to <input type="text" of-id="OpenForumCopyPage"/></p>
+  <p><a href="#" onClick="OpenForum.action.copyPage('/OpenForum/Documentation/OpenForumMarkup/KitchenSink',OpenForumCopyPage);return false;" class="secondary button">Copy Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumCopyPage = "/OpenForum/Documentation/OpenForumMarkup/KitchenSink";
+  </script>
+</div>
+
+<div id="OpenForumMoveModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>Move Page</h2>
+  <p>Move this page to <input type="text" of-id="OpenForumMovePage"/></p>
+  <p><a href="#" onClick="OpenForum.action.movePage('/OpenForum/Documentation/OpenForumMarkup/KitchenSink',OpenForumMovePage);return false;" class="secondary button">Move Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumMovePage = "/OpenForum/Documentation/OpenForumMarkup/KitchenSink";
+  </script>
+</div>
+
+<div id="OpenForumNewPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Page</h2>
+  <p>New page to create <input type="text" of-id="OpenForumNewPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewPage = "/";
+  </script>
+</div>
+
+<div id="OpenForumNewChildPageModal" class="reveal-modal" data-reveal aria-labelledby="firstModalTitle" aria-hidden="true" role="dialog">
+  <h2>New Child Page</h2>
+  <p>New child page to create <input type="text" of-id="OpenForumNewChildPage"/></p>
+  <p><a href="#" onClick="window.open('/OpenForum/Editor?pageName='+OpenForumNewChildPage);return false;" class="secondary button">Create Page</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <script>
+    OpenForumNewChildPage = "/OpenForum/Documentation/OpenForumMarkup/KitchenSink/";
+  </script>
+</div>
+<!--OF insert (/OpenForum/PageTemplates/PageInDevelopment/TopMenu/page.content) end -->
+    </nav>
+    <!--Extension CrumbTrail --><nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Documentation">Documentation</a></li><li role="menuitem"><a href="/OpenForum/Documentation/OpenForumMarkup">OpenForumMarkup</a></li><li role="menuitem" class="current"><a href="/OpenForum/Documentation/OpenForumMarkup">KitchenSink</a></li></nav><!--End Extension CrumbTrail -->
+
+    <div style="padding-bottom: 100px;">
+    <!--PageContent Start-->
+<h3>Kitchen Sink</h3>
+
+<div class="row">
+  <div class="large-6 columns">
+<p>The following list shows all the standard Wiki Markup character combinations used in OpenForum.
+    OpenForum also has a set of extended Wiki Markup combinations that are listed <a href="/OpenForum/Documentation/OpenForumMarkup/ExtendedWikiMarkup" target="newTab">here<img src='/OpenForum/Images/icons/png/link_go.png' /></a>
+    and you can define your own Wiki Markup using extensions which is described <a href="/OpenForum/Documentation/OpenForumMarkup/ExtendingWikiMarkup" target="newTab">here<img src='/OpenForum/Images/icons/png/link_go.png' /></a></p>
+
+Wiki Page Link
+<xmp class="panel" of-exclude="true"> [/OpenForum/HomePage] </xmp>
+<a href="/OpenForum/HomePage">/OpenForum/HomePage</a>
+
+<xmp class="panel" of-exclude="true"> [The Home Page|/OpenForum/HomePage] </xmp>
+    <a href="/OpenForum/HomePage">The Home Page</a>
+
+<xmp class="panel" of-exclude="true"> [/OpenForum/Images/open-forum.png] </xmp>
+<img src="/OpenForum/Images/open-forum.png"/>
+
+<xmp class="panel" of-exclude="true"> [http://www.bbc.co.uk]
+[BBC|http://www.bbc.co.uk] </xmp>
+    
+<a href="http://www.bbc.co.uk" target="external_page">http://www.bbc.co.uk</a>
+<a href="http://www.bbc.co.uk" target="external_page">BBC</a>
+
+<xmp class="panel" of-exclude="true"> [Wiki|Wikipedia:Wiki] </xmp>
+<a href="Wikipedia:Wiki" target="external_page">Wiki</a>
+
+<hr/>
+<xmp class="panel" of-exclude="true">Code Example</xmp>
+
+<xmp class="panel" of-exclude="true">
+{ { {Code Example} } }
+</xmp> <i>without the spaces between the brackets</i>
+    
+<hr/>
+Forced Line Break
+
+<xmp class="panel" of-exclude="true">Line 1\\
+Line 2\\
+Line 3</xmp>
+    
+Line 1<br/><br/>
+Line 2<br/><br/>
+Line 3
+
+<hr/>
+<xmp class="panel" of-exclude="true">[[
+A box of stuff
+]]</xmp>
+    
+<div class="panel callout radius">box
+A box of stuff
+</div>
+
+<hr/>
+Horizontal Rule
+<xmp class="panel" of-exclude="true">----</xmp>
+
+<hr/>
+<b>Bold</b>
+<xmp class="panel" of-exclude="true">__bold__</xmp>
+    
+<hr/>
+<i>Italics</i>
+<xmp class="panel" of-exclude="true">''italics''</xmp>
+
+<hr/>
+Paragraph
+<xmp class="panel" of-exclude="true">((Lorem ipsum dolor sit amet, consectetur...))</xmp>
+<p>Lorem ipsum dolor sit amet, consectetur...</p>
+
+
+  </div>
+  <div class="large-6 columns">
+<hr/>
+Bulleted list
+<xmp class="panel" of-exclude="true">* Bullet 1
+* Bullet 2
+* Bullet 3</xmp>
+<ul><li> Bullet 1</li>
+<li> Bullet 2</li>
+<li> Bullet 3</li>
+</ul>
+<hr/>
+Numbered list
+<xmp class="panel" of-exclude="true"># Bullet 1
+# Bullet 2
+# Bullet 3</xmp>
+<ol><li> Bullet 1</li>
+<li> Bullet 2</li>
+<li> Bullet 3</li>
+</ol>
+<hr/>
+Headings
+<xmp class="panel" of-exclude="true">!!Heading 1
+!!!Heading 2
+!!!!Heading 3</xmp>
+<h3>Heading 1</h3>
+<h2>Heading 2</h2>
+<h1>Heading 3</h1>
+
+<hr/>
+--8<!--
+       Section
+-->8--
+<xmp class="panel" of-exclude="true">
+--8<!--
+           Section
+-->8--</xmp>
+    
+<hr/>
+<strike>Strike Through</strike>
+<xmp class="panel" of-exclude="true">~~Strike Through~~</xmp>
+
+<hr/>
+==Center==
+<xmp class="panel" of-exclude="true">==Center==</xmp>
+
+<hr/>
+This is <sup>Super Script</sup>
+<xmp class="panel" of-exclude="true">This is ^^Super Script^^</xmp>
+
+<hr/>
+Invisible Comment
+<xmp class="panel" of-exclude="true">/* My comments in here */</xmp>
+                 
+<hr/>
+<h2>Table (has bug so will not close)</h2>
+<xmp class="panel" of-exclude="true">|column 1|column 2| column 3
+|cell 1|cell 2|cell 3
+|cell 1|cell 2|cell 3
+|cell 1|cell 2|cell 3</xmp>
+
+                 </div>
+  </div>
+<div class="row">
+  
+<h1> AI Prompt</h1>
+<xmp class="panel" of-exclude="true">
+You are an assistant that writes and edits text in OpenForum markup.
+
+When formatting content:
+* Use !!!!, !!!, !!, ! for headings.
+* Use * and ** for bulleted lists, # and ## for numbered lists.
+* Use __bold__, ''italic'', ~~strikethrough~~, ^^superscript^^, ==center== for styles.
+* Use (( ... )) for paragraphs, [[ ... ]] for boxes.
+* Use { { { ... } } } (without the spaces) for code blocks or to show markup literally.
+* Use [LinkText|/Path] or [http://url] for links, [/path/to/image.png] for images.
+* Use |col1|col2|col3| for tables.
+* Use ---- for a horizontal rule.
+
+Do not use Markdown unless explicitly asked.
+You can include HTML as well
+Always produce output directly in OpenForum wiki markup.
+</xmp>
+  
+</div>
+
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Page Content End-->
+    </div>
+      
+    <!--OF insert (/OpenForum/PageTemplates/Branding/footer.page.content) start --><footer>
+  <div>
+    <div>
+    <ul class="inline-list">
+      <li><a href="https://open-forum.onestonesoup.org/OpenForum/About">About</a></li>
+      <li>|</li>
+      <li><a href="https://open-forum.onestonesoup.org">Open Forum @ OneStoneSoup.org</a></li>
+      <li>|</li>
+      <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/Introduction">Developers</a></li>
+      <li class="right"><a href="https://open-forum.onestonesoup.org"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+    </ul>
+    </div>
+  </div>
+</footer><!--OF insert (/OpenForum/PageTemplates/Branding/footer.page.content) end -->
+
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
+  <p>{{OpenForum.errorMessage}}</p>
+  <p><a href="#" data-reveal-id="ofErrorDetails" class="secondary button">See technical details</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="ofErrorDetails" class="reveal-modal" data-reveal aria-labelledby="ofErrorModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorModalTitle">Error details.</h2>
+  <p>{{OpenForum.error}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div><!--OF insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) end -->
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) start --><div id="ofAlertMessage" class="reveal-modal" data-reveal aria-labelledby="ofAlertMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofAlertMessageModalTitle" class="alert-box success round">{{OpenForum.alert.title}}</h2>
+  <p>{{OpenForum.alert.message}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<!--OF insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) end -->
+    
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

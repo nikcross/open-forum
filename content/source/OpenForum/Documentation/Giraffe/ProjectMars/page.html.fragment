@@ -1,0 +1,23 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<table style="border: solid 1px;">
+	<tr>
+<td colspan="2"  style="border: solid 1px;"><h1>Project Mars</h1></td>
+	</tr>
+	<tr valign="top">
+		<td style="border: solid 1px; width: 500px;">
+			<input type="button" value="Run" onclick="return run();"><br/>
+			<textarea id="code" cols="120" rows="30">
+robot.turnLeft();
+robot.forward();
+robot.turnRight();
+			</textarea>
+		</td>
+		<td style="border: solid 1px;"><canvas id="canvas" width="500" height="500"></canvas></td>
+	</tr>
+	<tr>
+		<td colspan="2" style="border: solid 1px; width: 500px;">
+			<input type="button" value="Clear" onclick="return clearConsole();">
+			<div id="console"></div>
+		</td>	
+	</tr>
+</table>

@@ -1,0 +1,74 @@
+<div class="doc-frame">
+  <div class="doc-surface">
+    <div class="doc-intro">
+      <h1>Technical Document Template</h1>
+      <p class="subtitle">Examples of headings, pills, code blocks, tables, and callouts styled by the template CSS.</p>
+      <div>
+        <span class="status-pill">Draft</span>
+        <span class="status-pill status-success">Stable</span>
+        <span class="status-pill status-warning">Attention</span>
+      </div>
+    </div>
+
+    <h2>Summary</h2>
+    <p>This template emphasizes readable spacing, strong typography, and high-contrast UI elements. It is designed for specs, operational runbooks, and engineering notes.</p>
+
+    <h2>Key Highlights</h2>
+    <ul>
+      <li>Layered surfaces with subtle borders and shadows.</li>
+      <li>Inline <code>code</code> styling for identifiers and parameters.</li>
+      <li>Responsive tables with stacked layout on small screens.</li>
+    </ul>
+
+    <h2>Sample Blockquote</h2>
+    <blockquote>
+      <p>Use blockquotes for callouts, definitions, or safety warnings that should stand out from the main text flow.</p>
+    </blockquote>
+
+    <h2>Sample Table</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Component</th>
+          <th>Responsibility</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Collector</td>
+          <td>Aggregates incoming telemetry and normalizes payloads.</td>
+          <td>Stable</td>
+        </tr>
+        <tr>
+          <td>Transformer</td>
+          <td>Enriches events with metadata and routing hints.</td>
+          <td>Draft</td>
+        </tr>
+        <tr>
+          <td>Emitter</td>
+          <td>Publishes records to downstream pipelines.</td>
+          <td>Attention</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Sample Code Block</h2>
+    <pre><code>POST /api/ingest
+{
+  "source": "edge-cluster-a",
+  "batchSize": 250,
+  "dryRun": false
+}</code></pre>
+
+    <h2>Checklist</h2>
+    <ol>
+      <li>Validate request payloads and required headers.</li>
+      <li>Confirm alerting thresholds match the latest SLA.</li>
+      <li>Document fallback procedures and escalation paths.</li>
+    </ol>
+
+    <h3>Additional Notes</h3>
+    <p>Use <code>h3</code> for subsection headers. Links like <a href="/OpenForum/Documentation" target="_blank" rel="noopener">OpenForum documentation</a> inherit the template accent styles.</p>
+  </div>
+</div>

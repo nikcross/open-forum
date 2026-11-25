@@ -1,0 +1,25 @@
+!!Documentation for external
+
+----
+
+((Retrieves a url as a file attached to a page))void external.getURLAsFile( {string url} , {string user} , {string password} , {string pageName} , {string fileName} )
+
+----
+
+((Retrieves a url as a file attached to a page using Http authentication to sign in))void external.getURLAsFile( {string url} , {string pageName} , {string fileName} )
+
+----
+
+((Post data to a url using Http authentication to sign in))string external.postURLAsString( {string url} , {string user} , {string password} , {string data} )
+
+----
+
+((Post data to a url))string external.postURLAsString( {string url} , {string data} )
+
+----
+
+((Retrieves a url as a string using Http authentication to sign in))string external.getURLAsString( {string url} , {string user} , {string password} )
+
+----
+
+((Retrieves a url as a string))string external.getURLAsString( {string url} )

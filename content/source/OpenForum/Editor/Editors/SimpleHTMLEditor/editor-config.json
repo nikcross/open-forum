@@ -1,0 +1,32 @@
+{
+    "editors": [
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/SimpleHTMLEditor",
+            "fileName": "page.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/SimpleHTMLEditor",
+            "fileName": "page.content"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/SimpleHTMLEditor",
+            "fileName": "editor.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/SimpleHTMLEditor",
+            "fileName": "editor.html.fragment"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/SimpleHTMLEditor",
+            "fileName": "page.css"
+        }
+    ],
+    "pageName": "/OpenForum/Editor/Editors/SimpleHTMLEditor",
+    "fileName": "editor-config.json"
+}
+

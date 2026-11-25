@@ -1,0 +1,475 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h2>Moved to <a href="/OpenForum/AddOn/VirtualAssistant">/OpenForum/AddOn/VirtualAssistant</a></h2>
+
+<a href="#" id='startButton' class="button tiny success" onClick="loadAssistant(); document.getElementById('startButton').style.display='none'; document.getElementById('assistant').style.display='block'; return false;">Load Assistant</a>
+<div id="assistant" style="display: none; height: 80%">
+  <h3>VirtualAssistant <canvas id="canvas" width="40" height="40"></canvas></h3>
+  <div class="row" id="conversation" style="overflow: scroll; max-height: 80%; min-height: 50%">
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <input class='panel callout radius' type="text" id="message" onkeypress="sendTypedMessage(event.keyCode);" style="height: 2em; font-size: 3em;" />
+    </div>
+  </div>
+</div>
+<hr/>
+<!--Extension InsertSourceFile soucrePageName="/OpenForum/Javascript/VirtualAssistant" fileName="page.js" --><a href="//OpenForum/Javascript/VirtualAssistant/page.js">//OpenForum/Javascript/VirtualAssistant/page.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant&fileName=page.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">
+<!--<ul><li> Author: </li>
+</ul>-->
+OpenForum.includeScript("/OpenForum/Javascript/VirtualAssistant/virtual-assistant.js");
+OpenForum.includeScript("/OpenForum/Javascript/VirtualAssistant/sound-monitor.js");
+var assistant;
+var speechPack;
+
+OpenForum.init = function() {
+  var param = OpenForum.getParameter("speechPack");
+  if(param!="") {
+    speechPack = param;
+  }
+};
+
+function loadAssistant() {
+  if(assistant) return;
+  assistant = new VirtualAssistant(speechPack);
+
+  assistant.addSpeechListener( display );
+  assistant.log = displayHeard;
+  soundMonitor = new SoundMonitor(assistant,"canvas");
+  if(speechPack) {
+  } else {
+    loadTestAssistant();
+  }
+}
+
+function loadTestAssistant() {
+  assistant = new VirtualAssistant("/OpenForum/Javascript/VirtualAssistant/config.json");
+
+  assistant.addSpeechListener( display );
+  assistant.log = displayHeard;
+  assistant.loadSpeechPack("/OpenForum/Javascript/VirtualAssistant/disk-space.json");
+  assistant.loadSpeechPack("/OpenForum/Javascript/VirtualAssistant/time.json");
+  soundMonitor = new SoundMonitor(assistant,"canvas");
+};
+
+function doCheck(match,replyTemplate) {
+  console.log("Checking "+JSON.stringify(match));
+  return false;
+}
+
+function doCatch(match,replyTemplate) {
+  console.log("Catch "+JSON.stringify(match));
+  return false;
+}
+
+function multiply(match,replyTemplate) {
+  var result = parseFloat(match.values<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/0"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/0 does not exist. Click to create it.">0</a>) * parseFloat(match.values<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/1"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/1 does not exist. Click to create it.">1</a>);
+  match.values<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/2"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/2 does not exist. Click to create it.">2</a> = result ;
+  assistant.say( replyTemplate,match.values );
+}
+
+function display(message) {
+  var conversation = document.getElementById("conversation");
+  conversation.innerHTML += "<p class='panel callout radius' style='width: 80%; float: right;'>"+message+"</p>";
+  conversation.scrollTop = conversation.scrollHeight;
+}
+
+function displayHeard(message) {
+  conversation.innerHTML += "<p class='panel radius' style='width: 80%; float: left;'>"+message+"</p>";
+  conversation.scrollTop = conversation.scrollHeight;
+  document.getElementById("message").value = "";
+}
+
+function sendTypedMessage(keyCode) {
+  if(keyCode!==13) return;
+  var message = document.getElementById("message").value;
+  assistant.hear(message);
+}
+</xmp><!--End Extension InsertSourceFile soucrePageName="/OpenForum/Javascript/VirtualAssistant" fileName="page.js" -->
+<hr/>
+<!--Extension InsertSourceFile soucrePageName="/OpenForum/Javascript/VirtualAssistant" fileName="config.json" --><a href="//OpenForum/Javascript/VirtualAssistant/config.json">//OpenForum/Javascript/VirtualAssistant/config.json</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant&fileName=config.json" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">{
+  "debug": true,
+  "notUnderstand": "Sorry, I did not understand that",
+  "speech": <img src="
+    {"startCommand": "Bob", "reply": "Hello. How can I help you today"},
+    {"stopCommand": "Stand down", "reply": "standing down"},
+    {"command": "*","reply":"js:doCheck"},
+    {"command": "Hello", "aliases": <a href="/OpenForum/Javascript/VirtualAssistant/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>"hi""/>, "reply": {"first":"Hello. How can I help you today", "subsequent": <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/"hi","hello""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/"hi","hello" does not exist. Click to create it.">"hi","hello"</a>}},
+    {"command": "What is * times *", "reply": "js:multiply", "replyTemplate": "* times * is *", "aliases": <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/"what is * x *","what's * x *""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/"what is * x *","what's * x *" does not exist. Click to create it.">"what is * x *","what's * x *"</a>},
+    {"command": "Thank you","reply": <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/"You're welcome","No problem","That's ok""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/"You're welcome","No problem","That's ok" does not exist. Click to create it.">"You're welcome","No problem","That's ok"</a>},
+    {"command": "shut up","reply":"how rude"},
+    {"command": "*","reply":"js:doCatch"}
+    ]
+}</xmp><!--End Extension InsertSourceFile soucrePageName="/OpenForum/Javascript/VirtualAssistant" fileName="config.json" -->
+<hr/>
+<!--Extension InsertSourceFile soucrePageName="/OpenForum/Javascript/VirtualAssistant" fileName="virtual-assistant.js" --><a href="//OpenForum/Javascript/VirtualAssistant/virtual-assistant.js">//OpenForum/Javascript/VirtualAssistant/virtual-assistant.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant&fileName=virtual-assistant.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel"><!--<ul><li> Author: </li>
+<li> Description: </li>
+</ul>-->
+
+var VirtualAssistant = function(config) {
+  var self = this;
+
+  if(typeof config == "string") { // if the config is a string, assume it is a config file to load
+    config = OpenForum.loadJSON(config);
+  }
+
+  var VERSION = "0.1.0";
+  self.getVersion = function() { return VERSION; };
+
+  var defaultConfig = {
+    debug: false,
+    name: "Bob",
+    sleepOnSilence: 10000,
+    wakeOnNoise: 0.02,
+    //sleepOnUnrecognised: 10,
+    notUnderstand: "",
+    startOnLoad: true,
+    voice: {
+      lang: "en-GB",
+      name: "Google UK English Male",
+      pitch: "100",
+      rate: "10",
+      volume: "50",
+      no: true
+    },
+    speech: <a href="/OpenForum/Javascript/VirtualAssistant/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>
+  };
+
+  var listenStateWatchers = <a href="/OpenForum/Javascript/VirtualAssistant/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>; // listeners for changes in listen state
+  var lastListenState = false; // used to track changes in listen state
+  var watching = <a href="/OpenForum/Javascript/VirtualAssistant/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>; // watcher functions that trigger speech on events
+  var watchingInterval; // Interval instance that polls watcher functions
+  var speechRecognition; // Speech recognition api if available
+  var listening = false; // listening state used to stop double instances of listening threads
+  var endSpeechWatchers = <a href="/OpenForum/Javascript/VirtualAssistant/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>; // functions watching for when speech synthesis ends
+  var speechListeners = <a href="/OpenForum/Javascript/VirtualAssistant/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>; // functions watching for when speech synthesis starts
+  var speechPacks = <a href="/OpenForum/Javascript/VirtualAssistant/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>; // speech pack files loaded to stop duplication
+
+  self.setDebug = function(state) {
+    config.debug = state;
+    speechRecognition.setDebug( config.debug);
+    OpenForum.Speech.debug = config.debug;
+
+    if(config.debug) console.log("debug on");
+  };
+
+  var log = function(message) {
+    console.log(message);
+    self.log(message);
+  };
+  
+  self.log = function(message) {
+  };
+
+  //Copy over config
+  for(var i in config) {
+    if( typeof(defaultConfig<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i does not exist. Click to create it.">i</a>)!=="undefined" ) {
+      defaultConfig<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i does not exist. Click to create it.">i</a> = config<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i does not exist. Click to create it.">i</a>;
+    }
+  }
+  config = defaultConfig;
+
+  self.addCommand = function(command,reply,replyTemplate,insert) {
+    
+    //Convert js: reply to function
+    if(typeof reply == "string" && reply.indexOf("js:")==0) {
+      reply = OpenForum.evaluate(reply.substring(3));
+    }
+
+    //Convert js: command to function and add to watch list
+    if(typeof command == "string" && command.indexOf("js:")==0) {
+      command = OpenForum.evaluate(command.substring(3));
+      watching.push( {watch: command, reply: reply, replyTemplate: replyTemplate} );
+      return;
+    }
+
+    if(typeof(reply)=="string") {
+      //Register command with fixed reply
+      speechRecognition.addCommand(command, 
+      	function(match) { 
+        	OpenForum.Speech.say(reply,config.voice); 
+      	},insert
+      );
+    }if(typeof(reply)=="object") {
+      //Register command with first reply and alternatives
+      var isFirst = true;
+      speechRecognition.addCommand(command, 
+      	function(match) { 
+        	if(reply.first && isFirst) { 
+        		OpenForum.Speech.say(reply.first,config.voice); 
+            } else {
+              var list = reply.subsequent;
+              if(!list) {
+                list = reply;
+              }
+              var index = Math.floor(list.length * Math.random());
+        		OpenForum.Speech.say(list<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/index"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/index does not exist. Click to create it.">index</a>,config.voice); 
+            }
+        	isFirst = false;
+      	},insert
+      );
+    } else if(typeof(reply)=="function") {
+      if(replyTemplate) {
+        //Register function reply as command with replyTemplate
+        speechRecognition.addCommand(command, function(match) {
+          return reply(match,replyTemplate);
+        },insert);
+      } else {
+        //Register function reply as command with fixed reply
+        speechRecognition.addCommand(command, reply, insert);
+      }
+    }
+  };
+
+  self.hear = function(text) {
+    speechRecognition.processSpeech(text);
+  };
+
+  var processEndSpeechWatchers = function() {
+    if( OpenForum.Speech.queueLength!=0) return;
+
+    for(var w in endSpeechWatchers) {
+      endSpeechWatchers<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/w"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/w does not exist. Click to create it.">w</a>();
+    }
+    endSpeechWatchers = <a href="/OpenForum/Javascript/VirtualAssistant/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+  };
+
+  self.say = function(text,params,callBack) {
+    if(text.indexOf("*")!=-1) {
+      for(var i in params) {
+        text = text.replace("*",params<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i does not exist. Click to create it.">i</a>);
+      }
+    }
+    OpenForum.Speech.say(text,config.voice);
+    if(callBack) {
+      endSpeechWatchers.push(callBack);
+    }
+  };
+
+  self.addListenStateWatcher = function(listenStateCall) {
+    listenStateWatchers.push(listenStateCall);
+  };
+  
+  self.addSpeechListener = function(listenerCall) {
+    speechListeners.push(listenerCall);
+  };
+
+  var said = function(message) {
+    for(var i in speechListeners) {
+      try{
+        speechListeners<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i does not exist. Click to create it.">i</a>(message);
+      } catch(e) {
+        console.log(e);
+      }
+    }
+  };
+
+  self.addStateListeners = function() {
+  };
+  
+  self.addCommandAlias = function(command,means) {
+    speechRecognition.addCommandAlias( command.toLowerCase(), means.toLowerCase() );
+  };
+
+  var watch = function() {
+    for(var i in watching) {
+      if(watching<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i does not exist. Click to create it.">i</a>.watch()==true) {
+        if(typeof watching<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i does not exist. Click to create it.">i</a>.reply == "string") {
+          self.say(watching<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i does not exist. Click to create it.">i</a>.reply);
+        } else {
+          watching<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i does not exist. Click to create it.">i</a>.reply({},watching<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i does not exist. Click to create it.">i</a>.replyTemplate);
+        }
+      }
+    }
+    if(self.isListening()!=lastListenState) {
+      lastListenState = self.isListening();
+      for(var i in listenStateWatchers) {
+        listenStateWatchers<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i does not exist. Click to create it.">i</a>(lastListenState);
+      }
+    }
+  };
+
+  var processSpeech = function(transcript) {
+    log(transcript);
+    return transcript;
+  };
+
+  self.loadSpeechPack = function(speechPackFile) {
+    if(speechPacks<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/speechPackFile"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/speechPackFile does not exist. Click to create it.">speechPackFile</a>) return;
+    speechPacks<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/speechPackFile"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/speechPackFile does not exist. Click to create it.">speechPackFile</a> = true;
+    
+    OpenForum.loadJSON(speechPackFile, function(speechPack) {
+      if(speechPack.script) {
+        DependencyService.createNewDependency()
+        .addDependency(speechPack.script)
+        .setOnLoadTrigger( function() { 
+          self.addSpeechPack(speechPack.speech,true);
+        } ).loadDependencies();
+      } else {
+      	self.addSpeechPack(speechPack.speech,true);
+      }
+    });
+  };
+
+  self.isListening = function() {
+    if(speechRecognition) {
+      return speechRecognition.isListening();
+    }
+    return false;
+  };
+
+  self.getAudioMonitor = function() {
+    if(speechRecognition) {
+      return speechRecognition.getAudioMonitor();
+    }
+  };
+  
+  self.startListening = function() {
+    if(listening) return;
+    speechRecognition.start();
+    speechRecognition.setWaitingForCommand(true);
+    var currentStartedSay = OpenForum.Speech.startedSay;
+    OpenForum.Speech.startedSay = function(message) {
+      currentStartedSay(message);
+      said(message);
+    };
+    listening = true;
+  };
+
+  self.stopListening = function() {
+    if(!listening) return;
+    speechRecognition.stop();
+    listening = false;
+  };
+
+  var expandAliases = function(aliases) {
+    var newAliases = <a href="/OpenForum/Javascript/VirtualAssistant/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+    for(var a in aliases) {
+      var text = aliases<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/a"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/a does not exist. Click to create it.">a</a>.toLowerCase();
+
+      var utterance = { versions: <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/"""target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/"" does not exist. Click to create it.">""</a>, variables: <a href="/OpenForum/Javascript/VirtualAssistant/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a> };
+
+      var parts = text.split(/<br/><a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/<table><tr><td></td></tr></table>"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/<table><tr><td></td></tr></table> does not exist. Click to create it."><table><tr><td></td></tr></table></a>|<br/>s/g);
+      for(var p in parts) { 
+        var part = parts<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/p"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/p does not exist. Click to create it.">p</a>;
+
+        var words = part.split(/<br/><table><tr><td>/g);</td></tr></table>
+
+        for(var w in words) {
+          var word = words<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/w"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/w does not exist. Click to create it.">w</a>;
+
+          if(word.length==0) continue;
+
+          //Should be used to check al versions have the required variables
+          if(word.length>=4 && word.substring(0,2)=="{"+"{" && word.substring(word.length-2)=="}"+"}") {
+            utterance.variables.push(word.substring(2,word.length-2));
+          }
+        }
+
+        var newVersions = <a href="/OpenForum/Javascript/VirtualAssistant/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+        for(var k = 0; k<words.length; k++) {
+          for(var j = 0; j<utterance.versions.length; j++) {
+            var newVersion = utterance.versions<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/j"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/j does not exist. Click to create it.">j</a>;
+
+            if(words<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/k"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/k does not exist. Click to create it.">k</a>.length>0) {
+              if(utterance.versions<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/j"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/j does not exist. Click to create it.">j</a>.length>0) newVersion += " ";
+              newVersion += words<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/k"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/k does not exist. Click to create it.">k</a>;
+            }
+            newVersions.push( newVersion );
+          }
+        }
+        utterance.versions = newVersions;
+      }
+      for(var v in utterance.versions) {
+        newAliases.push(utterance.versions<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/v"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/v does not exist. Click to create it.">v</a>);
+      }
+    }
+
+    for(var n=0;n<newAliases.length;n++) {
+      aliases<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/n"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/n does not exist. Click to create it.">n</a> = newAliases<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/n"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/n does not exist. Click to create it.">n</a>;
+    }
+  };
+
+  self.addSpeechPack = function(speechPack,insert) {
+    for(var i=0;i<speechPack.length;i++) {
+      var entry = speechPack<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/i does not exist. Click to create it.">i</a>;
+      if(entry.speechPack) {
+        self.loadSpeechPack(entry.speechPack);
+        continue;
+      } else if(entry.startCommand) {
+        if(speechRecognition) speechRecognition.setStartCommand(entry.startCommand, function(reply) { return function() {self.say(reply);}; }(entry.reply));
+        continue;
+      }if(entry.stopCommand) {
+        if(speechRecognition) speechRecognition.setStopCommand(entry.stopCommand, function(reply) { return function() {self.say(reply);}; }(entry.reply));
+        continue;
+      }
+      self.addCommand(entry.command,entry.reply,entry.replyTemplate,insert);
+      if(entry.aliases) {
+        expandAliases(entry.aliases);
+        for(var j=0;j<entry.aliases.length;j++) {
+          self.addCommandAlias(entry.command,entry.aliases<a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/j"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/VirtualAssistant/j does not exist. Click to create it.">j</a>,insert);
+        }
+      }
+    }
+  };
+
+  var playSound = function(sound,callBack) {
+    if(OpenForum.SoundPlayer) {
+      OpenForum.SoundPlayer.playSound(sound,callBack);
+    }
+  };
+  self.playSound = playSound;
+
+  var addSound = function(url,name) {
+    if(OpenForum.SoundPlayer) {
+      OpenForum.SoundPlayer.addSound(url,name);
+    } else {
+      setTimeout( function() { addSound(url,name); },500 );
+    }
+  };
+  self.addSound = addSound;
+
+  var init = function() {
+    if(OpenForum.SpeechRecognition.isAvailable()==false) {
+      alert("Speech recognition is not available.","Virtual Assistant");
+    }
+
+    addSound("/OpenForum/Javascript/Sound/ping.mp3","ping");
+
+    speechRecognition = new OpenForum.SpeechRecognition();
+    speechRecognition.preProcessTranscript = processSpeech;
+
+    speechRecognition.onUnrecognised = function(transcript) { 
+      playSound("ping", function() {
+        if(config.notUnderstand) OpenForum.Speech.say(config.notUnderstand,config.voice);
+      });
+    };
+    speechRecognition.setDebug( config.debug);
+
+    if(config.sleepOnSilence) speechRecognition.setSleepOnSilence(config.sleepOnSilence);
+    if(config.wakeOnNoise) speechRecognition.setWakeOnNoise(config.wakeOnNoise);
+    if(config.sleepOnUnrecognised) speechRecognition.setSleepOnUnrecognised(config.sleepOnUnrecognised);
+
+    OpenForum.Speech.debug = config.debug;
+    OpenForum.Speech.stoppedSay = processEndSpeechWatchers;
+
+    if(config.speech) {
+      self.addSpeechPack(config.speech);
+    }
+
+    watchingInterval = setInterval( watch, 500 );
+
+    if(config.startOnLoad) {
+      self.startListening();
+      self.hear("Hello");
+    }
+  };
+
+  DependencyService.createNewDependency()
+    .addDependency("/OpenForum/Javascript/SpeechRecognition/SpeechRecognition.js")
+    .addDependency("/OpenForum/Javascript/SpeechSynthesis/SpeechSynthesis.js")
+    .addDependency("/OpenForum/Javascript/Sound/SoundPlayer.js")
+    .setOnLoadTrigger( init ).loadDependencies();
+};
+
+</xmp><!--End Extension InsertSourceFile soucrePageName="/OpenForum/Javascript/VirtualAssistant" fileName="virtual-assistant.js" -->

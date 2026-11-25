@@ -1,0 +1,29 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=&time;"></script>
+    <script type="text/javascript" src="&pageName;/page.js?ts=&time;"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=&time;" />
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/TechnicalDocument/technical-document.css" />
+    <title>&title;</title>
+  </head>
+  <body>
+    <div class="doc-frame">
+      <div class="doc-surface">
+        &content;
+      </div>
+    </div>
+    &insert:/OpenForum/PageTemplates/CommonElements/error-alert.common.html;
+    &insert:/OpenForum/PageTemplates/CommonElements/alert.common.html;
+
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

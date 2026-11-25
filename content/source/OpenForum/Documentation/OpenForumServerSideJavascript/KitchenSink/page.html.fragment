@@ -1,0 +1,360 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3>Sever Side Javascript Helpers Kitchen Sink</h3>
+
+<ul class="tabs horizontal" data-tab>
+  <li class="tab-title active"><a href="#openForum">openForum</a></li>
+  <li class="tab-title"><a href="#external">external</a></li>
+  <li class="tab-title"><a href="#file">file</a></li>
+  <li class="tab-title"><a href="#js">js</a></li>
+</ul>
+<div class="tabs-content">
+  <div class="content active" id="openForum">
+    <p><!--Extension InsertFile pageName="/OpenForum/Documentation/OpenForumServerSideJavascript" fileName="openForum.page.content" --><h3>Documentation for openForum</h3>
+
+<hr/>
+
+string openForum.getVersion()
+
+<hr/>
+
+string openForum.wikiToTitleName( {string title} )
+
+<hr/>
+
+string<a href="/OpenForum/Documentation/OpenForumServerSideJavascript/KitchenSink/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a> openForum.findStoreKeys( {string keyMatchRegex} )
+
+<hr/>
+
+void openForum.storeValue( {string key} , {string value} )
+
+<hr/>
+
+string openForum.retrieveValue( {string key} )
+
+<hr/>
+
+void openForum.storeObject( {string key} , {object} )
+
+<hr/>
+
+object openForum.retrieveObject( {string key} )
+
+<hr/>
+
+object openForum.removeObject( {string key} )
+
+<hr/>
+
+void openForum.refreshPage( {string pageName} )
+
+<hr/>
+
+void openForum.postMessageToQueue( {string queueName} , {string message} )
+
+<hr/>
+
+integer openForum.getTimeStamp()
+
+<hr/>
+
+boolean openForum.rebuild( {boolean forceBuildNow} )
+
+<hr/>
+
+boolean openForum.rebuild()
+
+<hr/>
+
+string openForum.getDateTimeStamp()
+
+<hr/>
+
+string openForum.getDateTimeStamp( {string pageName} )
+
+<hr/>
+
+void openForum.addJournalEntry( {string journalEntry} )
+
+<hr/>
+
+boolean openForum.pageExists( {string pageName} )
+
+<hr/>
+
+string openForum.buildPage( {string pageName} , {string pageSource} )
+
+<hr/>
+
+string openForum.buildPage( {string pageName} , {string pageSource}  , {boolean isWikiData} )
+
+<hr/>
+
+string openForum.buildPage( {string pageName}, {boolean buildRefersTo} )
+
+<hr/>
+
+string openForum.buildPage( {string pageName} )
+
+<hr/>
+
+string openForum.renderWikiData( {string name} , {string data} )
+
+<hr/>
+
+JavascriptEngine openForum.getJavascriptEngine()
+
+<hr/>
+
+string openForum.titleToWikiName( {string title} )
+
+<hr/>
+
+void openForum.deletePage( {string pageName} )
+
+<hr/>
+
+void openForum.deleteAttachment( {string pageName} , {string fileName} )
+
+<hr/>
+
+void openForum.copyPage( {string pageName} , {string fileName} , {string listPageName} )
+
+<hr/>
+
+void openForum.addToListPage( {string listPageName}, {string pageName} )
+
+<hr/>
+
+<p>Deprecated - Use JavascriptFileHelper.saveAttachment</p>void openForum.saveAsAttachment( {string pageName} , {string fileName} , {string data} , {string user} )
+
+<hr/>
+TODO
+<xmp class="panel" of-exclude="true">string<a href="/OpenForum/Documentation/OpenForumServerSideJavascript/KitchenSink/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a><a href="/OpenForum/Documentation/OpenForumServerSideJavascript/KitchenSink/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a> openForum.getPageAsList( {string pageName} )</xmp>
+
+<hr/>
+
+void openForum.setHomePage( {string pageName} )
+
+<hr/>
+
+string openForum.generateUniqueId()
+
+<hr/>
+
+void openForum.revert( {string pageName} , {string version} )
+
+<hr/>
+
+void openForum.signOut( {transaction} )
+
+<hr/>
+
+void openForum.cleanUpQueues()
+
+<hr/>
+
+boolean openForum.signIn( {transaction} )
+
+<hr/>
+
+string openForum.validateWikiTitle( {string title} )
+
+<hr/>
+
+Map openForum.getPageAsTable( {string pageName} )
+
+<hr/>
+
+string<a href="/OpenForum/Documentation/OpenForumServerSideJavascript/KitchenSink/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a> openForum.getMessagesSince( {string queueName} , {string time} )
+
+<hr/>
+
+string openForum.createQueue()
+<!--End Extension InsertFile pageName="/OpenForum/Documentation/OpenForumServerSideJavascript" fileName="openForum.page.content" --></p>
+    <b>Edit <a href="http://open-forum.onestonesoup.org/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumServerSideJavascript&fileName=openForum.page.content" target="external_page">http://open-forum.onestonesoup.org/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumServerSideJavascript&fileName=openForum.page.content</a> </b>
+  </div>
+  <div class="content" id="external">
+    <p><!--Extension InsertFile pageName="/OpenForum/Documentation/OpenForumServerSideJavascript" fileName="external.page.content" --><h3>Documentation for external</h3>
+
+<hr/>
+
+<p>Retrieves a url as a file attached to a page</p>void external.getURLAsFile( {string url} , {string user} , {string password} , {string pageName} , {string fileName} )
+
+<hr/>
+
+<p>Retrieves a url as a file attached to a page using Http authentication to sign in</p>void external.getURLAsFile( {string url} , {string pageName} , {string fileName} )
+
+<hr/>
+
+<p>Post data to a url using Http authentication to sign in</p>string external.postURLAsString( {string url} , {string user} , {string password} , {string data} )
+
+<hr/>
+
+<p>Post data to a url</p>string external.postURLAsString( {string url} , {string data} )
+
+<hr/>
+
+<p>Retrieves a url as a string using Http authentication to sign in</p>string external.getURLAsString( {string url} , {string user} , {string password} )
+
+<hr/>
+
+<p>Retrieves a url as a string</p>string external.getURLAsString( {string url} )
+<!--End Extension InsertFile pageName="/OpenForum/Documentation/OpenForumServerSideJavascript" fileName="external.page.content" --></p>
+    <b>Edit <a href="http://open-forum.onestonesoup.org/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumServerSideJavascript&fileName=external.page.content" target="external_page">http://open-forum.onestonesoup.org/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumServerSideJavascript&fileName=external.page.content</a> </b>
+  </div>
+  <div class="content" id="file">
+    <p><!--Extension InsertFile pageName="/OpenForum/Documentation/OpenForumServerSideJavascript" fileName="file.page.content" --><h3>Documentation for file</h3>
+
+<hr/>
+
+<p>Delete a file attached to a page without backing it up in history</p>boolean file.deleteAttachmentNoBackup( {string pageName} , {string fileName} )
+
+<hr/>
+
+<p>Append data to file</p>void file.appendToPageSource( {string pageName}, {string dataToAppend})
+
+<hr/>
+
+<p>Get the time since a file's last modification</p>integer file.getAttachmentTimestamp( {string pageName} , {string fileName} )
+
+<hr/>
+
+string file.getAttachment( {string pageName} , {string fileName} , {boolean resolveLinks} )
+
+<hr/>
+
+string file.getAttachment( {string pageName} , {string fileName} )
+
+<hr/>
+
+boolean file.pageExists( {string pageName} )
+
+<hr/>
+
+string file.getPageInheritedFileAsString( {string pageName} , {string fileName} )
+
+<hr/>
+
+void file.appendStringToFile( {string pageName} , {string fileName} , {string dataToAppend} )
+
+<hr/>
+
+void file.copyAttachment( {string fromPageName} , {string fromFileName} , {string toPageName} , {string toFileName} )
+
+<hr/>
+
+boolean file.attachmentExists( {string pageName} , {string fileName} )
+
+<hr/>
+
+integer file.getAttachmentSize( {string pageName} , {string fileName} )
+
+<hr/>
+
+InputStream file.getAttachmentInputStream( {string pageName} , {string fileName} )
+
+<hr/>
+
+string file.getPageInheritedFilePath( {string pageName} , {string fileName} )
+
+<hr/>
+
+void file.zipPage( {string pageName} )
+
+<hr/>
+
+OutputStream file.getAttachmentOutputStream( {string pageName} , {string fileName} )
+
+<hr/>
+
+void file.saveAttachment( {string pageName} , {string fileName} , {string data} )
+
+<hr/>
+
+void file.saveAttachmentNoBackup( {string pageName} , {string fileName} , {string dataToAppend} )
+
+<hr/>
+
+void file.unZipAttachment( {string pageName} , {string fileName} )
+
+<hr/>
+
+void file.appendStringToFileNoBackup( {string pageName} , {string fileName} , {string dataToAppend} )
+
+<hr/>
+
+Map file.getAttachmentsForPage( {string pageName} )
+
+<b>Example:</b>
+<xmp class="panel" of-exclude="true">
+var attachments=<a href="/OpenForum/Documentation/OpenForumServerSideJavascript/KitchenSink/" target="newTab"><img src='/OpenForum/Images/icons/png/link_go.png' /></a>;
+var pageName = "/Sandbox";
+var matching = ".*"; //Regex include all
+
+var list = file.getAttachmentsForPage( pageName );
+if(pageName.charAt(0)!='/')
+{
+  pageName = "/"+pageName;
+}
+
+var iterator= list.keySet().iterator();
+while(iterator.hasNext())
+{
+  var key = ""+iterator.next();
+  var item;
+  if(key.charAt(0)==='+') { // ignore sub pages
+    continue;
+  } else if(matching!==null && key.search( ""+matching )==-1 ) {
+    continue;
+  } else {
+    item = key;
+  }
+
+  attachments.push( {pageName: pageName, fileName: item} );
+
+}
+</xmp><!--End Extension InsertFile pageName="/OpenForum/Documentation/OpenForumServerSideJavascript" fileName="file.page.content" --></p>
+    <b>Edit <a href="http://open-forum.onestonesoup.org/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumServerSideJavascript&fileName=file.page.content" target="external_page">http://open-forum.onestonesoup.org/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumServerSideJavascript&fileName=file.page.content</a> </b>
+  </div>
+  <div class="content" id="js">
+    <p><!--Extension InsertFile pageName="/OpenForum/Documentation/OpenForumServerSideJavascript" fileName="js.page.content" --><h3>Documentation for js</h3>
+
+<hr/>
+
+void js.refreshJarManager()
+
+<hr/>
+
+object js.loadObject( {string pageName} , {string fileName} )
+
+<hr/>
+
+StringBuffer js.getStringBuffer()
+
+<hr/>
+<p>fileName is used as a reference in error messages</p>
+
+void js.startJavascript( {string fileName} , {string script} )
+
+<hr/>
+
+object js.getApi( {string pageName} )
+
+<hr/>
+
+string js.generateMD5( {string data} )
+
+<hr/>
+
+object js.getObject( {string pageName} , {string fileName} )
+
+<hr/>
+
+void js.sleep( {integer millisecondsToSleep} )
+<!--End Extension InsertFile pageName="/OpenForum/Documentation/OpenForumServerSideJavascript" fileName="js.page.content" --></p>
+    <b>Edit <a href="http://open-forum.onestonesoup.org/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumServerSideJavascript&fileName=js.page.content" target="external_page">http://open-forum.onestonesoup.org/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumServerSideJavascript&fileName=js.page.content</a> </b>
+  </div>
+</div>
+  
+</div>

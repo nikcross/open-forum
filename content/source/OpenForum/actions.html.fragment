@@ -1,0 +1,40 @@
+<div class="row">
+        <h3>Actions</h3>
+        <!--Extension ChildPagesList pageName="/OpenForum/Actions" newTab="true" --><ul><li> <a href="/OpenForum/Actions/Access" target="newTab">Access<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/Attach" target="newTab">Attach<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/AttachmentExists" target="newTab">AttachmentExists<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/Attachments" target="newTab">Attachments<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/CauseError" target="newTab">CauseError<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/Copy" target="newTab">Copy<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/CreateQueue" target="newTab">CreateQueue<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/Delete" target="newTab">Delete<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/ForkLink" target="newTab">ForkLink<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/GetAttachments" target="newTab">GetAttachments<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/GetAuthentication" target="newTab">GetAuthentication<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/GetInheritedFilePath" target="newTab">GetInheritedFilePath<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/GetPageAsList" target="newTab">GetPageAsList<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/GetPagesList" target="newTab">GetPagesList<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/GetUser" target="newTab">GetUser<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/History" target="newTab">History<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/Move" target="newTab">Move<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/PageExists" target="newTab">PageExists<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/Pages" target="newTab">Pages<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/Publish" target="newTab">Publish<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/RJSC" target="newTab">RJSC<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/Rebuild" target="newTab">Rebuild<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/RefreshJarManager" target="newTab">RefreshJarManager<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/RefreshPage" target="newTab">RefreshPage<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/RenderWikiData" target="newTab">RenderWikiData<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/Revert" target="newTab">Revert<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/Save" target="newTab">Save<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/SaveImage" target="newTab">SaveImage<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/SystemTime" target="newTab">SystemTime<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/TestExample" target="newTab">TestExample<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/Update" target="newTab">Update<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/UpdateJarManager" target="newTab">UpdateJarManager<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/User" target="newTab">User<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/ValidatePageName" target="newTab">ValidatePageName<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/ViewFolder" target="newTab">ViewFolder<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Actions/Zip" target="newTab">Zip<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum/Actions" newTab="true" -->
+</div>

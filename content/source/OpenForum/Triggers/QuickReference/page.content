@@ -1,0 +1,17 @@
+!!&title;
+
+((
+Triggers cause scripts to be run when an event occurs on the server. There are four event trigger types in OpenForum
+* [Server Start Triggers|/OpenForum/Triggers/StartTrigger]
+* [Page Change Triggers|/OpenForum/Triggers/PageChangeTrigger]
+* [Rebuild Triggers|/OpenForum/Triggers/RebuildTrigger]
+* [Time Triggers|/OpenForum/Triggers/TimerTrigger]
+))
+((
+Each trigger has its own page. The page can contain a bullet list of pages where triggers can be found. The trigger script is expected to be found in a file called trigger.sjs
+))
+((
+The one exception is the TimerTrigger page which also has a [Task Scheduler App|/OpenForum/Triggers/TimerTrigger/TaskScheduler]. 
+This provides a user interface to add scripts that can be run at specific periods or at set dates and times.
+There is also an option to decide if a script should run based on a script.
+))

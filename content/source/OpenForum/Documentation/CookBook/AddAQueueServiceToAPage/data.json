@@ -1,0 +1,30 @@
+{
+    "pageName": "/OpenForum/Documentation/CookBook/AddAQueueServiceToAPage",
+    "title": "Add AQueue Service To APage",
+    "block": "page",
+    "content": [
+        {
+            "block": "text",
+            "data": {
+                "text": "<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.build.js 0.0.6 July Storm builder and renderer DefaultRenderer v1.07 2021 Covid free release-->\n<ol><li> Edit page.js</li>\n<li> Add the message queue javascript library</li>\n<xmp class=\"panel\" of-exclude=\"true\">OpenForum.loadScript(\"/OpenForum/MessageQueue/MessageQueue.js\");</xmp>\n<li> Set up queue polling</li>\n<xmp class=\"panel\" of-exclude=\"true\">\nvar queueName = \"my-queue-name\";\nvar queue;\n\nOpenForum.init = function() {\n  queue = new MessageQueue(queueName);\n\n  timer = setInterval( queue.pull , 1000 );\n};\n</xmp>\n<li> Create a queue processor</li>\n<xmp class=\"panel\" of-exclude=\"true\">\nvar queueName = \"my-queue-name\";\nvar queue;\n\nOpenForum.init = function() {\n  queue = new MessageQueue(queueName);\n\n  queue.processMessages = function(messages) {\n    for(var i=0; i< messages.length; i++) {\n          processMessage(messages<a href=\"/OpenForum/Editor?pageName=/OpenForumDocumentation/CookBook/AddAQueueServiceToAPage/i\"target=\"editor\" style=\"color: red\" title=\"The page /OpenForum/Editor?pageName=/OpenForumDocumentation/CookBook/AddAQueueServiceToAPage/i does not exist. Click to create it.\">i</a>);\n    }\n  };\n\n  timer = setInterval( queue.pull , 1000 );\n};\n\nfunctioon processMessage(message) {\n//do something with the message\n}\n\n</xmp></ol>"
+            },
+            "elementId": "BK0_198420865663725631630315705596",
+            "editor": {},
+            "blockEditor": {},
+            "treeNode": {
+                "parent": {
+                    "parent": {}
+                }
+            },
+            "parentId": "pageEditor"
+        }
+    ],
+    "editor": "/OpenForum/AddOn/ContentEditor",
+    "blockEditor": {},
+    "treeNode": {
+        "parent": {}
+    },
+    "elementId": "pageEditor",
+    "parentId": "pageEditor",
+    "pageParent": "https://open-forum.onestonesoup.org"
+}

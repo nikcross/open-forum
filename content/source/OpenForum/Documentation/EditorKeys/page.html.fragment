@@ -1,0 +1,12 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>Editor Keys</h3>
+
+<table><tr><td><kbd>CTRL + S</kbd></td><td>Save</td></tr>
+<tr><td><kbd>Shift + CTRL + S</kbd></td><td>Save All</td></tr>
+<tr><td><kbd>CTRL + F</kbd></td><td>Start Searching</td></tr>
+<tr><td><kbd>CTRL + G</kbd></td><td>Find Next</td></tr>
+<tr><td><kbd>Shift + Ctrl + G</kbd></td><td>Find Previous</td></tr>
+<tr><td><kbd>Shift + Ctrl + F</kbd></td><td>Replace</td></tr>
+<tr><td><kbd>Shift + Ctrl + R</kbd></td><td>Replace All</td></tr>
+<tr><td><kbd>SHIFT + Tab</kbd></td><td>Format Selected Text</td></tr>
+</table>

@@ -1,0 +1,20 @@
+{
+    "editors": [
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Javascript/Core",
+            "fileName": "page.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Javascript/Core",
+            "fileName": "page.content"
+        },
+        {
+            "type": "plugin",
+            "sourcePage": "/OpenForum/AddOn/ServiceBuilder/javascript-builder-plugin.js"
+        }
+    ],
+    "pageName": "/OpenForum/Javascript/Core",
+    "fileName": "editor-config.json"
+}

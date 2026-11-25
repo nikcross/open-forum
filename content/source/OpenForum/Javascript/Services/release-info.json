@@ -1,0 +1,6 @@
+{
+    "extra": {
+        "notes": "Fixed repeated script when one requested"
+    },
+    "version": "0.0.2"
+}

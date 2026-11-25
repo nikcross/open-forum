@@ -1,0 +1,9 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release--><ol><li> Edit the Configuration page</li>
+<li> Edit the file trigger.sjs</li>
+<li> Set the content</li>
+<xmp class="panel" of-exclude="true">
+openForum.setHomePage("my-home-page-path");
+</xmp>
+<li> Open the Server Side Javascript Console plugin</li>
+<li> Type <xmp class="panel" of-exclude="true">run:trigger.sjs</xmp> and press return</li>
+<li> Click Actions -> Save All</li></ol>

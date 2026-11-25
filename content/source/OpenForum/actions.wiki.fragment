@@ -1,0 +1,4 @@
+<div class="row">
+        !!Actions
+        [{ChildPagesList pageName="/OpenForum/Actions" newTab="true"}]
+</div>

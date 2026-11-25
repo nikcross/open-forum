@@ -1,0 +1,2659 @@
+<div class="large-6 columns">!!
+
+ !!OpenForum<br/>
+* function getVersion()  - Get the version number of this script<br/>
+ Returns:  - The version number as a string. eg. 1.0.0<br/>
+* function getBuildDate()  - Get the build date and time of this script as a UTC date and time string<br/>
+ Returns:  - UTC date and time string. eg. Wed Feb 10 2016 15:04:02 GMT-0000 (UTC)<br/>
+* function includeScript(scriptFileName - the full path of the script to dynamically load)  - Dynamically loads a script<br/>
+* function getDepemdencies() <br/>
+* function getRoot() <br/>
+* function addNodeProcessor(arg0) <br/>
+* function addScanner(arg0) <br/>
+* function addInitialiser(arg0) <br/>
+* function addHashCall(arg0,arg1) <br/>
+* function addTable(arg0) <br/>
+* function getTable(arg0) <br/>
+* function getNextId() <br/>
+* function getObject(arg0) <br/>
+* function scan() <br/>
+* function crawl(arg0) <br/>
+* function preparePage(arg0) <br/>
+* function crawlParts(arg0,arg1) <br/>
+* function crawlTables(arg0) <br/>
+* function parseText(arg0,arg1,arg2) <br/>
+* function parseParts(arg0,arg1,arg2) <br/>
+* function loadScript(arg0) <br/>
+* function loadCSS(arg0) <br/>
+* function onHash(arg0) <br/>
+* function init() <br/>
+* function close() <br/>
+* function onload(arg0) <br/>
+* function waitForReady() <br/>
+* function stopAutoScan() <br/>
+* function startAutoScan(arg0) <br/>
+* function onunload() <br/>
+* function getObjects() <br/>
+* function getTables() <br/>
+* function listData() <br/>
+* function createData() <br/>
+* function createParents(arg0) <br/>
+* function createObjectSignature(arg0) <br/>
+* function childCount(arg0) <br/>
+* function addTab(arg0) <br/>
+* function showTab(arg0) <br/>
+* function getTabs() <br/>
+* function getTab(arg0) <br/>
+* function evaluate(arg0) <br/>
+* function globalExists(arg0) <br/>
+* function getGlobal(arg0) <br/>
+* function setGlobal(arg0,arg1,arg2) <br/>
+* function getSystemTime(arg0) <br/>
+* function loadScripts(arg0,arg1) <br/>
+* function getAttachments(arg0,arg1,arg2,arg3) <br/>
+* function loadFile(arg0,arg1,arg2) <br/>
+* function loadJSON(arg0,arg1,arg2) <br/>
+* function loadXML(arg0,arg1,arg2) <br/>
+* function saveFile(arg0,arg1,arg2) <br/>
+* function saveJSON(arg0,arg1,arg2) <br/>
+* function saveXML(arg0,arg1,arg2) <br/>
+* function appendFile(arg0,arg1,arg2) <br/>
+* function deleteFile(arg0,arg1,arg2) <br/>
+* function copyFile(arg0,arg1,arg2) <br/>
+* function moveFile(arg0,arg1,arg2) <br/>
+* function fileExists(arg0) <br/>
+* function uploadFile(arg0,arg1,arg2) <br/>
+* function setDebugToConsole(arg0) <br/>
+* function debug(arg0,arg1,arg2) <br/>
+* function createFileTree(arg0,arg1) <br/>
+* function copyElement(arg0) <br/>
+* function copyData(arg0) <br/>
+* function setElement(arg0,arg1) <br/>
+* function appendToElement(arg0,arg1) <br/>
+* function showElement(arg0) <br/>
+* function hideElement(arg0) <br/>
+* function toggleElement(arg0) <br/>
+* function getParameter(arg0) <br/>
+* function getCookie(arg0) <br/>
+* function isEqual(arg0,arg1) <br/>
+* function copyDifferencesFromTo(arg0,arg1,arg2,arg3,arg4) <br/>
+* function clone(arg0) <br/>
+* function clean(arg0) <br/>
+* function setInterval(arg0,arg1,arg2,arg3,arg4) <br/>
+* function waitFor(arg0,arg1,arg2,arg3) <br/>
+* function runAsync(arg0) <br/>
+* function queue(arg0,arg1) <br/>
+* function jsonToCsv(arg0,arg1) <br/>
+
+
+----
+
+
+
+ !!DependencyService<br/>
+* function createNewDependency() <br/>
+* function scriptLoaded(arg0) <br/>
+
+
+----
+
+
+
+ !!Process<br/>
+* function call(arg0) <br/>
+* function waitFor(arg0) <br/>
+* function then(arg0) <br/>
+* function run(arg0) <br/>
+
+
+----
+
+<br/>''Built Tue May 14 2019 10:22:20 GMT-0000 (GMT)''</div><div class="large-6 columns">{{{//==============================================================================================================//
+/* Version 1.7.175*/
+/* Built on Tue May 14 2019 10:22:20 GMT-0000 (GMT) */
+/* Built by /OpenForum/Javascript/Builder.*/
+/* Do not edit as changes may be overwritten */
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-dependency.js*/
+//==============================================================================================================//
+//---- DependencyService ----
+if(typeof OpenForum == "undefined") OpenForum = {};
+
+var DependencyService = new function() {
+  var dependencies = [];
+  var loadedScripts = [];
+  var requestedScripts = [];
+  this.createNewDependency = function() {
+    var dependency = new function() {
+      var id = dependencies.length;
+      var self = this;
+      var scriptsToLoad = [];
+      var requiredScripts = [];
+      var onLoadTrigger = function() {};
+      var loaded = false;
+
+      self.addDependency = function(script) {
+        requiredScripts.push(script);
+        if( requestedScripts.includes(script) ) return this;
+        requestedScripts.push(script);
+        scriptsToLoad.push(script);
+        return this;
+      };
+      self.setOnLoadTrigger = function(triggerFunction) {
+        onLoadTrigger = triggerFunction;
+        return this;
+      };
+
+      self.loadDependencies = function() {
+        if(requiredScripts.length===0) {
+          self.setLoaded();
+          return;
+        }
+        
+        if(scriptsToLoad.length==0) {
+          DependencyService.scriptLoaded(id);
+          return;
+        }
+        
+        var fileName = "";
+        for(var i=0;i<scriptsToLoad.length;i++) {
+          if(i>0) fileName+=",";
+          fileName+=scriptsToLoad[i];
+        }
+
+        OpenForum.loadScript("/OpenForum/Javascript/Services?script="+fileName+"&callback=DependencyService.scriptLoaded&callbackId="+id);
+      };
+      self.checkLoaded = function() {
+        return loaded;
+      };
+      self.setLoaded = function() {
+        for(var i in requiredScripts) {
+          if(!loadedScripts[requiredScripts[i]]) {
+            setTimeout(self.setLoaded,100);
+            return;
+          }
+        }
+        loaded = true;
+        onLoadTrigger();
+      };
+      self.getScriptsToLoad = function() {
+        return scriptsToLoad;
+      };
+    };
+    dependencies.push(dependency);
+    return dependency;
+  };
+  this.scriptLoaded = function(id) {
+    var newScripts = dependencies[id].getScriptsToLoad();
+    for(var i in newScripts) {
+      loadedScripts[newScripts[i]]=true;
+    }
+    dependencies[id].setLoaded();
+  };
+};
+/* End of: /OpenForum/Javascript/Core/open-forum-dependency.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-scanner.js*/
+//==============================================================================================================//
+//---- OpenForum ----
+
+var OpenForum = new function(){
+  this.FIELD_DELIMETER_START = "{"+"{";
+  this.FIELD_DELIMETER_END = "}"+"}";
+  var self = this;
+  var objects= [];
+  var tables = [];
+  var tabs = [];
+  var nextId = 0;
+  var hash;
+  var hashCalls = [];
+  var nodeProcessors = [];
+  var scanners = [];
+  var initialisers = [];
+  var dependencies = [];
+  var watchers = [];
+  var defaultScanPeriod = 500;
+
+  self.interval = null;
+
+  self.getVersion = function() {
+    return "1.7.175";
+  };
+
+  self.getBuildDate = function() {
+    return "Tue May 14 2019 10:22:20 GMT-0000 (GMT)";
+  };
+
+  self.initDependencies = DependencyService.createNewDependency();
+
+  self.includeScript = function( scriptName ) {
+    if(dependencies[scriptName]) return;
+    dependencies[scriptName] = self.initDependencies.addDependency( scriptName );
+  };
+
+  self.getDepemdencies = function() {
+    return dependencies;
+  };
+
+  self.getRoot = function() {
+    var root = document.location.toString();
+    root = root.substring( root.indexOf("://")+3 );
+    root = root.substring( root.indexOf("/")+1 );
+    root = "/"+root.substring( 0,root.indexOf("/") );
+    return root;
+  };
+
+  self.addNodeProcessor = function(processor) {
+    nodeProcessors.push(processor);
+  };
+
+  self.addScanner = function(scanner) {
+    scanners.push(scanner);
+  };
+
+  self.addInitialiser = function( fn ) {
+    initialisers.push(fn);
+  };
+  self.addHashCall = function(hash,callFn) {
+    hashCalls[hash] = callFn;
+  };
+
+  self.addTable = function(table) {
+    tables[table.getId()]=table;
+  };
+
+  self.getTable = function(ofId) {
+    return tables[ofId];
+  };
+
+  self.getNextId = function() {
+    nextId++;
+    return nextId;
+  };
+
+  self.getObject= function(id) {
+    //id = id.replace(/\./g,"_dot_");
+    if(objects[id]===undefined) {
+      objects[id] = new OpenForumObject(id);
+    }
+    return objects[id];
+  };
+
+  self.scan = function() {
+    if(self.hash != window.location.hash) {
+      self.hash = window.location.hash;
+      self._onHash(self.hash);
+    }
+    for(var tableIndex in tables) {
+      tables[tableIndex].refresh();
+    }
+    for(var objectIndex in objects) {
+      object = objects[objectIndex];
+      if(typeof(object)=="undefined") {
+      } else {
+        object.scan();
+      }
+    }
+    for(var scanner in scanners) {
+      try{
+        scanners[scanner]();
+      } catch(e) {
+        console.log(e);
+      }
+    }
+    
+    self.preparePage(document.body);
+  };
+
+  self.addNodeProcessor( function(node) {
+    if(node.attributes==undefined) return;
+    for(var a=0; a<node.attributes.length; a++) {
+      //has attribute to map
+      if(node.attributes[a].value.indexOf(self.FIELD_DELIMETER_START)!==0) continue;
+      var key = node.attributes[a].name;
+      var watch = node.attributes[a].value.substring(2,node.attributes[a].value.length-2);
+      var value = OpenForum.evaluate( watch );
+      node.attributes[a].value = value;
+      self.addScanner( function() {
+        var newValue = OpenForum.evaluate( watch );
+        if(value==newValue) return;
+        value = newValue;
+        node.attributes[key].value = value;
+      }
+                     );
+    }
+  });                 
+
+  self.crawl = function (node) {
+    self.crawlTables(node);
+    self.crawlParts(node);
+  };
+
+  self.preparePage = function(node) {
+        //Copy all attributes starting ofa-??? to attribute ???
+    if(node.attributes) {
+      for(var i=0;i<node.attributes.length;i++) {
+        var key = node.attributes[i].name;
+        if(key.indexOf("ofa-")==0) {
+          key = key.substring(4);
+          if(node.attributes[i].value.indexOf(self.FIELD_DELIMETER_START)==-1) {
+            node.setAttribute(key,node.attributes[i].value);
+            node.removeAttribute(node.attributes[i].name);
+          }
+        }
+      }
+    }
+    for(var nodeIndex=0; nodeIndex<node.childNodes.length; nodeIndex++) {
+      self.preparePage( node.childNodes[nodeIndex] );
+    }
+  };
+  
+  self.crawlParts = function (node,prefix) {
+    if(node.attributes && node.attributes['of-exclude']) {
+      return;
+    }
+
+    if(typeof(prefix)=="undefined") {
+      prefix="";
+    }
+
+    for(var ni = 0; ni<nodeProcessors.length; ni++) {
+      try{
+        nodeProcessors[ni](node);
+      } catch(e) {
+        console.log(e);
+      }
+    }
+
+    if(!(node.childNodes && node.childNodes.length>0) || node.type=="select-one" || node.type=="select-multiple") {          
+      if(node.attributes && node.attributes['of-id']) {
+        var nodeName = node.attributes['of-id'].value;
+        if(prefix.length>0) {
+          nodeName = prefix+"."+nodeName;
+        }
+
+        var object = OpenForum.getObject(nodeName).add( node );
+        objects[objects.length]=object;
+      }
+      if( typeof(node.innerHTML)!="undefined" && node.innerHTML.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+        self.parseParts(node,objects,prefix);
+      }
+      if( node.nodeName=="#text" && node.nodeValue.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+        self.parseText(node,objects,prefix);
+      }
+    }
+
+    for(var nodeIndex=0; nodeIndex<node.childNodes.length; nodeIndex++) {
+      var childNode = node.childNodes[nodeIndex];
+
+      self.crawlParts(childNode,prefix);
+
+      if(childNode.id && childNode.id.indexOf("OFTable")===0) {
+        self.getTable(childNode.id).setTableNode(childNode);
+      }
+
+      if(childNode.id && childNode.id.indexOf("OFTabs")===0) {
+        self.getTab(childNode.id).setTabNode(childNode);
+      }
+    }
+
+    return objects;
+  };
+
+  self.crawlTables = function (node) {
+    for(var nodeIndex=0; nodeIndex<node.childNodes.length; nodeIndex++) {
+      var childNode = node.childNodes[nodeIndex];
+      self.crawlTables(childNode);
+      if(childNode.attributes && childNode.attributes['of-repeatFor']) {
+        self.addTable( new OpenForumTable(childNode) );
+      }
+    }
+  };
+
+  self.parseText= function(node,objects,prefix) {
+    var data = node.nodeValue;
+
+    var spans = [];
+    while(data.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+      name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
+
+      data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
+        "<span id='OpenForumId"+nextId+"'>&nbsp;</span>"+
+        data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
+      spans[spans.length] = {id: 'OpenForumId'+nextId,name: name};
+
+      nextId++;
+    }
+    //node.nodeValue = data;
+    newNode = document.createElement("span");
+    node.parentNode.replaceChild(newNode,node);
+    newNode.innerHTML = data;
+
+    for(var spanIndex in spans) {
+      var span = spans[spanIndex];
+      var object = self.getObject( span.name );
+      object.add( document.getElementById(span.id) );
+      objects[objects.length]=object;
+    }
+  };    
+
+  self.parseParts= function(node,objects,prefix) {
+    var data = node.innerHTML;
+
+    var spans = [];
+    while(data.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+      name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
+
+      data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
+        "<span id='OpenForumId"+nextId+"'>&nbsp;</span>"+
+        data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
+      spans.push( {id: 'OpenForumId'+nextId,name: name} );
+
+      nextId++;
+    }
+    node.innerHTML = data;
+
+    for(var spanIndex = 0; spanIndex<spans.length; spanIndex++) {
+      var span = spans[spanIndex];
+      var object = self.getObject( span.name );
+      object.add( document.getElementById(span.id) );
+      objects[objects.length]=object;
+    }
+  };
+
+
+  self.loadScript = function(scriptURL) {
+    if(dependencies[scriptURL]) return;
+
+    var fileref = document.createElement("script");
+    fileref.setAttribute("src",scriptURL);
+    fileref.setAttribute("type","text/javascript");
+    document.getElementsByTagName("head")[0].appendChild(fileref);
+
+    dependencies[scriptURL] = fileref;
+  };
+
+  self.loadCSS = function(cssURL) {
+    if(dependencies[cssURL]) return;
+
+    var fileref = document.createElement("link");
+    fileref.setAttribute("rel", "stylesheet");
+    fileref.setAttribute("type", "text/css");
+    fileref.setAttribute("href", cssURL);
+    document.getElementsByTagName("head")[0].appendChild(fileref);
+
+    dependencies[cssURL] = fileref;
+  };
+
+  self._onHash= function(hash) {
+    hash = hash.substring(1);
+    if(hash==="") {
+      hash="home";
+    }
+    if(hashCalls[hash]) {
+      hashCalls[hash]();
+    }
+    self.onHash(hash);
+  };
+  self.onHash= function(hash) {};
+  self.init= function() {};
+  self.close= function() {};
+
+  self.onload= function(next) {
+    self.initDependencies.loadDependencies();
+    self.waitForReady();
+  };
+
+  var waitForReadyCount = 0;
+  self.waitForReady = function() { 
+    if(waitForReadyCount<75) {
+      if(self.initDependencies.checkLoaded()===false) {
+        setTimeout(OpenForum.waitForReady,200);
+        waitForReadyCount++;
+        return;
+      }
+      for(var fni in initialisers) {
+        var initialiser = initialisers[fni];
+        if(!initialiser.ready) {
+          initialiser.ready = initialiser()!==false;
+          setTimeout(OpenForum.waitForReady,200);
+          waitForReadyCount++;
+          return;
+        }
+      }
+    } else {
+      console.log("Error: OpenForum.waitForReady timed out.");
+    }
+    console.log("Running OpenForum Version "+OpenForum.getVersion());
+
+    self.crawl(document.body);
+    self.createData();
+    self.hash = "";
+    self.scan();
+    self.init();
+
+    self.startAutoScan();
+  };
+
+  self.stopAutoScan = function() {
+    if(self.interval !== null ) {
+      clearInterval( self.interval );
+      self.interval = null;
+    }
+  };
+
+  self.startAutoScan = function(scanTime) {
+    self.stopAutoScan();
+    if(scanTime) {
+      self.interval = setInterval(self.scan,scanTime,scanTime);
+    } else {
+      self.interval = setInterval(self.scan,defaultScanPeriod,defaultScanPeriod);
+    }
+  };
+
+  self.onunload= function() {
+    this.close();
+  };
+
+  self.getObjects = function() {
+    return objects;
+  };
+
+  self.getTables = function() {
+    return tables;
+  };
+
+  self.listData = function() {
+    var list = [];
+    for(var objectIndex in objects) {
+      var object = objects[objectIndex];
+      if(typeof(object)=="undefined") {
+        continue;
+      }
+      if(object.getId()) {
+        list[list.length]=object.getId();
+      }
+    }	
+    return list;
+  };
+
+  self.createData = function() {
+    for(var objectIndex in objects) {
+      var object = objects[objectIndex];
+      if(typeof(object)=="undefined") {
+        continue;
+      }
+      this.createParents(object.getId());
+      if( OpenForum.evaluate("typeof("+object.getId()+")")==="undefined" ) {
+        OpenForum.evaluate(object.getId()+"=\"\";");
+        object.setValue("");
+      } else {
+        object.setValue( OpenForum.evaluate(object.getId()) );
+      }
+    }
+  };
+
+  self.createParents = function(id)  {
+    if(id.indexOf(".")==-1) {
+      return;
+    }
+    var parts = id.split(".");
+    id = "";
+    for(var index=0;index<parts.length-1;index++) {
+      if(id.length>0) {
+        id+=".";
+      }
+      id+=parts[index];
+
+      if( OpenForum.evaluate("typeof("+id+")")=="undefined" ) {
+        OpenForum.evaluate(id+"={};");
+      }
+    }
+  };
+
+  self.createObjectSignature = function(object) {
+    var cache = [];
+    var signature = JSON.stringify(object, function(key, value) {
+      if (typeof value === 'object' && value !== null) {
+        if (cache.indexOf(value) !== -1) {
+          // Circular reference found, discard key
+          return;
+        }
+        // Store value in our collection
+        cache.push(value);
+      }
+      return value;
+    });
+    cache = null;
+    return signature;
+  };
+
+  self.childCount = function(object) {
+    var count=0;
+
+    for(var index in object) {
+      count++;
+    }
+    return count;
+  };
+
+  self.addTab = function(id) {
+    tabs[id] = document.getElementById(id);
+  };
+
+  self.showTab = function(id){
+    for(var index in tabs) {
+      tabs[index].style.display="none";
+    }
+    tabs[id].style.display="block";
+  };
+
+  self.getTabs = function(){
+    return tabs;
+  };    
+
+  self.getTab = function(id){
+    return tabs[id];
+  };
+
+  //Keep all the evil in one place
+  self.evaluate = function(script) {
+    try{
+      return eval(script);
+    } catch (e) {
+      OpenForum.debug( "ERROR", "Exception evaluating '" + script + "'",e );
+      throw e;
+    }
+  };
+
+  self.globalExists = function( name ) {
+    name = name.replace(/\[/g,".").replace(/\]/g,"").replace(/'/g,"").replace(/\(.*\)/g,"");
+    var parts = name.split(".");
+    var obj = window;
+    for(var part in parts) {
+      if( typeof obj[parts[part]] === "undefined" ) return false;
+      obj = obj[parts[part]];
+    }
+
+    return true;
+  };
+
+  self.getGlobal = function( name ) {
+    name = name.replace(/\[/g,".").replace(/\]/g,"").replace(/'/g,"").replace(/\(.*\)/g,"");
+    var parts = name.split(".");
+    var obj = window;
+    for(var part in parts) obj = obj[parts[part]];
+
+    if(typeof obj === "function") return obj();
+    else return obj;
+  };
+
+  self.setGlobal = function( name,value,create ) {
+    name = name.replace(/\[/g,".").replace(/\]/g,"").replace(/'/g,"");
+    var parts = name.split(".");
+    var obj = window;
+    var i=0;
+    for(i=0; i<parts.length-1; i++) {
+      if( typeof obj[parts[i]] === "undefined" && create===true ) obj[parts[i]] = {};
+      obj = obj[parts[i]];
+    }
+
+    obj[parts[i]] = value;
+  };
+
+};
+
+OpenForum.getSystemTime = function(callback) {
+  var callTime = new Date().getTime();
+  if(!callback) {
+    var data = OpenForum.loadFile("/OpenForum/Actions/SystemTime?action=getTime");
+    var jsonData = JSON.parse(data);
+    var responseTime = new Date().getTime();
+    return new Date( jsonData.time - (responseTime-callTime) );
+  } else {
+    OpenForum.loadFile(
+      "/OpenForum/Actions/SystemTime?action=getTime",
+      function(data) {
+        var jsonData = JSON.parse(data);
+        var responseTime = new Date().getTime();
+        return new Date( jsonData.time - (responseTime-callTime) );
+        callback( new Date( jsonData.time ) );
+      }
+    );
+  }
+};
+
+onload = function() {
+  OpenForum.onload();
+};
+
+onunload = function() {
+  OpenForum.onunload();
+};
+/* End of: /OpenForum/Javascript/Core/open-forum-scanner.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-files.js*/
+//==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
+
+OpenForum.loadScripts = function(scriptURLs,callback) {
+  var scripts="&callback="+callback;
+  var index=1;
+  for(var scriptIndex in scriptURLs) {
+    scripts+="&script"+index+"="+scriptURLs[scriptIndex];
+    index++;
+  }
+  var fileref = document.createElement("script");
+  fileref.setAttribute("src",OpenForum.getRoot()+"/OpenForum/Javascripts?action=getScripts"+scripts);
+  fileref.setAttribute("type","text/javascript");
+  document.getElementsByTagName("head")[0].appendChild(fileref);
+};
+
+OpenForum.getAttachments = function(pageName,callBack,matching,withMetaData) {
+  var params = "pageName="+pageName;
+  if(matching) params += "&matching="+matching;
+  if(withMetaData) params += "&metaData=true";
+
+  if(callBack) {
+    var action = function(response) {
+      callBack( JSON.parse(response) );
+    };
+    Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Attachments",params,null,action,null,true));
+  } else {
+    return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Attachments",params,null,null,null,false)) );
+  }
+};
+
+OpenForum.loadFile = function(fileName,callBack,noCache) {
+  if(noCache) {
+    if(fileName.indexOf("?")!==-1) {
+      fileName += "&ts="+new Date().getTime();
+    } else {
+      fileName += "?ts="+new Date().getTime();
+    }
+  }
+
+  if(callBack) {
+    Ajax.sendRequest( new AjaxRequest("GET",fileName,"",null,callBack,null,true)  );
+  } else {
+    return Ajax.sendRequest( new AjaxRequest("GET",fileName,"",null,null,null,false)  );
+  }
+};
+
+OpenForum.loadJSON = function(fileName,callBack,noCache) {
+  if(callBack) {
+    var action = function(response) {
+      callBack( JSON.parse(response) );
+    };
+    OpenForum.loadFile(fileName,action,noCache);
+  } else {
+    return JSON.parse( OpenForum.loadFile(fileName,null,noCache) );
+  }
+};
+
+OpenForum.loadXML = function(fileName,callBack,noCache) {
+  if(callBack) {
+    var action = function(response) {
+      var parser = new DOMParser();
+      response = parser.parseFromString(response,"text/xml");
+      callBack( JSON.parse(response) );
+    };
+    OpenForum.loadFile(fileName,action,noCache);
+  } else {
+    var text = OpenForum.loadFile(fileName,null,noCache);
+    var parser = new DOMParser();
+    text = parser.parseFromString(text,"text/xml");
+    return JSON.parse( text );
+  }
+};
+
+OpenForum.saveFile = function(fileName,data,callBack) {
+  var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
+  fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+
+  data = "pageName="+encodeURIComponent(pageName)+"&fileName="+encodeURIComponent(fileName)+"&data="+encodeURIComponent(data);
+
+  if(callBack) {
+    Ajax.sendRequest( new AjaxRequest(
+      "POST",
+      "/OpenForum/Actions/Save",
+      "returnType=json",
+      data,
+      function(data) {
+        callBack(JSON.parse(data));
+      },
+      null,
+      true));
+  } else {
+    return JSON.parse( Ajax.sendRequest( new AjaxRequest("POST","/OpenForum/Actions/Save","returnType=json",data,null,null,false)) );
+  }
+};
+
+OpenForum.saveJSON = function(fileName,data,callBack) {
+  data = JSON.stringify(data,null,4);
+  return OpenForum.saveFile(fileName,data,callBack);
+};
+
+OpenForum.saveXML = function(fileName,data,callBack) {
+  data = XMLSerializer.serializeToString(data);
+  return OpenForum.saveFile(fileName,data,callBack);
+};
+
+OpenForum.appendFile = function(fileName,data,callBack) {
+  var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
+  fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+
+  var parameters = "action=appendStringToFileNoBackup"+
+      "&arg0="+encodeURIComponent(pageName)+"&arg1="+encodeURIComponent(fileName)+"&arg2="+encodeURIComponent(data);
+
+  if(callBack) {
+    return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,callBack,null,true));
+  } else {
+    return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Javascript/OpenForumServer/File",parameters,null,null,null,false)) );
+  }
+};
+
+OpenForum.deleteFile = function(pageName,fileName,callBack) {
+
+  var parameters = "pageName="+pageName+
+      "&fileName="+fileName+
+      "&returnType=json";
+
+  if(callBack) {
+    return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Delete",parameters,null,
+                                             function(response) { callBack(response.deleted); },
+                                             null,true));
+  } else {
+    var response = Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Delete",parameters,null,null,null,false));
+    return JSON.parse( response ).deleted;
+  }
+};
+
+OpenForum.copyFile = function(fileName,toFileName,callBack) {
+  var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
+  fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+
+  var toPageName = toFileName.substring(0,toFileName.lastIndexOf("/"));
+  toFileName = toFileName.substring(toFileName.lastIndexOf("/")+1);
+
+  var parameters = "pageName="+pageName+
+      "&fileName="+fileName+
+      "&newPageName="+toPageName+
+      "&newFileName="+toFileName+
+      "&returnType=json";
+  if(callBack) {
+    return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Copy",parameters,null,callBack,null,true));
+  } else {
+    return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Copy",parameters,null,null,null,false)));
+  }
+};
+
+OpenForum.moveFile = function(fileName,toFileName,callBack) {
+  var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
+  fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+
+  var toPageName = toFileName.substring(0,toFileName.lastIndexOf("/"));
+  toFileName = toFileName.substring(toFileName.lastIndexOf("/")+1);
+
+  var parameters = "pageName="+pageName+
+      "&fileName="+fileName+
+      "&newPageName="+toPageName+
+      "&newFileName="+toFileName+
+      "&returnType=json";
+
+  if(callBack) {
+    return Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Move",parameters,null,callBack,null,true));
+  } else {
+    return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/Move",parameters,null,null,null,false)) );
+  }
+};
+
+OpenForum.fileExists = function(fileName) {
+  var pageName = fileName.substring(0,fileName.lastIndexOf("/"));
+  fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+
+  return JSON.parse( Ajax.sendRequest( new AjaxRequest("GET","/OpenForum/Actions/AttachmentExists","pageName="+pageName+"&fileName="+fileName,null,null,null,false)) );
+};
+
+OpenForum.uploadFile = function(id,pageName,callBack) {
+  var fileName = document.getElementById(id).file.value;
+  fileName = fileName.replace(/\\/g,"/");
+  fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+  var result = OpenForum.loadFile("/OpenForum/Actions/AttachmentExists?pageName="+pageName+"&fileName="+fileName);
+  if(result==="true" && confirm("Attachment "+fileName+" exists","Replace this attachment ?")===false ) {
+    return;
+  }
+
+  //Not working
+  //See: http://blog.teamtreehouse.com/uploading-files-ajax
+  if(callBack) {
+    document.getElementById(id).onsubmit = function(event) {
+      event.preventDefault();
+      callBack();
+    };
+  }
+
+  document.getElementById(id).action="/OpenForum/Actions/Attach?page="+pageName;
+  //document.getElementById(id).statusQueue.value = statusQueueName;
+  document.getElementById(id).submit();
+};
+
+
+/* End of: /OpenForum/Javascript/Core/open-forum-files.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-debug.js*/
+//==============================================================================================================//
+/*
+* Author: 
+* Description: 
+*/
+
+OpenForum.setDebugToConsole = function(state) {
+  if( state === true ) {
+    OpenForum.debug = function(type,message,exception) {
+      console.log( new Date().toLocaleTimeString() + " " + type + " " + message );
+      if(exception) {
+        if(exception.stack) {
+          console.log("Stack trace: " + exception.stack);
+        } else {
+          console.log("Exception: " + exception);
+        }
+      }
+    };
+  } else {
+    OpenForum.debug = function(type,message,exception) {};
+  }
+};
+
+OpenForum.debug = function(type,message,exception) {};
+/* End of: /OpenForum/Javascript/Core/open-forum-debug.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-json.js*/
+//==============================================================================================================//
+//---- JSON ----
+
+if( typeof(JSON)=="undefined" ) {
+  JSON = {};
+}
+
+JSON.get = function( page,action,parameters ) {
+  var request = {method: 'GET',page: page,action: action,parameters: parameters, onSuccess: JSON.onSuccess, onError: JSON.onError, go: JSON.go};
+  return request;
+};
+
+JSON.post = function( page,action,parameters ) {
+  var request = {method: 'POST',page: page,action: action,parameters: parameters, onSuccess: JSON.onSuccess, onError: JSON.onError, go: JSON.go};
+  return request;
+};
+JSON.onSuccess = function(onSuccess) {
+  this.onSuccess = function(data) {
+    //var object = JSON.parse(data);
+    var object = OpenForum.evaluate("("+data+")");
+    onSuccess(object);
+  };
+  return this;
+};
+JSON.onError = function(onError) {
+  this.onError = function(error) {
+    onError(error);
+  };
+  return this;
+};
+JSON.go = function() {
+  var request = null;
+  if(this.action && this.action !== null && this.action !== "") request = "action="+this.action;
+
+  if(this.method=="GET") {
+    if(this.parameters && this.parameters.length>0) {
+      request+="&"+this.parameters;
+    }
+    OpenForum.debug("INFO","JSON.get page:" + this.page + " request:" + request);
+    Ajax.sendRequest( new AjaxRequest(this.method,this.page,request,"",this.onSuccess,this.onError,true) );
+  } else {
+    if(this.parameters.length<200) {
+		OpenForum.debug("INFO","JSON.post page:" + this.page + " request:" + request + " parameters:" + this.parameters);
+    } else {
+		OpenForum.debug("INFO","JSON.post page:" + this.page + " request:" + request + " parameters:"+this.parameters.substring(0,200)+"... p;arameters size:" + this.parameters.length);
+    }
+    Ajax.sendRequest( new AjaxRequest(this.method,this.page,request,this.parameters,this.onSuccess,this.onError,true) );
+  }
+};
+/* End of: /OpenForum/Javascript/Core/open-forum-json.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-ajax-request.js*/
+//==============================================================================================================//
+//---- AjaxRequest ----
+
+requestCount = 0;
+function AjaxRequest(method,url,request,data,onSuccess,onError,asynchronous)
+{
+  var self=this;
+  self.id = "request_"+requestCount;
+  requestCount++;
+  eval( self.id+"=this;" );
+
+  self.method = method;
+  self.url = url;
+  self.request = request;
+  self.data = data;
+  self.onSuccess = onSuccess;
+  self.onError = onError;
+  self.asynchronous = asynchronous;
+  self.transaction = null;
+
+  this.processTransactionStateChange = function processTransactionStateChange(ev) {
+    if (self.transaction.readyState == 4) {
+      if (self.transaction.status == 200) {
+          onSuccess(self.transaction.responseText);
+      } else if (self.transaction.status === 0) {
+      } else {
+        onError( self.transaction.status,self.transaction.statusText );
+      }
+      eval( self.id+"=null;" );
+    }
+  };
+}
+/* End of: /OpenForum/Javascript/Core/open-forum-ajax-request.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-ajax.js*/
+//==============================================================================================================//
+//---- Ajax ----
+
+Ajax = new function() {
+
+  this.sendRequest = function sendRequest(request) {
+
+    request.transaction = false;
+
+    if(window.XMLHttpRequest)
+    {
+      try {
+        request.transaction = new XMLHttpRequest();
+      }
+      catch(e)
+      {
+        alert(e);
+        request.transaction = false;
+      }
+    }
+    else if(window.ActiveXObject)
+    {
+      try {
+        request.transaction = new ActiveXObject("Msxml2.XMLHTTP");
+      }
+      catch(e)
+      {
+        alert(e);
+        try {
+          request.transaction = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        catch(e)
+        {
+          alert(e);
+          request.transaction = false;
+        }
+      }
+    }
+    if(request.transaction)
+    {
+      if(request.asynchronous === true)
+      {
+        var fn = eval(request.id+".processTransactionStateChange");
+        request.transaction.onreadystatechange= function(ev){ fn(ev); };
+        if(request.request!==null && request.request.length>0) {
+          request.transaction.open(request.method, request.url+"?"+request.request,true);
+          request.transaction.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+          //request.transaction.setRequestHeader("If-Modified-Since", new Date(0));
+          request.transaction.send(request.data);
+		} else {
+          request.transaction.open(request.method, request.url,true);
+          request.transaction.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+          //request.transaction.setRequestHeader("If-Modified-Since", new Date(0));
+          request.transaction.send(request.data);
+        }
+      }
+      else
+      {
+        if(request.request!==null && request.request.length>0) {
+          request.transaction.open(request.method, request.url+"?"+request.request,false);
+          request.transaction.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        } else {
+          request.transaction.open(request.method, request.url,false);
+          request.transaction.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+        }
+        //request.transaction.setRequestHeader("If-Modified-Since", new Date(0));
+        request.transaction.send(request.data);
+        this.currentRequest=null;
+        return request.transaction.responseText;
+      }
+    }
+    else
+    {
+      alert("failed");
+    }
+  };
+
+};
+/* End of: /OpenForum/Javascript/Core/open-forum-ajax.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-ajax-post.js*/
+//==============================================================================================================//
+//---- Post ----
+
+function Post()
+{
+  this.data = [];
+
+  this.addItem = function(name,value)
+  {
+    this.item = [];
+    this.data[this.data.length] = this.item;
+    this.item[0] = name;
+    this.item[1] = value;
+    
+    return this;
+  };
+
+  this.addForm = function(formId) {
+    form = document.getElementById(formId);
+    for(var loop=0;loop<form.elements.length;loop++) {
+      name=form.elements[loop].name;
+      if(name.length>0) {
+        this.addItem(name,form.elements[loop].value);
+      }
+    }
+    
+    return this;
+  };
+  
+  this.getData = function() {
+    var dataString = "";
+    for(var entry in this.data) {
+      if(dataString.length>0) {
+        dataString +="&";
+      }
+      dataString += this.data[entry][0]+"="+encodeURIComponent(this.data[entry][1]);
+    }
+    return dataString;
+  };
+  //TODO add get parameters method like
+  /*
+      this.data="";
+    for(this.loop=0;this.loop<dataArray.length;this.loop++)
+    {
+      if(this.loop!=0)
+      {
+        this.data += "&";
+      }
+      this.data += dataArray[this.loop][0]+"="+encodeURIComponent(dataArray[this.loop][1]);
+    }
+    */
+}
+/* End of: /OpenForum/Javascript/Core/open-forum-ajax-post.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-tree.js*/
+//==============================================================================================================//
+//---- Tree ----
+
+var NextTreeNodeIndex = 0;
+var TreeNodes = [];
+
+function Tree(elementId,name,attributes,modifier) {
+  var self = this;
+  var jsonModifier = function(json) {
+    if(modifier) modifier(json);
+  };
+  
+  var root = new TreeNode(name,attributes,null,jsonModifier);
+
+  self.setJSONModifier = function(newModifier) {
+    modifier = newModifier;
+  };
+  
+  self.render = function() {
+    var element = document.getElementById(elementId);
+    element.innerHTML = root.render(0);
+    return this;
+  };
+  self.addChild = function(name,attributes) {
+    return root.addChild(name,attributes);
+  };
+  self.addJSON = function(node) {
+    return root.addJSON(node);
+  };
+  self.setJSON = function(node) {
+    root = root.addJSON(node);
+    root.setParent(null);
+    return root;
+  };
+  self.render();
+
+  self.expandAll = function() {
+    root.applyToChildren( function(child){ child.expand(); } );
+    root.expand();
+    return this;
+  };
+
+  self.collapseAll = function() {
+    root.applyToChildren( function(child){ child.collapse(); } );
+    root.collapse();
+    return this;
+  };
+  self.deleteChild = function(node) {
+    node.parent.deleteChild(node);
+    return this;
+  };
+  self.getRoot = function() {
+    return root;
+  };
+  self.expandPath = function(path) {
+
+    var nodePath = findPath(path);
+    if(nodePath!==null) {
+      nodePath.forEach( function(node) {node.expand(); } );
+      return true;
+    } else {
+      return false;
+    }
+  };
+  self.findNode = function(path) {
+    return findPath(path);
+  };
+  self.init = function() {};
+  var findPath = function(path) {
+    if(path.charAt(0)==="/") {
+      path = path.substring(1);
+    }
+    var parts = path.split("/");
+    var node = root;
+    var nodePath = [root];
+    for(var i=0;i<parts.length;i++) {
+      var children = node.getChildren();
+      for(var c=0;c<children.length;c++) {
+        if(children[c].getName()===parts[i]) {
+          node = children[c];
+          nodePath.push(node);
+          break;
+        }
+      }
+      if(c===children.length) {
+        return null; //No path match
+      }
+    }
+    return nodePath;
+  };
+}
+
+var NextActionId=0;
+var Actions = [];
+function Action(config) {
+  var self = this;
+  var fn = OpenForum.evaluate("("+config.fn+")");
+  var icon = config.icon;
+  var toolTip = config.toolTip;
+  
+  var id = "ActionId"+NextActionId;
+  NextActionId++;
+  Actions[id]=this;
+
+  icon = "/OpenForum/Images/icons/png/" + icon + ".png";
+
+  self.call = function(node) {
+    fn(node);
+  };
+  self.render = function(target)
+  {
+    data="&nbsp;<a href='#' onClick='Actions[\""+id+"\"].call("+target+");return false;'>"+
+      "<i style='background: url(\""+icon+"\") no-repeat scroll; min-width: 16px; min-height: 16px;	display: inline-block;' title='"+toolTip+"'></i></a>";
+    return data;
+  };
+}
+
+function TreeNode(name,attributes,newParent,jsonModifier) {
+  var self = this;
+  var id = "TreeNode"+NextTreeNodeIndex;
+  NextTreeNodeIndex++;
+  TreeNodes[id] = self;
+  var children = [];
+  var expanded = false;
+  var SPACE = "&nbsp;&nbsp;&nbsp;&nbsp;";
+  var localDepth = 0;
+  var lazyLoad = null;
+  var parent = newParent;
+
+  var paint = function() {
+    document.getElementById(id).innerHTML = self.render(localDepth);
+  };
+  self.paint = paint;
+  
+  self.getId = function() {
+    return id;
+  };
+
+  self.setLazyLoad = function(lazyLoadFn) {
+    lazyLoad = lazyLoadFn;
+    return this;
+  };
+
+  self.getParent = function() {
+    return parent;
+  };
+  
+  self.setParent = function(newParent) {
+    parent =  newParent;
+  };
+  
+  self.addChild = function(name,attributes) {
+    var newChild = new TreeNode(name,attributes,self,jsonModifier);
+    children[children.length] = newChild;
+    newChild.parent = self;
+    return newChild;
+  };
+
+  self.addJSON = function(node) {
+    if(jsonModifier!==null) jsonModifier(node);
+    var child = self.addChild( node.name,node.attributes );
+    if(node.leaves) {
+      for(var i in node.leaves) {
+        child.addJSON( node.leaves[i] );
+      }
+    }
+    return child;
+  };
+  
+  self.importJSON = function(url,action,parameters) {
+    JSON.get(url,action,parameters).onSuccess(
+      function(response) {
+        for(var i in response.leaves) {
+          self.addJSON( response.leaves[i] );
+        }
+        paint();
+      }
+    ).go();
+  };
+  
+  self.deleteChild = function(node) {
+    for(var index in children) {
+      if(children[index].getId()===node.getId()) {
+        children.splice(index,1);
+        return this;
+      }
+    }
+    return this;
+  };
+
+  self.isExpanded = function() {
+    return expanded;
+  };
+  
+  self.expand = function() {
+    if(lazyLoad!==null) {
+      lazyLoad(self);
+      lazyLoad = null;
+      return this;
+    }
+    if(parent && parent.isExpanded()===false) {
+      parent.expand();
+    }
+    expanded=true;
+    paint();
+    return this;
+  };
+  self.collapse = function() {
+    expanded=false;
+    paint();
+    return this;
+  };
+  self.toggle = function() {
+    expanded=!expand;
+    paint();
+    return this;
+  };
+  
+  self.render = function(depth) {
+    if(!depth) {
+      depth=0;
+    }
+    localDepth = depth;
+    var data = "";
+    data+="<span id='"+id+"' style='white-space: nowrap;'>";
+    for(var count=0;count<depth;count++) {
+      data+=SPACE;
+    }
+    if(children.length>0) {
+      if(expanded===false) {
+        data+="<a href='#' onClick='TreeNodes[\""+id+"\"].expand();return false;'>"+
+          "<i  style='background: url(\"/OpenForum/Images/icons/png/add.png\") no-repeat scroll; min-width: 16px; min-height: 16px;	display: inline-block;'></i></a>";
+      } else {
+        data+="<a href='#' onClick='TreeNodes[\""+id+"\"].collapse();return false;'>"+
+          "<i  style='background: url(\"/OpenForum/Images/icons/png/accept.png\") no-repeat scroll; min-width: 16px; min-height: 16px;	display: inline-block;'></i></a>";
+      }
+    } else {
+      data+="&nbsp;";
+    }
+    if(attributes && attributes.link) {
+
+      if(attributes.toolTip) {
+        data += "<a href=\"" + attributes.link + "\" title=\""+ attributes.toolTip +"\" target=\"_pageView\">";
+      } else {
+        data += "<a href=\"" + attributes.link + "\" target=\"_pageView\">";
+      }
+
+      if(attributes.icon) {
+        data += "<i style='background: url(\"/OpenForum/Images/icons/png/"+attributes.icon+".png\") no-repeat scroll; min-width: 16px; min-height: 16px;	display: inline-block;'></i>";
+      }
+      data += name;
+      data += "</a>";
+    } else {
+      if(attributes && attributes.icon) {
+        data += "<i style='background: url(\"/OpenForum/Images/icons/png/"+attributes.icon+".png\") no-repeat scroll; min-width: 16px; min-height: 16px;	display: inline-block;'></i>";
+      }
+      data += name;
+    }
+    if(attributes && attributes.actions) {
+      for(var actionIndex in attributes.actions) {
+        var actionConfig = attributes.actions[actionIndex];
+        var action = new Action(actionConfig);
+        data+=action.render("TreeNodes[\""+id+"\"]");
+      }
+    }
+    data+="<br/>";
+    if(expanded===true) {
+      for(var childIndex in children) {
+        data+=children[childIndex].render(depth+1);
+      }
+    }
+    data+="</span>";
+    return data;
+  };
+  self.getName = function() {
+    return name;
+  };
+  self.setName = function(newName) {
+    name = newName;
+  };
+  self.getAttribute = function(name) {
+    return attributes[name];
+  };
+  self.applyToChildren = function( fn ) {
+    children.forEach( function(child) { fn(child); } );
+  };
+  self.getChildren = function() {
+    return children;
+  };
+}
+
+OpenForum.createFileTree = function(id,root) {
+  var tree = new Tree(id,"Loading...","");
+  JSON.get("/OpenForum/Javascript/Tree","getPageTree","pageName="+root).onSuccess(
+    function(result) {
+      tree.setJSON(result);
+      tree.render();
+      tree.getRoot().expand();
+      tree.init();
+    }
+  ).go();
+
+  return tree;
+};
+/* End of: /OpenForum/Javascript/Core/open-forum-tree.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-js-extensions.js*/
+//==============================================================================================================//
+//---- String extra methods ----
+String.prototype.contains = function(start) {
+  return (this.indexOf(start)!==-1);
+};
+
+String.prototype.startsWith = function(start) {
+  return (this.indexOf(start)===0);
+};
+
+String.prototype.between = function(start,end) {
+  if(!this.contains(start) || !this.contains(end)) return;
+  return this.substring(this.indexOf(start)+start.length,this.indexOf(end));
+};
+
+String.prototype.before = function (end) {
+  if(!this.contains(end)) return;
+  return this.substring(0,this.indexOf(end));
+};
+
+String.prototype.after = function (start) {
+  if(!this.contains(start)) return;
+  return this.substring(this.indexOf(start)+start.length);
+};
+
+String.prototype.replaceAll = function(find,replace) {
+  return this.replace( new RegExp(find,"g"), replace);
+};
+
+String.prototype.padBefore = function(padding,targetLength) {
+  var result = this;
+  while(this.length<targetLength) {
+    result = padding+result;
+  }
+  return result;
+};
+
+String.prototype.padAfter = function(padding) {
+    var result = this;
+  while(result.length<targetLength) {
+    result = result+padding;
+  }
+  return result;
+};
+
+//---- Date extra methods
+Date.prototype.getDisplayString = function() {
+  return (""+this).substring(0,24);
+};
+
+Date.prototype.SECOND_IN_MILLIS = 1000;
+Date.prototype.MINUTE_IN_MILLIS = Date.prototype.SECOND_IN_MILLIS*60;
+Date.prototype.HOUR_IN_MILLIS = Date.prototype.MINUTE_IN_MILLIS*60;
+Date.prototype.DAY_IN_MILLIS = Date.prototype.HOUR_IN_MILLIS*24;
+
+Date.prototype.plusSeconds = function(seconds) {
+  this.setTime( this.getTime()+(this.SECOND_IN_MILLIS*seconds) );
+  return this;
+};
+Date.prototype.plusMinutes = function(minutes) {
+  this.setTime( this.getTime()+(this.HOUR_IN_MILLIS*minutes) );
+  return this;
+};
+Date.prototype.plusHours = function(hours) {
+  this.setTime( this.getTime()+(this.HOUR_IN_MILLIS*hours) );
+  return this;
+};
+Date.prototype.plusDays = function(days) {
+  this.setTime( this.getTime()+(this.DAY_IN_MILLIS*days) );
+  return this;
+};
+
+Date.prototype.plusMonths = function(months) {
+  this.setMonth( this.getMonth()+months );
+  return this;
+};
+
+Date.prototype.plusYears = function(years) {
+  this.setYear( this.getYears()+years );
+  return this;
+};
+
+Date.prototype.isAfter = function(date) {
+  return (this.getTime()>date.getTime());
+};
+
+Date.prototype.isBefore = function(date) {
+  return (this.getTime()<date.getTime());
+};
+
+//---- Async processing helper
+function Process() {
+  var callFn;
+  var waitTest;
+  var thenFn;
+
+  var self = this;
+
+  self.call = function(newCallFn) {
+    callFn = newCallFn;
+    return self;
+  };
+
+  self.waitFor = function(newWaitTest) {
+    waitTest = newWaitTest;
+    return self;
+  };
+
+  self.then = function(newThenFn) {
+    thenFn = newThenFn;
+    return self;
+  };
+
+  var wait = function() {
+    if(waitTest()===false) {
+      setTimeout(wait,100);
+    } else {
+      if(thenFn) thenFn();
+    }
+  };
+  
+  self.run = function(data) {
+    if(callFn) callFn(data);
+    wait();
+  };
+}
+/* End of: /OpenForum/Javascript/Core/open-forum-js-extensions.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-object.js*/
+//==============================================================================================================//
+//---- OpenForumObject ----
+
+function OpenForumObject(objectId) {
+  var self = this;
+  var id = objectId;
+  var value = null;
+  var targets=[];
+  var listeners=[];
+
+  OpenForum.debug("INFO","Object " + id + " created");
+
+  var notifyListeners = function() {
+    for(var listenerIndex in listeners) {
+      var listener = listeners[listenerIndex];
+      listener( self );
+
+      if(listener.getId) {
+        OpenForum.debug("INFO","Object " + id + " has notified " + listener.getId() + "of change");
+      }
+    }
+  };
+
+  self.getId = function() {
+    return id;
+  };
+
+  self.add = function(target) {
+    targets.push(target);
+
+    if(target.getId) {
+      OpenForum.debug("INFO","Object " + id + " has added new target " + target.getId());
+    } else {
+      OpenForum.debug("INFO","Object " + id + " has added new target " + target);
+    }
+  };
+
+  self.reset = function() {
+    value = null;
+  };
+
+  self.setValue = function(newValue,exclude,clone) {
+    if(OpenForum.isEqual(newValue,value)) {
+      return;
+    }
+
+    OpenForum.debug("INFO","Object " + id + " value set to " + newValue);
+
+    if(clone && typeof newValue == "object") {
+      value = OpenForum.clone(newValue);
+    } else {
+    	value = newValue;
+    }
+    for(var targetIndex in targets) {
+      var target = targets[targetIndex];
+      if(target===null) {
+        continue;
+      }
+      if(exclude && exclude===target) {
+        continue;
+      }
+      if(typeof(target.type)!="undefined" && target.type=="checkbox") {
+        target.checked = value;
+      } else if(typeof(target.type)!="undefined" && target.type=="select-multiple") {
+        for(var i in target.options) {
+          target.options[i].selected=false;
+          for(var j in value) {
+            if(target.options[i].value==value[j]) {
+              target.options[i].selected=true;
+            }
+          }
+        }
+        OpenForum.setGlobal(id,value);
+      } else if(typeof(target.value)!="undefined") {
+        target.value = value;
+      } else if(target.innerHTML) {
+        if(value==="") {
+          target.innerHTML = " "; 
+        } else {
+          target.innerHTML = ""+value;
+        }
+      }
+    }
+  };
+
+  self.getValue = function() {
+    return value;
+  };
+
+  self.scan = function() {
+    for(var targetIndex=0; targetIndex<targets.length; targetIndex++) {
+      try {
+        var target = targets[targetIndex];
+        if(target===null) {
+          continue;
+        }
+
+        if(typeof(target.type)!="undefined" && target.type=="checkbox") {
+          
+          if(target.checked!==value) {
+			//If UI has been checked
+            self.setValue(target.checked,target,true);
+            OpenForum.setGlobal(id,target.checked);
+            OpenForum.debug("INFO","Object (checkbox) " + id + " value set to " + value);
+            notifyListeners();
+            return;
+          }
+        } else if(target.type=="select-multiple") {
+          var selected = [];
+          for(var i in target.options) {
+            if(target.options[i].selected) selected.push(target.options[i].value);
+          }
+          //If UI selection changes
+          if(OpenForum.isEqual(value,selected)==false) {
+            self.setValue(selected,target,true);
+
+            OpenForum.setGlobal(id,selected);
+            OpenForum.debug("INFO","Object (select-multiple) " + id + " value set to " + selected);
+            notifyListeners();
+            return;
+          }
+        } else if(typeof(target.value)!="undefined") {
+          //If UI value changes
+          if(target.value!=value) {
+            self.setValue(target.value,target,true);
+            OpenForum.setGlobal(id,value);
+            OpenForum.debug("INFO","Object " + id + " value set to " + value);
+            notifyListeners();
+            return;
+          }
+        }
+      } catch(e) {
+        OpenForum.debug("ERROR","Object " + id + " error in setting value (case 1).", e);
+      }
+    }
+    try{
+      var testId = id;
+      if( OpenForum.globalExists(testId) ) {
+        //If bound js variable changes
+        if( OpenForum.isEqual(value,OpenForum.getGlobal(testId))===false) {
+          self.setValue(OpenForum.getGlobal(testId),null,true);
+          notifyListeners();
+        }
+      } else {
+        OpenForum.setGlobal(testId,value,true);
+        OpenForum.debug("INFO","Global object created " + testId + " and value set to " + value);
+      }
+    } catch(e) {
+      OpenForum.debug("ERROR","Object " + id + " error in setting value (case 2).", e);
+    }
+
+  };
+
+  self.addListener = function(listener) {
+    listeners.push(listener);
+    if(listener.getId) {
+      OpenForum.debug("INFO","Object " + id + " has added new listener " + listener.getId());
+    } else {
+      OpenForum.debug("INFO","Object " + id + " has added new listener " + listener);
+    }
+  };
+
+  self.getId = function() {
+    return id;
+  };
+
+  self.getTargets = function() {
+    return targets;
+  };
+}
+
+/* End of: /OpenForum/Javascript/Core/open-forum-object.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-table.js*/
+//==============================================================================================================//
+//---- OpenForumTable ----
+
+function OpenForumTable(node) {
+  var self = this;
+  var rowNode = node;
+  var tableNode = node.parentNode;
+  var value;
+  var id;
+
+  if(tableNode.attributes && tableNode.attributes['of-id']) {
+    id=tableNode.attributes['of-id'].value;
+    /*if( this.tableNode.value ) {
+      this.tableNode.value = eval(this.tableNode.id);
+      eval(this.tableNode.id+"=\""+this.value+"\";")
+    }*/
+  } else if(tableNode.id) {
+    id=tableNode.id;
+  } else {
+    id="OFTable"+OpenForum.getNextId();
+  } 
+
+  node.parentNode.removeChild(node);
+
+  var temp = document.createElement("table");
+  temp.appendChild(node);
+
+  var rowHTML = temp.innerHTML;
+  var repeatFor = node.attributes['of-repeatFor'].value;
+  var target = repeatFor.substring(repeatFor.indexOf(" in ")+4);
+  var element = repeatFor.substring(0,repeatFor.indexOf(" in "));
+  var targetObject = OpenForum.getObject(target);
+  var targetObjectSignature = OpenForum.createObjectSignature( targetObject.getValue() );
+
+  if(id.indexOf("OFTable")===0) id += "_" + repeatFor.replaceAll(" ","_");
+
+  OpenForum.debug("INFO","Added OpenForum table " + repeatFor + " as " + id);
+
+  var tableTop = tableNode.innerHTML;
+  tableNode.id = id;
+
+  self.setTableNode = function(newTableNode) {
+    tableNode = newTableNode;
+  };
+
+  self.reset = function() {
+    targetObjectSignature = null;
+    value = null;
+  };
+
+  self.refresh = function() {
+
+    try {
+      if(tableNode.attributes && tableNode.attributes['of-id'] && typeof tableNode.value != "undefined" ) {
+        //Not sure what the empty string was there for, but it stops select working
+        //if( this.tableNode.value!=this.value && this.value!="") {
+        if( tableNode.value!=value) {
+          value = tableNode.value;
+          OpenForum.setGlobal(tableNode.id,value);
+
+          OpenForum.debug("INFO","Table " + id + " value changed to " + value);
+        } else {
+          var newValue = OpenForum.getGlobal(tableNode.id);
+          if( typeof tableNode.value !== "undefined" && tableNode.value!=newValue && typeof newValue !== "undefined" && newValue !== null ) {
+            tableNode.value=newValue;
+            value = newValue;
+            if(tableNode.value === newValue) {
+              OpenForum.debug("INFO","Table " + id + " value changed to " + value);
+            }
+          }
+        }
+      }
+    } catch(e) {
+      OpenForum.debug("ERROR","Table " + id + " set value failed.", e);
+    }
+
+    //check if changed
+    var objectSignature = OpenForum.createObjectSignature( targetObject.getValue() );
+    if(objectSignature==targetObjectSignature) {
+      return;
+    }
+
+    var errors = false;
+    var tableData = tableTop;
+    var collection = targetObject.getValue();
+    for( var elementIndex in collection ) {
+      try {
+        var item = {};
+        item[element]= collection[elementIndex];
+        item[element].index = elementIndex;
+
+        var data = ""+rowHTML;
+        while(data.indexOf(OpenForum.FIELD_DELIMETER_START)!=-1) {
+          var name = data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_START)+2,data.indexOf(OpenForum.FIELD_DELIMETER_END));
+          var rowValue;
+          if(name.indexOf(".")===-1) {
+            if(name==element) {
+              rowValue = item[element];
+            } else {
+              rowValue = OpenForum.getGlobal(name);
+            }
+          } else {
+            var parts = name.split(".");
+            rowValue = item;
+            for(var part in parts) {
+              if(parts[part].indexOf("(")!==-1) {
+                var fn = parts[part].substring(0,parts[part].indexOf("("));
+                var call = parts[part].substring(parts[part].indexOf("("),parts[part].indexOf(")")).split(",");
+                rowValue = rowValue[fn].apply( this,call );
+              } else {
+                rowValue = rowValue[parts[part]];
+              }
+            }
+          }
+
+          data = data.substring(0,data.indexOf(OpenForum.FIELD_DELIMETER_START))+
+            rowValue+
+            data.substring(data.indexOf(OpenForum.FIELD_DELIMETER_END)+2);
+
+
+          if( tableNode.type=="select-one") {
+            if(OpenForum.getGlobal(id) === rowValue ) {
+              data = data.replace("selected=\"\"","selected");
+
+              OpenForum.debug("INFO","Table " + id + " selected  = " + rowValue);
+            } else {
+              data = data.replace("selected=\"\"","");
+            }
+          }
+        }
+        tableData += data;
+  
+      } catch(e) {
+        OpenForum.debug("ERROR","Table " + id + " refresh failed.", e);
+        //Fail quietly
+        errors = true;
+      }
+    }
+    OpenForum.debug("INFO","Table " + id + " updated.");  
+    tableNode.innerHTML=tableData;
+    //Only update the signature once the data is in the view without errors
+    if(errors==false) {
+    	targetObjectSignature=objectSignature;
+    }
+  };
+
+  self.getId = function() {
+    return id;
+  };
+}
+/* End of: /OpenForum/Javascript/Core/open-forum-table.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-browser.js*/
+//==============================================================================================================//
+if(!OpenForum) {
+  OpenForum = {};
+}
+
+OpenForum.Browser={};
+
+OpenForum.Browser.download = function(fileName,data){
+  var hiddenElement = document.createElement('a');
+  hiddenElement.href = 'data:attachment/text,' + encodeURI(data);
+  hiddenElement.target = '_blank';
+  hiddenElement.style.display = "none";
+  hiddenElement.download = fileName;
+  document.body.appendChild(hiddenElement);
+  hiddenElement.click();
+};
+
+OpenForum.Browser.upload = function(callback,onError) {
+   var hiddenElement = document.createElement('input');
+  hiddenElement.type = "file";
+  hiddenElement.style.display = "none";
+  hiddenElement.onchange = function(event) {
+     var reader = new FileReader();
+
+    reader.onload = function(event) {
+          if(event.target.readyState != 2) return;
+          if(event.target.error) {
+            if(onError) {
+              onError('Error while reading file');
+            } else {
+              alert('Error while reading file');
+            }
+              return;
+          }
+          callback( event.target.result );
+      };
+      reader.readAsText(event.target.files[0]);
+  };
+  document.body.appendChild(hiddenElement);
+  hiddenElement.click();
+};
+
+OpenForum.Browser.uploadDataUrl = function(callback,onError) {
+   var hiddenElement = document.createElement('input');
+  hiddenElement.type = "file";
+  hiddenElement.style.display = "none";
+  hiddenElement.onchange = function(event) {
+     var reader = new FileReader();
+
+    reader.onload = function(event) {
+          if(event.target.readyState != 2) return;
+          if(event.target.error) {
+            if(onError) {
+              onError('Error while reading file');
+            } else {
+              alert('Error while reading file');
+            }
+              return;
+          }
+          callback( event.target.result );
+      };
+      reader.readAsDataURL(event.target.files[0]);
+  };
+  document.body.appendChild(hiddenElement);
+  hiddenElement.click();
+};
+
+OpenForum.Browser.overrideSave = function(fn) {
+  $(document).bind('keydown', function(e) {
+  if(e.ctrlKey && (e.which == 83)) {
+    e.preventDefault();
+    fn();
+    return false;
+  }
+});
+};
+/* End of: /OpenForum/Javascript/Core/open-forum-browser.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-action.js*/
+//==============================================================================================================//
+OpenForum.action = {};
+OpenForum.action.copyPage = function(pageName,newPageName) {
+  window.open("/OpenForum/Actions/Copy?newPageName="+newPageName+"&pageName="+pageName);
+};
+
+OpenForum.action.movePage = function(pageName,newPageName) {
+  window.location = "/OpenForum/Actions/Move?newPageName="+newPageName+"&pageName="+pageName;
+};
+
+OpenForum.action.zipPage = function(pageName) {
+  window.location = "/OpenForum/Actions/Zip?action=zip&pageName="+pageName;
+};
+
+OpenForum.action.deletePage = function(pageName) {
+  window.location = "/OpenForum/Actions/Delete?pageName="+pageName;
+};
+
+/* End of: /OpenForum/Javascript/Core/open-forum-action.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-utils.js*/
+//==============================================================================================================//
+if(!OpenForum) {
+  OpenForum = {};
+}
+
+/*
+* Author: Nik Cross
+* Description: A set of functions to help with manipulating doms and js objects
+*/
+
+OpenForum.createObjectSignature = function(object) {
+  var cache = [];
+  var signature = JSON.stringify(object, function(key, value) {
+    if (typeof value === 'object' && value !== null) {
+      if (cache.indexOf(value) !== -1) {
+        // Circular reference found, discard key
+        return;
+      }
+      // Store value in our collection
+      cache.push(value);
+    }
+    return value;
+  });
+  cache = null;
+  return signature;
+};
+
+OpenForum.copyElement = function(id) {
+  document.getElementById(id).select();
+  document.execCommand('copy');
+};
+
+OpenForum.copyData = function(data) {
+  var hiddenElement = document.createElement('textarea');
+  hiddenElement.value = data;
+  document.body.appendChild( hiddenElement );
+  hiddenElement.select();
+  document.execCommand('copy');
+  document.body.removeChild( hiddenElement );
+};
+
+OpenForum.setElement = function(id,content) {
+  document.getElementById(id).innerHTML = content;
+};
+
+OpenForum.appendToElement = function(id,content) {
+  document.getElementById(id).innerHTML += content;
+};
+
+OpenForum.showElement = function(id) {
+  document.getElementById(id).style.display = "block";
+};
+
+OpenForum.hideElement = function(id) {
+  document.getElementById(id).style.display = "none";
+};
+
+OpenForum.toggleElement = function(id) {
+  if(document.getElementById(id).style.display==="block") {
+    document.getElementById(id).style.display = "none";
+  } else {
+    document.getElementById(id).style.display = "block";
+  }
+};
+
+OpenForum.getParameter = function( name ) {
+  name = name.replace(/[\[]/g,"\\\[").replace(/[\]]/g,"\\\]");
+  var regexS = "[\\?&]"+name+"=([^&#]*)";
+  var regex = new RegExp( regexS );
+  var results = regex.exec( window.location.href );
+  if( results === null )
+    return "";
+  else
+    return results[1];
+};
+
+OpenForum.getCookie = function(name) {
+  var nameEQ = name + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0;i < ca.length;i++)
+  {
+    var c = ca[i];
+    while (c.charAt(0)==' ')
+    {
+      c = c.substring(1,c.length);
+    }
+    if (c.indexOf(nameEQ) === 0)
+    {
+      return c.substring(nameEQ.length,c.length);
+    }
+  }
+  return null;
+};
+
+//Keep all the evil in one place
+OpenForum.evaluate = function(script) {
+  try{
+    return eval(script);
+  } catch (e) {
+    OpenForum.debug( "ERROR", "Exception evaluating '" + script + "'",e );
+    throw e;
+  }
+};
+
+OpenForum.globalExists = function( name ) {
+  name = name.replace(/\[/g,".").replace(/\]/g,"").replace(/'/g,"").replace(/\(.*\)/g,"");
+  var parts = name.split(".");
+  var obj = window;
+  for(var part in parts) {
+    if( typeof obj[parts[part]] === "undefined" ) return false;
+    obj = obj[parts[part]];
+  }
+
+  return true;
+};
+
+OpenForum.getGlobal = function( name ) {
+  name = name.replace(/\[/g,".").replace(/\]/g,"").replace(/'/g,"").replace(/\(.*\)/g,"");
+  var parts = name.split(".");
+  var obj = window;
+  for(var part in parts) obj = obj[parts[part]];
+
+  if(typeof obj === "function") return obj();
+  else return obj;
+};
+
+OpenForum.setGlobal = function( name,value,create ) {
+  name = name.replace(/\[/g,".").replace(/\]/g,"").replace(/'/g,"");
+  var parts = name.split(".");
+  var obj = window;
+  var i=0;
+  for(i=0; i<parts.length-1; i++) {
+    if( typeof obj[parts[i]] === "undefined" && create===true ) obj[parts[i]] = {};
+    obj = obj[parts[i]];
+  }
+
+  obj[parts[i]] = value;
+};
+
+OpenForum.isEqual = function(a,b) {
+  if(typeof b === undefined || typeof a === undefined) return false;
+  if(b === null && a === null) return true;
+  if(b === null || a === null) return false;
+  if(typeof a !== typeof b) return false;
+
+  if( typeof a === "object" ) {
+    if(a.length) {
+      if(!b.length || a.length!==b.length) return false;
+    }
+    if(b.length) {
+      if(!a.length || a.length!==b.length) return false;
+    }
+    for(var i in a) {
+      if(typeof b[i] === "undefined") return false;
+
+      if( OpenForum.isEqual(a[i],b[i])===false) return false;
+    }
+    return true;
+  } else {
+    return (a===b);
+  }
+};
+
+OpenForum.copyDifferencesFromTo = function(a,b,depth,minDepth,maxDepth) {
+  if(!minDepth) {
+    minDepth=1;
+  }
+  if(!maxDepth) {
+    maxDepth = 10;
+  }
+
+  if(!depth) {
+    depth=1;
+  }
+
+  if(depth>maxDepth) {
+    return null;
+  }
+
+  if( typeof a === "object" ) {
+    for(var i in a) {
+      if(!b[i]) {
+        //If it doesn't exist, create it
+        if(typeof a[i] === "object") {
+          var value;
+          if(a[i].length) value = OpenForum.copyDifferencesFromTo(a[i],[],depth+1,minDepth,maxDepth);
+          else value = OpenForum.copyDifferencesFromTo(a[i],{},depth+1,minDepth,maxDepth);
+          if(value!=null) {
+            if(depth<=maxDepth) {
+              b[i] = a[i];
+            } else {
+              return null;
+            }
+          } else {
+            b[i] = value;
+          }
+        } else {
+          b[i] = a[i];
+        }
+      } else if( OpenForum.isEqual(a[i],b[i])===false) {
+        //If it exists but is not equal, copy differences
+        var value = OpenForum.copyDifferencesFromTo(a[i],b[i],depth,minDepth,maxDepth);
+        if(value!=null) {
+          if(depth<=maxDepth) {
+          	b[i] = a[i];
+          } else {
+            return null;
+          }
+        }
+      }
+    }
+
+    for(var i in b) {
+      if(!a[b]) {
+        delete b[a];
+      }
+    }
+  } else {
+    return a;
+  }
+  return b;
+};
+
+OpenForum.clone = function(a) {
+  var b = {};
+  if(a.length) b = [];
+  OpenForum.copyDifferencesFromTo(a,b);
+  return b;
+};
+
+OpenForum.clean = function(a) {
+  if( typeof a === "object" ) {
+    for(var i in a) {
+      if(typeof a[i] === "object") {
+        a[i] = OpenForum.clean(a[i]);
+      } else if(typeof a[i] === "number") {
+        a[i] = 0;
+      } else if(typeof a[i] === "boolean") {
+        a[i] = true;
+      } else {
+        a[i] = "";
+      }
+    }
+  }
+  return a;
+};
+
+OpenForum.setInterval = function(fn,timePeriod,immediate,blocking,doesCallback) {
+  if(blocking) {
+    var blocked = false;
+    if(immediate) {
+      blocked = true;
+      try{
+        if(doesCallback) {
+        	fn( function() {blocked = false;} );
+        } else {
+        	fn();
+        	blocked = false;
+        }
+      } catch (e) {
+        blocked = false;
+      }
+    }
+    
+    return setInterval( function() {
+      if(blocked) return;
+      blocked = true;
+      try{
+        if(doesCallback) {
+        	fn( function() {blocked = false;} );
+        } else {
+        	fn();
+        	blocked = false;
+        }
+      } catch (e) {
+        blocked = false;
+      }
+    }, timePeriod );
+    
+  } else {
+    if(immediate) {
+      fn();
+      return setInterval(fn,timePeriod);
+    }
+  }
+};
+
+OpenForum.waitFor = function(test,callback,pause,timeout) {
+  if(!pause) pause=200;
+  if(!timeout) timeout = new Date().getTime()+30000;
+  else if( new Date().getTime()>timeout ) throw "Timeout waiting for " + test;
+
+  if(test()===true) {
+    callback();
+  } else {
+    setTimeout( 
+      function(test,callback,pause,timeout){ 
+        return function() { 
+          OpenForum.waitFor(test,callback,pause,timeout); 
+        }; 
+      }(
+        test,
+        callback,
+        pause
+      ),
+      pause
+    );
+  }
+};
+
+OpenForum.runAsync = function(fn) {
+  setTimeout( function() { fn(); },1 );
+};
+
+OpenForum.queue = function(process,supplyState) {
+  var test = OpenForum.queue.ready;
+  if(!test) test = function() { return true; };
+
+  OpenForum.queue.ready = function() { return (!OpenForum.processing); };
+  var state = {complete: false};
+  if(supplyState===true) {
+    OpenForum.queue.ready = function() { 
+      if(state.complete===true) delete OpenForum.processing;
+      return (state.complete); 
+    };
+  }
+
+  OpenForum.waitFor(
+    test,
+    function() {
+      OpenForum.processing = process;
+      process(state);
+      if(!supplyState) {
+        delete OpenForum.processing;
+      }
+    }
+  );
+};
+
+OpenForum.Table = {};
+
+OpenForum.Table.setCell = function(table,row,column,value) {
+  if(value) {
+  	table[row][column] = value;
+  } else {
+    //Is simple array so value is column
+  	table[row] = column;
+  }
+};
+
+OpenForum.Table.editRow = function(table,index) {
+  for(var i in table) {
+    table[i].view = "display: block;";
+    table[i].edit = "display: none;";
+  }
+  table[index].edit = "display: block;";
+  table[index].view = "display: none;";
+};
+
+OpenForum.jsonToCsv = function(json,delimiter) {
+  if(!delimiter) delimiter = "\t";
+  var csv = "";
+  if(Array.isArray(json)) {
+    for(var i in json) {
+      var row = json[i];
+
+      //add column name row
+      if(csv.length===0) {
+        for (var c in row) {
+          if(csv.length>0) {
+            csv+=delimiter;
+          }
+          csv += c;
+        }
+        csv += "\n";
+      }
+
+      //add row
+      var csvRow = "";
+      for (var r in row) {
+        if(csvRow.length>0) {
+          csvRow+=delimiter;
+        }
+        csvRow += row[r];
+      }
+      csv += csvRow +"\n";
+    }
+  } else if(typeof json === "object") {
+    for(var name in json) {
+      csv += name + delimiter + json[name] + "\n";
+    }
+  }
+  return csv;
+};
+
+OpenForum.Table.closeTable = function(table) {
+  for(var i in table) {
+    table[i].view = "display: block;";
+    table[i].edit = "display: none;";
+  }
+};
+
+OpenForum.Table.addRow = function(table) {
+  var newRow = OpenForum.clone( table[table.length-1] );
+  OpenForum.clean( newRow );
+  table.push( newRow );
+  OpenForum.Table.editRow(table,table.length-1);
+};
+
+OpenForum.Table.removeRow = function(table,index) {
+  var oldRow = table[index];
+  table.splice(index,1);
+  return oldRow;
+};
+
+/* End of: /OpenForum/Javascript/Core/open-forum-utils.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-storage.js*/
+//==============================================================================================================//
+if(!OpenForum) {
+  OpenForum = {};
+}
+OpenForum.Storage = {};
+
+OpenForum.Storage.get = function(key) {
+  return localStorage.getItem(key);
+};
+
+OpenForum.Storage.set = function(key,value) {
+  localStorage.setItem(key,value);
+};
+
+OpenForum.Storage.find = function(regex) {
+  var found = [];
+  for(var i in localStorage) {
+    if( i.match(regex)) {
+      found.push( {key: i, value: localStorage[i]} );
+    }
+  }
+  return found;
+};
+/* End of: /OpenForum/Javascript/Core/open-forum-storage.js*/
+
+//==============================================================================================================//
+//==============================================================================================================//
+/* Source: /OpenForum/Javascript/Core/open-forum-ofx.js*/
+//==============================================================================================================//
+/*
+* Author: Nik Cross
+* Description: A replacement for OpenForum JSON.get and JSON.post
+*/
+var OFX = {
+  get: function(url) {
+    var GET = function(url) {
+      var self = this;
+      var action;
+      var data;
+      var callBack;
+      var callOnError;
+      
+      self.withAction = function(newAction) {
+        action = newAction;
+        return self;
+      };
+      
+      self.withData = function(newData) {
+        data = newData;
+        return self;
+      };
+      
+      self.onSuccess = function(newCallBack) {
+        callBack = newCallBack;
+        return self;
+      };
+      
+      self.onError = function(newCallOnError) {
+        callOnError = newCallOnError;
+        return self;
+      };
+      
+      self.go = function() {
+        if(action) {
+          if(data) {
+            if(typeof data == "object") {
+              var dataString = "";
+              for(var name in data) {
+                if(dataString.length>0) dataString += "&";
+                dataString += name + "="+ data[name];
+              }
+              data = dataString;
+            }
+          }
+        	var get = JSON.get(url,action,data);
+          if(callBack) {
+            get = get.onSuccess( callBack );
+          }
+          if(callOnError) {
+            get = get.onError(callOnError);
+          }
+          get.go();
+        } else {
+          JSON.loadFile(url,callBack);
+        }
+      };
+    };
+    return new GET(url);
+  },
+  
+  post: function(url) {
+    var POST = function(url) {
+      var self = this;
+      var action;
+      var data;
+      var callBack;
+      var callOnError;
+      
+      self.withAction = function(newAction) {
+        action = newAction;
+        return self;
+      };
+      
+      self.withData = function(newData) {
+        data = newData;
+        return self;
+      };
+      
+      self.onSuccess = function(newCallBack) {
+        callBack = newCallBack;
+        return self;
+      };
+      
+      self.onError = function(newCallOnError) {
+        callOnError = newCallOnError;
+        return self;
+      };
+      
+      self.go = function() {
+        if(action) {
+          if(data) {
+            if(typeof data == "object") {
+              var dataString = "";
+              for(var name in data) {
+                if(dataString.length>0) dataString += "&";
+                dataString += name + "="+ data[name];
+              }
+              data = dataString;
+            }
+          }
+        	var post = JSON.post(url,action,data);
+          if(callBack) {
+            post = post.onSuccess( callBack );
+          }
+          if(callOnError) {
+            post = post.onError(callOnError);
+          }
+          post.go();
+        } else {
+          JSON.saveFile(url,data);
+        }
+      };
+    };
+    return new POST(url);
+  }
+};
+/* End of: /OpenForum/Javascript/Core/open-forum-ofx.js*/
+
+//==============================================================================================================//
+}}} </div>

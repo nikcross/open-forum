@@ -1,0 +1,33 @@
+<form>
+  <div class='row'>
+    <div class='large-6 columns'>
+      <label>Target File</label><input type='text' of-id='buildScript.targetFile' value='{{buildScript.targetFile}}' placeholder='target file to be built' />
+    </div>
+    <div class='large-6 columns'>
+      <label>Version File</label><input type='text' of-id='buildScript.versionFile' value='{{buildScript.versionFile}}' placeholder='location and name of versioned file' />
+    </div>
+  </div>
+  <div class='row'>
+    <div class='large-12 columns'>
+      !!Build Steps
+      <table>
+        <thead>
+        <tr>
+          <td>Action</td><td>FileName</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr of-repeatFor="step in buildScript.steps">
+         	<td>{{step.action}}</td><td>{{step.fileName}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='large-12 columns'>
+      <label>Source File</label><input type='text' of-id='buildScriptNewSourceFile' placeholder='source file to be applended' /> [{Button title="Add" function="addAppendStep"}]
+    </div>
+  </div>
+</form>
+[{Button title="Save" function="saveBuildScript"}]

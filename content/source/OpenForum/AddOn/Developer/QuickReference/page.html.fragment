@@ -1,0 +1,21 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>Developer Quick Reference</h3>
+
+
+
+<p>Manage developer resource links and file references</p>
+
+<b>Key Features</b>
+<ul><li> Store and manage developer file references</li>
+<li> Link storage pages to target pages</li>
+<li> File name tracking</li>
+<li> Editable table interface</li>
+</ul>
+
+<b>Use Cases</b>
+<ul><li> Developer resource management</li>
+<li> File reference tracking</li>
+<li> Quick access to development files</li>
+<li> Cross-page file linking</li>
+</ul>
+<!--Extension InsertSourceFile fileName="page.js" --><a href="//OpenForum/AddOn/Developer/QuickReference/page.js">//OpenForum/AddOn/Developer/QuickReference/page.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/AddOn/Developer/QuickReference&fileName=page.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel"></xmp><!--End Extension InsertSourceFile fileName="page.js" -->

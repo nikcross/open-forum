@@ -1,0 +1,7 @@
+<br/>
+<div class="row">
+  [[
+        !!Add Ons
+        [{ChildPagesList pageName="/OpenForum/AddOn" newTab="true"}]
+    ]]
+</div>

@@ -1,0 +1,29 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+<h3>CKEditor</h3>
+
+<textarea of-id="ck_data" id="ck_content" rows="10">
+  1234
+</textarea>
+
+<hr/>
+<a href="https://ckeditor.com/docs/ckeditor5/latest/builds/guides/quick-start.html" target="external_page">Source</a>
+
+<hr/>
+<h3>Child Pages</h3>
+<!--Extension ChildPagesList pageName="/OpenForum/Javascript/CKEditor" --><!--End Extension ChildPagesList pageName="/OpenForum/Javascript/CKEditor" -->
+
+<hr/>
+<h3>Attachments</h3>
+<!--Extension AttachmentsList pageName="/OpenForum/Javascript/CKEditor" matching=".*" --><ul><li> <a href="/OpenForum/Javascript/CKEditor/ck-classic-editor.js">/OpenForum/Javascript/CKEditor/ck-classic-editor.js</a></li>
+<li> <a href="/OpenForum/Javascript/CKEditor/CKEditor.wiki.zip">/OpenForum/Javascript/CKEditor/CKEditor.wiki.zip</a></li>
+<li> <a href="/OpenForum/Javascript/CKEditor/page.js">/OpenForum/Javascript/CKEditor/page.js</a></li>
+<li> <a href="/OpenForum/Javascript/CKEditor/page.content">/OpenForum/Javascript/CKEditor/page.content</a></li>
+<li> <a href="/OpenForum/Javascript/CKEditor/ck-document-editor.js">/OpenForum/Javascript/CKEditor/ck-document-editor.js</a></li>
+<li> <a href="/OpenForum/Javascript/CKEditor/ck-inline-editor.js">/OpenForum/Javascript/CKEditor/ck-inline-editor.js</a></li>
+<li> <a href="/OpenForum/Javascript/CKEditor/release-info.json">/OpenForum/Javascript/CKEditor/release-info.json</a></li>
+<li> <a href="/OpenForum/Javascript/CKEditor/page.html.fragment">/OpenForum/Javascript/CKEditor/page.html.fragment</a></li>
+<li> <a href="/OpenForum/Javascript/CKEditor/data.json">/OpenForum/Javascript/CKEditor/data.json</a></li>
+<li> <a href="/OpenForum/Javascript/CKEditor/page.html">/OpenForum/Javascript/CKEditor/page.html</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/Javascript/CKEditor" matching=".*" -->
+</div>

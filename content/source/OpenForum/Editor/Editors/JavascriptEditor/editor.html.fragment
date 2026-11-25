@@ -1,0 +1,22 @@
+<div id="javascriptEditor" style="height: 100%;"><textarea id="editor{{editorIndex}}Src" style="hight: 100%;">Loading...</textarea></div>
+
+<div id="jsonSearch" class="reveal-modal" data-reveal aria-labelledby="jsonSearchModalTitle" aria-hidden="true" role="dialog">
+  <form>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>Find Path To Node</label> <input type='text' of-id="javascriptEditor_jsonNode" placeholder=' ' />
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <a class="button" onClick="editors['{{editorIndex}}'].getEditor().findPath(); return false;">Find Json Node Path</a>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-12 columns'>
+        {{javascriptEditor_foundJsonPaths}}
+      </div>
+    </div>
+  </form>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

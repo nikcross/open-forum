@@ -1,0 +1,20 @@
+!!!Moved to [/OpenForum/AddOn/VirtualAssistant]
+
+<a href="#" id='startButton' class="button tiny success" onClick="loadAssistant(); document.getElementById('startButton').style.display='none'; document.getElementById('assistant').style.display='block'; return false;">Load Assistant</a>
+<div id="assistant" style="display: none; height: 80%">
+  !!&title; <canvas id="canvas" width="40" height="40"></canvas>
+  <div class="row" id="conversation" style="overflow: scroll; max-height: 80%; min-height: 50%">
+  </div>
+
+  <div class="row">
+    <div class="large-12 columns">
+      <input class='panel callout radius' type="text" id="message" onkeypress="sendTypedMessage(event.keyCode);" style="height: 2em; font-size: 3em;" />
+    </div>
+  </div>
+</div>
+----
+[{InsertSourceFile soucrePageName="/OpenForum/Javascript/VirtualAssistant" fileName="page.js"}]
+----
+[{InsertSourceFile soucrePageName="/OpenForum/Javascript/VirtualAssistant" fileName="config.json"}]
+----
+[{InsertSourceFile soucrePageName="/OpenForum/Javascript/VirtualAssistant" fileName="virtual-assistant.js"}]

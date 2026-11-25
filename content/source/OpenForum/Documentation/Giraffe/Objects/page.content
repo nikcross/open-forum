@@ -1,0 +1,27 @@
+<table><tr>
+<td style="width: 200px;">
+<h3>Objects</h3>
+<ul>
+<li><a href="#" onclick="return showObject('dashedLine');">Dashed Line</a></li>
+<li><a href="#" onclick="return showObject('clearanceCircle');">Clearance Circle</a></li>
+<li><a href="#" onclick="return showObject('beaker');">Beaker</a></li>
+<li><a href="#" onclick="return showObject('clock');">Clock</a></li>
+<li><a href="#" onclick="return showObject('clockFace');">Clock Face</a></li>
+<li><a href="#" onclick="return showObject('cog');">Cog</a></li>
+<li><a href="#" onclick="return showObject('compass');">Compass</a></li>
+<li><a href="#" onclick="return showObject('door');">Door</a></li>
+<li><a href="#" onclick="return showObject('geneView');">GeneView</a></li>
+<li><a href="#" onclick="return showObject('compassFace');">CompassFace</a></li>
+<li><a href="#" onclick="return showObject('solarCompass');">SolarCompass</a></li>
+<li><a href="#" onclick="return showObject('ladder');">Ladder</a></li>
+<li><a href="#" onclick="return showObject('thermometer');">Thermometer</a></li>
+<li><a href="#" onclick="return showObject('dial');">Dial</a></li>
+</ul>
+</td>
+<td><canvas id="exampleCanvas" width="400" height="400" style="border: solid 1px;"></canvas></td>
+</tr>
+</table>
+
+----
+
+[{AttachmentsList matching="js"}]

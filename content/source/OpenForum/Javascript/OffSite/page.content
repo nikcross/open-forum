@@ -1,0 +1,20 @@
+!!&title;
+
+!!!OpenForum OffSite Javascript {{version}}
+!!Latest build {{buildDate}}
+* Lines of code {{lines}}
+* Size {{size}} KB
+
+<xmp>
+[{InsertFile pageName="/OpenForum/Javascript/OffSite" fileName="OpenForumOffSite.js"}]
+</xmp>
+  
+----
+!!Child Pages
+[{ChildPagesList pageName="&pageName;"}]
+
+----
+!!Build Script
+<xmp>
+[{InsertFile pageName="/OpenForum/Javascript/OffSite" fileName="script.build.json"}]
+</xmp>

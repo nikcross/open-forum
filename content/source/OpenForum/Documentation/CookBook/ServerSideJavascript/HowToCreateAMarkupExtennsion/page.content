@@ -1,0 +1,17 @@
+# Create a page /OpenForum/Extensions/{my extension}
+# Add a file renderer.sjs
+# Add script to get parameters eg.
+{{{
+var thePageName = extension.getAttribute("pageName");
+}}}
+# Check for parameters
+{{{
+if( typeof(thePageName)!="undefined" ) {
+	//Do something with thePageName
+}
+}}}
+# Render some html
+# Return the html
+{{{
+return myText;
+}}}

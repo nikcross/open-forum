@@ -1,0 +1,17 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release--><ol><li> Create a page /OpenForum/Extensions/{my extension}</li>
+<li> Add a file renderer.sjs</li>
+<li> Add script to get parameters eg.</li>
+<xmp class="panel" of-exclude="true">
+var thePageName = extension.getAttribute("pageName");
+</xmp>
+<li> Check for parameters</li>
+<xmp class="panel" of-exclude="true">
+if( typeof(thePageName)!="undefined" ) {
+	//Do something with thePageName
+}
+</xmp>
+<li> Render some html</li>
+<li> Return the html</li>
+<xmp class="panel" of-exclude="true">
+return myText;
+</xmp></ol>

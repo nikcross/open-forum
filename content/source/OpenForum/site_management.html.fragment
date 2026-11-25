@@ -1,0 +1,142 @@
+<!--DefaultRenderer v1.08 2021 Covid release-->
+<br/>
+<div class="row">
+  <div class="columns large-4">
+<div class="panel callout radius">
+  <h3>Site Administration </h3>
+        <!--Extension ChildPagesList pageName="/OpenForum/Configuration" newTab="true" --><ul><li> <a href="/OpenForum/Configuration/Aliases" target="newTab">Aliases<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Configuration/DynamicPages" target="newTab">DynamicPages<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Configuration/PageRedirectList" target="newTab">PageRedirectList<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Configuration/ParameterRedirectList" target="newTab">ParameterRedirectList<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum/Configuration" newTab="true" -->
+<ul><li><a href="/OpenForum/DeletedPages" target="newTab">/OpenForum/DeletedPages<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li><a href="/OpenForum/MissingPages" target="newTab">/OpenForum/MissingPages<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li><a href="/OpenForum/ErrorPages" target="newTab">/OpenForum/ErrorPages<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li><a href="/OpenForum/HomePage" target="newTab">/OpenForum/HomePage<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li><a href="/OpenForum/Images" target="newTab">/OpenForum/Images<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li><a href="/OpenForum/SiteExplorer" target="newTab">/OpenForum/SiteExplorer<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li><a href="/OpenForum/Journal" target="newTab">/OpenForum/Journal<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li><a href="/OpenForum/PublishingJournal" target="newTab">/OpenForum/PublishingJournal<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li><a href="/OpenForum/ReleasedPackages" target="newTab">/OpenForum/ReleasedPackages<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+  </ul></div>
+      <div class="panel callout radius">
+        <h3>File Editors</h3>
+        <!--Extension ChildPagesList pageName="/OpenForum/Editor/Editors" newTab="true" --><ul><li> <a href="/OpenForum/Editor/Editors/CKEditor" target="newTab">CKEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Editors/CSSEditor" target="newTab">CSSEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Editors/ContentView" target="newTab">ContentView<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Editors/DefaultEditor" target="newTab">DefaultEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Editors/HTMLEditor" target="newTab">HTMLEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Editors/JavascriptEditor" target="newTab">JavascriptEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Editors/MarkDownEditor" target="newTab">MarkDownEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Editors/PythonEditor" target="newTab">PythonEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Editors/SQLEditor" target="newTab">SQLEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Editors/SimpleHTMLEditor" target="newTab">SimpleHTMLEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Editors/WYSIWYGEditor" target="newTab">WYSIWYGEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor" target="newTab">WYSIWYGMarkDownEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Editors/XMLEditor" target="newTab">XMLEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Editors/YAMLEditor" target="newTab">YAMLEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum/Editor/Editors" newTab="true" -->
+        </div>
+      <div class="panel callout radius">
+        <h3>File Editor Plugins</h3>
+        <!--Extension ChildPagesList pageName="/OpenForum/Editor/Plugins" newTab="true" --><ul><li> <a href="/OpenForum/Editor/Plugins/ClientConsole" target="newTab">ClientConsole<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/Console" target="newTab">Console<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/DataTransform" target="newTab">DataTransform<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/FileDiff" target="newTab">FileDiff<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/FormBuilder" target="newTab">FormBuilder<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/GameConsole" target="newTab">GameConsole<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/Giraffe" target="newTab">Giraffe<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/History" target="newTab">History<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/JavascriptBuilder" target="newTab">JavascriptBuilder<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/JavascriptConsole" target="newTab">JavascriptConsole<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/PageManager" target="newTab">PageManager<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/PagePreview" target="newTab">PagePreview<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/PluginGenerator" target="newTab">PluginGenerator<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/PluginTemplate" target="newTab">PluginTemplate<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/RemoteEditor" target="newTab">RemoteEditor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/ServerConsole" target="newTab">ServerConsole<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/Service" target="newTab">Service<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/ServiceGenerator" target="newTab">ServiceGenerator<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/TableBuilder" target="newTab">TableBuilder<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/Video" target="newTab">Video<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor/Plugins/Vision" target="newTab">Vision<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum/Editor/Plugins" newTab="true" -->
+        </div>
+  </div>
+  <div class="columns large-4">
+    <div class="panel callout radius">
+        <h3>File Templates</h3>
+        <!--Extension ChildPagesList pageName="/OpenForum/FileTemplates" newTab="true" --><ul><li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/css"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/css does not exist. Click to create it." target="newTab">css<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/FileTemplates/default" target="newTab">default<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/FileTemplates/folder" target="newTab">folder<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/gif"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/gif does not exist. Click to create it." target="newTab">gif<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/grfxml"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/grfxml does not exist. Click to create it." target="newTab">grfxml<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/html"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/html does not exist. Click to create it." target="newTab">html<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/jpg"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/jpg does not exist. Click to create it." target="newTab">jpg<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/FileTemplates/js" target="newTab">js<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/link"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/link does not exist. Click to create it." target="newTab">link<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/FileTemplates/md" target="newTab">md<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <input type='radio' /></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/png"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/png does not exist. Click to create it." target="newTab">png<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/FileTemplates/py" target="newTab">py<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/sjs"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/sjs does not exist. Click to create it." target="newTab">sjs<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/FileTemplates/sql" target="newTab">sql<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/txt"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/txt does not exist. Click to create it." target="newTab">txt<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/uninstall"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/uninstall does not exist. Click to create it." target="newTab">uninstall<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <input type='checkbox' /></li>
+<li> <a href="/OpenForum/FileTemplates/yaml" target="newTab">yaml<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/FileTemplates/zip"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/FileTemplates/zip does not exist. Click to create it." target="newTab">zip<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum/FileTemplates" newTab="true" -->
+        </div>
+  <div class="panel callout radius">
+        <h3>Page Templates</h3>
+        <!--Extension ChildPagesList pageName="/OpenForum/PageTemplates" newTab="true" --><ul><li> <a href="/OpenForum/PageTemplates/Alloy-WYSIWYG" target="newTab">Alloy-WYSIWYG<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/Application" target="newTab">Application<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/Blank" target="newTab">Blank<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/Branding" target="newTab">Branding<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/CommonElements" target="newTab">CommonElements<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/Default" target="newTab">Default<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/EditorApp" target="newTab">EditorApp<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/Example" target="newTab">Example<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/Footer" target="newTab">Footer<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/Frameworks" target="newTab">Frameworks<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/Html" target="newTab">Html<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/MarkDown" target="newTab">MarkDown<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/PageInDevelopment" target="newTab">PageInDevelopment<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/PublishedPage" target="newTab">PublishedPage<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/PageTemplates/TechnicalDocument" target="newTab">TechnicalDocument<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum/PageTemplates" newTab="true" -->
+    </div>
+  </div>
+  <div class="columns large-4">
+    <div class="panel callout radius">
+        <h3>Services</h3>
+<ul><li><a href="/OpenForum/Giraffe" target="newTab">/OpenForum/Giraffe<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li><a href="/OpenForum/MessageQueue" target="newTab">/OpenForum/MessageQueue<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li><a href="/OpenForum/Processor" target="newTab">/OpenForum/Processor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+  </ul></div>
+     <div class="panel callout radius">
+        <h3>Server</h3>
+<ul><li><a href="/OpenForum/SystemMonitor">/OpenForum/SystemMonitor</a>  </li>
+        <!--Extension ChildPagesList pageName="/OpenForum/SystemMonitor" newTab="true" --><ul><li> <a href="/OpenForum/SystemMonitor/JavascriptMonitor" target="newTab">JavascriptMonitor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/SystemMonitor/QueueManager" target="newTab">QueueManager<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/SystemMonitor/SessionStoreMonitor" target="newTab">SessionStoreMonitor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/SystemMonitor/SystemLogs" target="newTab">SystemLogs<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/SystemMonitor/SystemStoreMonitor" target="newTab">SystemStoreMonitor<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum/SystemMonitor" newTab="true" -->
+</ul></div>
+     <div class="panel callout radius">
+       <h3>Triggers</h3>
+          <!--Extension ChildPagesList pageName="/OpenForum/Triggers" newTab="true" --><ul><li> <a href="/OpenForum/Triggers/PageChangeTrigger" target="newTab">PageChangeTrigger<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Triggers/QuickReference" target="newTab">QuickReference<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Triggers/RebuildTrigger" target="newTab">RebuildTrigger<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Triggers/StartTrigger" target="newTab">StartTrigger<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Triggers/TimerTrigger" target="newTab">TimerTrigger<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum/Triggers" newTab="true" -->
+       </div>
+     <div class="panel callout radius">
+          <h3>Site Spider</h3>
+<ul><li><a href="/OpenForum/Spider" target="newTab">/OpenForum/Spider<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+       </ul></div>
+  </div>
+</div>

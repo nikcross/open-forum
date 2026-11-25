@@ -1,0 +1,29 @@
+<div class="row">
+!!Sever Side Javascript Helpers Kitchen Sink
+
+<ul class="tabs horizontal" data-tab>
+  <li class="tab-title active"><a href="#openForum">openForum</a></li>
+  <li class="tab-title"><a href="#external">external</a></li>
+  <li class="tab-title"><a href="#file">file</a></li>
+  <li class="tab-title"><a href="#js">js</a></li>
+</ul>
+<div class="tabs-content">
+  <div class="content active" id="openForum">
+    <p>[{InsertFile pageName="/OpenForum/Documentation/OpenForumServerSideJavascript" fileName="openForum.page.content"}]</p>
+    __Edit [http://open-forum.onestonesoup.org/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumServerSideJavascript&fileName=openForum.page.content] __
+  </div>
+  <div class="content" id="external">
+    <p>[{InsertFile pageName="/OpenForum/Documentation/OpenForumServerSideJavascript" fileName="external.page.content"}]</p>
+    __Edit [http://open-forum.onestonesoup.org/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumServerSideJavascript&fileName=external.page.content] __
+  </div>
+  <div class="content" id="file">
+    <p>[{InsertFile pageName="/OpenForum/Documentation/OpenForumServerSideJavascript" fileName="file.page.content"}]</p>
+    __Edit [http://open-forum.onestonesoup.org/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumServerSideJavascript&fileName=file.page.content] __
+  </div>
+  <div class="content" id="js">
+    <p>[{InsertFile pageName="/OpenForum/Documentation/OpenForumServerSideJavascript" fileName="js.page.content"}]</p>
+    __Edit [http://open-forum.onestonesoup.org/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumServerSideJavascript&fileName=js.page.content] __
+  </div>
+</div>
+  
+</div>

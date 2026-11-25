@@ -1,0 +1,9 @@
+{
+  "requires": [
+    {"pageName": "/OpenForum/Javascript/SpeechRecognition" },
+    {"pageName": "/OpenForum/Javascript/SpeechSynthesis" },
+    {"pageName": "/OpenForum/Javascript/Sound" }
+  ],
+    "notes": "Speech controlled web page app support",
+      "version": "0.0.0"
+}

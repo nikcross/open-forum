@@ -1,0 +1,21 @@
+{
+    "editors": [
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/MarkDownEditor",
+            "fileName": "page.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/MarkDownEditor",
+            "fileName": "page.content"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/MarkDownEditor",
+            "fileName": "editor.js"
+        }
+    ],
+    "pageName": "/OpenForum/Editor/Editors/MarkDownEditor",
+    "fileName": "editor-config.json"
+}

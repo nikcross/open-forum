@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="columns large-12">
+    !!&title;
+  </div>
+</div>
+
+<div class="row">
+  <div class="columns large-5">
+    <div id="tree"></div>
+  </div>
+  <div class="columns large-7">
+    [{InsertSourceFile pageName="/OpenForumDocumentation/CookBook/BuildATreeUI" fileName="page.js"}]
+  </div>
+</div>

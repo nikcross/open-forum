@@ -1,0 +1,42 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+  <div class="large-6 columns">
+    <h3>As A Docker Container (recommended)</h3>
+    <p>This is the simplest and recommended way to install OpenForum</p>
+<ul><li> Create docker folder and create Dockerfile</li>
+<li> Edit Dockerfile</li>
+<li> docker run ...</li>
+</ul>
+
+  </div>
+  <div class="large-6 columns">
+    <h3>As A Zip File</h3>
+    <p>This process is required where Docker is not available such as on 32 bit operating systems or other unsupported hardware.</p>
+
+    <p>Download the latest version. This will include the Jetty web server
+    <xmp class="panel" of-exclude="true">
+    wget http://open-forum.onestonesoup.org/Releases/Latest/OpenForum.zip
+    </xmp>
+    </p>
+
+    <p>Create a directory for open-forum then unzip the file to the new directory    
+    <xmp class="panel" of-exclude="true">
+    unzip OpenForum.zip
+
+    Structure:
+    	changes
+    	jetty
+    	source
+    </xmp>
+    </p>
+
+    <p>Start the OpenForum server
+    <xmp class="panel" of-exclude="true">
+    cd jetty
+    java -jar start.jar
+    </xmp>
+    </p>
+
+    <p>Open OpenForum in a browser. <a href="http://localhost:1234" target="external_page">http://localhost:1234</a></p>
+  </div>
+</div>

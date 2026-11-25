@@ -1,0 +1,13 @@
+!!&title; Moved to [/OpenForum/AddOn/Audio/AudioMonitor]
+<div class="row" id="consent" style="display: block;">
+  ((This page will listen to your microphone.))
+  [{ActionButton action="initAudioMonitor" text="OK"}]
+</div>
+<div class="row"  id="monitor" style="display: none;">
+<a href="#" onClick="startAudioMonitor(); return false;" class="button">Start</a>
+<a href="#" onClick="stopAudioMonitor(); return false;" class="button">Stop</a>
+<div class="row">
+	!!Volume level {{volume}}
+	<canvas id="canvas" width="512" height="400" style="border: solid 1px;"></canvas>
+</div>
+</div>

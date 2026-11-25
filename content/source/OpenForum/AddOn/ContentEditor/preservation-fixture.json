@@ -1,0 +1,118 @@
+{
+ "page": {
+  "schemaVersion": 1,
+  "pageId": "page_golden",
+  "title": "Golden",
+  "slug": "/golden",
+  "status": "draft",
+  "seo": {},
+  "root": {
+   "id": "root_1",
+   "type": "page-root",
+   "definitionVersion": 1,
+   "fields": {},
+   "style": {},
+   "children": [
+    {
+     "id": "section_1",
+     "type": "section",
+     "definitionVersion": 1,
+     "fields": {},
+     "style": {
+      "background": "subtle",
+      "spacingTop": {
+       "base": "space-4",
+       "phone": "space-2"
+      }
+     },
+     "children": [
+      {
+       "id": "heading_1",
+       "type": "heading",
+       "definitionVersion": 1,
+       "fields": {
+        "text": "Golden <title>",
+        "level": "h1"
+       },
+       "style": {
+        "alignment": "center"
+       }
+      },
+      {
+       "id": "rich_1",
+       "type": "rich-text",
+       "definitionVersion": 1,
+       "fields": {
+        "body": {
+         "format": "editor-rich-text-v1",
+         "html": "<p>Body <strong>text</strong></p>"
+        }
+       },
+       "style": {}
+      },
+      {
+       "id": "image_1",
+       "type": "image",
+       "definitionVersion": 1,
+       "fields": {
+        "mediaId": "m1",
+        "mediaUrl": "/img/a.png",
+        "alt": "An image",
+        "decorative": false
+       },
+       "style": {
+        "width": "content"
+       }
+      },
+      {
+       "id": "button_1",
+       "type": "button",
+       "definitionVersion": 1,
+       "fields": {
+        "text": "Go",
+        "href": "/next"
+       },
+       "style": {
+        "alignment": "right"
+       }
+      },
+      {
+       "id": "two_1",
+       "type": "two-column",
+       "definitionVersion": 1,
+       "fields": {},
+       "style": {},
+       "slots": {
+        "columnA": [
+         {
+          "id": "heading_2",
+          "type": "heading",
+          "definitionVersion": 1,
+          "fields": {
+           "text": "A",
+           "level": "h3"
+          },
+          "style": {}
+         }
+        ],
+        "columnB": [
+         {
+          "id": "spacer_1",
+          "type": "spacer",
+          "definitionVersion": 1,
+          "fields": {
+           "height": "space-4"
+          },
+          "style": {}
+         }
+        ]
+       }
+      }
+     ]
+    }
+   ]
+  }
+ },
+ "html": "<div class=\"ce-page\" data-element-id=\"root_1\" data-element-type=\"page-root\"><section class=\"ce-section\" data-element-id=\"section_1\" data-element-type=\"section\" style=\"background-color: #f4f4f4; padding-top: 16px\"><h1 class=\"ce-heading\" data-element-id=\"heading_1\" data-element-type=\"heading\" style=\"text-align: center\" data-field-id=\"text\">Golden &lt;title&gt;</h1><div class=\"ce-rich-text\" data-element-id=\"rich_1\" data-element-type=\"rich-text\" data-field-id=\"body\"><p>Body <strong>text</strong></p></div><img class=\"ce-image\" data-element-id=\"image_1\" data-element-type=\"image\" style=\"width: 720px\" data-field-id=\"mediaId\" src=\"/img/a.png\" alt=\"An image\"/><a class=\"ce-button\" data-element-id=\"button_1\" data-element-type=\"button\" style=\"display: block; width: fit-content; margin-left: auto; margin-right: 0\" data-field-id=\"text\" href=\"/next\">Go</a><div class=\"ce-two-column\" data-element-id=\"two_1\" data-element-type=\"two-column\"><div class=\"ce-column\" data-slot=\"columnA\"><h3 class=\"ce-heading\" data-element-id=\"heading_2\" data-element-type=\"heading\" data-field-id=\"text\">A</h3></div><div class=\"ce-column\" data-slot=\"columnB\"><div class=\"ce-spacer\" data-element-id=\"spacer_1\" data-element-type=\"spacer\" data-spacing=\"space-4\"></div></div></div></section></div>",
+ "css": "@media (max-width: 480px){[data-element-id=\"section_1\"]{padding-top: 8px !important;}}"
+}

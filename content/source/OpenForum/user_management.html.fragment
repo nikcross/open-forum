@@ -1,0 +1,9 @@
+<div class="row">
+        <h3>User Administration </h3>
+<ul><li> <a href="/OpenForum/Access/UserAdministration" target="newTab">UserAdministration<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Access" target="newTab">/OpenForum/Access<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Authorization" target="newTab">/OpenForum/Authorization<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Authentication" target="newTab">/OpenForum/Authentication<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Users" target="newTab">/OpenForum/Users<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+<li> <a href="/OpenForum/Groups" target="newTab">/OpenForum/Groups<img src='/OpenForum/Images/icons/png/link_go.png' /></a></li>
+</div></ul>

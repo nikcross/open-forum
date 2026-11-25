@@ -1,0 +1,6 @@
+{
+    "version": "0.0.5",
+    "extra": {
+        "notes": "Fixed failure to build pages with .wiki.fragment files. May cause problems somewhere."
+    }
+}

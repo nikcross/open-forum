@@ -1,0 +1,19 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row">
+  <form action="/OpenForumDocumentation/CookBook/ServerSideJavascript/HowToBuildAPageWithAPostService" method="post">
+    <div class='row'>
+      <div class='large-6 columns'>
+        <label>Name</label><input type='text' name='name' placeholder=' ' />
+      </div>
+      <div class='large-6 columns'>
+        <label>Subject</label><input type='text' name='subject' placeholder=' ' />
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>Content</label><input type='text' name='content' placeholder=' ' />
+      </div>
+    </div>
+    <input type="submit" class="button round" value="Submit" />
+  </form>
+</div>

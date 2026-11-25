@@ -1,0 +1,111 @@
+!!Documentation for file
+
+----
+
+((Delete a file attached to a page without backing it up in history))boolean file.deleteAttachmentNoBackup( {string pageName} , {string fileName} )
+
+----
+
+((Append data to file))void file.appendToPageSource( {string pageName}, {string dataToAppend})
+
+----
+
+((Get the time since a file's last modification))integer file.getAttachmentTimestamp( {string pageName} , {string fileName} )
+
+----
+
+string file.getAttachment( {string pageName} , {string fileName} , {boolean resolveLinks} )
+
+----
+
+string file.getAttachment( {string pageName} , {string fileName} )
+
+----
+
+boolean file.pageExists( {string pageName} )
+
+----
+
+string file.getPageInheritedFileAsString( {string pageName} , {string fileName} )
+
+----
+
+void file.appendStringToFile( {string pageName} , {string fileName} , {string dataToAppend} )
+
+----
+
+void file.copyAttachment( {string fromPageName} , {string fromFileName} , {string toPageName} , {string toFileName} )
+
+----
+
+boolean file.attachmentExists( {string pageName} , {string fileName} )
+
+----
+
+integer file.getAttachmentSize( {string pageName} , {string fileName} )
+
+----
+
+InputStream file.getAttachmentInputStream( {string pageName} , {string fileName} )
+
+----
+
+string file.getPageInheritedFilePath( {string pageName} , {string fileName} )
+
+----
+
+void file.zipPage( {string pageName} )
+
+----
+
+OutputStream file.getAttachmentOutputStream( {string pageName} , {string fileName} )
+
+----
+
+void file.saveAttachment( {string pageName} , {string fileName} , {string data} )
+
+----
+
+void file.saveAttachmentNoBackup( {string pageName} , {string fileName} , {string dataToAppend} )
+
+----
+
+void file.unZipAttachment( {string pageName} , {string fileName} )
+
+----
+
+void file.appendStringToFileNoBackup( {string pageName} , {string fileName} , {string dataToAppend} )
+
+----
+
+Map file.getAttachmentsForPage( {string pageName} )
+
+__Example:__
+{{{
+var attachments=[];
+var pageName = "/Sandbox";
+var matching = ".*"; //Regex include all
+
+var list = file.getAttachmentsForPage( pageName );
+if(pageName.charAt(0)!='/')
+{
+  pageName = "/"+pageName;
+}
+
+var iterator= list.keySet().iterator();
+while(iterator.hasNext())
+{
+  var key = ""+iterator.next();
+  var item;
+  if(key.charAt(0)==='+') { // ignore sub pages
+    continue;
+  } else if(matching!==null && key.search( ""+matching )==-1 ) {
+    continue;
+  } else {
+    item = key;
+  }
+
+  attachments.push( {pageName: pageName, fileName: item} );
+
+}
+}}}

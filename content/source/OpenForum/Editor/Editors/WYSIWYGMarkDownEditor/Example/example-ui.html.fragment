@@ -1,0 +1,21 @@
+<!--
+  Custom StandaloneEditor UI for the WYSIWYG Markdown editor example.
+  StandaloneEditor replaces &editor; with the editor object, &editorId; with its id and &elementId; with a safe element prefix.
+  Required: an element with id="editor&editorId;" for the editor itself.
+  Recommended: the confirmRetrieveModal below, or a newer unsaved local copy can't be offered back after a crash or reload.
+-->
+<div class="wmd-example">
+  <div class="wmd-example-bar">
+    <button type="button" class="simple-html-button" onclick="&editor;.save(); return false;">Save</button>
+    <span class="wmd-example-status" aria-live="polite">{{&editor;.getStatus()}}</span>
+    <span class="wmd-example-words" id="wmdExampleWords">0 words</span>
+  </div>
+  <div id="editor&editorId;">Editor Loading...</div>
+</div>
+
+<div id="&elementId;confirmRetrieveModal" class="reveal-modal" data-reveal aria-labelledby="&elementId;confirmRetrieveTitle" aria-hidden="true" role="dialog">
+  <h3 id="&elementId;confirmRetrieveTitle">This browser has unsaved changes to {{&editor;.getEditingFileName()}} that are newer than the saved file.</h3>
+  <a class="button" href="#" onclick="&editor;.retrieveChanges(true); return false;">Use the unsaved changes</a>
+  <a class="button secondary" href="#" onclick="&editor;.openFile(); return false;">Load the saved file</a>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

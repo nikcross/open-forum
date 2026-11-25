@@ -1,0 +1,36 @@
+{
+    "editors": [
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor",
+            "fileName": "page.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor",
+            "fileName": "page.content"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor",
+            "fileName": "editor.js"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor",
+            "fileName": "editor.html.fragment"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor",
+            "fileName": "page.css"
+        },
+        {
+            "type": "editor",
+            "pageName": "/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor",
+            "fileName": "sample.md"
+        }
+    ],
+    "pageName": "/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor",
+    "fileName": "editor-config.json"
+}

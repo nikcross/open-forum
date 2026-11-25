@@ -1,0 +1,8 @@
+# Author
+# Description
+# Indent with 2 spaces. YAML does not allow tabs.
+
+name: example
+items:
+  - first
+  - second

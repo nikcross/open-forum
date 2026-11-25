@@ -1,0 +1,27 @@
+/* PageConverter: imports existing pages into the Content Editor. */
+.pc{max-width:1200px;margin:0 auto;padding:24px 16px 60px;font:14px/1.5 Arial,sans-serif;color:#1d2933}
+.pc h1{font-size:26px;margin:6px 0 8px}
+.pc-back{font-size:12px;font-weight:bold;color:#286d9c;text-decoration:none}
+.pc-head p{color:#667683;max-width:760px;margin:0 0 18px}
+.pc-form{display:flex;flex-wrap:wrap;gap:12px 18px;align-items:end;background:#f6f8f9;border:1px solid #dce4e8;border-radius:9px;padding:14px 16px}
+.pc-form label{font-size:12px;font-weight:bold;margin:0;color:#1d2933}
+.pc-form input[type=text]{flex:1 1 320px;margin:0;height:auto;padding:8px 10px;font-size:14px}
+.pc-types{border:0;margin:0;padding:0;display:flex;gap:14px;align-items:center}
+.pc-types legend{font-size:12px;font-weight:bold;float:left;margin-right:6px;padding:0}
+.pc-types label{font-weight:normal}
+.pc-types input{margin:0 4px 0 0}
+.pc-btn{display:inline-block;border:1px solid #286d9c;background:#286d9c;color:#fff;padding:9px 16px;border-radius:7px;font-weight:bold;font-size:13px;cursor:pointer;margin:0;text-decoration:none}
+.pc-btn:disabled{opacity:.5;cursor:default}
+.pc-btn.secondary{background:#fff;color:#286d9c}
+.pc-result{margin:16px 0}
+.pc-result h2{font-size:18px;margin:0 0 4px}
+.pc-result ul{margin:6px 0 10px 18px;font-size:13px}
+.pc-result .error{color:#a94442}
+.pc-result .warn{color:#8a5a1f}
+.pc-note{font-size:12px;color:#667683}
+.pc-columns{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pc-frames{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.pc-frames figure{margin:0}
+.pc-frames figcaption{font-size:12px;font-weight:bold;color:#667683;margin-bottom:4px}
+.pc-frames iframe{width:100%;height:560px;border:1px solid #dce4e8;border-radius:8px;background:#fff}
+@media (max-width:800px){.pc-frames,.pc-columns{grid-template-columns:1fr}}

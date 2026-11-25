@@ -1,0 +1,6 @@
+{
+    "pageName": "/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor/Example",
+    "title": "WYSIWYG Markdown Editor Example",
+    "description": "Example of embedding the WYSIWYG Markdown editor with a custom StandaloneEditor UI, autosave and a change hook.",
+    "author": "Admin.Claude"
+}

@@ -1,0 +1,72 @@
+{
+    "version": "2.9.0",
+    "description": "Enhanced build system supporting both traditional and ES6 module outputs",
+    "outputs": {
+        "traditional": {
+            "targetFile": "/OpenForum/Giraffe/giraffe.js",
+            "description": "Traditional concatenated file for script tag usage"
+        },
+        "modern": {
+            "targetFile": "/OpenForum/Giraffe/giraffe.modern.js", 
+            "description": "ES6 module entry point"
+        }
+    },
+    "traditionalBuild": {
+        "steps": [
+            {
+                "action": "append",
+                "file": "/OpenForum/Giraffe/Core/giraffe-header.js",
+                "index": "0"
+            },
+            {
+                "action": "append", 
+                "file": "/OpenForum/Giraffe/Core/giraffe-core.js",
+                "index": "1"
+            },
+            {
+                "action": "replace",
+                "searchFor": "&version;",
+                "replaceWith": "$version",
+                "ofIndex": "1",
+                "index": "2"
+            },
+            {
+                "action": "replace",
+                "searchFor": "&date;", 
+                "replaceWith": "$date",
+                "ofIndex": "1",
+                "index": "3"
+            },
+            {
+                "action": "append",
+                "file": "/OpenForum/Giraffe/Core/giraffe-canvas.js",
+                "index": "4"
+            },
+            {
+                "action": "append",
+                "file": "/OpenForum/Giraffe/Core/giraffe-object.js", 
+                "index": "5"
+            },
+            {
+                "action": "append",
+                "file": "/OpenForum/Giraffe/Core/circle.js",
+                "index": "6"
+            }
+        ]
+    },
+    "modernBuild": {
+        "entryPoint": "/OpenForum/Giraffe/Core/index.modern.js",
+        "modules": [
+            "/OpenForum/Giraffe/Core/graphics-object.modern.js",
+            "/OpenForum/Giraffe/Core/circle.modern.js",
+            "/OpenForum/Giraffe/Core/canvas.modern.js"
+        ]
+    },
+    "compatibility": {
+        "maintainGlobals": true,
+        "deprecatedWarnings": true,
+        "bridges": [
+            "/OpenForum/Giraffe/Core/circle.compat.js"
+        ]
+    }
+}

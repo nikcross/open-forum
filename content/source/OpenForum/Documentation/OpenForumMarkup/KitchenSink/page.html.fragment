@@ -1,0 +1,155 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>Kitchen Sink</h3>
+
+<div class="row">
+  <div class="large-6 columns">
+<p>The following list shows all the standard Wiki Markup character combinations used in OpenForum.
+    OpenForum also has a set of extended Wiki Markup combinations that are listed <a href="/OpenForum/Documentation/OpenForumMarkup/ExtendedWikiMarkup" target="newTab">here<img src='/OpenForum/Images/icons/png/link_go.png' /></a>
+    and you can define your own Wiki Markup using extensions which is described <a href="/OpenForum/Documentation/OpenForumMarkup/ExtendingWikiMarkup" target="newTab">here<img src='/OpenForum/Images/icons/png/link_go.png' /></a></p>
+
+Wiki Page Link
+<xmp class="panel" of-exclude="true"> <a href="/OpenForum/HomePage">/OpenForum/HomePage</a> </xmp>
+<a href="/OpenForum/HomePage">/OpenForum/HomePage</a>
+
+<xmp class="panel" of-exclude="true"> <a href="/OpenForum/HomePage">The Home Page</a> </xmp>
+    <a href="/OpenForum/HomePage">The Home Page</a>
+
+<xmp class="panel" of-exclude="true"> <img src="/OpenForum/Images/open-forum.png"/> </xmp>
+<img src="/OpenForum/Images/open-forum.png"/>
+
+<xmp class="panel" of-exclude="true"> <a href="http://www.bbc.co.uk" target="external_page">http://www.bbc.co.uk</a>
+<a href="http://www.bbc.co.uk" target="external_page">BBC</a> </xmp>
+    
+<a href="http://www.bbc.co.uk" target="external_page">http://www.bbc.co.uk</a>
+<a href="http://www.bbc.co.uk" target="external_page">BBC</a>
+
+<xmp class="panel" of-exclude="true"> <a href="Wikipedia:Wiki" target="external_page">Wiki</a> </xmp>
+<a href="Wikipedia:Wiki" target="external_page">Wiki</a>
+
+<hr/>
+<xmp class="panel" of-exclude="true">Code Example</xmp>
+
+<xmp class="panel" of-exclude="true">
+{ { {Code Example} } }
+</xmp> <i>without the spaces between the brackets</i>
+    
+<hr/>
+Forced Line Break
+
+<xmp class="panel" of-exclude="true">Line 1<br/><br/>
+Line 2<br/><br/>
+Line 3</xmp>
+    
+Line 1<br/><br/>
+Line 2<br/><br/>
+Line 3
+
+<hr/>
+<xmp class="panel" of-exclude="true"><div class="panel callout radius">
+A box of stuff
+</div></xmp>
+    
+<div class="panel callout radius">box
+A box of stuff
+</div>
+
+<hr/>
+Horizontal Rule
+<xmp class="panel" of-exclude="true"><hr/></xmp>
+
+<hr/>
+<b>Bold</b>
+<xmp class="panel" of-exclude="true"><b>bold</b></xmp>
+    
+<hr/>
+<i>Italics</i>
+<xmp class="panel" of-exclude="true"><i>italics</i></xmp>
+
+<hr/>
+Paragraph
+<xmp class="panel" of-exclude="true"><p>Lorem ipsum dolor sit amet, consectetur...</p></xmp>
+<p>Lorem ipsum dolor sit amet, consectetur...</p>
+
+
+  </div>
+  <div class="large-6 columns">
+<hr/>
+Bulleted list
+<xmp class="panel" of-exclude="true">* Bullet 1<ul><li> Bullet 2</li>
+<li> Bullet 3</xmp></li>
+<ul><li> Bullet 1</li>
+<li> Bullet 2</li>
+<li> Bullet 3</li>
+</ul>
+<hr/>
+Numbered list
+<xmp class="panel" of-exclude="true"># Bullet 1<ol><li> Bullet 2</li>
+<li> Bullet 3</xmp></li>
+<ol><li> Bullet 1</li>
+<li> Bullet 2</li>
+<li> Bullet 3</li>
+</ol>
+<hr/>
+Headings
+<xmp class="panel" of-exclude="true"><h3>Heading 1</h3>
+<h2>Heading 2</h2>
+<h1>Heading 3</xmp></h1>
+<h3>Heading 1</h3>
+<h2>Heading 2</h2>
+<h1>Heading 3</h1>
+
+<hr/>
+--8<!--
+       Section
+-->8--
+<xmp class="panel" of-exclude="true">
+--8<!--
+           Section
+-->8--</xmp>
+    
+<hr/>
+<strike>Strike Through</strike>
+<xmp class="panel" of-exclude="true"><strike>Strike Through</strike></xmp>
+
+<hr/>
+==Center==
+<xmp class="panel" of-exclude="true">==Center==</xmp>
+
+<hr/>
+This is <sup>Super Script</sup>
+<xmp class="panel" of-exclude="true">This is <sup>Super Script</sup></xmp>
+
+<hr/>
+Invisible Comment
+<xmp class="panel" of-exclude="true"><!-- My comments in here --></xmp>
+                 
+<hr/>
+<h2>Table (has bug so will not close)</h2>
+<xmp class="panel" of-exclude="true">|column 1|column 2| column 3<table><tr><td>cell 1</td><td>cell 2</td><td>cell 3</td></tr>
+<tr><td>cell 1</td><td>cell 2</td><td>cell 3</td></tr>
+<tr><td>cell 1</td><td>cell 2</td><td>cell 3</xmp></td></tr>
+</table>
+                 </div>
+  </div>
+<div class="row">
+  
+<h1> AI Prompt</h1>
+<xmp class="panel" of-exclude="true">
+You are an assistant that writes and edits text in OpenForum markup.
+
+When formatting content:<li> Use <h1>, <h2>, <h3>, ! for headings.</h3></h2></h1></li>
+<li> Use * and ** for bulleted lists, # and ## for numbered lists.</li>
+<li> Use <b>bold</b>, <i>italic</i>, <strike>strikethrough</strike>, <sup>superscript</sup>, ==center== for styles.</li>
+<li> Use <p> ... </p> for paragraphs, <div class="panel callout radius"> ... </div> for boxes.</li>
+<li> Use { { { ... } } } (without the spaces) for code blocks or to show markup literally.</li>
+<li> Use <a href="/OpenForum/Editor?pageName=/Path"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/Path does not exist. Click to create it.">LinkText</a> or <a href="http://url" target="external_page">http://url</a> for links, <img src="/OpenForum/Editor?pageName=/path/to/image.png" alt="/path/to/image.png" title="/path/to/image.png"/> for images.</li>
+<li> Use |col1|col2|col3| for tables.</li>
+<li> Use <hr/> for a horizontal rule.</li>
+</ul>
+Do not use Markdown unless explicitly asked.
+You can include HTML as well
+Always produce output directly in OpenForum wiki markup.
+</xmp>
+  
+</div>
+</ol>

@@ -1,0 +1,20 @@
+!!&title;
+
+((OFX wraps ajax calls into a fluent style interface.))
+
+----
+!!Get examples
+
+[{ScriptClip script="OFX.get(url).onSuccess(fn).go();"}]
+[{ScriptClip script="OFX.get(url).withAction(action).go();"}]
+[{ScriptClip script="OFX.get(url).withAction(action).withData( dataString or {param: key, para: key}).onSuccess(fn).onError(fn).go();"}]
+
+----
+!!Example post
+
+[{ScriptClip script="OFX.post(url).withData({param: key, para: key}).onSuccess(fn).go();"}]
+[{ScriptClip script="OFX.post(url).withAction(action).withData( dataString or {param: key, para: key}).onSuccess(fn).go();"}]
+[{ScriptClip script="OFX.post(url).withAction(action).withData( dataString or {param: key, para: key}).onSuccess(fn).onError(fn).go();"}]
+
+----
+[{InsertSourceFile pageName="/OpenForum/Javascript/Core/" fileName="open-forum-ofx.js"}]

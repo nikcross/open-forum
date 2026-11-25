@@ -1,0 +1,276 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WYSIWYGMarkDownEditor</title>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Frameworks/Foundation/css/foundation.css" />
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/modernizr.js"></script>
+    <script type="text/javascript" src="/OpenForum/Javascript/open-forum.js?ts=1794315190069"></script>
+    <script type="text/javascript" src="/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor/page.js?ts=1794315190069"></script>
+    <link rel="stylesheet" href="/OpenForum/PageTemplates/Branding/branding.css?ts=1794315190069" />
+    <!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) start --><link rel="icon" href="/OpenForum/Images/open-forum-dog-small.png" /><!--OF insert (/OpenForum/PageTemplates/Branding/icon.html) end --> 
+
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) start --><script>
+  var pageName = "/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor";
+  var author = "Admin.Claude";
+  var time = "1794315190069";
+  var currentUser = "";
+  var user = {};
+  var avatar = "<img src='/OpenForum/Images/icons/png/user.png' style='width: 24px; height: 24px;' />";
+  JSON.get("/OpenForum/Actions/User","getCurrentUser","currentPage="+pageName+"&referrer="+document.referrer+"&userAgent="+navigator.userAgent).onSuccess( function (response) {  currentUser = response.data;  } ).go();
+  JSON.get("/OpenForum/Actions/User","getCurrentUserProfile").onSuccess( 
+    function (response) {
+      user.profile = response.data;
+      if(response.data.avatar) {
+        avatar = "<img src='" + response.data.avatar + "' style='width: 24px; height: 24px;' />";
+      }
+      if(response.data.privateProfile && response.data.privateProfile.extraOptions) {
+        currentUserExtraOptions = response.data.privateProfile.extraOptions
+      }
+    }
+  ).go();
+
+  window.onerror = function(errorMsg, url, lineNumber) {
+    OpenForum.error = errorMsg+" url:"+url+" line number:"+lineNumber;
+    OpenForum.errorMessage = "Woops";
+    $('#ofErrorMessage').foundation('reveal', 'open');
+
+    OFX.post( 'https://open-forum.onestonesoup.org/OpenForum/AddOn/DataLogger/BrowserErrorLogger' )
+      .withAction( 'logError' )
+      .withData( {origin: window.location.origin, page: pageName, error: errorMsg+" lineNumber:"+lineNumber, userAgent: navigator.userAgent}).go();
+  };
+
+  window.alert = function(message,title) {
+    if(!title) {
+      title = "Open Forum";
+    }
+    OpenForum.alert = { message: message, title: title};
+    $('#ofAlertMessage').foundation('reveal', 'open');
+  };
+</script><!--OF insert (/OpenForum/PageTemplates/CommonElements/header-script.common.html) end -->
+
+  </head>
+  <body>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <!--OF insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) start --><a href="/"><img src="/OpenForum/Images/open-forum-dog-small.png" style="max-width: 50px; max-height: 50px;"/></a><!--OF insert (/OpenForum/PageTemplates/Branding/top-left-logo.page.content) end -->
+          </h1>
+        </li>
+      </ul>
+      <ul class="title-area">
+        <li class="name">
+          <h1>
+            <a href="#" title="WYSIWYGMarkDownEditor"> WYSIWYGMark Down Editor</a>
+          </h1>
+        </li>
+      </ul>
+      <!--OF insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) start --><section class="top-bar-section">
+  <ul class="right">
+
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="#">Access</a>
+      <ul class="dropdown">
+        <li of-repeatFor="reader in pageAccess.readers"><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onClick="return false;">{{reader}}</a></li>
+      </ul>
+      <script>
+        var pageAccess = {};
+        JSON.get("/OpenForum/Actions/Access","getAccess","pageName=/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor").onSuccess( function(response) {
+          pageAccess = response;
+        }).go();
+      </script>
+    </li>
+    
+    <li class="has-dropdown">
+      <a href="#">Favourite Pages</a>
+      <ul class="dropdown">
+        <li of-repeatFor="pageEntry in user.profile.pageHistory"><a href="{{pageEntry.pageName}}">{{pageEntry.pageName}}</a></li>
+      </ul>
+    </li>
+
+    <li class="divider"></li>
+
+    <li class="has-dropdown">
+      <a href="<!--Extension Hash -->undefined<!--End Extension Hash -->">Signed in as {{currentUser}} {{avatar}}</a>
+      <ul class="dropdown">
+        <li><a href="/OpenForum/Access/SignOut">Sign Out</a></li>
+        <li><a href="<!--Extension Hash -->undefined<!--End Extension Hash -->" onClick="doSignIn(); return false;">Sign In as Different User</a></li>
+        <script>
+          var accessLoading = false;
+          function doSignIn() {
+
+            if(!OpenForum.Access) {
+              if(!accessLoading) {
+                OpenForum.loadScript("/OpenForum/Access/SignIn/page.js");
+                accessLoading=true;
+              }
+              setTimeout(doSignIn,1000);
+              return;
+            }
+
+            OpenForum.Access.showPopup();
+          };
+        </script>
+        {{currentUserExtraOptions}}
+      </ul>
+    </li>
+  </ul>
+</section><!--OF insert (/OpenForum/PageTemplates/CommonElements/signin.common.html) end -->
+    </nav>
+    <!--Extension CrumbTrail --><nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Editor">Editor</a></li><li role="menuitem"><a href="/OpenForum/Editor/Editors">Editors</a></li><li role="menuitem" class="current"><a href="/OpenForum/Editor/Editors">WYSIWYGMarkDownEditor</a></li></nav><!--End Extension CrumbTrail -->
+
+    <div style="padding-bottom: 100px;">
+    <!--PageContent Start-->
+<div id="InPageEditor" style="height: 100%;"><textarea id="editor{{editorIndex}}Src">Loading...</textarea></div>
+
+<div class="wmd-docs" style="max-width: 60rem; margin: 2rem auto; padding: 0 1rem;">
+<h2>WYSIWYG Markdown Editor</h2>
+<p>Edits Markdown visually and saves plain Markdown files. It runs inside <code>StandaloneEditor</code> with the flavour <code>WYSIWYGMarkDown</code>, in the same way as the Simple HTML and Markdown editors. Open any file with <code>?pageName=/Some/Page&amp;fileName=notes.md</code>.</p>
+
+<h3>Views</h3>
+<ul>
+<li><b>Visual</b>: edit with the toolbar and shortcuts, no Markdown needed.</li>
+<li><b>Source</b>: edit the Markdown directly in the Markdown editor (CodeMirror).</li>
+<li><b>Split</b>: source and visual side by side, kept in step as you type in either one. On narrow screens they stack.</li>
+</ul>
+<p>A file that is opened and saved without visual edits is saved exactly as it was written. Visual edits regenerate the Markdown in a standard layout (see below). If a file contains something visual editing would change, a warning says so when it opens and again on the first visual edit. Use Source to edit such files safely.</p>
+
+<h3>Supported Markdown</h3>
+<p>CommonMark plus GitHub-style tables and strikethrough, rendered with markdown-it and written back with turndown (see /OpenForum/Javascript/MarkDown).</p>
+<table>
+<tr><th>Feature</th><th>Written as</th></tr>
+<tr><td>Headings 1 to 4</td><td><code># Heading</code> to <code>#### Heading</code></td></tr>
+<tr><td>Bold, italic, strikethrough, inline code</td><td><code>**bold**</code>, <code>*italic*</code>, <code>&#126;&#126;struck&#126;&#126;</code>, <code>`code`</code></td></tr>
+<tr><td>Lists, nested lists</td><td><code>- item</code>, <code>1. item</code>, nested items indented to match</td></tr>
+<tr><td>Links and images</td><td><code>&#91;text&#93;(url)</code>, <code>!&#91;alt text&#93;(url)</code></td></tr>
+<tr><td>Quotes and rules</td><td><code>&gt; quote</code>, <code>---</code></td></tr>
+<tr><td>Code blocks</td><td>Fenced with three backticks and an optional language</td></tr>
+<tr><td>Tables</td><td>GitHub tables with a header row; a line break inside a cell is kept as <code>&lt;br&gt;</code></td></tr>
+<tr><td>HTML comments</td><td>Kept as they are</td></tr>
+<tr><td>kbd, sup, sub, u, mark, ins, abbr, details, summary, iframe, video, audio</td><td>Kept as HTML, since Markdown has no syntax for them</td></tr>
+</table>
+<p>Not supported in the visual view: footnotes (they become plain text), and other raw HTML, which is simplified to its Markdown equivalent. Images that are uploaded or pasted are stored inside the file as data URLs.</p>
+<p>Pasting from Word, Google Docs or web pages converts the content to Markdown. Colours, fonts and layout are removed, and a note says so. Pasting into a code block always pastes plain text.</p>
+
+<h3>Keyboard shortcuts</h3>
+<table>
+<tr><th>Keys</th><th>Action</th></tr>
+<tr><td>Ctrl+B, Ctrl+I, Ctrl+Shift+X, Ctrl+E</td><td>Bold, italic, strikethrough, inline code</td></tr>
+<tr><td>Ctrl+Alt+1 to 4</td><td>Heading level 1 to 4 (press again to remove)</td></tr>
+<tr><td>Ctrl+Shift+8, Ctrl+Shift+7, Ctrl+Shift+9</td><td>Bullet list, numbered list, quote</td></tr>
+<tr><td>Ctrl+K</td><td>Insert or edit a link</td></tr>
+<tr><td>Ctrl+Z, Ctrl+Y or Ctrl+Shift+Z</td><td>Undo, redo</td></tr>
+<tr><td>Tab, Shift+Tab</td><td>Next or previous table cell (Tab in the last cell adds a row)</td></tr>
+<tr><td>Ctrl+Enter</td><td>Start a new paragraph after a code block, table or quote</td></tr>
+<tr><td>Arrow keys, Home, End</td><td>Move along the toolbar when it has focus; Escape returns to the text</td></tr>
+</table>
+
+<h3>Embedding in your own app</h3>
+<p>Embed the editor with <code>StandaloneEditor</code>, as the Journal does with the Simple HTML editor. A working example with its own interface, autosave and a word count is at <a href="/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor/Example">/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor/Example</a>.</p>
+<pre><code>OpenForum.includeScript("/OpenForum/Editor/Editors/StandaloneEditor.js");
+
+var myEditor = new StandaloneEditor({
+  flavour: "WYSIWYGMarkDown",
+  elementId: "MyEditorHost",
+  editingPageName: "/MyApp/Notes",
+  editingFileName: "notes.md",
+  editorPage: "/MyApp/",
+  ui: "/MyApp/my-editor-ui.html.fragment",
+  autoSave: true,
+  canSetPageTitle: false
+});</code></pre>
+<table>
+<tr><th>Option</th><th>Use</th></tr>
+<tr><td>flavour</td><td><code>WYSIWYGMarkDown</code></td></tr>
+<tr><td>elementId</td><td>The element the editor is placed in.</td></tr>
+<tr><td>editingPageName, editingFileName</td><td>The file to edit.</td></tr>
+<tr><td>editorPage</td><td><b>Always set this to your own page.</b> Without it, StandaloneEditor reopens the last file edited with this flavour on any page in the browser, ignoring editingPageName and editingFileName, and autosave then writes to that file.</td></tr>
+<tr><td>ui</td><td>Your own page fragment instead of the standard File, Desktop and Actions bar. It must contain an element with <code>id="editor&amp;editorId;"</code>. Copy the <code>confirmRetrieveModal</code> from the example too: without it, unsaved changes kept in the browser can't be offered back after a crash or reload. In the fragment, <code>&amp;editor;</code> is replaced with the editor object, for example for a Save button.</td></tr>
+<tr><td>autoSave</td><td>Saves every 10 seconds while there are changes. This is one page-wide setting shared by every StandaloneEditor on the page.</td></tr>
+<tr><td>canSetPageTitle</td><td>Set to false so the browser tab title isn't changed.</td></tr>
+<tr><td>editorsPage</td><td>Only for testing a Development copy of the editor: where editor scripts are loaded from.</td></tr>
+</table>
+<ul>
+<li>Wait until <code>myEditor.getCodeMirror() != null</code> before using the editor.</li>
+<li>To react to edits, wrap <code>myEditor.storeChanges</code> and call the original from your version. Don't replace it: the original keeps the browser copy used for recovery.</li>
+<li><code>myEditor.getValue()</code> and <code>myEditor.setValue(markdown)</code> read and write Markdown. <code>myEditor.save()</code> saves.</li>
+<li><code>myEditor.getEditor().setMode("visual")</code>, <code>"source"</code> or <code>"split"</code> changes the view; <code>getMode()</code> reads it.</li>
+<li>Several editors can be used on one page.</li>
+</ul>
+</div>
+
+<!--OF insert (/OpenForum/Editor/search.html.fragment) start --><!-- Search -->
+
+<div id="OpenForumSearch" style="position: absolute;
+                                 top: 100px;
+                                 right: 20px;
+                                 display: none;
+                                 background: white;
+                                 padding: 10px;
+                                 border-radius: 5px;
+                                 border: solid black 2px;
+                                 z-index: 100;">
+  <p>
+    <input type="text" of-id="newSearchTerm" id="primarySearchField" onkeydown="OpenForum.prepareSearch();"/>
+    <a href="#" onClick="OpenForum.search(newSearchTerm); OpenForum.showSearchMatches(); return false;" class="secondary button">Search</a>
+    <a href="#" onClick="OpenForum.showNextSearchMatch(); return false;" class="secondary button">Find Next</a>
+    <span id="OpenForumSearchReplace" style="display: none">
+      <input type="text" of-id="newReplaceSearchText"/>
+      <a href="#" onClick="OpenForum.setReplaceText(newReplaceSearchText); OpenForum.replaceLastMatch(); return false;" class="secondary button">Replace</a>
+      <a href="#" onClick="OpenForum.setReplaceText(newReplaceSearchText); OpenForum.replaceAllMatches(); return false;" class="secondary button">Replace All</a>
+    </span>
+  </p>
+  <a href="#" onClick="document.getElementById('OpenForumSearch').style.display='none'; return false;" class="secondary button">Close</a>
+</div><!--OF insert (/OpenForum/Editor/search.html.fragment) end -->
+
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<!--Page Content End-->
+    </div>
+
+    <!--OF insert (/OpenForum/PageTemplates/Footer/page.content) start --><!-- Generated by Page Block Editor v 0.0.1 -->
+<footer style="background-color: black; padding-left: 50px;">
+  <div>
+    <div>
+    <ul class="inline-list">
+      <li><a href="https://open-forum.onestonesoup.org/OpenForum" style="color:white">About</a></li>
+      <li>|</li>
+      <li><a href="https://open-forum.onestonesoup.org" style="color:white">Open Forum @ OneStoneSoup.org</a></li>
+      <li>|</li>
+      <li><a href="https://open-forum.onestonesoup.org/OpenForumDocumentation/Introduction" style="color:white">Developers</a></li>
+      <li class="right"><a href="https://open-forum.onestonesoup.org" style="color:white"><img src="/OpenForum/Images/powered-by.png" border="0"></a></li>
+    </ul>
+    </div>
+  </div>
+</footer>
+<!--OF insert (/OpenForum/PageTemplates/Footer/page.content) end -->
+    
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) start --><div id="ofErrorMessage" class="reveal-modal" data-reveal aria-labelledby="ofErrorMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorMessageModalTitle" class="alert-box alert round">An error has occurred.</h2>
+  <p>{{OpenForum.errorMessage}}</p>
+  <p><a href="#" data-reveal-id="ofErrorDetails" class="secondary button">See technical details</a></p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+
+<div id="ofErrorDetails" class="reveal-modal" data-reveal aria-labelledby="ofErrorModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofErrorModalTitle">Error details.</h2>
+  <p>{{OpenForum.error}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div><!--OF insert (/OpenForum/PageTemplates/CommonElements/error-alert.common.html) end -->
+    <!--OF insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) start --><div id="ofAlertMessage" class="reveal-modal" data-reveal aria-labelledby="ofAlertMessageModalTitle" aria-hidden="true" role="dialog">
+  <h2 id="ofAlertMessageModalTitle" class="alert-box success round">{{OpenForum.alert.title}}</h2>
+  <p>{{OpenForum.alert.message}}</p>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<!--OF insert (/OpenForum/PageTemplates/CommonElements/alert.common.html) end -->
+
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/vendor/jquery.js"></script>
+    <script src="/OpenForum/PageTemplates/Frameworks/Foundation/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

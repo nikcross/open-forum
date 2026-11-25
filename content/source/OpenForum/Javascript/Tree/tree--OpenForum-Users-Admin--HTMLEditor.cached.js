@@ -1,1 +1,0 @@
-{"name":"HTMLEditor","attributes":{"type":"page","pageName":"/OpenForum/Users/Admin/HTMLEditor","link":"/OpenForum/Users/Admin/HTMLEditor","icon":"page","toolTip":"Open page"},"leaves":[]}

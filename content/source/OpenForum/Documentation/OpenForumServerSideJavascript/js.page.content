@@ -1,0 +1,34 @@
+!!Documentation for js
+
+----
+
+void js.refreshJarManager()
+
+----
+
+object js.loadObject( {string pageName} , {string fileName} )
+
+----
+
+StringBuffer js.getStringBuffer()
+
+----
+((fileName is used as a reference in error messages))
+
+void js.startJavascript( {string fileName} , {string script} )
+
+----
+
+object js.getApi( {string pageName} )
+
+----
+
+string js.generateMD5( {string data} )
+
+----
+
+object js.getObject( {string pageName} , {string fileName} )
+
+----
+
+void js.sleep( {integer millisecondsToSleep} )

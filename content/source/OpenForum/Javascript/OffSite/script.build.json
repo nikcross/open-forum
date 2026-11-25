@@ -1,0 +1,15 @@
+{
+    "version": "0.0.1",
+    "targetFile": "/OpenForum/Javascript/OffSite/OpenForumOffSite.js",
+    "versionFile": "/OpenForum/Javascript/OffSite/Version/OpenForumOffSite.js",
+    "steps": [
+        {
+            "action": "append",
+            "file": "/OpenForum/Javascript/Core/open-forum-testing.js",
+            "index": "0",
+            "searchFor": "",
+            "replaceWith": "",
+            "data": ""
+        }
+    ]
+}

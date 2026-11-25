@@ -1,1 +1,0 @@
-{"name":"WYSIWYG","attributes":{"type":"page","pageName":"/OpenForum/Users/Admin/WYSIWYG","link":"/OpenForum/Users/Admin/WYSIWYG","icon":"page","toolTip":"Open page"},"leaves":[]}

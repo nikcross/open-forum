@@ -1,0 +1,2 @@
+OpenForum.init = function() {
+};

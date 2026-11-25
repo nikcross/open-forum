@@ -1,0 +1,376 @@
+[{ChildPagesList}]
+
+[QuickReference|/OpenForum/Javascript/Core/QuickReference=]
+
+----
+<div class="row">
+----
+!!!! OpenForum JavaScript API Reference
+
+----  
+!!! 📦 Dependency Management
+|Function|Parameters|Returns|Example|Description|
+|OpenForum.includeScript|scriptName: string|void|{{{OpenForum.includeScript("/MyLib.js");}}}|Mark a script as required|
+|OpenForum.addScript|url: string|fluent API|{{{OpenForum.addScript("a.js").addScript("b.js").then(()=&gt;console.log("ready"));}}}|Queue multiple scripts then run code|
+|OpenForum.loadScript|url: string|void|{{{OpenForum.loadScript("/scripts/x.js");}}}|Dynamically insert &lt;script&gt;|
+|OpenForum.loadCSS|url: string|void|{{{OpenForum.loadCSS("/style.css");}}}|Dynamically insert &lt;link&gt;|
+
+!!! ⚙️ DependencyService
+
+|Function|Parameters|Returns|Description|
+|DependencyService.createNewDependency|—|Dependency object|Create a new dependency set. Each set manages required scripts and triggers a callback once they’re loaded.|
+|dependency.addDependency|script: string|self (chainable)|Add a script URL/name to the dependency list. If already loaded, ignored.|
+|dependency.setOnLoadTrigger|fn: function|self (chainable)|Set function to run once all required scripts are loaded.|
+|dependency.loadDependencies|—|void|Start loading all required scripts (inserts `&lt;script&gt;` tags).|
+|dependency.checkLoaded|—|boolean|Check if all required scripts have finished loading.|
+|dependency.setLoaded|—|void|Mark dependency as loaded and trigger callback.|
+|dependency.getScriptsToLoad|—|array of strings|List of scripts pending load.|
+|DependencyService.dependencyLoaded|id: number|void|Called internally when a set of scripts has loaded; marks them as available.|
+
+Example:
+
+{{{
+var dep = DependencyService.createNewDependency();
+dep.addDependency("/scripts/mylib.js")
+   .addDependency("/scripts/otherlib.js")
+   .setOnLoadTrigger(function() {
+       console.log("All dependencies are loaded.");
+   })
+   .loadDependencies();
+}}}
+
+----  
+!!! 🖼️ Page & DOM Scanning
+|Function|Parameters|Returns|Example|Description|
+|OpenForum.scan|firstTime: bool|void|{{{OpenForum.scan(true);}}}|Scan DOM and refresh bindings|
+|OpenForum.preparePage|node|void|{{{OpenForum.preparePage(document.body);}}}|Process ofa-* attributes|
+|OpenForum.crawl|node|void|—|Walk DOM to wire bindings|
+|OpenForum.addNodeProcessor|fn(node)|void|—|Add custom DOM processor|
+|OpenForum.addScanner|fn()|void|—|Add function to run each scan|
+|OpenForum.addInitialiser|fn()|void|—|Runs after dependencies|
+
+----  
+!!! 📊 Data Binding
+|Function|Parameters|Returns|Example|Description|
+|OpenForum.getObject|id: string|OpenForumObject|{{{OpenForum.getObject("username").setValue("Bob");}}}|Get or create a bound object|
+|OpenForum.persistObject|id: string|void|—|Mark object state to persist|
+|OpenForum.storePersistentState|key?|void|—|Save persisted object values|
+|OpenForum.restorePersistentState|key?|void|—|Restore persisted values|
+|OpenForum.addListener|id, fn|void|—|React to object changes|
+|OpenForum.bind|a, b|void|—|Bind two objects or object→fn|
+
+----  
+!!! 🗂️ File & Storage APIs
+|Function|Parameters|Returns|Description|
+|OpenForum.loadFile|url, cb?, noCache?|string or void|Load text file|
+|OpenForum.loadJSON|url, cb?|object|Load JSON file|
+|OpenForum.saveFile|file, data, cb?|object|Save raw file|
+|OpenForum.saveJSON|file, obj, cb?|object|Save as JSON|
+|OpenForum.appendFile|file, data, cb?|object|Append data|
+|OpenForum.deleteFile|page, file, cb?|bool|Delete file|
+|OpenForum.copyFile|src, dest, cb?|object|Copy file|
+|OpenForum.moveFile|src, dest, cb?|object|Move file|
+|OpenForum.fileExists|file|string|Check existence|
+|OpenForum.getAttachments|page, cb?|array|List attachments|
+|OpenForum.getSubPages|page, cb?|array|List subpages|
+|OpenForum.Storage.get/set/find|key|string/array|Local storage wrappers|
+|OpenForum.Browser.enableBrowserStorage|—|void|Use browser:// for offline|
+
+----  
+!!! 🔗 AJAX & JSON
+|Function|Parameters|Returns|Example|Description|
+|JSON.get|page, action, params|chainable|{{{JSON.get("/api","getUser","id=1").onSuccess(console.log).go();}}}|AJAX GET wrapper|
+|JSON.post|page, action, params|chainable|{{{JSON.post("/api","save","x=1").go();}}}|AJAX POST wrapper|
+|JSON.findPath|json, "a.b.c"|any|—|Navigate nested JSON|
+|JSON.createPath|json, "a.b.c"|object|—|Ensure nested path|
+|OFX.get / OFX.post|url|chainable|{{{OFX.post("/save").withData({x:1}).go(true);}}}|Offline-aware JSON with cache|
+
+----  
+!!! 📋 Table Helpers
+|Function|Parameters|Returns|Description|
+|OpenForum.Table.addRow|table, template?, clean?|void|Add row|
+|OpenForum.Table.removeRow|table, index|row|Remove row|
+|OpenForum.Table.moveRowUp/Down|table, index|void|Reorder rows|
+|OpenForum.Table.applyRowFilter|tableId, data, field, filter|void|Show/hide rows|
+|OpenForum.Table.sort|data, field, ascending|void|Sort rows|
+|OpenForum.jsonToCsv|json, delimiter?|string|Export JSON as CSV|
+
+----  
+!!! 🎨 UI & Input
+|Function|Parameters|Returns|Description|
+|OpenForum.setElement|id, html|void|Replace element HTML|
+|OpenForum.appendToElement|id, html|void|Append child|
+|OpenForum.showElement / hideElement / toggleElement|id|void|Control visibility|
+|OpenForum.setTitle|title|void|Set document title|
+|OpenForum.setCursor|cursor|void|Change cursor|
+|OpenForum.setTabIcon|icon|void|Change favicon|
+|OpenForum.addEndlessScroll|getFn, elementId, targetId?|void|Auto-load on scroll|
+|OpenForum.Input.getText|getText(id)|string|Get text field value|
+|OpenForum.Input.wrapSelectedText|id, start, end|void|Wrap selected text|
+|OpenForum.Input.toDateField|date|string|Format date for &lt;input type=date&gt;|
+|OpenForum.Input.fromDateField|value|Date|Parse yyyy-mm-dd|
+
+----  
+!!! ⏱️ Async Utilities
+|Function|Parameters|Returns|Description|
+|OpenForum.setInterval|fn, ms, immediate?, blocking?|timerId|Smarter interval|
+|OpenForum.waitFor|testFn, callback, pause?, timeout?|void|Poll until ready|
+|OpenForum.runAsync|fn|void|Run async|
+|OpenForum.queue|fn, supplyState?|void|Queue tasks sequentially|
+
+----  
+!!! 👥 Collaboration (IntraQ)
+|Function|Parameters|Returns|Description|
+|new OpenForum.IntraQ|queueName, types?|IntraQ|Inter-tab message bus|
+|IntraQ.addListener|fn|—|Receive messages|
+|IntraQ.send|data|—|Broadcast message|
+|OpenForum.InQ|—|InQ|Default shared queue|
+|inq.addMessageListener|fn,type|—|Listen by type|
+|inq.run|script|—|Broadcast eval|
+|inq.share|objectId|—|Sync object across tabs|
+
+----  
+!!! 🔧 Debugging & Testing
+* __OpenForum.setDebugToConsole(true)__ – enable logging  
+* __OpenForum.testing.showComments()__ – overlay comments  
+* __OpenForum.testing.showIds()__ – overlay IDs  
+* __OpenForum.testing.showNames()__ – overlay names  
+* __OpenForum.testing.readForm() / writeToForm(data)__ – form helpers  
+
+----  
+!!! 🔑 Miscellaneous
+* __OpenForum.getSystemTime(cb?)__ – get server system time  
+* __OpenForum.getUserReference()__ – persistent user ID  
+* __OpenForum.loadGoogleFont(family, weight?)__ – add Google font  
+
+  !!! 📦 OpenForumObject
+
+Represents a data-bound value in OpenForum. Objects can be attached to DOM elements, listened to, and synced with global JS variables.
+
+|Function|Parameters|Returns|Description|
+|new OpenForumObject(id)|id: string|OpenForumObject|Create a new bound object with a unique identifier. Usually created via OpenForum.getObject().|
+|getId|—|string|Return the object ID.|
+|add(target)|HTMLElement|self|Attach a DOM node (input, span, etc.) so the object’s value syncs with it.|
+|reset|—|void|Reset internal value to null.|
+|setValue(newValue, exclude?, clone?)|any, HTMLElement?, bool?|void|Set the object’s value and propagate to all targets.|
+|setValueQuietly(newValue)|any|void|Set value without notifying listeners.|
+|getValue|—|any|Get the current value.|
+|scan|—|void|Check all targets and globals for changes; update value if needed.|
+|addListener(listener)|fn(OpenForumObject)|void|Add a listener function that fires on value change.|
+|removeListener(listener)|fn(OpenForumObject)|void|Remove a previously added listener.|
+|getTargets|—|array|Return DOM nodes bound to this object.|
+
+Example:
+
+{{{
+var user = OpenForum.getObject("username");
+user.setValue("Alice");
+user.addListener(function(obj) {
+  console.log("New value:", obj.getValue());
+});
+}}}
+
+----
+  
+!!! 📋 OpenForumTable
+
+Provides dynamic binding between JavaScript arrays and HTML tables using the `of-repeatFor` attribute.
+
+|Function|Parameters|Returns|Description|
+|new OpenForumTable(node)|node: HTMLElement|OpenForumTable|Create a bound table for a given template row. Usually constructed internally by OpenForum.crawlTables().|
+|setTableNode|tableNode: HTMLElement|void|Replace the table node (used when re-rendering).|
+|reset|—|void|Clear cached signatures so table will refresh next scan.|
+|updateQuietly|—|void|Update object signature without redrawing (used after silent changes).|
+|refresh|—|void|Re-render the table if the underlying array has changed.|
+|getId|—|string|Return the table’s ID.|
+
+Example:
+
+{{{
+<table of-id="usersTable">
+  <tr of-repeatFor="user in users">
+    <td>{{user.name}}</td>
+    <td>{{user.email}}</td>
+  </tr>
+</table>
+
+<script>
+  OpenForum.getObject("users").setValue([
+    {name:"Alice", email:"a@test.com"},
+    {name:"Bob", email:"b@test.com"}
+  ]);
+</script>
+}}}
+
+!!! 🌳 Tree / TreeNode / Action
+
+A dynamic tree widget for representing hierarchical data (such as file systems).  
+Each `Tree` has a root `TreeNode`, and nodes can contain children, actions, and attributes.
+
+|Function|Parameters|Returns|Description|
+|new Tree(elementId, name, attributes?, modifierFn?)|elementId: string, name: string, attributes?: object, modifierFn?: fn|Tree|Create a new tree bound to a DOM element.|
+|tree.render|—|Tree|Render the tree into the target element.|
+|tree.addChild(name, attributes)|string, object|TreeNode|Add a child node under root.|
+|tree.addJSON(node)|object|TreeNode|Add a child from a JSON object.|
+|tree.setJSON(node)|object|TreeNode|Replace root with JSON object.|
+|tree.toJSON|—|object|Serialize the tree to JSON.|
+|tree.expandAll / collapseAll|—|Tree|Expand or collapse all nodes.|
+|tree.deleteChild(node)|TreeNode|Tree|Remove a child node.|
+|tree.expandPath(path)|string ("/a/b/c")|boolean|Expand nodes along a given path.|
+|tree.findNode(path)|string ("/a/b/c")|array of TreeNodes or null|Return path of nodes if found.|
+|tree.getRoot|—|TreeNode|Get root node.|
+
+----
+
+!!! 🌲 TreeNode
+
+|Function|Parameters|Returns|Description|
+|getId|—|string|Return unique node ID.|
+|setLazyLoad(fn)|fn(TreeNode)|TreeNode|Set a lazy-load function called when expanded.|
+|getParent / setParent|TreeNode|void|Get or set parent node.|
+|addChild(name, attributes)|string, object|TreeNode|Add a child node.|
+|addJSON(node)|object|TreeNode|Add children from JSON.|
+|importJSON(url, action, params)|string, string, string|void|Load JSON via AJAX and add children.|
+|toJSON|—|object|Serialize node and children to JSON.|
+|deleteChild(node)|TreeNode|TreeNode|Remove a child node.|
+|isExpanded|—|bool|Check if node is expanded.|
+|expand / collapse / toggle|—|TreeNode|Expand/collapse/toggle node.|
+|render(depth?)|number|string (HTML)|Render node to HTML string.|
+|getName / setName|string|string/void|Get or set node name.|
+|getAttribute / setAttribute|string, any|any/void|Access or modify node attributes.|
+|getChildren|—|array<TreeNode>|List child nodes.|
+|applyToChildren(fn)|fn(TreeNode)|void|Apply function to each child.|
+
+----
+
+!!! ⚡ Action
+
+Actions add clickable icons (buttons) to tree nodes.
+
+|Function|Parameters|Returns|Description|
+|new Action(config)|config: {fn, icon, toolTip}|Action|Create an action from a function, icon, and tooltip.|
+|action.call(node)|TreeNode|void|Run the action on a node.|
+|action.render(target)|string|HTML string|Render the action icon as clickable HTML.|
+
+----
+
+Example:
+
+{{{
+<div id="fileTree"></div>
+
+<script>
+  var tree = new Tree("fileTree","Root",{icon:"book"});
+  var docs = tree.addChild("Documents",{icon:"page"});
+  docs.addChild("Resume.docx",{icon:"attach"});
+  tree.render();
+  tree.getRoot().expand();
+</script>
+}}}
+
+----
+  
+!!! 🔗 Ajax / AjaxRequest / Post
+
+These APIs provide low-level AJAX utilities in OpenForum.  
+They are usually used internally by higher-level helpers (`JSON.get/post`, `OFX`, `OpenForum.loadFile`),  
+but can be used directly when fine-grained control is needed.
+
+----
+
+!!! ⚙️ AjaxRequest
+
+Represents a single HTTP request.
+
+|Function|Parameters|Returns|Description|
+|new AjaxRequest(method, url, request, data, onSuccess, onError, async)|method: "GET"/"POST", url: string, request: string, data: string, onSuccess: fn, onError: fn, async: bool|AjaxRequest|Create a new request object.|
+|processTransactionStateChange(ev)|Event|void|Called when readyState changes; triggers success/error callbacks.|
+
+----
+
+!!! 🌐 Ajax
+
+A static helper to send `AjaxRequest` objects.
+
+|Function|Parameters|Returns|Description|
+|Ajax.sendRequest(request)|request: AjaxRequest|string (response if sync)|Send the request. If `asynchronous = true`, callbacks are invoked; if false, responseText is returned directly.|
+
+----
+
+!!! 📨 Post
+
+Helper for building `application/x-www-form-urlencoded` payloads.
+
+|Function|Parameters|Returns|Description|
+|new Post()|—|Post|Create a new post builder.|
+|addItem(name, value)|string, string|self|Add a key/value pair.|
+|addForm(formId)|formId: string|self|Add all fields from a form.|
+|getData|—|string|Return built parameter string (e.g., `"key=value&key2=value2"`).|
+
+----
+
+Example:
+
+{{{
+var post = new Post()
+   .addItem("username","alice")
+   .addItem("password","secret");
+
+var req = new AjaxRequest(
+   "POST",
+   "/OpenForum/Login",
+   "",
+   post.getData(),
+   function(response) { console.log("Logged in:", response); },
+   function(err) { console.error("Error:", err); },
+   true
+);
+
+Ajax.sendRequest(req);
+}}}
+
+----
+!!! 🌐 OpenForum.Browser
+
+Provides browser-side file handling and keyboard overrides.  
+Includes download, upload, and an optional in-browser file system (browserFS).
+
+|Function|Parameters|Returns|Description|
+|OpenForum.Browser.download|fileName: string, data: string|void|Trigger a client-side download of text data as a file.|
+|OpenForum.Browser.upload|callback: fn(data), onError?: fn(msg)|void|Open a hidden file input, read file as text, and pass contents to callback.|
+|OpenForum.Browser.uploadDataUrl|callback: fn(dataUrl), onError?: fn(msg)|void|Open a hidden file input, read file as DataURL (e.g., base64-encoded).|
+|OpenForum.Browser.overrideSave|fn: function|void|Override `Ctrl+S` / `Cmd+S` in the browser to run a custom save function.|
+|OpenForum.Browser.isBrowserStorageEnabled|—|bool|Check if the browserFS system is enabled.|
+|OpenForum.Browser.enableBrowserStorage|—|void|Enable browserFS. Redirects `saveFile`, `deleteFile`, `loadFile`, etc. to use `localStorage` with `browser://` paths.|
+
+----
+
+Example: client-side file download
+
+{{{
+OpenForum.Browser.download("example.txt","Hello, OpenForum!");
+}}}
+
+Example: client-side file upload
+
+{{{
+OpenForum.Browser.upload(function(data) {
+   console.log("File contents:", data);
+});
+}}}
+
+Example: browserFS usage
+
+{{{
+OpenForum.Browser.enableBrowserStorage();
+
+// Save to browserFS
+OpenForum.saveFile("browser://MyPage/test.txt","Hello World");
+
+// Load from browserFS
+var data = OpenForum.loadFile("browser://MyPage/test.txt");
+console.log(data);
+}}}
+
+  
+</div>

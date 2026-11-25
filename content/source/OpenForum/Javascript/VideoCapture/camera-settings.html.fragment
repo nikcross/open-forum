@@ -1,0 +1,22 @@
+<h2>Camera Settings</h2>
+<div id="videoSettingsLoading">
+  <div class="row"><h1>Finding Cameras...</h1></div>
+</div>
+<div id="videoSettings" style="display: none;">
+  <form>
+    <div class='row'>
+      <div class='large-12 columns'>
+        <label>Cameras
+          <select of-id="OpenForum.videoCapture.camera" value="{{OpenForum.videoCapture.camera}}">
+            <option of-repeatFor="camera in OpenForum.videoCapture.cameras">{{camera.label}}</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='large-12 columns' style="text-align: center;">
+        <a class="button round" onclick="OpenForum.videoCapture.saveSettings(); return false;">Save</a>
+      </div>
+    </div>
+  </form>
+</div>

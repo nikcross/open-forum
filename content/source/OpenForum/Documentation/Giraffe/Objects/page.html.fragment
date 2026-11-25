@@ -1,0 +1,47 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<table><tr>
+<td style="width: 200px;">
+<h3>Objects</h3>
+<ul>
+<li><a href="#" onclick="return showObject('dashedLine');">Dashed Line</a></li>
+<li><a href="#" onclick="return showObject('clearanceCircle');">Clearance Circle</a></li>
+<li><a href="#" onclick="return showObject('beaker');">Beaker</a></li>
+<li><a href="#" onclick="return showObject('clock');">Clock</a></li>
+<li><a href="#" onclick="return showObject('clockFace');">Clock Face</a></li>
+<li><a href="#" onclick="return showObject('cog');">Cog</a></li>
+<li><a href="#" onclick="return showObject('compass');">Compass</a></li>
+<li><a href="#" onclick="return showObject('door');">Door</a></li>
+<li><a href="#" onclick="return showObject('geneView');">GeneView</a></li>
+<li><a href="#" onclick="return showObject('compassFace');">CompassFace</a></li>
+<li><a href="#" onclick="return showObject('solarCompass');">SolarCompass</a></li>
+<li><a href="#" onclick="return showObject('ladder');">Ladder</a></li>
+<li><a href="#" onclick="return showObject('thermometer');">Thermometer</a></li>
+<li><a href="#" onclick="return showObject('dial');">Dial</a></li>
+</ul>
+</td>
+<td><canvas id="exampleCanvas" width="400" height="400" style="border: solid 1px;"></canvas></td>
+</tr>
+</table>
+
+<hr/>
+
+<!--Extension AttachmentsList matching="js" --><ul><li> <a href="/OpenForum/Documentation/Giraffe/Objects/Door.object.js">/OpenForum/Documentation/Giraffe/Objects/Door.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/data.json">/OpenForum/Documentation/Giraffe/Objects/data.json</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/page.js">/OpenForum/Documentation/Giraffe/Objects/page.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/HeightGuide.object.js">/OpenForum/Documentation/Giraffe/Objects/HeightGuide.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/Insulator.object.js">/OpenForum/Documentation/Giraffe/Objects/Insulator.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/PowerGraph.object.js">/OpenForum/Documentation/Giraffe/Objects/PowerGraph.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/ClearanceCircle.object.js">/OpenForum/Documentation/Giraffe/Objects/ClearanceCircle.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/ClockFace.object.js">/OpenForum/Documentation/Giraffe/Objects/ClockFace.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/Dial.object.js">/OpenForum/Documentation/Giraffe/Objects/Dial.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/GeneView.object.js">/OpenForum/Documentation/Giraffe/Objects/GeneView.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/SolarCompass.object.js">/OpenForum/Documentation/Giraffe/Objects/SolarCompass.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/Compass.object.js">/OpenForum/Documentation/Giraffe/Objects/Compass.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/Thermometer.object.js">/OpenForum/Documentation/Giraffe/Objects/Thermometer.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/Clock.object.js">/OpenForum/Documentation/Giraffe/Objects/Clock.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/DashedLine.object.js">/OpenForum/Documentation/Giraffe/Objects/DashedLine.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/Beaker.object.js">/OpenForum/Documentation/Giraffe/Objects/Beaker.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/Ladder.object.js">/OpenForum/Documentation/Giraffe/Objects/Ladder.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/Cog.object.js">/OpenForum/Documentation/Giraffe/Objects/Cog.object.js</a></li>
+<li> <a href="/OpenForum/Documentation/Giraffe/Objects/CompassFace.object.js">/OpenForum/Documentation/Giraffe/Objects/CompassFace.object.js</a></li>
+</ul><!--End Extension AttachmentsList matching="js" -->

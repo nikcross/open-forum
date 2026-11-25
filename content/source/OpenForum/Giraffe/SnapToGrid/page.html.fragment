@@ -1,0 +1,30 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>SnapToGrid</h3>
+
+<!--Extension InsertSourceFile pageName="/OpenForum/Giraffe/SnapToGrid" fileName="snap-to-grid.js" --><a href="//OpenForum/Giraffe/SnapToGrid/snap-to-grid.js">//OpenForum/Giraffe/SnapToGrid/snap-to-grid.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Giraffe/SnapToGrid&fileName=snap-to-grid.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel"><!--<ul><li> Author: </li>
+<li> Description: </li>
+</ul>-->
+Giraffe.addSnapToGrid = function(view,cellWidth,cellHeight) {
+  Giraffe.busy = false;
+
+  var grid = new Composite(0,0);
+  for(var x=0;x<canvas.width;x+=cellWidth) {
+    grid.add(new Line(x,0,0,canvas.height));
+  }
+
+  for(var y=0;y<canvas.height;y+=cellHeight) {
+    grid.add(new Line(0,y,canvas.width,0));
+  }
+  canvas.add(grid);
+
+  grid.animate = function() {
+    if(Giraffe.busy) return;
+    for(var gi in view.parts) {
+      var g = view.parts<a href="/OpenForum/Editor?pageName=/OpenForum/Giraffe/SnapToGrid/gi"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Giraffe/SnapToGrid/gi does not exist. Click to create it.">gi</a>;
+      if(g===this) continue;
+
+      g.x = Math.round(g.x/cellWidth)*cellWidth;
+      g.y = Math.round(g.y/cellHeight)*cellHeight;
+    }
+  };
+};</xmp><!--End Extension InsertSourceFile pageName="/OpenForum/Giraffe/SnapToGrid" fileName="snap-to-grid.js" -->

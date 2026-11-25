@@ -1,0 +1,17 @@
+<section class="ce-app-view" aria-labelledby="ce-structure-title">
+  <div class="ce-view-head">
+    <div>
+      <p class="ce-panel-label">Site</p>
+      <h1 id="ce-structure-title">Site structure</h1>
+      <p class="ce-view-intro">The pages that make up the site, by where they are published. Create pages in a folder, move or rename them, and archive them. Only the Development copies change; publishing is still done page by page.</p>
+    </div>
+    <div class="ce-view-actions">
+      <a class="ce-btn" href="/OpenForum/AddOn/ContentEditor/PageConverter">Import a page</a>
+      <button class="ce-btn" type="button" id="ce-structure-nav">Make navigation component</button>
+      <button class="ce-btn ce-primary" type="button" id="ce-structure-new-root">New page</button>
+    </div>
+  </div>
+  <label class="ce-check ce-view-filter"><input type="checkbox" id="ce-structure-archived"/> Show archived pages</label>
+  <div id="ce-structure-tree"><p class="ce-app-loading">Loading...</p></div>
+</section>
+

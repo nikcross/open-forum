@@ -1,0 +1,75 @@
+----
+!!Prerequisites
+
+*Docker installed
+*Thats about it
+
+
+----
+
+#Create a docker folder
+#Create a file named Dockerfile
+#Contents of file 
+{{{
+FROM nikcross/openforum
+}}}
+#Run {{{docker build -t openforum:test .}}}
+#Create a file named run.sh
+#Make executable
+#Contents of file 
+{{{
+docker run -d \
+-p localhost:1234:1234 \
+-v /<persistent path>:/web/changes \
+ openforum:test
+}}}
+
+----
+!!Running with an ssh certificate
+
+
+* Create a directory ssl and place your keystore file in it
+* Create a file domains.xml
+{{{
+<domains>
+    <domain>
+      <name>Default</name>
+      <host>default</host>
+      <root>/web/content/default</root>
+    </domain>
+    <domain>
+      <name>{Server Title}</name>
+      <host>{domain address regex matcher}</host>
+      <root>/web/content/{path to content}</root>
+    </domain>
+</domains>
+}}}
+* Create a file Dockerfile
+{{{
+FROM nikcross/openforum:latest
+
+COPY ./ssl/keystore /web/jetty/etc/keystore
+
+COPY ./domains.xml /web/jetty/webapps/root/WEB-INF/domains.xml
+ADD entrypoint.sh /opt/entrypoint.sh
+RUN chmod +x /opt/entrypoint.sh
+CMD /opt/entrypoint.sh
+
+}}}
+* Create a file entrypoint.sh (uncomment the mode you want to start in - with or without debug)
+{{{
+#!/bin/sh
+
+cd /web/jetty
+
+java -jar start.jar --add-to-start=https,http2
+
+# With remote debug and suspend until remote debugger connected
+#java -agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=1066 -jar start.jar jetty.sslContext.keyStorePath=/etc/keystore jetty.sslContext.keyStorePassword={password} jetty.sslContext.keyStoreManagerPassword={password}
+
+# With remote debug
+java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=1066 -jar start.jar jetty.sslContext.keyStorePath=/etc/keystore jetty.sslContext.keyStorePassword={password} jetty.sslContext.keyStoreManagerPassword={password}
+
+# Without remote debug
+#java -jar start.jar jetty.sslContext.keyStorePath=/etc/keystore jetty.sslContext.keyStorePassword={password} jetty.sslContext.keyStoreManagerPassword={password}
+}}}

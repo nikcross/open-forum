@@ -1,0 +1,44 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>Kitchen Sink</h3>
+
+<!--Extension InsertSourceFile fileName="page.js" --><a href="//OpenForum/Documentation/OpenForumJavascript/KitchenSink/page.js">//OpenForum/Documentation/OpenForumJavascript/KitchenSink/page.js</a><a href="/OpenForum/Editor?pageName=/OpenForum/Documentation/OpenForumJavascript/KitchenSink&fileName=page.js" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">var boundValue = "1234";
+
+var boundList = <a href="
+  { name: "John", age: 23 },
+  { name: "Paul", age: 27 },
+  { name: "Ringo", age: 31 },
+  { name: "George", age: 25 }
+  " target="external_page">
+  { name: "John", age: 23 },
+  { name: "Paul", age: 27 },
+  { name: "Ringo", age: 31 },
+  { name: "George", age: 25 }
+  </a>;</xmp><!--End Extension InsertSourceFile fileName="page.js" -->
+
+<xmp of-exclude="true">
+{{boundValue}}
+
+<input type="text" of-id="boundValue"/>
+
+<table>
+  <tr><td>Name</td><td>Age</td></tr>
+  <tr of-repeatFor="beatle in boundList"><td>{{beatle.name}}</td><td>{{beatle.age}}</td></tr>
+</table>
+</xmp>
+
+<xmp of-exclude="true">
+{{boundValue}}
+</xmp>
+
+{{boundValue}}
+
+<input type="text" of-id="boundValue"/>
+
+<table>
+  <tr><td>Name</td><td>Age</td></tr>
+  <tr of-repeatFor="beatle in boundList"><td>{{beatle.name}}</td><td>{{beatle.age}}</td></tr>
+</table>
+
+<select of-id="boundValue">
+  <option of-repeatFor="beatle in boundList">{{beatle.name}}</option>
+</select>

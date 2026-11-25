@@ -1,0 +1,439 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<div class="row"><hr/> 
+ <h3>ScriptClip</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/ScriptClip" section="1" -->
+
+<p>Displays a small line of text on the page with a button to transfer it to the clipboard</p>
+<b>Parameters</b>
+<ul><li> script = The text to display </li>
+<li> fileName = Alternative to script - the file to display as a clip</li>
+          
+<xmp class="panel" of-exclude="true">
+<!--Extension ScriptClip script="ls -la /open-forum/content" --><div class='row'><div class='columns large-10'><textarea style='border: none; background-color: black; color: lightgreen; font-family: monospace;'  id='D837B35B' rows='2' >ls -la /open-forum/content</textarea></div><div class='columns large-2'><a href='#' title='Copy to clipboard' onClick='OpenForum.copyElement("D837B35B"); return false;'><img src='/OpenForum/Images/icons/png/page_copy.png' /></a></div></div><script>document.getElementById('D837B35B').setAttribute('readonly', 'readonly');</script><!--End Extension ScriptClip script="ls -la /open-forum/content" -->
+</xmp>
+</ul><!--End Extension InsertPage page="/OpenForum/Extensions/ScriptClip" section="1" --> 
+-<hr/> 
+ <h3>MarkPage</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/MarkPage" section="1" -->
+
+<p>Marks a point in a page that can be referenced</p>
+<b>Parameters</b>
+<ul><li> name = Name of the mark</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Mark name="TestMark" -->undefined<!--End Extension Mark name="TestMark" --> Some text to reference
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/MarkPage" section="1" --> 
+-<hr/> 
+ <h3>ChildPagesList</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/ChildPagesList" section="1" -->
+
+<p>Creates a bulleted list of child pages</p>
+<b>Parameters</b>
+<ul><li> pageName = The page to list children of (optional, default = current page)</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension ChildPagesList pageName="/OpenForum" --><ul><li> <a href="/OpenForum/About">About</a></li>
+<li> <a href="/OpenForum/Access">Access</a></li>
+<li> <a href="/OpenForum/Actions">Actions</a></li>
+<li> <a href="/OpenForum/AddOn">AddOn</a></li>
+<li> <a href="/OpenForum/Authentication">Authentication</a></li>
+<li> <a href="/OpenForum/Authorization">Authorization</a></li>
+<li> <a href="/OpenForum/CapabilityMap">CapabilityMap</a></li>
+<li> <a href="/OpenForum/Configuration">Configuration</a></li>
+<li> <a href="/OpenForum/DeletedPages">DeletedPages</a></li>
+<li> <a href="/OpenForum/Documentation">Documentation</a></li>
+<li> <a href="/OpenForum/Editor">Editor</a></li>
+<li> <a href="/OpenForum/ErrorPages">ErrorPages</a></li>
+<li> <a href="/OpenForum/Extensions">Extensions</a></li>
+<li> <a href="/OpenForum/FileTemplates">FileTemplates</a></li>
+<li> <a href="/OpenForum/Giraffe">Giraffe</a></li>
+<li> <a href="/OpenForum/Groups">Groups</a></li>
+<li> <a href="/OpenForum/HomePage">HomePage</a></li>
+<li> <a href="/OpenForum/Images">Images</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Jaascript"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Jaascript does not exist. Click to create it.">Jaascript</a></li>
+<li> <a href="/OpenForum/JarManager">JarManager</a></li>
+<li> <a href="/OpenForum/Javascript">Javascript</a></li>
+<li> <a href="/OpenForum/Journal">Journal</a></li>
+<li> <a href="/OpenForum/Keyboard">Keyboard</a></li>
+<li> <a href="/OpenForum/MessageQueue">MessageQueue</a></li>
+<li> <a href="/OpenForum/MissingPages">MissingPages</a></li>
+<li> <a href="/OpenForum/PageTemplates">PageTemplates</a></li>
+<li> <a href="/OpenForum/Processor">Processor</a></li>
+<li> <a href="/OpenForum/PublishingJournal">PublishingJournal</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/ReleaseNotes"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/ReleaseNotes does not exist. Click to create it.">ReleaseNotes</a></li>
+<li> <a href="/OpenForum/ReleasedPackages">ReleasedPackages</a></li>
+<li> <a href="/OpenForum/SQL">SQL</a></li>
+<li> <a href="/OpenForum/SiteExplorer">SiteExplorer</a></li>
+<li> <a href="/OpenForum/Sounds">Sounds</a></li>
+<li> <a href="/OpenForum/Spider">Spider</a></li>
+<li> <a href="/OpenForum/SystemMonitor">SystemMonitor</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Temporary"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Temporary does not exist. Click to create it.">Temporary</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/TheLab"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/TheLab does not exist. Click to create it.">TheLab</a></li>
+<li> <a href="/OpenForum/Triggers">Triggers</a></li>
+<li> <a href="/OpenForum/Users">Users</a></li>
+</ul><!--End Extension ChildPagesList pageName="/OpenForum" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/ChildPagesList" section="1" --> 
+-<hr/> 
+ <h3>Icon</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/Icon" section="1" -->
+
+<p>Places an icon on the page</p>
+<b>Parameters</b>
+<ul><li> name = Name of icon</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Icon name="chart pie" --><img src="/OpenForum/Images/icons/png/chart_pie.png"><!--End Extension Icon name="chart pie" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/Icon" section="1" --> 
+-<hr/> 
+ <h3>HttpsOnly</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/HttpsOnly" section="1" -->
+       
+<p>Redirects to the https url if the user arrives via http</p>
+<b>Parameters</b>
+<ul><li> None</li>
+       
+<xmp class="panel" of-exclude="true">
+<!--Extension HttpsOnly --><script>if(window.location.protocol=='http:') window.location.href = window.location.href.replace('http:','https:');
+</script><!--End Extension HttpsOnly -->
+</xmp>
+</ul><!--End Extension InsertPage page="/OpenForum/Extensions/HttpsOnly" section="1" --> 
+-<hr/> 
+ <h3>Date</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/Date" section="1" -->
+
+<p>Displays the current date</p>
+<b>Parameters</b>
+<ul><li> None</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Date --><script>
+  currentDate = new Date().toLocaleDateString();
+  setInterval(
+    function() { currentDate = new Date().toLocaleDateString(); }
+    ,10000
+  );
+</script>
+<span class="label tiny success round">{{currentDate}}</span><!--End Extension Date -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/Date" section="1" --> 
+-<hr/> 
+ <h3>CrumbTrail</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/CrumbTrail" section="1" -->
+
+<p>Displays a page hierarchy breadcrumb trail</p>
+<b>Parameters</b>
+<ul><li> None</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension CrumbTrail --><nav class="breadcrumbs" role="menubar" aria-label="breadcrumbs"><li role="menuitem"><a href="/OpenForum">OpenForum</a></li><li role="menuitem"><a href="/OpenForum/Documentation">Documentation</a></li><li role="menuitem"><a href="/OpenForum/Documentation/OpenForumMarkup">OpenForumMarkup</a></li><li role="menuitem" class="current"><a href="/OpenForum/Documentation/OpenForumMarkup">ExtendedWikiMarkup</a></li></nav><!--End Extension CrumbTrail -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/CrumbTrail" section="1" --> 
+-<hr/> 
+ <h3>Help</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/Help" section="1" -->
+
+<p>Creates a popup help link</p>
+<b>Parameters</b>
+<ul><li> id = Unique identifier for the help popup</li>
+<li> sourceFileName = File containing help content</li>
+<li> sourcePageName = Page where help content is located</li>
+<li> title = Optional title for the help link</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Help id="test" sourceFileName="help-content.wiki" sourcePageName="/OpenForum/Extensions/Help" --><div id="test" class="reveal-modal" data-reveal aria-labelledby="testModalTitle" aria-hidden="true" role="dialog"><h3>Help Content</h3>
+<p>You need to know this.</p>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Help id="test" sourceFileName="help-content.wiki" sourcePageName="/OpenForum/Extensions/Help" -->
+</xmp>       
+<!--End Extension InsertPage page="/OpenForum/Extensions/Help" section="1" --> 
+-<hr/> 
+ <h3>Bookmarklet</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/Bookmarklet" section="1" -->
+
+<p>Adds a link to automatically bookmark a page</p>
+<b>Parameters</b>
+<ul><li> title = Bookmark title Name</li>
+<li> domain = external site domain</li>
+<li> script = Path to script</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Bookmarklet title="Bookmark" domain="https://open-forum.onestonesoup.org" script="/OpenForum/Extensions/Bookmarklet/append-link.js" text="Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:" -->Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:<a class='button tiny round success' href="javascript: window.open('https://open-forum.onestonesoup.org/OpenForum/Extensions/Bookmarklet?action=appendLink&pageName=/OpenForum/Documentation/OpenForumMarkup/ExtendedWikiMarkup&url=' + encodeURIComponent(window.location.href),'_blank');">Bookmark</a><!--End Extension Bookmarklet title="Bookmark" domain="https://open-forum.onestonesoup.org" script="/OpenForum/Extensions/Bookmarklet/append-link.js" text="Bookmark pages more easily. Drag this bookmarklet to the Bookmarks bar of your browser:" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/Bookmarklet" section="1" --> 
+-<hr/> 
+ <h3>Button</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/Button" section="1" -->
+
+<p>Deprecated - Use <a href="/OpenForum/Extensions/ActionButton">/OpenForum/Extensions/ActionButton</a> instead</p>
+<b>Parameters</b>
+<ul><li> title = Button text</li>
+<li> function = JavaScript function to call</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Button title="Do Action" function="doAction" --><a class="button tiny" onClick="doAction(); return false;">Do Action</a><!--End Extension Button title="Do Action" function="doAction" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/Button" section="1" --> 
+-<hr/> 
+ <h3>MarkDown</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/MarkDown" section="1" -->
+
+<p>Renders <a href="https://raw.githubusercontent.com/wiki/adam-p/markdown-here/Markdown-Here-Cheatsheet.md" target="external_page">markdown</a> formatted text in a page</p>
+<b>Parameters</b>
+<ul><li> pageName = Page where markdown file is attached (optional)</li>
+<li> fileName = Name of markdown file to render</li>
+<li> url = Alternative: URL of remote markdown file</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension MarkDown pageName="/OpenForum/Extensions/MarkDown" fileName="example.md" --><h1 id="open-forum">open-forum</h1>
+<p> is a free and open source application providing an integrated web server and Wiki.</p>
+<p>In addition to the standard Wiki functions of page editing,
+ OpenForum allows the Wiki platform to be extended, #
+ tailored and integrated with existing systems. 
+ This is achieved by the use of server side Javascript scripts and Java plugins.
+ The server side scripts can be edited from within the Wiki itself.
+ In fact all the Wiki actions, such as editing pages, uploading attachments and controlling access
+ are defined in Javascript scripts that can be edited from within the Wiki.</p>
+<p>OpenForum has the ability to serve real-time content mixed with static content using a number of AJAX style functions.</p>
+<p>OpenForum can access databases, REST applications and Xml based 
+web services as well as act as a source of information to other applications.</p>
+<p>OpenForum has a rich set of template functions to enable the Wiki to have a consistent look and feel.</p>
+<p>OpenForum allows pages to be organised hierarchically 
+with hierarchical templates and access control.</p>
+<!--End Extension MarkDown pageName="/OpenForum/Extensions/MarkDown" fileName="example.md" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/MarkDown" section="1" --> 
+-<hr/> 
+ <h3>history</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/history" section="1" --><!--End Extension InsertPage page="/OpenForum/Extensions/history" section="1" --> 
+-<hr/> 
+ <h3>InsertSourceFile</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/InsertSourceFile" section="1" -->
+
+<p>Inserts a file's contents into the page as source code</p>
+<b>Parameters</b>
+<ul><li> pageName = The page where the file is attached (optional, default = current page)</li>
+<li> fileName = The file to insert</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json" --><a href="//OpenForum/Extensions/InsertSourceFile/data.json">//OpenForum/Extensions/InsertSourceFile/data.json</a><a href="/OpenForum/Editor?pageName=/OpenForum/Extensions/InsertSourceFile&fileName=data.json" title="Edit"><img src="/OpenForum/Images/icons/gif/pencil.gif" border="0"></a><xmp class="panel">{
+    "pageName": "/OpenForum/Extensions/InsertSourceFile",
+    "title": "InsertSourceFile",
+    "pageParent": "https://open-forum.onestonesoup.org"
+}</xmp><!--End Extension InsertSourceFile pageName="/OpenForum/Extensions/InsertSourceFile" fileName="data.json" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/InsertSourceFile" section="1" --> 
+-<hr/> 
+ <h3>DisplayCard</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/DisplayCard" section="1" -->
+
+<p>Creates a display card with optional image, title, description, and link</p>
+<b>Parameters</b>
+<ul><li> linkURL = URL for the card link</li>
+<li> linkText = Text for the link button</li>
+<li> title = Card title</li>
+<li> description = Card description text</li>
+<li> imageURL = Optional image URL for the card</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://example.com/image.jpg" --><div class="medium-4 columns">
+  <div class="card">
+    <div class="image">
+      <img src="http://example.com/image.jpg">
+      <span class="title">Title</span>
+    </div>
+    <div class="content">
+      <p>Description</p>
+    </div>
+    <div class="action">
+      <a href='#'>Link</a>
+    </div>
+  </div>
+</div><!--End Extension DisplayCard linkURL="#" linkText="Link" title="Title" description="Description" imageURL="http://example.com/image.jpg" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/DisplayCard" section="1" --> 
+-<hr/> 
+ <h3>Clock</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/Clock" section="1" -->
+
+<p>Displays a live clock</p>
+<b>Parameters</b>
+<ul><li> None</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Clock --><script>
+  currentTime = new Date().toLocaleTimeString();
+  setInterval(
+    function() { currentTime = new Date().toLocaleTimeString(); }
+    ,500
+  );
+</script>
+<span class="label tiny success round">{{currentTime}}</span><!--End Extension Clock -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/Clock" section="1" --> 
+-<hr/> 
+ <h3>InsertPage</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/InsertPage" section="1" -->
+
+<p>Inserts the contents of one page into another</p>
+<b>Parameters</b>
+<ul><li> page = The page to insert content from</li>
+<li> section = Optional section number of the page to insert</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension InsertPage page="/OpenForum/PageTemplates/Example" section="" -->Lorem ipsum dolor sit amet,
+ consectetur adipiscing elit. Maecenas venenatis elit nibh,
+ at molestie eros lacinia quis. Donec sed tortor massa. Maecenas dignissim neque et massa iaculis,
+ in pretium quam tincidunt. Cras interdum purus ut ante interdum,
+ quis tempor ante pharetra. Suspendisse pellentesque nunc a tellus suscipit tempor. Donec sed nisi sagittis,
+ finibus lectus et,
+ tempus ex. Suspendisse vehicula efficitur ullamcorper. Phasellus ex erat,
+ dignissim id nulla in,
+ bibendum volutpat erat. Cras posuere malesuada arcu in tempus. Donec id libero ut nulla finibus egestas. Vestibulum elementum,
+ erat sit amet rhoncus vestibulum,
+ lectus tortor tempor lorem,
+ vitae luctus quam ipsum at elit.<!--End Extension InsertPage page="/OpenForum/PageTemplates/Example" section="" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/InsertPage" section="1" --> 
+-<hr/> 
+ <h3>ActionInput</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/ActionInput" section="1" -->
+
+<p>An input field that fires an <a href="/OpenForum/Actions">OpenForum GET action</a></p>
+<b>Parameters</b>
+<ul><li> action = Action Name</li>
+<li> parameters = Optional parameters to pass to the action</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension ActionInput action="alert" parameters="pageName=Home" --><input type="text" onKeyPress="(function(element,event) { if(event.charCode != 13) {return false;} else { alert( element.value ); } })(this,event);"><!--End Extension ActionInput action="alert" parameters="pageName=Home" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/ActionInput" section="1" --> 
+-<hr/> 
+ <h3>InputField</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/InputField" section="1" -->
+
+<p>Inserts a form input field</p>
+<b>Parameters</b>
+<ul><li> name = Field name</li>
+<li> value = Optional default value</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension InputField name="myField" --><input type='text' name='myField' id='myFieldField' of-id='myField' value='{{myField}}'  /><!--End Extension InputField name="myField" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/InputField" section="1" --> 
+-<hr/> 
+ <h3>ServerActionButton</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/ServerActionButton" section="1" -->
+
+<p>A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a> on the server</p>
+<b>Parameters</b>
+<ul><li> action = Action Name</li>
+<li> text = Action button text</li>
+<li> parameters = Optional parameters to pass to the action</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension ServerActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" --><a class="button" href="#" onclick="ajax.doGet('/OpenForum/Actions/Rebuild','pageName=Home');return false;">Rebuild Wiki</a><!--End Extension ServerActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/ServerActionButton" section="1" --> 
+-<hr/> 
+ <h3>InsertFile</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/InsertFile" section="1" -->
+
+<p>Inserts a file's contents into the page</p>
+<b>Parameters</b>
+<ul><li> pageName = The page where the file is attached (optional, default = current page)</li>
+<li> fileName = The file to insert</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension InsertFile pageName="pageName" fileName="fileName" -->null<!--End Extension InsertFile pageName="pageName" fileName="fileName" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/InsertFile" section="1" --> 
+-<hr/> 
+ <h3>ActionButton</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/ActionButton" section="1" -->
+
+<p>A button that fires an <a href="/OpenForum/Actions">OpenForum GET action</a></p>
+<b>Parameters</b>
+<ul><li> action = Action Name</li>
+<li> text = Action button text</li>
+<li> parameters = Optional parameters to pass to the action</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" --><a  class='button radius tiny' href='#' onclick='Rebuild("pageName=Home"); return false;'>Rebuild Wiki</a> <!--End Extension ActionButton action="Rebuild" parameters="pageName=Home" text="Rebuild Wiki" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/ActionButton" section="1" --> 
+-<hr/> 
+ <h3>Redirect</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/Redirect" section="1" -->
+
+<p>Redirects the page to another page</p>
+<b>Parameters</b>
+<ul><li> page = The page to redirect to</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Redirect page="new page name" --><script>window.location='new page name';</script><a href='new page name'>Redirecting to new page name. Click here if you are not redirected automatically.</a><!--End Extension Redirect page="new page name" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/Redirect" section="1" --> 
+-<hr/> 
+ <h3>Info</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/Info" section="1" -->
+
+<p>Creates an info popup icon</p>
+<b>Parameters</b>
+<ul><li> id = Unique identifier for the info popup</li>
+<li> sourceFileName = File containing info content</li>
+<li> sourcePageName = Page where info content is located</li>
+<li> title = Optional title for the info popup</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Info id="test" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" --><div id="test" class="reveal-modal" data-reveal aria-labelledby="testModalTitle" aria-hidden="true" role="dialog"><h3>One Time Popup</h3>
+<p>This is a popup that can be supressed</p>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Info id="test" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/Info" section="1" --> 
+-<hr/> 
+ <h3>Popup</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/Popup" section="1" -->
+
+<p>Creates a popup modal dialog</p>
+<b>Parameters</b>
+<ul><li> id = Unique identifier for the popup</li>
+<li> sourceFileName = File containing popup content (optional)</li>
+<li> sourcePageName = Page where popup content is located (optional)</li>
+<li> content = Inline content for the popup (optional)</li>
+<li> title = Title for popup button (optional)</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" --><div id="test1" class="reveal-modal" data-reveal aria-labelledby="test1ModalTitle" aria-hidden="true" role="dialog"><h3>One Time Popup</h3>
+<p>This is a popup that can be supressed</p>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><!--End Extension Popup id="test1" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/Popup" section="1" --> 
+-<hr/> 
+ <h3>OneTimePopup</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/OneTimePopup" section="1" -->
+
+<p>Creates a popup that displays once per user session</p>
+<b>Parameters</b>
+<ul><li> id = Unique identifier for the popup</li>
+<li> sourceFileName = File containing popup content</li>
+<li> sourcePageName = Page where popup content is located</li>
+<li> suppressText = Text for the close/dismiss button</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension OneTimePopup id="test" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" suppressText="Make this go away" --><div id="test" class="reveal-modal" data-reveal aria-labelledby="testModalTitle" aria-hidden="true" role="dialog"><h3>One Time Popup</h3>
+<p>This is a popup that can be supressed</p> <a class="button tiny round" onClick="document.cookie='testHide=true'; $('#test').foundation('reveal', 'close'); return false;">Make this go away</a>  <a class="close-reveal-modal" aria-label="Close">&#215;</a></div><script>if(OpenForum.getCookie('testHide')==null) {window.addEventListener('load',function() {$('#test').foundation('reveal', 'open'); });}</script><!--End Extension OneTimePopup id="test" sourceFileName="popup-content.wiki" sourcePageName="/OpenForum/Extensions/OneTimePopup" suppressText="Make this go away" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/OneTimePopup" section="1" --> 
+-<hr/> 
+ <h3>AttachmentsList</h3>
+ <!--Extension InsertPage page="/OpenForum/Extensions/AttachmentsList" section="1" -->
+
+<p>Lists attachments for a page with optional filtering</p>
+<b>Parameters</b>
+<ul><li> targetPage = Page name to list attachments from (blank for current page)</li>
+<li> matching = Filter pattern (e.g., ".txt" for text files)</li>
+</ul>
+<xmp class="panel" of-exclude="true">
+<!--Extension AttachmentsList targetPage="" matching=".txt" --><!--End Extension AttachmentsList targetPage="" matching=".txt" -->
+</xmp>
+<!--End Extension InsertPage page="/OpenForum/Extensions/AttachmentsList" section="1" --> 
+</div>

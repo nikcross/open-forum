@@ -1,0 +1,7 @@
+<div class="columns large-3"> 
+        !!Javascript 
+        [{ChildPagesList pageName="/OpenForum/Javascript" newTab="true"}]
+</div>
+<div class="columns large-9">
+        [{InsertSourceFile pageName="/OpenForum/Javascript" fileName="open-forum.js"}]
+</div>

@@ -1,0 +1,33 @@
+function Slice(x,y,startAngle,sweepAngle,radius)
+{
+  this.x=x;
+  this.y=y;
+  this.startAngle=startAngle;
+  this.sweepAngle=sweepAngle;
+  this.radius=radius;
+  this.bounded=false;
+  this.draw = function()
+  {
+    this.canvas.beginPath();
+    if(this.fillColor!=null)
+    {
+      this.canvas.fillStyle = this.fillColor;
+    }
+    var startAngleRad = this.startAngle*2*Math.PI/360;
+    var sweepAngleRad = ((this.startAngle+this.sweepAngle)%360)*2*Math.PI/360;
+
+    this.canvas.strokeStyle = this.color;
+
+    this.canvas.moveTo(0,0);
+
+    this.canvas.arc(0,0,this.radius,startAngleRad,sweepAngleRad,false);
+
+    this.canvas.closePath()
+    if(this.fillColor!=null)
+    {
+      this.canvas.fill();
+    }
+    this.canvas.stroke(); 
+  }
+}
+Slice.prototype = new GraphicsObject();

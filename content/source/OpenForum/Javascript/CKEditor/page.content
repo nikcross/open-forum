@@ -1,0 +1,18 @@
+>>
+!!&title;
+
+<textarea of-id="ck_data" id="ck_content" rows="10">
+  1234
+</textarea>
+
+----
+[Source|https://ckeditor.com/docs/ckeditor5/latest/builds/guides/quick-start.html]
+
+----
+!!Child Pages
+[{ChildPagesList pageName="&pageName;"}]
+
+----
+!!Attachments
+[{AttachmentsList pageName="&pageName;" matching=".*"}]
+<<

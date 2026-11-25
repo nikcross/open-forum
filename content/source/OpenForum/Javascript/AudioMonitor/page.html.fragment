@@ -1,0 +1,14 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>AudioMonitor Moved to <a href="/OpenForum/AddOn/Audio/AudioMonitor">/OpenForum/AddOn/Audio/AudioMonitor</a></h3>
+<div class="row" id="consent" style="display: block;">
+  <p>This page will listen to your microphone.</p>
+  <!--Extension ActionButton action="initAudioMonitor" text="OK" --><a  class='button radius tiny' href='#' onclick='initAudioMonitor(); return false;'>OK</a> <!--End Extension ActionButton action="initAudioMonitor" text="OK" -->
+</div>
+<div class="row"  id="monitor" style="display: none;">
+<a href="#" onClick="startAudioMonitor(); return false;" class="button">Start</a>
+<a href="#" onClick="stopAudioMonitor(); return false;" class="button">Stop</a>
+<div class="row">
+	<h3>Volume level {{volume}}</h3>
+	<canvas id="canvas" width="512" height="400" style="border: solid 1px;"></canvas>
+</div>
+</div>

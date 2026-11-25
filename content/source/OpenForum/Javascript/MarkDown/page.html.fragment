@@ -1,0 +1,10 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>MarkDown Libraries</h3>
+
+Client-side Markdown conversion used by the WYSIWYG Markdown editor (/OpenForum/Editor/Editors/WYSIWYGMarkDownEditor). They are unmodified copies from npm (jsDelivr), all MIT licensed.<table><tr><td>File</td><td>Package</td><td>Global</td><td>Use</td><td></td></tr>
+<tr><td>markdown-it.min.js</td><td>markdown-it 14.1.0</td><td>markdownit</td><td>Markdown to HTML</td><td></td></tr>
+<tr><td>turndown.js</td><td>turndown 7.2.0</td><td>TurndownService</td><td>HTML to Markdown</td><td></td></tr>
+<tr><td>turndown-plugin-gfm.js</td><td>turndown-plugin-gfm 1.0.2</td><td>turndownPluginGfm</td><td>GitHub-style tables, strikethrough and task lists for turndown</td><td></td></tr>
+<tr><td>markdown-view.js</td><td>(OpenForum, OFS-R-002)</td><td>MarkdownView</td><td>Read-only formatted previews of Markdown with a Formatted / Markdown switch, http(s) addresses as links opening in a new tab, and linkifyElement for existing HTML. Raw HTML is shown as text. Include only this file; it loads markdown-it from this folder.</td><td></td></tr>
+</table>
+License texts: LICENSE-markdown-it.txt, LICENSE-turndown.txt and LICENSE-turndown-plugin-gfm.txt.

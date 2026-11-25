@@ -1,0 +1,12 @@
+{
+  "pageName": "/OpenForum/FileTemplates/yaml",
+  "title": "yaml",
+  "author": "Admin.Claude",
+  "description": "Default template for new YAML files (OFS-R-001)",
+  "keywords": "OpenForum,MCP service,generated",
+  "created": "2026-10-26",
+  "modified": "2026-10-26",
+  "version": "1.0.0",
+  "category": "Generated",
+  "public": true
+}

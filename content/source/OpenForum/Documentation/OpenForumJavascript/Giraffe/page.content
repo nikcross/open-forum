@@ -1,0 +1,47 @@
+<br/>
+----<br/>
+ Giraffe<br/>
+* function getCssValue(arg0,arg1) <br/>
+* function setAnimated(arg0) <br/>
+* function Transition(arg0,arg1) <br/>
+* function FlipOutX(arg0,arg1) <br/>
+* function FlipInX(arg0,arg1) <br/>
+* function FlipOutY(arg0,arg1) <br/>
+* function FlipInY(arg0,arg1) <br/>
+* function MoveSequence(arg0,arg1,arg2) <br/>
+* function RotationSequence(arg0,arg1,arg2) <br/>
+* function ExplodeSequence(arg0,arg1) <br/>
+----<br/>
+Circle<br/>
+* function draw() <br/>
+* function isInside(arg0,arg1) <br/>
+* function _repaint() <br/>
+* function setCSSClass(arg0) <br/>
+* function setColor(arg0) <br/>
+* function setShadow(arg0) <br/>
+* function setLineStyle(arg0) <br/>
+* function setFillColor(arg0) <br/>
+* function setRotation(arg0) <br/>
+* function onClick(arg0,arg1) <br/>
+* function onMouseOver(arg0,arg1) <br/>
+* function onMouseOut(arg0,arg1) <br/>
+* function onMousePressed(arg0,arg1) <br/>
+* function onMouseReleased(arg0,arg1) <br/>
+* function animate(arg0) <br/>
+----<br/>
+Rectangle<br/>
+* function isInside(arg0,arg1) <br/>
+* function draw() <br/>
+* function _repaint() <br/>
+* function setCSSClass(arg0) <br/>
+* function setColor(arg0) <br/>
+* function setShadow(arg0) <br/>
+* function setLineStyle(arg0) <br/>
+* function setFillColor(arg0) <br/>
+* function setRotation(arg0) <br/>
+* function onClick(arg0,arg1) <br/>
+* function onMouseOver(arg0,arg1) <br/>
+* function onMouseOut(arg0,arg1) <br/>
+* function onMousePressed(arg0,arg1) <br/>
+* function onMouseReleased(arg0,arg1) <br/>
+* function animate(arg0) <br/>

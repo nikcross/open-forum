@@ -1,0 +1,16 @@
+<!--Content built using /OpenForum/Javascript/PageBuilder/default-page.builder.js 0.0.7 Gloomy November builder and renderer DefaultRenderer v1.08 2021 Covid release-->
+<h3>JSYaml</h3>
+
+<p>js-yaml 4.1.0 by Vitaly Puzrin and others, MIT licence, from https://github.com/nodeca/js-yaml . The browser build js-yaml.min.js defines the global jsyaml with load, loadAll and dump. Used by the YAMLEditor in /OpenForum/Editor/Editors/YAMLEditor.</p>
+
+<!--Extension AttachmentsList pageName="/OpenForum/Javascript/JSYaml" matching=".*" --><ul><li> <a href="/OpenForum/Javascript/JSYaml/page.js">/OpenForum/Javascript/JSYaml/page.js</a></li>
+<li> <a href="/OpenForum/Javascript/JSYaml/page.content">/OpenForum/Javascript/JSYaml/page.content</a></li>
+<li> <a href="/OpenForum/Editor?pageName=/OpenForum/Javascript/JSYaml/page.html.template.link"target="editor" style="color: red" title="The page /OpenForum/Editor?pageName=/OpenForum/Javascript/JSYaml/page.html.template.link does not exist. Click to create it.">/OpenForum/Javascript/JSYaml/page.html.template.link</a></li>
+<li> <a href="/OpenForum/Javascript/JSYaml/release-info.json">/OpenForum/Javascript/JSYaml/release-info.json</a></li>
+<li> <a href="/OpenForum/Javascript/JSYaml/JSYaml.wiki.zip">/OpenForum/Javascript/JSYaml/JSYaml.wiki.zip</a></li>
+<li> <a href="/OpenForum/Javascript/JSYaml/page.html.fragment">/OpenForum/Javascript/JSYaml/page.html.fragment</a></li>
+<li> <a href="/OpenForum/Javascript/JSYaml/js-yaml.min.js">/OpenForum/Javascript/JSYaml/js-yaml.min.js</a></li>
+<li> <a href="/OpenForum/Javascript/JSYaml/data.json">/OpenForum/Javascript/JSYaml/data.json</a></li>
+<li> <a href="/OpenForum/Javascript/JSYaml/page.html">/OpenForum/Javascript/JSYaml/page.html</a></li>
+<li> <a href="/OpenForum/Javascript/JSYaml/process-deletions.sjs">/OpenForum/Javascript/JSYaml/process-deletions.sjs</a></li>
+</ul><!--End Extension AttachmentsList pageName="/OpenForum/Javascript/JSYaml" matching=".*" -->

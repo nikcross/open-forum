@@ -1,0 +1,53 @@
+{
+    "sideMenu": [
+        {
+            "view": "Content",
+            "id": "ce-view-content",
+            "default": true,
+            "pageName": "/OpenForum/AddOn/ContentEditor",
+            "src": "content.html.fragment",
+            "init": "ContentEditorApp.initView('content');"
+        },
+        {
+            "view": "Components",
+            "id": "ce-view-components",
+            "pageName": "/OpenForum/AddOn/ContentEditor",
+            "src": "components.html.fragment",
+            "script": "/OpenForum/AddOn/ContentEditor/components.js",
+            "init": "ContentEditorApp.initView('components');"
+        },
+        {
+            "view": "Layouts",
+            "id": "ce-view-layouts",
+            "pageName": "/OpenForum/AddOn/ContentEditor",
+            "src": "layouts.html.fragment",
+            "script": "/OpenForum/AddOn/ContentEditor/layouts.js",
+            "init": "ContentEditorApp.initView('layouts');"
+        },
+        {
+            "view": "Images",
+            "id": "ce-view-images",
+            "pageName": "/OpenForum/AddOn/ContentEditor",
+            "src": "images.html.fragment",
+            "script": "/OpenForum/AddOn/ContentEditor/images.js",
+            "init": "ContentEditorApp.initView('images');"
+        },
+        {
+            "view": "Site Style",
+            "id": "ce-view-site-style",
+            "pageName": "/OpenForum/AddOn/ContentEditor",
+            "src": "site-style.html.fragment",
+            "script": "/OpenForum/AddOn/ContentEditor/site-style.js",
+            "init": "ContentEditorApp.initView('site-style');"
+        },
+        {
+            "view": "Site Structure",
+            "id": "ce-view-site-structure",
+            "pageName": "/OpenForum/AddOn/ContentEditor",
+            "src": "site-structure.html.fragment",
+            "script": "/OpenForum/AddOn/ContentEditor/site-structure.js",
+            "init": "ContentEditorApp.initView('site-structure');"
+        }
+    ]
+}
+

@@ -1,0 +1,254 @@
+.simple-html-editor,
+.simple-html-editor * {
+  box-sizing: border-box;
+}
+
+.simple-html-editor {
+  background: #ffffff;
+  border: 1.5px solid #2b2620;
+  border-radius: 6px;
+  color: #1a1814;
+  min-height: 520px;
+}
+
+.simple-html-toolbar {
+  align-items: center;
+  background: #2b2620;
+  border-radius: 4px 4px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+  padding: 0.5rem 0.6rem;
+}
+
+.simple-html-separator {
+  background: #4a4440;
+  display: inline-block;
+  height: 22px;
+  margin: 0 3px;
+  width: 1px;
+}
+
+.simple-html-button {
+  align-items: center;
+  background: #3d3630;
+  border: none;
+  border-radius: 4px;
+  color: #d4cfc5;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "Lora", serif;
+  font-size: 0.82rem;
+  height: 32px;
+  justify-content: center;
+  min-width: 32px;
+  padding: 0 0.65rem;
+  position: relative;
+  flex-shrink: 0;
+  transition: background 0.12s, color 0.12s;
+}
+
+.simple-html-button:hover {
+  background: #524a42;
+  color: #ffffff;
+}
+
+.simple-html-button.secondary {
+  background: #5a5248;
+}
+
+.simple-html-button.secondary:hover {
+  background: #6b6257;
+}
+
+.simple-html-button:disabled {
+  background: #6b6358;
+  color: #bdb3a3;
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.simple-html-button.active {
+  background: #b85c38;
+  color: #ffffff;
+}
+
+.simple-html-button-wide {
+  min-width: 38px;
+}
+
+.simple-html-button svg {
+  fill: none;
+  height: 15px;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  width: 15px;
+}
+
+.simple-html-label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.simple-html-surface {
+  background: #ffffff;
+  caret-color: #b85c38;
+  color: #1a1814;
+  font-family: "Lora", serif;
+  font-size: 1.05rem;
+  line-height: 1.85;
+  min-height: 520px;
+  outline: none;
+  padding: 2rem 2.5rem;
+}
+
+.simple-html-surface:empty::before {
+  color: #c8c4ba;
+  content: attr(data-placeholder);
+  font-style: italic;
+  pointer-events: none;
+}
+
+.simple-html-surface h1 {
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin: 1.2rem 0 0.5rem;
+}
+
+.simple-html-surface h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 1rem 0 0.4rem;
+}
+
+.simple-html-surface h3 {
+  color: #b85c38;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0.9rem 0 0.35rem;
+}
+
+.simple-html-surface p {
+  margin: 0 0 0.6rem;
+}
+
+.simple-html-surface ul,
+.simple-html-surface ol {
+  margin: 0.4rem 0 0.8rem 1.6rem;
+}
+
+.simple-html-surface li {
+  margin-bottom: 0.25rem;
+}
+
+.simple-html-surface blockquote {
+  background: #f0ddd4;
+  border-left: 3px solid #b85c38;
+  border-radius: 0 4px 4px 0;
+  color: #4a4642;
+  font-style: italic;
+  margin: 1rem 0;
+  padding: 0.5rem 1.2rem;
+}
+
+.simple-html-surface hr {
+  border: none;
+  border-top: 1.5px solid #e8e4d9;
+  margin: 1.5rem 0;
+}
+
+.simple-html-surface a {
+  color: #b85c38;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.simple-html-surface img {
+  border-radius: 4px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  display: block;
+  margin: 0.75rem 0;
+  max-width: 100%;
+}
+
+.simple-html-photo-modal {
+  background: #f6f0e8;
+  border-radius: 10px;
+  color: #1a1814;
+  left: 50%;
+  max-height: 88vh;
+  overflow: auto;
+  position: fixed;
+  top: 6%;
+  transform: translateX(-50%);
+  width: min(92vw, 56rem);
+  z-index: 10050;
+  padding: 1.5rem;
+}
+
+.reveal-modal-bg {
+  z-index: 10040;
+}
+
+.simple-html-photo-modal h3 {
+  color: #1a1814;
+  font-family: "Lora", serif;
+  margin-top: 0;
+}
+
+.simple-html-photo-help {
+  color: #61584f;
+  margin-bottom: 1rem;
+}
+
+.simple-html-photo-controls {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 0.9rem;
+}
+
+.simple-html-photo-controls label {
+  color: #3b342d;
+  font-family: "Outfit", sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.simple-html-photo-controls select {
+  background: #ffffff;
+  border: 1px solid #b9aa95;
+  border-radius: 4px;
+  color: #1a1814;
+  font-family: "Lora", serif;
+  min-width: 11rem;
+  padding: 0.42rem 0.6rem;
+}
+
+.simple-html-photo-stage {
+  background: #34302c;
+  border: 1px solid #c9b9a4;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.simple-html-photo-stage canvas {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+}
+
+.simple-html-photo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}

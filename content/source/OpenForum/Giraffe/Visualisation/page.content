@@ -1,0 +1,12 @@
+<div class="row">
+  <div id="giraffeChart"><canvas style="border: solid 1px black;width: 400px; height: 400px;" width="400" height="400" id="giraffeChartCanvas">Giraffe Loading...</canvas></div>
+</div>
+<div class="row">
+  <div id="giraffeDial"><canvas style="border: solid 1px black;width: 400px; height: 400px;" width="400" height="400" id="giraffeDialCanvas">Giraffe Loading...</canvas></div>
+</div>
+<div class="row">
+  <div id="greenDial"><canvas style="border: solid 1px black;width: 400px; height: 400px;" width="400" height="400" id="greenDialCanvas">Giraffe Loading...</canvas></div>
+</div>
+<div class="row">
+  <div id="pieChart"><canvas style="border: solid 1px black;width: 400px; height: 400px;" width="400" height="400" id="pieChartCanvas">Giraffe Loading...</canvas></div>
+</div>
